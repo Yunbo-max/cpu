@@ -31,11 +31,11 @@
     "Gravity-aware pose"
   ],
   "active_question": "Do failed exhausted generator attempts create geometrically inconsistent accepted inputs that confound gravity-pose solver attribution?",
-  "scientific_status": "R017 recorded-stream positivity fullgeometry claim closed not_supported after748751-check independentaudit. R018 localization audited734137checks; fresh unchanged nativegenerator5000problems/20000points has304projection,566depth,566affine,199orientationflags; exact GT/callstreammatchesR017, all96switch IDs overlapfreshinputdefects. Valid-benchmark gravitysolverquality interpretation now inconclusive, not evidence of a repairedsolver. Generator retry defect is source-supported but requires causal telemetry/acceptancefix. Allhistorical outcomes preserved.",
-  "execution_status": "15 new serial Simple attempts succeeded; native5000 two-solver comparison, rawaudits, localization, native5000generatoraudit and projectionreplay completed. All128databaseattempts terminal; supervisor intentionally interrupted through own execsession89976 atquietboundary and independently verified absent with projectlockavailable. No observedOOM. A direct PID signal returnedESRCH whilehealthstillalive; ownexecsessioninterrupt repaired shutdown, receipt retained.",
+  "scientific_status": "R017 positivity claim remains not_supported and R018 valid-benchmark solver quality remains inconclusive. R019 telemetry-first causal localization remains active. Build-v3, design-v3, smoke8/audit8, smoke100/audit100, full5000 and reviewed full audit-v2 all executed successfully. On the GT/call-identical 5000-problem native stream, rejected terminal attempt-101 points were appended in 331 accepted problems (567 features): this local incidence claim is supported. All 567 features had at least one required field never assigned on the terminal attempt. Cross-binary value-level overlap with R018 specific geometry failures and the broader preregistered causal-contributor claim remain inconclusive because R018 feature bytes were not identity-established and may be stale or uninitialized.",
+  "execution_status": "Pinned main 60987ad1b5ebb2624983e2d1d90b933dde221a20 was restored from active sequence177 with 21/21 parts, whole SHA256, CRC and inventory verified. Runner sequence is now186 with all142 database attempts terminal, elapsed13210.756242288027s, source_error=null and user_stop=null; three preserved external recovery receipts remain outside the DB. Build-v3 succeeded in14.971073s at769840KiB child peak RSS with no OOM. Full5000 succeeded in0.398865s at7324KiB child peak RSS:5000 accepted problems,5011 generator calls and20023 trace rows. Audit-v2 succeeded in1.521711s with all integrity counters zero. The supervisor is intentionally absent at the all-terminal idle boundary.",
   "author_commit": "34f8fa9a2b2dcaacdbb7ffc784a80682228b288c",
   "wake_mechanism": "Enabled hourly ChatGPT automation; not proof of continuous compute",
-  "next_action": "Within gravity-pose-root-reconstruction-localization-v1 freeze R019 causal generator-validity plan: isolated telemetry copy records finalattempt/success/rejectionreason/lastassignment for eachfeature withoutalteringRNG/math, audit rawGTprojection/affine/orientation/depth and exhausted-failure acceptance; then separate explicitsuccess-flag acceptancefix. Track underlyingdraw/callidentity, not correctedrowi=oldrowi. Preserve olddata; do not change solver or claim validbenchmarkquality until generatorvalidity is established. Read notes/R018_progress.md and independentreview first.",
+  "next_action": "Keep gravity-pose-root-reconstruction-localization-v1 active. Draft plan-v4 for same-execution safe geometry serialization, emitting a field only when its assignment mask proves initialization. Preserve the exact author RNG/call stream and run smoke8, audit, smoke100 and full5000 serially. Before any compile, recheck cgroup max/current, anon/file/shmem/inactive_file/dirty/writeback and memory.events; require at least1536MiB raw headroom and no active/unknown attempt. Do not use R018 cross-binary feature bytes as causal identities.",
   "observed_issues": [
     {
       "id": "carla-index-timeout-1",
@@ -240,56 +240,105 @@
       "id": "supervisor-direct-signal-ESRCH",
       "state": "repaired",
       "evidence": "logs/activation-20261012T1014/stopped-health.json"
+    },
+    {
+      "id": "R019-static-comment-token-audit",
+      "state": "repaired",
+      "symptom": "Static v1 compared regex tokens before removing C++ comments and therefore counted a commented author generator.rand() expression as an executable call; it failed before build or science output.",
+      "repair": "Versioned static v2 strips block and line comments before RNG/control-flow token checks. Registered attempt-1af8769d5c004676a12fce9a3a0b92c5 succeeded; the telemetry overlay itself was unchanged.",
+      "evidence": "results/R019-static-v2.json"
+    },
+    {
+      "id": "R019-memory-wait-20261012T1138Z",
+      "state": "waiting_for_memory",
+      "symptom": "Four checks observed only 353, 725, 936 and 915 MiB raw cgroup headroom, below the frozen 1536 MiB compile admission threshold. No OOM or oom_kill was observed.",
+      "repair": "No compile was launched and no protocol was weakened. Recheck on a later activation, keeping the same build task and cumulative usage.",
+      "evidence": "notes/R019_memory_wait_20261012T1138Z.json"
+    },
+    {
+      "id": "R019-build-v2-exact-admission-wait",
+      "state": "waiting_for_memory",
+      "symptom": "After a brief pre-submit headroom recovery, the exact profiled admission check observed only361.44MiB raw cgroup headroom versus the frozen1536MiB requirement. It returned75 with command_executed=false; the runner then marked the task failed only because the declared binary and manifest were absent. Two30-second rechecks remained below threshold at approximately624.4 and414.7MiB. No OOM or oom_kill.",
+      "repair": "Do not reinterpret this as a compile or scientific failure and do not rerun build-v2. Retain its resource receipt and submit only a versioned build-v3 after a fresh exact memory admission check passes.",
+      "evidence": "results/R019-build-resource-v2.json"
+    },
+    {
+      "id": "R019-sustained-memory-block-20261012T1242Z",
+      "state": "repaired",
+      "symptom": "Third consecutive blocked activation since11:38Z. After immutable active restore, two30-second rechecks and runner identity/database checks, raw headroom was1043,1049,948 and264.84MiB versus1536MiB required. Latest deficit1271.16MiB. No compiler launched and no scientific result was produced.",
+      "repair": "A later exact admission check recovered enough raw headroom; versioned build-v3 compiled successfully without weakening the protocol. No OOM occurred.",
+      "evidence": "notes/R019_memory_wait_20261012T1242Z.json"
+    },
+    {
+      "id": "R019-design-v3-supersession-rejection",
+      "state": "repaired",
+      "symptom": "The first design-v3 submission attempted to supersede successful design-v2 and was rejected before task execution.",
+      "repair": "The corrected versioned design-v3 task omitted invalid supersession, pinned the repaired plan, and passed the Simple design checker with zero structural gaps.",
+      "evidence": "plans/R019_runner_response_design_v3.json"
+    },
+    {
+      "id": "R019-full-audit-v1-input-hash-change",
+      "state": "repaired",
+      "symptom": "Audit-v1 was invalid_inputs before command execution because review changed the pinned audit script hash. No stale audit logic ran.",
+      "repair": "Versioned audit-v2 pinned the reviewed script hash and succeeded with all integrity counters zero.",
+      "evidence": "plans/R019_runner_response_full_audit_v2.json"
+    },
+    {
+      "id": "R019-cross-binary-geometry-identity-limit",
+      "state": "inconclusive",
+      "symptom": "R019 ordinals cannot establish value-level overlap with R018 geometry because R018 stale or uninitialized feature bytes were not identity-established and telemetry changes binary layout.",
+      "repair": "Plan-v4 must serialize only initialized geometry in the same execution before the broader causal claim can be tested.",
+      "evidence": "results/R019-full5000-audit-v1.json"
     }
   ],
   "automation_id": "6acbc3de9398819193c8b61a5cb42bb5",
   "checkpoint_library_id": "libfile_8d235c544fb48191929cce3ca06aedf0",
-  "runner_session_id": "f501f162b960476aafc4dbffba0b069d",
-  "updated_at_utc": "2026-10-12T10:48:13.812394+00:00",
+  "runner_session_id": "388730c06c744f5f84dd97dae721534b",
+  "updated_at_utc": "2026-10-12T15:55:00+00:00",
   "active_task_ids": [],
-  "scientific_plan": "plans/R018_experiment_plan_v1.json",
+  "scientific_plan": "plans/R019_generator_causal_plan_v3.json",
   "last_health_observation": {
-    "activity_age_seconds": 69.64409708976746,
+    "activity_age_seconds": 8.369809627532959,
     "errors": [],
     "identity_observed_alive": false,
     "max_age_seconds": 30,
-    "reason": "Retained process identity is unverified: it may have exited, changed identity, or become unavailable to local observation; no restart or reconciliation is implied",
+    "reason": "The owned unified exec session was interrupted at an all-terminal idle boundary; a separate process-table check found the recorded supervisor PID absent. No user stop was set.",
     "record": {
       "exit_status": null,
       "exited_at": null,
       "identity": {
         "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
-        "pid": 114191,
-        "start_ticks": 1201161
+        "pid": 134382,
+        "start_ticks": 1511280
       },
-      "last_activity_at": "2026-10-12T10:47:03.960818+00:00",
-      "last_activity_epoch": 1791802023.9608114,
+      "last_activity_at": "2026-10-12T11:44:15.459354+00:00",
+      "last_activity_epoch": 1791805455.4593463,
       "mode": "run",
       "root": "/workspace/scratch/157b111ad113/autopilot_3d",
       "schema_version": 1,
-      "session_id": "f501f162b960476aafc4dbffba0b069d",
+      "session_id": "511e3b9319044eceaee18098768ad591",
       "stage": "tick",
-      "started_at": "2026-10-12T10:42:23.379958+00:00"
+      "started_at": "2026-10-12T11:34:04.557101+00:00"
     },
     "root": "/workspace/scratch/157b111ad113/autopilot_3d",
     "scope": "Local process observation only; no external watcher or user delivery is activated",
     "status": "lost"
   },
   "budget_observation": {
-    "attempts_used": 128,
+    "attempts_used": 142,
     "deadline_epoch": 1791888133.5896215,
-    "elapsed_seconds": 13193.04658558703,
+    "elapsed_seconds": 13210.756242288027,
     "max_attempts": 225,
     "max_command_seconds": 41977.03522753103,
-    "remaining_deadline_seconds": 86042.3858191967,
-    "remaining_seconds": 28783.988641944,
+    "remaining_deadline_seconds": 82730.89728832245,
+    "remaining_seconds": 28766.334793242997,
     "reserved_seconds": 0,
     "overall_cap": null,
-    "observed_total_attempts": 131,
-    "observed_total_command_seconds": 13194.90754058703,
-    "note": "Includes3 preserved recoveryreceipts outside restoredDB; no reset. Renewablewindow audited at125attempts under existingopenendedauthorization."
+    "observed_total_attempts": 145,
+    "observed_total_command_seconds": 13212.617197288027,
+    "note": "Includes3 preserved recoveryreceipts outside restoredDB; no reset. The finite window is an execution envelope under the user's open-ended authorization, not a project budget or completion boundary."
   },
-  "last_runner_sequence": 170,
+  "last_runner_sequence": 186,
   "scientific_plans": [
     "plans/R001_experiment_plan_v2.json",
     "plans/R002_experiment_plan.json",
@@ -308,7 +357,10 @@
     "plans/R016_experiment_plan_v5.json",
     "plans/R017_experiment_plan_v2.json",
     "plans/R018_experiment_plan_v1.json",
-    "plans/R018_generator_audit_plan_v1.json"
+    "plans/R018_generator_audit_plan_v1.json",
+    "plans/R019_generator_causal_plan_v1.json",
+    "plans/R019_generator_causal_plan_v2.json",
+    "plans/R019_generator_causal_plan_v3.json"
   ],
   "accepted_result_records": [
     "results/R001/experiment_results.json",
@@ -346,11 +398,17 @@
     "results/R018/summary.json",
     "results/R018/audit.json",
     "results/R018/generator-summary.json",
-    "notes/R018_progress.md"
+    "notes/R018_progress.md",
+    "results/R019-build-manifest-v3.json",
+    "results/R019-smoke8-audit-v1.json",
+    "results/R019-smoke100-audit-v1.json",
+    "results/R019-full5000-audit-v1.json",
+    "results/R019-same-tape-counterfactual-v1.json",
+    "notes/R019_progress.md"
   ],
   "integrity_caveat": "OriginalR003 andR006cap2 logs retainedinvalid; R003_repair1 andR006_repair1 accepted. Verifyfutureraw artifacts againstreceipts.",
-  "background_liveness_caveat": "Supervisor intentionally stopped after all terminal receipts; no continuous between-wake compute claim.",
-  "next_experiment_executed": false,
+  "background_liveness_caveat": "Supervisor was intentionally interrupted at the all-terminal idle boundary before snapshotting. No continuous between-wake compute or instant-alert claim is made.",
+  "next_experiment_executed": true,
   "schema_caveats": [
     "R001frozenplanmapsv2butactualv3recovery documented; initialcalibrationpendinginoldplan.",
     "R002initialcalibrationpendinginoldprospectiveplan, observedpilotretained.",
@@ -370,7 +428,7 @@
   "storage": {
     "repository": "Yunbo-max/cpu",
     "namespace": "projects/autopilot-3d-20261011",
-    "parent_project_commit": "fc5ee16b094205ce102fbbc94846d45294a4ae66",
+    "parent_project_commit": "7f3c008c98dde79c2072cd997f8a0fe6ff712913",
     "workflow": "download active; run serial; upload with conflict guard; remote verify; cleanprojectonly"
   }
 }
