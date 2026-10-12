@@ -10,6 +10,8 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 import shutil
+import errno
+import time
 import sqlite3
 import subprocess
 import tempfile
@@ -220,10 +222,10 @@ def materialize(checkout, destination):
     return latest
 
 
-def verify_inventory(root, files, database_backup=True):
+def verify_inventory(root, files, database_backup=True, allow_missing=False):
     paths = {str(p.relative_to(root)): p for p in root.rglob('*')
              if p.is_file() and included(p.relative_to(root))}
-    if set(paths) != set(files):
+    if (set(paths) - set(files)) or (not allow_missing and set(paths) != set(files)):
         raise RuntimeError('Live inventory differs; keep local data. Missing/extra: ' +
                            str(sorted(set(paths) ^ set(files))[:20]))
     with tempfile.TemporaryDirectory() as td:
@@ -304,20 +306,70 @@ def cleanup(args):
     commit = check_remote_checkout(checkout)
     receipt = json.loads(Path(args.receipt).read_text())
     latest_path = checkout / PREFIX / 'LATEST.json'
-    if not receipt.get('all_remote_bytes_verified') or receipt['commit'] != commit or receipt['latest_sha256'] != digest_file(latest_path):
+    latest_sha = digest_file(latest_path)
+    if not receipt.get('all_remote_bytes_verified') or receipt['commit'] != commit or receipt['latest_sha256'] != latest_sha:
         raise RuntimeError('Missing matching complete remote verification')
     latest = json.loads(latest_path.read_text())
-    state = quiet(ROOT)
-    if state != latest['state']:
-        raise RuntimeError('Runner state changed since upload')
-    verify_inventory(ROOT, latest['files'])
-    marker = ROOT.parent / 'RL_Bandit_GitHub_Recovery.json'
-    dump(marker, {**receipt, 'original_root': str(ROOT), 'namespace': PREFIX,
-                  'state': state, 'cleanup_authority': 'User request 2026-10-12: upload history to Yunbo-max/cpu then delete local copies; download to run and upload results before cleanup.',
-                  'next_action': 'Clone latest main, read GITHUB_STORAGE.md, verify and restore without init; rebuild only the required environment.'})
-    if args.apply:
-        shutil.rmtree(ROOT)
-    print(json.dumps({'would_remove': str(ROOT), 'applied': args.apply, 'recovery_marker': str(marker)}))
+    marker_path = ROOT.parent / 'RL_Bandit_GitHub_Recovery.json'
+    quarantine = ROOT.with_name(ROOT.name + '.evict-' + latest_sha[:12])
+    if ROOT.exists():
+        state = quiet(ROOT)
+        if state != latest['state']:
+            raise RuntimeError('Runner state changed since upload')
+        verify_inventory(ROOT, latest['files'])
+        if quarantine.exists():
+            raise RuntimeError('Previous eviction exists; inspect before starting another')
+        marker = {**receipt, 'original_root': str(ROOT), 'namespace': PREFIX,
+                  'state': state, 'cleanup_state': 'prepared',
+                  'eviction_path': str(quarantine),
+                  'cleanup_authority': 'User request 2026-10-12: upload history to Yunbo-max/cpu then delete local copies; download to run and upload results before cleanup.',
+                  'next_action': 'Clone latest main, read GITHUB_STORAGE.md, verify and restore without init; rebuild only the required environment.'}
+        if not args.apply:
+            print(json.dumps({'would_remove': str(ROOT), 'applied': False}))
+            return
+        dump(marker_path, marker)
+        ROOT.rename(quarantine)
+        marker['cleanup_state'] = 'eviction_pending'
+        dump(marker_path, marker)
+    else:
+        marker = json.loads(marker_path.read_text())
+        if marker.get('project_id') != PROJECT or marker.get('latest_sha256') != latest_sha:
+            raise RuntimeError('Missing matching cold-storage locator')
+        if marker.get('cleanup_state') == 'evicted':
+            print(json.dumps({'already_evicted': True, 'root': str(ROOT)}))
+            return
+        if marker.get('eviction_path') != str(quarantine) or quarantine.is_symlink():
+            raise RuntimeError('Unrecognized pending eviction path')
+        # A previous rmtree may have removed only part of the verified snapshot.
+        # Keep any unexpected/new durable bytes rather than deleting them.
+        if quarantine.exists():
+            verify_inventory(quarantine, latest['files'], allow_missing=True)
+        if not args.apply:
+            print(json.dumps({'would_remove': str(quarantine), 'applied': False}))
+            return
+    errors = []
+    def onexc(func, path, exc):
+        if not isinstance(exc, FileNotFoundError):
+            raise exc
+    for attempt in range(5):
+        try:
+            if quarantine.exists():
+                shutil.rmtree(quarantine, onexc=onexc)
+            break
+        except OSError as exc:
+            errors.append({'errno': exc.errno, 'path': exc.filename})
+            marker['cleanup_retry_errors'] = errors
+            dump(marker_path, marker)
+            if exc.errno not in (errno.ENOTEMPTY, errno.ENOENT):
+                raise
+            time.sleep(0.2)
+    if quarantine.exists():
+        raise RuntimeError('Eviction remains pending; original root is cold and remote data is intact')
+    marker.update(cleanup_state='evicted', cleanup_retry_errors=errors,
+                  evicted_at_utc=dt.datetime.now(dt.timezone.utc).isoformat())
+    dump(marker_path, marker)
+    print(json.dumps({'removed': str(ROOT), 'applied': True,
+                      'recovery_marker': str(marker_path), 'retry_errors': errors}))
 
 
 def main():

@@ -30,3 +30,9 @@ LATEST.json contains project identity, original root, complete final file hashes
 ## Current scientific boundary
 
 Bandit has 371 retained T3000 trajectories and a narrowly closed mechanism diagnosis. DA-AC compatibility API checks and exact fixed-policy conditional-support calculations exist. The DA-AC T512/T13001 learning prefixes have not executed; earlier attempts failed before child launch at the cgroup placement gate. See NEXT_ACTION.txt and actual receipts. No full-paper reproduction, superior online algorithm or novelty claim is established.
+
+## Interrupted cleanup and current operational helper
+
+The current operational helper is the `github_coldstore_v1.py` adjacent to this guide in GitHub, which can advance independently of an archived scientific snapshot. Always invoke this downloaded helper for verify, restore, pack and cleanup. After restoration and before the next pack, copy that helper byte-for-byte into `PROJECT/scripts/github_coldstore_v1.py` so the next incremental snapshot retains its adopted version. Do not modify the pinned runtime.
+
+Cleanup first checks the complete unchanged live inventory, then atomically renames the project root to a unique project-owned eviction directory before removal. It records `eviction_pending` before recursive deletion and `evicted` only after absence is verified. A transient ENOTEMPTY/ENOENT gets at most five bounded retries. If interrupted, inspect the small recovery locator and call cleanup again with the matching fresh remote verification receipt; it rejects any unarchived or changed remaining durable file. Do not start new experiments until pending eviction is reconciled. An already evicted root may be restored from the latest snapshot as normal.
