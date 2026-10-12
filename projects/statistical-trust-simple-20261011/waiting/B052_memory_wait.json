@@ -11,13 +11,28 @@
     "provisional_id": "B052-praxis-localized-child-lookahead-factorial",
     "question": "At the two B051-localized child nodes, does native lookahead depth change availability or objective of the required cross-feature split?",
     "fixed_nodes": [
-      {"prefix": "-2", "required_feature": 25, "budget": 1812, "minimum": 1786},
-      {"prefix": "+25", "required_feature": 2, "budget": 1363, "minimum": 1332}
+      {
+        "prefix": "-2",
+        "required_feature": 25,
+        "budget": 1812,
+        "minimum": 1786
+      },
+      {
+        "prefix": "+25",
+        "required_feature": 2,
+        "budget": 1363,
+        "minimum": 1332
+      }
     ],
-    "arms": ["native lookahead-1", "native exact-depth reference"],
+    "arms": [
+      "native lookahead-1",
+      "native exact-depth reference"
+    ],
     "frozen_controls": "same child masks, depths, budgets, source, data and split",
     "primary_measurement": "presence and objective/proxy evidence for the required cross-feature split",
-    "interpretation_boundary": "development mechanism diagnostic only; no independent confirmation claim"
+    "interpretation_boundary": "development mechanism diagnostic only; no independent confirmation claim",
+    "design_status": "Provisional; native API/source mapping and executable hashed plan are still required.",
+    "design_audit_path": "notes/B052_preexecution_design_audit_20261012T1458Z.md"
   },
   "resource_authorization": {
     "cpu_only": true,
@@ -25,7 +40,9 @@
     "formal_launch_gate_bytes": 7500000000,
     "scientific_process_concurrency": 1,
     "threads": 1,
-    "rlimit_as_bytes": 2147483648
+    "rlimit_as_bytes": 2147483648,
+    "observed_cgroup_memory_max_bytes": 8589934592,
+    "observed_cpu_quota_cores": 8
   },
   "demand_basis": {
     "closest_observed_peak_rss_kib": 248120,
@@ -33,13 +50,109 @@
     "note": "B052 remains uncalibrated; the formal 7.5GB total-accounting gate is retained rather than inferred from peak RSS alone."
   },
   "observations": [
-    {"phase": "initial", "memory_current_bytes": 7531094016, "anon_bytes": 338432000, "file_bytes": 6709186560, "shmem_bytes": 134905856, "oom": 0, "oom_kill": 0},
-    {"phase": "after_30s", "memory_current_bytes": 7669137408, "anon_bytes": 420163584, "file_bytes": 6763954176, "shmem_bytes": 134905856, "oom": 0, "oom_kill": 0},
-    {"phase": "after_60s", "memory_current_bytes": 7737122816, "anon_bytes": 483782656, "file_bytes": 6768508928, "shmem_bytes": 134905856, "oom": 0, "oom_kill": 0}
+    {
+      "phase": "initial",
+      "memory_current_bytes": 7531094016,
+      "anon_bytes": 338432000,
+      "file_bytes": 6709186560,
+      "shmem_bytes": 134905856,
+      "oom": 0,
+      "oom_kill": 0
+    },
+    {
+      "phase": "after_30s",
+      "memory_current_bytes": 7669137408,
+      "anon_bytes": 420163584,
+      "file_bytes": 6763954176,
+      "shmem_bytes": 134905856,
+      "oom": 0,
+      "oom_kill": 0
+    },
+    {
+      "phase": "after_60s",
+      "memory_current_bytes": 7737122816,
+      "anon_bytes": 483782656,
+      "file_bytes": 6768508928,
+      "shmem_bytes": 134905856,
+      "oom": 0,
+      "oom_kill": 0
+    },
+    {
+      "utc": "2026-10-12T14:58:07.805059+00:00",
+      "memory_current_bytes": 8384286720,
+      "memory_max_bytes": 8589934592,
+      "anon_bytes": 180613120,
+      "file_bytes": 7689994240,
+      "shmem_bytes": 134905856,
+      "kernel_bytes": 512425984,
+      "file_dirty_bytes": 17608704,
+      "inactive_file_bytes": 1857003520,
+      "slab_reclaimable_bytes": 502698504,
+      "oom": 0,
+      "oom_kill": 0,
+      "memory_max_events": 188731
+    },
+    {
+      "utc": "2026-10-12T14:59:02.696513+00:00",
+      "memory_current_bytes": 8189612032,
+      "memory_max_bytes": 8589934592,
+      "anon_bytes": 207495168,
+      "file_bytes": 7465451520,
+      "shmem_bytes": 134905856,
+      "file_dirty_bytes": 349937664,
+      "inactive_file_bytes": 1413009408,
+      "slab_reclaimable_bytes": 506006976,
+      "oom": 0,
+      "oom_kill": 0,
+      "memory_max_events": 190639
+    },
+    {
+      "utc": "2026-10-12T15:01:55.023868+00:00",
+      "memory_current_bytes": 8292966400,
+      "memory_max_bytes": 8589934592,
+      "anon_bytes": 305344512,
+      "file_bytes": 7468609536,
+      "shmem_bytes": 134905856,
+      "file_dirty_bytes": 40194048,
+      "inactive_file_bytes": 1409155072,
+      "slab_reclaimable_bytes": 506373336,
+      "oom": 0,
+      "oom_kill": 0,
+      "memory_max_events": 190658
+    }
   ],
   "recheck_count_this_wake": 2,
   "experiment_started": false,
   "attempt_created": false,
-  "resume_condition": "On a later real wake, require memory.current <= 7500000000 bytes, oom=0, oom_kill=0, and no active or unknown attempt after checkpoint restore. Then version and submit B052 through simple_runner.",
-  "reported_event_id": "b052-memory-wait-20261012T140412Z"
+  "resume_condition": "Require a fresh formal resource probe with memory.current <=7500000000 bytes, oom=0 and oom_kill=0; allow for measured demand and other activity. Restore latest checkpoint to original root, reconcile all attempts and supervisor identities, audit native API and freeze executable B052 plan before Simple submission. Preserve cumulative state and renew only at a safe static boundary.",
+  "reported_event_id": "b052-memory-pressure-increased-20261012T145807Z",
+  "last_checked_at_utc": "2026-10-12T15:01:55.023868+00:00",
+  "distinct_blocked_research_wakes_confirmed": 2,
+  "distinct_wake_count_basis": "Prior stored B052 wait and this activation; excludes the intervening user cache-status question. Earlier B047 waits are different tasks.",
+  "recheck_count_total_confirmed": 4,
+  "latest_measurement": {
+    "utc": "2026-10-12T15:01:55.023868+00:00",
+    "memory_current_bytes": 8292966400,
+    "memory_max_bytes": 8589934592,
+    "anon_bytes": 305344512,
+    "file_bytes": 7468609536,
+    "shmem_bytes": 134905856,
+    "file_dirty_bytes": 40194048,
+    "inactive_file_bytes": 1409155072,
+    "slab_reclaimable_bytes": 506373336,
+    "oom": 0,
+    "oom_kill": 0,
+    "memory_max_events": 190658
+  },
+  "process_observation": {
+    "root_exists": false,
+    "visible_project_processes": [],
+    "inaccessible_process_count": 25,
+    "scope": "Visible namespace only. No attempt submitted; archived terminal state retained, must reconcile after restoration."
+  },
+  "memory_interpretation": "file includes shmem; statistics overlap. Cache attribution to this project is unavailable. Reclaimability is not a guaranteed reservation; formal launch gate unchanged.",
+  "reported_event_ids": [
+    "b052-memory-wait-20261012T140412Z",
+    "b052-memory-pressure-increased-20261012T145807Z"
+  ]
 }
