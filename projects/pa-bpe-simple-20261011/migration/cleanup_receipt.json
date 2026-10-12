@@ -1,0 +1,47 @@
+{
+  "completed_utc": "2026-10-12T10:27:50.625454+00:00",
+  "status": "bulk_cache_cleanup_verified",
+  "removed_directories": [
+    "wake14_restore",
+    "recovery13",
+    "cpu_migration_repo",
+    "cpu_migration_verify",
+    "library_upload_helper_wake14"
+  ],
+  "verified_absent_after_separate_exec": true,
+  "source_files_covered": 3845,
+  "original_source_logical_bytes": 946877003,
+  "precleanup_remote_commit": "51b4925b67d35ebdf3b9f0ebf64b0d62fb86b1cb",
+  "guard": {
+    "checked_utc": "2026-10-12T10:23:53.914670+00:00",
+    "status": "PASS",
+    "source_files_unchanged": 3845,
+    "source_added_files": 0,
+    "source_missing_files": 0,
+    "legacy_active_science": 0,
+    "legacy_reserved_seconds": 0,
+    "cwd_check_scope": "visible current exec PID namespace; prior owned exec sessions terminal and original task held during migration",
+    "visible_busy_cwds": [],
+    "verified_remote_commit": "51b4925b67d35ebdf3b9f0ebf64b0d62fb86b1cb",
+    "verified_project_tree": "e506fc6fff952e09ecc3f229a8b44c56189db7ef",
+    "paths_authorized_for_cleanup": [
+      "wake14_restore",
+      "recovery13",
+      "cpu_migration_repo",
+      "cpu_migration_verify",
+      "library_upload_helper_wake14"
+    ],
+    "transfer_stage_cleanup_after_receipt": "cpu_migration_stage"
+  },
+  "scientific_commands_during_migration": 0,
+  "research_generation": 15,
+  "research_results_changed": false,
+  "memory_wait_policy": "Measure before experiments, wait and remeasure when headroom is insufficient; report persistent inability. Do not terminate other project tasks.",
+  "remaining_transfer_stage": "cpu_migration_stage, remove after this receipt has been remotely verified",
+  "cleanup_incident": {
+    "observed_utc": "2026-10-12T10:25:23.291Z",
+    "phenomenon": "First recursive removal returned exit 0; subsequent exec still saw partial remnants. No completion claimed.",
+    "repair": "Repeated only the five authorized project-cache removals. Separate exec at 2026-10-12T10:27:29.263329Z verified all five paths absent, zero files/bytes.",
+    "cause": "Not established; did not change global filesystem or other projects."
+  }
+}
