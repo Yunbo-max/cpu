@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "project_id": "statistical-trust-simple-20261011",
+  "operation": "B050 failure preservation, serialization repair, resource wait, cold checkpoint publication",
+  "archive_commit": "568021bc7fd148218a0d0628bf91380df53f0665",
+  "archive_sha256": "cd0b446445258080435e64f740a90da783283cb5e7972e42e6c5dfc110542e5c",
+  "published_snapshot": "projects/statistical-trust-simple-20261011/snapshots/archive-cd0b446445258080",
+  "remote_fresh_download_verification": {
+    "exact_commit": "568021bc7fd148218a0d0628bf91380df53f0665",
+    "parts": 120,
+    "payload_files": 1046,
+    "sqlite_integrity": "ok",
+    "completed": true
+  },
+  "science": {
+    "active_idea": "praxis-near-optimal-tree-sets-v1",
+    "attempts_terminal": 48,
+    "research_cycles": 26,
+    "cumulative_command_seconds": 698.6958929339698,
+    "b050": "failed after native reference fit during NumPy JSON serialization; no validated scientific result",
+    "b050v2": "persistence-only repair ready; unsubmitted under b050v2-memory-gate",
+    "formal_retry_probe_bytes": 7813140480,
+    "launch_threshold_bytes": 7500000000,
+    "oom": 0,
+    "oom_kill": 0
+  },
+  "supervisor": {
+    "all_attempts_terminal": true,
+    "exclusive_lock_free": true,
+    "resident": false,
+    "user_stop": false
+  },
+  "local_cleanup": {
+    "state": "not_confirmed; local copy retained",
+    "verified_helper_attempt": "reported local_copy_removed=true inside one cleanup process",
+    "independent_followup": "project root appeared present",
+    "action": "stopped without further deletion after exec transport disconnected",
+    "archive_safety": "remote exact-commit readback verification completed before cleanup attempt"
+  },
+  "failures_retained": [
+    {
+      "operation": "B050 first execution",
+      "result": "exit 1: ndarray not JSON serializable; receipt and stderr archived"
+    },
+    {
+      "operation": "first cleanup eligibility checks",
+      "result": "refused known accidental --help ZIP; no project deletion"
+    },
+    {
+      "operation": "verified cleanup apply",
+      "result": "reported success in-process but independent presence check contradicted it; no cleanup success claimed"
+    },
+    {
+      "operation": "subsequent local inspection",
+      "result": "exec-server transport disconnected; defer cleanup to a later activation"
+    }
+  ],
+  "completed_at_utc": "2026-10-12T12:24:00Z"
+}
