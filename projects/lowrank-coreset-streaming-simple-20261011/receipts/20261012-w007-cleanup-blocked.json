@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "project_id": "lowrank-coreset-streaming-simple-20261011",
+  "observed_at": "2026-10-12T12:44:30+00:00",
+  "archive_commit": "46b067d17c8b7649362f38651424687f8370b449",
+  "verification_receipt_commit": "087d530571409fd3f3b26db792129ce22192b72b",
+  "snapshot": "97c6a987a092884460eae1b3014fd859941ac29eb60adc0dfa60b6a78d042df0",
+  "cleanup_status": "blocked_by_workspace_rematerialization",
+  "attempted_targets": [
+    "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple",
+    "/workspace/scratch/aeb2386dc938/LowRank_Coreset_Streaming_Simple_Checkpoint.zip",
+    "/workspace/scratch/aeb2386dc938/lowrank_work_checkout",
+    "/workspace/scratch/aeb2386dc938/lowrank_remote_verify_checkout",
+    "/workspace/scratch/aeb2386dc938/w007_remote_restore.WOOvxK",
+    "/workspace/scratch/aeb2386dc938/w007_zip_extract.arb0e1"
+  ],
+  "observation": "Each exact target was deleted and reported absent inside the cleanup command, but the workspace rematerialized it before the next command. No unrelated path, global cache, or process was touched.",
+  "next_action": "Retry project-only cleanup on the next wake or host after confirming the same remote snapshot and verification receipt; do not rerun science solely because local files reappeared.",
+  "locator_preserved": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_locator.json"
+}
