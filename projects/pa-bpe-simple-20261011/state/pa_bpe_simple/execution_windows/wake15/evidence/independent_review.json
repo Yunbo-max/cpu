@@ -1,0 +1,27 @@
+{
+  "binding": {
+    "delegation_id": "wake15-provenance-review",
+    "generation": 1,
+    "idea": "pa-bpe-domain-robustness",
+    "revision": 1,
+    "checkpoint_generation": 15,
+    "assignment_ref": "evidence/review_assignment.json"
+  },
+  "agent_id": "/root/pa_bpe_provenance_review_wake15",
+  "status": "complete",
+  "scope": "Independent fresh-context source-only review; no scientific commands, edits, fetching or publishing",
+  "accepted": "Full size/LFS verification before native decode plus native offset/text hash substantively supports artifact-level provenance conditional on actual successful receipts. Explicit diagnostic nonrepresentativeness is appropriate.",
+  "limitations": [
+    "Upstream native labels are not independently validated",
+    "Smallest compressed shards may be tail partitions; within-frame hashing does not repair sampling bias",
+    "Duplicate removal after top128 heap may leave holes; not production all-copy-before-rank selector",
+    "Heap tie uses row index instead of stable-ID bytes",
+    "seen/duplicates Python sets grow with full scanned shard; batch128 is no hard memory bound",
+    "Schema failure does not persist source verification first",
+    "Guarantees cover scanned shard, not full dataset"
+  ],
+  "next_action": "For actual development, freeze a separate finite frame and frame-wide duplicate/missing-ID contract, keep full-universe protocol deferred, preserve year/language/script/decontamination/pretoken rules and fail on insufficient mass. Exact source frame and bounded acquisition list must precede further payload exposure.",
+  "coordinator_integration": "Accept narrow diagnostic review. Native outputs now show zero eligible French/Spanish rows, so do not build training payload from these shards. Metadata-only first-file probes are frozen as next acquisition diagnostic.",
+  "native_model_usage": "unknown",
+  "received_utc": "2026-10-12T11:35:42.115003+00:00"
+}

@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-12T04:50:00+00:00",
+  "updated_utc": "2026-10-12T11:48:55.919780+00:00",
   "goal_mode": "continuous_research",
   "authorization_ref": "evidence/continuous_authorization_20261011.json",
   "phase_limit_seconds": null,
@@ -172,9 +172,31 @@
       "scientific_processes_active": 0,
       "receipt_inventory": "execution_windows/wake14/.research-autopilot/runner/attempts",
       "notes": "Rebuilt and reran the repaired hash-only confirmation adapter and its 20-check verifier. Both attempts exit0; independent read-only review accepted only adapter mechanics and frozen-index preservation. Runner stop state is persisted and /proc shows no active PID; final supervisor health remained lost and is retained as an incident."
+    },
+    {
+      "id": "wake15-20261012",
+      "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake15_20261012T1126/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake15",
+      "attempts": 12,
+      "wall_seconds": 262.79350838199935,
+      "reserved_seconds": 0,
+      "status": "paused_budget",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake15/.research-autopilot/runner/attempts",
+      "notes": "Native fixed-source diagnostic and bounded-frame payload/CLI qualification; no fairness outcome. All failures counted; user did not stop continuous project."
+    },
+    {
+      "id": "wake15b-20261012",
+      "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake15_20261012T1126/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake15b",
+      "attempts": 5,
+      "wall_seconds": 40.84302470300281,
+      "reserved_seconds": 0,
+      "status": "stopped",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake15b/.research-autopilot/runner/attempts",
+      "notes": "Native fixed-source diagnostic and bounded-frame payload/CLI qualification; no fairness outcome. All failures counted; user did not stop continuous project."
     }
   ],
-  "cumulative_charged_seconds": 996.9883702889974,
+  "cumulative_charged_seconds": 1300.6249033739996,
   "remaining_seconds": null,
   "unknown_model_tokens": true,
   "allocation_rule": "User explicitly removed cumulative time limits on 2026-10-11. Auto-renew finite CPU-only safety windows without a project-wide time/attempt/cycle endpoint; retain all historical and failed usage/reservations and original executor deadlines. Null limit/remaining means no cumulative cap, not zero usage. Existing hardware, memory, concurrency, permissions and user stops remain binding."

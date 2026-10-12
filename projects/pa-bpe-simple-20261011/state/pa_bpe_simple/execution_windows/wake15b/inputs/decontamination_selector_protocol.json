@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "prospective software contract; confirmation text unopened and formal payload gate closed",
+  "active_idea": "pa-bpe-domain-robustness",
+  "result_blindness": {
+    "allowed_confirmation_information": ["language", "source URL", "raw text used only by the fingerprint builder", "immutable source identity"],
+    "forbidden_information": ["tokenizer identities", "token counts", "fairness outcomes", "method rankings", "selected-arm outcomes"],
+    "operator_visibility": "production builder emits hashes, counts and blinded document IDs only; it must not emit confirmation raw text"
+  },
+  "url_rule": {
+    "parse": "URL must be null or string; absolute HTTP(S) only; lowercase/IDNA DNS host or normalized bracketed IPv6; strip exactly one DNS root trailing dot and reject multiple; remove default port; retain path and query; drop fragment; a supplied but invalid URL is conservatively rejected",
+    "publisher_block": "reject host globalvoices.org or any of its subdomains",
+    "exact_match": "reject canonical URL equality against the confirmation index",
+    "conservatism": "no query-parameter deletion, www folding, redirect resolution or registrable-domain guessing"
+  },
+  "content_rule": {
+    "normalization": "Unicode NFKC, casefold, collapse every Unicode whitespace run to one ASCII space, strip ends",
+    "exact": "SHA256 of normalized UTF-8, compared only within canonical language",
+    "near": "Unicode word tokens; multiset of full 256-bit SHA256 five-word shingles; require both texts >=20 words and multiset containment intersection/min(shingle masses) >=0.80 within language",
+    "candidate_generation": "SQLite inverted shingle index with temp_store=FILE; exact verification uses integer multiset intersection",
+    "short_text_policy": "texts below 20 words receive exact matching only",
+    "cross_language_policy": "content hashes and shingles are language-scoped; URL/publisher rules remain language-independent"
+  },
+  "selector": {
+    "storage": "SQLite WAL with temp_store=FILE; raw rows are staged on disk; duplicate aggregation stays in SQL and accepted records are emitted as a stream rather than a Python list",
+    "duplicates": "two-pass stable-ID counts; every copy of a duplicate ID is rejected; missing ID is a dataset-wide hard failure",
+    "rank": "ascending SHA256(pa-bpe-train-v1\\0language\\0stable-id), then exact stable-ID UTF-8 bytes",
+    "eligibility_order": "schema/provenance, duplicate, corpus fields, publisher/exact/near decontamination, then rank",
+    "restart": "database binds protocol SHA256, implementation SHA256, strict/diagnostic provenance mode, training input-manifest SHA256 and confirmation-manifest SHA256; completed confirmation and row stages are idempotent across close/reopen, while any binding mismatch is a hard failure; emission requires every binding and both stage-complete flags",
+    "atomic_manifest": "stream accepted rows into a same-directory temporary JSON file, fsync file, os.replace, then fsync directory; nominal publish is tested, crash recovery remains unclaimed",
+    "formal_provenance": ["dataset_repo", "dataset_revision", "dataset_shard_path", "dataset_shard_lfs_sha256", "row_id", "raw_text_sha256"]
+  },
+  "verification_scope": {
+    "research_data": "already exposed English/French/Spanish first-row probes, used only for order equivalence and formal-provenance rejection",
+    "synthetic_fixture": "software-only exact/near/URL/short/cross-language/restart/atomic-write cases; never benchmark evidence",
+    "production_claim": "none; this is a decontaminated ranked-row stream, not the pretoken-budget selector. Full GlobalVoices fingerprint construction, payload scan, row-to-shard truth, budget integration and production-scale qualification remain HOLD"
+  }
+}

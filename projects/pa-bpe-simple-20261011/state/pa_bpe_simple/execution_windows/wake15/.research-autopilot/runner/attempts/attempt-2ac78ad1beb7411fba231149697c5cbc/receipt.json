@@ -1,0 +1,75 @@
+{
+  "attempt_id": "attempt-2ac78ad1beb7411fba231149697c5cbc",
+  "command_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 135375,
+    "start_ticks": 1530745
+  },
+  "contract_sha256": "4e9e9ecc17db7c03c918114fa547bc2ce89f6d018bdda4c678dff145e02b4fb9",
+  "elapsed_seconds": 83.55133575199943,
+  "error": null,
+  "exit_code": 0,
+  "finished_at": "2026-10-12T11:38:42.695662+00:00",
+  "input_refs": [
+    {
+      "path": "footer_protocol_v2.json",
+      "sha256": "6a108a1e398d8f784d00aa2f899b8d83a6cb2c733a29b023534185e45aa64da1"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    },
+    {
+      "path": "scripts/probe_parquet_footer_v2.py",
+      "sha256": "34ea2c7f79412edd1a228c3440478258f5e2bca31861388152d22da348572358"
+    },
+    {
+      "path": "inputs/fr_first_shard.json",
+      "sha256": "70e7858eed6fb1fef404a122f53932d38f836857d0ae1d5a8b06b3ff22fa7481"
+    },
+    {
+      "path": "output/dependencies.json",
+      "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+    },
+    {
+      "path": "evidence/memory_before_fr_retry.json",
+      "sha256": "61cdfaa852d6e39f99ac38f242af69d65e2af325e345200957d930f29914ac17"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/fr_footer_probe_v2.json",
+      "sha256": "6d686875f5c19901c4fe7b9ca800f7a78e16fab3e498ac1d0e0556877555717f"
+    },
+    {
+      "path": "output/fr_footer_v2.resources.json",
+      "sha256": "6348a098c9047db16f36c0d5c52f118e660157e9ece9b67904eb6be9def151cf"
+    },
+    {
+      "path": "output/fr_footer_v2.parquet",
+      "sha256": "2ecad40bc4118e9e4a46a837e1a05443cd63e2e629196c88caaf141537af90ff"
+    },
+    {
+      "path": "output/fr_footer_length_v2.json",
+      "sha256": "0b5d77c996642f81a5c829b57eab64c5c88b61cc17e9dfe4fffe58a09be9543d"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake15_20261012T1126/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake15",
+  "schema_version": 1,
+  "started_at": "2026-10-12T11:37:19.144353+00:00",
+  "status": "succeeded",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-2ac78ad1beb7411fba231149697c5cbc/stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-2ac78ad1beb7411fba231149697c5cbc/stdout.txt",
+    "sha256": "eb0b97c1a713cc310cb1580b92476dd7a55dccd18afcfc63b81bb37ff5cf06cf"
+  },
+  "task_id": "wake15-footer-fr-after-memory-recovery",
+  "worker_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 135373,
+    "start_ticks": 1530741
+  }
+}

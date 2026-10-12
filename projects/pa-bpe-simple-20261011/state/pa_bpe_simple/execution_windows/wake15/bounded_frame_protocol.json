@@ -1,0 +1,57 @@
+{
+  "id": "wake15-bounded-frame-v1",
+  "frozen_utc": "2026-10-12T11:38:12.639623+00:00",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "scientific_target": "Bounded exploratory development for matched 100000 pretokens per language; same CC-MAIN-2013-20 target, no confirmation output exposure",
+  "frame": {
+    "en": {
+      "source_spec": "inputs/en_shard.json",
+      "rows": "all374 rows of smallest fixed whole-file diagnostic, already source-exposed"
+    },
+    "fr": {
+      "source_spec": "inputs/fr_first_shard.json",
+      "rows": "row_group0 only; use complete row group, fail if native schema/dump unsuitable"
+    },
+    "es": {
+      "source_spec": "inputs/es_first_shard.json",
+      "rows": "row_group0 only; use complete row group, footer exposed but body not yet opened"
+    }
+  },
+  "source_verification": {
+    "en": "Full LFS SHA256 independently reverified",
+    "fr_es": "Pinned commit/path + original wake9 LFS/Xet metadata + HTTPS206 range,size,ETag and downloaded-byte hashes. No independent whole-LFS-hash verification claim; retain raw ranges and byte offsets for exact re-decoding."
+  },
+  "sampling": "Convenience frame, NOT representative full-universe SHA256 sample. Full-universe design remains deferred. All copies of duplicate IDs rejected within complete frame before ranking; missing ID hard failure within frame. No dataset-wide absence claim.",
+  "fixed_rules": {
+    "dump": "CC-MAIN-2013-20",
+    "languages": {
+      "en": [
+        "en"
+      ],
+      "fr": [
+        "fr",
+        "fra"
+      ],
+      "es": [
+        "es",
+        "spa"
+      ]
+    },
+    "script_fr_es": "Latn",
+    "rank_preimage_hex_prefix": "70612d6270652d747261696e2d763100",
+    "rank": "SHA256(prefix || canonical_language_utf8 || 00 || stable_id_utf8); digest then exact ID bytes",
+    "decontamination": "unchanged wake14 frozen hash-only adapter before selection",
+    "pretoken_budget": 100000,
+    "pretokenizer": "tokenizers==0.22.1 Sequence Whitespace then ByteLevel(use_regex=False)",
+    "boundary": "prefix only to exact target",
+    "insufficient_mass": "record insufficiency and STOP payload acceptance, no opportunistic expansion or relaxed year"
+  },
+  "resource_limits": {
+    "range_bytes_cap_per_language": 16777216,
+    "command_seconds": 120,
+    "minimum_headroom": 536870912,
+    "cpu_threads": 1
+  },
+  "interpretation": "Only conditional convenience-frame development comparisons permitted after provenance, decontamination, budget and native CLI acceptance; fairness conclusions/confirmation remain HOLD."
+}

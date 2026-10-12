@@ -1,0 +1,139 @@
+{
+  "submission_id": "wake15-extract-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake15-extract-en",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/en_extraction.resources.json",
+        "scripts/extract_fixed_shard.py",
+        "en"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Download full pinned smallest shard, verify LFS SHA256 and measure truthful native row extraction; explicitly not production training selection",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "protocol.json",
+          "sha256": "21f445c5fd6effb9fff9d617c8e1ee4c7e2140dce0de401ae73f94c8b6e293f8"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/extract_fixed_shard.py",
+          "sha256": "a59bb87094ca7e7308986bdb132fa0663b808ba4b6aab196ac20dfff83061ef0"
+        },
+        {
+          "path": "inputs/en_shard.json",
+          "sha256": "29b42df484029822141c61ad87ab38eb20d5399ba80a1a49052e3b05936d744a"
+        },
+        {
+          "path": "output/dependencies.json",
+          "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+        }
+      ],
+      "outputs": [
+        "output/en_extraction.json",
+        "output/en_diagnostic_rows.jsonl",
+        "output/en_extraction.resources.json",
+        "output/en_capacity.json"
+      ],
+      "supersedes": null
+    },
+    {
+      "task_id": "wake15-extract-fr",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/fr_extraction.resources.json",
+        "scripts/extract_fixed_shard.py",
+        "fr"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Download full pinned smallest shard, verify LFS SHA256 and measure truthful native row extraction; explicitly not production training selection",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "protocol.json",
+          "sha256": "21f445c5fd6effb9fff9d617c8e1ee4c7e2140dce0de401ae73f94c8b6e293f8"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/extract_fixed_shard.py",
+          "sha256": "a59bb87094ca7e7308986bdb132fa0663b808ba4b6aab196ac20dfff83061ef0"
+        },
+        {
+          "path": "inputs/fr_shard.json",
+          "sha256": "41d1901f9f87d0900c4ae6066e993f5d628d6aa3cf797b889f53cfa186b31be4"
+        },
+        {
+          "path": "output/dependencies.json",
+          "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+        }
+      ],
+      "outputs": [
+        "output/fr_extraction.json",
+        "output/fr_diagnostic_rows.jsonl",
+        "output/fr_extraction.resources.json",
+        "output/fr_capacity.json"
+      ],
+      "supersedes": null
+    },
+    {
+      "task_id": "wake15-extract-es",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/es_extraction.resources.json",
+        "scripts/extract_fixed_shard.py",
+        "es"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Download full pinned smallest shard, verify LFS SHA256 and measure truthful native row extraction; explicitly not production training selection",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "protocol.json",
+          "sha256": "21f445c5fd6effb9fff9d617c8e1ee4c7e2140dce0de401ae73f94c8b6e293f8"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/extract_fixed_shard.py",
+          "sha256": "a59bb87094ca7e7308986bdb132fa0663b808ba4b6aab196ac20dfff83061ef0"
+        },
+        {
+          "path": "inputs/es_shard.json",
+          "sha256": "f07e55778e56c21746fb4e477dad3c972bde615f11d6edd22297809580cfed8d"
+        },
+        {
+          "path": "output/dependencies.json",
+          "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+        }
+      ],
+      "outputs": [
+        "output/es_extraction.json",
+        "output/es_diagnostic_rows.jsonl",
+        "output/es_extraction.resources.json",
+        "output/es_capacity.json"
+      ],
+      "supersedes": null
+    }
+  ]
+}

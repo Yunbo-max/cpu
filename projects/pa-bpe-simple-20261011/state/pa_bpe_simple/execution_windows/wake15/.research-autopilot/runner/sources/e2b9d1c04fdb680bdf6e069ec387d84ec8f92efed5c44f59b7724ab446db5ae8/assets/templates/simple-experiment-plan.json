@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "template_note": "Fill this proposal from primary papers and the actual research goal. Empty fields are intentional design work; outputs are planned paths, not claimed receipts. Formal claims may have no comparisons when not_applicable_reason explains why. Restore hardware allocation and execution host from this project's initial setup and latest authorized revision; record them with their source in resources.authorization. This template has no fixed CPU, RAM or GPU allocation, and chat-host observations must not replace project settings. Optional decision_review and workflow_binding describe current knowledge, not execution gates or scientific approval. Keep unknown reviews unreviewed, keep planning distinct from executed evidence, and omit irrelevant sections with an explicit applicability rationale when helpful. Historical plans remain immutable.",
+  "design_id": "design-001",
+  "goal_contract_version": 1,
+  "idea": "method-a",
+  "revision": 1,
+  "scope": {
+    "level": "development",
+    "claim_scope": "",
+    "residual_required_coverage": "List the parent-goal comparisons still owed after this bounded design; narrowing a run does not complete those claims."
+  },
+  "exposure": {
+    "mode": "prospective",
+    "prior_observations": "",
+    "heldout_policy": ""
+  },
+  "paper_designs": [
+    {
+      "id": "paper-design-a",
+      "url": "",
+      "locator": "",
+      "borrowed_design": "",
+      "adaptation_reason": ""
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-primary",
+      "statement": "",
+      "kind": "empirical",
+      "required_comparison_ids": [
+        "comparison-primary"
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "comparison-primary",
+      "claim_ids": [
+        "claim-primary"
+      ],
+      "paper_design_ids": [
+        "paper-design-a"
+      ],
+      "purpose": "",
+      "prediction": "",
+      "outcome_rules": {
+        "supports": "",
+        "weakens": "",
+        "inconclusive": "",
+        "performance_policy": {
+          "require_every_repeat_win": false,
+          "reject_any_fallback": false,
+          "every_repeat_requirement_reason": "",
+          "no_fallback_requirement_reason": ""
+        }
+      },
+      "arms": [
+        {
+          "id": "method",
+          "role": "method",
+          "implementation": "",
+          "fairness": ""
+        },
+        {
+          "id": "strong-baseline",
+          "role": "baseline",
+          "implementation": "",
+          "fairness": ""
+        },
+        {
+          "id": "simple-control",
+          "role": "control",
+          "implementation": "",
+          "fairness": ""
+        }
+      ],
+      "data": {
+        "source": "",
+        "version": "",
+        "split": "",
+        "leakage_control": ""
+      },
+      "metric": {
+        "definition": "",
+        "aggregation": "",
+        "direction": ""
+      },
+      "statistics": {
+        "unit": "",
+        "pairing": "",
+        "precision": "",
+        "randomness": "",
+        "multiplicity": "",
+        "stopping": ""
+      },
+      "execution": {
+        "task_ids": [
+          "method-eval",
+          "baseline-eval",
+          "control-eval",
+          "analyse-primary"
+        ],
+        "outputs": [
+          "runs/method.json",
+          "runs/baseline.json",
+          "runs/control.json",
+          "analysis/primary.json"
+        ],
+        "analysis": ""
+      },
+      "resources": {
+        "authorization": {
+          "status": "not_recorded",
+          "basis": "",
+          "allocation": "",
+          "duration": "",
+          "evidence": []
+        },
+        "hardware_kind": "unknown",
+        "hardware": "",
+        "hardware_status": "unknown",
+        "inventory_refs": [],
+        "estimates": {
+          "wall_seconds": null,
+          "peak_memory_gib": null
+        },
+        "calibration": {
+          "status": "pending",
+          "evidence": [],
+          "reason": "Inspect the authorized host and calibrate the consequential memory/runtime estimate before claiming feasibility."
+        },
+        "scope_adjustment": ""
+      },
+      "decision_review": {
+        "next_decision": {
+          "question": "",
+          "cheaper_check": "",
+          "why_next": ""
+        },
+        "objectives": {
+          "primary": "",
+          "protected_constraints": [],
+          "secondary": []
+        },
+        "comparison_basis": {
+          "mode": "",
+          "tolerances": "",
+          "justification": ""
+        },
+        "baseline": {
+          "status": "unreviewed",
+          "strongest_relevant_comparator": "",
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "metric": {
+          "status": "unreviewed",
+          "independent_method": "",
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "efficiency": {
+          "status": "unreviewed",
+          "profile": "",
+          "opportunity_bound": "",
+          "full_cost_accounting": "",
+          "timing_isolation": "",
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "novelty": {
+          "status": "unreviewed",
+          "mechanism_delta": "",
+          "closest_collision": "",
+          "rationale": "",
+          "evidence_refs": []
+        },
+        "proxy": {
+          "status": "unreviewed",
+          "decision_target": "",
+          "availability_cost": "",
+          "rationale": "",
+          "evidence_refs": []
+        }
+      }
+    }
+  ],
+  "workflow_binding": {
+    "scientific_edition": "",
+    "executor_edition": "",
+    "evidence_refs": []
+  }
+}

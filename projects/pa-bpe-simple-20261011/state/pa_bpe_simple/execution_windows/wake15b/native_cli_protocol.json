@@ -1,0 +1,17 @@
+{
+  "id": "wake15b-native-cli-diagnostic",
+  "symbols": 32,
+  "arms": [
+    "classical",
+    "pa_ratio",
+    "pa_dev"
+  ],
+  "scope": "Interface/resource diagnostic only, NOT performance or fairness comparison. pa_dev reuses nonparallel train dictionaries deliberately to test parsing; these outputs must never enter fair model evaluation.",
+  "raw_data": "same verified bounded frame, 100000 pretokens/language",
+  "ratio": [
+    1,
+    1,
+    1
+  ],
+  "later": "Independent aligned development data required before any PA dev-objective fairness experiment; full vocabulary and strong variants deferred."
+}

@@ -1,0 +1,79 @@
+{
+  "attempt_id": "attempt-b200d2388dc04187b9c43aff6fe651a8",
+  "command_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 135773,
+    "start_ticks": 1539186
+  },
+  "contract_sha256": "ac9b6afb8cd1f5d0cb41c4ae6ac2d616e26feef9ebb563ecf25d60bff6bde4c9",
+  "elapsed_seconds": 18.218811245000325,
+  "error": null,
+  "exit_code": 0,
+  "finished_at": "2026-10-12T11:39:01.764300+00:00",
+  "input_refs": [
+    {
+      "path": "bounded_frame_protocol.json",
+      "sha256": "27b9f1e7558887ab88d1a63dc478b4e222c0a85a6e129ee3256f2f99923f70f4"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    },
+    {
+      "path": "scripts/extract_row_group.py",
+      "sha256": "01273fae06df79ededabbb67c921fa407a8d980e7501f093de4d9942d3337f9e"
+    },
+    {
+      "path": "inputs/es_first_shard.json",
+      "sha256": "6a4dd81ad76d517e73c19ec253aab4c76b6a0f926305bc1138762cc49aa6273b"
+    },
+    {
+      "path": "output/es_footer_probe_v2.json",
+      "sha256": "536c76fd8cc3f80f4e67deda46a20c63cac31b7217b8ce6d2fa16e95fec7036a"
+    },
+    {
+      "path": "output/es_footer_v2.parquet",
+      "sha256": "6a6583b71f842f7bb1d195d27e28fb24315703e654804cb2e37ba85034bdf76b"
+    },
+    {
+      "path": "output/dependencies.json",
+      "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/es_rowgroup0.bin",
+      "sha256": "4120f4cec6f640c4af69fb70cf8b74139cf0359d0c0158875160e6328f7bfbb4"
+    },
+    {
+      "path": "output/es_rowgroup0.jsonl",
+      "sha256": "344f45c4da7cf31117dbfb59c5cbe6f74ba68523f8f8394ba82f4d9d3de077e8"
+    },
+    {
+      "path": "output/es_rowgroup_summary.json",
+      "sha256": "5e7237b7f7ae91ee07ef5cdb2d7b6f09a40c8f03f10380ba6d2db780baf878ab"
+    },
+    {
+      "path": "output/es_rowgroup.resources.json",
+      "sha256": "168a6ef2721e6f0f8d8a013dda7cee0555cc09b87e4aff636cef4993ac723f52"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake15_20261012T1126/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake15",
+  "schema_version": 1,
+  "started_at": "2026-10-12T11:38:43.545496+00:00",
+  "status": "succeeded",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-b200d2388dc04187b9c43aff6fe651a8/stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-b200d2388dc04187b9c43aff6fe651a8/stdout.txt",
+    "sha256": "7c7b48ed7e0fe8374eee3f209680b80f6e3222df21b53dd9923217348286d4b1"
+  },
+  "task_id": "wake15-rowgroup-es",
+  "worker_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 135772,
+    "start_ticks": 1539181
+  }
+}

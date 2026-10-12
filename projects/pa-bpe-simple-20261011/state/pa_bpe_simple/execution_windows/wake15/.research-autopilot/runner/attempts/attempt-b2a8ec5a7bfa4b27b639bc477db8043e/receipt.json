@@ -1,0 +1,59 @@
+{
+  "attempt_id": "attempt-b2a8ec5a7bfa4b27b639bc477db8043e",
+  "command_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 135062,
+    "start_ticks": 1524962
+  },
+  "contract_sha256": "d8816817d97323765e24b3173c2692508ece9a2919cd3e0c71cb72aadf826fcc",
+  "elapsed_seconds": 0.055467498999860254,
+  "error": "Command exited with status 1; Cannot safely read output/fr_footer_probe_v2.json: [Errno 2] No such file or directory: 'fr_footer_probe_v2.json'; Cannot safely read output/fr_footer_v2.parquet: [Errno 2] No such file or directory: 'fr_footer_v2.parquet'; Cannot safely read output/fr_footer_length_v2.json: [Errno 2] No such file or directory: 'fr_footer_length_v2.json'",
+  "exit_code": 1,
+  "finished_at": "2026-10-12T11:36:21.368544+00:00",
+  "input_refs": [
+    {
+      "path": "footer_protocol_v2.json",
+      "sha256": "6a108a1e398d8f784d00aa2f899b8d83a6cb2c733a29b023534185e45aa64da1"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    },
+    {
+      "path": "scripts/probe_parquet_footer_v2.py",
+      "sha256": "34ea2c7f79412edd1a228c3440478258f5e2bca31861388152d22da348572358"
+    },
+    {
+      "path": "inputs/fr_first_shard.json",
+      "sha256": "70e7858eed6fb1fef404a122f53932d38f836857d0ae1d5a8b06b3ff22fa7481"
+    },
+    {
+      "path": "output/dependencies.json",
+      "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/fr_footer_v2.resources.json",
+      "sha256": "63445a4ee592ec41ce42ad6a0a6da4a765280130dde93f82b0ff415a6fb03d4c"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake15_20261012T1126/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake15",
+  "schema_version": 1,
+  "started_at": "2026-10-12T11:36:21.313079+00:00",
+  "status": "failed",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-b2a8ec5a7bfa4b27b639bc477db8043e/stderr.txt",
+    "sha256": "4e47b145b1e6c8bff59e07ed6b5ed9f5bd94b64266f36ad7f6bd9cb9cad52eb4"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-b2a8ec5a7bfa4b27b639bc477db8043e/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "wake15-footer-fr-v2",
+  "worker_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 135061,
+    "start_ticks": 1524958
+  }
+}

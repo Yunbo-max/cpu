@@ -1,0 +1,141 @@
+{
+  "version": "1",
+  "pip_version": "26.2.1",
+  "install": [
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/ad/90/2660332eeb31303c13b653ea566a9918484b6e4d6b9d2d46879a33ab0622/pyarrow-21.0.0-cp312-cp312-manylinux_2_28_x86_64.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "b7ae0bbdc8c6674259b25bef5d2a1d6af5d39d7200c819cf99e07f7dfef1c51e"
+          },
+          "hash": "sha256=b7ae0bbdc8c6674259b25bef5d2a1d6af5d39d7200c819cf99e07f7dfef1c51e"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.1",
+        "name": "pyarrow",
+        "version": "21.0.0",
+        "summary": "Python library for Apache Arrow",
+        "description": "<!---\n  Licensed to the Apache Software Foundation (ASF) under one\n  or more contributor license agreements.  See the NOTICE file\n  distributed with this work for additional information\n  regarding copyright ownership.  The ASF licenses this file\n  to you under the Apache License, Version 2.0 (the\n  \"License\"); you may not use this file except in compliance\n  with the License.  You may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing,\n  software distributed under the License is distributed on an\n  \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n  KIND, either express or implied.  See the License for the\n  specific language governing permissions and limitations\n  under the License.\n-->\n\n## Python library for Apache Arrow\n\n[![pypi](https://img.shields.io/pypi/v/pyarrow.svg)](https://pypi.org/project/pyarrow/) [![conda-forge](https://img.shields.io/conda/vn/conda-forge/pyarrow.svg)](https://anaconda.org/conda-forge/pyarrow)\n\nThis library provides a Python API for functionality provided by the Arrow C++\nlibraries, along with tools for Arrow integration and interoperability with\npandas, NumPy, and other software in the Python ecosystem.\n\n## Installing\n\nAcross platforms, you can install a recent version of pyarrow with the conda\npackage manager:\n\n```shell\nconda install pyarrow -c conda-forge\n```\n\nOn Linux, macOS, and Windows, you can also install binary wheels from PyPI with\npip:\n\n```shell\npip install pyarrow\n```\n\nIf you encounter any issues importing the pip wheels on Windows, you may need\nto install the [Visual C++ Redistributable for Visual Studio 2015][6].\n\n## Development\n\nSee [Python Development][2] in the documentation subproject.\n\n### Building the documentation\n\nSee [documentation build instructions][1] in the documentation subproject.\n\n[1]: https://github.com/apache/arrow/blob/main/docs/source/developers/documentation.rst\n[2]: https://github.com/apache/arrow/blob/main/docs/source/developers/python.rst\n[3]: https://github.com/pandas-dev/pandas\n[5]: https://arrow.apache.org/docs/latest/python/benchmarks.html\n[6]: https://www.microsoft.com/en-us/download/details.aspx?id=48145\n",
+        "description_content_type": "text/markdown",
+        "maintainer_email": "Apache Arrow Developers <dev@arrow.apache.org>",
+        "license": "Apache Software License",
+        "license_file": [
+          "../LICENSE.txt",
+          "../NOTICE.txt"
+        ],
+        "classifier": [
+          "License :: OSI Approved :: Apache Software License",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13"
+        ],
+        "requires_dist": [
+          "pytest ; extra == 'test'",
+          "hypothesis ; extra == 'test'",
+          "cffi ; extra == 'test'",
+          "pytz ; extra == 'test'",
+          "pandas ; extra == 'test'"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Homepage, https://arrow.apache.org/",
+          "Documentation, https://arrow.apache.org/docs/python",
+          "Repository, https://github.com/apache/arrow",
+          "Issues, https://github.com/apache/arrow/issues"
+        ],
+        "provides_extra": [
+          "test"
+        ]
+      }
+    },
+    {
+      "download_info": {
+        "url": "https://files.pythonhosted.org/packages/d0/c6/dc3a0db5a6766416c32c034286d7c2d406da1f498e4de04ab1b8959edd00/tokenizers-0.22.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+        "archive_info": {
+          "hashes": {
+            "sha256": "e2ef6063d7a84994129732b47e7915e8710f27f99f3a3260b8a38fc7ccd083f4"
+          },
+          "hash": "sha256=e2ef6063d7a84994129732b47e7915e8710f27f99f3a3260b8a38fc7ccd083f4"
+        }
+      },
+      "is_direct": false,
+      "is_yanked": false,
+      "requested": true,
+      "metadata": {
+        "metadata_version": "2.4",
+        "name": "tokenizers",
+        "version": "0.22.1",
+        "description": "<p align=\"center\">\n    <br>\n    <img src=\"https://huggingface.co/landing/assets/tokenizers/tokenizers-logo.png\" width=\"600\"/>\n    <br>\n<p>\n<p align=\"center\">\n    <a href=\"https://badge.fury.io/py/tokenizers\">\n         <img alt=\"Build\" src=\"https://badge.fury.io/py/tokenizers.svg\">\n    </a>\n    <a href=\"https://github.com/huggingface/tokenizers/blob/master/LICENSE\">\n        <img alt=\"GitHub\" src=\"https://img.shields.io/github/license/huggingface/tokenizers.svg?color=blue\">\n    </a>\n</p>\n<br>\n\n# Tokenizers\n\nProvides an implementation of today's most used tokenizers, with a focus on performance and\nversatility.\n\nBindings over the [Rust](https://github.com/huggingface/tokenizers/tree/master/tokenizers) implementation.\nIf you are interested in the High-level design, you can go check it there.\n\nOtherwise, let's dive in!\n\n## Main features:\n\n - Train new vocabularies and tokenize using 4 pre-made tokenizers (Bert WordPiece and the 3\n   most common BPE versions).\n - Extremely fast (both training and tokenization), thanks to the Rust implementation. Takes\n   less than 20 seconds to tokenize a GB of text on a server's CPU.\n - Easy to use, but also extremely versatile.\n - Designed for research and production.\n - Normalization comes with alignments tracking. It's always possible to get the part of the\n   original sentence that corresponds to a given token.\n - Does all the pre-processing: Truncate, Pad, add the special tokens your model needs.\n\n### Installation\n\n#### With pip:\n\n```bash\npip install tokenizers\n```\n\n#### From sources:\n\nTo use this method, you need to have the Rust installed:\n\n```bash\n# Install with:\ncurl https://sh.rustup.rs -sSf | sh -s -- -y\nexport PATH=\"$HOME/.cargo/bin:$PATH\"\n```\n\nOnce Rust is installed, you can compile doing the following\n\n```bash\ngit clone https://github.com/huggingface/tokenizers\ncd tokenizers/bindings/python\n\n# Create a virtual env (you can use yours as well)\npython -m venv .env\nsource .env/bin/activate\n\n# Install `tokenizers` in the current virtual env\npip install -e .\n```\n\n### Load a pretrained tokenizer from the Hub\n\n```python\nfrom tokenizers import Tokenizer\n\ntokenizer = Tokenizer.from_pretrained(\"bert-base-cased\")\n```\n\n### Using the provided Tokenizers\n\nWe provide some pre-build tokenizers to cover the most common cases. You can easily load one of\nthese using some `vocab.json` and `merges.txt` files:\n\n```python\nfrom tokenizers import CharBPETokenizer\n\n# Initialize a tokenizer\nvocab = \"./path/to/vocab.json\"\nmerges = \"./path/to/merges.txt\"\ntokenizer = CharBPETokenizer(vocab, merges)\n\n# And then encode:\nencoded = tokenizer.encode(\"I can feel the magic, can you?\")\nprint(encoded.ids)\nprint(encoded.tokens)\n```\n\nAnd you can train them just as simply:\n\n```python\nfrom tokenizers import CharBPETokenizer\n\n# Initialize a tokenizer\ntokenizer = CharBPETokenizer()\n\n# Then train it!\ntokenizer.train([ \"./path/to/files/1.txt\", \"./path/to/files/2.txt\" ])\n\n# Now, let's use it:\nencoded = tokenizer.encode(\"I can feel the magic, can you?\")\n\n# And finally save it somewhere\ntokenizer.save(\"./path/to/directory/my-bpe.tokenizer.json\")\n```\n\n#### Provided Tokenizers\n\n - `CharBPETokenizer`: The original BPE\n - `ByteLevelBPETokenizer`: The byte level version of the BPE\n - `SentencePieceBPETokenizer`: A BPE implementation compatible with the one used by SentencePiece\n - `BertWordPieceTokenizer`: The famous Bert tokenizer, using WordPiece\n\nAll of these can be used and trained as explained above!\n\n### Build your own\n\nWhenever these provided tokenizers don't give you enough freedom, you can build your own tokenizer,\nby putting all the different parts you need together.\nYou can check how we implemented the [provided tokenizers](https://github.com/huggingface/tokenizers/tree/master/bindings/python/py_src/tokenizers/implementations) and adapt them easily to your own needs.\n\n#### Building a byte-level BPE\n\nHere is an example showing how to build your own byte-level BPE by putting all the different pieces\ntogether, and then saving it to a single file:\n\n```python\nfrom tokenizers import Tokenizer, models, pre_tokenizers, decoders, trainers, processors\n\n# Initialize a tokenizer\ntokenizer = Tokenizer(models.BPE())\n\n# Customize pre-tokenization and decoding\ntokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=True)\ntokenizer.decoder = decoders.ByteLevel()\ntokenizer.post_processor = processors.ByteLevel(trim_offsets=True)\n\n# And then train\ntrainer = trainers.BpeTrainer(\n    vocab_size=20000,\n    min_frequency=2,\n    initial_alphabet=pre_tokenizers.ByteLevel.alphabet()\n)\ntokenizer.train([\n    \"./path/to/dataset/1.txt\",\n    \"./path/to/dataset/2.txt\",\n    \"./path/to/dataset/3.txt\"\n], trainer=trainer)\n\n# And Save it\ntokenizer.save(\"byte-level-bpe.tokenizer.json\", pretty=True)\n```\n\nNow, when you want to use this tokenizer, this is as simple as:\n\n```python\nfrom tokenizers import Tokenizer\n\ntokenizer = Tokenizer.from_file(\"byte-level-bpe.tokenizer.json\")\n\nencoded = tokenizer.encode(\"I can feel the magic, can you?\")\n```\n\n",
+        "description_content_type": "text/markdown; charset=UTF-8; variant=GFM",
+        "keywords": [
+          "NLP",
+          "tokenizer",
+          "BPE",
+          "transformer",
+          "deep learning"
+        ],
+        "author_email": "Nicolas Patry <patry.nicolas@protonmail.com>, Anthony Moi <anthony@huggingface.co>",
+        "classifier": [
+          "Development Status :: 5 - Production/Stable",
+          "Intended Audience :: Developers",
+          "Intended Audience :: Education",
+          "Intended Audience :: Science/Research",
+          "License :: OSI Approved :: Apache Software License",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python :: 3",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
+          "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
+          "Programming Language :: Python :: 3.13",
+          "Programming Language :: Python :: 3 :: Only",
+          "Topic :: Scientific/Engineering :: Artificial Intelligence"
+        ],
+        "requires_dist": [
+          "huggingface-hub>=0.16.4,<2.0",
+          "pytest ; extra == 'testing'",
+          "pytest-asyncio ; extra == 'testing'",
+          "requests ; extra == 'testing'",
+          "numpy ; extra == 'testing'",
+          "datasets ; extra == 'testing'",
+          "black==22.3 ; extra == 'testing'",
+          "ruff ; extra == 'testing'",
+          "sphinx ; extra == 'docs'",
+          "sphinx-rtd-theme ; extra == 'docs'",
+          "setuptools-rust ; extra == 'docs'",
+          "tokenizers[testing] ; extra == 'dev'"
+        ],
+        "requires_python": ">=3.9",
+        "project_url": [
+          "Homepage, https://github.com/huggingface/tokenizers",
+          "Source, https://github.com/huggingface/tokenizers"
+        ],
+        "provides_extra": [
+          "testing",
+          "docs",
+          "dev"
+        ]
+      }
+    }
+  ],
+  "environment": {
+    "implementation_name": "cpython",
+    "implementation_version": "3.12.14",
+    "os_name": "posix",
+    "platform_machine": "x86_64",
+    "platform_release": "6.18.44",
+    "platform_system": "Linux",
+    "platform_version": "#1 SMP Sat Sep 26 20:02:31 UTC 2026",
+    "python_full_version": "3.12.14",
+    "platform_python_implementation": "CPython",
+    "python_version": "3.12",
+    "sys_platform": "linux"
+  }
+}

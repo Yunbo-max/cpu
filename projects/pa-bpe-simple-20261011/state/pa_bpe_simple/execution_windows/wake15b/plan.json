@@ -1,0 +1,108 @@
+{
+  "submission_id": "wake15b-bounded-payload-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake15b-bounded-payload-v1",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/payload.resources.json",
+        "scripts/build_bounded_payload.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Actually decontaminate complete frozen 2374-row convenience frame and materialize matched 100000 author pretokens per language with atomic provenance manifest, no confirmation outcomes",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/build_bounded_payload.py",
+          "sha256": "90bab5ac767a16032e153d5da88ff662fead4afe906e7eccbafc549ae0569b1f"
+        },
+        {
+          "path": "scripts/decontam_selector.py",
+          "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+        },
+        {
+          "path": "bounded_frame_protocol.json",
+          "sha256": "27b9f1e7558887ab88d1a63dc478b4e222c0a85a6e129ee3256f2f99923f70f4"
+        },
+        {
+          "path": "evidence/window_parent_binding.json",
+          "sha256": "7aa814d091486ec7c8afbd8451b00d6c2ae3e3c71783224b229977f6adf254d9"
+        },
+        {
+          "path": "inputs/es_rowgroup0.jsonl",
+          "sha256": "344f45c4da7cf31117dbfb59c5cbe6f74ba68523f8f8394ba82f4d9d3de077e8"
+        },
+        {
+          "path": "inputs/parity_aware_learn_bpe.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        },
+        {
+          "path": "inputs/en.parquet",
+          "sha256": "f3ed5eca3e8673c7b763f7c43f000e8430ce7ad652ef90b3b0ccab9bcb5ae89a"
+        },
+        {
+          "path": "inputs/fr_rowgroup_summary.json",
+          "sha256": "ae627e90624c66e7ce58b2c011133cde54919f73bcd527e0c941fd01f4de5470"
+        },
+        {
+          "path": "inputs/adapter_contract.json",
+          "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+        },
+        {
+          "path": "inputs/learn_bpe.py",
+          "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+        },
+        {
+          "path": "inputs/dependencies.json",
+          "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+        },
+        {
+          "path": "inputs/es_footer_probe_v2.json",
+          "sha256": "536c76fd8cc3f80f4e67deda46a20c63cac31b7217b8ce6d2fa16e95fec7036a"
+        },
+        {
+          "path": "inputs/fr_footer_probe_v2.json",
+          "sha256": "6d686875f5c19901c4fe7b9ca800f7a78e16fab3e498ac1d0e0556877555717f"
+        },
+        {
+          "path": "inputs/en_shard.json",
+          "sha256": "29b42df484029822141c61ad87ab38eb20d5399ba80a1a49052e3b05936d744a"
+        },
+        {
+          "path": "inputs/fr_rowgroup0.jsonl",
+          "sha256": "3165db804246d31dc14a48e88e64f44c2bcc02a691c1293ad8adb08b466f3b87"
+        },
+        {
+          "path": "inputs/decontamination_selector_protocol.json",
+          "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+        },
+        {
+          "path": "inputs/es_rowgroup_summary.json",
+          "sha256": "5e7237b7f7ae91ee07ef5cdb2d7b6f09a40c8f03f10380ba6d2db780baf878ab"
+        },
+        {
+          "path": "inputs/confirmation.sqlite3",
+          "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+        }
+      ],
+      "outputs": [
+        "output/payload_summary.json",
+        "output/payload.resources.json",
+        "output/selected_rows.json",
+        "output/en.dict",
+        "output/fr.dict",
+        "output/es.dict"
+      ],
+      "supersedes": null
+    }
+  ]
+}

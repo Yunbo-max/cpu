@@ -1,0 +1,22 @@
+{
+  "mode": "classical",
+  "argv": [
+    "inputs/learn_bpe.py",
+    "--input",
+    "output/pooled.dict",
+    "--output",
+    "output/classical.codes",
+    "--dict-input",
+    "--symbols",
+    "32",
+    "--num-workers",
+    "1"
+  ],
+  "fixed_author_sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35",
+  "codes_sha256": "249abbcce84f5a24db63eccce9bbd2c7ddac7a84d107c0c1fe8ade0e9a586a3f",
+  "merges": 32,
+  "train_pretoken_mass": 300000,
+  "status": "NATIVE_CLI_CONTRACT_PASS",
+  "scope": "32-merge CLI interface/resource diagnostic only, no evaluation or method comparison; pa_dev deliberately reuses nonparallel training dictionaries only to exercise shared dict-input parsing and is invalid as a fairness objective",
+  "confirmation_raw_accessed": false
+}

@@ -1,0 +1,71 @@
+{
+  "artifacts": [
+    {
+      "path": "execution_windows/wake15/cache/en.parquet",
+      "sha256": "f3ed5eca3e8673c7b763f7c43f000e8430ce7ad652ef90b3b0ccab9bcb5ae89a",
+      "size": 592508,
+      "archive_id": "f3ed5eca3e8673c7b763f7c43f000e8430ce7ad652ef90b3b0ccab9bcb5ae89a"
+    },
+    {
+      "path": "execution_windows/wake15/cache/fr.parquet",
+      "sha256": "39ebc5b8f065f384ffc9c7a95bc1637c2aa72ded0ed941a46dbe36fe2f2cecbf",
+      "size": 7144796,
+      "archive_id": "39ebc5b8f065f384ffc9c7a95bc1637c2aa72ded0ed941a46dbe36fe2f2cecbf"
+    },
+    {
+      "path": "execution_windows/wake15/cache/es.parquet",
+      "sha256": "eab1eef623da8644c2d7460b8dd64381b44d6978da523a4b4fa394711139944d",
+      "size": 54971946,
+      "archive_id": "eab1eef623da8644c2d7460b8dd64381b44d6978da523a4b4fa394711139944d"
+    },
+    {
+      "path": "execution_windows/wake15/output/fr_footer_v2.parquet",
+      "sha256": "2ecad40bc4118e9e4a46a837e1a05443cd63e2e629196c88caaf141537af90ff",
+      "size": 12931485,
+      "archive_id": "2ecad40bc4118e9e4a46a837e1a05443cd63e2e629196c88caaf141537af90ff"
+    },
+    {
+      "path": "execution_windows/wake15/output/es_footer_v2.parquet",
+      "sha256": "6a6583b71f842f7bb1d195d27e28fb24315703e654804cb2e37ba85034bdf76b",
+      "size": 13636295,
+      "archive_id": "6a6583b71f842f7bb1d195d27e28fb24315703e654804cb2e37ba85034bdf76b"
+    },
+    {
+      "path": "execution_windows/wake15/cache/es.part",
+      "sha256": "6dca77361a06296eee31940c4ad64ce20a4e1a2293a311cdda21f8aaf2861f29",
+      "size": 32505856,
+      "archive_id": "6dca77361a06296eee31940c4ad64ce20a4e1a2293a311cdda21f8aaf2861f29"
+    },
+    {
+      "path": "execution_windows/wake15/output/es_rowgroup0.jsonl",
+      "sha256": "344f45c4da7cf31117dbfb59c5cbe6f74ba68523f8f8394ba82f4d9d3de077e8",
+      "size": 5010893,
+      "archive_id": "344f45c4da7cf31117dbfb59c5cbe6f74ba68523f8f8394ba82f4d9d3de077e8"
+    },
+    {
+      "path": "execution_windows/wake15b/output/selection.sqlite3-wal",
+      "sha256": "16f21c1854b2cfac43481fa9c1a715b7535a432c9f33a59e9aba65aeab50c921",
+      "size": 11564872,
+      "archive_id": "16f21c1854b2cfac43481fa9c1a715b7535a432c9f33a59e9aba65aeab50c921"
+    },
+    {
+      "path": "execution_windows/wake15b/output/selection.sqlite3",
+      "sha256": "79c84b9a7479d3c7e90dff779fb4a8a909991cf8cf0de2ff77bac4e7e7f0e1b9",
+      "size": 19857408,
+      "archive_id": "79c84b9a7479d3c7e90dff779fb4a8a909991cf8cf0de2ff77bac4e7e7f0e1b9"
+    },
+    {
+      "path": "execution_windows/wake15b/inputs/es_rowgroup0.jsonl",
+      "sha256": "344f45c4da7cf31117dbfb59c5cbe6f74ba68523f8f8394ba82f4d9d3de077e8",
+      "size": 5010893,
+      "archive_id": "344f45c4da7cf31117dbfb59c5cbe6f74ba68523f8f8394ba82f4d9d3de077e8"
+    },
+    {
+      "path": "execution_windows/wake15b/inputs/confirmation.sqlite3",
+      "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7",
+      "size": 7794688,
+      "archive_id": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+    }
+  ],
+  "note": "Raw complete shards and large footer files retained in separately addressable 4MiB Git objects; excluded from state checkout to avoid default large payloads. Restore exact bytes by hash when a task consumes them. Additional >4MiB rows/SQLite/WAL and a retained incomplete .part are separately archived. The incomplete .part is forensic only; final complete source hashes and closed task receipts remain authoritative. No live science process owns these files."
+}

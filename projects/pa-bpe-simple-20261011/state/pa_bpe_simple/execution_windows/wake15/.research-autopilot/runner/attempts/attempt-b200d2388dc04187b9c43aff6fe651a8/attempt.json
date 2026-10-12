@@ -1,0 +1,115 @@
+{
+  "argv": [
+    "python3",
+    "scripts/measure_command.py",
+    "output/es_rowgroup.resources.json",
+    "scripts/extract_row_group.py",
+    "es"
+  ],
+  "attempt_id": "attempt-b200d2388dc04187b9c43aff6fe651a8",
+  "cwd": ".",
+  "deadline_epoch": 1791806144.7605608,
+  "input_refs": [
+    {
+      "path": "bounded_frame_protocol.json",
+      "sha256": "27b9f1e7558887ab88d1a63dc478b4e222c0a85a6e129ee3256f2f99923f70f4"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    },
+    {
+      "path": "scripts/extract_row_group.py",
+      "sha256": "01273fae06df79ededabbb67c921fa407a8d980e7501f093de4d9942d3337f9e"
+    },
+    {
+      "path": "inputs/es_first_shard.json",
+      "sha256": "6a4dd81ad76d517e73c19ec253aab4c76b6a0f926305bc1138762cc49aa6273b"
+    },
+    {
+      "path": "output/es_footer_probe_v2.json",
+      "sha256": "536c76fd8cc3f80f4e67deda46a20c63cac31b7217b8ce6d2fa16e95fec7036a"
+    },
+    {
+      "path": "output/es_footer_v2.parquet",
+      "sha256": "6a6583b71f842f7bb1d195d27e28fb24315703e654804cb2e37ba85034bdf76b"
+    },
+    {
+      "path": "output/dependencies.json",
+      "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+    }
+  ],
+  "kind": "task",
+  "outputs": [
+    "output/es_rowgroup0.bin",
+    "output/es_rowgroup0.jsonl",
+    "output/es_rowgroup_summary.json",
+    "output/es_rowgroup.resources.json"
+  ],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake15_20261012T1126/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake15",
+  "schema_version": 1,
+  "source": {
+    "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+      },
+      {
+        "path": "references/rsi-simple.md",
+        "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+      },
+      {
+        "path": "references/simple-runner.md",
+        "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+      },
+      {
+        "path": "scripts/_simple_process.py",
+        "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+      },
+      {
+        "path": "scripts/_simple_source.py",
+        "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+      },
+      {
+        "path": "scripts/simple_loop.py",
+        "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+      },
+      {
+        "path": "scripts/simple_runner.py",
+        "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+      },
+      {
+        "path": "references/simple-experiment-design.md",
+        "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+      },
+      {
+        "path": "scripts/simple_design.py",
+        "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+      },
+      {
+        "path": "scripts/simple_resources.py",
+        "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+      },
+      {
+        "path": "assets/templates/simple-experiment-plan.json",
+        "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+      },
+      {
+        "path": "assets/templates/simple-experiment-results.json",
+        "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+      },
+      {
+        "path": "references/simple-collaboration.md",
+        "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+      },
+      {
+        "path": "assets/templates/simple-delegation.json",
+        "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+      }
+    ],
+    "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "task_id": "wake15-rowgroup-es",
+  "timeout_seconds": 120
+}

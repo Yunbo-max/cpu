@@ -1,0 +1,35 @@
+{
+  "wake": 15,
+  "incidents": [
+    {
+      "utc": "2026-10-12T11:34:30.885783+00:00",
+      "kind": "footer_bound_failure",
+      "affected": [
+        "es_footer",
+        "fr_footer"
+      ],
+      "observed": "Native footer length exceeded4MiB; both failed exit1 without full metadata read",
+      "repair": "v2 freezes <=64MiB total, <=4MiB ranged requests; actual12.9/13.6MB, both repaired commands exit0"
+    },
+    {
+      "utc": "2026-10-12T11:36:21.368544+00:00",
+      "kind": "temporary_memory_insufficient",
+      "affected": "fr_footer_v2",
+      "observed": "Pre-download memory guard headroom<384MiB, exit1; no OOM",
+      "repair": "No other processes or global caches touched; waited while independent work proceeded, observed913985536B at11:36:45 then811925504B at11:37:18; retry succeeded"
+    },
+    {
+      "utc": "2026-10-12T11:48:55.919780+00:00",
+      "kind": "resource_output_path_reuse",
+      "observed": "Memory retry reused output/fr_footer_v2.resources.json; original failed output restored exactly from retained tool observation to evidence/fr_footer_v2_memory_failure.resources.json",
+      "verification": "Restored SHA25663445a4ee592ec41ce42ad6a0a6da4a765280130dde93f82b0ff415a6fb03d4c equals original failed attempt receipt; original attempt/receipt unchanged",
+      "next": "Use unique output names for every retry"
+    },
+    {
+      "utc": "2026-10-12T11:48:55.919780+00:00",
+      "kind": "idle_supervisor_signal_unavailable",
+      "observed": "Attempt to interrupt already exited wake15 found no PID; later wake15b cross-PID-namespace os.kill returned ESRCH despite proc-visible identity",
+      "repair": "No scientific task active/reserved; used scoped runner stop for finite wake15b only, verified real run exit0 and health exited/stopped. Continuous project remains active."
+    }
+  ]
+}

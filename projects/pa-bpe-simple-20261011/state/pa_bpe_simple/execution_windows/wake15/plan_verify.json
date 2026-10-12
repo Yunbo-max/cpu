@@ -1,0 +1,76 @@
+{
+  "submission_id": "wake15-verify-source-rows",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake15-verify-source-rows",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/source_rows_verification.resources.json",
+        "scripts/verify_source_rows.py"
+      ],
+      "phase": "verify",
+      "purpose": "Independent exact source-row identity verification with different batch traversal and full-sort oracle",
+      "timeout_seconds": 90,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/verify_source_rows.py",
+          "sha256": "d88e602296258c2fdc72c902abf3dae13db72cffec79c9ce66dc27bfeed52cdc"
+        },
+        {
+          "path": "output/dependencies.json",
+          "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+        },
+        {
+          "path": "inputs/en_shard.json",
+          "sha256": "29b42df484029822141c61ad87ab38eb20d5399ba80a1a49052e3b05936d744a"
+        },
+        {
+          "path": "output/en_extraction.json",
+          "sha256": "f433f127ae5dda43aab3baaa5f16bfc94ff162236a1d585cb9385a064ba52a2c"
+        },
+        {
+          "path": "output/en_diagnostic_rows.jsonl",
+          "sha256": "a7d081282e4d34219ec491986633ba30e05f971bb539b7796f42f4e2491e3559"
+        },
+        {
+          "path": "inputs/fr_shard.json",
+          "sha256": "41d1901f9f87d0900c4ae6066e993f5d628d6aa3cf797b889f53cfa186b31be4"
+        },
+        {
+          "path": "output/fr_extraction.json",
+          "sha256": "021bfc93097937ee3de650343b44cb3aee115ea4690438edc893483116a335d6"
+        },
+        {
+          "path": "output/fr_diagnostic_rows.jsonl",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "inputs/es_shard.json",
+          "sha256": "f07e55778e56c21746fb4e477dad3c972bde615f11d6edd22297809580cfed8d"
+        },
+        {
+          "path": "output/es_extraction.json",
+          "sha256": "e8091acff188a0e1f7242136f498b072bbef480aaed01eb26194b4c7d39b99c6"
+        },
+        {
+          "path": "output/es_diagnostic_rows.jsonl",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "outputs": [
+        "output/source_rows_verification.json",
+        "output/source_rows_verification.resources.json"
+      ],
+      "supersedes": null
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "mode": "pa_dev",
+  "argv": [
+    "inputs/parity_aware_learn_bpe.py",
+    "--input",
+    "output/en.dict",
+    "output/fr.dict",
+    "output/es.dict",
+    "--output",
+    "output/pa_dev.codes",
+    "--dict-input",
+    "--symbols",
+    "32",
+    "--num-workers",
+    "1",
+    "--variant",
+    "base",
+    "--dev",
+    "output/en.dict",
+    "output/fr.dict",
+    "output/es.dict"
+  ],
+  "fixed_author_sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5",
+  "codes_sha256": "05e80b72cd09b0171e9c648edd64d71a53ee12d44fdb545f703735bb7420a5f3",
+  "merges": 32,
+  "train_pretoken_mass": 300000,
+  "status": "NATIVE_CLI_CONTRACT_PASS",
+  "scope": "32-merge CLI interface/resource diagnostic only, no evaluation or method comparison; pa_dev deliberately reuses nonparallel training dictionaries only to exercise shared dict-input parsing and is invalid as a fairness objective",
+  "confirmation_raw_accessed": false
+}

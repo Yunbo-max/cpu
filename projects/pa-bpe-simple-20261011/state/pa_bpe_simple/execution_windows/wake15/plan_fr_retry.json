@@ -1,0 +1,55 @@
+{
+  "submission_id": "wake15-fr-memory-recovery",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake15-footer-fr-after-memory-recovery",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/fr_footer_v2.resources.json",
+        "scripts/probe_parquet_footer_v2.py",
+        "fr"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Repair actual 4MiB footer limit with bounded chunked metadata-only reads and persistent length evidence",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "footer_protocol_v2.json",
+          "sha256": "6a108a1e398d8f784d00aa2f899b8d83a6cb2c733a29b023534185e45aa64da1"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/probe_parquet_footer_v2.py",
+          "sha256": "34ea2c7f79412edd1a228c3440478258f5e2bca31861388152d22da348572358"
+        },
+        {
+          "path": "inputs/fr_first_shard.json",
+          "sha256": "70e7858eed6fb1fef404a122f53932d38f836857d0ae1d5a8b06b3ff22fa7481"
+        },
+        {
+          "path": "output/dependencies.json",
+          "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+        },
+        {
+          "path": "evidence/memory_before_fr_retry.json",
+          "sha256": "61cdfaa852d6e39f99ac38f242af69d65e2af325e345200957d930f29914ac17"
+        }
+      ],
+      "outputs": [
+        "output/fr_footer_probe_v2.json",
+        "output/fr_footer_v2.resources.json",
+        "output/fr_footer_v2.parquet",
+        "output/fr_footer_length_v2.json"
+      ],
+      "supersedes": "wake15-footer-fr-v2"
+    }
+  ]
+}

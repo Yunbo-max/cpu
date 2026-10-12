@@ -1,0 +1,59 @@
+{
+  "submission_id": "wake15-rowgroup-es",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake15-rowgroup-es",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/es_rowgroup.resources.json",
+        "scripts/extract_row_group.py",
+        "es"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Acquire frozen complete first row group through explicit authenticated immutable-source byte ranges with recorded partial-file verification scope",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "bounded_frame_protocol.json",
+          "sha256": "27b9f1e7558887ab88d1a63dc478b4e222c0a85a6e129ee3256f2f99923f70f4"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/extract_row_group.py",
+          "sha256": "01273fae06df79ededabbb67c921fa407a8d980e7501f093de4d9942d3337f9e"
+        },
+        {
+          "path": "inputs/es_first_shard.json",
+          "sha256": "6a4dd81ad76d517e73c19ec253aab4c76b6a0f926305bc1138762cc49aa6273b"
+        },
+        {
+          "path": "output/es_footer_probe_v2.json",
+          "sha256": "536c76fd8cc3f80f4e67deda46a20c63cac31b7217b8ce6d2fa16e95fec7036a"
+        },
+        {
+          "path": "output/es_footer_v2.parquet",
+          "sha256": "6a6583b71f842f7bb1d195d27e28fb24315703e654804cb2e37ba85034bdf76b"
+        },
+        {
+          "path": "output/dependencies.json",
+          "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+        }
+      ],
+      "outputs": [
+        "output/es_rowgroup0.bin",
+        "output/es_rowgroup0.jsonl",
+        "output/es_rowgroup_summary.json",
+        "output/es_rowgroup.resources.json"
+      ],
+      "supersedes": null
+    }
+  ]
+}

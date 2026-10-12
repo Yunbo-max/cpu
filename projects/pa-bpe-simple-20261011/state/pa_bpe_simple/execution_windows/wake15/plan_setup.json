@@ -1,0 +1,40 @@
+{
+  "submission_id": "wake15-setup",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake15-isolated-dependencies",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/setup.resources.json",
+        "scripts/setup_deps.py"
+      ],
+      "phase": "code",
+      "purpose": "Install pinned isolated dependencies for actual fixed-shard provenance diagnostic",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "protocol.json",
+          "sha256": "21f445c5fd6effb9fff9d617c8e1ee4c7e2140dce0de401ae73f94c8b6e293f8"
+        },
+        {
+          "path": "scripts/setup_deps.py",
+          "sha256": "acb86d52391ec319a91642dda11d65b6f54a30bb565d1a0759a79cc2a1fa86c7"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        }
+      ],
+      "outputs": [
+        "output/dependencies.json",
+        "output/setup.resources.json"
+      ],
+      "supersedes": null
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "attempt_id": "attempt-9e942932a75b43059bae2e1c2863f0b9",
+  "command_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 134473,
+    "start_ticks": 1512804
+  },
+  "contract_sha256": "54c310c1c2477e141cfe3670ccf3e12bf4678bc5bb0b30644d0e35f88c2d0021",
+  "elapsed_seconds": 11.146620183999403,
+  "error": "Command exited with status 1; Cannot safely read output/es_footer_probe.json: [Errno 2] No such file or directory: 'es_footer_probe.json'; Cannot safely read output/es_footer.parquet: [Errno 2] No such file or directory: 'es_footer.parquet'",
+  "exit_code": 1,
+  "finished_at": "2026-10-12T11:34:30.885783+00:00",
+  "input_refs": [
+    {
+      "path": "footer_protocol.json",
+      "sha256": "31771722699fb027a3eafaaf64021b14d7c41e53340a3e9b88f05379080a7bcf"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    },
+    {
+      "path": "scripts/probe_parquet_footer.py",
+      "sha256": "2352ead98e6bf42d14ea0091ca527919146133da817237f92e456a1d11d36df7"
+    },
+    {
+      "path": "inputs/es_first_shard.json",
+      "sha256": "6a4dd81ad76d517e73c19ec253aab4c76b6a0f926305bc1138762cc49aa6273b"
+    },
+    {
+      "path": "output/dependencies.json",
+      "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/es_footer.resources.json",
+      "sha256": "71d92f81c8f2df36d0b80a67b622c5f6f281661f1edfb1191b30ce843170e2dc"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake15_20261012T1126/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake15",
+  "schema_version": 1,
+  "started_at": "2026-10-12T11:34:19.739165+00:00",
+  "status": "failed",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-9e942932a75b43059bae2e1c2863f0b9/stderr.txt",
+    "sha256": "462cb7c486f7c8ec5b8c15314f78bb0c4aeb54651e082818f3887f9eb1719ff6"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-9e942932a75b43059bae2e1c2863f0b9/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "wake15-footer-es",
+  "worker_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 134471,
+    "start_ticks": 1512800
+  }
+}

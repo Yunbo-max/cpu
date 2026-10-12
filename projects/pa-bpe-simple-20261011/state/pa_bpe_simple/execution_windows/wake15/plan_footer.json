@@ -1,0 +1,93 @@
+{
+  "submission_id": "wake15-footer-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake15-footer-fr",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/fr_footer.resources.json",
+        "scripts/probe_parquet_footer.py",
+        "fr"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Read only Parquet footer ranges to locate native target-dump support without unbounded payload download",
+      "timeout_seconds": 90,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "footer_protocol.json",
+          "sha256": "31771722699fb027a3eafaaf64021b14d7c41e53340a3e9b88f05379080a7bcf"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/probe_parquet_footer.py",
+          "sha256": "2352ead98e6bf42d14ea0091ca527919146133da817237f92e456a1d11d36df7"
+        },
+        {
+          "path": "inputs/fr_first_shard.json",
+          "sha256": "70e7858eed6fb1fef404a122f53932d38f836857d0ae1d5a8b06b3ff22fa7481"
+        },
+        {
+          "path": "output/dependencies.json",
+          "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+        }
+      ],
+      "outputs": [
+        "output/fr_footer_probe.json",
+        "output/fr_footer.resources.json",
+        "output/fr_footer.parquet"
+      ],
+      "supersedes": null
+    },
+    {
+      "task_id": "wake15-footer-es",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/es_footer.resources.json",
+        "scripts/probe_parquet_footer.py",
+        "es"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Read only Parquet footer ranges to locate native target-dump support without unbounded payload download",
+      "timeout_seconds": 90,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "footer_protocol.json",
+          "sha256": "31771722699fb027a3eafaaf64021b14d7c41e53340a3e9b88f05379080a7bcf"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/probe_parquet_footer.py",
+          "sha256": "2352ead98e6bf42d14ea0091ca527919146133da817237f92e456a1d11d36df7"
+        },
+        {
+          "path": "inputs/es_first_shard.json",
+          "sha256": "6a4dd81ad76d517e73c19ec253aab4c76b6a0f926305bc1138762cc49aa6273b"
+        },
+        {
+          "path": "output/dependencies.json",
+          "sha256": "1a5639df80cda23e88096c6326916b293da7547e6a0e8afb577e6163878ca39e"
+        }
+      ],
+      "outputs": [
+        "output/es_footer_probe.json",
+        "output/es_footer.resources.json",
+        "output/es_footer.parquet"
+      ],
+      "supersedes": null
+    }
+  ]
+}

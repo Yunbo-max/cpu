@@ -1,0 +1,14 @@
+{
+  "id": "wake15-footer-probe-v2",
+  "reason": "Fully hashed smallest French and Spanish shards have zero CC-MAIN-2013-20 rows; diagnose metadata of lexicographically first frozen shards before any larger payload acquisition",
+  "selection": "lexicographically first path in each original frozen wake9 fr/es manifest",
+  "scope": "metadata only; no random sampling or whole-object SHA verification claim",
+  "limits": {
+    "max_reads_per_language": 17,
+    "max_range_bytes": 4194304,
+    "max_footer_bytes": 67108864,
+    "max_command_seconds": 120
+  },
+  "next": "Use observed row-group dump ranges to freeze a bounded byte-range development frame or stop if unavailable. Do not relax year predicate.",
+  "change_reason": "Both native tail requests succeeded but footer length exceeded former 4MiB total bound; persist length and retrieve <=64MiB metadata in <=4MiB chunks. Same metadata target, no text columns read."
+}
