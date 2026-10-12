@@ -1,0 +1,648 @@
+[
+  {
+    "agent_error": null,
+    "agent_version": 0,
+    "attempts": [
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/pa_bpe_wake19_20261012T1420/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake19/.research-autopilot/runner/attempts/attempt-7d0734dd90eb427c834bcf9b60bcf111",
+        "attempt_id": "attempt-7d0734dd90eb427c834bcf9b60bcf111",
+        "contract": {
+          "argv": [
+            "/usr/bin/env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "MKL_NUM_THREADS=1",
+            "NUMEXPR_NUM_THREADS=1",
+            "python3",
+            "scripts/measure_command.py",
+            "output/mechanism.resources.json",
+            "scripts/audit_merge_mechanism.py"
+          ],
+          "attempt_id": "attempt-7d0734dd90eb427c834bcf9b60bcf111",
+          "cwd": ".",
+          "deadline_epoch": 1791817003.8281224,
+          "input_refs": [
+            {
+              "path": "mechanism_plan.json",
+              "sha256": "27fe8be279944da5a74e2b6230b2a4b34adf36bd6f93a0669144f08abc469b12"
+            },
+            {
+              "path": "scripts/audit_merge_mechanism.py",
+              "sha256": "f7c241ca4214d4151308c8c4119ebbe6e04093c77933d2ece00f6ea17f9b1424"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+            },
+            {
+              "path": "inputs/classical.codes",
+              "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"
+            },
+            {
+              "path": "inputs/hybrid.codes",
+              "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"
+            },
+            {
+              "path": "inputs/base.codes",
+              "sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f"
+            },
+            {
+              "path": "inputs/dev.json",
+              "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+            },
+            {
+              "path": "inputs/en.dict",
+              "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"
+            },
+            {
+              "path": "inputs/fr.dict",
+              "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"
+            },
+            {
+              "path": "inputs/es.dict",
+              "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"
+            },
+            {
+              "path": "inputs/wake16b_evaluation.json",
+              "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "output/mechanism_summary.json",
+            "output/mechanism_raw.json",
+            "output/mechanism.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake19_20261012T1420/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake19",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "audit-fixed-merge-mechanism",
+          "timeout_seconds": 120
+        },
+        "contract_sha256": "2943b902241ed7ee8f7a17ddacf52f59ca1a58163ece445ac75a8d7c496402f2",
+        "elapsed_seconds": 100.66577281499849,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-7d0734dd90eb427c834bcf9b60bcf111",
+          "command_identity": {
+            "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+            "pid": 186247,
+            "start_ticks": 2550457
+          },
+          "contract_sha256": "2943b902241ed7ee8f7a17ddacf52f59ca1a58163ece445ac75a8d7c496402f2",
+          "elapsed_seconds": 100.66577281499849,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T14:28:56.931416+00:00",
+          "input_refs": [
+            {
+              "path": "mechanism_plan.json",
+              "sha256": "27fe8be279944da5a74e2b6230b2a4b34adf36bd6f93a0669144f08abc469b12"
+            },
+            {
+              "path": "scripts/audit_merge_mechanism.py",
+              "sha256": "f7c241ca4214d4151308c8c4119ebbe6e04093c77933d2ece00f6ea17f9b1424"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+            },
+            {
+              "path": "inputs/classical.codes",
+              "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"
+            },
+            {
+              "path": "inputs/hybrid.codes",
+              "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"
+            },
+            {
+              "path": "inputs/base.codes",
+              "sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f"
+            },
+            {
+              "path": "inputs/dev.json",
+              "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+            },
+            {
+              "path": "inputs/en.dict",
+              "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"
+            },
+            {
+              "path": "inputs/fr.dict",
+              "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"
+            },
+            {
+              "path": "inputs/es.dict",
+              "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"
+            },
+            {
+              "path": "inputs/wake16b_evaluation.json",
+              "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/mechanism_summary.json",
+              "sha256": "7ff7f95cb53fba0db7a04d06a9a4c687641d8bbe98c7b0de56cad224714c2748"
+            },
+            {
+              "path": "output/mechanism_raw.json",
+              "sha256": "e4cec30e534cd61c4cdd1a1c9c2f219332f7226d1414bdbfcbbb386a582f9aac"
+            },
+            {
+              "path": "output/mechanism.resources.json",
+              "sha256": "e27604733ca0c8d5d17e749b10fa3cb8d8aa8d145c7d9977b43759b3518d8aee"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake19_20261012T1420/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake19",
+          "schema_version": 1,
+          "started_at": "2026-10-12T14:27:16.265650+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-7d0734dd90eb427c834bcf9b60bcf111/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-7d0734dd90eb427c834bcf9b60bcf111/stdout.txt",
+            "sha256": "7ff7f95cb53fba0db7a04d06a9a4c687641d8bbe98c7b0de56cad224714c2748"
+          },
+          "task_id": "audit-fixed-merge-mechanism",
+          "worker_identity": {
+            "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+            "pid": 186246,
+            "start_ticks": 2550453
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-7d0734dd90eb427c834bcf9b60bcf111/receipt.json",
+          "sha256": "6a017d3e7bb4edd958216baa31502883347ee3507f5c1e4bb06572254c11d07b"
+        },
+        "reservation_seconds": 123.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "audit-fixed-merge-mechanism"
+      }
+    ],
+    "budget": {
+      "attempts_used": 1,
+      "deadline_epoch": 1791817003.8281224,
+      "elapsed_seconds": 100.66577281499849,
+      "max_attempts": 12,
+      "max_command_seconds": 600,
+      "remaining_deadline_seconds": 1666.8637506961823,
+      "remaining_seconds": 499.3342271850015,
+      "reserved_seconds": 0
+    },
+    "continuation": null,
+    "current_question": "Continue verify: Execution observation for audit-fixed-merge-mechanism: succeeded; Command execution reported succeeded",
+    "error": null,
+    "goal": "Test and improve cross-domain stability of multilingual tokenization fairness while preserving cost and negative evidence",
+    "goal_contract": {
+      "completion_criteria": [
+        {
+          "description": "Measure cross-domain fairness stability on aligned multilingual data with frozen methods and independent arithmetic checks",
+          "id": "stability"
+        },
+        {
+          "description": "Distinguish useful parity corrections from overshoot and cost increases using fixed controls and mechanism evidence",
+          "id": "mechanism"
+        }
+      ],
+      "mode": "continuous_research"
+    },
+    "goal_contract_version": 1,
+    "idea": "pa-bpe-domain-robustness",
+    "idea_status": "active",
+    "journal_version": 1,
+    "milestones": [],
+    "next_action": "Continue verify: Execution observation for audit-fixed-merge-mechanism: succeeded; Command execution reported succeeded",
+    "observations": [
+      {
+        "event_id": "result:attempt-7d0734dd90eb427c834bcf9b60bcf111",
+        "kind": "task_result",
+        "payload": {
+          "attempt_id": "attempt-7d0734dd90eb427c834bcf9b60bcf111",
+          "reason": "Command execution reported succeeded",
+          "receipt": {
+            "attempt_id": "attempt-7d0734dd90eb427c834bcf9b60bcf111",
+            "command_identity": {
+              "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+              "pid": 186247,
+              "start_ticks": 2550457
+            },
+            "contract_sha256": "2943b902241ed7ee8f7a17ddacf52f59ca1a58163ece445ac75a8d7c496402f2",
+            "elapsed_seconds": 100.66577281499849,
+            "error": null,
+            "exit_code": 0,
+            "finished_at": "2026-10-12T14:28:56.931416+00:00",
+            "input_refs": [
+              {
+                "path": "mechanism_plan.json",
+                "sha256": "27fe8be279944da5a74e2b6230b2a4b34adf36bd6f93a0669144f08abc469b12"
+              },
+              {
+                "path": "scripts/audit_merge_mechanism.py",
+                "sha256": "f7c241ca4214d4151308c8c4119ebbe6e04093c77933d2ece00f6ea17f9b1424"
+              },
+              {
+                "path": "scripts/measure_command.py",
+                "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+              },
+              {
+                "path": "inputs/classical.codes",
+                "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"
+              },
+              {
+                "path": "inputs/hybrid.codes",
+                "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"
+              },
+              {
+                "path": "inputs/base.codes",
+                "sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f"
+              },
+              {
+                "path": "inputs/dev.json",
+                "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+              },
+              {
+                "path": "inputs/en.dict",
+                "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"
+              },
+              {
+                "path": "inputs/fr.dict",
+                "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"
+              },
+              {
+                "path": "inputs/es.dict",
+                "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"
+              },
+              {
+                "path": "inputs/wake16b_evaluation.json",
+                "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+              }
+            ],
+            "output_refs": [
+              {
+                "path": "output/mechanism_summary.json",
+                "sha256": "7ff7f95cb53fba0db7a04d06a9a4c687641d8bbe98c7b0de56cad224714c2748"
+              },
+              {
+                "path": "output/mechanism_raw.json",
+                "sha256": "e4cec30e534cd61c4cdd1a1c9c2f219332f7226d1414bdbfcbbb386a582f9aac"
+              },
+              {
+                "path": "output/mechanism.resources.json",
+                "sha256": "e27604733ca0c8d5d17e749b10fa3cb8d8aa8d145c7d9977b43759b3518d8aee"
+              }
+            ],
+            "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake19_20261012T1420/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake19",
+            "schema_version": 1,
+            "started_at": "2026-10-12T14:27:16.265650+00:00",
+            "status": "succeeded",
+            "stderr_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-7d0734dd90eb427c834bcf9b60bcf111/stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stdout_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-7d0734dd90eb427c834bcf9b60bcf111/stdout.txt",
+              "sha256": "7ff7f95cb53fba0db7a04d06a9a4c687641d8bbe98c7b0de56cad224714c2748"
+            },
+            "task_id": "audit-fixed-merge-mechanism",
+            "worker_identity": {
+              "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+              "pid": 186246,
+              "start_ticks": 2550453
+            }
+          },
+          "receipt_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-7d0734dd90eb427c834bcf9b60bcf111/receipt.json",
+            "sha256": "6a017d3e7bb4edd958216baa31502883347ee3507f5c1e4bb06572254c11d07b"
+          },
+          "status": "succeeded",
+          "task_id": "audit-fixed-merge-mechanism"
+        },
+        "request_id": null,
+        "sequence": 1
+      }
+    ],
+    "request_id": "decision-145ae7c31191497fbc4e6590330f219f",
+    "request_ref": {
+      "path": ".research-autopilot/runner/requests/decision-145ae7c31191497fbc4e6590330f219f.json",
+      "sha256": "0b768206204b446d891b73ddda83457521227979b33bdbbbd32ab90b5e03f670"
+    },
+    "research_cycles": [],
+    "revision": 1,
+    "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake19_20261012T1420/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake19",
+    "source": {
+      "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+        },
+        {
+          "path": "references/rsi-simple.md",
+          "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+        },
+        {
+          "path": "references/simple-runner.md",
+          "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+        },
+        {
+          "path": "scripts/_simple_process.py",
+          "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+        },
+        {
+          "path": "scripts/_simple_source.py",
+          "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+        },
+        {
+          "path": "scripts/simple_loop.py",
+          "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+        },
+        {
+          "path": "scripts/simple_runner.py",
+          "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+        },
+        {
+          "path": "references/simple-experiment-design.md",
+          "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+        },
+        {
+          "path": "scripts/simple_design.py",
+          "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+        },
+        {
+          "path": "scripts/simple_resources.py",
+          "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+        },
+        {
+          "path": "assets/templates/simple-experiment-plan.json",
+          "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+        },
+        {
+          "path": "assets/templates/simple-experiment-results.json",
+          "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+        },
+        {
+          "path": "references/simple-collaboration.md",
+          "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+        },
+        {
+          "path": "assets/templates/simple-delegation.json",
+          "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+        }
+      ],
+      "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+    },
+    "state": "open",
+    "tasks": [
+      {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "python3",
+          "scripts/measure_command.py",
+          "output/mechanism.resources.json",
+          "scripts/audit_merge_mechanism.py"
+        ],
+        "attempt_id": "attempt-7d0734dd90eb427c834bcf9b60bcf111",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "mechanism_plan.json",
+            "sha256": "27fe8be279944da5a74e2b6230b2a4b34adf36bd6f93a0669144f08abc469b12"
+          },
+          {
+            "path": "scripts/audit_merge_mechanism.py",
+            "sha256": "f7c241ca4214d4151308c8c4119ebbe6e04093c77933d2ece00f6ea17f9b1424"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+          },
+          {
+            "path": "inputs/classical.codes",
+            "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"
+          },
+          {
+            "path": "inputs/hybrid.codes",
+            "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"
+          },
+          {
+            "path": "inputs/base.codes",
+            "sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f"
+          },
+          {
+            "path": "inputs/dev.json",
+            "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+          },
+          {
+            "path": "inputs/en.dict",
+            "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"
+          },
+          {
+            "path": "inputs/fr.dict",
+            "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"
+          },
+          {
+            "path": "inputs/es.dict",
+            "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"
+          },
+          {
+            "path": "inputs/wake16b_evaluation.json",
+            "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+          }
+        ],
+        "outputs": [
+          "output/mechanism_summary.json",
+          "output/mechanism_raw.json",
+          "output/mechanism.resources.json"
+        ],
+        "phase": "experiment",
+        "purpose": "Exactly replay fixed Classical, hybrid and base merges on frozen training dictionaries and exposed TICO development units",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": null,
+        "task_id": "audit-fixed-merge-mechanism",
+        "timeout_seconds": 120
+      },
+      {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "python3",
+          "scripts/measure_command.py",
+          "output/mechanism_verification.resources.json",
+          "scripts/verify_merge_mechanism.py"
+        ],
+        "attempt_id": null,
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [
+          "audit-fixed-merge-mechanism"
+        ],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "scripts/verify_merge_mechanism.py",
+            "sha256": "6a42d8a01e75180f439284445f1f6b8ba6e888932c097ac7137f6443e440ddb6"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+          }
+        ],
+        "outputs": [
+          "output/mechanism_verification.json",
+          "output/mechanism_verification.resources.json"
+        ],
+        "phase": "verify",
+        "purpose": "Independently reconstruct prefix identity, reductions, conservation equations, Gini and frozen endpoint agreement",
+        "reason": "Awaiting successful dependencies; uncertain dependencies retain their identity",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "queued",
+        "supersedes": null,
+        "task_id": "verify-fixed-merge-mechanism",
+        "timeout_seconds": 60
+      }
+    ]
+  }
+]

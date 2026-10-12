@@ -1,0 +1,21 @@
+{
+  "id": "wake19-fixed-merge-mechanism-audit-v1",
+  "frozen_utc": "2026-10-12T14:28:00Z",
+  "active_idea": "pa-bpe-domain-robustness",
+  "idea_revision": 1,
+  "question": "Does the fixed hybrid's 500-merge global prefix preserve globally efficient compression while its parity tail redirects marginal token reductions toward the currently highest-cost development language without the stronger overshoot seen under full parity targeting?",
+  "prediction": "The first 500 hybrid merges are byte-identical to Classical. Over ranks 501-1000, hybrid selects the current maximum-cost development language and gives it most of the realized development reduction more often than Classical, reducing development Gini with fewer pairwise sign crossings and a smaller total-cost penalty than full base PA-BPE.",
+  "falsifiers": [
+    "The hybrid prefix differs from Classical before rank 501.",
+    "Exact replay does not reproduce the already frozen rank-1000 development means.",
+    "The hybrid tail does not preferentially reduce its pre-merge selected language, or does not reduce Gini relative to the shared rank-500 state.",
+    "Hybrid shows as many or more pairwise sign crossings as base, undermining the proposed overshoot-control account."
+  ],
+  "scope": "Mechanism audit on the already exposed TICO development set and fixed 100000-pretoken-per-language training dictionaries. It is descriptive, cannot create a new confirmation claim, and cannot tune methods or thresholds.",
+  "arms": ["classical", "hybrid_global500", "base"],
+  "checkpoints": [0, 500, 1000],
+  "effect_definition": "For each frozen merge and language, exact non-overlapping reduction in aggregate symbol count on fixed training and TICO development pretoken dictionaries.",
+  "ownership_definition": "Effect owner is the language with the largest realized marginal reduction; this is not claimed to be the algorithm's internal selector. For PA tails the selector is independently reconstructed as the pre-merge development language with maximum aggregate token length.",
+  "pretokenizer": "Independent Python reconstruction of tokenizers 0.22.1 Whitespace followed by ByteLevel(add_prefix_space=true,use_regex=false); rank-1000 means must exactly match frozen tokenizers evaluation before acceptance.",
+  "resource": "CPU only, one process and one thread; expected RSS below 512 MiB; remeasure cgroup immediately before launch; 120 second command cap."
+}

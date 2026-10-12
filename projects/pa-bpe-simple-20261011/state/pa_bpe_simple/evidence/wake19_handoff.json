@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "wake": "wake19-20261012",
+  "active_idea": "fixed hybrid merge-allocation mechanism and delayed parity exposure",
+  "scientific_attempts": 4,
+  "scientific_wall_seconds": 100.86695214699648,
+  "reserved_seconds": 0,
+  "all_attempts_terminal": true,
+  "all_attempts_succeeded": true,
+  "maximum_measured_rss_bytes": 52617216,
+  "memory_wait_required": false,
+  "verification_checks": {"mechanism": 36, "interpretation": 16},
+  "hybrid_selector_effect_owner": {"count": 428, "denominator": 500},
+  "hybrid_positive_selected_effect": {"count": 487, "denominator": 500},
+  "exact_tail_crossings": {"hybrid": 208, "base": 208, "classical": 0},
+  "target_switches": {"hybrid": 222, "base": 215},
+  "frozen_smoother_controller_prediction": false,
+  "interpretation": "Hybrid preserves an efficient 500-global prefix and limits exposure to a reactive parity tail; it does not smooth the tail controller itself.",
+  "next_action": "On TICO development only, train hybrid-window with 500 global merges and fixed window=100, alpha=2; test switching, exact French-Spanish crossings, Gini and total cost before touching a new confirmation domain."
+}

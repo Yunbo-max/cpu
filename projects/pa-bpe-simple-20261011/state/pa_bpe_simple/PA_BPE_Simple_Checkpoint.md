@@ -1,3 +1,19 @@
+# 最新规范状态：generation 20，2026-10-12
+
+本轮对固定Classical、hybrid（前500次global）和base的1000个merge逐步做了精确重放，输入是既有每语100000预分词训练字典与已暴露TICO开发集；独立Python预分词重建在rank1000逐语言均值上与旧tokenizers评测精确一致。hybrid与Classical前500个merge逐字节相同，rank500开发Gini均为0.0386621。
+
+hybrid后500步把当前最高成本语言作为selector；500步中428步该语言也获得最大实际开发token降幅，487步获得正降幅。相对Classical后500步，hybrid多减少法语2305个token，但少减少英语4836、西语633，净少减少3164；开发Gini从0.0386621降到0.0175252，而Classical尾部升到0.0430154。这支持“global前缀保留高效共享压缩，有限parity尾部重新分配收益”。
+
+但冻结的“hybrid尾部更平滑”预测被否定：hybrid与base在rank501–1000均有208次精确pair-gap符号翻转；hybrid的208次全部发生在法西之间，目标切换222次，反而多于base的215次。hybrid的稳健折中更符合“延迟/限制暴露于同一反应式控制器”，而不是尾部控制器消除了局部chattering。负结果完整保留。机制主核验36项、解释核验16项全部通过。
+
+四个科学attempt均exit0，新增wall 100.866952147秒，累计1752.873801133秒；峰值RSS 52,617,216字节，无OOM、timeout或内存等待。一次重复supervisor启动被现有锁阻止，原supervisor随后安全完成任务，无重复科学命令；宿主`ps`管理探针再次出现`fatal library error, lookup self`，runner状态与科学结果不受影响。全部attempt终态、reservation0，supervisor正常停止并确认退出。
+
+下一步仅在TICO开发上训练预先指定的`hybrid-window`候选：前500次global，后500次采用作者现有moving-window控制器，沿用已冻结`window=100, alpha=2`。检验它是否降低法西翻转与目标切换，同时保持正Gini收益和受限总成本；不得在新确认域上调参。若开发门通过，再另行锁定一个未曝光合法对齐域作确认。
+
+恢复必读：本文件、`resources_initial.json`、`manifest.json`、`phase_budget.json`、`PA_BPE_Wake19_Report.md`、`evidence/wake19_handoff.json`、`evidence/incidents_wake19.json`、`execution_windows/wake19/output/mechanism_summary.json`、`mechanism_verification.json`、`mechanism_interpretation.json`及`mechanism_interpretation_verification.json`。
+
+# 历史原字节段落保留
+
 # 最新规范状态：generation 19，2026-10-12
 
 本轮对已经冻结的Classical、PA base/window/hybrid/ratio 1000-merge codes，在FLORES-200 devtest的1012个英法西内容对齐句子上完成固定重放，并以既有GlobalVoices结果计算暴露域稳健前沿。FLORES上base/window Gini最低（0.007425/0.007741），但总token成本均增加约4.0%；hybrid Gini 0.022759、总成本+1.7939%、最差语言成本+0.1674%；ratio Gini 0.048134，较Classical恶化。

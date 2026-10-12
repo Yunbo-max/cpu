@@ -1,0 +1,57 @@
+{
+  "response_id": "wake19-mechanism-results-to-interpretation-v1",
+  "request_id": "decision-145ae7c31191497fbc4e6590330f219f",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The exact replay and independent endpoint/conservation verification succeeded. One frozen overshoot prediction is already false at the aggregate level, so a threshold-free pairwise decomposition is required before interpretation.",
+  "events": [
+    {
+      "event_id": "wake19-fixed-merge-mechanism-cycle",
+      "kind": "research_cycle",
+      "hypothesis": "Hybrid's global prefix preserves shared compression and its parity tail redirects marginal reductions toward the current high-cost language with less overshoot than full base PA-BPE.",
+      "prediction": "The prefix is exactly shared; hybrid's selector usually owns the realized effect; hybrid has fewer exact pairwise sign crossings and target switches than base.",
+      "result": "The prefix is exactly 500 merges and all three rank-1000 endpoints exactly reproduce the frozen tokenizers evaluation. Hybrid's selected language owns the largest development effect in 428/500 tail merges and receives a positive effect in 487/500. However, hybrid and base each show 208 exact sign crossings in ranks 501-1000, and hybrid switches target 222 times versus base's 215.",
+      "interpretation": "The redirection mechanism is supported, but the proposed smoother-controller/less-local-overshoot mechanism is not. Preserve this negative result and decompose which language pair accounts for the crossings before revising the mechanism.",
+      "next_action": "Compute pair-specific exact crossings and the hybrid-versus-Classical tail reduction reallocation without introducing a post-exposure threshold.",
+      "reason": "Separate delayed parity exposure from local controller smoothness while retaining the frozen falsifier.",
+      "evidence": [
+        {"path": "output/mechanism_summary.json", "sha256": "7ff7f95cb53fba0db7a04d06a9a4c687641d8bbe98c7b0de56cad224714c2748"},
+        {"path": "output/mechanism_verification.json", "sha256": "2761e98fa95dff9417c1e24d2288677502c5e476564674d872c52e3cd0d4a038"}
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "analyze-mechanism-interpretation",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "MKL_NUM_THREADS=1", "NUMEXPR_NUM_THREADS=1", "python3", "scripts/measure_command.py", "output/mechanism_interpretation.resources.json", "scripts/analyze_mechanism_interpretation.py"],
+      "phase": "analysis",
+      "purpose": "Decompose exact sign crossings by pair and quantify tail token-reduction reallocation",
+      "timeout_seconds": 30,
+      "cwd": ".",
+      "depends_on": ["verify-fixed-merge-mechanism"],
+      "input_refs": [
+        {"path": "scripts/analyze_mechanism_interpretation.py", "sha256": "27a749283bba2b9808ee07abfbd8f7725d5fc8a0bb75237c2d0e6077b8db40f6"},
+        {"path": "scripts/measure_command.py", "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"},
+        {"path": "output/mechanism_summary.json", "sha256": "7ff7f95cb53fba0db7a04d06a9a4c687641d8bbe98c7b0de56cad224714c2748"},
+        {"path": "output/mechanism_raw.json", "sha256": "e4cec30e534cd61c4cdd1a1c9c2f219332f7226d1414bdbfcbbb386a582f9aac"}
+      ],
+      "outputs": ["output/mechanism_interpretation.json", "output/mechanism_interpretation.resources.json"]
+    },
+    {
+      "task_id": "verify-mechanism-interpretation",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "MKL_NUM_THREADS=1", "NUMEXPR_NUM_THREADS=1", "python3", "scripts/measure_command.py", "output/mechanism_interpretation_verification.resources.json", "scripts/verify_mechanism_interpretation.py"],
+      "phase": "verify",
+      "purpose": "Independently reconstruct pairwise crossings, selector effects and the retained negative falsifier",
+      "timeout_seconds": 30,
+      "cwd": ".",
+      "depends_on": ["analyze-mechanism-interpretation"],
+      "input_refs": [
+        {"path": "scripts/verify_mechanism_interpretation.py", "sha256": "60ecae67a19de6fd007647cf09fd6caf65cb31c1ad360c13acd5086c31dcbd77"},
+        {"path": "scripts/measure_command.py", "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"},
+        {"path": "output/mechanism_raw.json", "sha256": "e4cec30e534cd61c4cdd1a1c9c2f219332f7226d1414bdbfcbbb386a582f9aac"}
+      ],
+      "outputs": ["output/mechanism_interpretation_verification.json", "output/mechanism_interpretation_verification.resources.json"]
+    }
+  ]
+}

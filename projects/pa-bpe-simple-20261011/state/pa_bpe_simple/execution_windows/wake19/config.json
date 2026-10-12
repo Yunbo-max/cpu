@@ -1,0 +1,12 @@
+{
+  "idea": "pa-bpe-domain-robustness",
+  "goal": "Test and improve cross-domain stability of multilingual tokenization fairness while preserving cost and negative evidence",
+  "goal_contract": {
+    "mode": "continuous_research",
+    "completion_criteria": [
+      {"id": "stability", "description": "Measure cross-domain fairness stability on aligned multilingual data with frozen methods and independent arithmetic checks"},
+      {"id": "mechanism", "description": "Distinguish useful parity corrections from overshoot and cost increases using fixed controls and mechanism evidence"}
+    ]
+  },
+  "limits": {"max_attempts": 12, "max_command_seconds": 600, "deadline_seconds": 1800, "max_concurrency": 1}
+}

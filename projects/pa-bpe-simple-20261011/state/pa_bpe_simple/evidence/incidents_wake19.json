@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "wake": "wake19-20261012",
+  "incidents": [
+    {
+      "event_id": "supervisor-start:bc4471d6bcac2f897607dab9f4670737fd5fa7077e8239f12426538b896b371d",
+      "kind": "duplicate_supervisor_start_rejected",
+      "observed_utc": "2026-10-12T14:31:21.965140+00:00",
+      "reason": "Another supervisor owns this project lock",
+      "impact": "The existing supervisor had already accepted the response and completed both queued analysis tasks. No duplicate science, attempt, or reservation was created.",
+      "repair": "Inspected runner health/status, retained the original owner, and stopped it only after all four attempts were terminal with reservation zero.",
+      "resolved": true
+    },
+    {
+      "kind": "host_process_probe_loader_error",
+      "reason": "fatal library error, lookup self",
+      "impact": "A management-only ps probe failed after all scientific tasks were terminal; runner health and persisted process identity remained available and scientific evidence was unaffected.",
+      "repair": "Used runner health and exact PID liveness checks; confirmed graceful supervisor exit.",
+      "resolved": true
+    }
+  ]
+}

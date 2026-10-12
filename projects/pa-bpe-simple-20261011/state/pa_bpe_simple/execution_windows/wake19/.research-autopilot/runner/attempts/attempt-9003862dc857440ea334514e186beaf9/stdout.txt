@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "scope": "Post hoc arithmetic decomposition of the frozen wake19 mechanism audit; no new threshold or method selection.",
+  "arms": {
+    "classical": {
+      "tail_gini_change": 0.004353360713501037,
+      "tail_total_mean_cost_change": -26.554639175257762,
+      "tail_crossings_by_pair": {
+        "en-fr": {
+          "count": 0,
+          "first_rank": null,
+          "last_rank": null,
+          "median_absolute_gap_after_crossing_tokens": null,
+          "max_absolute_gap_after_crossing_tokens": null
+        },
+        "en-es": {
+          "count": 0,
+          "first_rank": null,
+          "last_rank": null,
+          "median_absolute_gap_after_crossing_tokens": null,
+          "max_absolute_gap_after_crossing_tokens": null
+        },
+        "fr-es": {
+          "count": 0,
+          "first_rank": null,
+          "last_rank": null,
+          "median_absolute_gap_after_crossing_tokens": null,
+          "max_absolute_gap_after_crossing_tokens": null
+        }
+      },
+      "tail_gini_worsening_steps": 324,
+      "tail_selected_target_counts": {},
+      "tail_target_switches": 0
+    },
+    "hybrid": {
+      "tail_gini_change": -0.021136829253977953,
+      "tail_total_mean_cost_change": -23.29278350515466,
+      "tail_crossings_by_pair": {
+        "en-fr": {
+          "count": 0,
+          "first_rank": null,
+          "last_rank": null,
+          "median_absolute_gap_after_crossing_tokens": null,
+          "max_absolute_gap_after_crossing_tokens": null
+        },
+        "en-es": {
+          "count": 0,
+          "first_rank": null,
+          "last_rank": null,
+          "median_absolute_gap_after_crossing_tokens": null,
+          "max_absolute_gap_after_crossing_tokens": null
+        },
+        "fr-es": {
+          "count": 208,
+          "first_rank": 528,
+          "last_rank": 995,
+          "median_absolute_gap_after_crossing_tokens": 23.0,
+          "max_absolute_gap_after_crossing_tokens": 172
+        }
+      },
+      "tail_gini_worsening_steps": 90,
+      "tail_selected_target_counts": {
+        "fr": 323,
+        "es": 177
+      },
+      "tail_target_switches": 222
+    },
+    "base": {
+      "tail_gini_change": -0.004861205535955773,
+      "tail_total_mean_cost_change": -25.700000000000045,
+      "tail_crossings_by_pair": {
+        "en-fr": {
+          "count": 6,
+          "first_rank": 918,
+          "last_rank": 957,
+          "median_absolute_gap_after_crossing_tokens": 17.0,
+          "max_absolute_gap_after_crossing_tokens": 309
+        },
+        "en-es": {
+          "count": 4,
+          "first_rank": 918,
+          "last_rank": 957,
+          "median_absolute_gap_after_crossing_tokens": 101.0,
+          "max_absolute_gap_after_crossing_tokens": 305
+        },
+        "fr-es": {
+          "count": 198,
+          "first_rank": 503,
+          "last_rank": 1000,
+          "median_absolute_gap_after_crossing_tokens": 19.0,
+          "max_absolute_gap_after_crossing_tokens": 144
+        }
+      },
+      "tail_gini_worsening_steps": 124,
+      "tail_selected_target_counts": {
+        "es": 186,
+        "fr": 312,
+        "en": 2
+      },
+      "tail_target_switches": 215
+    }
+  },
+  "hybrid_vs_classical_tail_reduction_delta_tokens": {
+    "en": -4836,
+    "fr": 2305,
+    "es": -633
+  },
+  "hybrid_vs_classical_tail_net_reduction_delta_tokens": -3164,
+  "hybrid_tail_selector_alignment": {
+    "selected_target_is_effect_owner": 428,
+    "targeted_merges": 500,
+    "fraction": 0.856,
+    "selected_target_has_positive_effect": 487
+  },
+  "frozen_prediction_tests": {
+    "exact_global_prefix": true,
+    "endpoint_replay": true,
+    "hybrid_tail_reduces_gini": true,
+    "hybrid_selector_usually_owns_effect": true,
+    "hybrid_has_fewer_exact_sign_crossings_than_base": false,
+    "hybrid_has_fewer_target_switches_than_base": false
+  },
+  "interpretation": "Hybrid's fixed global prefix preserves efficient shared compression, while its tail redirects reductions toward the highest-cost French/Spanish development stream. The exact-crossing and target-switch falsifiers fail: the tail controller is not smoother than base. The supported account is delayed/limited exposure to the same reactive parity controller, not suppression of local chattering.",
+  "claim_limit": "This mechanism is reconstructed on exposed TICO development data. It explains the fixed-code behavior but does not prove causal transfer to confirmation domains."
+}
