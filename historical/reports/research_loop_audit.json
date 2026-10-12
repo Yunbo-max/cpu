@@ -1,0 +1,118 @@
+{
+  "scope": "Research-loop stopping-condition audit, not a new experiment or research iteration",
+  "checked_at_utc": "2026-10-09T22:27:00.841760+00:00",
+  "archive_sha256": "cb12da88f1a2224c120d10004f7c97b747b2cea81abe23cf02726a76e4f5c755",
+  "source_skill": "Research Autopilot Auto Chat / chat-execution.md / Finite active-turn loop; One candidate and scoped verification",
+  "recorded_experiment_runs": 9,
+  "methods": [
+    "AFW",
+    "BoostFW",
+    "FW"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "total_recorded_optimizer_iterations": 20037,
+  "completed_resource_preflight_batches": 1,
+  "completed_novel_hypothesis_research_cycles": 0,
+  "trace_consistency_checks": [
+    {
+      "path": "results/fw_seed0_trace.csv",
+      "trace_rows": 3491,
+      "reported_iterations": 3491,
+      "consistent": true
+    },
+    {
+      "path": "results/afw_seed0_trace.csv",
+      "trace_rows": 1628,
+      "reported_iterations": 1628,
+      "consistent": true
+    },
+    {
+      "path": "results/boostfw_seed0_trace.csv",
+      "trace_rows": 1044,
+      "reported_iterations": 1044,
+      "consistent": true
+    },
+    {
+      "path": "results/fw_seed1_trace.csv",
+      "trace_rows": 4208,
+      "reported_iterations": 4208,
+      "consistent": true
+    },
+    {
+      "path": "results/afw_seed1_trace.csv",
+      "trace_rows": 1706,
+      "reported_iterations": 1706,
+      "consistent": true
+    },
+    {
+      "path": "results/boostfw_seed1_trace.csv",
+      "trace_rows": 1182,
+      "reported_iterations": 1182,
+      "consistent": true
+    },
+    {
+      "path": "results/fw_seed2_trace.csv",
+      "trace_rows": 3998,
+      "reported_iterations": 3998,
+      "consistent": true
+    },
+    {
+      "path": "results/afw_seed2_trace.csv",
+      "trace_rows": 1752,
+      "reported_iterations": 1752,
+      "consistent": true
+    },
+    {
+      "path": "results/boostfw_seed2_trace.csv",
+      "trace_rows": 1028,
+      "reported_iterations": 1028,
+      "consistent": true
+    }
+  ],
+  "original_checkpoint": {
+    "goal": "Select one ICML/ICLR/NeurIPS paper runnable within 8 CPU cores and 8 GB RAM using Research Autopilot Auto Chat",
+    "procedure_version": "0.2.0-autonomous-chat.4",
+    "selected_paper": "Boosting Frank-Wolfe by Chasing Gradients, ICML 2020",
+    "stop_reason": "completed",
+    "completed_scope": [
+      "primary-source conference and hardware verification",
+      "pinned official code inspection",
+      "9 bounded compatibility/resource runs on published synthetic setting",
+      "artifact readback"
+    ],
+    "not_claimed": [
+      "unchanged upstream execution",
+      "whole-paper replication",
+      "real-data experiment completion",
+      "independent scientific validation",
+      "novelty"
+    ],
+    "next_action_if_research_is_extended": "Acquire the pinned Gisette files and qualify the unchanged native protocol, then measure peak memory for the complete original baseline suite.",
+    "files": [
+      "README.md",
+      "resource_probe.py",
+      "results/summary.json",
+      "results/run.log",
+      "results/readback_verification.json"
+    ]
+  },
+  "scope_assessment": "The original checkpoint closed paper selection and feasibility, not an autonomous full research project. One-candidate-at-a-time does not limit the number of research cycles.",
+  "reconciled_status": "selection_and_resource_preflight_completed; broader_research_not_completed",
+  "current_audit_completed": true,
+  "new_experiments_executed_in_this_audit": 0,
+  "background_execution_started": false,
+  "research_destination": "No GitHub/HF destination confirmed for this paper; preserve prior sandbox artifacts unchanged.",
+  "next_research_action": "Baseline qualification: recover the pinned author notebook and native experiment assets, compare the adapted probe with the original algorithms/evaluator, and qualify the published native protocol before designing a new method.",
+  "later_obligations": [
+    "Recent closest-work audit",
+    "Mathematical hypothesis and falsifier",
+    "Scoped separate review",
+    "Matched native baseline comparisons",
+    "Evidence-driven next action"
+  ],
+  "limits": "No full research goal or cumulative research budget was previously recorded for this paper. This audit does not fabricate either or mark the broader research completed."
+}
