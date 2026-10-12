@@ -1,9 +1,28 @@
-# 3D Autopilot Simple research archive
+# 3D Autopilot Simple — 可恢复研究档案
 
-This directory is reserved for the existing 3D research project, migrated at the owner's request on 2026-10-12. Other projects are not changed.
+完整历史已迁入本目录，未改动其他项目。
 
-Status: migration in progress. Do not delete any local scientific history until the archive manifest and round-trip verification receipt are committed.
+- 基线档案：**2,281 个文件，176,459,115 字节**，包括代码、来源固定版本、实验设计、原始结果、失败/取消收据和完整数据库历史。
+- 已从 GitHub 下载全部247个分片，逐文件及整包SHA-256校验通过。数据库与停止前本地状态逻辑一致。
+- 当前：`teso-coordinate-timescale-generalization`，revision1；累计67次命令尝试、3190.582秒。研究未完成，两个新序列上的质量比较尚未执行。
+- 固定流程仍为 Simple0.3.0-simple.9。过去已退役方向和负面结果全部保留。
+- 可再生成的依赖安装与Python缓存不进入档案；精确依赖版本、文件哈希及恢复脚本均保留。
 
-The full checkpoint retains source pins, code, plans, results, failures, cancelled attempts, and SQLite history. Regenerable dependency installations and Python caches are excluded; exact dependency identities and recovery scripts remain in the archive.
+## 恢复
 
-Research is not complete. The current idea is `teso-coordinate-timescale-generalization` revision 1. The native-data confirmation is frozen but not run.
+先读 [latest.json](latest.json)；以其中不可变commit和manifest为准，绝不覆盖更新的本地运行。脚本支持完整恢复，也支持多个`--include 项目内路径`，按需下载涉及的分片。
+
+```bash
+python3 restore_checkpoint.py --commit 8e01f9a1e26529d710c43a5e6f9577a2f0ef2d3a --destination /path/to/empty/3d_autopilot_simple --include START_HERE.md --include runtime --include notes
+```
+
+按需读取`notes/handoff-wake16.md`的实测测试仅下载3个分片（1,559,915字节），而非整包。无`--include`时完整恢复；`--allow-identical`仅补缺失文件，拒绝覆盖任何不同文件。运行器恢复需原绝对根目录及SQLite历史；先核对旧进程已退出，不能把档案内旧心跳当成活跃进程。
+
+## 每轮存取规则
+
+1. 读最新远端指针及现有本地更新，恢复本轮所需状态、代码和输入。
+2. 按已授权CPU/内存限制执行有限任务，保留科学负结果及全部失败。
+3. 上传新代码/结果与一致的状态快照；使用预期HEAD保护其他项目的并发提交。优先增量/内容寻址保存，不反复提交整份历史或重装依赖目录。
+4. 校验远端版本、字节哈希和可恢复性，停止本项目空闲进程，才清理本项目已备份工作文件。上传失败时保留本地，不清理、不谎报。
+
+文件删除释放磁盘及相关文件缓存，不等于清空容器RAM。禁止清理全局`/dev/shm`、全局页缓存或其他项目。监督进程已经通过原会话停止；没有设置用户停止研究标记。后续研究由原有任务按上述规则恢复。

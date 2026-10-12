@@ -12,11 +12,12 @@ def download(url):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--commit',required=True)
     p.add_argument('--destination',required=True);p.add_argument('--include',action='append',default=[])
+    p.add_argument('--allow-identical',action='store_true',help='fill missing files; reject any differing existing selected file')
     p.add_argument('--manifest',default=PREFIX+'snapshots/2026-10-12-wake16/manifest.json')
     args=p.parse_args()
     if len(args.commit)!=40 or any(c not in '0123456789abcdef' for c in args.commit):raise ValueError('exact commit required')
     dest=pathlib.Path(args.destination).resolve()
-    if dest.exists() and any(dest.iterdir()):raise ValueError('destination must be empty; never overwrite live state')
+    if dest.exists() and any(dest.iterdir()) and not args.allow_identical:raise ValueError('destination must be empty; never overwrite live state')
     manifest=json.loads(download(BASE+args.commit+'/'+args.manifest))
     with tempfile.TemporaryDirectory(prefix='3d-checkpoint-') as tmp:
         tmp=pathlib.Path(tmp)
@@ -66,9 +67,14 @@ def main():
                 assert (z.getinfo('3d_autopilot_simple/'+str(rel)).external_attr>>16)&0o170000 != 0o120000
                 raw=z.read('3d_autopilot_simple/'+str(rel))
                 assert len(raw)==r['bytes'] and hashlib.sha256(raw).hexdigest()==r['sha256']
+                target=dest/str(rel)
+                assert not target.is_symlink() and not any(p.is_symlink() for p in target.parents)
+                if target.exists():
+                    assert args.allow_identical and target.is_file() and hashlib.sha256(target.read_bytes()).hexdigest()==r['sha256'], str(target)+' differs; preserve newer local state'
             dest.mkdir(parents=True,exist_ok=True)
             for r in selected:
                 target=dest/r['path'];target.parent.mkdir(parents=True,exist_ok=True)
+                if target.exists():continue
                 with target.open('xb') as f:
                     f.write(z.read('3d_autopilot_simple/'+r['path']))
                     f.flush()
