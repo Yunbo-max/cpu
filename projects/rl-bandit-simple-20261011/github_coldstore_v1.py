@@ -261,12 +261,25 @@ def check_remote_checkout(checkout):
 def verify(args):
     checkout = Path(args.checkout).resolve()
     commit = check_remote_checkout(checkout)
+    ROOT.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='rl-remote-verify-', dir=ROOT.parent) as td:
-        latest = materialize(checkout, Path(td) / 'restored')
+        restored = Path(td) / 'restored'
+        latest = materialize(checkout, restored)
+        databases = []
+        for p in restored.rglob('*.sqlite3'):
+            with sqlite3.connect(p.as_uri() + '?mode=ro', uri=True) as conn:
+                result = conn.execute('PRAGMA quick_check').fetchall()
+            if result != [('ok',)]:
+                raise RuntimeError('Restored SQLite integrity failure: ' + str(p))
+            databases.append(str(p.relative_to(restored)))
+        skill_sha = digest_file(restored / 'runtime/SKILL.md')
+        if skill_sha != '8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390':
+            raise RuntimeError('Pinned rsi-simple skill digest changed')
     receipt = {'project_id': PROJECT, 'commit': commit, 'repository': REPO,
                'checked_at_utc': dt.datetime.now(dt.timezone.utc).isoformat(),
                'latest_sha256': digest_file(checkout / PREFIX / 'LATEST.json'),
-               'file_count': len(latest['files']), 'all_remote_bytes_verified': True}
+               'file_count': len(latest['files']), 'all_remote_bytes_verified': True,
+               'sqlite_quick_check_ok': databases, 'pinned_skill_sha256': skill_sha}
     dump(Path(args.receipt), receipt)
     print(json.dumps(receipt))
 
@@ -276,6 +289,7 @@ def restore(args):
     check_remote_checkout(checkout)
     if ROOT.exists():
         raise RuntimeError('Original root exists; reconcile newer live state, never overwrite it')
+    ROOT.parent.mkdir(parents=True, exist_ok=True)
     temp = Path(tempfile.mkdtemp(prefix='rl-restore-', dir=ROOT.parent))
     try:
         materialize(checkout, temp / 'project')
