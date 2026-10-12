@@ -85,5 +85,34 @@
     "oom_kill": 0,
     "attribution": "Shared host changed concurrently; reduction is not attributed entirely to this project's cleanup."
   },
-  "staging_cleanup": "pending after legacy-v12 delta remote readback"
+  "staging_cleanup": {
+    "state": "completed",
+    "observed_at_utc": "2026-10-12T09:51:30Z",
+    "removed": [
+      "Statistics_Trustworthy_Decision_RSI_Simple_Checkpoint.zip",
+      "Statistics_Trustworthy_Decision_GitHub_Archive_v1.zip",
+      "cpu_archive_migration/",
+      "cpu_archive_readback/"
+    ],
+    "scope": "Only exact project-specific archive/staging copies created or used in this migration; no other project directory or process touched"
+  },
+  "legacy_v12": {
+    "all_968_original_members_verified_recoverable": true,
+    "remote_override_count": 5,
+    "index": "legacy/library-v12/INDEX.json"
+  },
+  "shared_memory_final_observation": {
+    "observed_at_utc": "2026-10-12T09:51:30Z",
+    "memory_current_bytes": 8228773888,
+    "oom": 0,
+    "oom_kill": 0,
+    "note": "Shared memory rose again after cleanup. Disk cleanup does not guarantee global RAM release or clear the native-fit launch gate."
+  },
+  "retained_locally": {
+    "recovery_pointer": "/workspace/scratch/a5c97e2248bf/Statistical_Trust_Recovery.json",
+    "rebuildable_dependency_environment": "/workspace/scratch/a5c97e2248bf/sts_praxis_env",
+    "dependency_files_bytes": 62880802,
+    "project_supervisor": "not running",
+    "scientific_job": "not running"
+  }
 }
