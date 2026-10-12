@@ -1,18 +1,18 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "project": "3d_autopilot_simple",
   "archive_commit": "8e01f9a1e26529d710c43a5e6f9577a2f0ef2d3a",
   "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-12-wake16/manifest.json",
   "archive_sha256": "0fb0bae609872c34e813b89e190779c1bd74004f5c4090e8494344c55a44c039",
   "restore_script_path": "projects/3d-autopilot-simple/restore_checkpoint.py",
-  "restore_script_blob_sha": "3cd93230cc0d6bd8e37018ff0f77d7eed3fd9fc3",
-  "restore_script_sha256": "3cdb7d424390a96110cd5a3c1b5df768824eba2fd18271f648a20af4d87a00ec",
+  "restore_script_blob_sha": "3e9d21397836f41f8bdf1e8de977c08e89c55e9e",
+  "restore_script_sha256": "c3518fb010072bc1ff15773fab9353506816447e46cc3191fa55fae987f60165",
   "original_root": "/workspace/scratch/faa0880830cd/3d_autopilot_simple",
-  "active_idea": "teso-coordinate-timescale-generalization",
+  "active_idea": "teso-rotation-prior-model-mismatch",
   "revision": 1,
   "goal_contract": 1,
-  "attempts_used": 67,
-  "command_seconds": 3190.5822534240333,
+  "attempts_used": 72,
+  "command_seconds": 3522.292882001034,
   "supervisor_running": false,
   "unknown_attempts": 0,
   "cleanup_preflight": {
@@ -21,6 +21,20 @@
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "partial_cleanup_not_durable",
-  "local_workspace_state": "partial; restore missing paths before execution"
+  "cleanup_status": "wake17_remote_verified_cleanup_pending; previous host reappearance unresolved",
+  "local_workspace_state": "partial; restore missing paths before execution",
+  "overlays": [
+    {
+      "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
+      "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-12-wake17/manifest.json",
+      "archive_sha256": "3055e3e18ad002ccba193cca958d05ae55e6b51dd6ac41509db7b2ed56f908f7"
+    }
+  ],
+  "restore_usage": "Fetch helper from this latest.json commit; --commit must be that current main commit, not only archive_commit. Helper resolves immutable base+overlays before extracting selected paths into a new empty staging directory.",
+  "journal_version": 117,
+  "empirical_research_cycles": 27,
+  "latest_handoff": "notes/handoff-wake17.md",
+  "verified_at_utc": "2026-10-12T10:26:52.298988+00:00",
+  "verification_path": "projects/3d-autopilot-simple/verification-wake17.json",
+  "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS."
 }
