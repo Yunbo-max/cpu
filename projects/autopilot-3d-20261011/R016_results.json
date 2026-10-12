@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "verified_scoped_result",
+  "idea": "gravity-pose-status-instrument-v1",
+  "revision": 2,
+  "plan_ref": {
+    "path": "plans/R016_experiment_plan_v5.json",
+    "sha256": "c9218728460dccc950d2f5c8f6a1c69fcd301587579102795abb0f271bdf63d9"
+  },
+  "scope": {
+    "problems": 5000,
+    "solver_rows": 10000,
+    "candidate_rows": 28574,
+    "solver_commit": "34f8fa9a2b2dcaacdbb7ffc784a80682228b288c",
+    "generator_identity": "exact numeric equality on retained generator_calls, ground-truth focal, and chart yaw against R015",
+    "positivity_filter_applied": false
+  },
+  "run_inventory": [
+    {
+      "task_id": "gravity-R016-run5000-v5",
+      "attempt_id": "attempt-95881e536da84a90bce210b1fdbae0b0",
+      "status": "succeeded",
+      "elapsed_seconds": 0.7820104330003232,
+      "receipt_sha256": "83f9f1489b10991c410c76671a252e0fa5880d5598c7da4cee6f0ee50ab01e40"
+    },
+    {
+      "task_id": "gravity-R016-analyze5000-v5",
+      "attempt_id": "attempt-4dde14765a2d4fe0a2a204613791f926",
+      "status": "succeeded",
+      "elapsed_seconds": 0.8193205039997338,
+      "receipt_sha256": "33d1d6dee905531e16932abeb95c9b163b6e8ce7f996f8a6347a41e3a3dbf751"
+    },
+    {
+      "task_id": "gravity-R016-audit5000-v5",
+      "attempt_id": "attempt-20aa6e5d917c4311acd3d98e3cc2dfa0",
+      "status": "succeeded",
+      "elapsed_seconds": 0.7631771429996661,
+      "receipt_sha256": "e9b8c0e5a86867a6aae6810be771788f6adfaef79a981e322118b2c4d518bc15"
+    },
+    {
+      "task_id": "gravity-R016-compare-prior-v5",
+      "attempt_id": "attempt-c8b3e21f15f140c5bf99d8816675745e",
+      "status": "succeeded",
+      "elapsed_seconds": 0.096482541000114,
+      "receipt_sha256": "1bef3a7111182c282c1cd5a12610c54097684b6857e7aed5999e96cfc3e3792c"
+    }
+  ],
+  "counts": {
+    "up1": {
+      "POLYNOMIAL_INVALID_OR_DEGENERATE": 90,
+      "SOLVER_RETURNED_ZERO_SLOTS": 6,
+      "NO_ASSIGN_ALL_RESIDUAL_NONFINITE": 0,
+      "NO_ASSIGN_THRESHOLD_OR_MIXED": 0,
+      "SELECTED_RECONSTRUCTION_NONFINITE": 0,
+      "NO_SELECTABLE_POSITIVE_CANDIDATE": 2,
+      "SELECTOR_CHOSE_NONPOSITIVE_WITH_POSITIVE_ALTERNATIVE": 12,
+      "SELECTED_POSITIVE_FINITE": 4890
+    },
+    "up2": {
+      "POLYNOMIAL_INVALID_OR_DEGENERATE": 0,
+      "SOLVER_RETURNED_ZERO_SLOTS": 9,
+      "NO_ASSIGN_ALL_RESIDUAL_NONFINITE": 0,
+      "NO_ASSIGN_THRESHOLD_OR_MIXED": 0,
+      "SELECTED_RECONSTRUCTION_NONFINITE": 0,
+      "NO_SELECTABLE_POSITIVE_CANDIDATE": 3,
+      "SELECTOR_CHOSE_NONPOSITIVE_WITH_POSITIVE_ALTERNATIVE": 84,
+      "SELECTED_POSITIVE_FINITE": 4904
+    }
+  },
+  "verification": {
+    "strict_selector_mismatch_count": 0,
+    "up1_unassigned_equals_zero_returned_roots": {"equal": true, "count": 96},
+    "up2_unassigned_equals_zero_returned_roots": {"equal": true, "count": 9},
+    "same_binary_repeat_byte_identical": true,
+    "v5_exactly_reproduces_disclosed_prior": true,
+    "main_analysis_sha256": "8a8c8618dc8b69b1f73dc060986584800c49ac6c0b5fa372d6d5bf33240fc619",
+    "independent_audit_sha256": "e995e9d5d856c609580a85c029ed7ae7157f4f0e6e9a76b6a65d1ee7fddee443"
+  },
+  "judgments": {
+    "supported": [
+      "In this exact deterministic author-generator batch, every unassigned UP1/UP2 diagnostic output coincides with zero returned real-root slots.",
+      "The unchanged native residual selector chose a nonpositive focal estimate despite an available finite positive candidate in 12 UP1 and 84 UP2 problems.",
+      "The status sidecar separates the frozen mechanism categories with exact accounting and independent selector replay."
+    ],
+    "not_supported": [
+      "The diagnostic NaN sentinel is behavior-equivalent to the author's undefined unassigned read.",
+      "A positivity-aware selector is already a quality improvement; alternative pose/error quality was not retained and no intervention ran."
+    ],
+    "inconclusive": [
+      "Whether positivity-aware selection improves camera-pose and focal metrics on the 96 affected selection cases.",
+      "Whether zero-root cases can be repaired by a numerical root or polynomial treatment rather than only made safe."
+    ],
+    "repaired": [
+      "Ambiguous generator signature anchoring.",
+      "Analyzer numeric-invariant and strict-selector replay.",
+      "Runner database recovery and post-hoc frozen-plan binding with full disclosure."
+    ]
+  },
+  "limitations": [
+    "The batch is one deterministic synthetic author-generator stream, not a real-data benchmark.",
+    "Candidate translations and full poses were not retained, so alternative-candidate pose quality cannot be reconstructed post hoc.",
+    "Zero returned slots are an implementation observation, not proof that the mathematical quartic has no real root."
+  ],
+  "next_action": "Start a separate gravity-pose-positive-selector-v1 intervention: retain full pose/error for the lowest-residual finite positive candidate, compare it against the unchanged native selector on the exact affected cases, and keep zero-root/no-positive cases as controls."
+}

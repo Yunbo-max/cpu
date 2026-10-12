@@ -1,0 +1,342 @@
+{
+  "project_id": "autopilot-3d-20261011",
+  "created_at_utc": "2026-10-11T17:12:03.854434+00:00",
+  "policy": {
+    "edition": "rsi-simple",
+    "version": "0.3.0-simple.9",
+    "source_path": "/root/.codex/plugins/cache/created-by-me-remote/research-autopilot/0.3.0-simple.9/skills/research-autopilot",
+    "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+  },
+  "goal_contract_version": 1,
+  "idea": "gravity-pose-positive-selector-v1",
+  "idea_revision": 1,
+  "host_authority": "User 2026-10-11: use these 3D topics, start running in background, provide scheduled feedback. Current CPU host is the bounded initial execution host; no paid APIs/GPU service.",
+  "resource_allocation": {
+    "cpu_cores_max": 8,
+    "memory_bytes_max": 8589934592,
+    "concurrent_experiments": 1,
+    "initial_cumulative_command_seconds": 28800,
+    "initial_window_deadline_hours": 24,
+    "continuation_requires_preserved_cumulative_budget": true,
+    "overall_time_attempt_cap": null,
+    "authorization": "notes/open-ended-authorization-v1.json",
+    "renewable_window": "scripts/renew_authorized_window.py --apply under project lock, no active or unknown attempts, supervisor stopped; preserve cumulative usage and queued tasks",
+    "initial_limits_historical_only": true
+  },
+  "scope": [
+    "TESO",
+    "NanoGS",
+    "KASALv2",
+    "V-Umlaut",
+    "Gravity-aware pose"
+  ],
+  "active_question": "For the exact UP1/UP2 cases where the native minimum-residual selector chose a non-positive focal despite an eligible finite positive alternative, does selecting the lowest-residual finite positive candidate improve full-pose/focal outcomes without changing zero-root or no-positive-candidate controls?",
+  "scientific_status": "TESO drift-only quality remains supported while its broad drift-plus-no-drift claim is closed not_supported; V-Umlaut operational and gravity-pose-stability-v1 remain closed not_supported. R016 gravity-pose-status-instrument-v1 is now closed supported only for scoped mechanism attribution on the pinned deterministic author-generator stream: UP1 unassigned rows equal zero returned slots in96/96 cases and UP2 in9/9; the native selector chose a non-positive focal despite an eligible finite positive alternative in12 UP1 and84 UP2 problems. Main analysis, independent raw audit and the fresh v5 confirmation agree exactly with zero strict-selector mismatches. Sentinel behavior-equivalence and an already-improved pose/focal quality claim are not_supported. Actual full-pose quality impact of positivity-aware selection, repair of zero-root cases and generalization beyond this stream remain inconclusive. The single active successor is gravity-pose-positive-selector-v1.",
+  "execution_status": "No active or unknown attempt. R016 repaired the generator signature anchor and analyzer invariant/native-selector replay before science, then compiled the instrumented pinned author source. Smoke, initial5000-problem batch, independent raw audit, same-binary repeat and fresh prospectively hash-bound v5 confirmation all succeeded. The v5 run/analyze/audit/compare attempts were attempt-95881e536da84a90bce210b1fdbae0b0, attempt-4dde14765a2d4fe0a2a204613791f926, attempt-20aa6e5d917c4311acd3d98e3cc2dfa0 and attempt-c8b3e21f15f140c5bf99d8816675745e. A stale immutable task id caused one historical v2 design contract to execute again; it produced no scientific result and was repaired with unique v5 identities. The current runner database is integrity-clean at sequence153 with113 terminal attempts and13137.279259 settled command-seconds; three receipts created during database recovery are preserved outside that restored baseline, yielding116 observed attempts and13139.140214 observed command-seconds. Supervisor session7bf5c3e3e5424bb9baa74cfccf12a494 was intentionally interrupted at the quiet awaiting-decision boundary; its retained health record therefore reports lost, but the same process identity is absent and no project command is active. No OOM evidence was observed.",
+  "author_commit": "34f8fa9a2b2dcaacdbb7ffc784a80682228b288c",
+  "wake_mechanism": "Enabled hourly ChatGPT automation; not proof of continuous compute",
+  "next_action": "Inspect gravity-pose-positive-selector-v1, renew only the finite runner window under the recorded open-ended CPU authorization after rechecking no active or unknown attempt, and freeze a versioned plan that retains every alternative candidate pose/error. Compare unchanged native minimum residual against the lowest-residual finite positive candidate only on the12 UP1 and84 UP2 eligible rows; keep the96/9 zero-root and2/3 no-positive-candidate cases as explicit unchanged controls.",
+  "observed_issues": [
+    {
+      "id": "carla-index-timeout-1",
+      "symptom": "HTTPS index read timed out after 12s",
+      "state": "recovered: official index fetched successfully; native archive names observed"
+    },
+    {
+      "id": "relative-plan-cli-path",
+      "state": "recovered",
+      "symptom": "Submission used cwd-relative rather than absolute plan path; first CLI invocation failed before task creation. Retried successfully with absolute path."
+    },
+    {
+      "id": "transient-source-file-access",
+      "state": "recovered",
+      "symptom": "Two transient source-access alerts at17:24; latest status source_error=null and supervisor alive. Do not discard historical alerts or assume a new source was adopted."
+    },
+    {
+      "id": "worker-lost-20261011T1815",
+      "state": "repaired",
+      "symptom": "Last prior heartbeat17:26:35UTC; same-boot supervisor/worker/command all absent, no terminal receipt. Cause unknown. Conservatively charged903s. CRC-resumed download-v2 succeeded.",
+      "evidence": "logs/worker-lost-20261011T1815.json",
+      "reported": "Current conversation warning and recovery update; user receipt not asserted."
+    },
+    {
+      "id": "R003-artifact-mismatch",
+      "state": "repaired",
+      "symptom": "OriginalJSONL974rows anddifferenthashfromreceipt; all1000NPZposesvalid. Preservedoriginal; versionedfullreplayandstrictallraw/JSONLvalidationpassed withidenticalscores; causenotknown.",
+      "evidence": "logs/R003-artifact-mismatch.json",
+      "repair": "results/R003_repair1/experiment_results.json"
+    },
+    {
+      "id": "supervisor-lost-1915",
+      "state": "repaired",
+      "symptom": "Sameboot oldsupervisor PID122329 absent, prior15attempts terminal; causeunknown. Restartedsamesource PID137052,start9260183, no budget reset.",
+      "evidence": "logs/supervisor-lost-1915.json"
+    },
+    {
+      "id": "R006-artifact-mismatch",
+      "state": "repaired",
+      "symptom": "Originalcap2JSONL932rows differenthash; other9outputsvalid. Allfourarmsexactreplayed atR006_repair1, all1000logs/receipt hashes independentlyverified. Causeunknown.",
+      "evidence": "notes/R006_result_review.md"
+    },
+    {
+      "id": "R008-prelaunch-review",
+      "state": "repaired",
+      "symptom": "Prelaunch label bindingandstale inheritedplanfields fixed, OpenCV4.11 andassertions guard added; no scientificrunbeforefix.",
+      "evidence": "notes/R008_code_review.md"
+    },
+    {
+      "id": "allocation-source-cache-2002",
+      "state": "repaired",
+      "symptom": "First import generated extra pycache. Maintenance now disables bytecode. Cache removal reports absence in same command but original cache reappears in later contexts with same timestamp; cause unknown. Current supervisor source_error persists while existing pinned scientific attempt runs. No permission escalation attempted. At settled boundary remove only known generated cache and exec adopted supervisor within SAME command context, then verify source status. Do not bypass source validation or overwrite pinned Python.",
+      "evidence": "logs/allocation-revision-001.json",
+      "resolution": "At allattempts terminal boundary, acquiredsupervisorlock, removedonlygeneratedcache and exec sameadoptedrunner -B in SAME exec context. New supervisor source_error=null, cacheabsent, nexttask002v2running. No pinned Python change; separate-context cache removals had not persisted."
+    },
+    {
+      "id": "download002-worker-lost-2118",
+      "state": "repaired",
+      "symptom": "Previoussupervisor/worker/command absent sameboot, no receipt. No cause orOOM inference. Full483sreservation charged; newCRCresume task succeeded complete2000images.",
+      "evidence": "logs/download002-worker-lost-2118.json",
+      "repair_task": "teso-confirmation-data002-v3"
+    },
+    {
+      "id": "archive-proxy403-2128",
+      "state": "repaired",
+      "symptom": "003 download attempt9b29b3b7dfe24e999589a5dedf454c40 exit1 after123.614465s: Tunnel connection failed403Forbidden, recorded1410/2000images. No bypass. 000_nodrift dependentdownload notstarted. Existing000/001/002 scientificwork possible.",
+      "evidence": "logs/archive-proxy403-2128.json",
+      "repair": "Exact HEAD plus one-byte Range preflight passed all nine checks; sequence003 resumed to2000/2000 and its full frozen run plus independent audit succeeded. Official archive identity stayed pinned."
+    },
+    {
+      "id": "R010-original-state-evidence-gap",
+      "state": "repaired",
+      "symptom": "Original eight favorable timing runs omitted memory,grad_ema,second_moment,curvature_ema arrays; independent audit attempt-aa207a7db33949a79b96ee00ae9b782e failed closed. Original evidence remains inconclusive.",
+      "repair": "Versioned R010_repair1/recovery1 serial runs changed only output identity and complete-state serialization. R010_recovery2 fail-closed audit passed all eight bindings and complete state."
+    },
+    {
+      "id": "R010-repair1-002-N2-worker-loss",
+      "state": "repaired",
+      "symptom": "Worker and command identities disappeared on the same boot without a receipt; cause unknown, no OOM evidence. Full603s reservation conservatively charged.",
+      "evidence": "logs/R010-repair1-002-N2-worker-lost.json",
+      "repair": "Three versioned replacement tasks rebuilt the affected frozen tail and all succeeded."
+    },
+    {
+      "id": "R010-recovery1-audit-schema",
+      "state": "repaired",
+      "symptom": "Audit attempt-2bff7ba31a3844a0bd1ccde8737e5023 rejected a valid ten-field exact contract because an inherited constant listed only four fields; this was an audit implementation defect, not scientific failure.",
+      "repair": "scripts/audit_R010_crosssequence_recovery2.py requires and compares all ten exact arrays; registered attempt-c7795dab28934ccba1726cf36e1a3931 succeeded."
+    },
+    {
+      "id": "R011-003-audit-identity-binding",
+      "state": "repaired",
+      "symptom": "Pre-execution static audit found three fail-closed identity-binding defects in the inherited sequence003 audit script; no audit task or scientific acceptance occurred before repair.",
+      "repair": "Repaired script binds the exact six receipt inputs, manifest/source-pin identities, raw attempt contract hash, argv/cwd/task and output refs. Static re-review marked it safe; registered audit attempt-9d11d3ba17364124b52c75376d32c9c8 succeeded."
+    },
+    {
+      "id": "R011-nodrift-proxy403-transient",
+      "state": "repaired",
+      "symptom": "First no-drift recovery attempt-b1ff02de97434d82bbd0e11c3c677046 failed after three consecutive proxy tunnel403 responses, preserving1338/2000 CRC-verified images and emitting no scientific manifest.",
+      "repair": "Versioned replacement attempt-fa09ce2a075245cc81a0a8a075db585a CRC-rechecked existing files and completed2000/2000 plus the exact manifest. No OOM evidence."
+    },
+    {
+      "id": "R012-nodrift-audit-identity-binding",
+      "state": "repaired",
+      "symptom": "Independent prelaunch review found the inherited generic audit did not bind the exact scientific argv/cwd or require the exact frozen receipt input set, allowing an alternate protocol or source-pins path to reach artifact checks.",
+      "repair": "scripts/audit_R008_000_nodrift_R012.py fail-closes on task/attempt/root/status, exact seven input refs, attempt contract digest, argv, cwd and timeout before invoking the independent artifact/dynamics/metric audit. Static re-review returned safe_to_submit; registered audit attempt-6e368faddb3d4f4b96384be63880c56e passed."
+    },
+    {
+      "id": "R013-cmake-missing",
+      "state": "repaired",
+      "symptom": "V-Umlaut CMake launch failed before experiment because cmake was unavailable; no OOM or scientific output.",
+      "repair": "Used direct g++ compilation against the discovered Eigen headers, then hash-bound the binary and passed two byte-identical fixed-seed smoke runs plus independent prelaunch review."
+    },
+    {
+      "id": "R013-runner-path-copy-error",
+      "state": "repaired",
+      "symptom": "One host command used an abbreviated/wrong runner source digest and failed before entering the runner or launching an experiment.",
+      "repair": "Resolved the unique actual pinned runner source directory e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8 and executed the queued task exactly once."
+    },
+    {
+      "id": "R013-analysis-defense-in-depth",
+      "state": "accepted_with_independent_audit",
+      "symptom": "The aggregation script alone did not fail closed on every nonfinite/missing-cell/seed or plan-manifest mismatch case.",
+      "repair": "Independent read-only audit separately checked all registered cells, hashes, rows, columns, finite values, validity/failure contracts and recomputed1408 metrics. No current result was affected; harden future analyzer before reuse."
+    },
+    {
+      "id": "R014-author-UP2P-evaluator-indexing",
+      "state": "repaired_in_overlay",
+      "symptom": "The public native driver loops candidate j but reads output_T[i] and stale output_focal[i] in the UP2P block, so its native UP2P error aggregation can be out of bounds or mismatched.",
+      "repair": "The author source remains unmodified and its affected metric is excluded. The hash-bound R014 overlay evaluates candidate j, labels UP3 multi-candidate results as oracle lower bounds, and retains every raw row."
+    },
+    {
+      "id": "R014-initial-summary-json",
+      "state": "repaired",
+      "symptom": "The first analyzer emitted non-strict JSON tokens and an ambiguous UP3 validity label; the raw5000-row CSV and runner receipt were unaffected.",
+      "repair": "A versioned analyzer task emitted strict results/R014/summary-v2.json and corrected UP3 labels. Independent raw recomputation verified all main gates and72 aggregates."
+    },
+    {
+      "id": "R015-design-schema-gaps",
+      "state": "repaired",
+      "symptom": "The first R015 design-check command succeeded but correctly withheld execution authorization because the plan used non-schema exposure/claim/review values and omitted complete paper, control and resource-calibration declarations.",
+      "repair": "Preserved v1; plans/R015_experiment_plan_v2.json passed the same checker with zero gaps and zero advisories before compilation."
+    },
+    {
+      "id": "R015-smoke-output-directory",
+      "state": "repaired",
+      "symptom": "Both first smoke attempts exited3 before science because results/R015 did not exist; no output refs were emitted.",
+      "repair": "Created only the exact parent directory and reran versioned tasks; both eight-row outputs succeeded and were byte-identical."
+    },
+    {
+      "id": "R015-analyzer-nonfinite-assumption",
+      "state": "repaired",
+      "symptom": "Analyzer v1 failed closed at problem123 because UP1 position was nonfinite, contradicting its over-strong assumption that every solver diagnostic was finite.",
+      "repair": "Versioned analyzer v2 retains and counts solver nonfinites while protected generator/GT/chart fields remain fail-closed; the stronger finite-output prediction is reported not_supported."
+    },
+    {
+      "id": "R015-UP1-process-value-instability",
+      "state": "scientific_negative_retained",
+      "symptom": "The same binary and protected5000-problem corpus produced different raw hashes:29 UP1 rows changed numerically, although invalid and nonfinite sets were identical; UP2 was identical.",
+      "repair": "No silent repair or causal claim. Closed the external exact-replay hypothesis not_supported and selected internal root/candidate/assignment instrumentation."
+    },
+    {
+      "id": "R016-generator-signature-anchor",
+      "state": "repaired",
+      "symptom": "The first instrumentation generator used an ambiguous UP1 signature anchor that matched twice; the compile task failed before scientific execution.",
+      "repair": "The generator now anchors both solvers with complete unique public function signatures; focused unit tests and the versioned compile task passed."
+    },
+    {
+      "id": "R016-analyzer-selector-replay",
+      "state": "repaired",
+      "symptom": "The initial analyzer lacked fail-closed row validation and exact replay of the native strict less-than residual selector.",
+      "repair": "Added numeric boolean reconstruction, selected-index/residual replay, derived-field checks, exact retained-field identity and exclusive category totals; focused adversarial unit tests and independent raw audit passed."
+    },
+    {
+      "id": "R016-runner-db-readonly-corruption",
+      "state": "repaired",
+      "symptom": "The active SQLite database became readonly/corrupt while three early recovery receipts had already been emitted outside its last clean baseline; no OOM evidence was observed.",
+      "repair": "Preserved the original hot database and journal, restored the last clean baseline, retained the three external receipts and cumulative charge, then continued with the same project identity. Current integrity_check is ok."
+    },
+    {
+      "id": "R016-plan-binding-v2",
+      "state": "repaired",
+      "symptom": "Independent review found that the earlier plan pinned pre-repair analyzer identities and therefore could not prospectively bind the already observed result.",
+      "repair": "Disclosed the prior results as post-hoc, created hash-bound plan v5 with repaired code and strongest R015 comparator, passed design check with zero gaps/advisories, then ran a fresh confirmation batch and independent audit. No retroactive preregistration claim is made."
+    },
+    {
+      "id": "R016-reused-task-id-design-check",
+      "state": "repaired",
+      "symptom": "A response accidentally reused an immutable historical design-check task id, so the old v2 contract executed once more.",
+      "repair": "The duplicate produced no scientific output. Subsequent design, run, analysis, audit and comparison used unique v5 task and output identities."
+    }
+  ],
+  "automation_id": "6acbc3de9398819193c8b61a5cb42bb5",
+  "checkpoint_library_id": "libfile_8d235c544fb48191929cce3ca06aedf0",
+  "runner_session_id": "7bf5c3e3e5424bb9baa74cfccf12a494",
+  "updated_at_utc": "2026-10-12T09:12:37+00:00",
+  "active_task_ids": [],
+  "scientific_plan": null,
+  "last_health_observation": {
+    "activity_age_seconds": 143.27269792556763,
+    "errors": [],
+    "identity_observed_alive": false,
+    "max_age_seconds": 30,
+    "record": {
+      "exit_status": null,
+      "exited_at": null,
+      "identity": {
+        "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+        "pid": 17913,
+        "start_ticks": 544434
+      },
+      "last_activity_at": "2026-10-12T09:08:17.346801+00:00",
+      "last_activity_epoch": 1791796097.3467948,
+      "mode": "run",
+      "root": "/workspace/scratch/157b111ad113/autopilot_3d",
+      "schema_version": 1,
+      "session_id": "7bf5c3e3e5424bb9baa74cfccf12a494",
+      "stage": "tick",
+      "started_at": "2026-10-12T08:52:56.095861+00:00"
+    },
+    "root": "/workspace/scratch/157b111ad113/autopilot_3d",
+    "scope": "Local process observation only; no external watcher or user delivery is activated",
+    "status": "idle_supervisor_interrupted_for_checkpoint; retained runner health reports lost because the deliberate interrupt did not record an exit, while the exact process identity and project command are absent"
+  },
+  "budget_observation": {
+    "attempts_used": 113,
+    "deadline_epoch": 1791835399.0113423,
+    "elapsed_seconds": 13137.27925871903,
+    "max_attempts": 125,
+    "max_command_seconds": 32581.39827155901,
+    "remaining_deadline_seconds": 39157.592138290405,
+    "remaining_seconds": 19444.11901283998,
+    "reserved_seconds": 0,
+    "overall_cap": null,
+    "note": "Runner database records13137.279259 settled command-seconds and113 terminal attempts. Three out-of-database recovery receipts add1.860955 seconds and3 attempts, for13139.140214 observed command-seconds and116 observed attempts. This renewable window is not a user budget or project endpoint; cumulative usage and all failures remain preserved without reset."
+  },
+  "last_runner_sequence": 153,
+  "scientific_plans": [
+    "plans/R001_experiment_plan_v2.json",
+    "plans/R002_experiment_plan.json",
+    "plans/R003_repair1_plan.json",
+    "plans/R004_experiment_plan.json",
+    "plans/R005_experiment_plan.json",
+    "plans/R006_experiment_plan.json",
+    "plans/R007_experiment_plan.json",
+    "plans/R008_experiment_plan.json",
+    "plans/R009D_experiment_plan.json",
+    "plans/R009Q_experiment_plan.json",
+    "plans/R010_experiment_plan.json",
+    "plans/R013_experiment_plan.json",
+    "plans/R014_experiment_plan.json",
+    "plans/R015_experiment_plan_v2.json",
+    "plans/R016_experiment_plan_v5.json"
+  ],
+  "accepted_result_records": [
+    "results/R001/experiment_results.json",
+    "results/R002/experiment_results.json",
+    "results/R003_repair1/experiment_results.json",
+    "results/R004/experiment_results.json",
+    "results/R005/experiment_results.json",
+    "results/R006_repair1/experiment_results.json",
+    "results/R007/experiment_results_v2.json",
+    "results/R008/001/experiment_results.json",
+    "results/R008/002/experiment_results.json",
+    "results/R009D/experiment_results.json",
+    "results/R009Q/001/experiment_results.json",
+    "results/R009Q/experiment_results.json",
+    "results/R010_recovery2/experiment_results.json",
+    "results/R008/003/experiment_results_R011.json",
+    "results/R008/confirmation-through-003.json",
+    "results/R008/000_nodrift/experiment_results_R012.json",
+    "results/R008/final_confirmation_R012.json",
+    "results/R013/summary.json",
+    "notes/delegations/R013_vumlaut_result_audit.result.json",
+    "results/R014/summary-v2.json",
+    "notes/R014_result_audit.md",
+    "results/R015/summary-v2.json",
+    "results/R015/repeat-comparison.json",
+    "notes/R015_conclusion.md",
+    "results/R016/experiment_results_v5.json",
+    "results/R016/v5-audit-5000.json",
+    "results/R016/v5-prior-compare.json",
+    "notes/R016_independent_result_review.md",
+    "notes/R016_conclusion.md"
+  ],
+  "integrity_caveat": "OriginalR003 andR006cap2 logs retainedinvalid; R003_repair1 andR006_repair1 accepted. Verifyfutureraw artifacts againstreceipts.",
+  "background_liveness_caveat": "Latest supervisor was intentionally stopped at an idle awaiting-decision boundary after all attempts settled. No between-wake continuity is promised; verify retained identity and runner state before restart.",
+  "next_experiment_executed": true,
+  "schema_caveats": [
+    "R001frozenplanmapsv2butactualv3recovery documented; initialcalibrationpendinginoldplan.",
+    "R002initialcalibrationpendinginoldprospectiveplan, observedpilotretained.",
+    "R005allstandardarmslabelledbaseline/control yieldshelpermissingmethodrole; substantive3armcomparisonverified. Originalplansnotrewrittenafterresults.",
+    "R007 firstresultrecord repeatedarmIDs perABBArepeat; preservedandgrouped inexperiment_results_v2.json withallrunIDs/artifacts explicit, helpergapsresolved. Scienceunchanged."
+  ],
+  "R007_metrics": {
+    "native_mean_wall_seconds": 322.3230284750098,
+    "twostep_mean_wall_seconds": 166.70621675800066,
+    "wall_reduction_percent": 48.27976842153379,
+    "speedup_A_over_B": 1.9334793551395297
+  },
+  "R008_scientific_execution": "001/002/003 and000_nodrift complete and independently accepted. Frozen unseen-drift quality subclaim supported; no-drift subclaim and broad uniform claim not_supported because twostep_even fails the mean-rotation gate on000_nodrift. All negative controls and raw evidence retained.",
+  "R008_ready_sequence": null,
+  "R008_ready_manifest": "results/R008-data-seq000-right-n1000.json",
+  "R008_prepared_unsubmitted_plan": null
+}

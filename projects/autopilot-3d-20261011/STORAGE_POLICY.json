@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "project_id": "autopilot-3d-20261011",
+  "authority": "User 2026-10-12: upload all historical files to Yunbo-max/cpu, fetch only what is needed, upload results and then remove local copies",
+  "repository": "Yunbo-max/cpu",
+  "namespace": "projects/autopilot-3d-20261011",
+  "primary_state": "archive-manifest.json at a resolved immutable main commit",
+  "routine_restore_kind": "active",
+  "history_restore_kind": "history",
+  "cleanup_requires": ["No active or unknown attempt", "Project lock held", "Exact remote commit recorded", "All part and whole SHA256 verified from remote", "ZIP CRC and inventory verified", "All local non-reproducible changes covered", "User stop and cumulative usage preserved"],
+  "upload_failure_action": "Retain local evidence and report; do not clean",
+  "conflict_action": "Read latest remote state and reconcile; no force update",
+  "scope": "Only autopilot-3d-20261011; do not remove or resume other projects",
+  "memory_note": "Removing verified local files can reduce disk and associated file-cache use; it does not free unrelated live-process anonymous memory"
+}
