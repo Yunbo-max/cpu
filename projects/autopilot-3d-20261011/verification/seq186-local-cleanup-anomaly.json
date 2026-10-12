@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "project_id": "autopilot-3d-20261011",
+  "observed_utc": "2026-10-12T16:24:00Z",
+  "remote_archive_commit": "fc7040bd9640cd86f94ce5dcf6e8013185877592",
+  "remote_metadata_commit": "88dc0ec67e37045f82390c18d8155919978fed91",
+  "remote_verification": {
+    "parts": 23,
+    "files": 2060,
+    "zip_crc": "passed",
+    "sqlite_integrity": "ok",
+    "logical_state_matches": true
+  },
+  "cleanup_attempts": [
+    {
+      "method": "find-depth-delete",
+      "command_completed": true,
+      "independent_recheck": {
+        "project_present": true,
+        "project_bytes_approx": 358612992,
+        "publish_restore_present": true,
+        "publish_restore_bytes_approx": 85983232,
+        "old_restore_bytes_approx": 602112
+      }
+    },
+    {
+      "method": "truncate-all-files-sync-find-depth-delete-sync",
+      "command_completed": true,
+      "independent_recheck": {
+        "project_present": true,
+        "project_files": 1358,
+        "project_bytes": 260126335,
+        "publish_restore_present": true,
+        "publish_restore_files": 599,
+        "publish_restore_bytes": 82724914,
+        "old_restore_files": 0,
+        "old_restore_bytes": 0
+      }
+    }
+  ],
+  "current_memory": {
+    "max_bytes": 8589934592,
+    "current_bytes": 6414741504,
+    "anon_bytes": 1078431744,
+    "file_bytes": 4948987904,
+    "shmem_bytes": 134905856,
+    "inactive_file_bytes": 757592064,
+    "active_file_bytes": 4056489984,
+    "file_dirty_bytes": 352460800,
+    "file_writeback_bytes": 0,
+    "oom": 0,
+    "oom_kill": 0
+  },
+  "status": "cleanup_residual_reappeared",
+  "claim": "Remote evidence is verified; local cleanup is not complete and resource release is not claimed.",
+  "next_action": "On the next activation, recheck exact residual paths and state before any restore. Do not overwrite or duplicate scientific work; retry only project-scoped cleanup after confirming remote coverage and no active or unknown attempt."
+}
