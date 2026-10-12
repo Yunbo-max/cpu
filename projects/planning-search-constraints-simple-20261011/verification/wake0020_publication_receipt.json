@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "project_id": "planning-search-constraints-simple-20261011",
+  "verified_utc": "2026-10-12T16:02:00.788523155Z",
+  "repository": "Yunbo-max/cpu",
+  "branch": "main",
+  "data_commit": "e8e56652ae4e8f5908677bb98abf4979214f3db5",
+  "data_commit_parent": "57e212608f3d9f2fb7c9b7faf3b9bb6d1629d094",
+  "manifest": "projects/planning-search-constraints-simple-20261011/snapshots/wake0020-memory-wait.json",
+  "manifest_sha256": "96073c678c63403c1c8238474648eec8d49c363e2a44b649335223415655cdd0",
+  "manifest_files": 7586,
+  "manifest_raw_bytes": 1337503930,
+  "new_pack_bytes": 26477,
+  "remote_objects": [
+    {
+      "path": "projects/planning-search-constraints-simple-20261011/LATEST.json",
+      "git_blob_sha1": "f29cd4370a59f66caac5433fb89d92d40638633e"
+    },
+    {
+      "path": "projects/planning-search-constraints-simple-20261011/snapshots/wake0020-memory-wait.json",
+      "git_blob_sha1": "4316c56f11f690e2063b530658f08ac83edd2f2f"
+    },
+    {
+      "path": "projects/planning-search-constraints-simple-20261011/packs/wake0020-memory-wait/index.json",
+      "git_blob_sha1": "238b5ddf2f7adc8a20c04dca1710aa58b66cdece"
+    },
+    {
+      "path": "projects/planning-search-constraints-simple-20261011/packs/wake0020-memory-wait/part-00000.bin",
+      "git_blob_sha1": "4b39499c2fb5ba19946491b5e8f487183f8ea603",
+      "sha256": "fd103f3d371e7b23b991f9928f3f548be385f6a330ab76759df5154ec8e9f9dc",
+      "bytes": 26477
+    }
+  ],
+  "remote_readback": {
+    "commit_pinned": true,
+    "latest_content_verified": true,
+    "all_four_blob_ids_match_local_git_hash_object": true,
+    "binary_pack_content_returned_by_connector": true
+  },
+  "selective_restore": {
+    "status": "passed",
+    "files": [
+      {
+        "path": "CHECKPOINT.json",
+        "sha256": "b7745c3b0a065fbd4c184ccf16716292e80c232006e8d36749b4a71dd573c8e6"
+      },
+      {
+        "path": "RESUME.md",
+        "sha256": "7952e4e6b5eebbb7630b1e0da97d20a15052c8d4e4f620dcb8714c60a5335526"
+      },
+      {
+        "path": "windows/W0001/evidence/waiting_for_memory_v2.json",
+        "sha256": "c49a5a17fd7e38b50997f69318fe20f6a5b5f3fb8046a128711da54516653d9c"
+      },
+      {
+        "path": "windows/W0001/evidence/wake0020_memory_recheck_v1.json",
+        "sha256": "433a03bcd7add94823b436ff05b94cd07b172196ccd41d00777fedb72dc4f440"
+      }
+    ]
+  },
+  "full_inherited_verify": {
+    "status": "deferred",
+    "reason": "The lightweight local Git HEAD does not contain the inherited wake0017 pack index; this pre-existing local checkout limitation does not affect the wake0020 pack or its four-file selective restore."
+  },
+  "publication_incidents": [
+    {
+      "kind": "concurrent_main_update_or_transient_graphql_error",
+      "outcome": "reconciled",
+      "details": "Two lease attempts from stale parents returned GraphQL errors while other project commits advanced main. Branch head was re-read before each retry; the successful commit used expected parent 57e212608f3d9f2fb7c9b7faf3b9bb6d1629d094 and a non-force fast-forward update."
+    }
+  ],
+  "scientific_scope": "Storage verification only. No CMake installation, compiler, solver, VAL, or scientific experiment ran."
+}
