@@ -1,0 +1,40 @@
+{
+  "submission_id": "wake21-source-en",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "source-en",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/english.resources.json",
+        "scripts/acquire_source.py",
+        "0"
+      ],
+      "phase": "sources",
+      "purpose": "Acquire frozen English Tatoeba export without parsing or scoring, checking exact frozen size and recording SHA256",
+      "timeout_seconds": 90,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "tatoeba_confirmation_protocol.json",
+          "sha256": "275c2dae7285fb0baa2a54ae2acbdf960382a9b6b1b54207d6fcfc61f6832aeb"
+        },
+        {
+          "path": "scripts/acquire_source.py",
+          "sha256": "26394568506b130d4fd00e9c2d3e350c4cd0eabe8d84793c2772dcbba90032d3"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+        }
+      ],
+      "outputs": [
+        "output/english_sentences.source.json",
+        "output/english.resources.json"
+      ]
+    }
+  ]
+}

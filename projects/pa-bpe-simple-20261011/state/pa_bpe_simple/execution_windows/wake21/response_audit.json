@@ -1,0 +1,49 @@
+{
+  "request_id": "decision-c3dd7a3d8b3e4847a94c8847d9ce8e25",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "wake21-source-audit",
+  "reason": "Memory restored above unchanged512MiB guard; audit fixed source identity and graph before any selection/scoring.",
+  "tasks": [
+    {
+      "task_id": "audit-source",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/audit.resources.json",
+        "scripts/audit_source.py"
+      ],
+      "cwd": ".",
+      "phase": "verify",
+      "purpose": "Verify fixed source syntax IDs language endpoints and closed triangles without scoring",
+      "timeout_seconds": 120,
+      "depends_on": [
+        "source-remaining"
+      ],
+      "input_refs": [
+        {
+          "path": "source_manifest.json",
+          "sha256": "ba5de2f3f94cce01ba43ee6c4fef5c52428d4fafec161dc18ce07c39a902852d"
+        },
+        {
+          "path": "protocol_implementation_addendum.md",
+          "sha256": "5ef015d58d15b587757e8d3f9a3e4fae29ddb8dba8c39cf249f22ff9616b3a5b"
+        },
+        {
+          "path": "scripts/audit_source.py",
+          "sha256": "b29a1511d522928ec4e691eaa079b34b6b2ecef58fb8c8fa80f02f1392bff2f2"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+        }
+      ],
+      "outputs": [
+        "output/source_audit.json",
+        "output/audit.resources.json",
+        "output/closed_triangles.tsv.gz"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,463 @@
+{
+  "agent": {
+    "command": null,
+    "enabled": false,
+    "error": null,
+    "history": [
+      {
+        "command": null,
+        "reason": "Initial configuration",
+        "version": 0
+      }
+    ],
+    "repairs": {},
+    "version": 0
+  },
+  "attempts": [
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/pa_bpe_wake21_20261012T1627/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake21/.research-autopilot/runner/attempts/attempt-c790fe46643144f2a8662b5f1262e470",
+      "attempt_id": "attempt-c790fe46643144f2a8662b5f1262e470",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/measure_command.py",
+          "output/english.resources.json",
+          "scripts/acquire_source.py",
+          "0"
+        ],
+        "attempt_id": "attempt-c790fe46643144f2a8662b5f1262e470",
+        "cwd": ".",
+        "deadline_epoch": 1791824478.8426046,
+        "input_refs": [
+          {
+            "path": "tatoeba_confirmation_protocol.json",
+            "sha256": "275c2dae7285fb0baa2a54ae2acbdf960382a9b6b1b54207d6fcfc61f6832aeb"
+          },
+          {
+            "path": "scripts/acquire_source.py",
+            "sha256": "26394568506b130d4fd00e9c2d3e350c4cd0eabe8d84793c2772dcbba90032d3"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "output/english_sentences.source.json",
+          "output/english.resources.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake21_20261012T1627/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake21",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "source-en",
+        "timeout_seconds": 90
+      },
+      "contract_sha256": "9d33a78466f2bc9e84fd2d589bf4a4ecafcbca0d01375f95d70e782afcf659de",
+      "kind": "task",
+      "reason": "The same detached worker is alive",
+      "reservation_seconds": 93.0,
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "running",
+      "task_id": "source-en"
+    }
+  ],
+  "budget": {
+    "attempts_used": 1,
+    "deadline_epoch": 1791824478.8426046,
+    "elapsed_seconds": 0.0,
+    "max_attempts": 12,
+    "max_command_seconds": 600,
+    "remaining_deadline_seconds": 1775.4473369121552,
+    "remaining_seconds": 507.0,
+    "reserved_seconds": 93.0
+  },
+  "complete_goal": false,
+  "continuations": [],
+  "current_question": "Inspect the existing method and choose its next important uncertainty",
+  "external_waits": [],
+  "goal": "Continuously test and improve the cross-domain stability of multilingual tokenization fairness using legal aligned data, strong controls, retained negative results, and current authorized CPU resources.",
+  "goal_completions": [],
+  "goal_contract": {
+    "completion_criteria": [
+      {
+        "description": "Maintain reproducible development and independent-domain comparisons for Classical and parity-aware variants with fairness and cost metrics.",
+        "id": "cross-domain-evidence"
+      },
+      {
+        "description": "Use observed mechanism evidence to test serial, falsifiable revisions while retaining failures and limits.",
+        "id": "mechanism-revision"
+      }
+    ],
+    "mode": "continuous_research"
+  },
+  "goal_contract_history": [
+    {
+      "contract": {
+        "completion_criteria": [
+          {
+            "description": "Maintain reproducible development and independent-domain comparisons for Classical and parity-aware variants with fairness and cost metrics.",
+            "id": "cross-domain-evidence"
+          },
+          {
+            "description": "Use observed mechanism evidence to test serial, falsifiable revisions while retaining failures and limits.",
+            "id": "mechanism-revision"
+          }
+        ],
+        "mode": "continuous_research"
+      },
+      "goal": "Continuously test and improve the cross-domain stability of multilingual tokenization fairness using legal aligned data, strong controls, retained negative results, and current authorized CPU resources.",
+      "reason": "Initial objective scope",
+      "version": 1
+    }
+  ],
+  "goal_contract_version": 1,
+  "idea_status": "active",
+  "journal": {
+    "active_idea": "pa-bpe-domain-robustness",
+    "blocker": null,
+    "budget_exhausted": false,
+    "counters": {
+      "iterations": 0,
+      "repairs": 0,
+      "usage": {}
+    },
+    "goal": "Continuously test and improve the cross-domain stability of multilingual tokenization fairness using legal aligned data, strong controls, retained negative results, and current authorized CPU resources.",
+    "history": [
+      {
+        "created_at": "2026-10-12T16:31:18.839410+00:00",
+        "event": {
+          "goal": "Continuously test and improve the cross-domain stability of multilingual tokenization fairness using legal aligned data, strong controls, retained negative results, and current authorized CPU resources.",
+          "idea": "pa-bpe-domain-robustness",
+          "kind": "initialize",
+          "max_iterations": null,
+          "max_repairs": 3
+        },
+        "idea": "pa-bpe-domain-robustness",
+        "revision": 1,
+        "version": 0
+      }
+    ],
+    "idea_history": [],
+    "limits": {
+      "max_iterations": null,
+      "max_repairs": 3
+    },
+    "milestones": [],
+    "next_action": "Inspect the existing method and choose its next important uncertainty",
+    "pending_launch": null,
+    "phase": "inspect",
+    "reported_outcome": null,
+    "research_cycles": [],
+    "revision": 1,
+    "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake21_20261012T1627/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake21",
+    "schema_version": 1,
+    "scientific_certification": false,
+    "status": "active",
+    "version": 0,
+    "wait": null
+  },
+  "next_action": "Inspect the existing method and choose its next important uncertainty",
+  "outbox": [],
+  "requests": [],
+  "research_cycle_count": 0,
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake21_20261012T1627/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake21",
+  "sequence": 0,
+  "source": {
+    "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+      },
+      {
+        "path": "references/rsi-simple.md",
+        "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+      },
+      {
+        "path": "references/simple-runner.md",
+        "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+      },
+      {
+        "path": "scripts/_simple_process.py",
+        "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+      },
+      {
+        "path": "scripts/_simple_source.py",
+        "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+      },
+      {
+        "path": "scripts/simple_loop.py",
+        "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+      },
+      {
+        "path": "scripts/simple_runner.py",
+        "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+      },
+      {
+        "path": "references/simple-experiment-design.md",
+        "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+      },
+      {
+        "path": "scripts/simple_design.py",
+        "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+      },
+      {
+        "path": "scripts/simple_resources.py",
+        "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+      },
+      {
+        "path": "assets/templates/simple-experiment-plan.json",
+        "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+      },
+      {
+        "path": "assets/templates/simple-experiment-results.json",
+        "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+      },
+      {
+        "path": "references/simple-collaboration.md",
+        "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+      },
+      {
+        "path": "assets/templates/simple-delegation.json",
+        "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+      }
+    ],
+    "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "source_error": null,
+  "source_history": [
+    {
+      "reason": "Initial source snapshot",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      }
+    }
+  ],
+  "status": "running",
+  "stop_requested": null,
+  "tasks": [
+    {
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/english.resources.json",
+        "scripts/acquire_source.py",
+        "0"
+      ],
+      "attempt_id": "attempt-c790fe46643144f2a8662b5f1262e470",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "tatoeba_confirmation_protocol.json",
+          "sha256": "275c2dae7285fb0baa2a54ae2acbdf960382a9b6b1b54207d6fcfc61f6832aeb"
+        },
+        {
+          "path": "scripts/acquire_source.py",
+          "sha256": "26394568506b130d4fd00e9c2d3e350c4cd0eabe8d84793c2772dcbba90032d3"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+        }
+      ],
+      "outputs": [
+        "output/english_sentences.source.json",
+        "output/english.resources.json"
+      ],
+      "phase": "sources",
+      "purpose": "Acquire frozen English Tatoeba export without parsing or scoring, checking exact frozen size and recording SHA256",
+      "reason": "Attempt durably reserved",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "running",
+      "supersedes": null,
+      "task_id": "source-en",
+      "timeout_seconds": 90
+    }
+  ]
+}

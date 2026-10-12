@@ -1,0 +1,52 @@
+{
+  "request_id": "decision-f6ac6dbfcbaa45b08a3a9fd541196e36",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "wake21-remaining-source",
+  "reason": "English export matches frozen size. Fetch the remaining five frozen files without parsing/scoring.",
+  "tasks": [
+    {
+      "task_id": "source-remaining",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/remaining.resources.json",
+        "scripts/acquire_remaining.py"
+      ],
+      "phase": "sources",
+      "purpose": "Acquire remaining frozen Tatoeba blobs without parsing and fix source hashes",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "source-en"
+      ],
+      "input_refs": [
+        {
+          "path": "tatoeba_confirmation_protocol.json",
+          "sha256": "275c2dae7285fb0baa2a54ae2acbdf960382a9b6b1b54207d6fcfc61f6832aeb"
+        },
+        {
+          "path": "scripts/acquire_source.py",
+          "sha256": "26394568506b130d4fd00e9c2d3e350c4cd0eabe8d84793c2772dcbba90032d3"
+        },
+        {
+          "path": "scripts/acquire_remaining.py",
+          "sha256": "b631a9353f5f3c28e1cc9f124fa8b37e529f4c5375d9d797f834f8f7aa5bb3a9"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+        }
+      ],
+      "outputs": [
+        "output/french_sentences.source.json",
+        "output/spanish_sentences.source.json",
+        "output/english_french_links.source.json",
+        "output/english_spanish_links.source.json",
+        "output/french_spanish_links.source.json",
+        "output/remaining.resources.json"
+      ]
+    }
+  ]
+}

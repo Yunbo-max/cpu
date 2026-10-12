@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-12T16:43:26.265974+00:00",
+  "events": [
+    {
+      "kind": "administrative_persistence_race",
+      "artifact": "runner/diagnostics/health.json",
+      "cause": "idle live supervisor changed health after publication scan",
+      "impact": "upload batch aborted on Git SHA mismatch; no branch update; local evidence retained",
+      "repair": "interrupt only idle supervisor via original session; no queued or active attempt; do not goal-stop; retry immutable snapshot"
+    },
+    {
+      "kind": "supervisor_interrupted",
+      "exit_code": 130,
+      "intentional": true,
+      "scientific_failures": 0
+    },
+    {
+      "kind": "memory_wait",
+      "event_id": "wake21-memory-source-audit",
+      "scientific_attempt_started": false
+    },
+    {
+      "kind": "administrative_recovered",
+      "details": "Cloud reference reads unavailable; identical pinned local Simple source read. Process probe shell self-match corrected using executable and argument identity. Inbox parser corrected from dict to list; no scientific attempt from these probes."
+    },
+    {
+      "kind": "source_validation_failed",
+      "utc": "2026-10-12T16:47:00.395237+00:00",
+      "missing_endpoint_edges": {
+        "en_fr": 507,
+        "en_es": 210,
+        "fr_es": 27
+      },
+      "impact": "strict frozen source audit invalid, no confirmation result",
+      "repair": "bounded diagnostic quantified without discarding edges",
+      "next": "identify source inconsistency cause before any protocol revision"
+    },
+    {
+      "kind": "memory_recovered",
+      "utc": "2026-10-12T16:44:14.081780+00:00",
+      "headroom_bytes": 2989412352,
+      "guard_unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-12T16:29:54.158868+00:00",
+  "matches": [
+    {
+      "pid": "225674",
+      "cmd": "bwrap\u0000--as-pid-1\u0000--new-session\u0000--die-with-parent\u0000--bind\u0000/\u0000/\u0000--dev\u0000/dev\u0000--bind-try\u0000/dev/shm\u0000/dev/shm\u0000--unshare-user\u0000--unshare-ipc\u0000--unshare-pid\u0000--unshare-net\u0000--cap-drop\u0000ALL\u0000--argv0\u0000codex-linux-sandbox\u0000--\u0000/opt/codex/bin/codex\u0000--sandbox-policy-cwd\u0000/workspace/scratch/42f1128b703b\u0000--command-cwd\u0000/workspac"
+    },
+    {
+      "pid": "225675",
+      "cmd": "/root/.codex/tmp/arg0/codex-arg0tdTtXK/codex-linux-sandbox\u0000--sandbox-policy-cwd\u0000/workspace/scratch/42f1128b703b\u0000--command-cwd\u0000/workspace/scratch/42f1128b703b/pa_bpe_wake21_20261012T1627/repo/projects/pa-bpe-simple-20261011\u0000--permission-profile\u0000{\"type\":\"managed\",\"file_system\":{\"type\":\"unrestricted\"},"
+    },
+    {
+      "pid": "225676",
+      "cmd": "/root/.codex/tmp/arg0/codex-arg0tdTtXK/codex-linux-sandbox\u0000--sandbox-policy-cwd\u0000/workspace/scratch/42f1128b703b\u0000--command-cwd\u0000/workspace/scratch/42f1128b703b/pa_bpe_wake21_20261012T1627/repo/projects/pa-bpe-simple-20261011\u0000--permission-profile\u0000{\"type\":\"managed\",\"file_system\":{\"type\":\"unrestricted\"},"
+    },
+    {
+      "pid": "225681",
+      "cmd": "codex-linux-sandbox\u0000--sandbox-policy-cwd\u0000/workspace/scratch/42f1128b703b\u0000--command-cwd\u0000/workspace/scratch/42f1128b703b/pa_bpe_wake21_20261012T1627/repo/projects/pa-bpe-simple-20261011\u0000--permission-profile\u0000{\"type\":\"managed\",\"file_system\":{\"type\":\"unrestricted\"},\"network\":\"restricted\"}\u0000--apply-seccomp"
+    },
+    {
+      "pid": "225682",
+      "cmd": "/bin/bash\u0000-lc\u0000python3 - <<'PY'\nimport os,json,datetime,shutil\nfrom pathlib import Path\nbase=Path('state/pa_bpe_simple/execution_windows'); w=base/'wake21';w.mkdir()\nfor name in ['evidence','output','scripts','inputs']: (w/name).mkdir()\nfor name in ['config.json','tatoeba_confirmation_protocol.json']"
+    }
+  ],
+  "note": "read-only /proc scan; ignores this administrative Python probe"
+}

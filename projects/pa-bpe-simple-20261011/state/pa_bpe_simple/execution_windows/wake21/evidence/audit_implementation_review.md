@@ -1,0 +1,4 @@
+# Coordinator static audit review
+The planned source audit streams bz2 lines, uses SQLite primary keys to reject duplicate sentence IDs, deduplicates edges, checks every link endpoint, and joins all three direct-edge relations. It stores no sentence text after per-line normalization counts. SQLite cache is bounded to 8 MiB and address space to 256 MiB. Temporary SQLite is now under the registered window temporary/ directory (so a timeout cannot leave an unregistered external raw artifact). Output SHA256 uses a 64 KiB streaming buffer.
+
+Not executed or tested in this memory wait. TSV syntax, export endpoint integrity, actual runtime and peak RSS remain unverified. A malformed record or missing endpoint must fail the source audit; no relabeling or silent filtering. The audit does not establish final content alignment quality or complete contamination exclusion.

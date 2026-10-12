@@ -1,0 +1,31 @@
+{
+  "event_id": "wake21-memory-endpoint-diagnostic",
+  "state": "resolved",
+  "first_wait_utc": "2026-10-12T16:46:29.994668+00:00",
+  "latest_measurement": {
+    "utc": "2026-10-12T16:46:29.994668+00:00",
+    "memory_max": 8589934592,
+    "memory_current": 7785398272,
+    "headroom": 804536320,
+    "anon": 879788032,
+    "file": 6527238144,
+    "shmem": 134905856
+  },
+  "recheck_count": 0,
+  "blocked_task": "diagnose-endpoints",
+  "planned_argv": [
+    "python3",
+    "scripts/measure_command.py",
+    "output/endpoint_diagnostic.resources.json",
+    "scripts/diagnose_source_endpoints.py"
+  ],
+  "required_headroom_bytes": 536870912,
+  "resume_condition": "headroom >=512MiB, no existing unknown/active PA-BPE attempt; retain 256MiB process address-space limit",
+  "reported_event_id": "wake21-memory-endpoint-diagnostic",
+  "scientific_attempt_started": false,
+  "distinct_wakes_this_event": 1,
+  "input_sha256": "275c2dae7285fb0baa2a54ae2acbdf960382a9b6b1b54207d6fcfc61f6832aeb",
+  "need_basis": "Streaming bzip2 and SQLite cache 8MiB, process address-space hard cap256MiB, existing512MiB startup margin; actual audit peak unmeasured",
+  "resolved_utc": "2026-10-12T16:46:45.189182+00:00",
+  "resume_headroom_bytes": 639602688
+}

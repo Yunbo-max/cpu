@@ -1,0 +1,55 @@
+{
+  "attempt_id": "attempt-04415f3e7d3b4b6fa70a96f8776fbfb4",
+  "command_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 236919,
+    "start_ticks": 3377392
+  },
+  "contract_sha256": "f8bd198cb9294b20f0246fa9db3c9d00c04a22f5e8748a5bf69aacb4821e2db9",
+  "elapsed_seconds": 15.104590692004422,
+  "error": "Command exited with status 1; Cannot safely read output/source_audit.json: [Errno 2] No such file or directory: 'source_audit.json'; Cannot safely read output/closed_triangles.tsv.gz: [Errno 2] No such file or directory: 'closed_triangles.tsv.gz'",
+  "exit_code": 1,
+  "finished_at": "2026-10-12T16:45:20.722236+00:00",
+  "input_refs": [
+    {
+      "path": "source_manifest.json",
+      "sha256": "ba5de2f3f94cce01ba43ee6c4fef5c52428d4fafec161dc18ce07c39a902852d"
+    },
+    {
+      "path": "protocol_implementation_addendum.md",
+      "sha256": "5ef015d58d15b587757e8d3f9a3e4fae29ddb8dba8c39cf249f22ff9616b3a5b"
+    },
+    {
+      "path": "scripts/audit_source.py",
+      "sha256": "b29a1511d522928ec4e691eaa079b34b6b2ecef58fb8c8fa80f02f1392bff2f2"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/audit.resources.json",
+      "sha256": "b9f82b917e203b6c6cfcbc7f352c4e34bdaeb2b506e2058c5c4a20937aed5f23"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake21_20261012T1627/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake21",
+  "schema_version": 1,
+  "started_at": "2026-10-12T16:45:05.617647+00:00",
+  "status": "failed",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-04415f3e7d3b4b6fa70a96f8776fbfb4/stderr.txt",
+    "sha256": "93f743be853bbbaca325b4dd63158d4532d0d8c42962adcc3e782ad99ebe2a4f"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-04415f3e7d3b4b6fa70a96f8776fbfb4/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "audit-source",
+  "worker_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 236918,
+    "start_ticks": 3377388
+  }
+}
