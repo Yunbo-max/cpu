@@ -8,6 +8,7 @@ import argparse
 import base64
 import hashlib
 import json
+import re
 from pathlib import Path
 import sys
 
@@ -53,13 +54,14 @@ def main():
         return {x['path']: x['sha'] for x in rows}
     baseline = None
     if not a.upload_only:
-        if not a.expected_project_commit:
-            raise ValueError('--expected-project-commit is required before publishing')
+        if not a.expected_project_commit or not re.fullmatch(r'[0-9a-fA-F]{40}', a.expected_project_commit):
+            raise ValueError('--expected-project-commit must be an immutable full40 hexadecimal SHA')
         baseline = namespace(a.expected_project_commit)
     receipt = a.staging / 'upload-receipts.json'
     previous = json.loads(receipt.read_text()) if receipt.exists() else {}
     entries = []
-    files = sorted((a.staging / 'projects').rglob('*'))
+    namespace_root = a.staging / 'projects' / 'autopilot-3d-20261011'
+    files = sorted(namespace_root.rglob('*'))
     for f in files:
         if not f.is_file(): continue
         rel = f.relative_to(a.staging).as_posix()
