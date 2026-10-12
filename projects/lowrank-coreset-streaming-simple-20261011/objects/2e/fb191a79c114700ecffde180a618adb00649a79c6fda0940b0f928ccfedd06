@@ -1,0 +1,26 @@
+{
+  "response_id": "nystrom-high-precision-submit-v1",
+  "request_id": "decision-fbde85fa965845048159b83e204a1754",
+  "idea": "nystrom-permutation-validity-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The accepted cycle leaves double-precision pseudoinverse ambiguity near numerical rank loss. Run the predeclared 100-decimal-digit 4-by-4 inverse reference before any paper-workload or correction claim.",
+  "events": [],
+  "tasks": [{
+    "task_id": "nystrom-high-precision-floor-v1",
+    "argv": ["python3", "scripts/cpu_guard.py", "python3", "scripts/nystrom_high_precision_floor_v1.py"],
+    "phase": "diagnostic",
+    "purpose": "Compare the released singular-value floor and double-precision alternatives against an independent 100-digit exact inverse on strictly positive near-coincident fixtures",
+    "timeout_seconds": 120,
+    "depends_on": [],
+    "input_refs": [
+      {"path":"scripts/cpu_guard.py","sha256":"b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+      {"path":"scripts/nystrom_high_precision_floor_v1.py","sha256":"3a1564e09a8d45dd6a25ce7caf85138ae77907574aa5f4efdc8a4fffea6c9a03"},
+      {"path":"plans/nystrom_high_precision_floor_v1.md","sha256":"466a921aa90611d94cf3c96e5126eb3f4f449ae6c6ec3234203c926530b23bfa"},
+      {"path":"compat/tqdm.py","sha256":"875df2efb6f4ceaa3bb42f4bb3f1819322da38ee8fbc9cb035b71cbe936651f8"},
+      {"path":".deps/nystrom_read/kernels.py","sha256":"3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"},
+      {"path":".deps/nystrom_read/nystrom.py","sha256":"5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"}
+    ],
+    "outputs": ["results/nystrom_high_precision_floor_v1.json", "results/nystrom_high_precision_floor_v1_rows.json"]
+  }]
+}

@@ -1,0 +1,25 @@
+{
+  "response_id": "nystrom-high-precision-audit-submit-v1",
+  "request_id": "decision-f8f24c0ed99b4895b468fa5e6748dce5",
+  "idea": "nystrom-permutation-validity-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The 100-digit result strengthens the boundary finding but must pass a precision-convergence and inverse-residual audit before interpretation.",
+  "events": [],
+  "tasks": [{
+    "task_id": "nystrom-high-precision-audit-v1",
+    "argv": ["python3", "scripts/cpu_guard.py", "python3", "scripts/audit_nystrom_high_precision_v1.py"],
+    "phase": "diagnostic",
+    "purpose": "Verify 80/100/120-digit convergence and 120-digit inverse residuals for the high-precision reference",
+    "timeout_seconds": 30,
+    "depends_on": [],
+    "input_refs": [
+      {"path":"scripts/cpu_guard.py","sha256":"b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+      {"path":"scripts/audit_nystrom_high_precision_v1.py","sha256":"b2e5db1e851eec52182b3348af271291d38fe9af11f237e270b0cd6c68c9848e"},
+      {"path":"plans/nystrom_high_precision_audit_v1.md","sha256":"2303ceb71a2ee27beb4bdffbb792387f9b3a75bdaeb98e11e4cb29676fa0b986"},
+      {"path":"results/nystrom_high_precision_floor_v1.json","sha256":"6151a5d96a200721419274069dac3af2d6656309154e93f782ae876275137599"},
+      {"path":"results/nystrom_high_precision_floor_v1_rows.json","sha256":"180975074fc38439205ffed10434768866feab60f17f7d2ac99038cc0f92f4da"}
+    ],
+    "outputs": ["results/nystrom_high_precision_audit_v1.json"]
+  }]
+}

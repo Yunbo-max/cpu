@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+from decimal import Decimal, localcontext
+from pathlib import Path
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def points(eps):
+    e = Decimal(eps); h = e / Decimal(2)
+    raw = [[-h,0],[h,0],[-1,"0.7"],[1,"-0.6"],[-2,-1],["-1.5","0.2"],["-0.8","1.4"],["-0.2","-1.2"],["0.3","0.9"],["0.7","-0.7"],["1.2","1.3"],["1.8","-0.2"],["-1.8","0.8"],["-1.1","-1.3"],["-0.5","0.4"],["0.1","1.7"],["0.5","-1.6"],["1.0","0.4"],["1.5","-1.0"],["2.1","0.9"]]
+    return [[v if isinstance(v,Decimal) else Decimal(str(v)) for v in row] for row in raw]
+
+
+def kernel(a,b):
+    return (-sum((x-y)*(x-y) for x,y in zip(a,b))/Decimal(2)).exp()
+
+
+def invert(a):
+    n=len(a); aug=[r[:] + [Decimal(int(i==j)) for j in range(n)] for i,r in enumerate(a)]
+    for c in range(n):
+        p=max(range(c,n),key=lambda r:abs(aug[r][c])); aug[c],aug[p]=aug[p],aug[c]
+        s=aug[c][c]; aug[c]=[v/s for v in aug[c]]
+        for r in range(n):
+            if r!=c:
+                f=aug[r][c]; aug[r]=[x-f*y for x,y in zip(aug[r],aug[c])]
+    return [r[n:] for r in aug]
+
+
+def build(eps,prec):
+    with localcontext() as ctx:
+        ctx.prec=prec; z=points(eps); lm=z[:4]
+        knm=[[kernel(x,y) for y in lm] for x in z]; a=[r[:] for r in knm[:4]]; inv=invert(a)
+        resid=max(abs(sum(a[i][k]*inv[k][j] for k in range(4))-Decimal(int(i==j))) for i in range(4) for j in range(4))
+        tmp=[[sum(knm[i][k]*inv[k][j] for k in range(4)) for j in range(4)] for i in range(20)]
+        proj=np.array([[float(sum(tmp[i][k]*knm[j][k] for k in range(4))) for j in range(20)] for i in range(20)])
+        return proj, resid
+
+
+def rel(a,b):
+    return float(np.linalg.norm(a-b)/np.linalg.norm(b))
+
+
+def main():
+    rows=[]
+    for eps in ["1e-6","1e-7","1e-8"]:
+        p80,r80=build(eps,80);p100,r100=build(eps,100);p120,r120=build(eps,120)
+        rows.append({"eps":float(eps),"inverse_residual_80":str(r80),"inverse_residual_100":str(r100),"inverse_residual_120":str(r120),"projection_rel_change_80_100":rel(p80,p100),"projection_rel_change_100_120":rel(p100,p120)})
+    passed=all(Decimal(r["inverse_residual_120"]) < Decimal("1e-60") and r["projection_rel_change_100_120"] < 1e-12 for r in rows)
+    out={"schema_version":1,"all_checks_pass":passed,"rows":rows}
+    path=ROOT/"results"/"nystrom_high_precision_audit_v1.json";path.write_text(json.dumps(out,indent=2)+"\n")
+    if not passed: raise SystemExit("precision audit failed")
+    print(json.dumps(out))
+
+
+if __name__=="__main__": main()

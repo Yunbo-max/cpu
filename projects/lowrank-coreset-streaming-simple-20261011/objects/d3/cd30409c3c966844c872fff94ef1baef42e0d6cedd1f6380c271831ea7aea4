@@ -1,0 +1,104 @@
+{
+  "reported_to_user": "Root commentary reported earlier control recovery and the FAinv first-compression gate failure. The latter is a retained scientific falsification, not an unexamined execution failure.",
+  "records": [
+    {
+      "event_id": "cli:bec46785cd3843f8aa236c3060f1a28c",
+      "issue": "await_tasks was unnecessary because the inbox already contained the new completed observation.",
+      "resolution": "Read current inbox and submitted actual interpretation instead; no blind retry.",
+      "evidence": "execution_windows/w001/notes/moment_source_submit.json",
+      "status": "resolved_and_reported_in_commentary"
+    },
+    {
+      "event_id": "cli:4c9d6e7bc1c54c489b0cdcb31297640c",
+      "issue": "Goal-text revision encountered the owned idle supervisor lock.",
+      "resolution": "Verified all task receipts terminal, interrupted only owned idle session, applied native revision retaining history, restarted owned supervisor and verified health.",
+      "evidence": "notes/maintenance_record_v1.json",
+      "status": "resolved_and_reported_in_commentary"
+    },
+    {
+      "event_id": "checkpoint-transfer-v1",
+      "issue": "Transient HTTP400 conflicting request metadata during initial checkpoint replacement.",
+      "resolution": "Fresh version verification and guarded replacement succeeded at version1.",
+      "evidence": "notes/persistence_recovery_v1.json",
+      "status": "resolved_and_reported_in_commentary"
+    },
+    {
+      "event_id": "cli:169abffc25744ac7aa30b0361d99ac73",
+      "issue": "The first author-code milestone response contained an unsupported top-level next_action field.",
+      "resolution": "Removed the unsupported field, retained the same evidence, and submitted the accepted milestone response.",
+      "evidence": "execution_windows/w003/url_author_code_interpret_response_v1.json",
+      "status": "resolved_no_scientific_impact"
+    },
+    {
+      "event_id": "cli:f48e7e830cae4dcd8acb3e40f237eb3c",
+      "issue": "The corrected milestone response initially omitted a valid phase token.",
+      "resolution": "Added the explicit sources phase required by the fixed runner; the milestone was accepted without changing evidence.",
+      "evidence": "execution_windows/w003/url_author_code_interpret_response_v1.json",
+      "status": "resolved_no_scientific_impact"
+    },
+    {
+      "event_id": "cli:f62d4a1200624ca9b92d75856faf9907",
+      "issue": "A prose action was supplied where the runner required a phase enum.",
+      "resolution": "Replaced it with next_phase=sources and recorded the prose action in the milestone reason/plan; the response then succeeded.",
+      "evidence": "execution_windows/w003/url_author_code_interpret_response_v1.json",
+      "status": "resolved_no_scientific_impact"
+    },
+    {
+      "event_id": "cli:de4fdb1f78cf4401b4c18249f177b501",
+      "issue": "The dense-FAinv close response was bound to an inbox snapshot created before the kernel receipt was incorporated.",
+      "resolution": "Used await_tasks only to refresh the inbox, verified the retained terminal receipt, and then submitted the close/replace decision against the new request.",
+      "evidence": "execution_windows/w003/url_fainv_refresh_response_v1.json",
+      "status": "resolved_no_scientific_impact"
+    },
+    {
+      "event_id": "result:attempt-2aaf0ebaaf7942f986b763d2031d948e",
+      "issue": "The authentic first-compression task exited with status2 because the preregistered one-EM-iteration gate failed.",
+      "resolution": "Inspected the retained result and receipt, confirmed finite numerics and normal resource use, interpreted the four-iteration observation as a valid negative result, and recorded research cycle url-fainv-first-compression-cycle-v1 without retrying or deleting the failed attempt.",
+      "evidence": "execution_windows/w003/notes/url_fainv_first_compression_v1_analysis.md",
+      "status": "resolved_as_scientific_negative_and_reported_in_commentary"
+    },
+    {
+      "event_id": "cli:4a26a805e2354325b24ee5ab34d78615",
+      "issue": "The first generative replacement response was referenced without its execution-window prefix.",
+      "resolution": "Retried with the explicit project-relative execution_windows/w003 path; no scientific state or task was changed by the missing-file call.",
+      "evidence": "execution_windows/w003/generative_scope_replace_response_v1.json",
+      "status": "resolved_no_scientific_impact"
+    },
+    {
+      "event_id": "cli:23f2c3cd235d4d0899245c47d7eabbe1",
+      "issue": "A combined response attempted to attach a milestone to an already retired idea before replacing it.",
+      "resolution": "Split the transition into an accepted replace_idea response followed by a milestone under the new active idea; retained the same evidence and did not reopen the retired URL branch.",
+      "evidence": "execution_windows/w003/generative_scope_replace_only_response_v1.json",
+      "status": "resolved_no_scientific_impact"
+    },
+    {
+      "event_id": "w006-native-build-v1",
+      "issue": "Python build configured absent clang",
+      "resolution": "Available GCC selected without author-source modifications; second build succeeded; failed receipt retained",
+      "evidence": "execution_windows/w006/native_build_response_v2.json",
+      "status": "resolved_and_reported_in_commentary"
+    },
+    {
+      "event_id": "result:attempt-169fd9515c7649e1815be9f6ffd45465",
+      "issue": "The first Nyström diagnostic could not import the pinned source because the host lacked tqdm, which is imported by an unused RLSS module.",
+      "resolution": "Retained the failure and receipt, added a pinned fail-closed compatibility adapter that raises if the unused tqdm path is called, and reran the unchanged uniform Nyström path successfully.",
+      "evidence": "execution_windows/w007/nystrom_import_repair_response_v2.json",
+      "status": "resolved_and_reported_in_commentary"
+    },
+    {
+      "event_id": "cli:bd6f4f642a034069b5f32c66aca475aa",
+      "issue": "The first JSON-repair response attempted to supersede a task whose command had succeeded, even though its declared files later failed semantic JSON parsing.",
+      "resolution": "Preserved the successful execution record and invalid files, then submitted the valid-serialization rerun as a distinct task without replacing the successful task.",
+      "evidence": "execution_windows/w007/nystrom_json_repair_response_v3b.json",
+      "status": "resolved_no_scientific_impact"
+    },
+    {
+      "event_id": "cli:e2cf5e9438324e8e879910e754761fd6",
+      "issue": "The first independent-audit response used the unsupported task phase evaluation.",
+      "resolution": "Changed only the phase enum to diagnostic as required by the fixed runner; the audit code, inputs, and scientific protocol were unchanged and the task succeeded.",
+      "evidence": "execution_windows/w007/nystrom_v3_audit_response_v1.json",
+      "status": "resolved_no_scientific_impact"
+    }
+  ],
+  "note": "Native alerts are an immutable/local delivery view. Consult this evidence-linked ledger and conversation before repeating an already delivered resolved issue. Never erase original alerts."
+}

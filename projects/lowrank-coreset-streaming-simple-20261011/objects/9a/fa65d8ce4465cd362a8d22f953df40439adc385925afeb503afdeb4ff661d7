@@ -1,0 +1,5 @@
+# Independent result-file audit for Nyström diagnostic v3
+
+This audit consumes only the declared v3 JSON outputs. It independently parses both files, recomputes the case count, boundary flags, ordinary-case pass condition, decision-trace match, permutation-reversal rates, and overlap z-scores from stored primitive fields. It fails if the recomputed summary differs from the declared summary or if any stored z-score is arithmetically inconsistent beyond `1e-12` absolute error.
+
+The audit does not establish a new statistical result and does not repair or reinterpret the source experiment. Its purpose is to prevent the earlier v2 serialization defect or a summary-construction error from entering the scientific record. It runs once, serially, CPU-only, under the unchanged 4-GiB guard.

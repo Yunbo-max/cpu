@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-10-12T12:15:00Z",
+  "authorized_project_limit_bytes": 8000000000,
+  "worker_address_space_limit_bytes": 4294967296,
+  "numerical_processes": 1,
+  "threads": 1,
+  "cgroup_current_bytes": 8092794880,
+  "cgroup_limit_bytes": 8589934592,
+  "instantaneous_cgroup_headroom_bytes": 497139712,
+  "memory_stat_anon_bytes": 1043894272,
+  "memory_stat_file_bytes": 6589886464,
+  "memory_stat_inactive_file_bytes": 1292722176,
+  "memory_stat_active_file_bytes": 5162254336,
+  "memory_stat_slab_reclaimable_bytes": 445126984,
+  "estimated_task_peak_bytes": 220000000,
+  "additional_safety_bytes": 100000000,
+  "decision": "admit low-memory diagnostic only",
+  "reason": "Estimated task plus explicit safety fits the observed instantaneous cgroup headroom. File cache is recorded separately and is neither assumed fully unavailable nor assumed reclaimable. No large power experiment is admitted in this resource state.",
+  "source_snapshot": "notes/resources_pre_v1.json"
+}

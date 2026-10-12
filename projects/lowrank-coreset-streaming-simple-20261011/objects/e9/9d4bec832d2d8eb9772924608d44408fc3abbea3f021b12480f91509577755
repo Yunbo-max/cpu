@@ -1,0 +1,28 @@
+# Native Nyström projection and randomization diagnostic v3
+
+## Scope and source
+
+Active idea: `nystrom-permutation-validity-v1`. This is a prospective development diagnostic, not a power study, benchmark reproduction, or new-method claim. It uses the unchanged paper-code formulas from `mletizia/nystrom-mmd-paper@ddb9b2cacc092841518c3d4e18b745f266d8f517` and an independently written kernel/pseudoinverse reference. The paper's existing streaming aggregation is prior work and is not claimed as new.
+
+## Questions and falsifiers
+
+1. **Projection semantics.** Does the released feature map agree with the Moore–Penrose projected kernel (K_{nm}K_{mm}^{+}K_{mn})? Ordinary well-conditioned cases should agree within (10^{-9}) relative Frobenius error. Exact/near-coincident landmarks test the source's `S=max(S,1e-12)` rule against both Moore–Penrose inversion and threshold-to-zero truncation. A relative kernel error above (10^{-6}), a projected-MMD discrepancy above (10^{-8}), or a permutation-order reversal is a consequential boundary, not automatically a paper-level invalidation.
+2. **Random-stream coupling.** The released uniform landmark selector and permutation generator separately initialize `default_rng(seed)` with the same seed. Across 4096 fixed seeds at (N=200,n_x=100,k=20), compare landmark overlap with the discarded first permutation and the first two retained null permutations. Compare against hypergeometric expectation and independent SeedSequence substreams. A retained-row mean deviation exceeding four analytic standard errors or 0.1 landmark is a flag for a dedicated exactness study. Absence of such a deviation does not prove independence.
+3. **Decision instrumentation.** On one ordinary equal-count case, the unchanged `NysMMDtest` decision must match a traced recreation using the same native functions, permutations, and randomized tie rule. This validates the diagnostic trace only; it is not independent statistical confirmation.
+
+## Experimental design
+
+- Synthetic fixed arrays diagnose formulas and numerical edge cases; they do not replace the paper's correlated-Gaussian power/null experiments.
+- Ordinary and exact/near-coincident landmark fixtures use balanced groups, Gaussian RBF width 1, (B=199) fixed independent permutations, and retain full per-case summaries plus pairwise score-order reversals.
+- Strong references: full exact RBF MMD; independently implemented symmetric-eigendecomposition Moore–Penrose projection; threshold-to-zero projection. The native source's clipped-inverse construction is separately reconstructed to verify formula-to-code mapping.
+- Primary units are fixture cases for numerical identities and seed-indexed overlap counts for the RNG diagnostic. The 4096 seeds quantify deterministic PRNG behavior only; they are not 4096 independent scientific replications.
+- All numerics run once, serially, one thread, CPU only, through the unchanged 4-GiB `cpu_guard.py`. Estimated peak RSS is below 220 MB; no large data matrix is formed. The pre-run resource snapshot and admission note are retained.
+- The host lacks `tqdm`, imported only by the unused RLSS/progress paths. A fail-closed compatibility module permits import but raises if called; the tested uniform Nyström functions and source files are unchanged. This adapter is pinned as an input and does not qualify RLSS.
+
+## Interpretation
+
+- If only deliberately ill-conditioned fixtures disagree, scope the finding to the source's numerical boundary and test whether the paper's native landmark matrices enter it before considering a correction.
+- If ordinary cases disagree, stop quality comparison and repair/clarify the formula first.
+- If retained permutation rows show material same-seed overlap bias, freeze separate landmark and permutation streams for a successor validity diagnostic; do not retroactively relabel published results.
+- If all checks pass, close these implementation suspicions and proceed to a bounded, state-matched Nyström versus CheapRFF quality/cost design.
+

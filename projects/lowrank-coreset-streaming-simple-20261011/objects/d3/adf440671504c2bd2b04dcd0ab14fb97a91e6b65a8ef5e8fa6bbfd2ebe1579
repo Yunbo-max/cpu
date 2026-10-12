@@ -1,0 +1,27 @@
+# Nyström native diagnostic v3: evidence interpretation
+
+## Evidence accepted
+
+The v3 native diagnostic completed under `cpu_guard.py`; both declared outputs parse as JSON and their runner hashes match the files. The independent audit recomputed every declared summary flag, decision-trace status, reversal rate, and overlap z-score from the stored primitive fields, with all checks passing. The prior v2 files remain preserved but are not scientific evidence because their literal `\\n` suffix makes them invalid JSON.
+
+Peak RSS recorded by the scientific script was 143,732,736 bytes. The native run took 0.661 s internally (2.117 s including guarded runner overhead), and the audit took 0.055 s.
+
+## Projection result
+
+- On the ordinary well-conditioned fixture, the released Nyström feature kernel and an independently implemented symmetric-eigendecomposition Moore–Penrose projection agreed to `4.38e-15` relative Frobenius error. There were 0/19,900 permutation-score pair reversals.
+- Exact coincident landmarks also remained close (`6.61e-11` relative error, 0/19,900 reversals), because the released source floors every singular value at `1e-12` rather than dividing by zero.
+- At landmark separation `1e-6`, where the smallest center-kernel eigenvalue was `2.43e-13`, the source floor produced `0.10396` relative error against the double-precision Moore–Penrose reference and `1,478/19,900 = 7.43%` score-order reversals. Against threshold-to-zero truncation the relative error was `0.03383`.
+- At separation `1e-7`, the source was very close to threshold-to-zero truncation (`3.38e-4`) but the double-precision Moore–Penrose reference itself lies near the numerical rank boundary. Its `10.62%` reversal rate is therefore a trigger for higher-precision analysis, not a stable ground-truth estimate.
+- The selected binary decisions happened to agree in all seven fixtures. This does not erase the ranking changes and does not establish null calibration or power.
+
+The scoped finding is therefore a reproducible numerical boundary in the released `S = maximum(S, 1e-12)` mapping: it is faithful in ordinary cases but is neither exact Moore–Penrose inversion nor rank truncation around the floor. This is not yet evidence that published workloads encounter the boundary, and it is not a paper-validity claim.
+
+## Random-stream result
+
+With 4,096 fixed seeds at `N=200`, `n_x=100`, `k=20`, the expected landmark/group overlap was 10. The two retained same-seed permutation rows had means 10.0090 and 9.9883 (z scores 0.272 and -0.353); independent substreams had means 10.0051 and 9.9773. The predeclared flag threshold was not crossed. This rules out a large mean-overlap shift in this finite diagnostic, but deterministic reuse of a seed does not constitute formal independence and could affect other joint statistics.
+
+## Decision and next test
+
+The direct `NysMMDtest` result matched a traced reconstruction using the same native functions and randomization stream on the ordinary fixture. This supports the instrumentation, not statistical validity.
+
+Next, keep the hypothesis active and run a narrowly bounded high-precision/analytic check around the `1e-12` singular-value floor, followed by a center-kernel spectrum audit on the paper's native workload. Only if real native landmark matrices enter the problematic band should a corrected mapping be compared for calibration, power, and cost.

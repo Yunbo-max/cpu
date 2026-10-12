@@ -1,0 +1,38 @@
+{
+  "response_id": "nystrom-json-repair-response-v3b",
+  "request_id": "decision-a24f993cc4d54a13b27e6c70c9345d90",
+  "idea": "nystrom-permutation-validity-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The v2 command exited successfully but both declared outputs have a literal backslash-n suffix and fail json.load, so its measurements are retained but not consumed as valid evidence. v3 is a distinct validation task that changes only output serialization to a real newline and reruns the frozen diagnostic; it does not replace the successful v2 execution record.",
+  "events": [{
+    "event_id": "nystrom-v2-invalid-json-v3b",
+    "kind": "evaluation_error",
+    "issue": "nystrom-v2-output-serialization",
+    "reason": "Both v2 result files fail independent JSON parsing because of a literal backslash-n suffix; no scientific claim consumes them.",
+    "evidence": [{"path":".research-autopilot/runner/attempts/attempt-7c6b5e4d22c848be8146a1d494994778/receipt.json","sha256":"1f2c12ce9c81fe666dd3fcbb94b9ed4a20aecd9e92a4c5a25100da3b2b1a4e77"}]
+  }],
+  "tasks": [{
+    "task_id": "nystrom-native-diagnostic-v3",
+    "argv": ["python3", "scripts/cpu_guard.py", "python3", "scripts/nystrom_native_diagnostic_v3.py"],
+    "phase": "diagnostic",
+    "purpose": "Rerun frozen Nyström diagnostic with valid JSON serialization after retaining invalid v2 outputs",
+    "timeout_seconds": 120,
+    "depends_on": [],
+    "input_refs": [
+      {"path":"scripts/cpu_guard.py","sha256":"b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+      {"path":"scripts/nystrom_native_diagnostic_v3.py","sha256":"8dc1f0693c309eacfce77e305ecc05b22f79dc78e7c921bd09bb3b7258eed050"},
+      {"path":"plans/nystrom_native_diagnostic_v3.md","sha256":"e99d4bec832d2d8eb9772924608d44408fc3abbea3f021b12480f91509577755"},
+      {"path":"compat/tqdm.py","sha256":"875df2efb6f4ceaa3bb42f4bb3f1819322da38ee8fbc9cb035b71cbe936651f8"},
+      {"path":"sources/nystrom_source_manifest_v2.json","sha256":"41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"},
+      {"path":"notes/resource_admission_v1.json","sha256":"4442d6035504e03ce82c4d5e6c35cea68308b3da3ebd4e59483e3bdd001f9356"},
+      {"path":".deps/nystrom_read/kernels.py","sha256":"3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"},
+      {"path":".deps/nystrom_read/nystrom.py","sha256":"5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"},
+      {"path":".deps/nystrom_read/tests.py","sha256":"d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"},
+      {"path":".deps/nystrom_read/utils.py","sha256":"9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"},
+      {"path":".deps/nystrom_read/recursive_nystrom.py","sha256":"4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"},
+      {"path":".deps/nystrom_read/samplers.py","sha256":"73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"}
+    ],
+    "outputs": ["results/nystrom_native_diagnostic_v3.json", "results/nystrom_native_diagnostic_v3_rows.json"]
+  }]
+}

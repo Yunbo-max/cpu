@@ -1,0 +1,18 @@
+# High-precision Nyström floor diagnostic v1
+
+## Question
+
+The preceding native diagnostic found score-order changes near the source's `1e-12` singular-value floor, but a double-precision Moore–Penrose reference is itself ambiguous close to numerical rank loss. This follow-up asks which double-precision construction is closest to an independently computed 100-decimal-digit exact inverse for strictly positive landmark separations.
+
+## Frozen design
+
+- Reuse the predeclared 20-point near-coincident fixture and landmark indices `[0,1,2,3]` at separations `1e-4, 1e-5, 1e-6, 1e-7, 1e-8`.
+- Independently construct every RBF kernel entry with Python `decimal` at 100-digit precision and invert the 4-by-4 center matrix using explicit partial-pivot Gaussian elimination. No SciPy/NumPy decomposition enters the high-precision reference.
+- Compare the high-precision projected kernel, after one final conversion to float64, with: (a) the unchanged released feature map, (b) NumPy's default Moore–Penrose pseudoinverse, and (c) eigendecomposition with eigenvalues below `1e-12` truncated to zero.
+- Reuse 199 fixed permutations and report kernel relative errors, maximum score differences, and all pairwise score-order reversals against the high-precision reference.
+
+## Falsifier and interpretation
+
+If the released floor remains within `1e-6` relative Frobenius error and has no score-order reversals against high precision throughout, the earlier discrepancy is attributable to the double-precision reference. Otherwise, retain a numerical-boundary finding. This still does not establish that the paper's native workloads enter the boundary; a workload spectrum audit remains required.
+
+The run is serial, CPU-only, and guarded by the unchanged 4-GiB `cpu_guard.py`; estimated peak RSS is below 180 MB.

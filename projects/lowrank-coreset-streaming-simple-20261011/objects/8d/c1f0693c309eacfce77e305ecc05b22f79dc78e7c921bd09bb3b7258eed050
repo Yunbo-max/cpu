@@ -1,0 +1,144 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+import json, math, resource, sys, time
+from pathlib import Path
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / ".deps" / "nystrom_read"
+COMPAT = ROOT / "compat"
+sys.path.insert(0, str(COMPAT))
+sys.path.insert(0, str(SRC))
+
+from kernels import RBFkernel
+from nystrom import nystrom_features, nys_inds
+from tests import NysMMDtest
+from utils import independent_permutation, decide
+
+OUT = ROOT / "results"
+
+def as_float(x):
+    return float(np.asarray(x))
+
+def projected_from_eigh(Knm, Kmm, mode, threshold=1e-12):
+    w, q = np.linalg.eigh((Kmm + Kmm.T) / 2)
+    if mode == "mp":
+        tol = max(Kmm.shape) * np.finfo(float).eps * max(1.0, float(np.max(np.abs(w))))
+        inv = np.where(w > tol, 1.0 / w, 0.0)
+    elif mode == "truncate":
+        inv = np.where(w >= threshold, 1.0 / w, 0.0)
+    else:
+        raise ValueError(mode)
+    return (Knm * inv) @ Knm.T if False else Knm @ ((q * inv) @ q.T) @ Knm.T
+
+def mmd_from_kernel(K, nx):
+    n = K.shape[0]; ny = n - nx
+    return as_float(K[:nx,:nx].sum()/nx**2 + K[nx:,nx:].sum()/ny**2 - 2*K[:nx,nx:].sum()/(nx*ny))
+
+def permutation_scores(K, nx, permutations):
+    n = K.shape[0]; out=[]
+    for idx in permutations:
+        mask=np.zeros(n,dtype=bool);mask[idx]=True
+        A=np.flatnonzero(mask);B=np.flatnonzero(~mask)
+        out.append(K[np.ix_(A,A)].sum()/len(A)**2 + K[np.ix_(B,B)].sum()/len(B)**2 - 2*K[np.ix_(A,B)].sum()/(len(A)*len(B)))
+    return np.asarray(out,float)
+
+def reversal_count(a,b,tol=1e-14):
+    da=a[:,None]-a[None,:];db=b[:,None]-b[None,:]
+    upper=np.triu(np.ones(da.shape,dtype=bool),1)
+    strict=upper & (np.abs(da)>tol) & (np.abs(db)>tol)
+    return int(np.sum(strict & (np.sign(da)!=np.sign(db)))), int(np.sum(strict))
+
+def fixture(name, eps=None):
+    if name == "ordinary":
+        z=np.random.default_rng(440).normal(size=(24,2)); inds=np.array([0,3,7,11,15,19])
+    else:
+        e=0.0 if eps is None else eps
+        base=np.array([[-e/2,0.0],[e/2,0.0],[-1.0,0.7],[1.0,-0.6]])
+        rest=np.array([[-2.0,-1.0],[-1.5,.2],[-.8,1.4],[-.2,-1.2],[.3,.9],[.7,-.7],[1.2,1.3],[1.8,-.2],
+                       [-1.8,.8],[-1.1,-1.3],[-.5,.4],[.1,1.7],[.5,-1.6],[1.0,.4],[1.5,-1.0],[2.1,.9]])
+        z=np.vstack([base,rest]);inds=np.arange(4)
+    return z,inds
+
+def projection_case(name, eps):
+    z,inds=fixture(name,eps); nx=len(z)//2
+    rng=np.random.default_rng(771);B=199
+    permutations=np.empty((B+1,len(z)),int);permutations[0]=np.arange(len(z))
+    for i in range(1,B+1):permutations[i]=rng.permutation(len(z))
+    phi=nystrom_features(z,inds,1.0)
+    Knm=RBFkernel(z,z[inds],1.0);Kmm=Knm[inds,:]
+    native=phi@phi.T
+    mp=projected_from_eigh(Knm,Kmm,"mp")
+    trunc=projected_from_eigh(Knm,Kmm,"truncate")
+    exact=RBFkernel(z,z,1.0)
+    w=np.linalg.eigvalsh((Kmm+Kmm.T)/2)
+    native_scores=permutation_scores(native,nx,permutations[:,:nx])
+    mp_scores=permutation_scores(mp,nx,permutations[:,:nx])
+    reversals,denom=reversal_count(native_scores,mp_scores)
+    dec_native=decide(native_scores,native_scores[0],len(native_scores)-1,.05,rng=np.random.default_rng(981))[0]
+    dec_mp=decide(mp_scores,mp_scores[0],len(mp_scores)-1,.05,rng=np.random.default_rng(981))[0]
+    scale=max(np.linalg.norm(mp),np.finfo(float).tiny)
+    return {
+      "case":name,"eps":eps,"n":len(z),"k":len(inds),"min_eigenvalue":as_float(w[0]),"max_eigenvalue":as_float(w[-1]),
+      "native_finite":bool(np.isfinite(phi).all()),
+      "native_vs_mp_rel_fro":as_float(np.linalg.norm(native-mp)/scale),
+      "native_vs_truncate_rel_fro":as_float(np.linalg.norm(native-trunc)/max(np.linalg.norm(trunc),np.finfo(float).tiny)),
+      "native_mmd":mmd_from_kernel(native,nx),"mp_mmd":mmd_from_kernel(mp,nx),"truncate_mmd":mmd_from_kernel(trunc,nx),"exact_mmd":mmd_from_kernel(exact,nx),
+      "feature_vs_native_kernel_mmd_abs":abs(as_float(np.sum((phi[:nx].mean(0)-phi[nx:].mean(0))**2))-mmd_from_kernel(native,nx)),
+      "native_mp_score_max_abs":as_float(np.max(np.abs(native_scores-mp_scores))),
+      "native_mp_pair_reversals":reversals,"native_mp_pair_denominator":denom,
+      "native_decision":int(dec_native),"mp_decision":int(dec_mp)
+    }
+
+def overlap_diagnostic():
+    ntot=200;nx=100;k=20;seeds=4096
+    coupled=np.empty((seeds,3),int);independent=np.empty((seeds,2),int)
+    base=np.arange(ntot)
+    for seed in range(seeds):
+        lm=np.random.default_rng(seed).choice(ntot,k,replace=False)
+        rp=np.random.default_rng(seed)
+        p0=rp.permutation(base);p1=rp.permutation(base);p2=rp.permutation(base)
+        coupled[seed]=[np.intersect1d(lm,p0[:nx]).size,np.intersect1d(lm,p1[:nx]).size,np.intersect1d(lm,p2[:nx]).size]
+        s1,s2=np.random.SeedSequence(seed).spawn(2)
+        lm2=np.random.default_rng(s1).choice(ntot,k,replace=False);rr=np.random.default_rng(s2)
+        q0=rr.permutation(base);q1=rr.permutation(base)
+        independent[seed]=[np.intersect1d(lm2,q0[:nx]).size,np.intersect1d(lm2,q1[:nx]).size]
+    mean=k*nx/ntot
+    var=nx*(k/ntot)*(1-k/ntot)*((ntot-nx)/(ntot-1))
+    se=math.sqrt(var/seeds)
+    labels=["coupled_discarded","coupled_retained_1","coupled_retained_2","split_retained_1","split_retained_2"]
+    cols=[coupled[:,0],coupled[:,1],coupled[:,2],independent[:,0],independent[:,1]]
+    rows=[]
+    for label,x in zip(labels,cols):
+      rows.append({"row":label,"mean_overlap":as_float(x.mean()),"sd_overlap":as_float(x.std(ddof=1)),"expected_mean":mean,"analytic_mean_se":se,"z_from_expected":as_float((x.mean()-mean)/se),"min":int(x.min()),"max":int(x.max())})
+    return {"ntot":ntot,"nx":nx,"k":k,"seeds":seeds,"hypergeometric_mean":mean,"hypergeometric_variance":var,"rows":rows,
+            "coupled_minus_split_retained_1_mean":as_float(coupled[:,1].mean()-independent[:,0].mean())}
+
+def traced_decision():
+    z,_=fixture("ordinary");nx=len(z)//2;ny=len(z)-nx;seed=17;k=8;B=39
+    source_out,source_dt,_=NysMMDtest(z,nx,ny,seed=seed,bandwidth=1.0,alpha=.05,method="uniform",k=k,B=B)
+    rng=np.random.default_rng(seed);inds,_=nys_inds(z,k,"uniform",1.0,seed);phi=nystrom_features(z,inds,1.0)
+    I1=np.r_[np.ones(nx),np.zeros(ny)];I=np.tile(I1,(B+1,1));IX=independent_permutation(I,rng,axis=1);IX[0]=I1;IY=1-IX
+    V=np.sum(((IX@phi)/nx-(IY@phi)/ny)**2,axis=1);traced,_=decide(V,V[0],B,.05,rng=rng)
+    return {"source_decision":int(source_out),"traced_decision":int(traced),"match":bool(source_out==traced),"source_reported_seconds":source_dt,"observed_score":as_float(V[0]),"score_count":len(V),"landmarks":inds.tolist()}
+
+def main():
+    start=time.perf_counter()
+    cases=[projection_case("ordinary",None)]
+    for eps in [0.0,1e-4,1e-5,1e-6,1e-7,1e-8]:cases.append(projection_case("coincident",eps))
+    overlap=overlap_diagnostic();trace=traced_decision()
+    flags=[]
+    for c in cases:
+      if c["case"]=="ordinary" and c["native_vs_mp_rel_fro"]>1e-9:flags.append("ordinary_projection_mismatch")
+      if c["native_vs_mp_rel_fro"]>1e-6 or c["native_mp_score_max_abs"]>1e-8 or c["native_mp_pair_reversals"]>0:flags.append("singular_boundary:"+str(c["eps"]))
+    for row in overlap["rows"]:
+      if row["row"].startswith("coupled_retained") and (abs(row["z_from_expected"])>4 or abs(row["mean_overlap"]-row["expected_mean"])>.1):flags.append("retained_rng_overlap:"+row["row"])
+    if not trace["match"]:flags.append("decision_trace_mismatch")
+    elapsed=time.perf_counter()-start;peak=int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024)
+    raw={"schema_version":1,"source_commit":"ddb9b2cacc092841518c3d4e18b745f266d8f517","projection_cases":cases,"rng_overlap":overlap,"decision_trace":trace}
+    summary={"schema_version":1,"source_commit":raw["source_commit"],"case_count":len(cases),"flags":sorted(set(flags)),"ordinary_pass":not any(f.startswith("ordinary_") for f in flags),"decision_trace_pass":trace["match"],"elapsed_seconds":elapsed,"peak_rss_bytes":peak,"limitations":["Synthetic numerical fixtures, not a paper power/null reproduction","Seed sweep diagnoses deterministic NumPy PRNG overlap behavior, not formal independence","Ill-conditioned boundary does not establish occurrence in published native workloads"]}
+    (OUT/"nystrom_native_diagnostic_v3_rows.json").write_text(json.dumps(raw,indent=2)+"\n")
+    (OUT/"nystrom_native_diagnostic_v3.json").write_text(json.dumps(summary,indent=2)+"\n")
+    print(json.dumps(summary))
+if __name__=="__main__":main()
+

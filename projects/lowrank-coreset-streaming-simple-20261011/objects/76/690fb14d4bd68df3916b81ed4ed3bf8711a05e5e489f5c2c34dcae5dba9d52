@@ -1,0 +1,1650 @@
+{
+  "agent": {
+    "command": null,
+    "enabled": false,
+    "error": null,
+    "history": [
+      {
+        "command": null,
+        "reason": "Initial configuration",
+        "version": 0
+      }
+    ],
+    "repairs": {},
+    "version": 0
+  },
+  "attempts": [
+    {
+      "attempt_dir": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005/.research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601",
+      "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/cpu_guard.py",
+          "python3",
+          "scripts/compression_exchangeability_exact_v1.py"
+        ],
+        "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+        "cwd": ".",
+        "deadline_epoch": 1791803614.6035216,
+        "input_refs": [
+          {
+            "path": "plans/compression_exchangeability_exact_v1.md",
+            "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+          },
+          {
+            "path": "scripts/compression_exchangeability_exact_v1.py",
+            "sha256": "a062e4bdefaff2cd134c26a6804f391067cec0d33c5504ae7b4f2b432b2a1c0a"
+          },
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "results/compression_exchangeability_exact_v1.json",
+          "results/compression_exchangeability_exact_v1_rows.json"
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "compression-exchangeability-exact-v1",
+        "timeout_seconds": 30
+      },
+      "contract_sha256": "6fee936036c5c0e8b60a07c7269ac6a26245a54e4551b2a28e7ead5e1c283521",
+      "elapsed_seconds": 0.11217186999965634,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+        "command_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 28420,
+          "start_ticks": 690082
+        },
+        "contract_sha256": "6fee936036c5c0e8b60a07c7269ac6a26245a54e4551b2a28e7ead5e1c283521",
+        "elapsed_seconds": 0.11217186999965634,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T09:17:12.631979+00:00",
+        "input_refs": [
+          {
+            "path": "plans/compression_exchangeability_exact_v1.md",
+            "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+          },
+          {
+            "path": "scripts/compression_exchangeability_exact_v1.py",
+            "sha256": "a062e4bdefaff2cd134c26a6804f391067cec0d33c5504ae7b4f2b432b2a1c0a"
+          },
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "results/compression_exchangeability_exact_v1.json",
+            "sha256": "70d2f1f200342d8de5039d14348c0b1bc7a3547c3d0f5a8e4024fe20e986f823"
+          },
+          {
+            "path": "results/compression_exchangeability_exact_v1_rows.json",
+            "sha256": "80d8707e496db0ec864df949e12b8174ba810fae4fee94a540631e2776ba9611"
+          }
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+        "schema_version": 1,
+        "started_at": "2026-10-12T09:17:12.519814+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/stdout.txt",
+          "sha256": "853f53cd9623b0616ae58b45f4b0281801f652a8b2ff241bf18e55f1d6863a90"
+        },
+        "task_id": "compression-exchangeability-exact-v1",
+        "worker_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 28419,
+          "start_ticks": 690079
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/receipt.json",
+        "sha256": "4e205a30baa427c962f881c6f07d82ab1a7d2ded3d1c5cb341c4281d62ee7a3d"
+      },
+      "reservation_seconds": 33.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "compression-exchangeability-exact-v1"
+    }
+  ],
+  "budget": {
+    "attempts_used": 1,
+    "deadline_epoch": 1791803614.6035216,
+    "elapsed_seconds": 0.11217186999965634,
+    "max_attempts": 32,
+    "max_command_seconds": 1800,
+    "remaining_deadline_seconds": 0.0,
+    "remaining_seconds": 1799.8878281300003,
+    "reserved_seconds": 0
+  },
+  "complete_goal": false,
+  "continuations": [],
+  "current_question": "Conditional binwise unbiasedness is sufficient for frozen-summary permutation calibration under unequal label-dependent budgets.",
+  "external_waits": [],
+  "goal": "持续研究低秩、coreset与流式统计；继承w001-w004全部证据与退役，从压缩两样本检验的流式校准与强基线审查继续。",
+  "goal_completions": [],
+  "goal_contract": {
+    "completion_criteria": [
+      {
+        "description": "核验原生定义、指标与CPU资源范围",
+        "id": "validity"
+      },
+      {
+        "description": "提出并实际检验可证伪假设，解释证据后继续必要研究",
+        "id": "research"
+      }
+    ],
+    "mode": "continuous_research"
+  },
+  "goal_contract_history": [
+    {
+      "contract": {
+        "completion_criteria": [
+          {
+            "description": "核验原生定义、指标与CPU资源范围",
+            "id": "validity"
+          },
+          {
+            "description": "提出并实际检验可证伪假设，解释证据后继续必要研究",
+            "id": "research"
+          }
+        ],
+        "mode": "continuous_research"
+      },
+      "goal": "持续研究低秩、coreset与流式统计；继承w001-w004全部证据与退役，从压缩两样本检验的流式校准与强基线审查继续。",
+      "reason": "Initial objective scope",
+      "version": 1
+    }
+  ],
+  "goal_contract_version": 1,
+  "idea_status": "active",
+  "journal": {
+    "active_idea": "ctt-streaming-calibration-audit-v1",
+    "blocker": null,
+    "budget_exhausted": false,
+    "counters": {
+      "iterations": 2,
+      "repairs": 0,
+      "usage": {
+        "wall_seconds": 0.11217186999965634
+      }
+    },
+    "current_question": "Conditional binwise unbiasedness is sufficient for frozen-summary permutation calibration under unequal label-dependent budgets.",
+    "goal": "持续研究低秩、coreset与流式统计；继承w001-w004全部证据与退役，从压缩两样本检验的流式校准与强基线审查继续。",
+    "history": [
+      {
+        "created_at": "2026-10-12T09:13:34.599678+00:00",
+        "event": {
+          "goal": "持续研究低秩、coreset与流式统计；继承w001-w004全部证据与退役，从压缩两样本检验的流式校准与强基线审查继续。",
+          "idea": "ctt-streaming-calibration-audit-v1",
+          "kind": "initialize",
+          "max_iterations": null,
+          "max_repairs": 3
+        },
+        "idea": "ctt-streaming-calibration-audit-v1",
+        "revision": 1,
+        "version": 0
+      },
+      {
+        "created_at": "2026-10-12T09:17:12.698353+00:00",
+        "event": {
+          "event_id": "runner-result:attempt-c168c3b8dc8e441cb557db81f4c15601",
+          "evidence": [
+            {
+              "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/receipt.json",
+              "sha256": "4e205a30baa427c962f881c6f07d82ab1a7d2ded3d1c5cb341c4281d62ee7a3d"
+            }
+          ],
+          "kind": "progress",
+          "next_phase": "verify",
+          "reason": "Execution observation for compression-exchangeability-exact-v1: succeeded; Command execution reported succeeded",
+          "usage": {
+            "wall_seconds": 0.11217186999965634
+          }
+        },
+        "idea": "ctt-streaming-calibration-audit-v1",
+        "revision": 1,
+        "version": 1
+      },
+      {
+        "created_at": "2026-10-12T09:25:18.291405+00:00",
+        "event": {
+          "event_id": "compression-exchangeability-cycle-v1",
+          "evidence": [
+            {
+              "path": "plans/compression_exchangeability_exact_v1.md",
+              "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+            },
+            {
+              "path": "results/compression_exchangeability_exact_v1.json",
+              "sha256": "70d2f1f200342d8de5039d14348c0b1bc7a3547c3d0f5a8e4024fe20e986f823"
+            },
+            {
+              "path": "results/compression_exchangeability_exact_v1_rows.json",
+              "sha256": "80d8707e496db0ec864df949e12b8174ba810fae4fee94a540631e2776ba9611"
+            },
+            {
+              "path": "notes/compression_exchangeability_analysis_v1.md",
+              "sha256": "2f657659729174ea593d21f7e30a51b8cdc31665a5e7a376f49c4bbbdea333d4"
+            },
+            {
+              "path": "delegations/calibration_math_v1/acceptance.json",
+              "sha256": "0ff4ecbb75edaba1b345f0b92fb75fe206238b60e3b7fb32f22d354039ae274f"
+            }
+          ],
+          "goal_contract_version": 1,
+          "hypothesis": "Conditional binwise unbiasedness is sufficient for frozen-summary permutation calibration under unequal label-dependent budgets.",
+          "interpretation": "Unbiasedness is insufficient; equivariance of the joint compression construction is a sufficient replacement condition. This does not refute native CTT or establish novelty/performance.",
+          "kind": "research_cycle",
+          "next_action": "Complete native CTT count-normalization and strong Cheap Permutation baseline audit, then freeze the smallest bottleneck-driven native comparison. Complete user-authorized GitHub archive and verified cleanup first.",
+          "prediction": "The specified null fixture instead has exact rejection 25/64 at alpha=1/4; symmetric controls retain 1/4.",
+          "reason": "Prospective plan, raw enumeration, receipt, interpretation and accepted bounded review establish one scoped mathematical diagnostic.",
+          "result": "All 512 states enumerated exactly: asymmetric 25/64, both controls 1/4; peak RSS 12189696 bytes. Independent exposed-prediction hand derivation agrees."
+        },
+        "idea": "ctt-streaming-calibration-audit-v1",
+        "revision": 1,
+        "version": 2
+      }
+    ],
+    "idea_history": [],
+    "limits": {
+      "max_iterations": null,
+      "max_repairs": 3
+    },
+    "milestones": [],
+    "next_action": "Complete native CTT count-normalization and strong Cheap Permutation baseline audit, then freeze the smallest bottleneck-driven native comparison. Complete user-authorized GitHub archive and verified cleanup first.",
+    "pending_launch": null,
+    "phase": "analysis",
+    "reported_outcome": null,
+    "research_cycles": [
+      {
+        "event_id": "compression-exchangeability-cycle-v1",
+        "evidence": [
+          {
+            "path": "plans/compression_exchangeability_exact_v1.md",
+            "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+          },
+          {
+            "path": "results/compression_exchangeability_exact_v1.json",
+            "sha256": "70d2f1f200342d8de5039d14348c0b1bc7a3547c3d0f5a8e4024fe20e986f823"
+          },
+          {
+            "path": "results/compression_exchangeability_exact_v1_rows.json",
+            "sha256": "80d8707e496db0ec864df949e12b8174ba810fae4fee94a540631e2776ba9611"
+          },
+          {
+            "path": "notes/compression_exchangeability_analysis_v1.md",
+            "sha256": "2f657659729174ea593d21f7e30a51b8cdc31665a5e7a376f49c4bbbdea333d4"
+          },
+          {
+            "path": "delegations/calibration_math_v1/acceptance.json",
+            "sha256": "0ff4ecbb75edaba1b345f0b92fb75fe206238b60e3b7fb32f22d354039ae274f"
+          }
+        ],
+        "goal_contract_version": 1,
+        "hypothesis": "Conditional binwise unbiasedness is sufficient for frozen-summary permutation calibration under unequal label-dependent budgets.",
+        "idea": "ctt-streaming-calibration-audit-v1",
+        "interpretation": "Unbiasedness is insufficient; equivariance of the joint compression construction is a sufficient replacement condition. This does not refute native CTT or establish novelty/performance.",
+        "kind": "research_cycle",
+        "next_action": "Complete native CTT count-normalization and strong Cheap Permutation baseline audit, then freeze the smallest bottleneck-driven native comparison. Complete user-authorized GitHub archive and verified cleanup first.",
+        "prediction": "The specified null fixture instead has exact rejection 25/64 at alpha=1/4; symmetric controls retain 1/4.",
+        "reason": "Prospective plan, raw enumeration, receipt, interpretation and accepted bounded review establish one scoped mathematical diagnostic.",
+        "result": "All 512 states enumerated exactly: asymmetric 25/64, both controls 1/4; peak RSS 12189696 bytes. Independent exposed-prediction hand derivation agrees.",
+        "revision": 1
+      }
+    ],
+    "revision": 1,
+    "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+    "schema_version": 1,
+    "scientific_certification": false,
+    "status": "active",
+    "version": 2,
+    "wait": null
+  },
+  "next_action": "Complete native CTT count-normalization and strong Cheap Permutation baseline audit, then freeze the smallest bottleneck-driven native comparison. Complete user-authorized GitHub archive and verified cleanup first.",
+  "outbox": [
+    {
+      "error": null,
+      "event": {
+        "event_id": "runner-result:attempt-c168c3b8dc8e441cb557db81f4c15601",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/receipt.json",
+            "sha256": "4e205a30baa427c962f881c6f07d82ab1a7d2ded3d1c5cb341c4281d62ee7a3d"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for compression-exchangeability-exact-v1: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 0.11217186999965634
+        }
+      },
+      "state": "recorded"
+    }
+  ],
+  "requests": [
+    {
+      "agent_attempt_id": null,
+      "error": null,
+      "request_ref": {
+        "path": ".research-autopilot/runner/requests/decision-04f069693aee4e99ae719d12f0760122.json",
+        "sha256": "f5eb3817cfe59394d3f701e51f8a58d135c5fa03f843f508725cf74758133112"
+      },
+      "response_id": "compression-exact-submit-v1",
+      "snapshot": {
+        "agent_error": null,
+        "agent_version": 0,
+        "attempts": [],
+        "budget": {
+          "attempts_used": 0,
+          "deadline_epoch": 1791803614.6035216,
+          "elapsed_seconds": 0.0,
+          "max_attempts": 32,
+          "max_command_seconds": 1800,
+          "remaining_deadline_seconds": 7184.1472907066345,
+          "remaining_seconds": 1800.0,
+          "reserved_seconds": 0
+        },
+        "continuation": null,
+        "current_question": "Inspect the existing method and choose its next important uncertainty",
+        "goal": "持续研究低秩、coreset与流式统计；继承w001-w004全部证据与退役，从压缩两样本检验的流式校准与强基线审查继续。",
+        "goal_contract": {
+          "completion_criteria": [
+            {
+              "description": "核验原生定义、指标与CPU资源范围",
+              "id": "validity"
+            },
+            {
+              "description": "提出并实际检验可证伪假设，解释证据后继续必要研究",
+              "id": "research"
+            }
+          ],
+          "mode": "continuous_research"
+        },
+        "goal_contract_version": 1,
+        "idea": "ctt-streaming-calibration-audit-v1",
+        "idea_status": "active",
+        "journal_version": 0,
+        "milestones": [],
+        "next_action": "Inspect the existing method and choose its next important uncertainty",
+        "observations": [],
+        "request_id": "decision-04f069693aee4e99ae719d12f0760122",
+        "research_cycles": [],
+        "revision": 1,
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "tasks": []
+      },
+      "state": "answered"
+    },
+    {
+      "agent_attempt_id": null,
+      "error": null,
+      "request_ref": {
+        "path": ".research-autopilot/runner/requests/decision-0b14633d728d4ef084692ff8e5efad70.json",
+        "sha256": "548f5491c567dc7921a28bc2db027e78da72a259c21738015edeaf7b02440725"
+      },
+      "snapshot": {
+        "agent_error": null,
+        "agent_version": 0,
+        "attempts": [
+          {
+            "attempt_dir": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005/.research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601",
+            "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+            "contract": {
+              "argv": [
+                "python3",
+                "scripts/cpu_guard.py",
+                "python3",
+                "scripts/compression_exchangeability_exact_v1.py"
+              ],
+              "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+              "cwd": ".",
+              "deadline_epoch": 1791803614.6035216,
+              "input_refs": [
+                {
+                  "path": "plans/compression_exchangeability_exact_v1.md",
+                  "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+                },
+                {
+                  "path": "scripts/compression_exchangeability_exact_v1.py",
+                  "sha256": "a062e4bdefaff2cd134c26a6804f391067cec0d33c5504ae7b4f2b432b2a1c0a"
+                },
+                {
+                  "path": "scripts/cpu_guard.py",
+                  "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+                }
+              ],
+              "kind": "task",
+              "outputs": [
+                "results/compression_exchangeability_exact_v1.json",
+                "results/compression_exchangeability_exact_v1_rows.json"
+              ],
+              "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+              "schema_version": 1,
+              "source": {
+                "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+                "files": [
+                  {
+                    "path": "SKILL.md",
+                    "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                  },
+                  {
+                    "path": "references/rsi-simple.md",
+                    "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                  },
+                  {
+                    "path": "references/simple-runner.md",
+                    "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                  },
+                  {
+                    "path": "scripts/_simple_process.py",
+                    "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                  },
+                  {
+                    "path": "scripts/_simple_source.py",
+                    "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                  },
+                  {
+                    "path": "scripts/simple_loop.py",
+                    "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                  },
+                  {
+                    "path": "scripts/simple_runner.py",
+                    "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                  },
+                  {
+                    "path": "references/simple-experiment-design.md",
+                    "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                  },
+                  {
+                    "path": "scripts/simple_design.py",
+                    "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                  },
+                  {
+                    "path": "scripts/simple_resources.py",
+                    "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-plan.json",
+                    "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-results.json",
+                    "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                  },
+                  {
+                    "path": "references/simple-collaboration.md",
+                    "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                  },
+                  {
+                    "path": "assets/templates/simple-delegation.json",
+                    "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                  }
+                ],
+                "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+              },
+              "task_id": "compression-exchangeability-exact-v1",
+              "timeout_seconds": 30
+            },
+            "contract_sha256": "6fee936036c5c0e8b60a07c7269ac6a26245a54e4551b2a28e7ead5e1c283521",
+            "elapsed_seconds": 0.11217186999965634,
+            "kind": "task",
+            "reason": "Command execution reported succeeded",
+            "receipt": {
+              "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+              "command_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 28420,
+                "start_ticks": 690082
+              },
+              "contract_sha256": "6fee936036c5c0e8b60a07c7269ac6a26245a54e4551b2a28e7ead5e1c283521",
+              "elapsed_seconds": 0.11217186999965634,
+              "error": null,
+              "exit_code": 0,
+              "finished_at": "2026-10-12T09:17:12.631979+00:00",
+              "input_refs": [
+                {
+                  "path": "plans/compression_exchangeability_exact_v1.md",
+                  "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+                },
+                {
+                  "path": "scripts/compression_exchangeability_exact_v1.py",
+                  "sha256": "a062e4bdefaff2cd134c26a6804f391067cec0d33c5504ae7b4f2b432b2a1c0a"
+                },
+                {
+                  "path": "scripts/cpu_guard.py",
+                  "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+                }
+              ],
+              "output_refs": [
+                {
+                  "path": "results/compression_exchangeability_exact_v1.json",
+                  "sha256": "70d2f1f200342d8de5039d14348c0b1bc7a3547c3d0f5a8e4024fe20e986f823"
+                },
+                {
+                  "path": "results/compression_exchangeability_exact_v1_rows.json",
+                  "sha256": "80d8707e496db0ec864df949e12b8174ba810fae4fee94a540631e2776ba9611"
+                }
+              ],
+              "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+              "schema_version": 1,
+              "started_at": "2026-10-12T09:17:12.519814+00:00",
+              "status": "succeeded",
+              "stderr_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/stderr.txt",
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "stdout_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/stdout.txt",
+                "sha256": "853f53cd9623b0616ae58b45f4b0281801f652a8b2ff241bf18e55f1d6863a90"
+              },
+              "task_id": "compression-exchangeability-exact-v1",
+              "worker_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 28419,
+                "start_ticks": 690079
+              }
+            },
+            "receipt_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/receipt.json",
+              "sha256": "4e205a30baa427c962f881c6f07d82ab1a7d2ded3d1c5cb341c4281d62ee7a3d"
+            },
+            "reservation_seconds": 33.0,
+            "response_handled": true,
+            "result": "succeeded",
+            "source": {
+              "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+              "files": [
+                {
+                  "path": "SKILL.md",
+                  "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                },
+                {
+                  "path": "references/rsi-simple.md",
+                  "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                },
+                {
+                  "path": "references/simple-runner.md",
+                  "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                },
+                {
+                  "path": "scripts/_simple_process.py",
+                  "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                },
+                {
+                  "path": "scripts/_simple_source.py",
+                  "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                },
+                {
+                  "path": "scripts/simple_loop.py",
+                  "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                },
+                {
+                  "path": "scripts/simple_runner.py",
+                  "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                },
+                {
+                  "path": "references/simple-experiment-design.md",
+                  "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                },
+                {
+                  "path": "scripts/simple_design.py",
+                  "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                },
+                {
+                  "path": "scripts/simple_resources.py",
+                  "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-plan.json",
+                  "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-results.json",
+                  "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                },
+                {
+                  "path": "references/simple-collaboration.md",
+                  "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                },
+                {
+                  "path": "assets/templates/simple-delegation.json",
+                  "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                }
+              ],
+              "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+            },
+            "state": "terminal",
+            "task_id": "compression-exchangeability-exact-v1"
+          }
+        ],
+        "budget": {
+          "attempts_used": 1,
+          "deadline_epoch": 1791803614.6035216,
+          "elapsed_seconds": 0.11217186999965634,
+          "max_attempts": 32,
+          "max_command_seconds": 1800,
+          "remaining_deadline_seconds": 6496.204748392105,
+          "remaining_seconds": 1799.8878281300003,
+          "reserved_seconds": 0
+        },
+        "continuation": null,
+        "current_question": "Conditional binwise unbiasedness is sufficient for frozen-summary permutation calibration under unequal label-dependent budgets.",
+        "goal": "持续研究低秩、coreset与流式统计；继承w001-w004全部证据与退役，从压缩两样本检验的流式校准与强基线审查继续。",
+        "goal_contract": {
+          "completion_criteria": [
+            {
+              "description": "核验原生定义、指标与CPU资源范围",
+              "id": "validity"
+            },
+            {
+              "description": "提出并实际检验可证伪假设，解释证据后继续必要研究",
+              "id": "research"
+            }
+          ],
+          "mode": "continuous_research"
+        },
+        "goal_contract_version": 1,
+        "idea": "ctt-streaming-calibration-audit-v1",
+        "idea_status": "active",
+        "journal_version": 2,
+        "milestones": [],
+        "next_action": "Complete native CTT count-normalization and strong Cheap Permutation baseline audit, then freeze the smallest bottleneck-driven native comparison. Complete user-authorized GitHub archive and verified cleanup first.",
+        "observations": [
+          {
+            "event_id": "followup:compression-exact-interpret-v1",
+            "kind": "decision_followup",
+            "payload": {
+              "journal_phase": "analysis",
+              "reason": "Prospective plan, raw enumeration, receipt, interpretation and accepted bounded review establish one scoped mathematical diagnostic."
+            },
+            "request_id": null,
+            "sequence": 2
+          }
+        ],
+        "request_id": "decision-0b14633d728d4ef084692ff8e5efad70",
+        "research_cycles": [
+          {
+            "event_id": "compression-exchangeability-cycle-v1",
+            "evidence": [
+              {
+                "path": "plans/compression_exchangeability_exact_v1.md",
+                "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+              },
+              {
+                "path": "results/compression_exchangeability_exact_v1.json",
+                "sha256": "70d2f1f200342d8de5039d14348c0b1bc7a3547c3d0f5a8e4024fe20e986f823"
+              },
+              {
+                "path": "results/compression_exchangeability_exact_v1_rows.json",
+                "sha256": "80d8707e496db0ec864df949e12b8174ba810fae4fee94a540631e2776ba9611"
+              },
+              {
+                "path": "notes/compression_exchangeability_analysis_v1.md",
+                "sha256": "2f657659729174ea593d21f7e30a51b8cdc31665a5e7a376f49c4bbbdea333d4"
+              },
+              {
+                "path": "delegations/calibration_math_v1/acceptance.json",
+                "sha256": "0ff4ecbb75edaba1b345f0b92fb75fe206238b60e3b7fb32f22d354039ae274f"
+              }
+            ],
+            "goal_contract_version": 1,
+            "hypothesis": "Conditional binwise unbiasedness is sufficient for frozen-summary permutation calibration under unequal label-dependent budgets.",
+            "idea": "ctt-streaming-calibration-audit-v1",
+            "interpretation": "Unbiasedness is insufficient; equivariance of the joint compression construction is a sufficient replacement condition. This does not refute native CTT or establish novelty/performance.",
+            "kind": "research_cycle",
+            "next_action": "Complete native CTT count-normalization and strong Cheap Permutation baseline audit, then freeze the smallest bottleneck-driven native comparison. Complete user-authorized GitHub archive and verified cleanup first.",
+            "prediction": "The specified null fixture instead has exact rejection 25/64 at alpha=1/4; symmetric controls retain 1/4.",
+            "reason": "Prospective plan, raw enumeration, receipt, interpretation and accepted bounded review establish one scoped mathematical diagnostic.",
+            "result": "All 512 states enumerated exactly: asymmetric 25/64, both controls 1/4; peak RSS 12189696 bytes. Independent exposed-prediction hand derivation agrees.",
+            "revision": 1
+          }
+        ],
+        "revision": 1,
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "tasks": [
+          {
+            "argv": [
+              "python3",
+              "scripts/cpu_guard.py",
+              "python3",
+              "scripts/compression_exchangeability_exact_v1.py"
+            ],
+            "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+            "cancel_requested": false,
+            "cwd": ".",
+            "depends_on": [],
+            "idea": "ctt-streaming-calibration-audit-v1",
+            "input_refs": [
+              {
+                "path": "plans/compression_exchangeability_exact_v1.md",
+                "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+              },
+              {
+                "path": "scripts/compression_exchangeability_exact_v1.py",
+                "sha256": "a062e4bdefaff2cd134c26a6804f391067cec0d33c5504ae7b4f2b432b2a1c0a"
+              },
+              {
+                "path": "scripts/cpu_guard.py",
+                "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+              }
+            ],
+            "outputs": [
+              "results/compression_exchangeability_exact_v1.json",
+              "results/compression_exchangeability_exact_v1_rows.json"
+            ],
+            "phase": "diagnostic",
+            "purpose": "Enumerate all 512 null states to test whether unbiased unequal compression preserves bin permutation size",
+            "reason": "Command execution reported succeeded",
+            "replaced_by": null,
+            "revision": 1,
+            "state": "succeeded",
+            "supersedes": null,
+            "task_id": "compression-exchangeability-exact-v1",
+            "timeout_seconds": 30
+          }
+        ]
+      },
+      "state": "open"
+    },
+    {
+      "agent_attempt_id": null,
+      "error": null,
+      "request_ref": {
+        "path": ".research-autopilot/runner/requests/decision-6d3a2c1c6d69467fa2823ad0fae18561.json",
+        "sha256": "976c8fb9687b49926bbe83f45f331f4667934634d4ce44c22cb53c923b332d0f"
+      },
+      "response_id": "compression-exact-interpret-v1",
+      "snapshot": {
+        "agent_error": null,
+        "agent_version": 0,
+        "attempts": [
+          {
+            "attempt_dir": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005/.research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601",
+            "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+            "contract": {
+              "argv": [
+                "python3",
+                "scripts/cpu_guard.py",
+                "python3",
+                "scripts/compression_exchangeability_exact_v1.py"
+              ],
+              "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+              "cwd": ".",
+              "deadline_epoch": 1791803614.6035216,
+              "input_refs": [
+                {
+                  "path": "plans/compression_exchangeability_exact_v1.md",
+                  "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+                },
+                {
+                  "path": "scripts/compression_exchangeability_exact_v1.py",
+                  "sha256": "a062e4bdefaff2cd134c26a6804f391067cec0d33c5504ae7b4f2b432b2a1c0a"
+                },
+                {
+                  "path": "scripts/cpu_guard.py",
+                  "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+                }
+              ],
+              "kind": "task",
+              "outputs": [
+                "results/compression_exchangeability_exact_v1.json",
+                "results/compression_exchangeability_exact_v1_rows.json"
+              ],
+              "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+              "schema_version": 1,
+              "source": {
+                "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+                "files": [
+                  {
+                    "path": "SKILL.md",
+                    "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                  },
+                  {
+                    "path": "references/rsi-simple.md",
+                    "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                  },
+                  {
+                    "path": "references/simple-runner.md",
+                    "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                  },
+                  {
+                    "path": "scripts/_simple_process.py",
+                    "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                  },
+                  {
+                    "path": "scripts/_simple_source.py",
+                    "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                  },
+                  {
+                    "path": "scripts/simple_loop.py",
+                    "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                  },
+                  {
+                    "path": "scripts/simple_runner.py",
+                    "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                  },
+                  {
+                    "path": "references/simple-experiment-design.md",
+                    "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                  },
+                  {
+                    "path": "scripts/simple_design.py",
+                    "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                  },
+                  {
+                    "path": "scripts/simple_resources.py",
+                    "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-plan.json",
+                    "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-results.json",
+                    "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                  },
+                  {
+                    "path": "references/simple-collaboration.md",
+                    "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                  },
+                  {
+                    "path": "assets/templates/simple-delegation.json",
+                    "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                  }
+                ],
+                "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+              },
+              "task_id": "compression-exchangeability-exact-v1",
+              "timeout_seconds": 30
+            },
+            "contract_sha256": "6fee936036c5c0e8b60a07c7269ac6a26245a54e4551b2a28e7ead5e1c283521",
+            "elapsed_seconds": 0.11217186999965634,
+            "kind": "task",
+            "reason": "Command execution reported succeeded",
+            "receipt": {
+              "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+              "command_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 28420,
+                "start_ticks": 690082
+              },
+              "contract_sha256": "6fee936036c5c0e8b60a07c7269ac6a26245a54e4551b2a28e7ead5e1c283521",
+              "elapsed_seconds": 0.11217186999965634,
+              "error": null,
+              "exit_code": 0,
+              "finished_at": "2026-10-12T09:17:12.631979+00:00",
+              "input_refs": [
+                {
+                  "path": "plans/compression_exchangeability_exact_v1.md",
+                  "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+                },
+                {
+                  "path": "scripts/compression_exchangeability_exact_v1.py",
+                  "sha256": "a062e4bdefaff2cd134c26a6804f391067cec0d33c5504ae7b4f2b432b2a1c0a"
+                },
+                {
+                  "path": "scripts/cpu_guard.py",
+                  "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+                }
+              ],
+              "output_refs": [
+                {
+                  "path": "results/compression_exchangeability_exact_v1.json",
+                  "sha256": "70d2f1f200342d8de5039d14348c0b1bc7a3547c3d0f5a8e4024fe20e986f823"
+                },
+                {
+                  "path": "results/compression_exchangeability_exact_v1_rows.json",
+                  "sha256": "80d8707e496db0ec864df949e12b8174ba810fae4fee94a540631e2776ba9611"
+                }
+              ],
+              "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+              "schema_version": 1,
+              "started_at": "2026-10-12T09:17:12.519814+00:00",
+              "status": "succeeded",
+              "stderr_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/stderr.txt",
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "stdout_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/stdout.txt",
+                "sha256": "853f53cd9623b0616ae58b45f4b0281801f652a8b2ff241bf18e55f1d6863a90"
+              },
+              "task_id": "compression-exchangeability-exact-v1",
+              "worker_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 28419,
+                "start_ticks": 690079
+              }
+            },
+            "receipt_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/receipt.json",
+              "sha256": "4e205a30baa427c962f881c6f07d82ab1a7d2ded3d1c5cb341c4281d62ee7a3d"
+            },
+            "reservation_seconds": 33.0,
+            "response_handled": true,
+            "result": "succeeded",
+            "source": {
+              "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+              "files": [
+                {
+                  "path": "SKILL.md",
+                  "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                },
+                {
+                  "path": "references/rsi-simple.md",
+                  "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                },
+                {
+                  "path": "references/simple-runner.md",
+                  "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                },
+                {
+                  "path": "scripts/_simple_process.py",
+                  "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                },
+                {
+                  "path": "scripts/_simple_source.py",
+                  "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                },
+                {
+                  "path": "scripts/simple_loop.py",
+                  "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                },
+                {
+                  "path": "scripts/simple_runner.py",
+                  "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                },
+                {
+                  "path": "references/simple-experiment-design.md",
+                  "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                },
+                {
+                  "path": "scripts/simple_design.py",
+                  "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                },
+                {
+                  "path": "scripts/simple_resources.py",
+                  "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-plan.json",
+                  "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-results.json",
+                  "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                },
+                {
+                  "path": "references/simple-collaboration.md",
+                  "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                },
+                {
+                  "path": "assets/templates/simple-delegation.json",
+                  "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                }
+              ],
+              "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+            },
+            "state": "terminal",
+            "task_id": "compression-exchangeability-exact-v1"
+          }
+        ],
+        "budget": {
+          "attempts_used": 1,
+          "deadline_epoch": 1791803614.6035216,
+          "elapsed_seconds": 0.11217186999965634,
+          "max_attempts": 32,
+          "max_command_seconds": 1800,
+          "remaining_deadline_seconds": 6981.904228925705,
+          "remaining_seconds": 1799.8878281300003,
+          "reserved_seconds": 0
+        },
+        "continuation": null,
+        "current_question": "Continue verify: Execution observation for compression-exchangeability-exact-v1: succeeded; Command execution reported succeeded",
+        "goal": "持续研究低秩、coreset与流式统计；继承w001-w004全部证据与退役，从压缩两样本检验的流式校准与强基线审查继续。",
+        "goal_contract": {
+          "completion_criteria": [
+            {
+              "description": "核验原生定义、指标与CPU资源范围",
+              "id": "validity"
+            },
+            {
+              "description": "提出并实际检验可证伪假设，解释证据后继续必要研究",
+              "id": "research"
+            }
+          ],
+          "mode": "continuous_research"
+        },
+        "goal_contract_version": 1,
+        "idea": "ctt-streaming-calibration-audit-v1",
+        "idea_status": "active",
+        "journal_version": 1,
+        "milestones": [],
+        "next_action": "Continue verify: Execution observation for compression-exchangeability-exact-v1: succeeded; Command execution reported succeeded",
+        "observations": [
+          {
+            "event_id": "result:attempt-c168c3b8dc8e441cb557db81f4c15601",
+            "kind": "task_result",
+            "payload": {
+              "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+              "reason": "Command execution reported succeeded",
+              "receipt": {
+                "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+                "command_identity": {
+                  "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                  "pid": 28420,
+                  "start_ticks": 690082
+                },
+                "contract_sha256": "6fee936036c5c0e8b60a07c7269ac6a26245a54e4551b2a28e7ead5e1c283521",
+                "elapsed_seconds": 0.11217186999965634,
+                "error": null,
+                "exit_code": 0,
+                "finished_at": "2026-10-12T09:17:12.631979+00:00",
+                "input_refs": [
+                  {
+                    "path": "plans/compression_exchangeability_exact_v1.md",
+                    "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+                  },
+                  {
+                    "path": "scripts/compression_exchangeability_exact_v1.py",
+                    "sha256": "a062e4bdefaff2cd134c26a6804f391067cec0d33c5504ae7b4f2b432b2a1c0a"
+                  },
+                  {
+                    "path": "scripts/cpu_guard.py",
+                    "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+                  }
+                ],
+                "output_refs": [
+                  {
+                    "path": "results/compression_exchangeability_exact_v1.json",
+                    "sha256": "70d2f1f200342d8de5039d14348c0b1bc7a3547c3d0f5a8e4024fe20e986f823"
+                  },
+                  {
+                    "path": "results/compression_exchangeability_exact_v1_rows.json",
+                    "sha256": "80d8707e496db0ec864df949e12b8174ba810fae4fee94a540631e2776ba9611"
+                  }
+                ],
+                "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+                "schema_version": 1,
+                "started_at": "2026-10-12T09:17:12.519814+00:00",
+                "status": "succeeded",
+                "stderr_ref": {
+                  "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/stderr.txt",
+                  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                },
+                "stdout_ref": {
+                  "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/stdout.txt",
+                  "sha256": "853f53cd9623b0616ae58b45f4b0281801f652a8b2ff241bf18e55f1d6863a90"
+                },
+                "task_id": "compression-exchangeability-exact-v1",
+                "worker_identity": {
+                  "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                  "pid": 28419,
+                  "start_ticks": 690079
+                }
+              },
+              "receipt_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-c168c3b8dc8e441cb557db81f4c15601/receipt.json",
+                "sha256": "4e205a30baa427c962f881c6f07d82ab1a7d2ded3d1c5cb341c4281d62ee7a3d"
+              },
+              "status": "succeeded",
+              "task_id": "compression-exchangeability-exact-v1"
+            },
+            "request_id": null,
+            "sequence": 1
+          }
+        ],
+        "request_id": "decision-6d3a2c1c6d69467fa2823ad0fae18561",
+        "research_cycles": [],
+        "revision": 1,
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "tasks": [
+          {
+            "argv": [
+              "python3",
+              "scripts/cpu_guard.py",
+              "python3",
+              "scripts/compression_exchangeability_exact_v1.py"
+            ],
+            "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+            "cancel_requested": false,
+            "cwd": ".",
+            "depends_on": [],
+            "idea": "ctt-streaming-calibration-audit-v1",
+            "input_refs": [
+              {
+                "path": "plans/compression_exchangeability_exact_v1.md",
+                "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+              },
+              {
+                "path": "scripts/compression_exchangeability_exact_v1.py",
+                "sha256": "a062e4bdefaff2cd134c26a6804f391067cec0d33c5504ae7b4f2b432b2a1c0a"
+              },
+              {
+                "path": "scripts/cpu_guard.py",
+                "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+              }
+            ],
+            "outputs": [
+              "results/compression_exchangeability_exact_v1.json",
+              "results/compression_exchangeability_exact_v1_rows.json"
+            ],
+            "phase": "diagnostic",
+            "purpose": "Enumerate all 512 null states to test whether unbiased unequal compression preserves bin permutation size",
+            "reason": "Command execution reported succeeded",
+            "replaced_by": null,
+            "revision": 1,
+            "state": "succeeded",
+            "supersedes": null,
+            "task_id": "compression-exchangeability-exact-v1",
+            "timeout_seconds": 30
+          }
+        ]
+      },
+      "state": "answered"
+    }
+  ],
+  "research_cycle_count": 1,
+  "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w005",
+  "sequence": 2,
+  "source": {
+    "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+      },
+      {
+        "path": "references/rsi-simple.md",
+        "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+      },
+      {
+        "path": "references/simple-runner.md",
+        "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+      },
+      {
+        "path": "scripts/_simple_process.py",
+        "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+      },
+      {
+        "path": "scripts/_simple_source.py",
+        "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+      },
+      {
+        "path": "scripts/simple_loop.py",
+        "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+      },
+      {
+        "path": "scripts/simple_runner.py",
+        "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+      },
+      {
+        "path": "references/simple-experiment-design.md",
+        "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+      },
+      {
+        "path": "scripts/simple_design.py",
+        "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+      },
+      {
+        "path": "scripts/simple_resources.py",
+        "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+      },
+      {
+        "path": "assets/templates/simple-experiment-plan.json",
+        "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+      },
+      {
+        "path": "assets/templates/simple-experiment-results.json",
+        "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+      },
+      {
+        "path": "references/simple-collaboration.md",
+        "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+      },
+      {
+        "path": "assets/templates/simple-delegation.json",
+        "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+      }
+    ],
+    "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "source_error": null,
+  "source_history": [
+    {
+      "reason": "Initial source snapshot",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      }
+    }
+  ],
+  "status": "stopped",
+  "stop_requested": "User-authorized GitHub archival and local cleanup at quiet boundary; continuous goal remains active; resume in next numbered execution window after verified restore.",
+  "tasks": [
+    {
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/compression_exchangeability_exact_v1.py"
+      ],
+      "attempt_id": "attempt-c168c3b8dc8e441cb557db81f4c15601",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "ctt-streaming-calibration-audit-v1",
+      "input_refs": [
+        {
+          "path": "plans/compression_exchangeability_exact_v1.md",
+          "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+        },
+        {
+          "path": "scripts/compression_exchangeability_exact_v1.py",
+          "sha256": "a062e4bdefaff2cd134c26a6804f391067cec0d33c5504ae7b4f2b432b2a1c0a"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        }
+      ],
+      "outputs": [
+        "results/compression_exchangeability_exact_v1.json",
+        "results/compression_exchangeability_exact_v1_rows.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Enumerate all 512 null states to test whether unbiased unequal compression preserves bin permutation size",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "compression-exchangeability-exact-v1",
+      "timeout_seconds": 30
+    }
+  ]
+}

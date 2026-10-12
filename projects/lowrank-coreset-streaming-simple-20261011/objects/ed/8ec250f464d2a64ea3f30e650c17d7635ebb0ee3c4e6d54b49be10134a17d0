@@ -1,0 +1,15 @@
+# High-precision Nyström floor analysis v1
+
+The independent decimal reference converged exactly after conversion to float64 from 80 through 120 decimal digits for separations `1e-6`, `1e-7`, and `1e-8`. At 120 digits the maximum inverse-identity residual ranged from `9.91e-108` to `1.02e-103`, passing the predeclared precision audit. The earlier double-precision ambiguity is therefore resolved for these synthetic fixtures.
+
+Against the 100-digit exact-inverse projected kernel:
+
+- `eps=1e-4`: the released feature map had `9.02e-9` relative error and 0/19,900 score-order reversals.
+- `eps=1e-5`: it had `5.36e-7` relative error and 0 reversals.
+- `eps=1e-6`: it had `0.10399` relative error and 1,478/19,900 (`7.43%`) reversals. NumPy's default pseudoinverse was much closer (`2.24e-4`, 5 reversals), while hard truncation at `1e-12` was worse (`0.13741`, 2,036 reversals).
+- `eps=1e-7`: the released map, default pseudoinverse, and truncation all lost the high-precision near-null direction, with relative errors near `0.137` and about 2,029–2,036 reversals.
+- `eps=1e-8`: all double-precision constructions again had roughly `0.1374` relative error and 2,036 reversals.
+
+Thus the source's singular-value floor is demonstrably neither exact inversion nor stable rank truncation in a narrow ill-conditioned band. The high-precision reference confirms that the substantial ranking changes at `1e-6` are not an artifact of double-precision Moore–Penrose computation.
+
+This remains a synthetic numerical counterexample, not evidence that the paper's generated or real workloads reach the problematic center-kernel spectrum. The next falsifiable step is to instrument unchanged native workload construction and record the minimum landmark-kernel singular value relative to the `1e-12` floor, without yet changing the method or claiming calibration/power impact.

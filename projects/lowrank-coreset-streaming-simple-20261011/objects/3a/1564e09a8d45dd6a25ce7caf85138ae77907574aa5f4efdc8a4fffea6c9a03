@@ -1,0 +1,140 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+import resource
+import sys
+import time
+from decimal import Decimal, localcontext
+from pathlib import Path
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "compat"))
+sys.path.insert(0, str(ROOT / ".deps" / "nystrom_read"))
+
+from kernels import RBFkernel
+from nystrom import nystrom_features
+
+OUT = ROOT / "results"
+
+
+def fixture_strings(eps: str):
+    e = Decimal(eps)
+    half = e / Decimal(2)
+    base = [[-half, Decimal(0)], [half, Decimal(0)], [Decimal(-1), Decimal("0.7")], [Decimal(1), Decimal("-0.6")]]
+    rest = [["-2","-1"],["-1.5","0.2"],["-0.8","1.4"],["-0.2","-1.2"],["0.3","0.9"],["0.7","-0.7"],["1.2","1.3"],["1.8","-0.2"],["-1.8","0.8"],["-1.1","-1.3"],["-0.5","0.4"],["0.1","1.7"],["0.5","-1.6"],["1.0","0.4"],["1.5","-1.0"],["2.1","0.9"]]
+    return base + [[Decimal(a), Decimal(b)] for a, b in rest]
+
+
+def rbf(a, b):
+    d2 = sum((x - y) * (x - y) for x, y in zip(a, b))
+    return (-d2 / Decimal(2)).exp()
+
+
+def inverse(a):
+    n = len(a)
+    aug = [row[:] + [Decimal(int(i == j)) for j in range(n)] for i, row in enumerate(a)]
+    for col in range(n):
+        pivot = max(range(col, n), key=lambda r: abs(aug[r][col]))
+        if aug[pivot][col] == 0:
+            raise ArithmeticError("singular decimal matrix")
+        aug[col], aug[pivot] = aug[pivot], aug[col]
+        scale = aug[col][col]
+        aug[col] = [v / scale for v in aug[col]]
+        for r in range(n):
+            if r == col:
+                continue
+            f = aug[r][col]
+            aug[r] = [x - f * y for x, y in zip(aug[r], aug[col])]
+    return [row[n:] for row in aug]
+
+
+def decimal_projection(points):
+    landmarks = points[:4]
+    knm = [[rbf(x, y) for y in landmarks] for x in points]
+    inv = inverse([row[:] for row in knm[:4]])
+    tmp = [[sum(knm[i][a] * inv[a][b] for a in range(4)) for b in range(4)] for i in range(len(points))]
+    return np.array([[float(sum(tmp[i][b] * knm[j][b] for b in range(4))) for j in range(len(points))] for i in range(len(points))])
+
+
+def permutation_scores(kernel, permutations):
+    out = []
+    n = kernel.shape[0]
+    for idx in permutations:
+        mask = np.zeros(n, dtype=bool)
+        mask[idx] = True
+        a = np.flatnonzero(mask)
+        b = np.flatnonzero(~mask)
+        out.append(kernel[np.ix_(a,a)].sum()/len(a)**2 + kernel[np.ix_(b,b)].sum()/len(b)**2 - 2*kernel[np.ix_(a,b)].sum()/(len(a)*len(b)))
+    return np.asarray(out)
+
+
+def reversals(a, b, tol=1e-14):
+    da = a[:,None] - a[None,:]
+    db = b[:,None] - b[None,:]
+    upper = np.triu(np.ones(da.shape, dtype=bool), 1)
+    strict = upper & (np.abs(da) > tol) & (np.abs(db) > tol)
+    return int(np.sum(strict & (np.sign(da) != np.sign(db)))), int(np.sum(strict))
+
+
+def compare(candidate, reference, ref_scores, permutations):
+    scores = permutation_scores(candidate, permutations)
+    count, denominator = reversals(scores, ref_scores)
+    return {
+        "relative_frobenius_error": float(np.linalg.norm(candidate-reference) / np.linalg.norm(reference)),
+        "score_max_abs_error": float(np.max(np.abs(scores-ref_scores))),
+        "pair_reversals": count,
+        "pair_denominator": denominator,
+    }
+
+
+def main():
+    start = time.perf_counter()
+    rng = np.random.default_rng(771)
+    permutations = np.empty((200, 10), dtype=int)
+    permutations[0] = np.arange(10)
+    for i in range(1, 200):
+        permutations[i] = rng.permutation(20)[:10]
+    rows = []
+    with localcontext() as ctx:
+        ctx.prec = 100
+        for eps in ["1e-4", "1e-5", "1e-6", "1e-7", "1e-8"]:
+            points_decimal = fixture_strings(eps)
+            z = np.array([[float(v) for v in row] for row in points_decimal])
+            reference = decimal_projection(points_decimal)
+            native_phi = nystrom_features(z, np.arange(4), 1.0)
+            native = native_phi @ native_phi.T
+            knm = RBFkernel(z, z[:4], 1.0)
+            kmm = knm[:4]
+            pinv = knm @ np.linalg.pinv(kmm) @ knm.T
+            w, q = np.linalg.eigh((kmm + kmm.T) / 2)
+            inv = np.where(w >= 1e-12, 1.0/w, 0.0)
+            truncate = knm @ ((q*inv) @ q.T) @ knm.T
+            ref_scores = permutation_scores(reference, permutations)
+            rows.append({
+                "eps": float(eps),
+                "double_min_eigenvalue": float(w[0]),
+                "native": compare(native, reference, ref_scores, permutations),
+                "numpy_pinv": compare(pinv, reference, ref_scores, permutations),
+                "truncate_1e-12": compare(truncate, reference, ref_scores, permutations),
+            })
+    boundary = [row for row in rows if row["native"]["relative_frobenius_error"] > 1e-6 or row["native"]["pair_reversals"] > 0]
+    summary = {
+        "schema_version": 1,
+        "source_commit": "ddb9b2cacc092841518c3d4e18b745f266d8f517",
+        "decimal_precision": 100,
+        "case_count": len(rows),
+        "native_boundary_eps": [row["eps"] for row in boundary],
+        "elapsed_seconds": time.perf_counter() - start,
+        "peak_rss_bytes": int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024),
+        "limitation": "Synthetic fixture; occurrence in published native workloads remains untested",
+    }
+    (OUT / "nystrom_high_precision_floor_v1_rows.json").write_text(json.dumps({"schema_version":1,"rows":rows}, indent=2) + "\n")
+    (OUT / "nystrom_high_precision_floor_v1.json").write_text(json.dumps(summary, indent=2) + "\n")
+    print(json.dumps(summary))
+
+
+if __name__ == "__main__":
+    main()

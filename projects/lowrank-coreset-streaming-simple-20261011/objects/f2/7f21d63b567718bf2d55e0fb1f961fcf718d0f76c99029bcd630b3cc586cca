@@ -1,0 +1,28 @@
+{
+  "response_id": "nystrom-high-precision-interpret-v1",
+  "request_id": "decision-837be4c47a5443428f9ac2eef9f6c638",
+  "idea": "nystrom-permutation-validity-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The 100-digit exact-inverse diagnostic succeeded and an independent 80/100/120-digit convergence and residual audit passed, resolving the prior double-precision-reference ambiguity.",
+  "events": [{
+    "event_id": "nystrom-high-precision-boundary-cycle-v1",
+    "kind": "research_cycle",
+    "reason": "A frozen high-precision experiment directly tested whether the native ranking changes were artifacts of double-precision pseudoinverse instability.",
+    "hypothesis": "The earlier near-singular discrepancy is mainly a double-precision Moore–Penrose reference artifact rather than a boundary induced by the released1e-12 singular-value floor.",
+    "prediction": "If the hypothesis holds, the native map stays within1e-6 relative error and has no score-order reversals against a precision-converged exact inverse.",
+    "result": "The 80/100/120-digit reference converged exactly after float conversion and 120-digit inverse residuals were below1.1e-103. At eps1e-6 native relative error was0.10399 with1478/19900 reversals; NumPy pinv was0.000224 with5 reversals. At eps1e-7 and1e-8 all double-precision constructions lost the high-precision near-null direction with about0.137 relative error and roughly2030 reversals. PeakRSS120602624bytes.",
+    "interpretation": "The hypothesis is falsified on the synthetic fixtures: substantial native ranking changes at eps1e-6 are not a double-precision reference artifact. This remains a numerical counterexample, not evidence of occurrence or calibration/power impact in published workloads.",
+    "next_action": "Instrument unchanged native paper workloads and record landmark-kernel spectra relative to the1e-12 floor before evaluating any corrected mapping.",
+    "evidence": [
+      {"path":"plans/nystrom_high_precision_floor_v1.md","sha256":"466a921aa90611d94cf3c96e5126eb3f4f449ae6c6ec3234203c926530b23bfa"},
+      {"path":"results/nystrom_high_precision_floor_v1.json","sha256":"6151a5d96a200721419274069dac3af2d6656309154e93f782ae876275137599"},
+      {"path":"results/nystrom_high_precision_floor_v1_rows.json","sha256":"180975074fc38439205ffed10434768866feab60f17f7d2ac99038cc0f92f4da"},
+      {"path":"results/nystrom_high_precision_audit_v1.json","sha256":"18e2c48a962c3c2bb2bdb052e0f3e8c7ae3f69592a2a10ed18229a8ebde5378c"},
+      {"path":"notes/nystrom_high_precision_floor_analysis_v1.md","sha256":"ed8ec250f464d2a64ea3f30e650c17d7635ebb0ee3c4e6d54b49be10134a17d0"},
+      {"path":".research-autopilot/runner/attempts/attempt-aed2f840e3004773876dd1668116a52a/receipt.json","sha256":"d42499b1a4dab5df73e9d6b5ca85f55bc55ded5137f1ce5bd2178cbe5b9206a6"},
+      {"path":".research-autopilot/runner/attempts/attempt-81b6f948342e474dbfdd5edd9f8de276/receipt.json","sha256":"db52ffaba77f6164d0d4d5762440f8cb09a38b238158ac320d09bbebd62a3ebc"}
+    ]
+  }],
+  "tasks": []
+}

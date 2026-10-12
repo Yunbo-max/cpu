@@ -1,0 +1,106 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "case_count": true,
+    "decision_trace_pass": true,
+    "flags": true,
+    "ordinary_pass": true,
+    "source_commit": true,
+    "z_arithmetic": true
+  },
+  "input_sha256": {
+    "nystrom_native_diagnostic_v3.json": "8997e4af25604d1e818b0294ba05c745f6003eb8466590402679376caace3087",
+    "nystrom_native_diagnostic_v3_rows.json": "bac3ed4b1de3c6108af7990e9be8759d476cbe90c3964d50341629d521833196"
+  },
+  "max_overlap_z_abs_error": 0.0,
+  "overlap_z_audit": [
+    {
+      "abs_error": 0.0,
+      "recomputed_z": -0.4775717909782722,
+      "row": "coupled_discarded",
+      "stored_z": -0.4775717909782722
+    },
+    {
+      "abs_error": 0.0,
+      "recomputed_z": 0.271848557941478,
+      "row": "coupled_retained_1",
+      "stored_z": 0.271848557941478
+    },
+    {
+      "abs_error": 0.0,
+      "recomputed_z": -0.35266839949164713,
+      "row": "coupled_retained_2",
+      "stored_z": -0.35266839949164713
+    },
+    {
+      "abs_error": 0.0,
+      "recomputed_z": 0.15429242477759564,
+      "row": "split_retained_1",
+      "stored_z": 0.15429242477759564
+    },
+    {
+      "abs_error": 0.0,
+      "recomputed_z": -0.6832950240150664,
+      "row": "split_retained_2",
+      "stored_z": -0.6832950240150664
+    }
+  ],
+  "recomputed_flags": [
+    "singular_boundary:1e-05",
+    "singular_boundary:1e-06",
+    "singular_boundary:1e-07",
+    "singular_boundary:1e-08"
+  ],
+  "reversal_rates": [
+    {
+      "case": "ordinary",
+      "count": 0,
+      "denominator": 19900,
+      "eps": null,
+      "rate": 0.0
+    },
+    {
+      "case": "coincident",
+      "count": 0,
+      "denominator": 19900,
+      "eps": 0.0,
+      "rate": 0.0
+    },
+    {
+      "case": "coincident",
+      "count": 0,
+      "denominator": 19900,
+      "eps": 0.0001,
+      "rate": 0.0
+    },
+    {
+      "case": "coincident",
+      "count": 0,
+      "denominator": 19900,
+      "eps": 1e-05,
+      "rate": 0.0
+    },
+    {
+      "case": "coincident",
+      "count": 1478,
+      "denominator": 19900,
+      "eps": 1e-06,
+      "rate": 0.07427135678391959
+    },
+    {
+      "case": "coincident",
+      "count": 2113,
+      "denominator": 19900,
+      "eps": 1e-07,
+      "rate": 0.10618090452261307
+    },
+    {
+      "case": "coincident",
+      "count": 0,
+      "denominator": 19900,
+      "eps": 1e-08,
+      "rate": 0.0
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,7 @@
+"""Minimal import adapter for an unused author-code dependency.
+
+The w007 diagnostic exercises only uniform Nyström paths, which never call tqdm.
+Any attempted call raises so this file cannot silently emulate progress behavior.
+"""
+def tqdm(*args, **kwargs):
+    raise RuntimeError("tqdm compatibility adapter was called; install the real dependency before exercising that path")

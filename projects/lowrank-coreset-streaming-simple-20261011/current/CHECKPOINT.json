@@ -4,12 +4,12 @@
   "policy_version": "0.3.0-simple.9",
   "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
   "goal_mode": "continuous_research",
-  "active_window": "execution_windows/w006",
-  "idea": "ctt-streaming-calibration-audit-v1",
+  "active_window": "execution_windows/w007",
+  "idea": "nystrom-permutation-validity-v1",
   "revision": 1,
   "goal_contract_version": 2,
-  "scientific_status": "Native CTT unequal-count estimand mismatch verified (47 rows,31/105 strict rank reversals); balanced six-arm cost diagnostic36 rows shows CTT permutation arithmetic only0.21–2.10percent. No new method or statistical superiority. Native Nyström source audit active; all earlier retirements preserved.",
-  "next_action": "Restore latest GitHub snapshot, reconcile terminal stopped w006 and create w007 with unchanged32/1800/7200 bounds. Prospectively design native Nyström projected-MMD/landmark/permutation diagnostic from ddb9b2cacc092841518c3d4e18b745f266d8f517; check pseudoinverse floor, RNG dependency, 2R RFF feature convention and actual decision semantics before quality comparison. Do not repeat completed CTT normalization/cost or retired candidates.",
+  "scientific_status": "Native Nyström ordinary projection matches an independent reference, but a precision-converged synthetic near-singular counterexample shows the released1e-12 singular-value floor changes7.43percent of permutation-score pair orderings at landmark separation1e-6. Same-seed overlap means did not flag and traced/native decisions matched. This is not yet evidence of occurrence, calibration, power, or paper invalidity in native workloads; all earlier retirements remain preserved.",
+  "next_action": "Restore latest GitHub snapshot, reconcile terminal stopped w007 and create w008 with unchanged32/1800/7200 bounds. Instrument unchanged native paper workloads and record landmark-center-kernel singular spectra relative to the1e-12 floor before proposing or evaluating any corrected mapping. Then finish the predeclared2R RFF feature-convention and actual decision-semantics audit; do not repeat completed CTT or synthetic Nyström diagnostics.",
   "automation_status": "enabled; hourly recurring schedule without end date",
   "resource_limit_bytes": 8000000000,
   "worker_address_space_limit_bytes": 4294967296,
@@ -122,7 +122,16 @@
     "execution_windows/w006/results/raw_table_audit_v1.json",
     "execution_windows/w006/delegations/ctt_source_review_v1/acceptance.json",
     "execution_windows/w006/notes/nystrom_successor_source_audit_v1.md",
-    "execution_windows/w006/sources/nystrom_source_manifest_v1.json"
+    "execution_windows/w006/sources/nystrom_source_manifest_v1.json",
+    "execution_windows/w007/sources/nystrom_source_manifest_v2.json",
+    "execution_windows/w007/results/nystrom_native_diagnostic_v3.json",
+    "execution_windows/w007/results/nystrom_native_diagnostic_v3_rows.json",
+    "execution_windows/w007/results/nystrom_native_diagnostic_v3_audit.json",
+    "execution_windows/w007/notes/nystrom_native_diagnostic_v3_analysis.md",
+    "execution_windows/w007/results/nystrom_high_precision_floor_v1.json",
+    "execution_windows/w007/results/nystrom_high_precision_floor_v1_rows.json",
+    "execution_windows/w007/results/nystrom_high_precision_audit_v1.json",
+    "execution_windows/w007/notes/nystrom_high_precision_floor_analysis_v1.md"
   ],
   "limitations": [
     "finite-pool guarantee only",
@@ -166,11 +175,15 @@
     "Centered equivalence used a synthetic formula fixture, not ImageNet features or a speed benchmark",
     "The original FID-infinity and pinned 2026 protocols independently reshuffle each level; the 2026 paper already derives common-pool overlap covariance, so the nested route is only a maximal-overlap protocol variant, not a new general covariance observation",
     "Nested prefixes reduced active count/sum/Gram state by 15 times, but centered non-isotropic paper-VALE RMSE worsened by 27.7% with a paired MSE interval above zero; the route is retired under this bounded condition",
-    "The favorable known-zero-mean isotropic order-3 OLS result is retained as development evidence but is not treated as confirmation because it failed to transfer to the stronger centered paper-VALE fixture"
+    "The favorable known-zero-mean isotropic order-3 OLS result is retained as development evidence but is not treated as confirmation because it failed to transfer to the stronger centered paper-VALE fixture",
+    "The Nyström projection finding is a synthetic numerical counterexample around a deliberately near-singular landmark matrix; occurrence in published native workloads is untested",
+    "The4096-seed same-seed overlap diagnostic found no retained mean shift, but this does not prove landmark/permutation independence or exclude effects on other joint statistics",
+    "The selected native and reference binary decisions agreed in seven fixtures even when score ordering changed; no null-size, power, or paper-validity claim follows",
+    "The first Nyström attempt failed because the pinned source imported unavailable tqdm, and successful v2 outputs had invalid literal-backslash-n suffixes; both failures are retained and only valid audited v3 evidence is consumed"
   ],
-  "updated_at": "2026-10-12T11:08:13.810121+00:00",
+  "updated_at": "2026-10-12T12:35:11.315187+00:00",
   "execution": {
-    "updated_at": "2026-10-12T11:08:13.810121+00:00",
+    "updated_at": "2026-10-12T12:35:11.315187+00:00",
     "overall_end_date": null,
     "overall_attempt_limit": null,
     "overall_time_limit": null,
@@ -299,7 +312,7 @@
           "elapsed_seconds": 0.11217186999965634,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 320.88484263420105,
+          "remaining_deadline_seconds": 0.0,
           "remaining_seconds": 1799.8878281300003,
           "reserved_seconds": 0
         },
@@ -318,7 +331,7 @@
           "elapsed_seconds": 87.4436857169967,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 6329.394956111908,
+          "remaining_deadline_seconds": 1111.9869272708893,
           "remaining_seconds": 1712.5563142830033,
           "reserved_seconds": 0
         },
@@ -329,14 +342,38 @@
           "native-normalization-v1": "succeeded",
           "raw-table-audit-v1": "succeeded"
         }
+      },
+      {
+        "window": "execution_windows/w007",
+        "status": "stopped",
+        "sequence": 8,
+        "research_cycle_count": 2,
+        "budget": {
+          "attempts_used": 6,
+          "deadline_epoch": 1791814473.3697693,
+          "elapsed_seconds": 7.080347406004876,
+          "max_attempts": 32,
+          "max_command_seconds": 1800,
+          "remaining_deadline_seconds": 5962.091626882553,
+          "remaining_seconds": 1792.9196525939951,
+          "reserved_seconds": 0
+        },
+        "task_states": {
+          "nystrom-high-precision-audit-v1": "succeeded",
+          "nystrom-high-precision-floor-v1": "succeeded",
+          "nystrom-native-diagnostic-v1": "failed",
+          "nystrom-native-diagnostic-v2": "succeeded",
+          "nystrom-native-diagnostic-v3": "succeeded",
+          "nystrom-native-diagnostic-v3-audit": "succeeded"
+        }
       }
     ],
-    "cumulative_attempts": 47,
-    "cumulative_command_seconds": 530.7908325560602
+    "cumulative_attempts": 53,
+    "cumulative_command_seconds": 537.8711799620651
   },
   "automation_id": "6acc15a522f08191a1bbf19f58f033a1",
   "library_file_id": "libfile_d0c64b9b3a98819197c0ffcf4641cc50",
-  "current_research_cycle_count": 28,
+  "current_research_cycle_count": 30,
   "additional_bernstein_rows": 96,
   "moment_boundary_checked_suffixes": 20,
   "moment_native_pilot_suffixes": 15,
@@ -401,5 +438,10 @@
   "native_cost_measured_rows": 36,
   "native_cost_warmup_rows": 6,
   "native_cost_peak_rss_bytes": 672350208,
-  "nystrom_source_commit": "ddb9b2cacc092841518c3d4e18b745f266d8f517"
+  "nystrom_source_commit": "ddb9b2cacc092841518c3d4e18b745f266d8f517",
+  "nystrom_native_diagnostic_peak_rss_bytes": 143732736,
+  "nystrom_high_precision_peak_rss_bytes": 120602624,
+  "nystrom_eps_1e6_native_relative_error_vs_high_precision": 0.10398730001587717,
+  "nystrom_eps_1e6_pair_reversals": 1478,
+  "nystrom_eps_1e6_pair_denominator": 19900
 }

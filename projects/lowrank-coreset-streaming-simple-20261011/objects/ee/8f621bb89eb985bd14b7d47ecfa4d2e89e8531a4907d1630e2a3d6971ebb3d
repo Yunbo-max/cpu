@@ -1,0 +1,1584 @@
+{
+  "agent_error": null,
+  "agent_version": 0,
+  "attempts": [
+    {
+      "attempt_dir": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007/.research-autopilot/runner/attempts/attempt-169fd9515c7649e1815be9f6ffd45465",
+      "attempt_id": "attempt-169fd9515c7649e1815be9f6ffd45465",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/cpu_guard.py",
+          "python3",
+          "scripts/nystrom_native_diagnostic_v1.py"
+        ],
+        "attempt_id": "attempt-169fd9515c7649e1815be9f6ffd45465",
+        "cwd": ".",
+        "deadline_epoch": 1791814473.3697693,
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/nystrom_native_diagnostic_v1.py",
+            "sha256": "70281d09b015f98b9a0e6f6c547b02d8278d7d8a249406cb6b0315709c6a6e42"
+          },
+          {
+            "path": "plans/nystrom_native_diagnostic_v1.md",
+            "sha256": "5fa8782e33f3208e21be7383c4329e625352d924e18a81f675d6e54757671e2d"
+          },
+          {
+            "path": "sources/nystrom_source_manifest_v2.json",
+            "sha256": "41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"
+          },
+          {
+            "path": "notes/resource_admission_v1.json",
+            "sha256": "4442d6035504e03ce82c4d5e6c35cea68308b3da3ebd4e59483e3bdd001f9356"
+          },
+          {
+            "path": ".deps/nystrom_read/kernels.py",
+            "sha256": "3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"
+          },
+          {
+            "path": ".deps/nystrom_read/nystrom.py",
+            "sha256": "5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"
+          },
+          {
+            "path": ".deps/nystrom_read/tests.py",
+            "sha256": "d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"
+          },
+          {
+            "path": ".deps/nystrom_read/utils.py",
+            "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"
+          },
+          {
+            "path": ".deps/nystrom_read/recursive_nystrom.py",
+            "sha256": "4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"
+          },
+          {
+            "path": ".deps/nystrom_read/samplers.py",
+            "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "results/nystrom_native_diagnostic_v1.json",
+          "results/nystrom_native_diagnostic_v1_rows.json"
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "nystrom-native-diagnostic-v1",
+        "timeout_seconds": 120
+      },
+      "contract_sha256": "43926b5bf69aba8a8a4089073be10060085fbe2f328affd6fb97f766446b8f0f",
+      "elapsed_seconds": 1.2244418860027508,
+      "kind": "task",
+      "reason": "Command exited with status 1; Cannot safely read results/nystrom_native_diagnostic_v1.json: [Errno 2] No such file or directory: 'nystrom_native_diagnostic_v1.json'; Cannot safely read results/nystrom_native_diagnostic_v1_rows.json: [Errno 2] No such file or directory: 'nystrom_native_diagnostic_v1_rows.json'",
+      "receipt": {
+        "attempt_id": "attempt-169fd9515c7649e1815be9f6ffd45465",
+        "command_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 152122,
+          "start_ticks": 1778965
+        },
+        "contract_sha256": "43926b5bf69aba8a8a4089073be10060085fbe2f328affd6fb97f766446b8f0f",
+        "elapsed_seconds": 1.2244418860027508,
+        "error": "Command exited with status 1; Cannot safely read results/nystrom_native_diagnostic_v1.json: [Errno 2] No such file or directory: 'nystrom_native_diagnostic_v1.json'; Cannot safely read results/nystrom_native_diagnostic_v1_rows.json: [Errno 2] No such file or directory: 'nystrom_native_diagnostic_v1_rows.json'",
+        "exit_code": 1,
+        "finished_at": "2026-10-12T12:18:42.570110+00:00",
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/nystrom_native_diagnostic_v1.py",
+            "sha256": "70281d09b015f98b9a0e6f6c547b02d8278d7d8a249406cb6b0315709c6a6e42"
+          },
+          {
+            "path": "plans/nystrom_native_diagnostic_v1.md",
+            "sha256": "5fa8782e33f3208e21be7383c4329e625352d924e18a81f675d6e54757671e2d"
+          },
+          {
+            "path": "sources/nystrom_source_manifest_v2.json",
+            "sha256": "41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"
+          },
+          {
+            "path": "notes/resource_admission_v1.json",
+            "sha256": "4442d6035504e03ce82c4d5e6c35cea68308b3da3ebd4e59483e3bdd001f9356"
+          },
+          {
+            "path": ".deps/nystrom_read/kernels.py",
+            "sha256": "3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"
+          },
+          {
+            "path": ".deps/nystrom_read/nystrom.py",
+            "sha256": "5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"
+          },
+          {
+            "path": ".deps/nystrom_read/tests.py",
+            "sha256": "d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"
+          },
+          {
+            "path": ".deps/nystrom_read/utils.py",
+            "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"
+          },
+          {
+            "path": ".deps/nystrom_read/recursive_nystrom.py",
+            "sha256": "4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"
+          },
+          {
+            "path": ".deps/nystrom_read/samplers.py",
+            "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"
+          }
+        ],
+        "output_refs": [],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007",
+        "schema_version": 1,
+        "started_at": "2026-10-12T12:18:41.345661+00:00",
+        "status": "failed",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-169fd9515c7649e1815be9f6ffd45465/stderr.txt",
+          "sha256": "2e85b8787b973cb223dbf5c000064ba9d859da37346b68f5a26980a8dd13a2e4"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-169fd9515c7649e1815be9f6ffd45465/stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "task_id": "nystrom-native-diagnostic-v1",
+        "worker_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 152121,
+          "start_ticks": 1778958
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-169fd9515c7649e1815be9f6ffd45465/receipt.json",
+        "sha256": "7ae02fe4efe69116e6a77d303eb23e0418436d610a4ef259a8e0b2b0bb8d9871"
+      },
+      "reservation_seconds": 123.0,
+      "response_handled": true,
+      "result": "failed",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "nystrom-native-diagnostic-v1"
+    },
+    {
+      "attempt_dir": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007/.research-autopilot/runner/attempts/attempt-3d501f54e27b4655acc48ed21625b2f6",
+      "attempt_id": "attempt-3d501f54e27b4655acc48ed21625b2f6",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/cpu_guard.py",
+          "python3",
+          "scripts/audit_nystrom_native_diagnostic_v3.py"
+        ],
+        "attempt_id": "attempt-3d501f54e27b4655acc48ed21625b2f6",
+        "cwd": ".",
+        "deadline_epoch": 1791814473.3697693,
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/audit_nystrom_native_diagnostic_v3.py",
+            "sha256": "5d8cfcde284e6b77f0282b7564fe82b1b9f62cc928de7518a5c92fcadfb1bcc3"
+          },
+          {
+            "path": "plans/nystrom_native_diagnostic_v3_audit.md",
+            "sha256": "9afa65d8ce4465cd362a8d22f953df40439adc385925afeb503afdeb4ff661d7"
+          },
+          {
+            "path": "results/nystrom_native_diagnostic_v3.json",
+            "sha256": "8997e4af25604d1e818b0294ba05c745f6003eb8466590402679376caace3087"
+          },
+          {
+            "path": "results/nystrom_native_diagnostic_v3_rows.json",
+            "sha256": "bac3ed4b1de3c6108af7990e9be8759d476cbe90c3964d50341629d521833196"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "results/nystrom_native_diagnostic_v3_audit.json"
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "nystrom-native-diagnostic-v3-audit",
+        "timeout_seconds": 30
+      },
+      "contract_sha256": "313f72008a20c82263f9e2240be6a8d91f0a74f3da32256203c9fdae41459952",
+      "elapsed_seconds": 0.05539828800101532,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-3d501f54e27b4655acc48ed21625b2f6",
+        "command_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 155457,
+          "start_ticks": 1827353
+        },
+        "contract_sha256": "313f72008a20c82263f9e2240be6a8d91f0a74f3da32256203c9fdae41459952",
+        "elapsed_seconds": 0.05539828800101532,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T12:26:45.282518+00:00",
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/audit_nystrom_native_diagnostic_v3.py",
+            "sha256": "5d8cfcde284e6b77f0282b7564fe82b1b9f62cc928de7518a5c92fcadfb1bcc3"
+          },
+          {
+            "path": "plans/nystrom_native_diagnostic_v3_audit.md",
+            "sha256": "9afa65d8ce4465cd362a8d22f953df40439adc385925afeb503afdeb4ff661d7"
+          },
+          {
+            "path": "results/nystrom_native_diagnostic_v3.json",
+            "sha256": "8997e4af25604d1e818b0294ba05c745f6003eb8466590402679376caace3087"
+          },
+          {
+            "path": "results/nystrom_native_diagnostic_v3_rows.json",
+            "sha256": "bac3ed4b1de3c6108af7990e9be8759d476cbe90c3964d50341629d521833196"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "results/nystrom_native_diagnostic_v3_audit.json",
+            "sha256": "53a534ee21bd5e4aaac55ff614fbea5c3d275fa1ae6dc1c0189695318e73dfd8"
+          }
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007",
+        "schema_version": 1,
+        "started_at": "2026-10-12T12:26:45.227123+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-3d501f54e27b4655acc48ed21625b2f6/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-3d501f54e27b4655acc48ed21625b2f6/stdout.txt",
+          "sha256": "a516f5891ead688962f2d797dfe30e52279b26c0edc4a3153529cba4bf5c7779"
+        },
+        "task_id": "nystrom-native-diagnostic-v3-audit",
+        "worker_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 155456,
+          "start_ticks": 1827350
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-3d501f54e27b4655acc48ed21625b2f6/receipt.json",
+        "sha256": "b4944b4860cdece793c3fb501845fc3d6b16e8a23b768437e6adc108c24339b6"
+      },
+      "reservation_seconds": 33.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "nystrom-native-diagnostic-v3-audit"
+    },
+    {
+      "attempt_dir": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007/.research-autopilot/runner/attempts/attempt-7c6b5e4d22c848be8146a1d494994778",
+      "attempt_id": "attempt-7c6b5e4d22c848be8146a1d494994778",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/cpu_guard.py",
+          "python3",
+          "scripts/nystrom_native_diagnostic_v2.py"
+        ],
+        "attempt_id": "attempt-7c6b5e4d22c848be8146a1d494994778",
+        "cwd": ".",
+        "deadline_epoch": 1791814473.3697693,
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/nystrom_native_diagnostic_v2.py",
+            "sha256": "22c84bbe8192f3cb0c56e88309b89e4527ccc8526468b768ce58d2abf96de293"
+          },
+          {
+            "path": "plans/nystrom_native_diagnostic_v2.md",
+            "sha256": "b88fdfdb300e0c41eff3eb22bfdade6087a875c803e14a91253301843a54edc5"
+          },
+          {
+            "path": "compat/tqdm.py",
+            "sha256": "875df2efb6f4ceaa3bb42f4bb3f1819322da38ee8fbc9cb035b71cbe936651f8"
+          },
+          {
+            "path": "sources/nystrom_source_manifest_v2.json",
+            "sha256": "41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"
+          },
+          {
+            "path": "notes/resource_admission_v1.json",
+            "sha256": "4442d6035504e03ce82c4d5e6c35cea68308b3da3ebd4e59483e3bdd001f9356"
+          },
+          {
+            "path": ".deps/nystrom_read/kernels.py",
+            "sha256": "3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"
+          },
+          {
+            "path": ".deps/nystrom_read/nystrom.py",
+            "sha256": "5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"
+          },
+          {
+            "path": ".deps/nystrom_read/tests.py",
+            "sha256": "d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"
+          },
+          {
+            "path": ".deps/nystrom_read/utils.py",
+            "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"
+          },
+          {
+            "path": ".deps/nystrom_read/recursive_nystrom.py",
+            "sha256": "4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"
+          },
+          {
+            "path": ".deps/nystrom_read/samplers.py",
+            "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "results/nystrom_native_diagnostic_v2.json",
+          "results/nystrom_native_diagnostic_v2_rows.json"
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "nystrom-native-diagnostic-v2",
+        "timeout_seconds": 120
+      },
+      "contract_sha256": "12148e4a033970cd7deadfaf7c7af27cbf1b576c81138df277c2405824aacf6e",
+      "elapsed_seconds": 2.0814782490015205,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-7c6b5e4d22c848be8146a1d494994778",
+        "command_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 153145,
+          "start_ticks": 1792460
+        },
+        "contract_sha256": "12148e4a033970cd7deadfaf7c7af27cbf1b576c81138df277c2405824aacf6e",
+        "elapsed_seconds": 2.0814782490015205,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T12:20:58.376735+00:00",
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/nystrom_native_diagnostic_v2.py",
+            "sha256": "22c84bbe8192f3cb0c56e88309b89e4527ccc8526468b768ce58d2abf96de293"
+          },
+          {
+            "path": "plans/nystrom_native_diagnostic_v2.md",
+            "sha256": "b88fdfdb300e0c41eff3eb22bfdade6087a875c803e14a91253301843a54edc5"
+          },
+          {
+            "path": "compat/tqdm.py",
+            "sha256": "875df2efb6f4ceaa3bb42f4bb3f1819322da38ee8fbc9cb035b71cbe936651f8"
+          },
+          {
+            "path": "sources/nystrom_source_manifest_v2.json",
+            "sha256": "41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"
+          },
+          {
+            "path": "notes/resource_admission_v1.json",
+            "sha256": "4442d6035504e03ce82c4d5e6c35cea68308b3da3ebd4e59483e3bdd001f9356"
+          },
+          {
+            "path": ".deps/nystrom_read/kernels.py",
+            "sha256": "3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"
+          },
+          {
+            "path": ".deps/nystrom_read/nystrom.py",
+            "sha256": "5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"
+          },
+          {
+            "path": ".deps/nystrom_read/tests.py",
+            "sha256": "d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"
+          },
+          {
+            "path": ".deps/nystrom_read/utils.py",
+            "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"
+          },
+          {
+            "path": ".deps/nystrom_read/recursive_nystrom.py",
+            "sha256": "4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"
+          },
+          {
+            "path": ".deps/nystrom_read/samplers.py",
+            "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "results/nystrom_native_diagnostic_v2.json",
+            "sha256": "3276a8c2f08cf94acdaebe739015b383ba5616b1b51eda39c5949459e1e6d2b8"
+          },
+          {
+            "path": "results/nystrom_native_diagnostic_v2_rows.json",
+            "sha256": "2383b524060c66c03ea02614c016dbbc5fa8e1c1ed33a0773afaf6e84c80f658"
+          }
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007",
+        "schema_version": 1,
+        "started_at": "2026-10-12T12:20:56.295261+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-7c6b5e4d22c848be8146a1d494994778/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-7c6b5e4d22c848be8146a1d494994778/stdout.txt",
+          "sha256": "5f5db7a17ea3b4360b5945d5712a8dece1c911b65e6edf2c4aec1e0ffaa4fe34"
+        },
+        "task_id": "nystrom-native-diagnostic-v2",
+        "worker_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 153136,
+          "start_ticks": 1792457
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-7c6b5e4d22c848be8146a1d494994778/receipt.json",
+        "sha256": "1f2c12ce9c81fe666dd3fcbb94b9ed4a20aecd9e92a4c5a25100da3b2b1a4e77"
+      },
+      "reservation_seconds": 123.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "nystrom-native-diagnostic-v2"
+    },
+    {
+      "attempt_dir": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007/.research-autopilot/runner/attempts/attempt-a576d94f460949c7bbff711d0f3b1ba0",
+      "attempt_id": "attempt-a576d94f460949c7bbff711d0f3b1ba0",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/cpu_guard.py",
+          "python3",
+          "scripts/nystrom_native_diagnostic_v3.py"
+        ],
+        "attempt_id": "attempt-a576d94f460949c7bbff711d0f3b1ba0",
+        "cwd": ".",
+        "deadline_epoch": 1791814473.3697693,
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/nystrom_native_diagnostic_v3.py",
+            "sha256": "8dc1f0693c309eacfce77e305ecc05b22f79dc78e7c921bd09bb3b7258eed050"
+          },
+          {
+            "path": "plans/nystrom_native_diagnostic_v3.md",
+            "sha256": "e99d4bec832d2d8eb9772924608d44408fc3abbea3f021b12480f91509577755"
+          },
+          {
+            "path": "compat/tqdm.py",
+            "sha256": "875df2efb6f4ceaa3bb42f4bb3f1819322da38ee8fbc9cb035b71cbe936651f8"
+          },
+          {
+            "path": "sources/nystrom_source_manifest_v2.json",
+            "sha256": "41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"
+          },
+          {
+            "path": "notes/resource_admission_v1.json",
+            "sha256": "4442d6035504e03ce82c4d5e6c35cea68308b3da3ebd4e59483e3bdd001f9356"
+          },
+          {
+            "path": ".deps/nystrom_read/kernels.py",
+            "sha256": "3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"
+          },
+          {
+            "path": ".deps/nystrom_read/nystrom.py",
+            "sha256": "5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"
+          },
+          {
+            "path": ".deps/nystrom_read/tests.py",
+            "sha256": "d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"
+          },
+          {
+            "path": ".deps/nystrom_read/utils.py",
+            "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"
+          },
+          {
+            "path": ".deps/nystrom_read/recursive_nystrom.py",
+            "sha256": "4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"
+          },
+          {
+            "path": ".deps/nystrom_read/samplers.py",
+            "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "results/nystrom_native_diagnostic_v3.json",
+          "results/nystrom_native_diagnostic_v3_rows.json"
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "nystrom-native-diagnostic-v3",
+        "timeout_seconds": 120
+      },
+      "contract_sha256": "bddb569e328595e13b5bcac0359dfb0b877251126ac9e149de3f912e6c79e0a3",
+      "elapsed_seconds": 2.117152286002238,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-a576d94f460949c7bbff711d0f3b1ba0",
+        "command_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 155068,
+          "start_ticks": 1817319
+        },
+        "contract_sha256": "bddb569e328595e13b5bcac0359dfb0b877251126ac9e149de3f912e6c79e0a3",
+        "elapsed_seconds": 2.117152286002238,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T12:25:07.003658+00:00",
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/nystrom_native_diagnostic_v3.py",
+            "sha256": "8dc1f0693c309eacfce77e305ecc05b22f79dc78e7c921bd09bb3b7258eed050"
+          },
+          {
+            "path": "plans/nystrom_native_diagnostic_v3.md",
+            "sha256": "e99d4bec832d2d8eb9772924608d44408fc3abbea3f021b12480f91509577755"
+          },
+          {
+            "path": "compat/tqdm.py",
+            "sha256": "875df2efb6f4ceaa3bb42f4bb3f1819322da38ee8fbc9cb035b71cbe936651f8"
+          },
+          {
+            "path": "sources/nystrom_source_manifest_v2.json",
+            "sha256": "41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"
+          },
+          {
+            "path": "notes/resource_admission_v1.json",
+            "sha256": "4442d6035504e03ce82c4d5e6c35cea68308b3da3ebd4e59483e3bdd001f9356"
+          },
+          {
+            "path": ".deps/nystrom_read/kernels.py",
+            "sha256": "3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"
+          },
+          {
+            "path": ".deps/nystrom_read/nystrom.py",
+            "sha256": "5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"
+          },
+          {
+            "path": ".deps/nystrom_read/tests.py",
+            "sha256": "d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"
+          },
+          {
+            "path": ".deps/nystrom_read/utils.py",
+            "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"
+          },
+          {
+            "path": ".deps/nystrom_read/recursive_nystrom.py",
+            "sha256": "4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"
+          },
+          {
+            "path": ".deps/nystrom_read/samplers.py",
+            "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "results/nystrom_native_diagnostic_v3.json",
+            "sha256": "8997e4af25604d1e818b0294ba05c745f6003eb8466590402679376caace3087"
+          },
+          {
+            "path": "results/nystrom_native_diagnostic_v3_rows.json",
+            "sha256": "bac3ed4b1de3c6108af7990e9be8759d476cbe90c3964d50341629d521833196"
+          }
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007",
+        "schema_version": 1,
+        "started_at": "2026-10-12T12:25:04.886512+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-a576d94f460949c7bbff711d0f3b1ba0/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-a576d94f460949c7bbff711d0f3b1ba0/stdout.txt",
+          "sha256": "95fe5edb2751ee8623b8a884f77bcd50cde808a583f1605891fb4339ca8a632d"
+        },
+        "task_id": "nystrom-native-diagnostic-v3",
+        "worker_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 155067,
+          "start_ticks": 1817316
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-a576d94f460949c7bbff711d0f3b1ba0/receipt.json",
+        "sha256": "b718f5b824d3ed04f782058877c10f5bee2c90e776bb4001a7c6f3e2a1106d2f"
+      },
+      "reservation_seconds": 123.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "nystrom-native-diagnostic-v3"
+    }
+  ],
+  "budget": {
+    "attempts_used": 4,
+    "deadline_epoch": 1791814473.3697693,
+    "elapsed_seconds": 5.478470709007524,
+    "max_attempts": 32,
+    "max_command_seconds": 1800,
+    "remaining_deadline_seconds": 6467.158035039902,
+    "remaining_seconds": 1794.5215292909925,
+    "reserved_seconds": 0
+  },
+  "continuation": null,
+  "current_question": "Continue verify: Execution observation for nystrom-native-diagnostic-v3-audit: succeeded; Command execution reported succeeded",
+  "goal": "\u6301\u7eed\u4f4e\u79e9\u3001coreset\u4e0e\u6d41\u5f0f\u7edf\u8ba1\u7814\u7a76\uff1b\u4fdd\u7559w001-w006\u5168\u90e8\u8bb0\u5f55\u53ca\u9000\u5f79\uff0c\u6838\u9a8cNystr\u00f6m\u539f\u751f\u6295\u5f71\u3001\u5947\u5f02\u5730\u6807\u4e0e\u968f\u673a\u5316\u8bed\u4e49\u3002",
+  "goal_contract": {
+    "completion_criteria": [
+      {
+        "description": "\u6838\u9a8c\u539f\u751f\u5b9a\u4e49\u3001\u6307\u6807\u4e0eCPU\u8d44\u6e90\u8303\u56f4",
+        "id": "validity"
+      },
+      {
+        "description": "\u63d0\u51fa\u5e76\u5b9e\u9645\u68c0\u9a8c\u53ef\u8bc1\u4f2a\u5047\u8bbe\uff0c\u89e3\u91ca\u8bc1\u636e\u540e\u7ee7\u7eed\u5fc5\u8981\u7814\u7a76",
+        "id": "research"
+      }
+    ],
+    "mode": "continuous_research"
+  },
+  "goal_contract_version": 1,
+  "idea": "nystrom-permutation-validity-v1",
+  "idea_status": "active",
+  "journal_version": 5,
+  "milestones": [],
+  "next_action": "Continue verify: Execution observation for nystrom-native-diagnostic-v3-audit: succeeded; Command execution reported succeeded",
+  "observations": [
+    {
+      "event_id": "result:attempt-3d501f54e27b4655acc48ed21625b2f6",
+      "kind": "task_result",
+      "payload": {
+        "attempt_id": "attempt-3d501f54e27b4655acc48ed21625b2f6",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-3d501f54e27b4655acc48ed21625b2f6",
+          "command_identity": {
+            "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+            "pid": 155457,
+            "start_ticks": 1827353
+          },
+          "contract_sha256": "313f72008a20c82263f9e2240be6a8d91f0a74f3da32256203c9fdae41459952",
+          "elapsed_seconds": 0.05539828800101532,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T12:26:45.282518+00:00",
+          "input_refs": [
+            {
+              "path": "scripts/cpu_guard.py",
+              "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+            },
+            {
+              "path": "scripts/audit_nystrom_native_diagnostic_v3.py",
+              "sha256": "5d8cfcde284e6b77f0282b7564fe82b1b9f62cc928de7518a5c92fcadfb1bcc3"
+            },
+            {
+              "path": "plans/nystrom_native_diagnostic_v3_audit.md",
+              "sha256": "9afa65d8ce4465cd362a8d22f953df40439adc385925afeb503afdeb4ff661d7"
+            },
+            {
+              "path": "results/nystrom_native_diagnostic_v3.json",
+              "sha256": "8997e4af25604d1e818b0294ba05c745f6003eb8466590402679376caace3087"
+            },
+            {
+              "path": "results/nystrom_native_diagnostic_v3_rows.json",
+              "sha256": "bac3ed4b1de3c6108af7990e9be8759d476cbe90c3964d50341629d521833196"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "results/nystrom_native_diagnostic_v3_audit.json",
+              "sha256": "53a534ee21bd5e4aaac55ff614fbea5c3d275fa1ae6dc1c0189695318e73dfd8"
+            }
+          ],
+          "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007",
+          "schema_version": 1,
+          "started_at": "2026-10-12T12:26:45.227123+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-3d501f54e27b4655acc48ed21625b2f6/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-3d501f54e27b4655acc48ed21625b2f6/stdout.txt",
+            "sha256": "a516f5891ead688962f2d797dfe30e52279b26c0edc4a3153529cba4bf5c7779"
+          },
+          "task_id": "nystrom-native-diagnostic-v3-audit",
+          "worker_identity": {
+            "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+            "pid": 155456,
+            "start_ticks": 1827350
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-3d501f54e27b4655acc48ed21625b2f6/receipt.json",
+          "sha256": "b4944b4860cdece793c3fb501845fc3d6b16e8a23b768437e6adc108c24339b6"
+        },
+        "status": "succeeded",
+        "task_id": "nystrom-native-diagnostic-v3-audit"
+      },
+      "request_id": null,
+      "sequence": 4
+    }
+  ],
+  "request_id": "decision-e9312c3c4aff48488124ad700803652c",
+  "research_cycles": [],
+  "revision": 1,
+  "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w007",
+  "source": {
+    "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+      },
+      {
+        "path": "references/rsi-simple.md",
+        "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+      },
+      {
+        "path": "references/simple-runner.md",
+        "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+      },
+      {
+        "path": "scripts/_simple_process.py",
+        "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+      },
+      {
+        "path": "scripts/_simple_source.py",
+        "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+      },
+      {
+        "path": "scripts/simple_loop.py",
+        "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+      },
+      {
+        "path": "scripts/simple_runner.py",
+        "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+      },
+      {
+        "path": "references/simple-experiment-design.md",
+        "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+      },
+      {
+        "path": "scripts/simple_design.py",
+        "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+      },
+      {
+        "path": "scripts/simple_resources.py",
+        "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+      },
+      {
+        "path": "assets/templates/simple-experiment-plan.json",
+        "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+      },
+      {
+        "path": "assets/templates/simple-experiment-results.json",
+        "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+      },
+      {
+        "path": "references/simple-collaboration.md",
+        "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+      },
+      {
+        "path": "assets/templates/simple-delegation.json",
+        "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+      }
+    ],
+    "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "tasks": [
+    {
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/nystrom_native_diagnostic_v1.py"
+      ],
+      "attempt_id": "attempt-169fd9515c7649e1815be9f6ffd45465",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "nystrom-permutation-validity-v1",
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        },
+        {
+          "path": "scripts/nystrom_native_diagnostic_v1.py",
+          "sha256": "70281d09b015f98b9a0e6f6c547b02d8278d7d8a249406cb6b0315709c6a6e42"
+        },
+        {
+          "path": "plans/nystrom_native_diagnostic_v1.md",
+          "sha256": "5fa8782e33f3208e21be7383c4329e625352d924e18a81f675d6e54757671e2d"
+        },
+        {
+          "path": "sources/nystrom_source_manifest_v2.json",
+          "sha256": "41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"
+        },
+        {
+          "path": "notes/resource_admission_v1.json",
+          "sha256": "4442d6035504e03ce82c4d5e6c35cea68308b3da3ebd4e59483e3bdd001f9356"
+        },
+        {
+          "path": ".deps/nystrom_read/kernels.py",
+          "sha256": "3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"
+        },
+        {
+          "path": ".deps/nystrom_read/nystrom.py",
+          "sha256": "5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"
+        },
+        {
+          "path": ".deps/nystrom_read/tests.py",
+          "sha256": "d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"
+        },
+        {
+          "path": ".deps/nystrom_read/utils.py",
+          "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"
+        },
+        {
+          "path": ".deps/nystrom_read/recursive_nystrom.py",
+          "sha256": "4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"
+        },
+        {
+          "path": ".deps/nystrom_read/samplers.py",
+          "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"
+        }
+      ],
+      "outputs": [
+        "results/nystrom_native_diagnostic_v1.json",
+        "results/nystrom_native_diagnostic_v1_rows.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Compare native Nystr\u00f6m projection and decision path with independent pseudoinverse references and diagnose same-seed landmark/permutation overlap",
+      "reason": "Command exited with status 1; Cannot safely read results/nystrom_native_diagnostic_v1.json: [Errno 2] No such file or directory: 'nystrom_native_diagnostic_v1.json'; Cannot safely read results/nystrom_native_diagnostic_v1_rows.json: [Errno 2] No such file or directory: 'nystrom_native_diagnostic_v1_rows.json'",
+      "replaced_by": "nystrom-native-diagnostic-v2",
+      "revision": 1,
+      "state": "failed",
+      "supersedes": null,
+      "task_id": "nystrom-native-diagnostic-v1",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/nystrom_native_diagnostic_v2.py"
+      ],
+      "attempt_id": "attempt-7c6b5e4d22c848be8146a1d494994778",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "nystrom-permutation-validity-v1",
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        },
+        {
+          "path": "scripts/nystrom_native_diagnostic_v2.py",
+          "sha256": "22c84bbe8192f3cb0c56e88309b89e4527ccc8526468b768ce58d2abf96de293"
+        },
+        {
+          "path": "plans/nystrom_native_diagnostic_v2.md",
+          "sha256": "b88fdfdb300e0c41eff3eb22bfdade6087a875c803e14a91253301843a54edc5"
+        },
+        {
+          "path": "compat/tqdm.py",
+          "sha256": "875df2efb6f4ceaa3bb42f4bb3f1819322da38ee8fbc9cb035b71cbe936651f8"
+        },
+        {
+          "path": "sources/nystrom_source_manifest_v2.json",
+          "sha256": "41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"
+        },
+        {
+          "path": "notes/resource_admission_v1.json",
+          "sha256": "4442d6035504e03ce82c4d5e6c35cea68308b3da3ebd4e59483e3bdd001f9356"
+        },
+        {
+          "path": ".deps/nystrom_read/kernels.py",
+          "sha256": "3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"
+        },
+        {
+          "path": ".deps/nystrom_read/nystrom.py",
+          "sha256": "5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"
+        },
+        {
+          "path": ".deps/nystrom_read/tests.py",
+          "sha256": "d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"
+        },
+        {
+          "path": ".deps/nystrom_read/utils.py",
+          "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"
+        },
+        {
+          "path": ".deps/nystrom_read/recursive_nystrom.py",
+          "sha256": "4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"
+        },
+        {
+          "path": ".deps/nystrom_read/samplers.py",
+          "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"
+        }
+      ],
+      "outputs": [
+        "results/nystrom_native_diagnostic_v2.json",
+        "results/nystrom_native_diagnostic_v2_rows.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Run the same prospective Nystr\u00f6m projection/randomization diagnostic after repairing only the unused tqdm import boundary",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": "nystrom-native-diagnostic-v1",
+      "task_id": "nystrom-native-diagnostic-v2",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/nystrom_native_diagnostic_v3.py"
+      ],
+      "attempt_id": "attempt-a576d94f460949c7bbff711d0f3b1ba0",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "nystrom-permutation-validity-v1",
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        },
+        {
+          "path": "scripts/nystrom_native_diagnostic_v3.py",
+          "sha256": "8dc1f0693c309eacfce77e305ecc05b22f79dc78e7c921bd09bb3b7258eed050"
+        },
+        {
+          "path": "plans/nystrom_native_diagnostic_v3.md",
+          "sha256": "e99d4bec832d2d8eb9772924608d44408fc3abbea3f021b12480f91509577755"
+        },
+        {
+          "path": "compat/tqdm.py",
+          "sha256": "875df2efb6f4ceaa3bb42f4bb3f1819322da38ee8fbc9cb035b71cbe936651f8"
+        },
+        {
+          "path": "sources/nystrom_source_manifest_v2.json",
+          "sha256": "41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"
+        },
+        {
+          "path": "notes/resource_admission_v1.json",
+          "sha256": "4442d6035504e03ce82c4d5e6c35cea68308b3da3ebd4e59483e3bdd001f9356"
+        },
+        {
+          "path": ".deps/nystrom_read/kernels.py",
+          "sha256": "3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"
+        },
+        {
+          "path": ".deps/nystrom_read/nystrom.py",
+          "sha256": "5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"
+        },
+        {
+          "path": ".deps/nystrom_read/tests.py",
+          "sha256": "d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"
+        },
+        {
+          "path": ".deps/nystrom_read/utils.py",
+          "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"
+        },
+        {
+          "path": ".deps/nystrom_read/recursive_nystrom.py",
+          "sha256": "4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"
+        },
+        {
+          "path": ".deps/nystrom_read/samplers.py",
+          "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"
+        }
+      ],
+      "outputs": [
+        "results/nystrom_native_diagnostic_v3.json",
+        "results/nystrom_native_diagnostic_v3_rows.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Rerun frozen Nystr\u00f6m diagnostic with valid JSON serialization after retaining invalid v2 outputs",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "nystrom-native-diagnostic-v3",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/audit_nystrom_native_diagnostic_v3.py"
+      ],
+      "attempt_id": "attempt-3d501f54e27b4655acc48ed21625b2f6",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "nystrom-permutation-validity-v1",
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        },
+        {
+          "path": "scripts/audit_nystrom_native_diagnostic_v3.py",
+          "sha256": "5d8cfcde284e6b77f0282b7564fe82b1b9f62cc928de7518a5c92fcadfb1bcc3"
+        },
+        {
+          "path": "plans/nystrom_native_diagnostic_v3_audit.md",
+          "sha256": "9afa65d8ce4465cd362a8d22f953df40439adc385925afeb503afdeb4ff661d7"
+        },
+        {
+          "path": "results/nystrom_native_diagnostic_v3.json",
+          "sha256": "8997e4af25604d1e818b0294ba05c745f6003eb8466590402679376caace3087"
+        },
+        {
+          "path": "results/nystrom_native_diagnostic_v3_rows.json",
+          "sha256": "bac3ed4b1de3c6108af7990e9be8759d476cbe90c3964d50341629d521833196"
+        }
+      ],
+      "outputs": [
+        "results/nystrom_native_diagnostic_v3_audit.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Independently parse v3 outputs and recompute summary flags, reversal rates, and overlap z-score arithmetic",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "nystrom-native-diagnostic-v3-audit",
+      "timeout_seconds": 30
+    }
+  ]
+}
