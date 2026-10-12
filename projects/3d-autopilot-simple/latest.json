@@ -11,8 +11,8 @@
   "active_idea": "teso-soft-translation-prior-calibration",
   "revision": 1,
   "goal_contract": 1,
-  "attempts_used": 77,
-  "command_seconds": 3544.2584590680317,
+  "attempts_used": 79,
+  "command_seconds": 3546.441525776031,
   "supervisor_running": false,
   "unknown_attempts": 0,
   "cleanup_preflight": {
@@ -21,8 +21,8 @@
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "partial_cleanup_not_durable",
-  "local_workspace_state": "Partial/host-rematerialized; wake19 all148 freshly deleted verified files reappeared with changed inode. Do not repeatedly force cleanup; restore missing required files only and preserve differing newer state.",
+  "cleanup_status": "verified_cleanup_pending",
+  "local_workspace_state": "Wake20 overlay composed restore verified for all 46 new/changed files; local cleanup pending.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -38,17 +38,22 @@
       "commit": "4e7f7da30fceedea6e98dd9df5bff8d942bce934",
       "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-12-wake19/manifest.json",
       "archive_sha256": "85ff6be5b5748fb560d69b0401ebdd072cad2baf39ac130bb17bef030d365b83"
+    },
+    {
+      "commit": "a932429f3e0445dcfe1f6c49a670f4bd370c9e4c",
+      "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-12-wake20/manifest.json",
+      "archive_sha256": "ec512bdb1adabe90fcabbc249c15df0f2995299ade5d598c74e7272bdf19bfbf"
     }
   ],
   "restore_usage": "Fetch helper from this latest.json commit; --commit must be that current main commit, not only archive_commit. Helper resolves immutable base+overlays before extracting selected paths into a new empty staging directory.",
-  "journal_version": 127,
-  "empirical_research_cycles": 29,
-  "latest_handoff": "notes/handoff-wake19.md",
-  "verified_at_utc": "2026-10-12T12:21:10.302616+00:00",
-  "verification_path": "projects/3d-autopilot-simple/verification-wake19.json",
+  "journal_version": 130,
+  "empirical_research_cycles": 30,
+  "latest_handoff": "notes/handoff-wake20.md",
+  "verified_at_utc": "2026-10-12T15:05:34.347Z",
+  "verification_path": "projects/3d-autopilot-simple/verification-wake20.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
-  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake19.json",
-  "cleanup_observed_at_utc": "2026-10-12T12:21:22.294277+00:00",
-  "total_index_files": 2831,
-  "restore_verification_commit": "629ab60d0868721ac0b15a8f9edfb82c8cbfdbe6"
+  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake20.json",
+  "cleanup_observed_at_utc": null,
+  "restore_verification_commit": "8048d0eb045e55202f8b6f195c056374dc222932",
+  "total_index_files": 2874
 }
