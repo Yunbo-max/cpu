@@ -22,7 +22,7 @@
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
   "cleanup_status": "partial_cleanup_not_durable",
-  "local_workspace_state": "Partial/host-rematerialized; wake18 all115 freshly deleted verified files reappeared with changed inode. Do not repeatedly force cleanup; restore missing required files only, preserve differing newer state.",
+  "local_workspace_state": "Partial/host-rematerialized; wake19 all148 freshly deleted verified files reappeared with changed inode. Do not repeatedly force cleanup; restore missing required files only and preserve differing newer state.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -44,11 +44,11 @@
   "journal_version": 127,
   "empirical_research_cycles": 29,
   "latest_handoff": "notes/handoff-wake19.md",
-  "verified_at_utc": "2026-10-12T12:17:38.890989+00:00",
+  "verified_at_utc": "2026-10-12T12:21:10.302616+00:00",
   "verification_path": "projects/3d-autopilot-simple/verification-wake19.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
-  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake18.json",
-  "cleanup_observed_at_utc": "2026-10-12T11:12:33.068372+00:00",
+  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake19.json",
+  "cleanup_observed_at_utc": "2026-10-12T12:21:22.294277+00:00",
   "total_index_files": 2831,
-  "restore_verification_commit": "16ee57df624a7664ad03b30d3d7d7240662cc99b"
+  "restore_verification_commit": "629ab60d0868721ac0b15a8f9edfb82c8cbfdbe6"
 }
