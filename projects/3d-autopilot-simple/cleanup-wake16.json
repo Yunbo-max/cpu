@@ -1,0 +1,19 @@
+{
+  "status": "partial_cleanup_not_durable",
+  "reported_unlinks": 4751,
+  "reported_bytes": 1861117915,
+  "observed_after_next_tool_call": {
+    "remaining_files": 1682,
+    "remaining_bytes": 974932220,
+    "old_supervisor_pid_exists": false,
+    "memory_current": 7663177728,
+    "verified_deletion_reappeared_example": "logs/status-wake14.json",
+    "example_exists": true
+  },
+  "archive_commit": "8e01f9a1e26529d710c43a5e6f9577a2f0ef2d3a",
+  "verification_commit": "29cc3504009778bfb6260f7d4c5e53fa9ec1acd0",
+  "full_remote_restore_verified": true,
+  "reason": "Files confirmed absent immediately after unlink reappeared in later tool calls with changed inodes; also reproduced using apply_patch deletion. Exact host re-materialization mechanism unverified. Do not repeat destructive retries or claim full local clearance.",
+  "recoverability": "All scientific history recoverable from verified GitHub snapshot; regenerable dependencies pinned. Local workspace is partially evicted, not a safe complete execution tree.",
+  "next": "Restore missing required files into staging from immutable commit; preserve any newer local state. Do not start experiments with missing inputs/runtime. Persistence/cleanup issue needs host-level resolution."
+}
