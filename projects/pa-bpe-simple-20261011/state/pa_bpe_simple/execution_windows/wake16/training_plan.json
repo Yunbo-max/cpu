@@ -1,0 +1,387 @@
+{
+  "submission_id": "wake16-training",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "train-classical",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/classical.resources.json",
+        "scripts/train_v3.py",
+        "classical"
+      ],
+      "phase": "experiment",
+      "purpose": "1000-merge aligned-development comparison classical",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "prepare-v3"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/train_v3.py",
+          "sha256": "0173874ddfdee5181d8e4f9bdc5f19e0ee70e904bc1dcb14732b0494eb63a0df"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol_v3.json",
+          "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+        },
+        {
+          "path": "output/v3_preparation.json",
+          "sha256": "4cf49172ce93559272c1315c9102e1ce6425d30701282ee6f8ddcc9b18cc13a0"
+        },
+        {
+          "path": "inputs/en.dict",
+          "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"
+        },
+        {
+          "path": "inputs/fr.dict",
+          "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"
+        },
+        {
+          "path": "inputs/es.dict",
+          "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"
+        },
+        {
+          "path": "output/v3_pooled.dict",
+          "sha256": "3c4606f8fca48fc3a0db28628560263d854030fa8d64ad90787dc5728db5b572"
+        },
+        {
+          "path": "output/v3_dev.es.dict",
+          "sha256": "4bf4dff19387f90c91cb3e9ea921aa4117a15a892851de82d245476aed70109e"
+        },
+        {
+          "path": "output/v3_dev.en.dict",
+          "sha256": "48c9ef80b9d8598150252d78a957af5226f08f5a3dfc68f715ae870e3504d539"
+        },
+        {
+          "path": "output/v3_dev.fr.dict",
+          "sha256": "7b551796adbbb89fbfb654da59a575c83e007bdd518e9dcff0612ca49cce109d"
+        },
+        {
+          "path": "inputs/learn_bpe.py",
+          "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+        },
+        {
+          "path": "inputs/parity_aware_learn_bpe.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        }
+      ],
+      "outputs": [
+        "output/classical.codes",
+        "output/classical_result.json",
+        "output/classical.resources.json"
+      ]
+    },
+    {
+      "task_id": "train-base",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/base.resources.json",
+        "scripts/train_v3.py",
+        "base"
+      ],
+      "phase": "experiment",
+      "purpose": "1000-merge aligned-development comparison base",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "prepare-v3"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/train_v3.py",
+          "sha256": "0173874ddfdee5181d8e4f9bdc5f19e0ee70e904bc1dcb14732b0494eb63a0df"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol_v3.json",
+          "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+        },
+        {
+          "path": "output/v3_preparation.json",
+          "sha256": "4cf49172ce93559272c1315c9102e1ce6425d30701282ee6f8ddcc9b18cc13a0"
+        },
+        {
+          "path": "inputs/en.dict",
+          "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"
+        },
+        {
+          "path": "inputs/fr.dict",
+          "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"
+        },
+        {
+          "path": "inputs/es.dict",
+          "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"
+        },
+        {
+          "path": "output/v3_pooled.dict",
+          "sha256": "3c4606f8fca48fc3a0db28628560263d854030fa8d64ad90787dc5728db5b572"
+        },
+        {
+          "path": "output/v3_dev.es.dict",
+          "sha256": "4bf4dff19387f90c91cb3e9ea921aa4117a15a892851de82d245476aed70109e"
+        },
+        {
+          "path": "output/v3_dev.en.dict",
+          "sha256": "48c9ef80b9d8598150252d78a957af5226f08f5a3dfc68f715ae870e3504d539"
+        },
+        {
+          "path": "output/v3_dev.fr.dict",
+          "sha256": "7b551796adbbb89fbfb654da59a575c83e007bdd518e9dcff0612ca49cce109d"
+        },
+        {
+          "path": "inputs/learn_bpe.py",
+          "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+        },
+        {
+          "path": "inputs/parity_aware_learn_bpe.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        }
+      ],
+      "outputs": [
+        "output/base.codes",
+        "output/base_result.json",
+        "output/base.resources.json"
+      ]
+    },
+    {
+      "task_id": "train-window",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/window.resources.json",
+        "scripts/train_v3.py",
+        "window"
+      ],
+      "phase": "experiment",
+      "purpose": "1000-merge aligned-development comparison window",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "prepare-v3"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/train_v3.py",
+          "sha256": "0173874ddfdee5181d8e4f9bdc5f19e0ee70e904bc1dcb14732b0494eb63a0df"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol_v3.json",
+          "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+        },
+        {
+          "path": "output/v3_preparation.json",
+          "sha256": "4cf49172ce93559272c1315c9102e1ce6425d30701282ee6f8ddcc9b18cc13a0"
+        },
+        {
+          "path": "inputs/en.dict",
+          "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"
+        },
+        {
+          "path": "inputs/fr.dict",
+          "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"
+        },
+        {
+          "path": "inputs/es.dict",
+          "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"
+        },
+        {
+          "path": "output/v3_pooled.dict",
+          "sha256": "3c4606f8fca48fc3a0db28628560263d854030fa8d64ad90787dc5728db5b572"
+        },
+        {
+          "path": "output/v3_dev.es.dict",
+          "sha256": "4bf4dff19387f90c91cb3e9ea921aa4117a15a892851de82d245476aed70109e"
+        },
+        {
+          "path": "output/v3_dev.en.dict",
+          "sha256": "48c9ef80b9d8598150252d78a957af5226f08f5a3dfc68f715ae870e3504d539"
+        },
+        {
+          "path": "output/v3_dev.fr.dict",
+          "sha256": "7b551796adbbb89fbfb654da59a575c83e007bdd518e9dcff0612ca49cce109d"
+        },
+        {
+          "path": "inputs/learn_bpe.py",
+          "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+        },
+        {
+          "path": "inputs/parity_aware_learn_bpe.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        }
+      ],
+      "outputs": [
+        "output/window.codes",
+        "output/window_result.json",
+        "output/window.resources.json"
+      ]
+    },
+    {
+      "task_id": "train-hybrid",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/hybrid.resources.json",
+        "scripts/train_v3.py",
+        "hybrid"
+      ],
+      "phase": "experiment",
+      "purpose": "1000-merge aligned-development comparison hybrid",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "prepare-v3"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/train_v3.py",
+          "sha256": "0173874ddfdee5181d8e4f9bdc5f19e0ee70e904bc1dcb14732b0494eb63a0df"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol_v3.json",
+          "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+        },
+        {
+          "path": "output/v3_preparation.json",
+          "sha256": "4cf49172ce93559272c1315c9102e1ce6425d30701282ee6f8ddcc9b18cc13a0"
+        },
+        {
+          "path": "inputs/en.dict",
+          "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"
+        },
+        {
+          "path": "inputs/fr.dict",
+          "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"
+        },
+        {
+          "path": "inputs/es.dict",
+          "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"
+        },
+        {
+          "path": "output/v3_pooled.dict",
+          "sha256": "3c4606f8fca48fc3a0db28628560263d854030fa8d64ad90787dc5728db5b572"
+        },
+        {
+          "path": "output/v3_dev.es.dict",
+          "sha256": "4bf4dff19387f90c91cb3e9ea921aa4117a15a892851de82d245476aed70109e"
+        },
+        {
+          "path": "output/v3_dev.en.dict",
+          "sha256": "48c9ef80b9d8598150252d78a957af5226f08f5a3dfc68f715ae870e3504d539"
+        },
+        {
+          "path": "output/v3_dev.fr.dict",
+          "sha256": "7b551796adbbb89fbfb654da59a575c83e007bdd518e9dcff0612ca49cce109d"
+        },
+        {
+          "path": "inputs/learn_bpe.py",
+          "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+        },
+        {
+          "path": "inputs/parity_aware_learn_bpe.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        }
+      ],
+      "outputs": [
+        "output/hybrid.codes",
+        "output/hybrid_result.json",
+        "output/hybrid.resources.json"
+      ]
+    },
+    {
+      "task_id": "train-ratio",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/ratio.resources.json",
+        "scripts/train_v3.py",
+        "ratio"
+      ],
+      "phase": "experiment",
+      "purpose": "1000-merge aligned-development comparison ratio",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "prepare-v3"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/train_v3.py",
+          "sha256": "0173874ddfdee5181d8e4f9bdc5f19e0ee70e904bc1dcb14732b0494eb63a0df"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol_v3.json",
+          "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+        },
+        {
+          "path": "output/v3_preparation.json",
+          "sha256": "4cf49172ce93559272c1315c9102e1ce6425d30701282ee6f8ddcc9b18cc13a0"
+        },
+        {
+          "path": "inputs/en.dict",
+          "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"
+        },
+        {
+          "path": "inputs/fr.dict",
+          "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"
+        },
+        {
+          "path": "inputs/es.dict",
+          "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"
+        },
+        {
+          "path": "output/v3_pooled.dict",
+          "sha256": "3c4606f8fca48fc3a0db28628560263d854030fa8d64ad90787dc5728db5b572"
+        },
+        {
+          "path": "output/v3_dev.es.dict",
+          "sha256": "4bf4dff19387f90c91cb3e9ea921aa4117a15a892851de82d245476aed70109e"
+        },
+        {
+          "path": "output/v3_dev.en.dict",
+          "sha256": "48c9ef80b9d8598150252d78a957af5226f08f5a3dfc68f715ae870e3504d539"
+        },
+        {
+          "path": "output/v3_dev.fr.dict",
+          "sha256": "7b551796adbbb89fbfb654da59a575c83e007bdd518e9dcff0612ca49cce109d"
+        },
+        {
+          "path": "inputs/learn_bpe.py",
+          "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+        },
+        {
+          "path": "inputs/parity_aware_learn_bpe.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        }
+      ],
+      "outputs": [
+        "output/ratio.codes",
+        "output/ratio_result.json",
+        "output/ratio.resources.json"
+      ]
+    }
+  ]
+}

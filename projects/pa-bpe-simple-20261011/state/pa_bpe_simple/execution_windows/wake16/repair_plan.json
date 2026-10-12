@@ -1,0 +1,45 @@
+{
+  "submission_id": "wake16-align-repair",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "align-v2",
+      "supersedes": "align",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/align-v2.resources.json",
+        "scripts/build_dev_v2.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Exclude source-mismatched ID groups and preserve exact aligned native dev subset",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/build_dev_v2.py",
+          "sha256": "b1fb49510a43b8c5d57fa3e2b0fe67435ba2f96cb771f19803217c0ad9efaa79"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol_v2.json",
+          "sha256": "ddfba3ca804e98d340e041892cd0e51cc5cf8bba0106cfe92a530d098515ac7a"
+        },
+        {
+          "path": "inputs/tico.zip",
+          "sha256": "0e82fc7ceaa877606c8934f32ead185716c9d2c54b3818f2a7ae655f5e7a08d8"
+        }
+      ],
+      "outputs": [
+        "output/dev_alignment.json",
+        "output/tico.trilingual.dev.json",
+        "output/align-v2.resources.json"
+      ]
+    }
+  ]
+}

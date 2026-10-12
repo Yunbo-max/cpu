@@ -1,0 +1,42 @@
+{
+  "id": "wake16-confirmation-evaluator-review-g2",
+  "parent": "wake16-dev-evaluator-review",
+  "goal_version": 1,
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "deadline_utc": "2026-10-12T12:19:00Z",
+  "read_scope": [
+    "scripts/evaluate.py",
+    "scripts/evaluate_confirmation.py",
+    "confirmation_plan.json",
+    "output/evaluation.json",
+    "output/confirmation.json",
+    "output/independent_arithmetic_and_dev_overlap.json"
+  ],
+  "write_scope": [
+    "evidence/review_confirmation.md"
+  ],
+  "question": "Review locked first confirmation scoring, aggregate/paired metrics, bootstrap, no outcome-driven tuning. Identify any invalidating bugs; no experiments/no raw text access.",
+  "scientific_commands_allowed": 0,
+  "child_delegation_allowed": false,
+  "input_refs": [
+    {
+      "path": "scripts/evaluate.py",
+      "sha256": "c9819a2a0d2e57955646134128e0160d2e5aa4e6b7e525d160471804612f08d0"
+    },
+    {
+      "path": "scripts/evaluate_confirmation.py",
+      "sha256": "2c2ee94b8c6610d10ce94f4c3446107e7bdd56c2f455879a9b8b9f6261358cc7"
+    },
+    {
+      "path": "confirmation_plan.json",
+      "sha256": "c2768ade6bdb311f15a4508e73e891fe54c73ae3cd12cceff4ab975110099720"
+    },
+    {
+      "path": "output/evaluation.json",
+      "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+    }
+  ],
+  "launch": null,
+  "model_usage": "unknown"
+}

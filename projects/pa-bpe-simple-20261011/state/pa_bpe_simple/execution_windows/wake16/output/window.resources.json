@@ -1,0 +1,32 @@
+{
+  "argv": [
+    "scripts/train_v3.py",
+    "--input",
+    "inputs/en.dict",
+    "inputs/fr.dict",
+    "inputs/es.dict",
+    "--output",
+    "output/window.codes",
+    "--dict-input",
+    "--symbols",
+    "1000",
+    "--num-workers",
+    "1",
+    "--variant",
+    "window",
+    "--dev",
+    "output/v3_dev.en.dict",
+    "output/v3_dev.fr.dict",
+    "output/v3_dev.es.dict",
+    "--window-size",
+    "100",
+    "--alpha",
+    "2"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 8.866697854002268,
+  "user_cpu_seconds": 9.335422,
+  "system_cpu_seconds": 0.039035999999999994,
+  "peak_rss_bytes": 108634112,
+  "scope": "single Python scientific process including wrapper; no subprocesses"
+}

@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "scripts/train_damped_retry.py",
+    "--input",
+    "../wake16/inputs/en.dict",
+    "../wake16/inputs/fr.dict",
+    "../wake16/inputs/es.dict",
+    "--dev",
+    "../wake16/output/v3_dev.en.dict",
+    "../wake16/output/v3_dev.fr.dict",
+    "../wake16/output/v3_dev.es.dict",
+    "--output",
+    "output/damped.codes",
+    "--dict-input",
+    "--symbols",
+    "1000",
+    "--num-workers",
+    "1",
+    "--variant",
+    "base"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 8.373902593000821,
+  "user_cpu_seconds": 9.001663,
+  "system_cpu_seconds": 0.067159,
+  "peak_rss_bytes": 112300032,
+  "scope": "single Python scientific process including wrapper; no subprocesses"
+}

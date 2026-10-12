@@ -1,0 +1,43 @@
+{
+  "submission_id": "wake16-align-v3",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "align-v3",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/align-v3.resources.json",
+        "scripts/build_dev_v3.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Quantify narrowly justified ASCII boundary whitespace equivalence; preserve all non-equivalent exclusions",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/build_dev_v3.py",
+          "sha256": "052891fb7372420686eff2dc34be4998e699b0dc7571c082c8537ac777d2418d"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol_v3.json",
+          "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+        },
+        {
+          "path": "inputs/tico.zip",
+          "sha256": "0e82fc7ceaa877606c8934f32ead185716c9d2c54b3818f2a7ae655f5e7a08d8"
+        }
+      ],
+      "outputs": [
+        "output/v3_dev_alignment.json",
+        "output/v3_tico.trilingual.dev.json"
+      ]
+    }
+  ]
+}

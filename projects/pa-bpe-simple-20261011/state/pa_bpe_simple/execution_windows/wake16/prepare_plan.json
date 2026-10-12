@@ -1,0 +1,59 @@
+{
+  "submission_id": "wake16-prepare",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "prepare",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/prepare.resources.json",
+        "scripts/train.py",
+        "prepare"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Create aligned dev dictionaries with frozen author pretokenizer and pooled balanced training input",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "setup",
+        "align-v2"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/train.py",
+          "sha256": "cd085a5ad84d3dc505fa8506227afe6ca459f55760d614591fa631871993c4c7"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol_v2.json",
+          "sha256": "ddfba3ca804e98d340e041892cd0e51cc5cf8bba0106cfe92a530d098515ac7a"
+        },
+        {
+          "path": "output/tico.trilingual.dev.json",
+          "sha256": "48806b8faf3dcbac979b75773eef08017801d72ce514392d8606a69772b820fb"
+        },
+        {
+          "path": "inputs/en.dict",
+          "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"
+        },
+        {
+          "path": "inputs/fr.dict",
+          "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"
+        },
+        {
+          "path": "inputs/es.dict",
+          "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"
+        }
+      ],
+      "outputs": [
+        "output/preparation.json",
+        "output/prepare.resources.json"
+      ]
+    }
+  ]
+}

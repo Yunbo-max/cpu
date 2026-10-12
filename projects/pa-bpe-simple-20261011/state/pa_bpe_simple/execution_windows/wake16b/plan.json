@@ -1,0 +1,67 @@
+{
+  "submission_id": "wake16b-eval",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "evaluate",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/evaluation.resources.json",
+        "scripts/evaluate.py"
+      ],
+      "phase": "analysis",
+      "purpose": "Aligned development fairness and exact replay/vocabulary validation",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/evaluate.py",
+          "sha256": "c9819a2a0d2e57955646134128e0160d2e5aa4e6b7e525d160471804612f08d0"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol.json",
+          "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+        },
+        {
+          "path": "evidence/parent.json",
+          "sha256": "4e5580bbed24488650ba5271be20bdd3c780e1ec0050362615152b7313d0d0e5"
+        },
+        {
+          "path": "inputs/dev.json",
+          "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+        },
+        {
+          "path": "inputs/ratio.codes",
+          "sha256": "6f67e4c4d5190b9db89465e055837d01a9f38e5b69c541c8b73deb693e04a068"
+        },
+        {
+          "path": "inputs/window.codes",
+          "sha256": "12d283dcfd73cca42b21b19fe25ec004ee5c4b1e81cdc151f3dcd11d27a561aa"
+        },
+        {
+          "path": "inputs/base.codes",
+          "sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f"
+        },
+        {
+          "path": "inputs/classical.codes",
+          "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"
+        },
+        {
+          "path": "inputs/hybrid.codes",
+          "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"
+        }
+      ],
+      "outputs": [
+        "output/evaluation.json",
+        "output/evaluation.resources.json"
+      ]
+    }
+  ]
+}

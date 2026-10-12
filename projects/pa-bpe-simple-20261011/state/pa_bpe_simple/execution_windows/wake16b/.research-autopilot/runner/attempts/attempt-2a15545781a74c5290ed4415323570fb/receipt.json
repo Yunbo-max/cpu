@@ -1,0 +1,63 @@
+{
+  "attempt_id": "attempt-2a15545781a74c5290ed4415323570fb",
+  "command_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 150821,
+    "start_ticks": 1759660
+  },
+  "contract_sha256": "28d26a34b997b82e73d758ae63e24d7cf96dc014d471885413ca9f02b18a5dcb",
+  "elapsed_seconds": 0.058112366998102516,
+  "error": "Command exited with status 1; Cannot safely read output/damped.codes: [Errno 2] No such file or directory: 'damped.codes'; Cannot safely read output/damped_result.json: [Errno 2] No such file or directory: 'damped_result.json'",
+  "exit_code": 1,
+  "finished_at": "2026-10-12T12:15:28.353847+00:00",
+  "input_refs": [
+    {
+      "path": "scripts/train_damped.py",
+      "sha256": "ce981b2cb36c4e7152065ac11e54cf336bdea3c84e2f2aae76b7cd3b703df0c1"
+    },
+    {
+      "path": "scripts/damped_native.py",
+      "sha256": "a9a92dec1e248b0330c50a96735b6d00701ceb38bce71092f6aa71da8b49e7ae"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    },
+    {
+      "path": "candidate_plan.json",
+      "sha256": "e4711558b1fb14654ebdbbee8cd6f7ef65b96e4f0bce19d059705a4f24bf4ee0"
+    },
+    {
+      "path": "evidence/parent.json",
+      "sha256": "4e5580bbed24488650ba5271be20bdd3c780e1ec0050362615152b7313d0d0e5"
+    },
+    {
+      "path": "evidence/candidate_parent_inputs.json",
+      "sha256": "ef1c0e80a1aff8abd87ca1c652113edbcb3e595fcb5d7d328916b8ea929f1e31"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/damped.resources.json",
+      "sha256": "bb31a2194331aaf27a7a2380d3cd00dde3a7a676abf070cbddc2a45ec5a0a782"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake16_20261012T1158/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake16b",
+  "schema_version": 1,
+  "started_at": "2026-10-12T12:15:28.295740+00:00",
+  "status": "failed",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-2a15545781a74c5290ed4415323570fb/stderr.txt",
+    "sha256": "80468bc54dbad7ac4eb2ab7cb8174bccf7c5f728a547f5560bfd8ac4bdd8a1f6"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-2a15545781a74c5290ed4415323570fb/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "damped-train",
+  "worker_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 150820,
+    "start_ticks": 1759656
+  }
+}

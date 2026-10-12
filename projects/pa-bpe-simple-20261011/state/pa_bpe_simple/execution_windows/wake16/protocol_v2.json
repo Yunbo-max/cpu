@@ -1,0 +1,41 @@
+{
+  "id": "wake16-tico-development-comparison-v2",
+  "goal_version": 1,
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "source": "official TICO-19 dev ZIP already pinned",
+  "source_url": "https://tico-19.github.io/data/tico19-testset.zip",
+  "license": "Translations CC0 per included README; preserve source row licenses and URLs",
+  "languages": [
+    "en",
+    "fr",
+    "es-LA"
+  ],
+  "selection": "All official dev IDs with exact sourceString and URL agreement; reject complete trilingual unit on mismatch, no normalizing or positional alignment",
+  "exposure": "TICO en/fr has prior exploratory outcomes; all present results development only. GlobalVoices sealed.",
+  "train": "wake15b exactly100000 pretokens/language bounded convenience frame",
+  "pretokenizer": "tokenizers0.22.1 Whitespace then ByteLevel(use_regex=False)",
+  "merges": 1000,
+  "vocabulary": "same byte alphabet, verify equal realized vocabulary",
+  "arms": [
+    "classical_balanced",
+    "pa_base",
+    "pa_window_w100_a2",
+    "pa_hybrid_g500",
+    "pa_ratio_1_1_1"
+  ],
+  "baseline": "Classical pooled equal100k pretoken input is itself simple data-balance control. Unbalanced natural mixture not yet available.",
+  "metrics": [
+    "Gini of aligned-language mean token cost",
+    "mean per-sentence Gini",
+    "paired sentence costs",
+    "worst language mean",
+    "sum language means"
+  ],
+  "development_only": true,
+  "confirmation_raw_access": false,
+  "thread_count": 1,
+  "timeout": 120,
+  "resource": "guard >=512MiB free for imports/training, RSS historical<=170MiB plus margin; remeasure each launch; no timing speedup claims",
+  "amendment": "v1 failed on original source mismatch before any tokenizer result; v2 preserves all mismatches and recognizes native es-419 tag"
+}

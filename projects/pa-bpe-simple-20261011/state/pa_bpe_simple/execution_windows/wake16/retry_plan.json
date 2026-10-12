@@ -1,0 +1,56 @@
+{
+  "submission_id": "wake16-classical-retry1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "train-classical-retry1",
+      "supersedes": "train-classical",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/classical-retry1.resources.json",
+        "scripts/train_retry.py",
+        "classical"
+      ],
+      "phase": "experiment",
+      "purpose": "Retry balanced Classical after memory recovers; retain original failure output",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "prepare-v3"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/train_retry.py",
+          "sha256": "72ea03d2d940ab2dedb7b55cc19993a3e20b8d572a6441f51154db60f41e3f33"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol_v3.json",
+          "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+        },
+        {
+          "path": "output/v3_preparation.json",
+          "sha256": "4cf49172ce93559272c1315c9102e1ce6425d30701282ee6f8ddcc9b18cc13a0"
+        },
+        {
+          "path": "output/v3_pooled.dict",
+          "sha256": "3c4606f8fca48fc3a0db28628560263d854030fa8d64ad90787dc5728db5b572"
+        },
+        {
+          "path": "inputs/learn_bpe.py",
+          "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+        }
+      ],
+      "outputs": [
+        "output/classical.codes",
+        "output/classical_result.json",
+        "output/classical-retry1.resources.json"
+      ]
+    }
+  ]
+}

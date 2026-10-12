@@ -1,0 +1,93 @@
+{
+  "submission_id": "wake16b-confirm-prepare",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "verify-dev",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/verify-dev.resources.json",
+        "scripts/verify_dev.py"
+      ],
+      "phase": "analysis",
+      "purpose": "verify-dev",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "evaluate"
+      ],
+      "input_refs": [
+        {
+          "path": "inputs/dev.json",
+          "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+        },
+        {
+          "path": "inputs/confirmation.sqlite3",
+          "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+        },
+        {
+          "path": "output/evaluation.json",
+          "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+        },
+        {
+          "path": "scripts/fingerprints.py",
+          "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+        },
+        {
+          "path": "scripts/verify_dev.py",
+          "sha256": "152f1ab5ec7310ec830f1df16554396114aa6d340fcba990e5341d75612f4247"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        }
+      ],
+      "outputs": [
+        "output/verify-dev.resources.json"
+      ]
+    },
+    {
+      "task_id": "restore-raw",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/restore-raw.resources.json",
+        "scripts/restore_raw.py"
+      ],
+      "phase": "analysis",
+      "purpose": "restore-raw",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "verify-dev"
+      ],
+      "input_refs": [
+        {
+          "path": "evidence/archive_binding.json",
+          "sha256": "5166c15068dd0bef48c11f4ad662cb365fb36bf7a325de0c23a47ec1369f7e97"
+        },
+        {
+          "path": "inputs/source_manifest.json",
+          "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+        },
+        {
+          "path": "confirmation_plan.json",
+          "sha256": "c2768ade6bdb311f15a4508e73e891fe54c73ae3cd12cceff4ab975110099720"
+        },
+        {
+          "path": "scripts/restore_raw.py",
+          "sha256": "2cd93a8b2d35ee27fdd170376c039c91c45753e16fc3446f72d853affa26b5d7"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        }
+      ],
+      "outputs": [
+        "output/restore-raw.resources.json"
+      ]
+    }
+  ]
+}

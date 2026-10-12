@@ -1,0 +1,73 @@
+{
+  "submission_id": "wake16-initial",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "align",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/align.resources.json",
+        "scripts/build_dev.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Recover aligned native development data",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/build_dev.py",
+          "sha256": "dd1b3ec63f0288b65819caf654e2ebc56c0661fc544d156de0e4ca6a6609532a"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol.json",
+          "sha256": "e31db2ca028ee04b4d5feb0a472703e7738d3345e1ab9a9435108a176747192a"
+        },
+        {
+          "path": "inputs/tico.zip",
+          "sha256": "0e82fc7ceaa877606c8934f32ead185716c9d2c54b3818f2a7ae655f5e7a08d8"
+        }
+      ],
+      "outputs": [
+        "output/align.resources.json"
+      ]
+    },
+    {
+      "task_id": "setup",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/setup.resources.json",
+        "scripts/setup.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Restore isolated exact dependencies",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/setup.py",
+          "sha256": "405748bc95036ff383b0daf90f42ea61df33b40af7450f152b483a68f390c1bb"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "protocol.json",
+          "sha256": "e31db2ca028ee04b4d5feb0a472703e7738d3345e1ab9a9435108a176747192a"
+        }
+      ],
+      "outputs": [
+        "output/setup.resources.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "submission_id": "wake16b-damped-evaluate",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "damped-evaluate",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/candidate_eval.resources.json",
+        "scripts/evaluate_candidate.py"
+      ],
+      "phase": "analysis",
+      "purpose": "Exploratory candidatecomparison afterGVexposure; parenthashes andexactreplay checked",
+      "timeout_seconds": 60,
+      "cwd": ".",
+      "depends_on": [
+        "damped-train-retry"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/evaluate_candidate.py",
+          "sha256": "a6730afcb9789d28307d62f4408ce0a09954575cee6beae6f714bd7cf8a3c7cf"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/fingerprints.py",
+          "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+        },
+        {
+          "path": "candidate_plan.json",
+          "sha256": "e4711558b1fb14654ebdbbee8cd6f7ef65b96e4f0bce19d059705a4f24bf4ee0"
+        },
+        {
+          "path": "output/damped.codes",
+          "sha256": "fa0c3a61319d59afcc0b841bb78b0f80595524b12c5189e629800a7873a2f4a7"
+        },
+        {
+          "path": "output/damped_result.json",
+          "sha256": "8d3edb59683bdd8429ffa3e495f4ead2b972ac44d4926487688e17787b7d8911"
+        },
+        {
+          "path": "inputs/units.json",
+          "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+        },
+        {
+          "path": "inputs/source_manifest.json",
+          "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+        },
+        {
+          "path": "inputs/dev.json",
+          "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+        },
+        {
+          "path": "output/evaluation.json",
+          "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+        },
+        {
+          "path": "output/confirmation.json",
+          "sha256": "63163a398e83b133df6bb2c6df14f3c78c160e2bace4d9a28a7894725e55636f"
+        },
+        {
+          "path": "evidence/candidate_parent_inputs.json",
+          "sha256": "ef1c0e80a1aff8abd87ca1c652113edbcb3e595fcb5d7d328916b8ea929f1e31"
+        }
+      ],
+      "outputs": [
+        "output/candidate_evaluation.json",
+        "output/candidate_eval.resources.json"
+      ]
+    }
+  ]
+}

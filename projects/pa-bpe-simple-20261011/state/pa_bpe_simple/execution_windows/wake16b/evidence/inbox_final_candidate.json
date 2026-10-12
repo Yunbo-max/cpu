@@ -1,0 +1,569 @@
+[
+  {
+    "agent_error": null,
+    "agent_version": 0,
+    "attempts": [
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/pa_bpe_wake16_20261012T1158/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake16b/.research-autopilot/runner/attempts/attempt-ee70676276de4822b57156e25202201e",
+        "attempt_id": "attempt-ee70676276de4822b57156e25202201e",
+        "contract": {
+          "argv": [
+            "python3",
+            "scripts/measure_command.py",
+            "output/evaluation.resources.json",
+            "scripts/evaluate.py"
+          ],
+          "attempt_id": "attempt-ee70676276de4822b57156e25202201e",
+          "cwd": ".",
+          "deadline_epoch": 1791807604.8235223,
+          "input_refs": [
+            {
+              "path": "scripts/evaluate.py",
+              "sha256": "c9819a2a0d2e57955646134128e0160d2e5aa4e6b7e525d160471804612f08d0"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            },
+            {
+              "path": "protocol.json",
+              "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+            },
+            {
+              "path": "evidence/parent.json",
+              "sha256": "4e5580bbed24488650ba5271be20bdd3c780e1ec0050362615152b7313d0d0e5"
+            },
+            {
+              "path": "inputs/dev.json",
+              "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+            },
+            {
+              "path": "inputs/ratio.codes",
+              "sha256": "6f67e4c4d5190b9db89465e055837d01a9f38e5b69c541c8b73deb693e04a068"
+            },
+            {
+              "path": "inputs/window.codes",
+              "sha256": "12d283dcfd73cca42b21b19fe25ec004ee5c4b1e81cdc151f3dcd11d27a561aa"
+            },
+            {
+              "path": "inputs/base.codes",
+              "sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f"
+            },
+            {
+              "path": "inputs/classical.codes",
+              "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"
+            },
+            {
+              "path": "inputs/hybrid.codes",
+              "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "output/evaluation.json",
+            "output/evaluation.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake16_20261012T1158/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake16b",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "evaluate",
+          "timeout_seconds": 120
+        },
+        "contract_sha256": "a68499a19cbb807daa6315e9686d7faee58f09b685348fa23c62b8c46dfb00bb",
+        "elapsed_seconds": 1.0027664999979606,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-ee70676276de4822b57156e25202201e",
+          "command_identity": {
+            "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+            "pid": 146569,
+            "start_ticks": 1722431
+          },
+          "contract_sha256": "a68499a19cbb807daa6315e9686d7faee58f09b685348fa23c62b8c46dfb00bb",
+          "elapsed_seconds": 1.0027664999979606,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T12:09:17.006837+00:00",
+          "input_refs": [
+            {
+              "path": "scripts/evaluate.py",
+              "sha256": "c9819a2a0d2e57955646134128e0160d2e5aa4e6b7e525d160471804612f08d0"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            },
+            {
+              "path": "protocol.json",
+              "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+            },
+            {
+              "path": "evidence/parent.json",
+              "sha256": "4e5580bbed24488650ba5271be20bdd3c780e1ec0050362615152b7313d0d0e5"
+            },
+            {
+              "path": "inputs/dev.json",
+              "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+            },
+            {
+              "path": "inputs/ratio.codes",
+              "sha256": "6f67e4c4d5190b9db89465e055837d01a9f38e5b69c541c8b73deb693e04a068"
+            },
+            {
+              "path": "inputs/window.codes",
+              "sha256": "12d283dcfd73cca42b21b19fe25ec004ee5c4b1e81cdc151f3dcd11d27a561aa"
+            },
+            {
+              "path": "inputs/base.codes",
+              "sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f"
+            },
+            {
+              "path": "inputs/classical.codes",
+              "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"
+            },
+            {
+              "path": "inputs/hybrid.codes",
+              "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/evaluation.json",
+              "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+            },
+            {
+              "path": "output/evaluation.resources.json",
+              "sha256": "9765af38177e750b3a80a27e2b8bf1bf7bb5917af6223f9f467902fdac1be04a"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake16_20261012T1158/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake16b",
+          "schema_version": 1,
+          "started_at": "2026-10-12T12:09:16.004072+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-ee70676276de4822b57156e25202201e/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-ee70676276de4822b57156e25202201e/stdout.txt",
+            "sha256": "05d59a570194143d193fc6b04e6ec4b0799e4ec0c8cc966e58d25407a1754961"
+          },
+          "task_id": "evaluate",
+          "worker_identity": {
+            "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+            "pid": 146568,
+            "start_ticks": 1722428
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-ee70676276de4822b57156e25202201e/receipt.json",
+          "sha256": "0ed27e1b171a7341763bff0140cb3aa1d6f47ed1b3137fdf383bb7e777f3de54"
+        },
+        "reservation_seconds": 123.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "evaluate"
+      }
+    ],
+    "budget": {
+      "attempts_used": 1,
+      "deadline_epoch": 1791807604.8235223,
+      "elapsed_seconds": 1.0027664999979606,
+      "max_attempts": 12,
+      "max_command_seconds": 600,
+      "remaining_deadline_seconds": 647.8135333061218,
+      "remaining_seconds": 598.997233500002,
+      "reserved_seconds": 0
+    },
+    "continuation": null,
+    "current_question": "Continue verify: Execution observation for evaluate: succeeded; Command execution reported succeeded",
+    "error": null,
+    "goal": "\u68c0\u9a8c\u5e76\u6539\u8fdb\u591a\u8bed\u8a00\u5206\u8bcd\u516c\u5e73\u6027\u7684\u8de8\u9886\u57df\u7a33\u5b9a\u6027\uff0c\u4fdd\u7559\u8d1f\u7ed3\u679c\uff0c\u5e76\u5728\u5408\u6cd5\u771f\u5b9e\u6765\u6e90\u3001\u5bf9\u9f50\u516c\u5e73\u6307\u6807\u548cCPU\u7ea6\u675f\u4e0b\u6301\u7eed\u63a8\u8fdb",
+    "goal_contract": {
+      "completion_criteria": [
+        {
+          "description": "\u6301\u7eed\u6784\u5efa\u53ef\u590d\u6838\u7684\u771f\u5b9e\u591a\u8bed\u8a00\u6765\u6e90\u3001\u5bf9\u9f50\u6307\u6807\u3001\u5f3a\u5bf9\u7167\u3001\u673a\u5236\u8bc1\u636e\u548c\u72ec\u7acb\u786e\u8ba4",
+          "id": "evidence"
+        },
+        {
+          "description": "\u5bf9\u6bcf\u4e2a\u6709\u5224\u522b\u529b\u7684\u5047\u8bbe\u7ed9\u51fa\u652f\u6301\u3001\u4e0d\u652f\u6301\u6216\u8bc1\u636e\u4e0d\u8db3\u7684\u8303\u56f4\u5316\u7ed3\u8bba\u5e76\u9009\u62e9\u4e0b\u4e00\u5fc5\u8981\u52a8\u4f5c",
+          "id": "interpretation"
+        }
+      ],
+      "mode": "continuous_research"
+    },
+    "goal_contract_version": 1,
+    "idea": "pa-bpe-domain-robustness",
+    "idea_status": "active",
+    "journal_version": 1,
+    "milestones": [],
+    "next_action": "Continue verify: Execution observation for evaluate: succeeded; Command execution reported succeeded",
+    "observations": [
+      {
+        "event_id": "result:attempt-ee70676276de4822b57156e25202201e",
+        "kind": "task_result",
+        "payload": {
+          "attempt_id": "attempt-ee70676276de4822b57156e25202201e",
+          "reason": "Command execution reported succeeded",
+          "receipt": {
+            "attempt_id": "attempt-ee70676276de4822b57156e25202201e",
+            "command_identity": {
+              "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+              "pid": 146569,
+              "start_ticks": 1722431
+            },
+            "contract_sha256": "a68499a19cbb807daa6315e9686d7faee58f09b685348fa23c62b8c46dfb00bb",
+            "elapsed_seconds": 1.0027664999979606,
+            "error": null,
+            "exit_code": 0,
+            "finished_at": "2026-10-12T12:09:17.006837+00:00",
+            "input_refs": [
+              {
+                "path": "scripts/evaluate.py",
+                "sha256": "c9819a2a0d2e57955646134128e0160d2e5aa4e6b7e525d160471804612f08d0"
+              },
+              {
+                "path": "scripts/measure_command.py",
+                "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+              },
+              {
+                "path": "protocol.json",
+                "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+              },
+              {
+                "path": "evidence/parent.json",
+                "sha256": "4e5580bbed24488650ba5271be20bdd3c780e1ec0050362615152b7313d0d0e5"
+              },
+              {
+                "path": "inputs/dev.json",
+                "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+              },
+              {
+                "path": "inputs/ratio.codes",
+                "sha256": "6f67e4c4d5190b9db89465e055837d01a9f38e5b69c541c8b73deb693e04a068"
+              },
+              {
+                "path": "inputs/window.codes",
+                "sha256": "12d283dcfd73cca42b21b19fe25ec004ee5c4b1e81cdc151f3dcd11d27a561aa"
+              },
+              {
+                "path": "inputs/base.codes",
+                "sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f"
+              },
+              {
+                "path": "inputs/classical.codes",
+                "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"
+              },
+              {
+                "path": "inputs/hybrid.codes",
+                "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"
+              }
+            ],
+            "output_refs": [
+              {
+                "path": "output/evaluation.json",
+                "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+              },
+              {
+                "path": "output/evaluation.resources.json",
+                "sha256": "9765af38177e750b3a80a27e2b8bf1bf7bb5917af6223f9f467902fdac1be04a"
+              }
+            ],
+            "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake16_20261012T1158/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake16b",
+            "schema_version": 1,
+            "started_at": "2026-10-12T12:09:16.004072+00:00",
+            "status": "succeeded",
+            "stderr_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-ee70676276de4822b57156e25202201e/stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stdout_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-ee70676276de4822b57156e25202201e/stdout.txt",
+              "sha256": "05d59a570194143d193fc6b04e6ec4b0799e4ec0c8cc966e58d25407a1754961"
+            },
+            "task_id": "evaluate",
+            "worker_identity": {
+              "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+              "pid": 146568,
+              "start_ticks": 1722428
+            }
+          },
+          "receipt_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-ee70676276de4822b57156e25202201e/receipt.json",
+            "sha256": "0ed27e1b171a7341763bff0140cb3aa1d6f47ed1b3137fdf383bb7e777f3de54"
+          },
+          "status": "succeeded",
+          "task_id": "evaluate"
+        },
+        "request_id": null,
+        "sequence": 1
+      }
+    ],
+    "request_id": "decision-59c1943c4072400bb4ba6d9251d943cf",
+    "request_ref": {
+      "path": ".research-autopilot/runner/requests/decision-59c1943c4072400bb4ba6d9251d943cf.json",
+      "sha256": "5085eecdce63d7ff7651e04542776aa92bb7a8300d446aab936db736b8c37ee1"
+    },
+    "research_cycles": [],
+    "revision": 1,
+    "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake16_20261012T1158/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake16b",
+    "source": {
+      "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+        },
+        {
+          "path": "references/rsi-simple.md",
+          "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+        },
+        {
+          "path": "references/simple-runner.md",
+          "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+        },
+        {
+          "path": "scripts/_simple_process.py",
+          "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+        },
+        {
+          "path": "scripts/_simple_source.py",
+          "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+        },
+        {
+          "path": "scripts/simple_loop.py",
+          "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+        },
+        {
+          "path": "scripts/simple_runner.py",
+          "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+        },
+        {
+          "path": "references/simple-experiment-design.md",
+          "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+        },
+        {
+          "path": "scripts/simple_design.py",
+          "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+        },
+        {
+          "path": "scripts/simple_resources.py",
+          "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+        },
+        {
+          "path": "assets/templates/simple-experiment-plan.json",
+          "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+        },
+        {
+          "path": "assets/templates/simple-experiment-results.json",
+          "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+        },
+        {
+          "path": "references/simple-collaboration.md",
+          "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+        },
+        {
+          "path": "assets/templates/simple-delegation.json",
+          "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+        }
+      ],
+      "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+    },
+    "state": "open",
+    "tasks": [
+      {
+        "argv": [
+          "python3",
+          "scripts/measure_command.py",
+          "output/evaluation.resources.json",
+          "scripts/evaluate.py"
+        ],
+        "attempt_id": "attempt-ee70676276de4822b57156e25202201e",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "scripts/evaluate.py",
+            "sha256": "c9819a2a0d2e57955646134128e0160d2e5aa4e6b7e525d160471804612f08d0"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          },
+          {
+            "path": "protocol.json",
+            "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+          },
+          {
+            "path": "evidence/parent.json",
+            "sha256": "4e5580bbed24488650ba5271be20bdd3c780e1ec0050362615152b7313d0d0e5"
+          },
+          {
+            "path": "inputs/dev.json",
+            "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+          },
+          {
+            "path": "inputs/ratio.codes",
+            "sha256": "6f67e4c4d5190b9db89465e055837d01a9f38e5b69c541c8b73deb693e04a068"
+          },
+          {
+            "path": "inputs/window.codes",
+            "sha256": "12d283dcfd73cca42b21b19fe25ec004ee5c4b1e81cdc151f3dcd11d27a561aa"
+          },
+          {
+            "path": "inputs/base.codes",
+            "sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f"
+          },
+          {
+            "path": "inputs/classical.codes",
+            "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"
+          },
+          {
+            "path": "inputs/hybrid.codes",
+            "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"
+          }
+        ],
+        "outputs": [
+          "output/evaluation.json",
+          "output/evaluation.resources.json"
+        ],
+        "phase": "analysis",
+        "purpose": "Aligned development fairness and exact replay/vocabulary validation",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": null,
+        "task_id": "evaluate",
+        "timeout_seconds": 120
+      }
+    ]
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "submission_id": "wake16b-decompose",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "decompose",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/decomposition.resources.json",
+        "scripts/decompose.py"
+      ],
+      "phase": "analysis",
+      "purpose": "Independent confirmation arithmetic and signed-pair transfer decomposition",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "confirmation"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/decompose.py",
+          "sha256": "4494745b3975d2e2d5c95b82a16aca5b49221f5473ff8766a6f968a32ea38a60"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "output/evaluation.json",
+          "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+        },
+        {
+          "path": "output/confirmation.json",
+          "sha256": "63163a398e83b133df6bb2c6df14f3c78c160e2bace4d9a28a7894725e55636f"
+        }
+      ],
+      "outputs": [
+        "output/transfer_decomposition.json",
+        "output/decomposition.resources.json"
+      ]
+    }
+  ]
+}

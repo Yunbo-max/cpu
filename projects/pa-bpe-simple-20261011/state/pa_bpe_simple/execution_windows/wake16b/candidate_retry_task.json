@@ -1,0 +1,55 @@
+{
+  "submission_id": "wake16b-damped-retry",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "damped-train-retry",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/damped_retry.resources.json",
+        "scripts/train_damped_retry.py"
+      ],
+      "phase": "experiment",
+      "purpose": "One mechanism-derived target-damping adaptation, exploratory afterconfirmation; no new noveltyclaim",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "decompose"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/train_damped_retry.py",
+          "sha256": "38ba572b3408eb274a3a3e45420e9adc0503978fa7b6ceb1bf8b0a11b7dbde65"
+        },
+        {
+          "path": "scripts/damped_native.py",
+          "sha256": "a9a92dec1e248b0330c50a96735b6d00701ceb38bce71092f6aa71da8b49e7ae"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "candidate_plan.json",
+          "sha256": "e4711558b1fb14654ebdbbee8cd6f7ef65b96e4f0bce19d059705a4f24bf4ee0"
+        },
+        {
+          "path": "evidence/parent.json",
+          "sha256": "4e5580bbed24488650ba5271be20bdd3c780e1ec0050362615152b7313d0d0e5"
+        },
+        {
+          "path": "evidence/candidate_parent_inputs.json",
+          "sha256": "ef1c0e80a1aff8abd87ca1c652113edbcb3e595fcb5d7d328916b8ea929f1e31"
+        }
+      ],
+      "outputs": [
+        "output/damped.codes",
+        "output/damped_result.json",
+        "output/damped_retry.resources.json"
+      ],
+      "supersedes": "damped-train"
+    }
+  ]
+}

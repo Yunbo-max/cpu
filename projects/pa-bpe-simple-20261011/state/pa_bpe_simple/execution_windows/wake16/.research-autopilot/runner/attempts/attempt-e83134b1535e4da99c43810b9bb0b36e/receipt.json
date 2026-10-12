@@ -1,0 +1,71 @@
+{
+  "attempt_id": "attempt-e83134b1535e4da99c43810b9bb0b36e",
+  "command_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 145891,
+    "start_ticks": 1717091
+  },
+  "contract_sha256": "4975b1999aba1cdafe6eb992ba55763781e932d8d8306851715fb6e43ead4e8c",
+  "elapsed_seconds": 2.1707257509988267,
+  "error": null,
+  "exit_code": 0,
+  "finished_at": "2026-10-12T12:08:24.780505+00:00",
+  "input_refs": [
+    {
+      "path": "scripts/train_retry.py",
+      "sha256": "72ea03d2d940ab2dedb7b55cc19993a3e20b8d572a6441f51154db60f41e3f33"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    },
+    {
+      "path": "protocol_v3.json",
+      "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+    },
+    {
+      "path": "output/v3_preparation.json",
+      "sha256": "4cf49172ce93559272c1315c9102e1ce6425d30701282ee6f8ddcc9b18cc13a0"
+    },
+    {
+      "path": "output/v3_pooled.dict",
+      "sha256": "3c4606f8fca48fc3a0db28628560263d854030fa8d64ad90787dc5728db5b572"
+    },
+    {
+      "path": "inputs/learn_bpe.py",
+      "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/classical.codes",
+      "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"
+    },
+    {
+      "path": "output/classical_result.json",
+      "sha256": "56b2476b3fe164b0951a70c219ca0ee62ce7baf761e4cffa95442128870276fd"
+    },
+    {
+      "path": "output/classical-retry1.resources.json",
+      "sha256": "fa53726e29593fa4731ea7a4f8d4d162b7de70fb0984a16b07a54ed34104a1fb"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake16_20261012T1158/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake16",
+  "schema_version": 1,
+  "started_at": "2026-10-12T12:08:22.609782+00:00",
+  "status": "succeeded",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-e83134b1535e4da99c43810b9bb0b36e/stderr.txt",
+    "sha256": "518c39ff0f561d8fbe5bc1509b8490dc6e9f38d676ed3791608b6dc6c06e9081"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-e83134b1535e4da99c43810b9bb0b36e/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "train-classical-retry1",
+  "worker_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 145890,
+    "start_ticks": 1717088
+  }
+}

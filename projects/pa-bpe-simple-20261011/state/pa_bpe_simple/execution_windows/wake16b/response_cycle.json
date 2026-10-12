@@ -1,0 +1,47 @@
+{
+  "response_id": "wake16b-cycle-response",
+  "request_id": "decision-59c1943c4072400bb4ba6d9251d943cf",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Completed a hypothesis\u2192fixedcomparison\u2192mechanism\u2192singlecandidate\u2192negativefeedback loop; continuousobjective remainsactive.",
+  "events": [
+    {
+      "kind": "research_cycle",
+      "event_id": "wake16-first-domain-transfer-and-damping",
+      "goal_contract_version": 1,
+      "hypothesis": "Development parity gain may fail to transfer because aligned baseline language gaps shift across domains",
+      "prediction": "A nearlyequalized TICO model can overshoot a smaller unseen-domain gap; damping shouldtrade some development equality forlowercost and lessovershoot",
+      "result": "Fixedprimarywindow GV gain0.0030303 versusdev0.0422089,pairedCI crosseszero,worstcost+4.89%;fixedsecondaryhybrid GVgain0.0202501 andcost+1.74%. Postexposure dampedcandidate GVgini0.006022 andcost+1.45%,worseGini thanhybrid0.002323.",
+      "interpretation": "Scoped transferattenuation supported inpointestimate andobservedovershoot; notbroadmultilingualcausality. Dampingofferscosttradeoff butdoesnotbeatstronghybrid, noimprovementclaim.",
+      "next_action": "Keepcandidate negative/tradeoff result; investigatehybrid stability andgap-sensitive mechanisms onfresh legallyalignedoutcome-sealed domain beforefurtherimprovementclaim. No blindparameter sweep onexposedGV.",
+      "reason": "Completed a hypothesis\u2192fixedcomparison\u2192mechanism\u2192singlecandidate\u2192negativefeedback loop; continuousobjective remainsactive.",
+      "evidence": [
+        {
+          "path": "output/evaluation.json",
+          "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+        },
+        {
+          "path": "output/confirmation.json",
+          "sha256": "63163a398e83b133df6bb2c6df14f3c78c160e2bace4d9a28a7894725e55636f"
+        },
+        {
+          "path": "output/transfer_decomposition.json",
+          "sha256": "7e64c46408ea63621f3e5cd5435a574d826d1fee281675ec4d25870f0ad0ac85"
+        },
+        {
+          "path": "output/candidate_evaluation.json",
+          "sha256": "17a820f576e93db5ded1e913b662bc2528dca4a9a3eb0dea5bd1d7118d4cd06f"
+        },
+        {
+          "path": "confirmation_plan.json",
+          "sha256": "c2768ade6bdb311f15a4508e73e891fe54c73ae3cd12cceff4ab975110099720"
+        },
+        {
+          "path": "candidate_plan.json",
+          "sha256": "e4711558b1fb14654ebdbbee8cd6f7ef65b96e4f0bce19d059705a4f24bf4ee0"
+        }
+      ]
+    }
+  ]
+}

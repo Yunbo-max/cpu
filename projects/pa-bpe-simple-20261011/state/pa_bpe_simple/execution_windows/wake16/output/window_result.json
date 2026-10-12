@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "inputs/parity_aware_learn_bpe.py",
+    "--input",
+    "inputs/en.dict",
+    "inputs/fr.dict",
+    "inputs/es.dict",
+    "--output",
+    "output/window.codes",
+    "--dict-input",
+    "--symbols",
+    "1000",
+    "--num-workers",
+    "1",
+    "--variant",
+    "window",
+    "--dev",
+    "output/v3_dev.en.dict",
+    "output/v3_dev.fr.dict",
+    "output/v3_dev.es.dict",
+    "--window-size",
+    "100",
+    "--alpha",
+    "2"
+  ],
+  "merges": 1000,
+  "code_sha256": "12d283dcfd73cca42b21b19fe25ec004ee5c4b1e81cdc151f3dcd11d27a561aa",
+  "source_sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5",
+  "scope": "aligned TICO development; no confirmation access"
+}

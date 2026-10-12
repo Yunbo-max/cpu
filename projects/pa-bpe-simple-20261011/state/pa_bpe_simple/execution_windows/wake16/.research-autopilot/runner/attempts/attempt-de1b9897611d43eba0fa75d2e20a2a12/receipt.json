@@ -1,0 +1,99 @@
+{
+  "attempt_id": "attempt-de1b9897611d43eba0fa75d2e20a2a12",
+  "command_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 145401,
+    "start_ticks": 1713341
+  },
+  "contract_sha256": "deeca6686a03a854cf01bb60bbbabe947e5aae819392feb6dd739e3b9750bb2a",
+  "elapsed_seconds": 8.929643795003358,
+  "error": null,
+  "exit_code": 0,
+  "finished_at": "2026-10-12T12:07:54.036991+00:00",
+  "input_refs": [
+    {
+      "path": "scripts/train_v3.py",
+      "sha256": "0173874ddfdee5181d8e4f9bdc5f19e0ee70e904bc1dcb14732b0494eb63a0df"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    },
+    {
+      "path": "protocol_v3.json",
+      "sha256": "18e53848a5320ad750e9b121be9cfaea88cdfa472606410b1c74802ffbe650a9"
+    },
+    {
+      "path": "output/v3_preparation.json",
+      "sha256": "4cf49172ce93559272c1315c9102e1ce6425d30701282ee6f8ddcc9b18cc13a0"
+    },
+    {
+      "path": "inputs/en.dict",
+      "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"
+    },
+    {
+      "path": "inputs/fr.dict",
+      "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"
+    },
+    {
+      "path": "inputs/es.dict",
+      "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"
+    },
+    {
+      "path": "output/v3_pooled.dict",
+      "sha256": "3c4606f8fca48fc3a0db28628560263d854030fa8d64ad90787dc5728db5b572"
+    },
+    {
+      "path": "output/v3_dev.es.dict",
+      "sha256": "4bf4dff19387f90c91cb3e9ea921aa4117a15a892851de82d245476aed70109e"
+    },
+    {
+      "path": "output/v3_dev.en.dict",
+      "sha256": "48c9ef80b9d8598150252d78a957af5226f08f5a3dfc68f715ae870e3504d539"
+    },
+    {
+      "path": "output/v3_dev.fr.dict",
+      "sha256": "7b551796adbbb89fbfb654da59a575c83e007bdd518e9dcff0612ca49cce109d"
+    },
+    {
+      "path": "inputs/learn_bpe.py",
+      "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+    },
+    {
+      "path": "inputs/parity_aware_learn_bpe.py",
+      "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/window.codes",
+      "sha256": "12d283dcfd73cca42b21b19fe25ec004ee5c4b1e81cdc151f3dcd11d27a561aa"
+    },
+    {
+      "path": "output/window_result.json",
+      "sha256": "0134e9001218acae05e0b3ff83a8e1eca942a103dfa96f0cc85627be57fc7b3b"
+    },
+    {
+      "path": "output/window.resources.json",
+      "sha256": "84fff7904aabd7f34fa476fdfd4c52265ee3faa1d3a2cd3984cf40b679cec1d9"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake16_20261012T1158/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake16",
+  "schema_version": 1,
+  "started_at": "2026-10-12T12:07:45.107352+00:00",
+  "status": "succeeded",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-de1b9897611d43eba0fa75d2e20a2a12/stderr.txt",
+    "sha256": "9daafeb1e9f8bbedb96e5323d7383fdea79a04629c40b342a292d1aa8951f3c9"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-de1b9897611d43eba0fa75d2e20a2a12/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "train-window",
+  "worker_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 145400,
+    "start_ticks": 1713338
+  }
+}

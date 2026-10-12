@@ -1,0 +1,28 @@
+{
+  "id": "wake16b-damped-parity-candidate-v1",
+  "frozen_utc": "2026-10-12T12:15:27.121560+00:00",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "candidate_count": 1,
+  "status": "exploratory after first confirmation opened",
+  "mechanism_evidence": "window en-fr correction10.5098 on GV exceeds baseline gap5.5781; English becomes worst;500global hybrid smaller correction6.0391",
+  "candidate": "Damped dev target: select argmax dev lengths/weights where weights=(1+classical dev cost/mean classical dev cost)/2. Fixedhalf leaves residual development imbalance rather than full equalization.",
+  "weights": [
+    0.9432677040330264,
+    1.0400523975865354,
+    1.0166798983804384
+  ],
+  "weight_source": "1000merge Classical970TICO development means only",
+  "hyperparameters": [
+    {
+      "name": "shrink_fraction",
+      "value": 0.5,
+      "selection": "one midpointchosen from overshoot mechanism afterGV exposure, no sweep"
+    }
+  ],
+  "train": "same100k/language,1000merges,authorbase otherwise unchanged",
+  "prediction": "reduce English inflation and total cost relative tobase/window while retaining some Gini improvement;compareallstrongarms includinghybrid",
+  "information_fairness": "requiresbaseline model anddevstatistics;additionalcompute explicitlycounted",
+  "novelty": "unproven target-damping adaptation; no new-mechanism claim; historicalcostconstraint andhybrid remainstrongcontrols",
+  "confirmation_status": "GlobalVoices now exposed; candidate results there are exploratory, require fresh independent confirmation for any improvement claim"
+}

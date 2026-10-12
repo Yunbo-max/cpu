@@ -1,0 +1,85 @@
+{
+  "submission_id": "wake16b-first-confirmation",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "confirmation",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/confirmation.resources.json",
+        "scripts/evaluate_confirmation.py"
+      ],
+      "phase": "experiment",
+      "purpose": "First locked cross-domain evaluation and paired document-cluster bootstrap; no parameter updates",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "restore-raw"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/evaluate_confirmation.py",
+          "sha256": "2c2ee94b8c6610d10ce94f4c3446107e7bdd56c2f455879a9b8b9f6261358cc7"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/fingerprints.py",
+          "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+        },
+        {
+          "path": "confirmation_plan.json",
+          "sha256": "c2768ade6bdb311f15a4508e73e891fe54c73ae3cd12cceff4ab975110099720"
+        },
+        {
+          "path": "inputs/units.json",
+          "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+        },
+        {
+          "path": "inputs/source_manifest.json",
+          "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+        },
+        {
+          "path": "output/evaluation.json",
+          "sha256": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+        },
+        {
+          "path": "output/independent_arithmetic_and_dev_overlap.json",
+          "sha256": "736c1ad313e2ea4612e4be0c56e3f51fca480a6d809ad313864acfaa71c3ec39"
+        },
+        {
+          "path": "output/archive_restore.json",
+          "sha256": "4e7051640d7a9d2af6165bc2a5a21d75997d24b0780ec524149015278e3639e9"
+        },
+        {
+          "path": "inputs/ratio.codes",
+          "sha256": "6f67e4c4d5190b9db89465e055837d01a9f38e5b69c541c8b73deb693e04a068"
+        },
+        {
+          "path": "inputs/window.codes",
+          "sha256": "12d283dcfd73cca42b21b19fe25ec004ee5c4b1e81cdc151f3dcd11d27a561aa"
+        },
+        {
+          "path": "inputs/base.codes",
+          "sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f"
+        },
+        {
+          "path": "inputs/classical.codes",
+          "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"
+        },
+        {
+          "path": "inputs/hybrid.codes",
+          "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"
+        }
+      ],
+      "outputs": [
+        "output/confirmation.json",
+        "output/confirmation.resources.json"
+      ]
+    }
+  ]
+}
