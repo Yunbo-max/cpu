@@ -8,7 +8,7 @@
     "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
   },
   "goal_contract_version": 1,
-  "idea": "gravity-pose-positive-selector-v1",
+  "idea": "gravity-pose-root-reconstruction-localization-v1",
   "idea_revision": 1,
   "host_authority": "User 2026-10-11: use these 3D topics, start running in background, provide scheduled feedback. Current CPU host is the bounded initial execution host; no paid APIs/GPU service.",
   "resource_allocation": {
@@ -30,12 +30,12 @@
     "V-Umlaut",
     "Gravity-aware pose"
   ],
-  "active_question": "For the exact UP1/UP2 cases where the native minimum-residual selector chose a non-positive focal despite an eligible finite positive alternative, does selecting the lowest-residual finite positive candidate improve full-pose/focal outcomes without changing zero-root or no-positive-candidate controls?",
-  "scientific_status": "TESO drift-only quality remains supported while its broad drift-plus-no-drift claim is closed not_supported; V-Umlaut operational and gravity-pose-stability-v1 remain closed not_supported. R016 gravity-pose-status-instrument-v1 is now closed supported only for scoped mechanism attribution on the pinned deterministic author-generator stream: UP1 unassigned rows equal zero returned slots in96/96 cases and UP2 in9/9; the native selector chose a non-positive focal despite an eligible finite positive alternative in12 UP1 and84 UP2 problems. Main analysis, independent raw audit and the fresh v5 confirmation agree exactly with zero strict-selector mismatches. Sentinel behavior-equivalence and an already-improved pose/focal quality claim are not_supported. Actual full-pose quality impact of positivity-aware selection, repair of zero-root cases and generalization beyond this stream remain inconclusive. The single active successor is gravity-pose-positive-selector-v1.",
-  "execution_status": "No active or unknown attempt. R016 repaired the generator signature anchor and analyzer invariant/native-selector replay before science, then compiled the instrumented pinned author source. Smoke, initial5000-problem batch, independent raw audit, same-binary repeat and fresh prospectively hash-bound v5 confirmation all succeeded. The v5 run/analyze/audit/compare attempts were attempt-95881e536da84a90bce210b1fdbae0b0, attempt-4dde14765a2d4fe0a2a204613791f926, attempt-20aa6e5d917c4311acd3d98e3cc2dfa0 and attempt-c8b3e21f15f140c5bf99d8816675745e. A stale immutable task id caused one historical v2 design contract to execute again; it produced no scientific result and was repaired with unique v5 identities. The current runner database is integrity-clean at sequence153 with113 terminal attempts and13137.279259 settled command-seconds; three receipts created during database recovery are preserved outside that restored baseline, yielding116 observed attempts and13139.140214 observed command-seconds. Supervisor session7bf5c3e3e5424bb9baa74cfccf12a494 was intentionally interrupted at the quiet awaiting-decision boundary; its retained health record therefore reports lost, but the same process identity is absent and no project command is active. No OOM evidence was observed.",
+  "active_question": "Do failed exhausted generator attempts create geometrically inconsistent accepted inputs that confound gravity-pose solver attribution?",
+  "scientific_status": "R017 recorded-stream positivity fullgeometry claim closed not_supported after748751-check independentaudit. R018 localization audited734137checks; fresh unchanged nativegenerator5000problems/20000points has304projection,566depth,566affine,199orientationflags; exact GT/callstreammatchesR017, all96switch IDs overlapfreshinputdefects. Valid-benchmark gravitysolverquality interpretation now inconclusive, not evidence of a repairedsolver. Generator retry defect is source-supported but requires causal telemetry/acceptancefix. Allhistorical outcomes preserved.",
+  "execution_status": "15 new serial Simple attempts succeeded; native5000 two-solver comparison, rawaudits, localization, native5000generatoraudit and projectionreplay completed. All128databaseattempts terminal; supervisor intentionally interrupted through own execsession89976 atquietboundary and independently verified absent with projectlockavailable. No observedOOM. A direct PID signal returnedESRCH whilehealthstillalive; ownexecsessioninterrupt repaired shutdown, receipt retained.",
   "author_commit": "34f8fa9a2b2dcaacdbb7ffc784a80682228b288c",
   "wake_mechanism": "Enabled hourly ChatGPT automation; not proof of continuous compute",
-  "next_action": "Inspect gravity-pose-positive-selector-v1, renew only the finite runner window under the recorded open-ended CPU authorization after rechecking no active or unknown attempt, and freeze a versioned plan that retains every alternative candidate pose/error. Compare unchanged native minimum residual against the lowest-residual finite positive candidate only on the12 UP1 and84 UP2 eligible rows; keep the96/9 zero-root and2/3 no-positive-candidate cases as explicit unchanged controls.",
+  "next_action": "Within gravity-pose-root-reconstruction-localization-v1 freeze R019 causal generator-validity plan: isolated telemetry copy records finalattempt/success/rejectionreason/lastassignment for eachfeature withoutalteringRNG/math, audit rawGTprojection/affine/orientation/depth and exhausted-failure acceptance; then separate explicitsuccess-flag acceptancefix. Track underlyingdraw/callidentity, not correctedrowi=oldrowi. Preserve olddata; do not change solver or claim validbenchmarkquality until generatorvalidity is established. Read notes/R018_progress.md and independentreview first.",
   "observed_issues": [
     {
       "id": "carla-index-timeout-1",
@@ -225,53 +225,71 @@
       "state": "repaired",
       "symptom": "A response accidentally reused an immutable historical design-check task id, so the old v2 contract executed once more.",
       "repair": "The duplicate produced no scientific output. Subsequent design, run, analysis, audit and comparison used unique v5 task and output identities."
+    },
+    {
+      "id": "R018-native-generator-validity",
+      "state": "inconclusive_cause_confirmed_fresh_input_defects",
+      "evidence": "notes/R018_progress.md"
+    },
+    {
+      "id": "R017-memory-wait",
+      "state": "repaired",
+      "evidence": "notes/R017_memory_wait.json"
+    },
+    {
+      "id": "supervisor-direct-signal-ESRCH",
+      "state": "repaired",
+      "evidence": "logs/activation-20261012T1014/stopped-health.json"
     }
   ],
   "automation_id": "6acbc3de9398819193c8b61a5cb42bb5",
   "checkpoint_library_id": "libfile_8d235c544fb48191929cce3ca06aedf0",
-  "runner_session_id": "7bf5c3e3e5424bb9baa74cfccf12a494",
-  "updated_at_utc": "2026-10-12T09:12:37+00:00",
+  "runner_session_id": "f501f162b960476aafc4dbffba0b069d",
+  "updated_at_utc": "2026-10-12T10:48:13.812394+00:00",
   "active_task_ids": [],
-  "scientific_plan": null,
+  "scientific_plan": "plans/R018_experiment_plan_v1.json",
   "last_health_observation": {
-    "activity_age_seconds": 143.27269792556763,
+    "activity_age_seconds": 69.64409708976746,
     "errors": [],
     "identity_observed_alive": false,
     "max_age_seconds": 30,
+    "reason": "Retained process identity is unverified: it may have exited, changed identity, or become unavailable to local observation; no restart or reconciliation is implied",
     "record": {
       "exit_status": null,
       "exited_at": null,
       "identity": {
         "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
-        "pid": 17913,
-        "start_ticks": 544434
+        "pid": 114191,
+        "start_ticks": 1201161
       },
-      "last_activity_at": "2026-10-12T09:08:17.346801+00:00",
-      "last_activity_epoch": 1791796097.3467948,
+      "last_activity_at": "2026-10-12T10:47:03.960818+00:00",
+      "last_activity_epoch": 1791802023.9608114,
       "mode": "run",
       "root": "/workspace/scratch/157b111ad113/autopilot_3d",
       "schema_version": 1,
-      "session_id": "7bf5c3e3e5424bb9baa74cfccf12a494",
+      "session_id": "f501f162b960476aafc4dbffba0b069d",
       "stage": "tick",
-      "started_at": "2026-10-12T08:52:56.095861+00:00"
+      "started_at": "2026-10-12T10:42:23.379958+00:00"
     },
     "root": "/workspace/scratch/157b111ad113/autopilot_3d",
     "scope": "Local process observation only; no external watcher or user delivery is activated",
-    "status": "idle_supervisor_interrupted_for_checkpoint; retained runner health reports lost because the deliberate interrupt did not record an exit, while the exact process identity and project command are absent"
+    "status": "lost"
   },
   "budget_observation": {
-    "attempts_used": 113,
-    "deadline_epoch": 1791835399.0113423,
-    "elapsed_seconds": 13137.27925871903,
-    "max_attempts": 125,
-    "max_command_seconds": 32581.39827155901,
-    "remaining_deadline_seconds": 39157.592138290405,
-    "remaining_seconds": 19444.11901283998,
+    "attempts_used": 128,
+    "deadline_epoch": 1791888133.5896215,
+    "elapsed_seconds": 13193.04658558703,
+    "max_attempts": 225,
+    "max_command_seconds": 41977.03522753103,
+    "remaining_deadline_seconds": 86042.3858191967,
+    "remaining_seconds": 28783.988641944,
     "reserved_seconds": 0,
     "overall_cap": null,
-    "note": "Runner database records13137.279259 settled command-seconds and113 terminal attempts. Three out-of-database recovery receipts add1.860955 seconds and3 attempts, for13139.140214 observed command-seconds and116 observed attempts. This renewable window is not a user budget or project endpoint; cumulative usage and all failures remain preserved without reset."
+    "observed_total_attempts": 131,
+    "observed_total_command_seconds": 13194.90754058703,
+    "note": "Includes3 preserved recoveryreceipts outside restoredDB; no reset. Renewablewindow audited at125attempts under existingopenendedauthorization."
   },
-  "last_runner_sequence": 153,
+  "last_runner_sequence": 170,
   "scientific_plans": [
     "plans/R001_experiment_plan_v2.json",
     "plans/R002_experiment_plan.json",
@@ -287,7 +305,10 @@
     "plans/R013_experiment_plan.json",
     "plans/R014_experiment_plan.json",
     "plans/R015_experiment_plan_v2.json",
-    "plans/R016_experiment_plan_v5.json"
+    "plans/R016_experiment_plan_v5.json",
+    "plans/R017_experiment_plan_v2.json",
+    "plans/R018_experiment_plan_v1.json",
+    "plans/R018_generator_audit_plan_v1.json"
   ],
   "accepted_result_records": [
     "results/R001/experiment_results.json",
@@ -318,11 +339,18 @@
     "results/R016/v5-audit-5000.json",
     "results/R016/v5-prior-compare.json",
     "notes/R016_independent_result_review.md",
-    "notes/R016_conclusion.md"
+    "notes/R016_conclusion.md",
+    "results/R017/summary-5000.json",
+    "results/R017/audit-5000.json",
+    "notes/R017_conclusion.md",
+    "results/R018/summary.json",
+    "results/R018/audit.json",
+    "results/R018/generator-summary.json",
+    "notes/R018_progress.md"
   ],
   "integrity_caveat": "OriginalR003 andR006cap2 logs retainedinvalid; R003_repair1 andR006_repair1 accepted. Verifyfutureraw artifacts againstreceipts.",
-  "background_liveness_caveat": "Latest supervisor was intentionally stopped at an idle awaiting-decision boundary after all attempts settled. No between-wake continuity is promised; verify retained identity and runner state before restart.",
-  "next_experiment_executed": true,
+  "background_liveness_caveat": "Supervisor intentionally stopped after all terminal receipts; no continuous between-wake compute claim.",
+  "next_experiment_executed": false,
   "schema_caveats": [
     "R001frozenplanmapsv2butactualv3recovery documented; initialcalibrationpendinginoldplan.",
     "R002initialcalibrationpendinginoldprospectiveplan, observedpilotretained.",
@@ -338,5 +366,11 @@
   "R008_scientific_execution": "001/002/003 and000_nodrift complete and independently accepted. Frozen unseen-drift quality subclaim supported; no-drift subclaim and broad uniform claim not_supported because twostep_even fails the mean-rotation gate on000_nodrift. All negative controls and raw evidence retained.",
   "R008_ready_sequence": null,
   "R008_ready_manifest": "results/R008-data-seq000-right-n1000.json",
-  "R008_prepared_unsubmitted_plan": null
+  "R008_prepared_unsubmitted_plan": null,
+  "storage": {
+    "repository": "Yunbo-max/cpu",
+    "namespace": "projects/autopilot-3d-20261011",
+    "parent_project_commit": "fc5ee16b094205ce102fbbc94846d45294a4ae66",
+    "workflow": "download active; run serial; upload with conflict guard; remote verify; cleanprojectonly"
+  }
 }

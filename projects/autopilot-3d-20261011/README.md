@@ -2,7 +2,7 @@
 
 Project identity: `autopilot-3d-20261011`. Adopted procedure: **Research Autopilot Simple 0.3.0-simple.9**, source digest `e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8`.
 
-The current scientific state is sequence **153**, active idea **gravity-pose-positive-selector-v1**. Read `CHECKPOINT.json` and the restored runner journal before taking scientific action. Historical `config.json` and `RESUME.md` contain startup context and must not reinitialize the project or reset cumulative usage.
+The current scientific state is sequence **170**, active idea **gravity-pose-root-reconstruction-localization-v1**. Read `CHECKPOINT.json` and the restored runner journal before taking scientific action. Historical `config.json` and `RESUME.md` contain startup context and must not reinitialize the project or reset cumulative usage.
 
 ## Storage
 
@@ -49,3 +49,11 @@ The historical Library checkpoint v17 remains a fallback, not the authoritative 
 R016 supports mechanism attribution on one fixed author-generated synthetic stream: UP1/UP2 have 96/9 unassigned zero-slot cases and 12/84 cases where the native selector chooses non-positive focal despite an eligible positive alternative. It does not yet establish improved pose/focal quality. The next comparison must retain all candidate poses and evaluate quality after selection, with zero-root and no-positive-candidate controls.
 
 Third-party source files retain their original notices and authorship. This archive does not apply a new blanket license to upstream code.
+
+## Latest actual progress (2026-10-12)
+
+R017 ran5000 author problems per solver and retained28574 full candidates. Independent raw audit verified748751checks. Positivity-only fullgeometry claim is `not_supported` on this recordedstream: UP2rotation41improved/43worsened on84switches, adverse focaltails preserved.
+
+R018 diagnosed retainedquartics/roots, independently audited734137checks, then ran the unchanged nativegenerator separately on5000problems/20000points. It observed304projection,566depth,566affine and199orientation inconsistencies. GT/callstream matchesR017exactly, and all96switchIDs overlapfreshinputdefects; undefined/stalefeaturebyteidentity is NOT established across binaries. Source retryacceptance defect is a causal hypothesis awaiting telemetry. Valid-benchmark solverquality conclusions are `inconclusive` pending inputvalidation. See [current progress](R018_progress.md), [checkpoint](CHECKPOINT.json), and [generator summary](generator-summary.json).
+
+Next: isolated generator success/attempt/fieldassignment telemetry, then separate acceptance bookkeeping intervention with drawidentity. No solverrepair or broadreproduction claim.15newserialattempts succeeded thisactivation,55.767commandseconds; database128terminalattempts/13193.046586seconds; including preservedrecoveryreceipts131observedattempts/13194.907541seconds. Supervisor intentionally stopped atquietboundary; followup restoresfromthisarchive. Temporarymemoryshortage resolved, no observedOOM.
