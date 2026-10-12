@@ -1,0 +1,38 @@
+{
+  "attempt_id": "attempt-6193494a5eee4f478798b5174f1cdc79",
+  "command_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 161072,
+    "start_ticks": 1941131
+  },
+  "contract_sha256": "a26fb60afb6732514894590d71dfc3c202c06a8cc5ca9ddd8c51e5033f4887d4",
+  "elapsed_seconds": 0.08186236499750521,
+  "error": "Command exited with status 1; Cannot safely read inputs/flores200_dataset.tar.gz: [Errno 2] No such file or directory: 'flores200_dataset.tar.gz'; Cannot safely read output/flores_fetch.json: [Errno 2] No such file or directory: 'flores_fetch.json'",
+  "exit_code": 1,
+  "finished_at": "2026-10-12T12:45:43.093799+00:00",
+  "input_refs": [],
+  "output_refs": [
+    {
+      "path": "output/flores_fetch_retry.resources.json",
+      "sha256": "902055006f14468e1b5acdb621a89e7bcf2a83fa21bf23f593c2cfad18d407af"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake17_20261012T1233/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake17",
+  "schema_version": 1,
+  "started_at": "2026-10-12T12:45:43.011941+00:00",
+  "status": "failed",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-6193494a5eee4f478798b5174f1cdc79/stderr.txt",
+    "sha256": "55e4d85b7dc8089d969f6c616888c59fb9b031e748aed0d3b2c95dd0046f4f32"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-6193494a5eee4f478798b5174f1cdc79/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "fetch-flores-retry",
+  "worker_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 161071,
+    "start_ticks": 1941128
+  }
+}

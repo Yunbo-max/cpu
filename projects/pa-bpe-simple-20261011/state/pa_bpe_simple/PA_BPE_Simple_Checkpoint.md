@@ -1,4 +1,10 @@
-# 最新规范状态：generation17，2026-10-12
+# 最新规范状态：generation18，2026-10-12
+
+FLORES-200 `devtest` 1,012 个英/法/西对齐句的结果前冻结主比较：fixed hybrid 将 aggregate Gini 从 Classical `0.0406959383` 降至 `0.0227591358`，改善 `0.0179368025`，配对句 bootstrap95 `[0.0161054038,0.0200599109]`；总成本 `+1.7938896%`、最差语言成本 `+0.1674367%`。这支持有代价的第二未见域 transfer，不是无成本、广义多语言或下游结论。
+
+官方公开归档 SHA256 `b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6`，CC-BY-SA-4.0；新版 FLORES+ gated 文件 HTTP401，未绕过。计划在正文访问前冻结。纯 Python evaluator 在旧14,550个整数成本上零差异后才打开新文本。三段有限窗口共7 attempts（3成功、4失败），新增wall `155.701309732s`，累计 `1577.437025541s`，reservation0，无活动科学进程。恢复必读 `PA_BPE_Wake17_Report.md`、`evidence/wake17_handoff.json` 与 `execution_windows/wake17c/output/flores_primary.json`。下一步独立核验、补固定次要arms并分析hybrid机制；FLORES和GlobalVoices均已曝光，禁止后验调参后冒称新确认。
+
+## generation17 历史状态
 
 
 英/法/西训练各100000个作者预分词单元；1000合并；实际词表均1256。训练是有限便利样本，不是论文完整复现。TICO官方开发971组中，970组在仅去除英文首尾ASCII空白后按句ID、英文正文与URL一致；1组撇号差异排除。旧双语TICO已有暴露，开发结果不是独立评测。

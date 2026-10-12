@@ -1,0 +1,23 @@
+{
+  "response_id": "wake17b-source-recovery-response",
+  "request_id": "decision-3ccafb2e68d34ac192d1bb1028085965",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The official public FLORES-200 archive was recovered byte-completely after the pre-access plan freeze; continue with the already queued independent replay verifier before opening the confirmation text.",
+  "events": [
+    {
+      "event_id": "wake17b-flores-source-recovered",
+      "kind": "milestone",
+      "label": "Official FLORES-200 source recovered without text inspection",
+      "next_phase": "evaluator",
+      "reason": "The archive has a fixed SHA256 and official CC-BY-SA-4.0 source; tokenizer outcome remains unopened.",
+      "evidence": [
+        {"path": "flores_plan.json", "sha256": "da5803d50a30e712a13b0cbe9516aae743950a8c94d6d6d92a37538af3d729df"},
+        {"path": "output/flores_fetch.json", "sha256": "802b40e051f561725b5495f47a44ebda059340aa332419645839ecfe9d777fe0"},
+        {"path": "output/flores_fetch_retry2.resources.json", "sha256": "1dd81f39301f4ea29b2045a8d352c44844cb9e140969342d49e4a7e88dbc52fc"}
+      ]
+    }
+  ],
+  "await_tasks": true
+}

@@ -1,0 +1,34 @@
+{
+  "response_id": "wake17c-flores-primary-response",
+  "request_id": "decision-0d1c6cb5a5674cdcbfbd6bf59bf081a3",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "A second untouched aligned domain supports a scoped hybrid fairness gain with a small total-cost and worst-cost tradeoff; retain the result and continue mechanism/coverage work rather than claim cost-free broad improvement.",
+  "events": [
+    {
+      "event_id": "wake17-second-domain-hybrid-transfer",
+      "kind": "research_cycle",
+      "goal_contract_version": 1,
+      "hypothesis": "The fixed 500-global-merge hybrid preserves lower trilingual mean-token Gini than Classical BPE on a second untouched aligned domain.",
+      "prediction": "On all 1012 FLORES-200 devtest rows, Classical minus hybrid Gini is positive; report cost and uncertainty regardless of sign.",
+      "result": "Classical Gini 0.04069594; hybrid 0.02275914; gain 0.01793680 with paired sentence bootstrap95 [0.01610540,0.02005991]. Hybrid total cost +1.79389%, worst cost +0.16744%; worst language shifts fr to es.",
+      "interpretation": "Scoped cross-domain hybrid fairness transfer is supported on FLORES-200 devtest, unlike the sharply attenuated window arm on GlobalVoices. It is not cost-free and does not establish broad multilingual or downstream benefit; sentence bootstrap ignores article dependence.",
+      "next_action": "Independently verify FLORES arithmetic/source alignment, then complete fixed secondary arms and analyze why 500 global merges avoid signed-gap overshoot across both exposed confirmation domains without tuning on them.",
+      "reason": "This completes one prospective source-to-evaluator-to-primary-result loop with the plan frozen before text access and all failures retained.",
+      "evidence": [
+        {"path": "flores_plan.json", "sha256": "da5803d50a30e712a13b0cbe9516aae743950a8c94d6d6d92a37538af3d729df"},
+        {"path": "output/pure_replay_verification.json", "sha256": "c37ebd010656d1dccd57a9a42d6bf3f12f15518f246de07e3b9197d1b1dcfe6a"},
+        {"path": "output/flores_primary.json", "sha256": "d626acc24d2a02a5732fd4ee41dcee15a33301ff95b52395e9e1bbf341a52d6b"},
+        {"path": "output/flores_primary.resources.json", "sha256": "4436fa124a47eb2097fe1b21ecd0f57f2574c59f91a0320722ca89e25b90f5df"}
+      ]
+    }
+  ],
+  "continuation": {
+    "reason": "Continuous project remains active after this scoped confirmation milestone.",
+    "checkpoint_refs": [
+      {"path": "output/flores_primary.json", "sha256": "d626acc24d2a02a5732fd4ee41dcee15a33301ff95b52395e9e1bbf341a52d6b"}
+    ],
+    "next_action": "Independent verification then secondary fixed arms and hybrid mechanism analysis."
+  }
+}

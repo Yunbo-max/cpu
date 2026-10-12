@@ -1,0 +1,18 @@
+{
+  "submission_id": "wake17-flores-fetch",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "fetch-flores",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "MKL_NUM_THREADS=1", "NUMEXPR_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/flores_fetch.resources.json", "scripts/fetch_flores.py"],
+      "phase": "analysis",
+      "purpose": "Recover the official public FLORES-200 archive after freezing source/split/models/metrics; do not inspect sentence text",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [],
+      "outputs": ["inputs/flores200_dataset.tar.gz", "output/flores_fetch.json", "output/flores_fetch.resources.json"]
+    }
+  ]
+}

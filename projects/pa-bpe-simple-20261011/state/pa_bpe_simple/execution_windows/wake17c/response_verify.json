@@ -1,0 +1,22 @@
+{
+  "response_id": "wake17c-replay-verification-response",
+  "request_id": "decision-54450280db1443c2993d3d92cb47cd07",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The dependency-free reconstruction exactly matched all 14,550 persisted TICO integer costs across five models and three languages; proceed to the queued untouched FLORES primary comparison.",
+  "events": [
+    {
+      "event_id": "wake17c-pure-replay-verified",
+      "kind": "milestone",
+      "label": "Independent tokenizer replay equivalence verified",
+      "next_phase": "experiment",
+      "reason": "Zero mismatches across every persisted wake16 development integer cost establish evaluator equivalence for the frozen models within this observed corpus.",
+      "evidence": [
+        {"path": "output/pure_replay_verification.json", "sha256": "c37ebd010656d1dccd57a9a42d6bf3f12f15518f246de07e3b9197d1b1dcfe6a"},
+        {"path": "output/pure_replay_verification_retry.resources.json", "sha256": "f4f5da3825b6afd476e9e8ae0b7a14c404107020b5840519f6cf48a7c05139ac"}
+      ]
+    }
+  ],
+  "await_tasks": true
+}

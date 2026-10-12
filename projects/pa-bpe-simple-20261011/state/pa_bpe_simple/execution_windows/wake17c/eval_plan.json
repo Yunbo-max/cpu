@@ -1,0 +1,18 @@
+{
+  "submission_id": "wake17c-flores-primary-confirmation",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "evaluate-flores-primary",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "MKL_NUM_THREADS=1", "NUMEXPR_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/flores_primary.resources.json", "scripts/evaluate_flores_primary.py"],
+      "phase": "experiment",
+      "purpose": "Open untouched FLORES-200 devtest only after exact replay verification; evaluate the frozen Classical-vs-hybrid primary contrast and paired uncertainty without tuning",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [],
+      "outputs": ["output/flores_primary.json", "output/flores_primary.resources.json", "output/eval_capacity.json"]
+    }
+  ]
+}

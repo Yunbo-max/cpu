@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/42f1128b703b/pa_bpe_wake17_20261012T1233/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake17b/scripts/measure_command.py", line 6, in <module>
+    runpy.run_path(script, run_name="__main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "scripts/verify_pure_replay.py", line 39, in <module>
+    rows = json.loads((prior / "inputs/dev.json").read_text())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/scratch/42f1128b703b/pa_bpe_wake17_20261012T1233/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/wake16b/inputs/dev.json'

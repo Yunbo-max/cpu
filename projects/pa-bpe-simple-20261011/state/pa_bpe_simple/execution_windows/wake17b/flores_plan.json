@@ -1,0 +1,33 @@
+{
+  "id": "wake17-flores200-fresh-confirmation-v1",
+  "frozen_utc": "2026-10-12T12:43:30Z",
+  "active_idea": "pa-bpe-domain-robustness",
+  "idea_revision": 1,
+  "hypothesis": "The fixed 500-global-merge hybrid preserves a lower aggregate trilingual token-cost Gini than Classical BPE on a second untouched aligned domain, FLORES-200 devtest.",
+  "source": {
+    "release": "original FLORES-200",
+    "official_url": "https://dl.fbaipublicfiles.com/nllb/flores200_dataset.tar.gz",
+    "license": "CC-BY-SA-4.0",
+    "split": "devtest",
+    "languages": {"en": "eng_Latn", "fr": "fra_Latn", "es": "spa_Latn"},
+    "selection": "all aligned public devtest rows, expected 1012; no row filtering after text access",
+    "access_boundary": "Plan frozen before archive download or any sentence text inspection. FLORES+ Hub files returned HTTP 401 without accepted gated access and will not be used or bypassed."
+  },
+  "primary_contrast": {
+    "method": "hybrid",
+    "comparator": "classical",
+    "metric": "Gini of the three per-language mean token counts",
+    "gain": "Gini(classical)-Gini(hybrid)",
+    "direction": "positive supports scoped transfer; zero/negative does not"
+  },
+  "fixed_codes": {
+    "classical": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2",
+    "hybrid": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"
+  },
+  "secondary_metrics": ["per-language mean token count", "worst-language mean", "total mean token cost", "mean per-row Gini", "base/window/ratio fixed-arm descriptive results"],
+  "uncertainty": {"method": "paired sentence bootstrap", "replicates": 2000, "seed": 20261012, "scope": "descriptive; article clusters unavailable in the public text bundle"},
+  "decision_rule": "Report the point estimate and 95% paired bootstrap interval regardless of sign. Do not tune or replace codes after outcome access.",
+  "information_fairness": "All fixed models were trained before this source was selected; this domain is confirmation-only.",
+  "compute_fairness": "Same fixed 1000-merge/1256-vocabulary models, byte-level plus whitespace pretokenization, one process and explicit numeric/tokenizer thread caps.",
+  "limitations": "Three Latin-script languages and convenience training frame; not an original-paper reproduction, not broad multilingual inference, and sentence bootstrap may understate article-level dependence."
+}

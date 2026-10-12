@@ -1,0 +1,18 @@
+{
+  "submission_id": "wake17b-isolated-tokenizers-install",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "install-tokenizers",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "MKL_NUM_THREADS=1", "NUMEXPR_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "-m", "pip", "install", "--disable-pip-version-check", "--no-cache-dir", "--target", "deps", "tokenizers==0.22.1", "numpy==2.3.4"],
+      "phase": "analysis",
+      "purpose": "Install isolated fixed evaluation dependencies; no shared environment mutation",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [],
+      "outputs": ["deps/tokenizers/__init__.py", "deps/numpy/__init__.py"]
+    }
+  ]
+}
