@@ -271,13 +271,21 @@
   ],
   "all_removed_absent_immediately": true,
   "scope_note": "No unrelated project, global /dev/shm, page cache, or pre-wake20 historical file was targeted. File deletion does not imply equal RAM release.",
-  "recheck": {
-    "observed_at_utc": "2026-10-12T15:06:35.007811+00:00",
-    "checked": 45,
-    "reappeared_count": 0,
-    "reappeared": []
-  },
+  "rechecks": [
+    {
+      "observed_at_utc": "2026-10-12T15:06:35.007811+00:00",
+      "checked": 45,
+      "reappeared_count": 0,
+      "reappeared": []
+    },
+    {
+      "observed_at_utc": "2026-10-12T15:07:17.331990+00:00",
+      "checked": 45,
+      "reappeared_count": 0,
+      "reappeared": []
+    }
+  ],
   "durable_deletion_confirmed": false,
-  "status": "wake20_targets_absent_on_first_separate_recheck",
-  "limitation": "A prior host-level rematerialization anomaly remains unresolved. One later absence check does not prove persistent deletion, and deleted file bytes do not equal released RAM."
+  "status": "wake20_targets_absent_on_two_separate_rechecks",
+  "limitation": "A prior host-level rematerialization anomaly remains unresolved. Two later absence checks do not prove persistent deletion, and deleted file bytes do not equal released RAM."
 }

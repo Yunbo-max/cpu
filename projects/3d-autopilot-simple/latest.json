@@ -21,8 +21,8 @@
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "wake20_targets_absent_on_first_separate_recheck",
-  "local_workspace_state": "Wake20 verified changed files were removed and absent on the first separate recheck; local root remains a partial historical/rematerialized tree. Persistent deletion is not guaranteed.",
+  "cleanup_status": "wake20_targets_absent_on_two_separate_rechecks",
+  "local_workspace_state": "Wake20 verified changed files were removed and absent on two separate rechecks; local root remains a partial historical/rematerialized tree. Persistent deletion is not guaranteed.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -53,7 +53,7 @@
   "verification_path": "projects/3d-autopilot-simple/verification-wake20.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
   "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake20.json",
-  "cleanup_observed_at_utc": "2026-10-12T15:06:35.007811+00:00",
+  "cleanup_observed_at_utc": "2026-10-12T15:07:17.331990+00:00",
   "restore_verification_commit": "8048d0eb045e55202f8b6f195c056374dc222932",
   "total_index_files": 2874
 }
