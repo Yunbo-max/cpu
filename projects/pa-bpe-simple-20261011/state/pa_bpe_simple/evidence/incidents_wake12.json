@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "incidents": [
+    {
+      "observed_at_utc": "2026-10-12T05:35:35Z",
+      "kind": "source_schema_representation",
+      "symptom": "XCES document references ended in .xml.gz while raw ZIP members ended in .xml",
+      "impact": "raw-schema v1 exited 1 and produced no declared schema output",
+      "repair": "map only the terminal .gz representation after unique-member validation; v2 qualified all 512 units",
+      "scientific_attempt_charged": true
+    },
+    {
+      "observed_at_utc": "2026-10-12T05:46:07Z",
+      "kind": "cli_contract",
+      "symptom": "first fail-closed build response used stale --output/--build-manifest argument names",
+      "impact": "builder exited 2 after 0.460371095 seconds; no database or summary was created",
+      "repair": "submit actual --database, --fetch-receipts and source-manifest contract; v3 succeeded",
+      "scientific_attempt_charged": true
+    }
+  ]
+}

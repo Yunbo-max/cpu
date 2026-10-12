@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "review": "review/wake10_row_selection_review.md",
+  "coordinator_decision": {
+    "extended_software_and_author_parser_invariants": "PASS",
+    "production_selector": "HOLD",
+    "payload_sampling_acceptance": "HOLD",
+    "native_author_training": "HOLD",
+    "fairness_claims": "HOLD"
+  },
+  "accepted_findings": [
+    "Twenty-five protocol/software checks pass on already exposed probes plus an explicitly synthetic boundary unit fixture.",
+    "Both fixed author dictionary parsers round-trip all three diagnostic dictionaries to the exact generated Counter.",
+    "PA-BPE shares one dict-input switch across train and dev, so dev-objective runs require dictionary-form dev inputs while ratio runs must omit dev.",
+    "Equal pretoken occurrence budgets do not equalize author initial symbol mass; en/fr/es masses are 1418/1315/1429 for the 256-unit diagnostic."
+  ],
+  "required_before_payload_acceptance": [
+    "Freeze and test result-blind GlobalVoices decontamination.",
+    "Implement a bounded-memory global production selector with all-shard completeness and duplicate checks.",
+    "Atomically generate and verify selected-row manifests with fixed shard provenance.",
+    "Lock wheel hashes, Python and platform.",
+    "Run minimal fixed-author native commands for Classical and both PA-BPE input contracts."
+  ],
+  "claim_boundary": "Parser/software invariants only; no production corpus, tokenizer, evaluation, fairness result, legal conclusion, or original-paper reproduction."
+}

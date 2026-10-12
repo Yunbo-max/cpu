@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-12T01:39:00Z",
+  "decision": "HOLD",
+  "protocol_label": "FineWeb/FineWeb2 official companion design; new research protocol, not a same-pipeline reproduction",
+  "repositories": {
+    "english": {"repo": "HuggingFaceFW/fineweb", "revision": "9bb295ddab0e05d785b879661af7260fed5140fc", "dump": "CC-MAIN-2013-20"},
+    "french": {"repo": "HuggingFaceFW/fineweb-2", "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9", "config": "fra_Latn", "split": "train", "dump": "CC-MAIN-2013-20"},
+    "spanish": {"repo": "HuggingFaceFW/fineweb-2", "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9", "config": "spa_Latn", "split": "train", "dump": "CC-MAIN-2013-20"}
+  },
+  "observed_spanish_probe": {"rows": 44, "unique_ids": 44, "response_sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3", "globalvoices_url_hits": 0, "eligible_as_training": false},
+  "remaining_conditions": [
+    "freeze immutable parquet shard identities and hashes",
+    "freeze deterministic SHA256(language || id) sampling after exclusions",
+    "freeze matched dump and three-language document/information budgets",
+    "run result-blind GlobalVoices canonical URL/domain and exact/near-text decontamination",
+    "retain a sensitivity control for FineWeb versus FineWeb2 pipeline differences"
+  ]
+}

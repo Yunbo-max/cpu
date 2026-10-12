@@ -1,0 +1,89 @@
+{
+  "response_id": "full-pool-evaluation-wake3b",
+  "request_id": "decision-15db0839af5e4734b7c4c1f50903f3d6",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Bothfullpool1000mergemodelscompleted; testcounterhypothesisofcostandgeneralizationharm",
+  "tasks": [
+    {
+      "task_id": "full-pool-evaluation-wake3b",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/full_evaluation.resources.json",
+        "scripts/evaluate_full_candidates.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Test development objective repair versus exposed work transfer and totalcost",
+      "timeout_seconds": 60,
+      "depends_on": [
+        "full_minmax-train-wake3b",
+        "full_pooled-train-wake3b"
+      ],
+      "input_refs": [
+        {
+          "path": "full_pool_plan.json",
+          "sha256": "09f3b5c9f190ca3b5a9376eb1fe0ef752f8d250c4bd356a422ae6e7a17977202"
+        },
+        {
+          "path": "scripts/evaluate_full_candidates.py",
+          "sha256": "e1857c89d8323f76afafd82ae836f0930e58daabdf003fc02584a4eaf8c6323e"
+        },
+        {
+          "path": "scripts/evaluator_reference.py",
+          "sha256": "612d66ff544e6cb72047d59f36e702766061abcc10e387453e3356ec231651eb"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "output/multibook_raw_evaluation.json",
+          "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"
+        },
+        {
+          "path": "output/multibook_analysis.json",
+          "sha256": "b65764559c4e6efe60c13567ffdb607611fbdadc0e8edba1cca2b340d063e11c"
+        },
+        {
+          "path": "inputs/tico.dev100.json",
+          "sha256": "006d673eeb7ba371004bac9027e195b89219b7483c8eee8428db8eb1f6f423a3"
+        },
+        {
+          "path": "inputs/tico.confirm.json",
+          "sha256": "4c373cc4803577b786d9fb6e064734549eb3c98681e93c954b6b4a576585c24e"
+        },
+        {
+          "path": "inputs/old_candidate_evaluation.json",
+          "sha256": "9b1bdaef9c1a0b49f7fae5e312fc5af3dbf23c5843060a005a4e6e4b72350a36"
+        },
+        {
+          "path": "output/full_minmax.merges",
+          "sha256": "2cd26d5eeec672af69d6c88a9c6df8a370a141ef397b724b25785ef7d615a198"
+        },
+        {
+          "path": "output/full_minmax.trace.json",
+          "sha256": "6e43044f6b665d8f77f5717fd37afa5fa321054813e37c7f698f7f03b70efdb4"
+        },
+        {
+          "path": "output/full_pooled.merges",
+          "sha256": "eed303981994c96bf1afe45fe353f154c771086002f35a66911140adbe238a3c"
+        },
+        {
+          "path": "output/full_pooled.trace.json",
+          "sha256": "a4a85b25c576ba48e02f24dc656a57733747be04dbe856cf28063b4b471c3f89"
+        }
+      ],
+      "outputs": [
+        "output/full_candidate_evaluation.json",
+        "output/full_candidate_summary.json",
+        "output/full_evaluation.resources.json"
+      ]
+    }
+  ]
+}

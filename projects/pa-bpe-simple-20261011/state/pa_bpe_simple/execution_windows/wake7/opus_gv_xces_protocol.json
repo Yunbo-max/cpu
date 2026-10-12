@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "frozen_at_utc": "2026-10-12T00:49:00Z",
+  "source": {
+    "name": "OPUS GlobalVoices",
+    "release": "v2018q4",
+    "official_page": "https://opus.nlpl.eu/legacy/GlobalVoices.php",
+    "format_page": "https://opus.nlpl.eu/download-formats",
+    "source_license_page": "https://globalvoices.org/about/global-voices-attribution-policy/",
+    "alignment_files": {
+      "en-fr": {"url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/xml/en-fr.xml.gz", "content_length_bytes": 1693015, "etag": "d39ba637ceffde73bc8e338b179db3e3", "last_modified": "Fri, 13 Nov 2020 07:42:48 GMT"},
+      "en-es": {"url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/xml/en-es.xml.gz", "content_length_bytes": 4082911, "etag": "2c84367ba7396de8ec62e1ad1f75f818", "last_modified": "Fri, 13 Nov 2020 07:42:54 GMT"},
+      "es-fr": {"url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/xml/es-fr.xml.gz", "content_length_bytes": 1616380, "etag": "266291d62556db51cde2b4f2dd94df58", "last_modified": "Fri, 13 Nov 2020 07:42:46 GMT"}
+    }
+  },
+  "allowed_now": [
+    "Download and hash only the three XCES alignment metadata files.",
+    "Parse XML tag names and structural attributes including fromDoc, toDoc, id and xtargets.",
+    "Count link groups and links and determine whether stable document and sentence identities are present."
+  ],
+  "forbidden_now": [
+    "Download raw language text archives.",
+    "Read story text or score a tokenizer.",
+    "Treat pairwise XCES links as trilingual rows before a closed-component construction is frozen and checked."
+  ],
+  "advance_rule": "Advance to closed-component reconstruction only if all three objects match advertised sizes, decompress and parse without error, and expose document references plus sentence-link identities.",
+  "confirmation_rule": "At least 512 closed trilingual units will later be required; row selection, tokenizer, vocabulary, preprocessing, metric and cost constraint must be frozen before raw text or tokenization outcomes are opened."
+}

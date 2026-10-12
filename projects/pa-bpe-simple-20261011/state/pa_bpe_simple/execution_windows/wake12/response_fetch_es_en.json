@@ -1,0 +1,40 @@
+{
+  "response_id": "wake12-fetch-es-en-after-fr-v1",
+  "request_id": "decision-c445ca4609c8460a8690ecf41729231e",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The frozen French archive was fetched and byte/hash-bound without raw-text or tokenizer inspection; fetch the remaining two archives under the same result-blind source contract before building fingerprints.",
+  "tasks": [
+    {
+      "task_id": "fetch-globalvoices-es-wake12-v1",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "PYTHONHASHSEED=0", "python3", "scripts/measure_command.py", "output/fetch_es.resources.json", "scripts/fetch_raw_archive.py", "--manifest", "confirmation_raw_source_manifest.json", "--language", "es", "--output", "inputs/opus_gv_v2018q4/raw/es.zip", "--receipt", "output/fetch_es.json"],
+      "phase": "sources",
+      "purpose": "Fetch and hash the real Spanish OPUS GlobalVoices raw archive without inspecting text or outcomes.",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "confirmation_raw_source_manifest.json", "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"},
+        {"path": "scripts/fetch_raw_archive.py", "sha256": "037b8cf015027268d4d9648847d35fdfdaea5535dc3c8cc4d8174093ac02d7eb"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"}
+      ],
+      "outputs": ["inputs/opus_gv_v2018q4/raw/es.zip", "output/fetch_es.json", "output/fetch_es.resources.json"]
+    },
+    {
+      "task_id": "fetch-globalvoices-en-wake12-v1",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "PYTHONHASHSEED=0", "python3", "scripts/measure_command.py", "output/fetch_en.resources.json", "scripts/fetch_raw_archive.py", "--manifest", "confirmation_raw_source_manifest.json", "--language", "en", "--output", "inputs/opus_gv_v2018q4/raw/en.zip", "--receipt", "output/fetch_en.json"],
+      "phase": "sources",
+      "purpose": "Fetch and hash the real English OPUS GlobalVoices raw archive without inspecting text or outcomes after the Spanish source settles.",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": ["fetch-globalvoices-es-wake12-v1"],
+      "input_refs": [
+        {"path": "confirmation_raw_source_manifest.json", "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"},
+        {"path": "scripts/fetch_raw_archive.py", "sha256": "037b8cf015027268d4d9648847d35fdfdaea5535dc3c8cc4d8174093ac02d7eb"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"}
+      ],
+      "outputs": ["inputs/opus_gv_v2018q4/raw/en.zip", "output/fetch_en.json", "output/fetch_en.resources.json"]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "submission_id": "spanish-source-qualification-wake8-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "spanish-source-qualification-wake8",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/spanish_source.resources.json", "scripts/qualify_spanish_source.py"],
+      "phase": "diagnostic",
+      "purpose": "Qualify official Spanish FineWeb2 source access and provenance without promoting viewer-order rows to training input.",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "window_parent_binding.json", "sha256": "a0d1479560cd88ed4f565b1b49ac48deb4bb4c7d23d1d5fc0664af53c93e46cd"},
+        {"path": "spanish_source_protocol.json", "sha256": "81a90afe02796dcf8c369a8afa8bb90f262454711e96bc369c70f41e201b5e64"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"},
+        {"path": "scripts/qualify_spanish_source.py", "sha256": "e01485bd20df4fcecaaa9f38c3c8ff8d4f04829a6427aa6d76bcaf20ddabc7ca"}
+      ],
+      "outputs": ["inputs/fineweb2_spa_first_rows.json", "output/spanish_source_qualification.json", "output/spanish_source.resources.json"]
+    }
+  ]
+}

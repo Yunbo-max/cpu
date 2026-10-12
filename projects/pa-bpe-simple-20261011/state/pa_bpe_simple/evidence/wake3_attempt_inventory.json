@@ -1,0 +1,220 @@
+[
+  {
+    "task_id": "merge-descent-audit-wake3",
+    "attempt_id": "attempt-0c564d34949c4898a2672616e9da7b35",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/merge_descent.resources.json",
+      "scripts/audit_merge_descent.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2.821917551991646,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-0c564d34949c4898a2672616e9da7b35/receipt.json"
+  },
+  {
+    "task_id": "multibook-raw-eval-wake3",
+    "attempt_id": "attempt-185a14ff46c84478b5c453d4d338b3bb",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/multi.resources.json",
+      "scripts/score_raw.py",
+      "multi"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 8.72371515299892,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-185a14ff46c84478b5c453d4d338b3bb/receipt.json"
+  },
+  {
+    "task_id": "independent-table-verification-wake3",
+    "attempt_id": "attempt-27eb79cd378c473fb16835c8e557da4d",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/table_verification.resources.json",
+      "scripts/verify_raw_tables.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.21015514600730967,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-27eb79cd378c473fb16835c8e557da4d/receipt.json"
+  },
+  {
+    "task_id": "paired-raw-rescore-wake3",
+    "attempt_id": "attempt-3b02f528c5494380aad0324842ef986a",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/paired.resources.json",
+      "scripts/score_raw.py",
+      "paired"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2.6727725210075732,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-3b02f528c5494380aad0324842ef986a/receipt.json"
+  },
+  {
+    "task_id": "pair-aware-pilot-wake3",
+    "attempt_id": "attempt-720c66ff12ce412cb0cc464249b243fb",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/pair_pilot.resources.json",
+      "scripts/train_pair_aware.py",
+      "minmax",
+      "100",
+      "pilot_pair_minmax"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2.230251691013109,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-720c66ff12ce412cb0cc464249b243fb/receipt.json"
+  },
+  {
+    "task_id": "pair-candidate-evaluation-wake3",
+    "attempt_id": "attempt-72b93cc08e314ea6afe92e73f3575342",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/pair_evaluation.resources.json",
+      "scripts/evaluate_pair_candidates.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 1.650249949991121,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-72b93cc08e314ea6afe92e73f3575342/receipt.json"
+  },
+  {
+    "task_id": "fallback-pool-audit-wake3",
+    "attempt_id": "attempt-755621d983db4a60a6147946b488c55b",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/fallback_audit.resources.json",
+      "scripts/audit_fallback_pool.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2.2540401729929727,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-755621d983db4a60a6147946b488c55b/receipt.json"
+  },
+  {
+    "task_id": "raw-en-wake3",
+    "attempt_id": "attempt-8e9282e82eb249fcb56b0c549f3251b0",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/raw_en.resources.json",
+      "scripts/recover_raw.py",
+      "en"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 6.80038385700027,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-8e9282e82eb249fcb56b0c549f3251b0/receipt.json"
+  },
+  {
+    "task_id": "raw-es-wake3",
+    "attempt_id": "attempt-909d25f9a70b4edc88cac19a19a8497e",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/raw_es.resources.json",
+      "scripts/recover_raw.py",
+      "es"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 4.213619094007299,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-909d25f9a70b4edc88cac19a19a8497e/receipt.json"
+  },
+  {
+    "task_id": "pair_pooled-train-wake3",
+    "attempt_id": "attempt-a2887d49b6024ada8ad40e3b145e7b5c",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/pair_pooled.resources.json",
+      "scripts/train_pair_aware.py",
+      "pooled",
+      "1000",
+      "pair_pooled"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 30.90253500000108,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-a2887d49b6024ada8ad40e3b145e7b5c/receipt.json"
+  },
+  {
+    "task_id": "raw-fr-wake3",
+    "attempt_id": "attempt-a343fb0d8dff48eca022f1cdc815c333",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/raw_fr.resources.json",
+      "scripts/recover_raw.py",
+      "fr"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 4.0079463480069535,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-a343fb0d8dff48eca022f1cdc815c333/receipt.json"
+  },
+  {
+    "task_id": "pair_minmax-train-wake3",
+    "attempt_id": "attempt-f150460fc4c842889db409d04ee54bf5",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/pair_minmax.resources.json",
+      "scripts/train_pair_aware.py",
+      "minmax",
+      "1000",
+      "pair_minmax"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 31.787480200000573,
+    "receipt": "execution_windows/wake3/.research-autopilot/runner/attempts/attempt-f150460fc4c842889db409d04ee54bf5/receipt.json"
+  }
+]

@@ -1,0 +1,67 @@
+{
+  "attempt_id": "attempt-a0498cd7a59f409f924b5a5e3629430f",
+  "command_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 267907,
+    "start_ticks": 12633142
+  },
+  "contract_sha256": "710c450f3d27782915c0a961e56a77d9b30a0379c27e4ebf62cc9adb33b602d1",
+  "elapsed_seconds": 0.08711432099516969,
+  "error": "Command exited with status 1; Cannot safely read output/decontam_selector_verification.json: [Errno 2] No such file or directory: 'decontam_selector_verification.json'",
+  "exit_code": 1,
+  "finished_at": "2026-10-12T04:39:07.881390+00:00",
+  "input_refs": [
+    {
+      "path": "decontamination_selector_protocol.json",
+      "sha256": "ca1f80a5641a7d0e89f08d3311c9818b5fed7dd2b140792116495d2dd8cf2592"
+    },
+    {
+      "path": "scripts/decontam_selector.py",
+      "sha256": "528aa4b6db63feda1657c0d79485dc0e6351b93ccbed4926e6465fef99bea2b1"
+    },
+    {
+      "path": "scripts/verify_decontam_selector.py",
+      "sha256": "6571ca2e98da4ec1a990fed53f27b615e302e12a4535ae3edb57a6a3562d67f3"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    },
+    {
+      "path": "inputs/en_probe.json",
+      "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"
+    },
+    {
+      "path": "inputs/fr_probe.json",
+      "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"
+    },
+    {
+      "path": "inputs/es_probe.json",
+      "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/decontam_selector_verification.resources.json",
+      "sha256": "cb12bf734086662dd93b1f778206e17a7e682cc58b56fdc17bc0ad04d945678a"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/wake11_project/pa_bpe_simple/execution_windows/wake11",
+  "schema_version": 1,
+  "started_at": "2026-10-12T04:39:07.794276+00:00",
+  "status": "failed",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-a0498cd7a59f409f924b5a5e3629430f/stderr.txt",
+    "sha256": "2b2ca935bd52427972adabd4be3e8698e084bf33142182349395352e0e256bf3"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-a0498cd7a59f409f924b5a5e3629430f/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "verify-decontam-selector-wake11-v1",
+  "worker_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 267906,
+    "start_ticks": 12633137
+  }
+}

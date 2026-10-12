@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "plan_id": "wake3-raw-preprocessing-and-work-generalization-v1",
+  "created_utc": "2026-10-11T20:33:00Z",
+  "scope": {
+    "project": "pa-bpe-simple-20261011",
+    "idea": "pa-bpe-domain-robustness",
+    "revision": 1,
+    "parent_goal_contract_version": 2,
+    "executor_window_goal_contract_version": 1,
+    "status": "prospective measurement repair and fixed-model exploratory generalization",
+    "residual_required_coverage": [
+      "legal third-language training and vocabulary recalibration",
+      "strong applicable PA-BPE variants at larger vocabularies",
+      "complete historical source-work exposure map before pristine confirmation claims",
+      "nonliterary unseen domains and mechanism-led candidate revision"
+    ]
+  },
+  "paper_designs": [
+    {
+      "source": "https://aclanthology.org/2026.acl-long.342.pdf",
+      "locations": "Section 5 and Appendix B/C; retained extraction and original fixed source in parent checkpoint",
+      "inherited": "Fixed realized vocabulary and shared Whitespace+ByteLevel pretokenization, aligned language token costs and Gini",
+      "adaptation": "OPUS Books research-use aligned texts are a new CPU protocol, not FLORES paper reproduction; investigate raw-layer sensitivity and work heterogeneity before selecting a new method"
+    }
+  ],
+  "claims": [
+    {
+      "id": "preprocessing_sensitivity",
+      "required_comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "prediction": "If external tokenization materially changes the comparison, raw versus annotated text will change per-arm token counts and may reverse robust_domain minus Classical Gini sign; invariance is an admissible negative result.",
+      "rival": "Actual Whitespace pretokenization removes most whitespace/apostrophe differences, making the format label consequential for provenance but not observed scores."
+    },
+    {
+      "id": "work_generalization",
+      "required_comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "prediction": "The fixed robust_domain candidate does not uniformly dominate Classical across newly scored native works; fairness and total/worst token costs may trade off.",
+      "rival": "Previously opposed two-book results may be narrow sampling or text-format artifacts."
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "raw-versus-annotated-same-ids",
+      "arms": "All nine existing parent runs/*.merges; no retraining or selection",
+      "data": "Alice and Poe, exact en/fr sentence-ID pairs from previous three-way TSV; replace only sentence text with official untokenized raw XML; reject missing IDs, duplicates or altered coverage",
+      "metrics": [
+        "Gini of language means",
+        "per-language mean costs",
+        "worst-language cost",
+        "sum of language means",
+        "mean sentence Gini",
+        "number/fraction of changed texts and changed token-cost pairs",
+        "robust minus Classical contrast per work and protocol"
+      ],
+      "statistics": "Paired deterministic measurement repair, no significance claim; report exact changes and sign reversals. Old books already exposed.",
+      "execution": {
+        "task_ids": [
+          "raw-en-wake3",
+          "raw-fr-wake3",
+          "raw-es-wake3",
+          "paired-raw-rescore-wake3"
+        ],
+        "outputs": [
+          "output/paired_raw_rescore.json"
+        ]
+      },
+      "outcome_rules": "If only format differs, correct provenance without inventing method failure. If counts/rankings differ, mark old scores protocol-specific, retain originals and use raw measurements going forward."
+    },
+    {
+      "id": "fixed-nine-arms-new-works",
+      "arms": "Same nine frozen parent tokenizers; primary robust_domain vs classical, other comparisons descriptive",
+      "data": "The other 10 of the 12 native common works (excluding Alice and Poe); include nonempty en-fr XCES units, including many-to-many, join original raw sentences in released order with a single space; up to512 aligned units/work selected by SHA256('pa-bpe-w3-v1|work|link-ordinal|IDs') before any outcome scoring; headings remain unless outside s elements",
+      "metrics": [
+        "equal-work mean Gini",
+        "Gini of equal-work language means",
+        "worst-language and total token cost per work",
+        "paired robust-Classical differences and direction counts"
+      ],
+      "statistics": "Book is the summary unit. Descriptive exploratory estimates and paired work bootstrap 5000 resamples, seed20261011. 10 works include repeated authors and therefore bootstrap intervals are sensitivity summaries, not population-calibrated causal inference. Other eight-arm contrasts no multiplicity-controlled significance claim.",
+      "exposure": "Frozen existing models, no tuning on these outputs. Full old HF work mapping remains incomplete, so do not claim pristine independent confirmation.",
+      "execution": {
+        "task_ids": [
+          "multibook-raw-eval-wake3"
+        ],
+        "outputs": [
+          "output/multibook_raw_evaluation.json",
+          "output/multibook_analysis.json"
+        ]
+      },
+      "outcome_rules": "No single aggregate establishes uniform dominance. If gain fails or costs rise, retain mixed/negative result and investigate mechanisms before new candidate."
+    }
+  ],
+  "resources": {
+    "authorization": "parent evidence/continuous_authorization_20261011.json; no cumulative cap",
+    "inventory_refs": [
+      "parent evidence/resources_wake3.json"
+    ],
+    "placement": "current host CPU only,1 process1thread",
+    "batch_max_attempts": 12,
+    "batch_max_command_wall_seconds": 600,
+    "command_timeout_seconds": 120,
+    "rss_target_bytes": 2147483648,
+    "calibration": "Prior two-work nine-arm eval wall1.391s, RSS retained; up to5120 new paired units estimated under40s, will measure; downloads conservatively <=100s each",
+    "unknown": "model tokens and unrelated host contention; no efficiency superiority claim"
+  },
+  "source_terms": {
+    "url": "https://opus.nlpl.eu/legacy/Books.php",
+    "verified_date": "2026-10-11",
+    "use": "personal educational research permitted with source acknowledgment; no mass redistribution or commercial rights claimed"
+  },
+  "changes_after_outcome": "Create new version and record exposure; do not overwrite this plan."
+}

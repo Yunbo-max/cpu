@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "purpose": "Freeze immutable file identities for the official FineWeb/FineWeb2 companion training design before selecting or opening additional payload rows.",
+  "sources": [
+    {"language": "en", "repo": "HuggingFaceFW/fineweb", "revision": "9bb295ddab0e05d785b879661af7260fed5140fc", "tree_path": "data/CC-MAIN-2013-20", "expected_parquet_files": 205, "retained_repo_metadata_sha256": "589232cb4b91dc0c4278a83cac1d8e1f6a33b5dd8325229e47b5679812a4ce44"},
+    {"language": "fr", "repo": "HuggingFaceFW/fineweb-2", "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9", "tree_path": "data/fra_Latn/train", "expected_parquet_files": 135, "retained_repo_metadata_sha256": "fa6a0861d431b3b944b2bee9c6185020d7e5cd42b39271d1c6dcc36715bcea57"},
+    {"language": "es", "repo": "HuggingFaceFW/fineweb-2", "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9", "tree_path": "data/spa_Latn/train", "expected_parquet_files": 146, "retained_repo_metadata_sha256": "fa6a0861d431b3b944b2bee9c6185020d7e5cd42b39271d1c6dcc36715bcea57"}
+  ],
+  "api": "https://huggingface.co/api/datasets/{repo}/tree/{revision}/{tree_path}?recursive=true&expand=true&limit=100",
+  "acceptance": [
+    "HTTP 200 for every page at the pinned revision",
+    "exact expected parquet path count for each language",
+    "unique paths and Git/LFS identities",
+    "every file has a 64-hex Git LFS oid and matching positive LFS/file size",
+    "no payload bytes are downloaded"
+  ],
+  "scope": "Source identity only; not a selected training sample, tokenizer experiment, or decontamination result."
+}

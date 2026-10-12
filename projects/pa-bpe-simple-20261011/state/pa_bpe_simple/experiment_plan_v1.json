@@ -1,0 +1,76 @@
+{
+  "design_id": "cross-domain-pilot-v1",
+  "created_utc": "2026-10-11T18:43:11.568522+00:00",
+  "goal_contract_version": 1,
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "exposure": "Prospective; no trained tokenizers or outcome scores seen",
+  "question": "Does PA-BPE TICO development fairness transfer to unseen TICO sentences and Books literary text?",
+  "prediction": "TICO-trained PA reduces TICO Gini vs Classical; transfer could attenuate or reverse. No claim of failure until measured.",
+  "scope": "Bilingual en/fr 40 web documents per language, 1000 merges; new protocol, not original reproduction. Books first100 contiguous lines is diagnostic; no across-book inference.",
+  "data": "data/manifest.json",
+  "splits": {
+    "dev": "200 hash-selected TICO official dev rows",
+    "id_pilot": "200 hash-selected TICO official test rows",
+    "ood_pilot": "first100 aligned OPUS Books en-fr records; exposed as pilot only",
+    "future_confirmation": "Unselected TICO test and disjoint Books titles/records untouched"
+  },
+  "arms": [
+    "classical",
+    "base",
+    "window_a1",
+    "hybrid500",
+    "ratio_equal",
+    "ratio_dev",
+    "balanced"
+  ],
+  "arm_parameters": {
+    "all": "1000 merges,min_frequency2,1thread,no total-symbols,no preload",
+    "window_a1": "window100 alpha1; deliberate effective bilingual setting",
+    "hybrid500": "base with first500 global of1000total",
+    "ratio_equal": [
+      1,
+      1
+    ],
+    "ratio_dev": [
+      1.0,
+      1.2598905654120378
+    ],
+    "balanced": "Classical dictionary from language-equal multinomial pretoken occurrences at SAME TOTAL pretoken count; seed20261011. One declared simple control, changes distribution not budget."
+  },
+  "metrics": {
+    "primary": "Pairwise Gini of language mean token costs over the SAME aligned rows; lower better",
+    "independent": "Sorted-form Gini; exact tokenizer-vs-sequential-merge token-string agreement",
+    "also": [
+      "mean tokens per language",
+      "max mean language cost",
+      "sum of language means",
+      "mean per-sentence Gini",
+      "actual unique vocabulary",
+      "actual merges"
+    ]
+  },
+  "fairness": {
+    "information": "base/window/hybrid/ratio_dev see same200dev rows; ratio_equal/ordinary/unsupervisedbalanced see no dev. Report this difference; no outcome-driven tuning.",
+    "tokenization": "Underlying tokenizers BPE with native training pretokenizer Whitespace→ByteLevel(use_regex=False), full byte alphabet, no special tokens. Explicitly adapted scorer, not unverified author HF wrapper.",
+    "cost": "same mergecount/word boundary rules; record runtime/RSS, no timing superiority due sharedhost",
+    "stopping": "If vocab mismatch or scorer validation fails, no ranking until correction; do not change frozen results silently"
+  },
+  "outcome_rules": {
+    "support_failure": "I_TICOtest>0 and I_Books<=0 is diagnostic failure; attenuation I_TICOtest-I_Books>0 motivates mechanism only",
+    "no_failure": "positive Books gain without adequate independent domains does not prove global robustness",
+    "inconclusive": "small sample, unequal vocab, invalid score or conflicting tradeoffs; retain negatives"
+  },
+  "statistics": "Descriptive pilot only; no p-values from dependent first100book lines. Preserve paired costs and row IDs for later grouped uncertainty.",
+  "resources": {
+    "threads": 1,
+    "processes": 1,
+    "task_timeout": 70,
+    "wake_wall_limit": 600,
+    "wake_attempts_limit": 12,
+    "phase_wall_limit": 3600,
+    "gpu": false,
+    "paid_api": false
+  },
+  "remaining": "thirdlanguage and wider domain/book coverage, matched informative simple pooled/domain-swap controls, mechanism-based candidate and independent confirmation"
+}

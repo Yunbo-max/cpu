@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "window": "wake5",
+  "incidents": [
+    {
+      "observed_at_utc": "2026-10-11T22:28:00Z",
+      "kind": "stale_writer_metadata",
+      "evidence": "evidence/wake5_stale_global_writer_owner.json",
+      "impact": "No active PA-BPE process was found; stale generation-4 ownership metadata could not be treated as a live writer.",
+      "repair": "Archived the stale owner and took the generation-5 writer lock after verifying Library version 5 and no live project job."
+    },
+    {
+      "observed_at_utc": "2026-10-11T22:29:00Z",
+      "kind": "absolute_root_bound_prior_runner",
+      "impact": "The restored wake4 SQLite journal refused status under the new materialization root, as designed.",
+      "repair": "Preserved prior terminal receipts/status without altering the database and initialized a distinct wake5 finite runner."
+    },
+    {
+      "observed_at_utc": "2026-10-11T22:33:17Z",
+      "kind": "runner_cli_path_error",
+      "impact": "A submit command used a plan path relative to the wrong directory; no scientific attempt was launched.",
+      "repair": "Resubmitted with the full project-relative plan path."
+    },
+    {
+      "observed_at_utc": "2026-10-11T22:33:21Z",
+      "kind": "optional_stored_metric_key_error",
+      "attempt_id": "attempt-a9ee799ace9640909cf264cefaca3fed",
+      "exit_code": 1,
+      "wall_seconds": 0.2653758209926309,
+      "evidence": "execution_windows/wake5/.research-autopilot/runner/attempts/attempt-a9ee799ace9640909cf264cefaca3fed/stderr.txt",
+      "impact": "The first mass-cancellation audit expected mean_sentence_gini in legacy TICO records; it emitted no declared scientific outputs.",
+      "repair": "Made the stored-field comparator conditional while still independently recomputing the metric from paired_costs; replacement attempt succeeded."
+    },
+    {
+      "observed_at_utc": "2026-10-11T22:34:00Z",
+      "kind": "rg_loader_fault",
+      "symptom": "fatal library error, lookup self",
+      "impact": "Process filtering with rg failed; Python, runner, results and archive inputs remained available.",
+      "repair": "Used ps plus awk for process identity checks. This is a recurrence of the intermittent host-tool incident seen in wake4."
+    },
+    {
+      "observed_at_utc": "2026-10-11T22:34:00Z",
+      "kind": "controlled_idle_supervisor_exit",
+      "impact": "Runner health subsequently reports the retained supervisor identity as lost.",
+      "repair": "No repair required: all three attempts were terminal, reservation was zero, and the idle supervisor was deliberately interrupted before archiving."
+    }
+  ]
+}

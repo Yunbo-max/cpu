@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "review": "review/wake6_conditional_shift_review.md",
+  "review_sha256": "45048ed8df99c811a18270777a8e97f73215a34995fbbc8576562dd29f16178a",
+  "status": "accepted",
+  "accepted_at_utc": "2026-10-11T23:38:00Z",
+  "binding_check": "Reviewer reported all six assigned input SHA-256 values matched before review.",
+  "adopted": [
+    "Treat the TICO-reference decomposition as an exact descriptive sample identity, not a causal mechanism decomposition.",
+    "Report partition dependence explicitly: gap-sign grouping assigns most of the full_minmax shift to composition, while length grouping assigns most to within-group residual.",
+    "Do not use magnitude dominance, percentages, or the exposed decomposition to select a new tokenizer.",
+    "Audit joint support before any refinement and do not estimate the 3-by-4 outcome table when TICO cells are empty or contain only one row."
+  ],
+  "result": "Accepted. The observed total cross-domain fairness-gain shift is robust algebraically, but attribution is non-identifiable and partition-dependent. The later support audit confirmed that a 3-by-4 refinement has one Books-positive/TICO-empty cell and minimum nonzero TICO count one.",
+  "scope": "Read-only mathematical/protocol review; no independent experiment, causal inference, confirmation, or method-selection claim."
+}

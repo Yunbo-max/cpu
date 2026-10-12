@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "review": "review/wake9_training_shard_review.md",
+  "review_sha256": "0ab8d65e3a5a676544a8fde34522a84be3302c58d50ee10315d20a50ef8e78a2",
+  "coordinator_decision": {
+    "immutable_candidate_shard_identity": "PASS",
+    "payload_sampling_and_training": "HOLD"
+  },
+  "accepted_findings": [
+    "The 486 candidate files are reproducibly named by repository, pinned revision, tree path, file path, LFS SHA-256, and recorded byte size.",
+    "Independent recomputation matches counts 205/135/146, total 1599407518909 bytes, manifest hashes, uniqueness, and zero pairwise whole-file LFS overlap.",
+    "Whole-file identity does not establish row-level decontamination, matched language budgets, a selected training set, or tokenizer validity.",
+    "The artifacts retain one size field rather than independent API file-size and LFS-size fields; future retrieval must preserve both if equality is claimed."
+  ],
+  "required_before_sampling": [
+    "Freeze deterministic row identity, hash ranking, ties, duplicate/missing IDs, traversal, and replacement policy.",
+    "Freeze matched per-language row/document and information budgets plus truncation and filtering.",
+    "Create a selected-row manifest with source shard identity, stable row ID, content hash, rank, and exclusion reason.",
+    "Freeze and execute result-blind GlobalVoices URL/domain and exact/near-text decontamination.",
+    "Freeze normalization, pre-tokenization, malformed-row handling, tokenizer arms, merge budget, seeds, cost, and fairness metrics."
+  ],
+  "claim_boundary": "Source-file identity subgate only; no payload, selected corpus, tokenizer training, fairness comparison, confirmation result, or original-paper reproduction."
+}

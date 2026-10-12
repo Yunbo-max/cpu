@@ -1,0 +1,33 @@
+{
+  "delegation_id": "wake4-cost-constraint-review",
+  "generation": 1,
+  "lifecycle_state": "dispatching",
+  "parent": {
+    "project": "pa-bpe-simple-20261011",
+    "goal_contract_version": 2,
+    "window_goal_contract_version": 1,
+    "idea": "pa-bpe-domain-robustness",
+    "revision": 1,
+    "method_revision": 4,
+    "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "question": "Independently inspect whether the exact realized training-compression gain and lexicographic fairness-descent rule are mathematically and implementationally coherent, including repeated-symbol overlap, tie rules, matched controls and supported claim scope.",
+  "inputs": {
+    "execution_windows/wake4/scripts/train_efficiency_constrained.py": "8cf94da571e44a12ee2ab00d390dd28768ee104c5913383d1f547854ddf6fc1b",
+    "execution_windows/wake4/cost_constrained_plan.json": "579cf6e3a820546fc720a66174cccb7437446377787ac46dd2377f407a663d19",
+    "execution_windows/wake3b/output/full_candidate_summary.json": "971ba8f34c25681c3636e1ec990125420b38d049698bcc34054505076d21a113"
+  },
+  "write_scope": "review/wake4_cost_constraint_review.md",
+  "authority": {
+    "deadline_utc": "2026-10-11T21:38:00Z",
+    "scientific_commands": 0,
+    "further_delegation": false,
+    "model_tokens": "unknown",
+    "instructions": "Read-only code/math review. Do not train, score, launch numerical diagnostics, mutate runner state, or edit any other path. This is an exposed reviewer, not blind confirmation."
+  },
+  "launch": {
+    "task_name": "pa_bpe_cost_constraint_review_wake4",
+    "intent_recorded_at_utc": "2026-10-11T21:31:30Z",
+    "agent_id": "/root/pa_bpe_cost_constraint_review_wake4"
+  }
+}

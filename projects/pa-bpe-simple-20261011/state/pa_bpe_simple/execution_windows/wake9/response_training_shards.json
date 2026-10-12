@@ -1,0 +1,23 @@
+{
+  "response_id": "wake9-training-shard-identity-milestone-v1",
+  "request_id": "decision-28a275a3189c42a59182e8593bbfdc2c",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Record an immutable-source-identity milestone only; no corpus payload or tokenizer outcome was accessed, and the continuous research goal remains active.",
+  "events": [
+    {
+      "kind": "milestone",
+      "event_id": "fineweb-training-shard-identities-wake9",
+      "label": "Fixed-commit trilingual training-shard identities frozen",
+      "next_phase": "sources",
+      "reason": "At pinned repository revisions, 205 English FineWeb, 135 French FineWeb2, and 146 Spanish FineWeb2 Parquet files were enumerated with path, Git oid, LFS SHA-256, byte size, xet hash and last commit. All 486 entries are unique within language, have valid immutable LFS identities and positive sizes, and show zero cross-language LFS overlap; payload bytes downloaded were zero. The overall training gate remains HOLD until deterministic hash-ranked row sampling, matched per-language training budgets, and confirmation-corpus decontamination are frozen and validated.",
+      "evidence": [
+        {"path": "output/en_training_shards.json", "sha256": "ada44ec35d38c51e1126efc82014d41f652a33990d06ff5ffd7fb3bc5b8cdb32"},
+        {"path": "output/fr_training_shards.json", "sha256": "3943b5a6502ad2ceae04293e0a4fdeda9eaa7c0712dbdcedc7c4b3208b06e435"},
+        {"path": "output/es_training_shards.json", "sha256": "b9f5b0328054a96f0de46f29b25915a4bcbc378cfceaf6ff8c9472f2b1d4abd8"},
+        {"path": "output/training_shard_manifest_verification.json", "sha256": "7b273ed09b647835407c04a073d1cfa90aed494a445245d65308c8998deb3587"}
+      ]
+    }
+  ]
+}

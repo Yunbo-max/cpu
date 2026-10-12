@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "window": "wake6",
+  "incidents": [
+    {
+      "observed_at_utc": "2026-10-11T23:28:00Z",
+      "kind": "empty_global_writer_lock_directory",
+      "symptom": "The shared writer-lock directory existed without owner metadata and no matching project process was active.",
+      "impact": "The directory alone could not establish a live writer.",
+      "repair": "Removed only the empty lock directory after checking its contents and process state, then acquired generation-6 ownership with an explicit owner record."
+    },
+    {
+      "observed_at_utc": "2026-10-11T23:36:00Z",
+      "kind": "controlled_idle_supervisor_exit",
+      "symptom": "After all three scientific attempts succeeded, the coordinator interrupted the idle supervisor; health subsequently reported its retained identity as lost.",
+      "impact": "No scientific attempt is unknown: all three receipts are terminal-success, reservation is zero, and declared outputs exist.",
+      "repair": "Recorded the finite-window stop and retained the health diagnostic; the next wake must initialize a new finite runner rather than assume this supervisor remains alive."
+    }
+  ]
+}

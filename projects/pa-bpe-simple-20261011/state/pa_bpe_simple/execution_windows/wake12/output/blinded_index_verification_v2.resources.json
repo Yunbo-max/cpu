@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "scripts/verify_blinded_index.py",
+    "--database",
+    "output/globalvoices_blinded_fingerprints_v2.sqlite3",
+    "--summary",
+    "output/blinded_index_summary_v2.json",
+    "--units",
+    "inputs/reference/opus_gv_closed_components.json",
+    "--raw-dir",
+    "inputs/opus_gv_v2018q4/raw",
+    "--source-manifest",
+    "confirmation_index_build_manifest_v2.json",
+    "--raw-schema",
+    "output/raw_schema_v2.json",
+    "--selector-protocol",
+    "inputs/reference/decontamination_selector_protocol.json",
+    "--fetch-receipts",
+    "output",
+    "--output",
+    "output/blinded_index_verification_v2.json"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 6.014824633995886,
+  "user_cpu_seconds": 5.571168,
+  "system_cpu_seconds": 0.411039,
+  "peak_rss_bytes": 111669248,
+  "scope": "single Python scientific process including wrapper; no subprocesses"
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "request_id": "wake5-metric-diagnostic-review",
+  "delegation_id": "pa-bpe-wake5-metric-review",
+  "generation": 1,
+  "lifecycle_state": "running",
+  "launch": {
+    "intent_recorded_at_utc": "2026-10-11T22:30:00Z",
+    "correlation_label": "pa_bpe_metric_review_wake5",
+    "native_agent_id": "/root/pa_bpe_metric_review_wake5",
+    "launched_at_utc": "2026-10-11T22:30:30Z"
+  },
+  "parent_binding": {
+    "goal_mode": "continuous_research",
+    "goal_contract_version": 1,
+    "active_idea": "pa-bpe-domain-robustness",
+    "idea_revision": 1,
+    "checkpoint_generation": 5,
+    "manifest_sha256": "e3d107a2a72834e5ff5ab10539dea3198a97ce89f4605d6fb4fcbc30f3bfa61b",
+    "scientific_policy": "Research Autopilot Simple 0.3.0-simple.9"
+  },
+  "assignment": {
+    "question": "Does aggregate two-language Gini conceal sentence-level token-cost imbalance through signed-gap cancellation, and what precise diagnostic would distinguish objective mismatch from mere model ranking noise?",
+    "deliverable": "A read-only mathematical and protocol review with formula relations, edge cases, proposed deterministic metrics, predeclared interpretation rules, and cautions for the existing exposed bilingual data.",
+    "read_paths": [
+      "execution_windows/wake3/output/multibook_raw_evaluation.json",
+      "execution_windows/wake3/output/pair_candidate_evaluation.json",
+      "execution_windows/wake3b/output/full_candidate_evaluation.json",
+      "execution_windows/wake4/output/efficiency_candidate_evaluation.json",
+      "PA_BPE_Wake4_Report.md"
+    ],
+    "write_path": "review/wake5_metric_diagnostic_review.md",
+    "forbidden": [
+      "Do not modify runner, journal, checkpoint, plans, inputs, results or shared reports.",
+      "Do not launch experiments or scientific commands.",
+      "Do not delegate further.",
+      "Do not select a new method or claim confirmation."
+    ]
+  },
+  "input_refs": [
+    {"path": "execution_windows/wake3/output/multibook_raw_evaluation.json", "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"},
+    {"path": "execution_windows/wake3/output/pair_candidate_evaluation.json", "sha256": "da6d11dbd9a50111664f58c28ad20c9ea3b67e309b751ca3a895afb883b2ff20"},
+    {"path": "execution_windows/wake3b/output/full_candidate_evaluation.json", "sha256": "75c9b9983a0d53d693f02fded94da2e78acbfaa5ed522eec179e84f6e6ba4512"},
+    {"path": "execution_windows/wake4/output/efficiency_candidate_evaluation.json", "sha256": "d88df96a5d11405477098d10b11a6bea98e8c06a5bdf1c51379d2ff2a572f002"},
+    {"path": "PA_BPE_Wake4_Report.md", "sha256": "f2c0c5c30924d261345f90744f0948e6064f3a99ef31e17cad55aef416bc6736"}
+  ],
+  "authority": {
+    "source": "Existing CPU-only continuous-research authorization",
+    "experiments_permitted": false,
+    "further_delegation_permitted": false,
+    "model_usage": "unknown",
+    "deadline": "Return within the current host window"
+  }
+}

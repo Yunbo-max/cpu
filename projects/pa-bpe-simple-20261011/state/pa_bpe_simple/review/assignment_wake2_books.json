@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "delegation_id": "wake2-books-protocol-audit",
+  "generation": 1,
+  "lifecycle_state": "completed",
+  "intent_recorded_at_utc": "2026-10-11T19:30:30Z",
+  "parent": {
+    "goal_contract_version": 1,
+    "idea": "pa-bpe-domain-robustness",
+    "revision": 1,
+    "scientific_policy": "rsi-simple 0.3.0-simple.9",
+    "executor_source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "library_generation": 1
+  },
+  "inputs": [
+    {"path": "PA_BPE_Wake1_Report.md", "sha256": "6bcea50231a066f1c00cbfd488184d3a7dd811f2bdd0a30f643151653559cff3"},
+    {"path": "phase_budget.json", "sha256": "25507450950ee56b81ce312699757775d6594645db3ec1b1761f5fffeecd3cae"},
+    {"path": "data/manifest_v2.json", "sha256": "3975732ee246e2f74d0c072f27aadfe43c8fec2ee81536a87feb41799bbbd2d9"}
+  ],
+  "assignment": {
+    "question": "Can OPUS Books supply a genuinely book/source-document-disjoint English-French development and confirmation protocol, and what exact public source metadata/identifiers are needed?",
+    "deliverable": "A source-backed audit separating facts, inference and unknowns; inspect official OPUS/HF metadata and existing local rows. Propose a lawful, reproducible grouped split or conclude that current HF rows cannot support it.",
+    "write_scope": ["review/wake2_books_protocol_audit.md"],
+    "read_scope": ["PA_BPE_Wake1_Report.md", "data/", "evidence/books_*", "official public OPUS/Hugging Face pages"],
+    "experiments_permitted": false,
+    "subdelegation_permitted": false,
+    "external_writes_permitted": false
+  },
+  "authority": {
+    "deadline_utc": "2026-10-11T19:40:00Z",
+    "model_usage": "unknown unless exposed",
+    "scientific_command_budget": 0
+  },
+  "launch": {
+    "correlation_label": "pa_bpe_books_audit_wake2",
+    "native_agent_id": "/root/pa_bpe_metric_audit_wake1"
+  },
+  "completion": {
+    "completed_at_utc": "2026-10-11T19:47:00Z",
+    "result_path": "review/wake2_books_protocol_audit.md",
+    "result_sha256": "d7f22abbb6c9ac31a6f24e9fc24b0ecfb5bc1ae114f228e52d3e36a96d0937f9",
+    "acceptance_state": "accepted_with_coordinator_followup",
+    "model_usage": "unknown",
+    "scientific_command_budget_used_seconds": 0
+  }
+}

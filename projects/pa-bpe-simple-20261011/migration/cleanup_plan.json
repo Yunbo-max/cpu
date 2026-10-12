@@ -1,0 +1,31 @@
+{
+  "authorization": "User 2026-10-12: preserve PA-BPE history in Yunbo-max/cpu, verify upload, then remove this project temporary caches.",
+  "scope": "PA-BPE only",
+  "original_cache_directories": [
+    "wake14_restore",
+    "recovery13"
+  ],
+  "migration_cache_directories": [
+    "cpu_migration_repo",
+    "cpu_migration_verify",
+    "cpu_migration_stage"
+  ],
+  "reproducible_transfer_helper_cache": [
+    "library_upload_helper_wake14"
+  ],
+  "required_before_deletion": [
+    "Independent remote checkout at published commit",
+    "All payload, manifest, archive and original file identities verified",
+    "No active PA-BPE writer or science job",
+    "No new or changed original source file since inventory",
+    "Durable verification receipt published"
+  ],
+  "forbidden": [
+    "Deleting workspace root",
+    "Deleting another project",
+    "Force pushing",
+    "Clearing global page cache",
+    "Terminating another project process"
+  ],
+  "status": "planned, not yet deleted"
+}

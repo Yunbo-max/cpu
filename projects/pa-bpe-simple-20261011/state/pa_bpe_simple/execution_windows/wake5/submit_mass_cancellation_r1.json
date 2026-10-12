@@ -1,0 +1,41 @@
+{
+  "submission_id": "mass-cancellation-audit-wake5-r1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "mass-cancellation-audit-wake5-r1",
+      "supersedes": "mass-cancellation-audit-wake5",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/mass_cancellation.resources.json",
+        "scripts/analyze_mass_cancellation.py"
+      ],
+      "phase": "analysis",
+      "purpose": "Repair missing optional stored TICO macro fields, then execute the same predeclared exact token-mass cancellation and author-block stability audit.",
+      "timeout_seconds": 30,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "mass_cancellation_plan.json", "sha256": "d970f22d1359a5476bc46705415210b306c132d7d7fd962f6c5ab9b526c0bab5"},
+        {"path": "window_parent_binding.json", "sha256": "1c0c5981dfcb1e6a0c1004bf40bef80bcd1de272484b6fc482100de3f26b439c"},
+        {"path": "scripts/analyze_mass_cancellation.py", "sha256": "e93b97bd0c467aa39c4fb742358de9e978c0963acae8bac334aa3cd30124e5a7"},
+        {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+        {"path": "inputs/efficiency_candidate_evaluation.json", "sha256": "d88df96a5d11405477098d10b11a6bea98e8c06a5bdf1c51379d2ff2a572f002"},
+        {"path": "inputs/full_candidate_evaluation.json", "sha256": "75c9b9983a0d53d693f02fded94da2e78acbfaa5ed522eec179e84f6e6ba4512"},
+        {"path": "inputs/multibook_raw_evaluation.json", "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"},
+        {"path": "inputs/pair_candidate_evaluation.json", "sha256": "da6d11dbd9a50111664f58c28ad20c9ea3b67e309b751ca3a895afb883b2ff20"}
+      ],
+      "outputs": [
+        "output/mass_cancellation_audit.json",
+        "output/mass_cancellation_summary.md",
+        "output/mass_cancellation.resources.json"
+      ]
+    }
+  ]
+}

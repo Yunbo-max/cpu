@@ -1,0 +1,56 @@
+{
+  "response_id": "prepare-v2-response-w1",
+  "request_id": "decision-d42e85a7e5b64c9789649ae451fb162e",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Observed domain reversal motivates matched pooled control and predeclared domain-normalized candidate; preserve v1 and separate confirmation",
+  "tasks": [
+    {
+      "task_id": "prepare-v2-w1",
+      "argv": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "runs/prepare_v2.resources.txt",
+        "python3",
+        "scripts/prepare_candidate.py"
+      ],
+      "phase": "verify",
+      "purpose": "Accept exact seven v1 arms, prepare matched candidate development and untouched confirmation",
+      "timeout_seconds": 30,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/prepare_candidate.py",
+          "sha256": "926a37d6f3d8433f65f58818cefa53fbbc9217e19075e571d06c268458760d00"
+        },
+        {
+          "path": "experiment_plan_v2.json",
+          "sha256": "913e67b88ad4c16159a5c92e725f26a9131079e1cc2ba96b52edd4f89856ab15"
+        },
+        {
+          "path": "runs/evaluation_v1.json",
+          "sha256": "9e52a4d690c2e5c53ec591e3ef85f52ae284d0b981d0c6b65fa7e74b3c8e0d58"
+        },
+        {
+          "path": "data/manifest.json",
+          "sha256": "8b26a50989582e714147415c9092524afbd8d0cf1c9db3385ff1883c8c53e1e3"
+        },
+        {
+          "path": "evidence/books_dev_v2.json",
+          "sha256": "18f5cbac409f68c4cf8116d95a24afc8cfb6e19e947ade2f1f735b4728e04b01"
+        },
+        {
+          "path": "evidence/books_confirm_v2.json",
+          "sha256": "793e83695cf269e8fee3bfcfb9b101f2b865d1f5fea95d45b5fb9e8f7256aa46"
+        }
+      ],
+      "outputs": [
+        "data/manifest_v2.json",
+        "runs/prepare_v2.resources.txt"
+      ]
+    }
+  ]
+}

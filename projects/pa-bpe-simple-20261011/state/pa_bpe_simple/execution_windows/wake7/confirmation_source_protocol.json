@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "frozen_at_utc": "2026-10-12T00:43:00Z",
+  "question": "Can Parallel Global Voices provide genuinely unexposed, legally usable, content-aligned English-French-Spanish confirmation rows?",
+  "source": {
+    "name": "Parallel Global Voices (PGV)",
+    "official_page": "https://nlp.ilsp.gr/pgv/",
+    "collection_period": "2015-2016",
+    "rights_statement_from_official_page": "Original Global Voices content is available under CC Attribution; distributed document and segment alignment results are CC BY 4.0.",
+    "citation": "Prokopidis, Papavassiliou and Piperidis (LREC 2016), Parallel Global Voices: a Collection of Multilingual Corpora with Citizen Media Stories",
+    "metadata_url": "https://nlp.ilsp.gr/pgv/meta/docpairs.txt.zip",
+    "metadata_http": {
+      "last_modified": "Sat, 12 Mar 2016 13:20:57 GMT",
+      "etag": "2f4022-52dd9eb069a01",
+      "content_length_bytes": 3096610,
+      "content_type": "application/zip"
+    },
+    "pair_archives": {
+      "eng-fra": {"url": "https://nlp.ilsp.gr/pgv/archives/eng-fra.html.zip", "content_length_bytes": 62416369},
+      "eng-spa": {"url": "https://nlp.ilsp.gr/pgv/archives/eng-spa.html.zip", "content_length_bytes": 113403821},
+      "fra-spa": {"url": "https://nlp.ilsp.gr/pgv/archives/fra-spa.html.zip", "content_length_bytes": 54497787}
+    }
+  },
+  "data_firewall": {
+    "allowed_now": [
+      "Download and hash the official docpairs metadata archive.",
+      "Inspect member names, delimiters, language tags and document identifiers.",
+      "Count pairwise and three-language document support without reading story text or tokenization outputs."
+    ],
+    "forbidden_now": [
+      "Inspect story text or tokenizer scores.",
+      "Choose or tune a tokenizer using PGV.",
+      "Call pairwise alignments trilingual rows without an explicit common identity and transitivity check."
+    ]
+  },
+  "eligibility_rule": {
+    "legal_provenance": "Pass only if the fetched object is from the official PGV host and the retained official page states the applicable attribution license.",
+    "content_alignment": "Pass document qualification only if stable identifiers show the same story participates in English, French and Spanish links.",
+    "row_alignment": "Sentence-level three-language confirmation remains pending unless pair archives expose common segment identities or a deterministic pivot construction whose one-to-one links agree across all three pairs.",
+    "freshness": "PGV may remain confirmation-only only while no story text or tokenizer outcome is inspected before the tokenizer candidate, vocabulary, preprocessing, metric, cost constraint and deterministic row selection are frozen.",
+    "selection": "After schema qualification, select eligible document or row identities by ascending SHA-256 of the canonical identity; choose the sample size before any tokenizer scoring."
+  },
+  "decision_before_diagnostic": "PGV is a source candidate, not yet an evaluation set. This diagnostic may advance it only to document-qualified or schema-qualified status."
+}

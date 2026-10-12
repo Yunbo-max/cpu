@@ -1,0 +1,99 @@
+{
+  "attempt_id": "attempt-916a1a1130d443c191b8d91489109423",
+  "command_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 157722,
+    "start_ticks": 9799167
+  },
+  "contract_sha256": "8c6804f07942a5c5d2736b1739286fae9e17d4a28175132e58c07a3b99cf49e1",
+  "elapsed_seconds": 43.65301922400249,
+  "error": null,
+  "exit_code": 0,
+  "finished_at": "2026-10-11T20:47:31.691325+00:00",
+  "input_refs": [
+    {
+      "path": "full_pool_plan.json",
+      "sha256": "09f3b5c9f190ca3b5a9376eb1fe0ef752f8d250c4bd356a422ae6e7a17977202"
+    },
+    {
+      "path": "vectorization_plan.json",
+      "sha256": "0281e500f412f2da1686ee85476850020e051366685749f8fb6a6be316037e42"
+    },
+    {
+      "path": "output/vector_equivalence.json",
+      "sha256": "18997d7e488fa3419ec76b3dafaf4f4085d087c1689e10d9cbd05efd198506c9"
+    },
+    {
+      "path": "scripts/train_full_pool_vectorized.py",
+      "sha256": "3979126eef319f75bd9244615849e0cc8cbb7872b2307c52dc9a69fd0988f4c0"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+    },
+    {
+      "path": "scripts/native_pa_source.py",
+      "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+    },
+    {
+      "path": "scripts/evaluator_reference.py",
+      "sha256": "612d66ff544e6cb72047d59f36e702766061abcc10e387453e3356ec231651eb"
+    },
+    {
+      "path": "inputs/train.en",
+      "sha256": "30e91713f1ab02873aadf82bff10530f4b4cba267f22e6292e78b217bbefa2b8"
+    },
+    {
+      "path": "inputs/train.fr",
+      "sha256": "bf2cb9ce2143a7ed77d42886fd94adf8d0bbfad208814fa2da0fa28d181d9483"
+    },
+    {
+      "path": "inputs/dev2.tico.en",
+      "sha256": "823561bdb9a9b231b6a78fb7767ec4bdec649cd837e3d0540fab8c4511d7b53e"
+    },
+    {
+      "path": "inputs/dev2.tico.fr",
+      "sha256": "1162933dbcbebac060f504c7b78268543bfdd81750286e2de8702569fce7921e"
+    },
+    {
+      "path": "inputs/dev2.books.en",
+      "sha256": "80020ecf26660daed7129215bbe958bd14a04ad2fbca642e0fad01bbfb893660"
+    },
+    {
+      "path": "inputs/dev2.books.fr",
+      "sha256": "113ecdeeb27f0e8c7d1cf33d93f55eb39316fbd6e13b6a0da2f3ce28e4759ec4"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/full_pooled.merges",
+      "sha256": "eed303981994c96bf1afe45fe353f154c771086002f35a66911140adbe238a3c"
+    },
+    {
+      "path": "output/full_pooled.trace.json",
+      "sha256": "a4a85b25c576ba48e02f24dc656a57733747be04dbe856cf28063b4b471c3f89"
+    },
+    {
+      "path": "output/full_pooled.resources.json",
+      "sha256": "910bf2ada41c3737222591bbef19c2f9635fe740f8559fbf98c24217aa80056a"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake3b",
+  "schema_version": 1,
+  "started_at": "2026-10-11T20:46:48.038307+00:00",
+  "status": "succeeded",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-916a1a1130d443c191b8d91489109423/stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-916a1a1130d443c191b8d91489109423/stdout.txt",
+    "sha256": "56e3cb65486acda4360f53b7370d018c3b3a9555b26e2db4cd73f6a86bf23379"
+  },
+  "task_id": "full_pooled-train-wake3b",
+  "worker_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 157721,
+    "start_ticks": 9799163
+  }
+}

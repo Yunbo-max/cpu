@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "revision": 2,
+  "supersedes": "pgv_triangle_protocol.json",
+  "revised_at_utc": "2026-10-12T00:47:00Z",
+  "revision_reason": "Independent source review recommended a minimum of 512 structurally valid units. The triangle-support outcome had not been computed or inspected when this stricter threshold was adopted.",
+  "input_archive_sha256": "d270acc7c000a30a79138d1f6259150641b444229ff10167efc36b2cbedeedfd",
+  "observed_record_grammar": "lang1 lang2 docid1 docid2, four space-separated fields",
+  "target_languages": ["eng", "fra", "spa"],
+  "definitions": {
+    "triangle_consistent_triple": "An English document e, French document f and Spanish document s for which all three official pairs (e,f), (e,s), and (f,s) are present.",
+    "one_triple_per_english_document": "For each English document with one or more consistent triangles, retain the lexicographically first (f,s) pair to avoid duplicate English content.",
+    "deterministic_confirmation_document_sample": "Order retained canonical identities eng|fra|spa by SHA-256 and reserve the first 512 identities, conditional on at least 512 qualifying identities."
+  },
+  "advance_rule": {
+    "document_level": "Advance PGV to document-qualified only if at least 512 one-per-English triangle-consistent triples exist and every parsed target record has matching language prefixes.",
+    "sentence_level": "Remain not qualified until segment archives prove a deterministic set of content-aligned three-language rows.",
+    "outcome_firewall": "No corpus text or tokenizer output may be read in this diagnostic."
+  }
+}

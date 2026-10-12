@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-12T00:48:00Z",
+  "assignment": "review/wake7_confirmation_source_assignment.json",
+  "review_output": {
+    "path": "review/wake7_confirmation_source_review.md",
+    "sha256": "c8af671379551f0f79691890c36355c4b48aa10d2fe13deb3aa45aff49a195f3"
+  },
+  "decision": "accepted_with_scope_notes",
+  "accepted": [
+    "OPUS GlobalVoices v2018q4 is conditional GO for a metadata-first structural gate, not yet an evaluation set.",
+    "Use XCES document and sentence identities; pairwise rows alone are not trilingual rows.",
+    "Adopt the independently proposed minimum of 512 structurally valid units before any tokenizer outcome.",
+    "IWSLT/TED is no-go without separate written permission; MDN remains hold pending immutable trilingual row identity."
+  ],
+  "scope_notes": [
+    "The review audited OPUS GlobalVoices v2018q4, whereas the coordinator separately audited the official ILSP Parallel Global Voices 2015-2016 release. They are distinct source objects and must not share hashes or alignment claims.",
+    "License findings are provenance evidence, not legal advice.",
+    "The 512-unit recommendation was adopted before the coordinator computed PGV document-triangle support."
+  ],
+  "next_action": "Download only the three OPUS v2018q4 XCES alignment files, hash them, and inspect structural identifiers without raw story text or tokenizer outcomes."
+}

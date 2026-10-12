@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "scope": "software/protocol diagnostic on already exposed first-row probes; not formal training, benchmark, fairness evidence, or original-paper reproduction",
+  "tokenizers_version": "0.22.1",
+  "pretokenizer": "Sequence([Whitespace(), ByteLevel(use_regex=False)])",
+  "memory_at_start": {
+    "current_bytes": 7642570752,
+    "max_bytes": 8589934592,
+    "headroom_bytes": 947363840,
+    "minimum_required_bytes": 402653184
+  },
+  "inputs": {
+    "en": {
+      "path": "inputs/en_probe.json",
+      "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4",
+      "rows": 40
+    },
+    "fr": {
+      "path": "inputs/fr_probe.json",
+      "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce",
+      "rows": 40
+    },
+    "es": {
+      "path": "inputs/es_probe.json",
+      "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3",
+      "rows": 44
+    }
+  },
+  "diagnostic_budget_per_language": 256,
+  "results": {
+    "en": {
+      "language": "en",
+      "budget": 256,
+      "selected_rows": [
+        {
+          "id": "<urn:uuid:3cad8aa8-a0c4-4556-81a3-03253c1cb027>",
+          "rank_sha256": "03c46fced4ae1bd20f2988e9a8e8d3688a210e2ed021b4829df585998899b2e9",
+          "raw_text_sha256": "1c5213b3113db9b805c85414a274ecc29338c3caf06c05d451ead406698de1ae",
+          "available_pretoken_count": 470,
+          "included_prefix_count": 256,
+          "source_file_path": "s3://commoncrawl/crawl-data/CC-MAIN-2013-20/segments/1368703682988/warc/CC-MAIN-20130516112802-00000-ip-10-60-113-184.ec2.internal.warc.gz",
+          "source_dataset_shard_identity": "unavailable-in-probe; mandatory for formal selection"
+        }
+      ],
+      "selected_document_count": 1,
+      "unique_pretokens": 147,
+      "dictionary_sha256": "f12af59fb4c211679dae5588b9651a7f437f8a7cc34a34eac1eaf4b9e723fcbe",
+      "rejections": {}
+    },
+    "fr": {
+      "language": "fr",
+      "budget": 256,
+      "selected_rows": [
+        {
+          "id": "<urn:uuid:f6010e38-b462-4a9c-9958-b2e136aa6f4b>",
+          "rank_sha256": "06716bf1f143cfc1e8229e4f72e5ee7f9e0e807260ce6832a0bda106cc81ff82",
+          "raw_text_sha256": "0aea632d4e0299894542d581d0778cb6254a2b8c9a072658ef42702a39564ab1",
+          "available_pretoken_count": 3563,
+          "included_prefix_count": 256,
+          "source_file_path": "s3://commoncrawl/crawl-data/CC-MAIN-2013-20/segments/1368696384213/warc/CC-MAIN-20130516092624-00033-ip-10-60-113-184.ec2.internal.warc.gz",
+          "source_dataset_shard_identity": "unavailable-in-probe; mandatory for formal selection"
+        }
+      ],
+      "selected_document_count": 1,
+      "unique_pretokens": 145,
+      "dictionary_sha256": "f57274bf014bd224abf6b72bd55834724c55a02690824d65bafb4a858d24de73",
+      "rejections": {}
+    },
+    "es": {
+      "language": "es",
+      "budget": 256,
+      "selected_rows": [
+        {
+          "id": "<urn:uuid:d4ea3fa2-9bf5-4dc4-9926-be6102fa1418>",
+          "rank_sha256": "085b4c9e59563a8c1a76f5152e6729919af2102e80c04db53e67d647f67f5f1f",
+          "raw_text_sha256": "c6526223ed04b10c94232b998d2340dbb054b8ecf66cd3d057aedc4f44c3deb0",
+          "available_pretoken_count": 310,
+          "included_prefix_count": 256,
+          "source_file_path": "s3://commoncrawl/crawl-data/CC-MAIN-2013-20/segments/1368696384213/warc/CC-MAIN-20130516092624-00033-ip-10-60-113-184.ec2.internal.warc.gz",
+          "source_dataset_shard_identity": "unavailable-in-probe; mandatory for formal selection"
+        }
+      ],
+      "selected_document_count": 1,
+      "unique_pretokens": 140,
+      "dictionary_sha256": "039ad40281aea4b01fda7c6ddabd6aecc2e2f66037336abc235c0b2ed7cb3b2d",
+      "rejections": {}
+    }
+  },
+  "checks": [
+    {
+      "language": "en",
+      "check": "input_order_invariance",
+      "passed": true
+    },
+    {
+      "language": "en",
+      "check": "all_copies_duplicate_rejection",
+      "passed": true
+    },
+    {
+      "language": "en",
+      "check": "missing_id_hard_failure",
+      "passed": true
+    },
+    {
+      "language": "en",
+      "check": "exact_diagnostic_pretoken_budget",
+      "passed": true,
+      "observed": 256
+    },
+    {
+      "language": "fr",
+      "check": "input_order_invariance",
+      "passed": true
+    },
+    {
+      "language": "fr",
+      "check": "all_copies_duplicate_rejection",
+      "passed": true
+    },
+    {
+      "language": "fr",
+      "check": "missing_id_hard_failure",
+      "passed": true
+    },
+    {
+      "language": "fr",
+      "check": "exact_diagnostic_pretoken_budget",
+      "passed": true,
+      "observed": 256
+    },
+    {
+      "language": "es",
+      "check": "input_order_invariance",
+      "passed": true
+    },
+    {
+      "language": "es",
+      "check": "all_copies_duplicate_rejection",
+      "passed": true
+    },
+    {
+      "language": "es",
+      "check": "missing_id_hard_failure",
+      "passed": true
+    },
+    {
+      "language": "es",
+      "check": "exact_diagnostic_pretoken_budget",
+      "passed": true,
+      "observed": 256
+    }
+  ],
+  "all_checks_passed": true,
+  "formal_gates": {
+    "decontamination": "HOLD",
+    "row_to_dataset_shard_provenance": "HOLD",
+    "payload_sampling": "HOLD",
+    "tokenizer_training": "HOLD",
+    "fairness_claims": "HOLD"
+  }
+}

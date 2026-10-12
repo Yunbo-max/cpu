@@ -1,0 +1,36 @@
+{
+  "submission_id": "pgv-triangle-qualification-wake7-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "pgv-triangle-qualification-wake7",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/pgv_triangle.resources.json",
+        "scripts/analyze_pgv_triangles.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Test whether the official PGV document-pair graph contains at least 512 deterministic all-three-edge English-French-Spanish document triangles.",
+      "timeout_seconds": 30,
+      "cwd": ".",
+      "depends_on": ["pgv-docpairs-qualification-wake7"],
+      "input_refs": [
+        {"path": "pgv_triangle_protocol_v2.json", "sha256": "036df61f86721d84c82e123a77770542f891fef414e1067439bc1730636df145"},
+        {"path": "scripts/analyze_pgv_triangles.py", "sha256": "1a666b689476e79b80e77a6dfeb75ca77ffb5dc7e1135f835c98956eb461247f"},
+        {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+        {"path": "inputs/pgv_docpairs.txt.zip", "sha256": "d270acc7c000a30a79138d1f6259150641b444229ff10167efc36b2cbedeedfd"},
+        {"path": "output/pgv_docpairs_qualification.json", "sha256": "470b730c5516c0e0228ddd5cf82423ed41813057707836d542d0dba3167e3d7b"}
+      ],
+      "outputs": [
+        "output/pgv_triangle_qualification.json",
+        "output/pgv_triangle.resources.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "response_id": "full-table-verification-wake3b",
+  "request_id": "decision-09104d9fd13e4cb5b098ad4d666dc7d3",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "DevelopmentGini0but books/costfail; independently verify beforeinterpretation",
+  "tasks": [
+    {
+      "task_id": "full-table-verification-wake3b",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/full_verification.resources.json",
+        "scripts/verify_full_tables.py"
+      ],
+      "phase": "verify",
+      "purpose": "Independent integercounts verify24fullpool resulttables andcontrasts",
+      "timeout_seconds": 30,
+      "input_refs": [
+        {
+          "path": "scripts/verify_full_tables.py",
+          "sha256": "b47d9106819e4450be4566f911673f991abdc1695235cff9677e234a91e95493"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "output/full_candidate_evaluation.json",
+          "sha256": "75c9b9983a0d53d693f02fded94da2e78acbfaa5ed522eec179e84f6e6ba4512"
+        },
+        {
+          "path": "output/multibook_raw_evaluation.json",
+          "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"
+        }
+      ],
+      "outputs": [
+        "output/full_table_verification.json",
+        "output/full_verification.resources.json"
+      ]
+    }
+  ]
+}

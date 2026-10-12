@@ -1,0 +1,26 @@
+{
+  "submission_id": "decontam-selector-contract-wake11-v3",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "verify-decontam-selector-wake11-v3",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "PYTHONHASHSEED=0", "python3", "scripts/measure_command.py", "output/decontam_selector_verification_v3.resources.json", "scripts/verify_decontam_selector.py"],
+      "phase": "verify",
+      "purpose": "Address independent review: full SHA256 shingles, conservative invalid/trailing-dot URL handling, transactional close/reopen idempotence, SQL duplicate aggregation, streamed atomic manifests, and a 20k-row generator scale probe.",
+      "timeout_seconds": 90,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "decontamination_selector_protocol.json", "sha256": "0843d05249adbce7cb808b124f18d4c220a4042310e6e14b17bc9556726a496e"},
+        {"path": "scripts/decontam_selector.py", "sha256": "670ae6a9135892854050a3f0fb1f47ebfb5380c796c501434bf019b5af2dedd8"},
+        {"path": "scripts/verify_decontam_selector.py", "sha256": "81fad6dacb360fe50c02852576c3a00fc52fe44654b309fa9ffe5eb6cb53f2d2"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"},
+        {"path": "inputs/en_probe.json", "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"},
+        {"path": "inputs/fr_probe.json", "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"},
+        {"path": "inputs/es_probe.json", "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"}
+      ],
+      "outputs": ["output/decontam_selector_verification.json", "output/decontam_selector_verification_v3.resources.json"]
+    }
+  ]
+}

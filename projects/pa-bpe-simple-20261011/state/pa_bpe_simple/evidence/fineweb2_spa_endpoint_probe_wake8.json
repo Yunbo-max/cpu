@@ -1,0 +1,33 @@
+{
+  "checked_utc": "2026-10-12T01:32:42.875839+00:00",
+  "requests": [
+    {
+      "url": "https://datasets-server.huggingface.co/first-rows?dataset=HuggingFaceFW%2Ffineweb-2&config=spa_Latn&split=train",
+      "status": 200,
+      "bytes": 172231,
+      "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3",
+      "keys": [
+        "dataset",
+        "config",
+        "split",
+        "features",
+        "rows",
+        "truncated"
+      ],
+      "rows_count": 44,
+      "num_rows_total": null
+    },
+    {
+      "url": "https://datasets-server.huggingface.co/filter?dataset=HuggingFaceFW%2Ffineweb-2&config=spa_Latn&split=train&where=language+%3D+%27spa_Latn%27",
+      "error": "<HTTPError 422: 'Unprocessable Content'>",
+      "status": 422,
+      "error_body": "{\"error\":\"Parameter 'where' contains errors or invalid symbols\"}"
+    },
+    {
+      "url": "https://datasets-server.huggingface.co/search?dataset=HuggingFaceFW%2Ffineweb-2&config=spa_Latn&split=train&query=el",
+      "error": "<HTTPError 500: 'Internal Server Error'>",
+      "status": 500,
+      "error_body": "{\"error\":\"Could not read the parquet files: (ReadTimeoutError(\\\"HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)\\\"), '(Request ID: 722494a9-005e-450e-885a-b4343ffbf0da)')\"}"
+    }
+  ]
+}

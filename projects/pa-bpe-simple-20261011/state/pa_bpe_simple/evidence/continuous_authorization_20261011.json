@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "project": "pa-bpe-simple-20261011",
+  "observed_utc": "2026-10-11T20:02:00Z",
+  "authority": {
+    "type": "explicit_user_message",
+    "date": "2026-10-11",
+    "quote": "没有预算呀，你可以一直跑下去时间"
+  },
+  "old_policy": {
+    "goal_mode": "research",
+    "phase_limit_seconds": 3600
+  },
+  "new_policy": {
+    "goal_mode": "continuous_research",
+    "cumulative_wall_limit_seconds": null,
+    "total_attempt_limit": null,
+    "total_research_cycle_limit": null,
+    "automatic_objective_completion": false,
+    "stop_on_user_request": true,
+    "renew_finite_execution_windows": true,
+    "renewal_authority": "This explicit user instruction; no repeated confirmation required for time-only continuation within unchanged resource and research scope."
+  },
+  "preserved_safety": {
+    "cpu_only": true,
+    "max_scientific_processes": 1,
+    "max_threads": 1,
+    "per_command_timeout_seconds": 120,
+    "batch_max_attempts": 12,
+    "batch_max_command_wall_seconds": 600,
+    "active_host_window_seconds": 1800,
+    "initial_experiment_rss_target_bytes": 2147483648,
+    "obey_lower_available_memory": true,
+    "paid_model_api": false,
+    "paid_cloud": false,
+    "gpu": false,
+    "ssh_assumed": false
+  },
+  "window_rule": "Finite batch/window boundaries require reconciliation, durable checkpoint and serial renewal; they do not complete or permanently pause the research objective. Continue ready work within the current live host session; after the host window ends the same existing scheduled task resumes. Never recursively trigger or create a second automation.",
+  "ledger_rule": "Preserve all accumulated observed and failed time, attempts, reservations, unknown costs, scientific evidence, exposure, source pins and prior goal history. Null limits mean no user-imposed cumulative cap, not zero measured usage or unlimited hardware.",
+  "evidence_binding": {
+    "library_file_id": "libfile_8bb70b367b948191bfed83a45933917f",
+    "previous_library_version": 2,
+    "previous_archive_sha256": "88bb68d836554b392b711486232974f373ede4c8f8cbccdaa30bd439b7b1367f",
+    "manifest_members_verified": 482,
+    "cache_hash_mismatches": 0,
+    "prior_handoff": "evidence/wake2_supervisor_handoff.json",
+    "project_python_processes_found": 0,
+    "terminal_attempts": 10,
+    "nonterminal_attempts": 0,
+    "reserved_seconds": 0,
+    "runner_goal_version_before": 1,
+    "journal_version_before": 11
+  },
+  "quiet_boundary": "Prior writer locks retained as evidence/authorization_20261011_prior_{global,project}_writer. Prior owner was automation-wake2-20261011T1926Z; all cached canonical files match version2, no live scientific process, supervisor intentionally interrupted at prior handoff. Exclusive writer reclaimed for this settings-only migration.",
+  "scientific_effect": "No new experiment and no new scientific result. Same active idea pa-bpe-domain-robustness revision1. Existing results retain their original goal-version binding and scope.",
+  "next_scientific_action": "Audit raw versus tokenized OPUS Books text/protocol before broadening claims; recover several complete three-language works and remaining training language; freeze fresh work-disjoint development/confirmation with exposure tracking and compare macro fairness plus worst/total cost.",
+  "limitations": "A recurring wake is not a guarantee of 24/7 resident CPU. Host loss, access restrictions and unrecoverable blocks must be reported honestly."
+}

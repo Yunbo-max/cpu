@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "purpose": "Source-access qualification only; returned rows are not a frozen training sample.",
+  "repo": "HuggingFaceFW/fineweb-2",
+  "repo_revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+  "config": "spa_Latn",
+  "split": "train",
+  "endpoint": "https://datasets-server.huggingface.co/first-rows?dataset=HuggingFaceFW%2Ffineweb-2&config=spa_Latn&split=train",
+  "license": "odc-by",
+  "acceptance": [
+    "HTTP 200 JSON",
+    "dataset/config/split exactly match",
+    "at least one row has nonempty id, text, url and file_path",
+    "record response hash and dump distribution",
+    "do not promote storage-order rows to formal training input"
+  ]
+}

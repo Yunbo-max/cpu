@@ -1,0 +1,23 @@
+{
+  "design_id": "domain-selector-pilot-v2",
+  "created_utc": "2026-10-11T18:46:48.500140+00:00",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "exposure": "v1 outcomes seen; new confirmation outcomes not scored",
+  "mechanism": "Cost ordering flips: base TICOtest EN77.57 FR76.68; Books EN61.55 FR50.99. Raw-total development parity can overallocate merges to French and transfer poorly. Causality not established.",
+  "candidate": "Domain-normalized worst-domain selection: for each 2-language development domain compute cost/within-domain mean. Pick largest entry, select that language, then use native highest-frequency TRAIN pair. Equal N per domain.",
+  "math": "For 2 language positive costs, max relative cost = 1+2Gini, hence selects currently worst-Gini domain. Does NOT guarantee next pair decreases worst Gini or costs in all domains.",
+  "control": "Native base on pooled identical 100 TICO+100 Books dev rows; same information and dev budget as candidate. Original base uses200TICO.",
+  "train": "unchanged v1 train40docs/lang and1000merges",
+  "new_data": {
+    "dev": "first100 frozen v1 TICOdev + OPUS Books rows1000:1100",
+    "confirmation": "hash-ranked next200 official TICOtest, Books rows2000:2100; exclude exact dev/train overlaps in either language",
+    "limitations": "Books paragraph rows may remain in same novel; no whole-book/domain population inference; translation variation and contextual dependence remain."
+  },
+  "prediction": "Candidate may reduce max Gini across the two confirmation domains compared with matched pooled control. Cannot call improvement if only compared with mismatched-information original base.",
+  "decision_rule": "Support local candidate only if max-domain Gini lower than pooled, while reporting each domain, total and worst-language costs; otherwise retain negative. No outcome-based tuning in this version.",
+  "novelty": "unassessed, no novelty claim",
+  "remaining_confirmation": "More languages, independently heldout books/domains and vocabulary sizes remain required",
+  "resources": "same1thread,1scienceprocess; <=120s per task; remaining3attempts thiswake; retain3600s phasebudget"
+}

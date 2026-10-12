@@ -1,0 +1,3242 @@
+{
+  "agent": {
+    "command": null,
+    "enabled": false,
+    "error": null,
+    "history": [
+      {
+        "command": null,
+        "reason": "Initial configuration",
+        "version": 0
+      }
+    ],
+    "repairs": {},
+    "version": 0
+  },
+  "attempts": [
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14/.research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe",
+      "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/measure_command.py",
+          "output/blinded_adapter.resources.json",
+          "scripts/import_blinded_confirmation.py",
+          "--source",
+          "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+          "--target",
+          "output/selector_confirmation.sqlite3",
+          "--protocol",
+          "decontamination_selector_protocol.json",
+          "--contract",
+          "adapter_contract.json",
+          "--summary",
+          "output/blinded_adapter_summary.json"
+        ],
+        "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+        "cwd": ".",
+        "deadline_epoch": 1791795569.9224267,
+        "input_refs": [
+          {
+            "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+            "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+          },
+          {
+            "path": "decontamination_selector_protocol.json",
+            "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+          },
+          {
+            "path": "adapter_contract.json",
+            "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+          },
+          {
+            "path": "scripts/decontam_selector.py",
+            "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+          },
+          {
+            "path": "scripts/import_blinded_confirmation.py",
+            "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "output/selector_confirmation.sqlite3",
+          "output/blinded_adapter_summary.json",
+          "output/blinded_adapter.resources.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "wake14-import-blinded-confirmation-v1",
+        "timeout_seconds": 60
+      },
+      "contract_sha256": "3948fc95b1c1bec846611d8a8eb7d6535571f5228cca2ade52129a44688e2cd4",
+      "elapsed_seconds": 0.28696718999981385,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+        "command_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 13094,
+          "start_ticks": 470717
+        },
+        "contract_sha256": "3948fc95b1c1bec846611d8a8eb7d6535571f5228cca2ade52129a44688e2cd4",
+        "elapsed_seconds": 0.28696718999981385,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T08:40:39.146305+00:00",
+        "input_refs": [
+          {
+            "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+            "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+          },
+          {
+            "path": "decontamination_selector_protocol.json",
+            "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+          },
+          {
+            "path": "adapter_contract.json",
+            "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+          },
+          {
+            "path": "scripts/decontam_selector.py",
+            "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+          },
+          {
+            "path": "scripts/import_blinded_confirmation.py",
+            "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "output/selector_confirmation.sqlite3",
+            "sha256": "0a64e0aa92683df0cd897631865d422cb440f27d3a709bbfc5194c80230cfff7"
+          },
+          {
+            "path": "output/blinded_adapter_summary.json",
+            "sha256": "feecbcd5d8ed27604eae0660179d29b38557660eebaa709251459138fa17948e"
+          },
+          {
+            "path": "output/blinded_adapter.resources.json",
+            "sha256": "a4c7415fc26708e762e6b4c9e8ddd7898338d162e4f80d40b8a4dc31f32d5d9c"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+        "schema_version": 1,
+        "started_at": "2026-10-12T08:40:38.859345+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stdout.txt",
+          "sha256": "fe2445810346255366083792959836d3e4247369ecf2fdf781e9c5d74ff74f65"
+        },
+        "task_id": "wake14-import-blinded-confirmation-v1",
+        "worker_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 13093,
+          "start_ticks": 470713
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/receipt.json",
+        "sha256": "72a6ed8b91341472c14381bc8139bb22868f23327fd40a4b6f8765732f9ca30f"
+      },
+      "reservation_seconds": 63.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "wake14-import-blinded-confirmation-v1"
+    },
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14/.research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+      "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/measure_command.py",
+          "output/blinded_adapter_verification.resources.json",
+          "scripts/verify_blinded_adapter.py"
+        ],
+        "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+        "cwd": ".",
+        "deadline_epoch": 1791795569.9224267,
+        "input_refs": [
+          {
+            "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+            "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+          },
+          {
+            "path": "decontamination_selector_protocol.json",
+            "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+          },
+          {
+            "path": "adapter_contract.json",
+            "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+          },
+          {
+            "path": "scripts/decontam_selector.py",
+            "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+          },
+          {
+            "path": "scripts/verify_blinded_adapter.py",
+            "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "output/blinded_adapter_verification.json",
+          "output/blinded_adapter_verification.resources.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "wake14-verify-blinded-adapter-v1",
+        "timeout_seconds": 90
+      },
+      "contract_sha256": "69685d911922c0320c4504ed7952f1a5703580471cf9b67f91c635ff84b42958",
+      "elapsed_seconds": 0.25276108300022315,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+        "command_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 13096,
+          "start_ticks": 470750
+        },
+        "contract_sha256": "69685d911922c0320c4504ed7952f1a5703580471cf9b67f91c635ff84b42958",
+        "elapsed_seconds": 0.25276108300022315,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T08:40:39.446729+00:00",
+        "input_refs": [
+          {
+            "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+            "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+          },
+          {
+            "path": "decontamination_selector_protocol.json",
+            "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+          },
+          {
+            "path": "adapter_contract.json",
+            "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+          },
+          {
+            "path": "scripts/decontam_selector.py",
+            "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+          },
+          {
+            "path": "scripts/verify_blinded_adapter.py",
+            "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "output/blinded_adapter_verification.json",
+            "sha256": "774c6e5acb536332e9c170b056d79a845f124169cdf852486a465bd2ecd84c0d"
+          },
+          {
+            "path": "output/blinded_adapter_verification.resources.json",
+            "sha256": "89f89bc33e96fc7a73d846792ff0cff1805f1fb578129d757329d8e8fcbdbfd0"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+        "schema_version": 1,
+        "started_at": "2026-10-12T08:40:39.193974+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/stdout.txt",
+          "sha256": "60aa20d76b547e766abc2fe4b5f2b76a8c5bf0e07e61609b344f161b602e60db"
+        },
+        "task_id": "wake14-verify-blinded-adapter-v1",
+        "worker_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 13095,
+          "start_ticks": 470746
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/receipt.json",
+        "sha256": "aac43a20079ed401548be099fd3242a7de5e10181cc727079e34e95fc9b78d20"
+      },
+      "reservation_seconds": 93.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "wake14-verify-blinded-adapter-v1"
+    }
+  ],
+  "budget": {
+    "attempts_used": 2,
+    "deadline_epoch": 1791795569.9224267,
+    "elapsed_seconds": 0.539728273000037,
+    "max_attempts": 12,
+    "max_command_seconds": 600,
+    "remaining_deadline_seconds": 761.114823102951,
+    "remaining_seconds": 599.460271727,
+    "reserved_seconds": 0
+  },
+  "complete_goal": false,
+  "continuations": [],
+  "current_question": "Continue sources: The repaired adapter passed 20/20 fixed and record-level checks and an independent read-only review found no blocking defect. The PASS is restricted to hash-only adapter mechanics and frozen-index preservation; real development selection, shard provenance, tokenizer training, and fairness claims remain HOLD. Next obtain and bind real development rows to fixed source shards before production decontamination.",
+  "external_waits": [],
+  "goal": "\u68c0\u9a8c\u5e76\u6539\u8fdb\u591a\u8bed\u8a00\u5206\u8bcd\u516c\u5e73\u6027\u7684\u8de8\u9886\u57df\u7a33\u5b9a\u6027\uff0c\u4fdd\u7559\u8d1f\u7ed3\u679c\uff0c\u5e76\u5728\u5408\u6cd5\u771f\u5b9e\u6765\u6e90\u3001\u5bf9\u9f50\u516c\u5e73\u6307\u6807\u548cCPU\u7ea6\u675f\u4e0b\u6301\u7eed\u63a8\u8fdb",
+  "goal_completions": [],
+  "goal_contract": {
+    "completion_criteria": [
+      {
+        "description": "\u6301\u7eed\u6784\u5efa\u53ef\u590d\u6838\u7684\u771f\u5b9e\u591a\u8bed\u8a00\u6765\u6e90\u3001\u5bf9\u9f50\u6307\u6807\u3001\u5f3a\u5bf9\u7167\u3001\u673a\u5236\u8bc1\u636e\u548c\u72ec\u7acb\u786e\u8ba4",
+        "id": "evidence"
+      },
+      {
+        "description": "\u5bf9\u6bcf\u4e2a\u6709\u5224\u522b\u529b\u7684\u5047\u8bbe\u7ed9\u51fa\u652f\u6301\u3001\u4e0d\u652f\u6301\u6216\u8bc1\u636e\u4e0d\u8db3\u7684\u8303\u56f4\u5316\u7ed3\u8bba\u5e76\u9009\u62e9\u4e0b\u4e00\u5fc5\u8981\u52a8\u4f5c",
+        "id": "interpretation"
+      }
+    ],
+    "mode": "continuous_research"
+  },
+  "goal_contract_history": [
+    {
+      "contract": {
+        "completion_criteria": [
+          {
+            "description": "\u6301\u7eed\u6784\u5efa\u53ef\u590d\u6838\u7684\u771f\u5b9e\u591a\u8bed\u8a00\u6765\u6e90\u3001\u5bf9\u9f50\u6307\u6807\u3001\u5f3a\u5bf9\u7167\u3001\u673a\u5236\u8bc1\u636e\u548c\u72ec\u7acb\u786e\u8ba4",
+            "id": "evidence"
+          },
+          {
+            "description": "\u5bf9\u6bcf\u4e2a\u6709\u5224\u522b\u529b\u7684\u5047\u8bbe\u7ed9\u51fa\u652f\u6301\u3001\u4e0d\u652f\u6301\u6216\u8bc1\u636e\u4e0d\u8db3\u7684\u8303\u56f4\u5316\u7ed3\u8bba\u5e76\u9009\u62e9\u4e0b\u4e00\u5fc5\u8981\u52a8\u4f5c",
+            "id": "interpretation"
+          }
+        ],
+        "mode": "continuous_research"
+      },
+      "goal": "\u68c0\u9a8c\u5e76\u6539\u8fdb\u591a\u8bed\u8a00\u5206\u8bcd\u516c\u5e73\u6027\u7684\u8de8\u9886\u57df\u7a33\u5b9a\u6027\uff0c\u4fdd\u7559\u8d1f\u7ed3\u679c\uff0c\u5e76\u5728\u5408\u6cd5\u771f\u5b9e\u6765\u6e90\u3001\u5bf9\u9f50\u516c\u5e73\u6307\u6807\u548cCPU\u7ea6\u675f\u4e0b\u6301\u7eed\u63a8\u8fdb",
+      "reason": "Initial objective scope",
+      "version": 1
+    }
+  ],
+  "goal_contract_version": 1,
+  "idea_status": "active",
+  "journal": {
+    "active_idea": "pa-bpe-domain-robustness",
+    "blocker": null,
+    "budget_exhausted": false,
+    "counters": {
+      "iterations": 4,
+      "repairs": 0,
+      "usage": {
+        "wall_seconds": 0.539728273000037
+      }
+    },
+    "goal": "\u68c0\u9a8c\u5e76\u6539\u8fdb\u591a\u8bed\u8a00\u5206\u8bcd\u516c\u5e73\u6027\u7684\u8de8\u9886\u57df\u7a33\u5b9a\u6027\uff0c\u4fdd\u7559\u8d1f\u7ed3\u679c\uff0c\u5e76\u5728\u5408\u6cd5\u771f\u5b9e\u6765\u6e90\u3001\u5bf9\u9f50\u516c\u5e73\u6307\u6807\u548cCPU\u7ea6\u675f\u4e0b\u6301\u7eed\u63a8\u8fdb",
+    "history": [
+      {
+        "created_at": "2026-10-12T08:39:29.919079+00:00",
+        "event": {
+          "goal": "\u68c0\u9a8c\u5e76\u6539\u8fdb\u591a\u8bed\u8a00\u5206\u8bcd\u516c\u5e73\u6027\u7684\u8de8\u9886\u57df\u7a33\u5b9a\u6027\uff0c\u4fdd\u7559\u8d1f\u7ed3\u679c\uff0c\u5e76\u5728\u5408\u6cd5\u771f\u5b9e\u6765\u6e90\u3001\u5bf9\u9f50\u516c\u5e73\u6307\u6807\u548cCPU\u7ea6\u675f\u4e0b\u6301\u7eed\u63a8\u8fdb",
+          "idea": "pa-bpe-domain-robustness",
+          "kind": "initialize",
+          "max_iterations": null,
+          "max_repairs": 3
+        },
+        "idea": "pa-bpe-domain-robustness",
+        "revision": 1,
+        "version": 0
+      },
+      {
+        "created_at": "2026-10-12T08:40:39.154735+00:00",
+        "event": {
+          "event_id": "runner-result:attempt-b3df73445d2e442d9e3c959f476136fe",
+          "evidence": [
+            {
+              "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/receipt.json",
+              "sha256": "72a6ed8b91341472c14381bc8139bb22868f23327fd40a4b6f8765732f9ca30f"
+            }
+          ],
+          "kind": "progress",
+          "next_phase": "verify",
+          "reason": "Execution observation for wake14-import-blinded-confirmation-v1: succeeded; Command execution reported succeeded",
+          "usage": {
+            "wall_seconds": 0.28696718999981385
+          }
+        },
+        "idea": "pa-bpe-domain-robustness",
+        "revision": 1,
+        "version": 1
+      },
+      {
+        "created_at": "2026-10-12T08:40:39.485769+00:00",
+        "event": {
+          "event_id": "runner-result:attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+          "evidence": [
+            {
+              "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/receipt.json",
+              "sha256": "aac43a20079ed401548be099fd3242a7de5e10181cc727079e34e95fc9b78d20"
+            }
+          ],
+          "kind": "progress",
+          "next_phase": "verify",
+          "reason": "Execution observation for wake14-verify-blinded-adapter-v1: succeeded; Command execution reported succeeded",
+          "usage": {
+            "wall_seconds": 0.25276108300022315
+          }
+        },
+        "idea": "pa-bpe-domain-robustness",
+        "revision": 1,
+        "version": 2
+      },
+      {
+        "created_at": "2026-10-12T08:46:04.021537+00:00",
+        "event": {
+          "event_id": "wake14-frozen-index-import-v1",
+          "evidence": [
+            {
+              "path": "output/blinded_adapter_summary.json",
+              "sha256": "feecbcd5d8ed27604eae0660179d29b38557660eebaa709251459138fa17948e"
+            },
+            {
+              "path": "output/blinded_adapter.resources.json",
+              "sha256": "a4c7415fc26708e762e6b4c9e8ddd7898338d162e4f80d40b8a4dc31f32d5d9c"
+            },
+            {
+              "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/receipt.json",
+              "sha256": "72a6ed8b91341472c14381bc8139bb22868f23327fd40a4b6f8765732f9ca30f"
+            }
+          ],
+          "kind": "progress",
+          "next_phase": "verify",
+          "reason": "The fixed SHA256 confirmation index was imported without raw confirmation text: 1536 balanced records, 27225 unique shingle records, shingle mass 27346, and 801 URL hashes. This is an adapter import observation, not a tokenizer or fairness result."
+        },
+        "idea": "pa-bpe-domain-robustness",
+        "revision": 1,
+        "version": 3
+      },
+      {
+        "created_at": "2026-10-12T08:46:48.568233+00:00",
+        "event": {
+          "event_id": "wake14-blinded-adapter-mechanics-pass-v1",
+          "evidence": [
+            {
+              "path": "output/blinded_adapter_verification.json",
+              "sha256": "774c6e5acb536332e9c170b056d79a845f124169cdf852486a465bd2ecd84c0d"
+            },
+            {
+              "path": "output/blinded_adapter_verification.resources.json",
+              "sha256": "89f89bc33e96fc7a73d846792ff0cff1805f1fb578129d757329d8e8fcbdbfd0"
+            },
+            {
+              "path": "evidence/independent_review.json",
+              "sha256": "dbf2fb1599181a7a47a802812866eb9b6867f23333e2d806025ef7f0cfae3ffa"
+            },
+            {
+              "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/receipt.json",
+              "sha256": "aac43a20079ed401548be099fd3242a7de5e10181cc727079e34e95fc9b78d20"
+            }
+          ],
+          "kind": "progress",
+          "next_phase": "sources",
+          "reason": "The repaired adapter passed 20/20 fixed and record-level checks and an independent read-only review found no blocking defect. The PASS is restricted to hash-only adapter mechanics and frozen-index preservation; real development selection, shard provenance, tokenizer training, and fairness claims remain HOLD. Next obtain and bind real development rows to fixed source shards before production decontamination."
+        },
+        "idea": "pa-bpe-domain-robustness",
+        "revision": 1,
+        "version": 4
+      }
+    ],
+    "idea_history": [],
+    "limits": {
+      "max_iterations": null,
+      "max_repairs": 3
+    },
+    "milestones": [],
+    "next_action": "Continue sources: The repaired adapter passed 20/20 fixed and record-level checks and an independent read-only review found no blocking defect. The PASS is restricted to hash-only adapter mechanics and frozen-index preservation; real development selection, shard provenance, tokenizer training, and fairness claims remain HOLD. Next obtain and bind real development rows to fixed source shards before production decontamination.",
+    "pending_launch": null,
+    "phase": "sources",
+    "reported_outcome": null,
+    "research_cycles": [],
+    "revision": 1,
+    "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+    "schema_version": 1,
+    "scientific_certification": false,
+    "status": "active",
+    "version": 4,
+    "wait": null
+  },
+  "next_action": "Continue sources: The repaired adapter passed 20/20 fixed and record-level checks and an independent read-only review found no blocking defect. The PASS is restricted to hash-only adapter mechanics and frozen-index preservation; real development selection, shard provenance, tokenizer training, and fairness claims remain HOLD. Next obtain and bind real development rows to fixed source shards before production decontamination.",
+  "outbox": [
+    {
+      "error": null,
+      "event": {
+        "event_id": "runner-result:attempt-b3df73445d2e442d9e3c959f476136fe",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/receipt.json",
+            "sha256": "72a6ed8b91341472c14381bc8139bb22868f23327fd40a4b6f8765732f9ca30f"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for wake14-import-blinded-confirmation-v1: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 0.28696718999981385
+        }
+      },
+      "state": "recorded"
+    },
+    {
+      "error": null,
+      "event": {
+        "event_id": "runner-result:attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/receipt.json",
+            "sha256": "aac43a20079ed401548be099fd3242a7de5e10181cc727079e34e95fc9b78d20"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for wake14-verify-blinded-adapter-v1: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 0.25276108300022315
+        }
+      },
+      "state": "recorded"
+    }
+  ],
+  "requests": [
+    {
+      "agent_attempt_id": null,
+      "error": null,
+      "request_ref": {
+        "path": ".research-autopilot/runner/requests/decision-0296b65d12f6448bad104599f0f8e58e.json",
+        "sha256": "52474b9308e2257a516e86d280a292c757a0783a181e56275b56530a7ac04b10"
+      },
+      "response_id": "wake14-import-progress-v1",
+      "snapshot": {
+        "agent_error": null,
+        "agent_version": 0,
+        "attempts": [
+          {
+            "attempt_dir": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14/.research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe",
+            "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+            "contract": {
+              "argv": [
+                "python3",
+                "scripts/measure_command.py",
+                "output/blinded_adapter.resources.json",
+                "scripts/import_blinded_confirmation.py",
+                "--source",
+                "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                "--target",
+                "output/selector_confirmation.sqlite3",
+                "--protocol",
+                "decontamination_selector_protocol.json",
+                "--contract",
+                "adapter_contract.json",
+                "--summary",
+                "output/blinded_adapter_summary.json"
+              ],
+              "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+              "cwd": ".",
+              "deadline_epoch": 1791795569.9224267,
+              "input_refs": [
+                {
+                  "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                  "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                },
+                {
+                  "path": "decontamination_selector_protocol.json",
+                  "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                },
+                {
+                  "path": "adapter_contract.json",
+                  "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                },
+                {
+                  "path": "scripts/decontam_selector.py",
+                  "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                },
+                {
+                  "path": "scripts/import_blinded_confirmation.py",
+                  "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+                },
+                {
+                  "path": "scripts/measure_command.py",
+                  "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                }
+              ],
+              "kind": "task",
+              "outputs": [
+                "output/selector_confirmation.sqlite3",
+                "output/blinded_adapter_summary.json",
+                "output/blinded_adapter.resources.json"
+              ],
+              "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+              "schema_version": 1,
+              "source": {
+                "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+                "files": [
+                  {
+                    "path": "SKILL.md",
+                    "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                  },
+                  {
+                    "path": "references/rsi-simple.md",
+                    "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                  },
+                  {
+                    "path": "references/simple-runner.md",
+                    "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                  },
+                  {
+                    "path": "scripts/_simple_process.py",
+                    "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                  },
+                  {
+                    "path": "scripts/_simple_source.py",
+                    "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                  },
+                  {
+                    "path": "scripts/simple_loop.py",
+                    "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                  },
+                  {
+                    "path": "scripts/simple_runner.py",
+                    "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                  },
+                  {
+                    "path": "references/simple-experiment-design.md",
+                    "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                  },
+                  {
+                    "path": "scripts/simple_design.py",
+                    "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                  },
+                  {
+                    "path": "scripts/simple_resources.py",
+                    "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-plan.json",
+                    "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-results.json",
+                    "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                  },
+                  {
+                    "path": "references/simple-collaboration.md",
+                    "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                  },
+                  {
+                    "path": "assets/templates/simple-delegation.json",
+                    "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                  }
+                ],
+                "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+              },
+              "task_id": "wake14-import-blinded-confirmation-v1",
+              "timeout_seconds": 60
+            },
+            "contract_sha256": "3948fc95b1c1bec846611d8a8eb7d6535571f5228cca2ade52129a44688e2cd4",
+            "elapsed_seconds": 0.28696718999981385,
+            "kind": "task",
+            "reason": "Command execution reported succeeded",
+            "receipt": {
+              "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+              "command_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 13094,
+                "start_ticks": 470717
+              },
+              "contract_sha256": "3948fc95b1c1bec846611d8a8eb7d6535571f5228cca2ade52129a44688e2cd4",
+              "elapsed_seconds": 0.28696718999981385,
+              "error": null,
+              "exit_code": 0,
+              "finished_at": "2026-10-12T08:40:39.146305+00:00",
+              "input_refs": [
+                {
+                  "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                  "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                },
+                {
+                  "path": "decontamination_selector_protocol.json",
+                  "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                },
+                {
+                  "path": "adapter_contract.json",
+                  "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                },
+                {
+                  "path": "scripts/decontam_selector.py",
+                  "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                },
+                {
+                  "path": "scripts/import_blinded_confirmation.py",
+                  "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+                },
+                {
+                  "path": "scripts/measure_command.py",
+                  "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                }
+              ],
+              "output_refs": [
+                {
+                  "path": "output/selector_confirmation.sqlite3",
+                  "sha256": "0a64e0aa92683df0cd897631865d422cb440f27d3a709bbfc5194c80230cfff7"
+                },
+                {
+                  "path": "output/blinded_adapter_summary.json",
+                  "sha256": "feecbcd5d8ed27604eae0660179d29b38557660eebaa709251459138fa17948e"
+                },
+                {
+                  "path": "output/blinded_adapter.resources.json",
+                  "sha256": "a4c7415fc26708e762e6b4c9e8ddd7898338d162e4f80d40b8a4dc31f32d5d9c"
+                }
+              ],
+              "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+              "schema_version": 1,
+              "started_at": "2026-10-12T08:40:38.859345+00:00",
+              "status": "succeeded",
+              "stderr_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stderr.txt",
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "stdout_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stdout.txt",
+                "sha256": "fe2445810346255366083792959836d3e4247369ecf2fdf781e9c5d74ff74f65"
+              },
+              "task_id": "wake14-import-blinded-confirmation-v1",
+              "worker_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 13093,
+                "start_ticks": 470713
+              }
+            },
+            "receipt_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/receipt.json",
+              "sha256": "72a6ed8b91341472c14381bc8139bb22868f23327fd40a4b6f8765732f9ca30f"
+            },
+            "reservation_seconds": 63.0,
+            "response_handled": true,
+            "result": "succeeded",
+            "source": {
+              "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+              "files": [
+                {
+                  "path": "SKILL.md",
+                  "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                },
+                {
+                  "path": "references/rsi-simple.md",
+                  "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                },
+                {
+                  "path": "references/simple-runner.md",
+                  "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                },
+                {
+                  "path": "scripts/_simple_process.py",
+                  "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                },
+                {
+                  "path": "scripts/_simple_source.py",
+                  "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                },
+                {
+                  "path": "scripts/simple_loop.py",
+                  "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                },
+                {
+                  "path": "scripts/simple_runner.py",
+                  "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                },
+                {
+                  "path": "references/simple-experiment-design.md",
+                  "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                },
+                {
+                  "path": "scripts/simple_design.py",
+                  "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                },
+                {
+                  "path": "scripts/simple_resources.py",
+                  "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-plan.json",
+                  "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-results.json",
+                  "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                },
+                {
+                  "path": "references/simple-collaboration.md",
+                  "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                },
+                {
+                  "path": "assets/templates/simple-delegation.json",
+                  "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                }
+              ],
+              "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+            },
+            "state": "terminal",
+            "task_id": "wake14-import-blinded-confirmation-v1"
+          }
+        ],
+        "budget": {
+          "attempts_used": 1,
+          "deadline_epoch": 1791795569.9224267,
+          "elapsed_seconds": 0.28696718999981385,
+          "max_attempts": 12,
+          "max_command_seconds": 600,
+          "remaining_deadline_seconds": 1130.7667126655579,
+          "remaining_seconds": 599.7130328100002,
+          "reserved_seconds": 0
+        },
+        "continuation": null,
+        "current_question": "Continue verify: Execution observation for wake14-import-blinded-confirmation-v1: succeeded; Command execution reported succeeded",
+        "goal": "\u68c0\u9a8c\u5e76\u6539\u8fdb\u591a\u8bed\u8a00\u5206\u8bcd\u516c\u5e73\u6027\u7684\u8de8\u9886\u57df\u7a33\u5b9a\u6027\uff0c\u4fdd\u7559\u8d1f\u7ed3\u679c\uff0c\u5e76\u5728\u5408\u6cd5\u771f\u5b9e\u6765\u6e90\u3001\u5bf9\u9f50\u516c\u5e73\u6307\u6807\u548cCPU\u7ea6\u675f\u4e0b\u6301\u7eed\u63a8\u8fdb",
+        "goal_contract": {
+          "completion_criteria": [
+            {
+              "description": "\u6301\u7eed\u6784\u5efa\u53ef\u590d\u6838\u7684\u771f\u5b9e\u591a\u8bed\u8a00\u6765\u6e90\u3001\u5bf9\u9f50\u6307\u6807\u3001\u5f3a\u5bf9\u7167\u3001\u673a\u5236\u8bc1\u636e\u548c\u72ec\u7acb\u786e\u8ba4",
+              "id": "evidence"
+            },
+            {
+              "description": "\u5bf9\u6bcf\u4e2a\u6709\u5224\u522b\u529b\u7684\u5047\u8bbe\u7ed9\u51fa\u652f\u6301\u3001\u4e0d\u652f\u6301\u6216\u8bc1\u636e\u4e0d\u8db3\u7684\u8303\u56f4\u5316\u7ed3\u8bba\u5e76\u9009\u62e9\u4e0b\u4e00\u5fc5\u8981\u52a8\u4f5c",
+              "id": "interpretation"
+            }
+          ],
+          "mode": "continuous_research"
+        },
+        "goal_contract_version": 1,
+        "idea": "pa-bpe-domain-robustness",
+        "idea_status": "active",
+        "journal_version": 1,
+        "milestones": [],
+        "next_action": "Continue verify: Execution observation for wake14-import-blinded-confirmation-v1: succeeded; Command execution reported succeeded",
+        "observations": [
+          {
+            "event_id": "result:attempt-b3df73445d2e442d9e3c959f476136fe",
+            "kind": "task_result",
+            "payload": {
+              "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+              "reason": "Command execution reported succeeded",
+              "receipt": {
+                "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+                "command_identity": {
+                  "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                  "pid": 13094,
+                  "start_ticks": 470717
+                },
+                "contract_sha256": "3948fc95b1c1bec846611d8a8eb7d6535571f5228cca2ade52129a44688e2cd4",
+                "elapsed_seconds": 0.28696718999981385,
+                "error": null,
+                "exit_code": 0,
+                "finished_at": "2026-10-12T08:40:39.146305+00:00",
+                "input_refs": [
+                  {
+                    "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                    "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                  },
+                  {
+                    "path": "decontamination_selector_protocol.json",
+                    "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                  },
+                  {
+                    "path": "adapter_contract.json",
+                    "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                  },
+                  {
+                    "path": "scripts/decontam_selector.py",
+                    "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                  },
+                  {
+                    "path": "scripts/import_blinded_confirmation.py",
+                    "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+                  },
+                  {
+                    "path": "scripts/measure_command.py",
+                    "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                  }
+                ],
+                "output_refs": [
+                  {
+                    "path": "output/selector_confirmation.sqlite3",
+                    "sha256": "0a64e0aa92683df0cd897631865d422cb440f27d3a709bbfc5194c80230cfff7"
+                  },
+                  {
+                    "path": "output/blinded_adapter_summary.json",
+                    "sha256": "feecbcd5d8ed27604eae0660179d29b38557660eebaa709251459138fa17948e"
+                  },
+                  {
+                    "path": "output/blinded_adapter.resources.json",
+                    "sha256": "a4c7415fc26708e762e6b4c9e8ddd7898338d162e4f80d40b8a4dc31f32d5d9c"
+                  }
+                ],
+                "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+                "schema_version": 1,
+                "started_at": "2026-10-12T08:40:38.859345+00:00",
+                "status": "succeeded",
+                "stderr_ref": {
+                  "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stderr.txt",
+                  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                },
+                "stdout_ref": {
+                  "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stdout.txt",
+                  "sha256": "fe2445810346255366083792959836d3e4247369ecf2fdf781e9c5d74ff74f65"
+                },
+                "task_id": "wake14-import-blinded-confirmation-v1",
+                "worker_identity": {
+                  "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                  "pid": 13093,
+                  "start_ticks": 470713
+                }
+              },
+              "receipt_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/receipt.json",
+                "sha256": "72a6ed8b91341472c14381bc8139bb22868f23327fd40a4b6f8765732f9ca30f"
+              },
+              "status": "succeeded",
+              "task_id": "wake14-import-blinded-confirmation-v1"
+            },
+            "request_id": null,
+            "sequence": 1
+          }
+        ],
+        "request_id": "decision-0296b65d12f6448bad104599f0f8e58e",
+        "research_cycles": [],
+        "revision": 1,
+        "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "tasks": [
+          {
+            "argv": [
+              "python3",
+              "scripts/measure_command.py",
+              "output/blinded_adapter.resources.json",
+              "scripts/import_blinded_confirmation.py",
+              "--source",
+              "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+              "--target",
+              "output/selector_confirmation.sqlite3",
+              "--protocol",
+              "decontamination_selector_protocol.json",
+              "--contract",
+              "adapter_contract.json",
+              "--summary",
+              "output/blinded_adapter_summary.json"
+            ],
+            "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+            "cancel_requested": false,
+            "cwd": ".",
+            "depends_on": [],
+            "idea": "pa-bpe-domain-robustness",
+            "input_refs": [
+              {
+                "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+              },
+              {
+                "path": "decontamination_selector_protocol.json",
+                "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+              },
+              {
+                "path": "adapter_contract.json",
+                "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+              },
+              {
+                "path": "scripts/decontam_selector.py",
+                "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+              },
+              {
+                "path": "scripts/import_blinded_confirmation.py",
+                "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+              },
+              {
+                "path": "scripts/measure_command.py",
+                "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+              }
+            ],
+            "outputs": [
+              "output/selector_confirmation.sqlite3",
+              "output/blinded_adapter_summary.json",
+              "output/blinded_adapter.resources.json"
+            ],
+            "phase": "experiment",
+            "purpose": "Import the frozen hash-only confirmation index into a production selector database while measuring the actual CPU process.",
+            "reason": "Command execution reported succeeded",
+            "replaced_by": null,
+            "revision": 1,
+            "state": "succeeded",
+            "supersedes": null,
+            "task_id": "wake14-import-blinded-confirmation-v1",
+            "timeout_seconds": 60
+          },
+          {
+            "argv": [
+              "python3",
+              "scripts/measure_command.py",
+              "output/blinded_adapter_verification.resources.json",
+              "scripts/verify_blinded_adapter.py"
+            ],
+            "attempt_id": null,
+            "cancel_requested": false,
+            "cwd": ".",
+            "depends_on": [
+              "wake14-import-blinded-confirmation-v1"
+            ],
+            "idea": "pa-bpe-domain-robustness",
+            "input_refs": [
+              {
+                "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+              },
+              {
+                "path": "decontamination_selector_protocol.json",
+                "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+              },
+              {
+                "path": "adapter_contract.json",
+                "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+              },
+              {
+                "path": "scripts/decontam_selector.py",
+                "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+              },
+              {
+                "path": "scripts/verify_blinded_adapter.py",
+                "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"
+              },
+              {
+                "path": "scripts/measure_command.py",
+                "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+              }
+            ],
+            "outputs": [
+              "output/blinded_adapter_verification.json",
+              "output/blinded_adapter_verification.resources.json"
+            ],
+            "phase": "verify",
+            "purpose": "Independently exercise fixed oracles, binding guards, exact/near/URL semantics, corruption rejection, and record-level preservation against the frozen index.",
+            "reason": "Awaiting successful dependencies; uncertain dependencies retain their identity",
+            "replaced_by": null,
+            "revision": 1,
+            "state": "queued",
+            "supersedes": null,
+            "task_id": "wake14-verify-blinded-adapter-v1",
+            "timeout_seconds": 90
+          }
+        ]
+      },
+      "state": "answered"
+    },
+    {
+      "agent_attempt_id": null,
+      "error": null,
+      "request_ref": {
+        "path": ".research-autopilot/runner/requests/decision-9e34022208bf46489df4156a4c8f34f4.json",
+        "sha256": "248275b5263da403baac96cbb517ce5e89436dd4279d62a8ce19dd00282072d8"
+      },
+      "snapshot": {
+        "agent_error": null,
+        "agent_version": 0,
+        "attempts": [
+          {
+            "attempt_dir": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14/.research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe",
+            "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+            "contract": {
+              "argv": [
+                "python3",
+                "scripts/measure_command.py",
+                "output/blinded_adapter.resources.json",
+                "scripts/import_blinded_confirmation.py",
+                "--source",
+                "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                "--target",
+                "output/selector_confirmation.sqlite3",
+                "--protocol",
+                "decontamination_selector_protocol.json",
+                "--contract",
+                "adapter_contract.json",
+                "--summary",
+                "output/blinded_adapter_summary.json"
+              ],
+              "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+              "cwd": ".",
+              "deadline_epoch": 1791795569.9224267,
+              "input_refs": [
+                {
+                  "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                  "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                },
+                {
+                  "path": "decontamination_selector_protocol.json",
+                  "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                },
+                {
+                  "path": "adapter_contract.json",
+                  "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                },
+                {
+                  "path": "scripts/decontam_selector.py",
+                  "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                },
+                {
+                  "path": "scripts/import_blinded_confirmation.py",
+                  "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+                },
+                {
+                  "path": "scripts/measure_command.py",
+                  "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                }
+              ],
+              "kind": "task",
+              "outputs": [
+                "output/selector_confirmation.sqlite3",
+                "output/blinded_adapter_summary.json",
+                "output/blinded_adapter.resources.json"
+              ],
+              "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+              "schema_version": 1,
+              "source": {
+                "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+                "files": [
+                  {
+                    "path": "SKILL.md",
+                    "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                  },
+                  {
+                    "path": "references/rsi-simple.md",
+                    "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                  },
+                  {
+                    "path": "references/simple-runner.md",
+                    "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                  },
+                  {
+                    "path": "scripts/_simple_process.py",
+                    "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                  },
+                  {
+                    "path": "scripts/_simple_source.py",
+                    "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                  },
+                  {
+                    "path": "scripts/simple_loop.py",
+                    "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                  },
+                  {
+                    "path": "scripts/simple_runner.py",
+                    "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                  },
+                  {
+                    "path": "references/simple-experiment-design.md",
+                    "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                  },
+                  {
+                    "path": "scripts/simple_design.py",
+                    "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                  },
+                  {
+                    "path": "scripts/simple_resources.py",
+                    "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-plan.json",
+                    "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-results.json",
+                    "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                  },
+                  {
+                    "path": "references/simple-collaboration.md",
+                    "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                  },
+                  {
+                    "path": "assets/templates/simple-delegation.json",
+                    "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                  }
+                ],
+                "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+              },
+              "task_id": "wake14-import-blinded-confirmation-v1",
+              "timeout_seconds": 60
+            },
+            "contract_sha256": "3948fc95b1c1bec846611d8a8eb7d6535571f5228cca2ade52129a44688e2cd4",
+            "elapsed_seconds": 0.28696718999981385,
+            "kind": "task",
+            "reason": "Command execution reported succeeded",
+            "receipt": {
+              "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+              "command_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 13094,
+                "start_ticks": 470717
+              },
+              "contract_sha256": "3948fc95b1c1bec846611d8a8eb7d6535571f5228cca2ade52129a44688e2cd4",
+              "elapsed_seconds": 0.28696718999981385,
+              "error": null,
+              "exit_code": 0,
+              "finished_at": "2026-10-12T08:40:39.146305+00:00",
+              "input_refs": [
+                {
+                  "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                  "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                },
+                {
+                  "path": "decontamination_selector_protocol.json",
+                  "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                },
+                {
+                  "path": "adapter_contract.json",
+                  "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                },
+                {
+                  "path": "scripts/decontam_selector.py",
+                  "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                },
+                {
+                  "path": "scripts/import_blinded_confirmation.py",
+                  "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+                },
+                {
+                  "path": "scripts/measure_command.py",
+                  "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                }
+              ],
+              "output_refs": [
+                {
+                  "path": "output/selector_confirmation.sqlite3",
+                  "sha256": "0a64e0aa92683df0cd897631865d422cb440f27d3a709bbfc5194c80230cfff7"
+                },
+                {
+                  "path": "output/blinded_adapter_summary.json",
+                  "sha256": "feecbcd5d8ed27604eae0660179d29b38557660eebaa709251459138fa17948e"
+                },
+                {
+                  "path": "output/blinded_adapter.resources.json",
+                  "sha256": "a4c7415fc26708e762e6b4c9e8ddd7898338d162e4f80d40b8a4dc31f32d5d9c"
+                }
+              ],
+              "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+              "schema_version": 1,
+              "started_at": "2026-10-12T08:40:38.859345+00:00",
+              "status": "succeeded",
+              "stderr_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stderr.txt",
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "stdout_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stdout.txt",
+                "sha256": "fe2445810346255366083792959836d3e4247369ecf2fdf781e9c5d74ff74f65"
+              },
+              "task_id": "wake14-import-blinded-confirmation-v1",
+              "worker_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 13093,
+                "start_ticks": 470713
+              }
+            },
+            "receipt_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/receipt.json",
+              "sha256": "72a6ed8b91341472c14381bc8139bb22868f23327fd40a4b6f8765732f9ca30f"
+            },
+            "reservation_seconds": 63.0,
+            "response_handled": true,
+            "result": "succeeded",
+            "source": {
+              "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+              "files": [
+                {
+                  "path": "SKILL.md",
+                  "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                },
+                {
+                  "path": "references/rsi-simple.md",
+                  "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                },
+                {
+                  "path": "references/simple-runner.md",
+                  "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                },
+                {
+                  "path": "scripts/_simple_process.py",
+                  "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                },
+                {
+                  "path": "scripts/_simple_source.py",
+                  "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                },
+                {
+                  "path": "scripts/simple_loop.py",
+                  "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                },
+                {
+                  "path": "scripts/simple_runner.py",
+                  "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                },
+                {
+                  "path": "references/simple-experiment-design.md",
+                  "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                },
+                {
+                  "path": "scripts/simple_design.py",
+                  "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                },
+                {
+                  "path": "scripts/simple_resources.py",
+                  "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-plan.json",
+                  "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-results.json",
+                  "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                },
+                {
+                  "path": "references/simple-collaboration.md",
+                  "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                },
+                {
+                  "path": "assets/templates/simple-delegation.json",
+                  "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                }
+              ],
+              "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+            },
+            "state": "terminal",
+            "task_id": "wake14-import-blinded-confirmation-v1"
+          },
+          {
+            "attempt_dir": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14/.research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+            "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+            "contract": {
+              "argv": [
+                "python3",
+                "scripts/measure_command.py",
+                "output/blinded_adapter_verification.resources.json",
+                "scripts/verify_blinded_adapter.py"
+              ],
+              "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+              "cwd": ".",
+              "deadline_epoch": 1791795569.9224267,
+              "input_refs": [
+                {
+                  "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                  "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                },
+                {
+                  "path": "decontamination_selector_protocol.json",
+                  "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                },
+                {
+                  "path": "adapter_contract.json",
+                  "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                },
+                {
+                  "path": "scripts/decontam_selector.py",
+                  "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                },
+                {
+                  "path": "scripts/verify_blinded_adapter.py",
+                  "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"
+                },
+                {
+                  "path": "scripts/measure_command.py",
+                  "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                }
+              ],
+              "kind": "task",
+              "outputs": [
+                "output/blinded_adapter_verification.json",
+                "output/blinded_adapter_verification.resources.json"
+              ],
+              "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+              "schema_version": 1,
+              "source": {
+                "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+                "files": [
+                  {
+                    "path": "SKILL.md",
+                    "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                  },
+                  {
+                    "path": "references/rsi-simple.md",
+                    "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                  },
+                  {
+                    "path": "references/simple-runner.md",
+                    "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                  },
+                  {
+                    "path": "scripts/_simple_process.py",
+                    "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                  },
+                  {
+                    "path": "scripts/_simple_source.py",
+                    "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                  },
+                  {
+                    "path": "scripts/simple_loop.py",
+                    "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                  },
+                  {
+                    "path": "scripts/simple_runner.py",
+                    "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                  },
+                  {
+                    "path": "references/simple-experiment-design.md",
+                    "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                  },
+                  {
+                    "path": "scripts/simple_design.py",
+                    "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                  },
+                  {
+                    "path": "scripts/simple_resources.py",
+                    "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-plan.json",
+                    "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-results.json",
+                    "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                  },
+                  {
+                    "path": "references/simple-collaboration.md",
+                    "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                  },
+                  {
+                    "path": "assets/templates/simple-delegation.json",
+                    "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                  }
+                ],
+                "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+              },
+              "task_id": "wake14-verify-blinded-adapter-v1",
+              "timeout_seconds": 90
+            },
+            "contract_sha256": "69685d911922c0320c4504ed7952f1a5703580471cf9b67f91c635ff84b42958",
+            "elapsed_seconds": 0.25276108300022315,
+            "kind": "task",
+            "reason": "Command execution reported succeeded",
+            "receipt": {
+              "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+              "command_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 13096,
+                "start_ticks": 470750
+              },
+              "contract_sha256": "69685d911922c0320c4504ed7952f1a5703580471cf9b67f91c635ff84b42958",
+              "elapsed_seconds": 0.25276108300022315,
+              "error": null,
+              "exit_code": 0,
+              "finished_at": "2026-10-12T08:40:39.446729+00:00",
+              "input_refs": [
+                {
+                  "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                  "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                },
+                {
+                  "path": "decontamination_selector_protocol.json",
+                  "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                },
+                {
+                  "path": "adapter_contract.json",
+                  "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                },
+                {
+                  "path": "scripts/decontam_selector.py",
+                  "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                },
+                {
+                  "path": "scripts/verify_blinded_adapter.py",
+                  "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"
+                },
+                {
+                  "path": "scripts/measure_command.py",
+                  "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                }
+              ],
+              "output_refs": [
+                {
+                  "path": "output/blinded_adapter_verification.json",
+                  "sha256": "774c6e5acb536332e9c170b056d79a845f124169cdf852486a465bd2ecd84c0d"
+                },
+                {
+                  "path": "output/blinded_adapter_verification.resources.json",
+                  "sha256": "89f89bc33e96fc7a73d846792ff0cff1805f1fb578129d757329d8e8fcbdbfd0"
+                }
+              ],
+              "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+              "schema_version": 1,
+              "started_at": "2026-10-12T08:40:39.193974+00:00",
+              "status": "succeeded",
+              "stderr_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/stderr.txt",
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "stdout_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/stdout.txt",
+                "sha256": "60aa20d76b547e766abc2fe4b5f2b76a8c5bf0e07e61609b344f161b602e60db"
+              },
+              "task_id": "wake14-verify-blinded-adapter-v1",
+              "worker_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 13095,
+                "start_ticks": 470746
+              }
+            },
+            "receipt_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/receipt.json",
+              "sha256": "aac43a20079ed401548be099fd3242a7de5e10181cc727079e34e95fc9b78d20"
+            },
+            "reservation_seconds": 93.0,
+            "response_handled": true,
+            "result": "succeeded",
+            "source": {
+              "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+              "files": [
+                {
+                  "path": "SKILL.md",
+                  "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                },
+                {
+                  "path": "references/rsi-simple.md",
+                  "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                },
+                {
+                  "path": "references/simple-runner.md",
+                  "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                },
+                {
+                  "path": "scripts/_simple_process.py",
+                  "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                },
+                {
+                  "path": "scripts/_simple_source.py",
+                  "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                },
+                {
+                  "path": "scripts/simple_loop.py",
+                  "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                },
+                {
+                  "path": "scripts/simple_runner.py",
+                  "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                },
+                {
+                  "path": "references/simple-experiment-design.md",
+                  "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                },
+                {
+                  "path": "scripts/simple_design.py",
+                  "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                },
+                {
+                  "path": "scripts/simple_resources.py",
+                  "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-plan.json",
+                  "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-results.json",
+                  "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                },
+                {
+                  "path": "references/simple-collaboration.md",
+                  "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                },
+                {
+                  "path": "assets/templates/simple-delegation.json",
+                  "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                }
+              ],
+              "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+            },
+            "state": "terminal",
+            "task_id": "wake14-verify-blinded-adapter-v1"
+          }
+        ],
+        "budget": {
+          "attempts_used": 2,
+          "deadline_epoch": 1791795569.9224267,
+          "elapsed_seconds": 0.539728273000037,
+          "max_attempts": 12,
+          "max_command_seconds": 600,
+          "remaining_deadline_seconds": 761.3000671863556,
+          "remaining_seconds": 599.460271727,
+          "reserved_seconds": 0
+        },
+        "continuation": null,
+        "current_question": "Continue sources: The repaired adapter passed 20/20 fixed and record-level checks and an independent read-only review found no blocking defect. The PASS is restricted to hash-only adapter mechanics and frozen-index preservation; real development selection, shard provenance, tokenizer training, and fairness claims remain HOLD. Next obtain and bind real development rows to fixed source shards before production decontamination.",
+        "goal": "\u68c0\u9a8c\u5e76\u6539\u8fdb\u591a\u8bed\u8a00\u5206\u8bcd\u516c\u5e73\u6027\u7684\u8de8\u9886\u57df\u7a33\u5b9a\u6027\uff0c\u4fdd\u7559\u8d1f\u7ed3\u679c\uff0c\u5e76\u5728\u5408\u6cd5\u771f\u5b9e\u6765\u6e90\u3001\u5bf9\u9f50\u516c\u5e73\u6307\u6807\u548cCPU\u7ea6\u675f\u4e0b\u6301\u7eed\u63a8\u8fdb",
+        "goal_contract": {
+          "completion_criteria": [
+            {
+              "description": "\u6301\u7eed\u6784\u5efa\u53ef\u590d\u6838\u7684\u771f\u5b9e\u591a\u8bed\u8a00\u6765\u6e90\u3001\u5bf9\u9f50\u6307\u6807\u3001\u5f3a\u5bf9\u7167\u3001\u673a\u5236\u8bc1\u636e\u548c\u72ec\u7acb\u786e\u8ba4",
+              "id": "evidence"
+            },
+            {
+              "description": "\u5bf9\u6bcf\u4e2a\u6709\u5224\u522b\u529b\u7684\u5047\u8bbe\u7ed9\u51fa\u652f\u6301\u3001\u4e0d\u652f\u6301\u6216\u8bc1\u636e\u4e0d\u8db3\u7684\u8303\u56f4\u5316\u7ed3\u8bba\u5e76\u9009\u62e9\u4e0b\u4e00\u5fc5\u8981\u52a8\u4f5c",
+              "id": "interpretation"
+            }
+          ],
+          "mode": "continuous_research"
+        },
+        "goal_contract_version": 1,
+        "idea": "pa-bpe-domain-robustness",
+        "idea_status": "active",
+        "journal_version": 4,
+        "milestones": [],
+        "next_action": "Continue sources: The repaired adapter passed 20/20 fixed and record-level checks and an independent read-only review found no blocking defect. The PASS is restricted to hash-only adapter mechanics and frozen-index preservation; real development selection, shard provenance, tokenizer training, and fairness claims remain HOLD. Next obtain and bind real development rows to fixed source shards before production decontamination.",
+        "observations": [
+          {
+            "event_id": "followup:wake14-adapter-verification-progress-v1",
+            "kind": "decision_followup",
+            "payload": {
+              "journal_phase": "sources",
+              "reason": "Accept the independently reviewed narrow adapter gate, preserve its explicit exclusions, and continue next with real development rows plus formal row-to-fixed-shard provenance."
+            },
+            "request_id": null,
+            "sequence": 4
+          }
+        ],
+        "request_id": "decision-9e34022208bf46489df4156a4c8f34f4",
+        "research_cycles": [],
+        "revision": 1,
+        "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "tasks": [
+          {
+            "argv": [
+              "python3",
+              "scripts/measure_command.py",
+              "output/blinded_adapter.resources.json",
+              "scripts/import_blinded_confirmation.py",
+              "--source",
+              "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+              "--target",
+              "output/selector_confirmation.sqlite3",
+              "--protocol",
+              "decontamination_selector_protocol.json",
+              "--contract",
+              "adapter_contract.json",
+              "--summary",
+              "output/blinded_adapter_summary.json"
+            ],
+            "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+            "cancel_requested": false,
+            "cwd": ".",
+            "depends_on": [],
+            "idea": "pa-bpe-domain-robustness",
+            "input_refs": [
+              {
+                "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+              },
+              {
+                "path": "decontamination_selector_protocol.json",
+                "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+              },
+              {
+                "path": "adapter_contract.json",
+                "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+              },
+              {
+                "path": "scripts/decontam_selector.py",
+                "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+              },
+              {
+                "path": "scripts/import_blinded_confirmation.py",
+                "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+              },
+              {
+                "path": "scripts/measure_command.py",
+                "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+              }
+            ],
+            "outputs": [
+              "output/selector_confirmation.sqlite3",
+              "output/blinded_adapter_summary.json",
+              "output/blinded_adapter.resources.json"
+            ],
+            "phase": "experiment",
+            "purpose": "Import the frozen hash-only confirmation index into a production selector database while measuring the actual CPU process.",
+            "reason": "Command execution reported succeeded",
+            "replaced_by": null,
+            "revision": 1,
+            "state": "succeeded",
+            "supersedes": null,
+            "task_id": "wake14-import-blinded-confirmation-v1",
+            "timeout_seconds": 60
+          },
+          {
+            "argv": [
+              "python3",
+              "scripts/measure_command.py",
+              "output/blinded_adapter_verification.resources.json",
+              "scripts/verify_blinded_adapter.py"
+            ],
+            "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+            "cancel_requested": false,
+            "cwd": ".",
+            "depends_on": [
+              "wake14-import-blinded-confirmation-v1"
+            ],
+            "idea": "pa-bpe-domain-robustness",
+            "input_refs": [
+              {
+                "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+              },
+              {
+                "path": "decontamination_selector_protocol.json",
+                "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+              },
+              {
+                "path": "adapter_contract.json",
+                "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+              },
+              {
+                "path": "scripts/decontam_selector.py",
+                "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+              },
+              {
+                "path": "scripts/verify_blinded_adapter.py",
+                "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"
+              },
+              {
+                "path": "scripts/measure_command.py",
+                "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+              }
+            ],
+            "outputs": [
+              "output/blinded_adapter_verification.json",
+              "output/blinded_adapter_verification.resources.json"
+            ],
+            "phase": "verify",
+            "purpose": "Independently exercise fixed oracles, binding guards, exact/near/URL semantics, corruption rejection, and record-level preservation against the frozen index.",
+            "reason": "Command execution reported succeeded",
+            "replaced_by": null,
+            "revision": 1,
+            "state": "succeeded",
+            "supersedes": null,
+            "task_id": "wake14-verify-blinded-adapter-v1",
+            "timeout_seconds": 90
+          }
+        ]
+      },
+      "state": "open"
+    },
+    {
+      "agent_attempt_id": null,
+      "error": null,
+      "request_ref": {
+        "path": ".research-autopilot/runner/requests/decision-a2961a0c851c425190c0ed26845b783a.json",
+        "sha256": "55ccdd5608eff323371438bf48052a7b64243e48495790d33049a6f53bbecc23"
+      },
+      "response_id": "wake14-adapter-verification-progress-v1",
+      "snapshot": {
+        "agent_error": null,
+        "agent_version": 0,
+        "attempts": [
+          {
+            "attempt_dir": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14/.research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe",
+            "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+            "contract": {
+              "argv": [
+                "python3",
+                "scripts/measure_command.py",
+                "output/blinded_adapter.resources.json",
+                "scripts/import_blinded_confirmation.py",
+                "--source",
+                "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                "--target",
+                "output/selector_confirmation.sqlite3",
+                "--protocol",
+                "decontamination_selector_protocol.json",
+                "--contract",
+                "adapter_contract.json",
+                "--summary",
+                "output/blinded_adapter_summary.json"
+              ],
+              "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+              "cwd": ".",
+              "deadline_epoch": 1791795569.9224267,
+              "input_refs": [
+                {
+                  "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                  "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                },
+                {
+                  "path": "decontamination_selector_protocol.json",
+                  "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                },
+                {
+                  "path": "adapter_contract.json",
+                  "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                },
+                {
+                  "path": "scripts/decontam_selector.py",
+                  "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                },
+                {
+                  "path": "scripts/import_blinded_confirmation.py",
+                  "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+                },
+                {
+                  "path": "scripts/measure_command.py",
+                  "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                }
+              ],
+              "kind": "task",
+              "outputs": [
+                "output/selector_confirmation.sqlite3",
+                "output/blinded_adapter_summary.json",
+                "output/blinded_adapter.resources.json"
+              ],
+              "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+              "schema_version": 1,
+              "source": {
+                "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+                "files": [
+                  {
+                    "path": "SKILL.md",
+                    "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                  },
+                  {
+                    "path": "references/rsi-simple.md",
+                    "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                  },
+                  {
+                    "path": "references/simple-runner.md",
+                    "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                  },
+                  {
+                    "path": "scripts/_simple_process.py",
+                    "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                  },
+                  {
+                    "path": "scripts/_simple_source.py",
+                    "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                  },
+                  {
+                    "path": "scripts/simple_loop.py",
+                    "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                  },
+                  {
+                    "path": "scripts/simple_runner.py",
+                    "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                  },
+                  {
+                    "path": "references/simple-experiment-design.md",
+                    "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                  },
+                  {
+                    "path": "scripts/simple_design.py",
+                    "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                  },
+                  {
+                    "path": "scripts/simple_resources.py",
+                    "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-plan.json",
+                    "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-results.json",
+                    "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                  },
+                  {
+                    "path": "references/simple-collaboration.md",
+                    "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                  },
+                  {
+                    "path": "assets/templates/simple-delegation.json",
+                    "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                  }
+                ],
+                "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+              },
+              "task_id": "wake14-import-blinded-confirmation-v1",
+              "timeout_seconds": 60
+            },
+            "contract_sha256": "3948fc95b1c1bec846611d8a8eb7d6535571f5228cca2ade52129a44688e2cd4",
+            "elapsed_seconds": 0.28696718999981385,
+            "kind": "task",
+            "reason": "Command execution reported succeeded",
+            "receipt": {
+              "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+              "command_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 13094,
+                "start_ticks": 470717
+              },
+              "contract_sha256": "3948fc95b1c1bec846611d8a8eb7d6535571f5228cca2ade52129a44688e2cd4",
+              "elapsed_seconds": 0.28696718999981385,
+              "error": null,
+              "exit_code": 0,
+              "finished_at": "2026-10-12T08:40:39.146305+00:00",
+              "input_refs": [
+                {
+                  "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                  "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                },
+                {
+                  "path": "decontamination_selector_protocol.json",
+                  "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                },
+                {
+                  "path": "adapter_contract.json",
+                  "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                },
+                {
+                  "path": "scripts/decontam_selector.py",
+                  "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                },
+                {
+                  "path": "scripts/import_blinded_confirmation.py",
+                  "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+                },
+                {
+                  "path": "scripts/measure_command.py",
+                  "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                }
+              ],
+              "output_refs": [
+                {
+                  "path": "output/selector_confirmation.sqlite3",
+                  "sha256": "0a64e0aa92683df0cd897631865d422cb440f27d3a709bbfc5194c80230cfff7"
+                },
+                {
+                  "path": "output/blinded_adapter_summary.json",
+                  "sha256": "feecbcd5d8ed27604eae0660179d29b38557660eebaa709251459138fa17948e"
+                },
+                {
+                  "path": "output/blinded_adapter.resources.json",
+                  "sha256": "a4c7415fc26708e762e6b4c9e8ddd7898338d162e4f80d40b8a4dc31f32d5d9c"
+                }
+              ],
+              "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+              "schema_version": 1,
+              "started_at": "2026-10-12T08:40:38.859345+00:00",
+              "status": "succeeded",
+              "stderr_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stderr.txt",
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "stdout_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stdout.txt",
+                "sha256": "fe2445810346255366083792959836d3e4247369ecf2fdf781e9c5d74ff74f65"
+              },
+              "task_id": "wake14-import-blinded-confirmation-v1",
+              "worker_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 13093,
+                "start_ticks": 470713
+              }
+            },
+            "receipt_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/receipt.json",
+              "sha256": "72a6ed8b91341472c14381bc8139bb22868f23327fd40a4b6f8765732f9ca30f"
+            },
+            "reservation_seconds": 63.0,
+            "response_handled": true,
+            "result": "succeeded",
+            "source": {
+              "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+              "files": [
+                {
+                  "path": "SKILL.md",
+                  "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                },
+                {
+                  "path": "references/rsi-simple.md",
+                  "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                },
+                {
+                  "path": "references/simple-runner.md",
+                  "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                },
+                {
+                  "path": "scripts/_simple_process.py",
+                  "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                },
+                {
+                  "path": "scripts/_simple_source.py",
+                  "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                },
+                {
+                  "path": "scripts/simple_loop.py",
+                  "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                },
+                {
+                  "path": "scripts/simple_runner.py",
+                  "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                },
+                {
+                  "path": "references/simple-experiment-design.md",
+                  "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                },
+                {
+                  "path": "scripts/simple_design.py",
+                  "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                },
+                {
+                  "path": "scripts/simple_resources.py",
+                  "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-plan.json",
+                  "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-results.json",
+                  "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                },
+                {
+                  "path": "references/simple-collaboration.md",
+                  "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                },
+                {
+                  "path": "assets/templates/simple-delegation.json",
+                  "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                }
+              ],
+              "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+            },
+            "state": "terminal",
+            "task_id": "wake14-import-blinded-confirmation-v1"
+          },
+          {
+            "attempt_dir": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14/.research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+            "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+            "contract": {
+              "argv": [
+                "python3",
+                "scripts/measure_command.py",
+                "output/blinded_adapter_verification.resources.json",
+                "scripts/verify_blinded_adapter.py"
+              ],
+              "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+              "cwd": ".",
+              "deadline_epoch": 1791795569.9224267,
+              "input_refs": [
+                {
+                  "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                  "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                },
+                {
+                  "path": "decontamination_selector_protocol.json",
+                  "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                },
+                {
+                  "path": "adapter_contract.json",
+                  "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                },
+                {
+                  "path": "scripts/decontam_selector.py",
+                  "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                },
+                {
+                  "path": "scripts/verify_blinded_adapter.py",
+                  "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"
+                },
+                {
+                  "path": "scripts/measure_command.py",
+                  "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                }
+              ],
+              "kind": "task",
+              "outputs": [
+                "output/blinded_adapter_verification.json",
+                "output/blinded_adapter_verification.resources.json"
+              ],
+              "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+              "schema_version": 1,
+              "source": {
+                "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+                "files": [
+                  {
+                    "path": "SKILL.md",
+                    "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                  },
+                  {
+                    "path": "references/rsi-simple.md",
+                    "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                  },
+                  {
+                    "path": "references/simple-runner.md",
+                    "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                  },
+                  {
+                    "path": "scripts/_simple_process.py",
+                    "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                  },
+                  {
+                    "path": "scripts/_simple_source.py",
+                    "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                  },
+                  {
+                    "path": "scripts/simple_loop.py",
+                    "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                  },
+                  {
+                    "path": "scripts/simple_runner.py",
+                    "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                  },
+                  {
+                    "path": "references/simple-experiment-design.md",
+                    "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                  },
+                  {
+                    "path": "scripts/simple_design.py",
+                    "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                  },
+                  {
+                    "path": "scripts/simple_resources.py",
+                    "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-plan.json",
+                    "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                  },
+                  {
+                    "path": "assets/templates/simple-experiment-results.json",
+                    "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                  },
+                  {
+                    "path": "references/simple-collaboration.md",
+                    "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                  },
+                  {
+                    "path": "assets/templates/simple-delegation.json",
+                    "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                  }
+                ],
+                "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+              },
+              "task_id": "wake14-verify-blinded-adapter-v1",
+              "timeout_seconds": 90
+            },
+            "contract_sha256": "69685d911922c0320c4504ed7952f1a5703580471cf9b67f91c635ff84b42958",
+            "elapsed_seconds": 0.25276108300022315,
+            "kind": "task",
+            "reason": "Command execution reported succeeded",
+            "receipt": {
+              "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+              "command_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 13096,
+                "start_ticks": 470750
+              },
+              "contract_sha256": "69685d911922c0320c4504ed7952f1a5703580471cf9b67f91c635ff84b42958",
+              "elapsed_seconds": 0.25276108300022315,
+              "error": null,
+              "exit_code": 0,
+              "finished_at": "2026-10-12T08:40:39.446729+00:00",
+              "input_refs": [
+                {
+                  "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                  "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                },
+                {
+                  "path": "decontamination_selector_protocol.json",
+                  "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                },
+                {
+                  "path": "adapter_contract.json",
+                  "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                },
+                {
+                  "path": "scripts/decontam_selector.py",
+                  "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                },
+                {
+                  "path": "scripts/verify_blinded_adapter.py",
+                  "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"
+                },
+                {
+                  "path": "scripts/measure_command.py",
+                  "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                }
+              ],
+              "output_refs": [
+                {
+                  "path": "output/blinded_adapter_verification.json",
+                  "sha256": "774c6e5acb536332e9c170b056d79a845f124169cdf852486a465bd2ecd84c0d"
+                },
+                {
+                  "path": "output/blinded_adapter_verification.resources.json",
+                  "sha256": "89f89bc33e96fc7a73d846792ff0cff1805f1fb578129d757329d8e8fcbdbfd0"
+                }
+              ],
+              "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+              "schema_version": 1,
+              "started_at": "2026-10-12T08:40:39.193974+00:00",
+              "status": "succeeded",
+              "stderr_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/stderr.txt",
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              "stdout_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/stdout.txt",
+                "sha256": "60aa20d76b547e766abc2fe4b5f2b76a8c5bf0e07e61609b344f161b602e60db"
+              },
+              "task_id": "wake14-verify-blinded-adapter-v1",
+              "worker_identity": {
+                "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                "pid": 13095,
+                "start_ticks": 470746
+              }
+            },
+            "receipt_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/receipt.json",
+              "sha256": "aac43a20079ed401548be099fd3242a7de5e10181cc727079e34e95fc9b78d20"
+            },
+            "reservation_seconds": 93.0,
+            "response_handled": true,
+            "result": "succeeded",
+            "source": {
+              "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+              "files": [
+                {
+                  "path": "SKILL.md",
+                  "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+                },
+                {
+                  "path": "references/rsi-simple.md",
+                  "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+                },
+                {
+                  "path": "references/simple-runner.md",
+                  "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+                },
+                {
+                  "path": "scripts/_simple_process.py",
+                  "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+                },
+                {
+                  "path": "scripts/_simple_source.py",
+                  "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+                },
+                {
+                  "path": "scripts/simple_loop.py",
+                  "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+                },
+                {
+                  "path": "scripts/simple_runner.py",
+                  "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+                },
+                {
+                  "path": "references/simple-experiment-design.md",
+                  "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+                },
+                {
+                  "path": "scripts/simple_design.py",
+                  "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+                },
+                {
+                  "path": "scripts/simple_resources.py",
+                  "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-plan.json",
+                  "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+                },
+                {
+                  "path": "assets/templates/simple-experiment-results.json",
+                  "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+                },
+                {
+                  "path": "references/simple-collaboration.md",
+                  "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+                },
+                {
+                  "path": "assets/templates/simple-delegation.json",
+                  "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+                }
+              ],
+              "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+            },
+            "state": "terminal",
+            "task_id": "wake14-verify-blinded-adapter-v1"
+          }
+        ],
+        "budget": {
+          "attempts_used": 2,
+          "deadline_epoch": 1791795569.9224267,
+          "elapsed_seconds": 0.539728273000037,
+          "max_attempts": 12,
+          "max_command_seconds": 600,
+          "remaining_deadline_seconds": 805.8972072601318,
+          "remaining_seconds": 599.460271727,
+          "reserved_seconds": 0
+        },
+        "continuation": null,
+        "current_question": "Continue verify: The fixed SHA256 confirmation index was imported without raw confirmation text: 1536 balanced records, 27225 unique shingle records, shingle mass 27346, and 801 URL hashes. This is an adapter import observation, not a tokenizer or fairness result.",
+        "goal": "\u68c0\u9a8c\u5e76\u6539\u8fdb\u591a\u8bed\u8a00\u5206\u8bcd\u516c\u5e73\u6027\u7684\u8de8\u9886\u57df\u7a33\u5b9a\u6027\uff0c\u4fdd\u7559\u8d1f\u7ed3\u679c\uff0c\u5e76\u5728\u5408\u6cd5\u771f\u5b9e\u6765\u6e90\u3001\u5bf9\u9f50\u516c\u5e73\u6307\u6807\u548cCPU\u7ea6\u675f\u4e0b\u6301\u7eed\u63a8\u8fdb",
+        "goal_contract": {
+          "completion_criteria": [
+            {
+              "description": "\u6301\u7eed\u6784\u5efa\u53ef\u590d\u6838\u7684\u771f\u5b9e\u591a\u8bed\u8a00\u6765\u6e90\u3001\u5bf9\u9f50\u6307\u6807\u3001\u5f3a\u5bf9\u7167\u3001\u673a\u5236\u8bc1\u636e\u548c\u72ec\u7acb\u786e\u8ba4",
+              "id": "evidence"
+            },
+            {
+              "description": "\u5bf9\u6bcf\u4e2a\u6709\u5224\u522b\u529b\u7684\u5047\u8bbe\u7ed9\u51fa\u652f\u6301\u3001\u4e0d\u652f\u6301\u6216\u8bc1\u636e\u4e0d\u8db3\u7684\u8303\u56f4\u5316\u7ed3\u8bba\u5e76\u9009\u62e9\u4e0b\u4e00\u5fc5\u8981\u52a8\u4f5c",
+              "id": "interpretation"
+            }
+          ],
+          "mode": "continuous_research"
+        },
+        "goal_contract_version": 1,
+        "idea": "pa-bpe-domain-robustness",
+        "idea_status": "active",
+        "journal_version": 3,
+        "milestones": [],
+        "next_action": "Continue verify: The fixed SHA256 confirmation index was imported without raw confirmation text: 1536 balanced records, 27225 unique shingle records, shingle mass 27346, and 801 URL hashes. This is an adapter import observation, not a tokenizer or fairness result.",
+        "observations": [
+          {
+            "event_id": "result:attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+            "kind": "task_result",
+            "payload": {
+              "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+              "reason": "Command execution reported succeeded",
+              "receipt": {
+                "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+                "command_identity": {
+                  "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                  "pid": 13096,
+                  "start_ticks": 470750
+                },
+                "contract_sha256": "69685d911922c0320c4504ed7952f1a5703580471cf9b67f91c635ff84b42958",
+                "elapsed_seconds": 0.25276108300022315,
+                "error": null,
+                "exit_code": 0,
+                "finished_at": "2026-10-12T08:40:39.446729+00:00",
+                "input_refs": [
+                  {
+                    "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                    "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+                  },
+                  {
+                    "path": "decontamination_selector_protocol.json",
+                    "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+                  },
+                  {
+                    "path": "adapter_contract.json",
+                    "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+                  },
+                  {
+                    "path": "scripts/decontam_selector.py",
+                    "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+                  },
+                  {
+                    "path": "scripts/verify_blinded_adapter.py",
+                    "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"
+                  },
+                  {
+                    "path": "scripts/measure_command.py",
+                    "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+                  }
+                ],
+                "output_refs": [
+                  {
+                    "path": "output/blinded_adapter_verification.json",
+                    "sha256": "774c6e5acb536332e9c170b056d79a845f124169cdf852486a465bd2ecd84c0d"
+                  },
+                  {
+                    "path": "output/blinded_adapter_verification.resources.json",
+                    "sha256": "89f89bc33e96fc7a73d846792ff0cff1805f1fb578129d757329d8e8fcbdbfd0"
+                  }
+                ],
+                "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+                "schema_version": 1,
+                "started_at": "2026-10-12T08:40:39.193974+00:00",
+                "status": "succeeded",
+                "stderr_ref": {
+                  "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/stderr.txt",
+                  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                },
+                "stdout_ref": {
+                  "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/stdout.txt",
+                  "sha256": "60aa20d76b547e766abc2fe4b5f2b76a8c5bf0e07e61609b344f161b602e60db"
+                },
+                "task_id": "wake14-verify-blinded-adapter-v1",
+                "worker_identity": {
+                  "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+                  "pid": 13095,
+                  "start_ticks": 470746
+                }
+              },
+              "receipt_ref": {
+                "path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/receipt.json",
+                "sha256": "aac43a20079ed401548be099fd3242a7de5e10181cc727079e34e95fc9b78d20"
+              },
+              "status": "succeeded",
+              "task_id": "wake14-verify-blinded-adapter-v1"
+            },
+            "request_id": null,
+            "sequence": 2
+          },
+          {
+            "event_id": "followup:wake14-import-progress-v1",
+            "kind": "decision_followup",
+            "payload": {
+              "journal_phase": "verify",
+              "reason": "Record the completed frozen-index import as an infrastructure milestone while retaining the downstream verification result for its own decision snapshot."
+            },
+            "request_id": null,
+            "sequence": 3
+          }
+        ],
+        "request_id": "decision-a2961a0c851c425190c0ed26845b783a",
+        "research_cycles": [],
+        "revision": 1,
+        "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "tasks": [
+          {
+            "argv": [
+              "python3",
+              "scripts/measure_command.py",
+              "output/blinded_adapter.resources.json",
+              "scripts/import_blinded_confirmation.py",
+              "--source",
+              "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+              "--target",
+              "output/selector_confirmation.sqlite3",
+              "--protocol",
+              "decontamination_selector_protocol.json",
+              "--contract",
+              "adapter_contract.json",
+              "--summary",
+              "output/blinded_adapter_summary.json"
+            ],
+            "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+            "cancel_requested": false,
+            "cwd": ".",
+            "depends_on": [],
+            "idea": "pa-bpe-domain-robustness",
+            "input_refs": [
+              {
+                "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+              },
+              {
+                "path": "decontamination_selector_protocol.json",
+                "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+              },
+              {
+                "path": "adapter_contract.json",
+                "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+              },
+              {
+                "path": "scripts/decontam_selector.py",
+                "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+              },
+              {
+                "path": "scripts/import_blinded_confirmation.py",
+                "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+              },
+              {
+                "path": "scripts/measure_command.py",
+                "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+              }
+            ],
+            "outputs": [
+              "output/selector_confirmation.sqlite3",
+              "output/blinded_adapter_summary.json",
+              "output/blinded_adapter.resources.json"
+            ],
+            "phase": "experiment",
+            "purpose": "Import the frozen hash-only confirmation index into a production selector database while measuring the actual CPU process.",
+            "reason": "Command execution reported succeeded",
+            "replaced_by": null,
+            "revision": 1,
+            "state": "succeeded",
+            "supersedes": null,
+            "task_id": "wake14-import-blinded-confirmation-v1",
+            "timeout_seconds": 60
+          },
+          {
+            "argv": [
+              "python3",
+              "scripts/measure_command.py",
+              "output/blinded_adapter_verification.resources.json",
+              "scripts/verify_blinded_adapter.py"
+            ],
+            "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+            "cancel_requested": false,
+            "cwd": ".",
+            "depends_on": [
+              "wake14-import-blinded-confirmation-v1"
+            ],
+            "idea": "pa-bpe-domain-robustness",
+            "input_refs": [
+              {
+                "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+                "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+              },
+              {
+                "path": "decontamination_selector_protocol.json",
+                "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+              },
+              {
+                "path": "adapter_contract.json",
+                "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+              },
+              {
+                "path": "scripts/decontam_selector.py",
+                "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+              },
+              {
+                "path": "scripts/verify_blinded_adapter.py",
+                "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"
+              },
+              {
+                "path": "scripts/measure_command.py",
+                "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+              }
+            ],
+            "outputs": [
+              "output/blinded_adapter_verification.json",
+              "output/blinded_adapter_verification.resources.json"
+            ],
+            "phase": "verify",
+            "purpose": "Independently exercise fixed oracles, binding guards, exact/near/URL semantics, corruption rejection, and record-level preservation against the frozen index.",
+            "reason": "Command execution reported succeeded",
+            "replaced_by": null,
+            "revision": 1,
+            "state": "succeeded",
+            "supersedes": null,
+            "task_id": "wake14-verify-blinded-adapter-v1",
+            "timeout_seconds": 90
+          }
+        ]
+      },
+      "state": "answered"
+    }
+  ],
+  "research_cycle_count": 0,
+  "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+  "sequence": 4,
+  "source": {
+    "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+      },
+      {
+        "path": "references/rsi-simple.md",
+        "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+      },
+      {
+        "path": "references/simple-runner.md",
+        "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+      },
+      {
+        "path": "scripts/_simple_process.py",
+        "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+      },
+      {
+        "path": "scripts/_simple_source.py",
+        "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+      },
+      {
+        "path": "scripts/simple_loop.py",
+        "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+      },
+      {
+        "path": "scripts/simple_runner.py",
+        "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+      },
+      {
+        "path": "references/simple-experiment-design.md",
+        "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+      },
+      {
+        "path": "scripts/simple_design.py",
+        "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+      },
+      {
+        "path": "scripts/simple_resources.py",
+        "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+      },
+      {
+        "path": "assets/templates/simple-experiment-plan.json",
+        "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+      },
+      {
+        "path": "assets/templates/simple-experiment-results.json",
+        "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+      },
+      {
+        "path": "references/simple-collaboration.md",
+        "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+      },
+      {
+        "path": "assets/templates/simple-delegation.json",
+        "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+      }
+    ],
+    "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "source_error": null,
+  "source_history": [
+    {
+      "reason": "Initial source snapshot",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      }
+    }
+  ],
+  "status": "stopped",
+  "stop_requested": "Finite wake14 adapter-import and verification batch completed; all task identities settled and continuous research will resume from the persisted checkpoint with real development rows plus formal shard provenance.",
+  "tasks": [
+    {
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/blinded_adapter.resources.json",
+        "scripts/import_blinded_confirmation.py",
+        "--source",
+        "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+        "--target",
+        "output/selector_confirmation.sqlite3",
+        "--protocol",
+        "decontamination_selector_protocol.json",
+        "--contract",
+        "adapter_contract.json",
+        "--summary",
+        "output/blinded_adapter_summary.json"
+      ],
+      "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+          "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+        },
+        {
+          "path": "decontamination_selector_protocol.json",
+          "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+        },
+        {
+          "path": "adapter_contract.json",
+          "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+        },
+        {
+          "path": "scripts/decontam_selector.py",
+          "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+        },
+        {
+          "path": "scripts/import_blinded_confirmation.py",
+          "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        }
+      ],
+      "outputs": [
+        "output/selector_confirmation.sqlite3",
+        "output/blinded_adapter_summary.json",
+        "output/blinded_adapter.resources.json"
+      ],
+      "phase": "experiment",
+      "purpose": "Import the frozen hash-only confirmation index into a production selector database while measuring the actual CPU process.",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "wake14-import-blinded-confirmation-v1",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/blinded_adapter_verification.resources.json",
+        "scripts/verify_blinded_adapter.py"
+      ],
+      "attempt_id": "attempt-cb8cd58117ae4f2fa745ce8792ad16ad",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "wake14-import-blinded-confirmation-v1"
+      ],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+          "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+        },
+        {
+          "path": "decontamination_selector_protocol.json",
+          "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+        },
+        {
+          "path": "adapter_contract.json",
+          "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+        },
+        {
+          "path": "scripts/decontam_selector.py",
+          "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+        },
+        {
+          "path": "scripts/verify_blinded_adapter.py",
+          "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        }
+      ],
+      "outputs": [
+        "output/blinded_adapter_verification.json",
+        "output/blinded_adapter_verification.resources.json"
+      ],
+      "phase": "verify",
+      "purpose": "Independently exercise fixed oracles, binding guards, exact/near/URL semantics, corruption rejection, and record-level preservation against the frozen index.",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "wake14-verify-blinded-adapter-v1",
+      "timeout_seconds": 90
+    }
+  ]
+}

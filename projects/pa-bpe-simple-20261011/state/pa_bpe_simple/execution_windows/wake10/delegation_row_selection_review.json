@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "row-selection-independent-review-wake10",
+  "mode": "delegated_read_only_review",
+  "active_idea": "pa-bpe-domain-robustness",
+  "question": "Does the prospective deterministic selection and exact pretoken-budget protocol have any correctness, leakage, provenance, or author-implementation compatibility flaw that invalidates the wake10 unit conclusion or should block formal payload sampling?",
+  "inputs": [
+    "execution_windows/wake10/row_selection_protocol.json",
+    "execution_windows/wake10/scripts/verify_row_selection.py",
+    "execution_windows/wake10/output/row_selection_verification.json",
+    "author_source/parity_aware_bpe/learn_bpe.py",
+    "author_source/parity_aware_bpe/parity_aware_learn_bpe.py"
+  ],
+  "restrictions": [
+    "read-only; do not edit shared files",
+    "no network, downloads, package installation, or scientific commands",
+    "do not inspect evaluation outcomes beyond the named protocol-verification artifact",
+    "distinguish unit-software evidence from formal scientific evidence"
+  ],
+  "expected_output": "Concise findings ranked by severity, with explicit pass/fail of the wake10 unit conclusion and explicit blockers for formal payload sampling.",
+  "coordinator": "Only the root coordinator may submit commands or change the checkpoint."
+}

@@ -1,0 +1,40 @@
+{
+  "submission_id": "conditional-shift-decomposition-wake6-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "conditional-shift-decomposition-wake6",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/conditional_shift.resources.json",
+        "scripts/analyze_conditional_shift.py"
+      ],
+      "phase": "analysis",
+      "purpose": "Execute the frozen exposed-data sign/length composition versus conditional-response domain-shift decomposition across all existing arms.",
+      "timeout_seconds": 30,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "conditional_shift_plan.json", "sha256": "aa15683e87a58eb9b8319e13a579e1490e853476c0aba35c9778106e9e6b1852"},
+        {"path": "window_parent_binding.json", "sha256": "0d58d52fa690de96342c7df0b319ce3c327ec4302276fef8312ccef515864551"},
+        {"path": "scripts/analyze_conditional_shift.py", "sha256": "a368e5c3cbf3aed67e298f59ed1fc79072c8de9da439689703e4e8077ebccec6"},
+        {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+        {"path": "inputs/efficiency_candidate_evaluation.json", "sha256": "d88df96a5d11405477098d10b11a6bea98e8c06a5bdf1c51379d2ff2a572f002"},
+        {"path": "inputs/full_candidate_evaluation.json", "sha256": "75c9b9983a0d53d693f02fded94da2e78acbfaa5ed522eec179e84f6e6ba4512"},
+        {"path": "inputs/multibook_raw_evaluation.json", "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"},
+        {"path": "inputs/pair_candidate_evaluation.json", "sha256": "da6d11dbd9a50111664f58c28ad20c9ea3b67e309b751ca3a895afb883b2ff20"}
+      ],
+      "outputs": [
+        "output/conditional_shift_decomposition.json",
+        "output/conditional_shift_summary.md",
+        "output/conditional_shift.resources.json"
+      ]
+    }
+  ]
+}

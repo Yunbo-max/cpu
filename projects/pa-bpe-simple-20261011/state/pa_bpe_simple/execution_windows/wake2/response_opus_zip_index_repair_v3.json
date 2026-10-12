@@ -1,0 +1,49 @@
+{
+  "response_id": "wake2-opus-zip-index-repair-v3",
+  "request_id": "decision-8f8b4ed9a5004b349992deba579d8438",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The basename repair was insufficient and the second diagnostic remained invalid. The revised diagnostic records every archive member and normalizes both .xml and .xml.gz suffixes, removing the remaining guessed extension assumption.",
+  "tasks": [
+    {
+      "task_id": "opus-raw-zip-index-explicit-members-wake2",
+      "argv": [
+        "/usr/bin/env",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "python3",
+        "scripts/measure_command.py",
+        "output/opus_zip_index_v3.resources.json",
+        "scripts/opus_zip_index_wake2.py",
+        "output/opus_identity_probe/opus_identity_and_hf_probe_wake2.json",
+        "output/opus_zip_index_wake2_v3.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Record full raw archive member identities and verify suffix-agnostic matching for the 12 three-language works",
+      "timeout_seconds": 80,
+      "input_refs": [
+        {
+          "path": "scripts/opus_zip_index_wake2.py",
+          "sha256": "a94ef6f04d747a08ed0cf026a46bcd67167c4a34c4e420fa408ee3e070adaf3b"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "output/opus_identity_probe/opus_identity_and_hf_probe_wake2.json",
+          "sha256": "49afa96737680dd605fdc2cc2c85029e969fd9a7f70f0aa7998a4c047119ae13"
+        },
+        {
+          "path": "output/opus_zip_index_wake2_v2.json",
+          "sha256": "2fd200a18b4142612703d437380c978535d5a75ae644bf2b4b87b8060a85dfc5"
+        }
+      ],
+      "outputs": [
+        "output/opus_zip_index_wake2_v3.json",
+        "output/opus_zip_index_v3.resources.json"
+      ]
+    }
+  ]
+}

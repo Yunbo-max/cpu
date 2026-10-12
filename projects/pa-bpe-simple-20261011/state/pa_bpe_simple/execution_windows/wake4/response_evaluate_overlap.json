@@ -1,0 +1,157 @@
+{
+  "response_id": "evaluate-and-overlap-wake4",
+  "request_id": "decision-113197f555cf4d59ad0e94f7c58fcc55",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "All3 full arms completed with selected-gain and final-count checks; evaluate frozen outcomes and independently narrow literal-overlap concern",
+  "tasks": [
+    {
+      "task_id": "efficiency-candidate-evaluation-wake4",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/efficiency_evaluation.resources.json",
+        "scripts/evaluate_efficiency_candidates.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Compare frozen efficiency-constrained candidate, matched controls and prior baselines on identical exposed aligned rows",
+      "timeout_seconds": 60,
+      "depends_on": [
+        "eff-minmax-train-wake4",
+        "eff-pooled-train-wake4",
+        "exact-train-train-wake4"
+      ],
+      "input_refs": [
+        {
+          "path": "cost_constrained_plan.json",
+          "sha256": "579cf6e3a820546fc720a66174cccb7437446377787ac46dd2377f407a663d19"
+        },
+        {
+          "path": "cost_constrained_clarification.json",
+          "sha256": "4c109fdcead15ded03fb56c08049d81d698f3e7f35661a84a0223978e22e13d2"
+        },
+        {
+          "path": "scripts/evaluate_efficiency_candidates.py",
+          "sha256": "3608ab1213ed81b594c7f49b3c4d6efe1a2ba9bf1cdc97175203926e9ea0d8da"
+        },
+        {
+          "path": "scripts/evaluator_reference.py",
+          "sha256": "612d66ff544e6cb72047d59f36e702766061abcc10e387453e3356ec231651eb"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "inputs/multibook_raw_evaluation.json",
+          "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"
+        },
+        {
+          "path": "inputs/multibook_analysis.json",
+          "sha256": "b65764559c4e6efe60c13567ffdb607611fbdadc0e8edba1cca2b340d063e11c"
+        },
+        {
+          "path": "inputs/full_candidate_evaluation.json",
+          "sha256": "75c9b9983a0d53d693f02fded94da2e78acbfaa5ed522eec179e84f6e6ba4512"
+        },
+        {
+          "path": "inputs/full_candidate_summary.json",
+          "sha256": "971ba8f34c25681c3636e1ec990125420b38d049698bcc34054505076d21a113"
+        },
+        {
+          "path": "inputs/tico.dev100.json",
+          "sha256": "006d673eeb7ba371004bac9027e195b89219b7483c8eee8428db8eb1f6f423a3"
+        },
+        {
+          "path": "inputs/tico.confirm.json",
+          "sha256": "4c373cc4803577b786d9fb6e064734549eb3c98681e93c954b6b4a576585c24e"
+        },
+        {
+          "path": "inputs/old_candidate_evaluation.json",
+          "sha256": "9b1bdaef9c1a0b49f7fae5e312fc5af3dbf23c5843060a005a4e6e4b72350a36"
+        },
+        {
+          "path": "output/eff_minmax.merges",
+          "sha256": "b0a78d5873eea507b720642a15dc445dbc40dbec986d21055f51c0e21d17e0fd"
+        },
+        {
+          "path": "output/eff_minmax.trace.json",
+          "sha256": "ed25ae8bed5ad02449c7b6a50ad17cb78ef005c619d93cb1c0b53cf10bf096df"
+        },
+        {
+          "path": "output/eff_pooled.merges",
+          "sha256": "451e939dcc110a876a8ee49021dfbc5c28cb4e46881882d50091da1881c9f060"
+        },
+        {
+          "path": "output/eff_pooled.trace.json",
+          "sha256": "6a9e6a3b99cb5130f93cc9ceffd8164da1470b44d775509a9d39e82695f134c1"
+        },
+        {
+          "path": "output/exact_train.merges",
+          "sha256": "fc5a7eb7a3d276e3da884e45f6320bc61113f38d6ceadeb7982ec7865be1e8cc"
+        },
+        {
+          "path": "output/exact_train.trace.json",
+          "sha256": "2eedbc1e72ac62b258349f3601515c9936f4f0f05c6c4b451a9ad906baaf9be7"
+        }
+      ],
+      "outputs": [
+        "output/efficiency_candidate_evaluation.json",
+        "output/efficiency_candidate_summary.json",
+        "output/efficiency_evaluation.resources.json"
+      ]
+    },
+    {
+      "task_id": "source-overlap-audit-wake4",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/source_overlap.resources.json",
+        "scripts/audit_source_overlap.py"
+      ],
+      "phase": "verify",
+      "purpose": "Audit detectable verbatim overlap between actual FineWeb2 training documents and10 rawBooks works",
+      "timeout_seconds": 30,
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "source_overlap_plan.json",
+          "sha256": "459391f21d17cf79ad12a449ef1a981d7d44eaba4050e3c4a269d07f173a987c"
+        },
+        {
+          "path": "scripts/audit_source_overlap.py",
+          "sha256": "311cc20c8abad72a0dcba0772ea8cf697edc823c23ae013cf43743fe90879eae"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "inputs/fineweb_en_v1.json",
+          "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"
+        },
+        {
+          "path": "inputs/fineweb_fr.json",
+          "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"
+        },
+        {
+          "path": "inputs/multibook_raw_evaluation.json",
+          "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"
+        }
+      ],
+      "outputs": [
+        "output/source_overlap_audit.json",
+        "output/source_overlap.resources.json"
+      ]
+    }
+  ]
+}

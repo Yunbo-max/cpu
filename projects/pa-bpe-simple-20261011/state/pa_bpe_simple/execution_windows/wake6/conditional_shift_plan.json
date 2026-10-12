@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "plan_id": "wake6-conditional-shift-decomposition-v1",
+  "scope": "Retrospective descriptive analysis of already-exposed English-French paired costs; not confirmation, causal identification, or method selection.",
+  "active_idea": "pa-bpe-domain-robustness",
+  "question": "Is the TICO-to-Books change in per-row method effect primarily associated with a shift in Classical baseline gap/length composition, or with changed conditional method response inside those strata?",
+  "reference": "classical",
+  "contrasts": "mechanically enumerate all 15 non-reference arms",
+  "outcomes": {
+    "macro_row_gini_gain": "Classical row Gini minus arm row Gini; positive is better",
+    "absolute_gap_reduction": "absolute Classical en-fr token gap minus absolute arm gap; positive is better",
+    "total_cost_delta": "arm row total tokens minus Classical row total tokens; negative is better",
+    "worst_language_cost_delta": "arm row max-language cost minus Classical; negative is better"
+  },
+  "partitions": {
+    "baseline_gap_sign": "positive, zero, negative by Classical d0=en-fr",
+    "baseline_length": "four bins using nearest-rank q25/q50/q75 of Classical TICO dev100 row total-token cost; apply identical integer thresholds to Books"
+  },
+  "decomposition": "For each partition and outcome: Books_mean - TICO_mean = sum_g (p_B(g)-p_T(g))*mu_T(g) + sum_g p_B(g)*(mu_B(g)-mu_T(g)). The first term is composition-associated and the second conditional-response-associated.",
+  "stability": "Recompute Books terms after leaving out each author block. Report component signs and magnitudes; do not add a post-hoc practical threshold.",
+  "focus_arms": ["full_minmax", "eff_minmax", "exact_train"],
+  "focus_reason": "Pre-specified by earlier method revisions, not selected from Wake6 outcomes.",
+  "falsifier": "If composition reweighting is small or unstable while the conditional component explains most of the observed domain shift, a composition-only explanation is weakened.",
+  "interpretation_guard": "A descriptive Oaxaca-style identity on exposed deterministic arms does not identify causality, population transportability, author independence, or prospective method benefit. Empty TICO strata make the corresponding decomposition non-estimable rather than zero."
+}

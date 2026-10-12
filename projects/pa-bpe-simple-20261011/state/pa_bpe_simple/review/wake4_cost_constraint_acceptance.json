@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "review_assignment_sha256": "9e2028185febad236dd550fe201c494037647f547c7836d1bda4f08670b2be7a",
+  "review_sha256": "7641b1f541f57b4cd85e008f726a583e09032f4a51d73af8e4b965121a0b593c",
+  "disposition": "accepted_with_scope_corrections_and_independent_runtime_replay",
+  "accepted_findings": [
+    "Realized nonoverlap train-gain accounting is coherent under the bound native semantics.",
+    "The implemented fairness test is thresholded floating-point descent, not symbolic exact descent.",
+    "Fallback steps invalidate an unqualified monotonic or always-constrained fairness claim.",
+    "exact_train is a no-descent-constraint, minmax-development-tiebroken exact-train-gain control, not a development-blind control.",
+    "Raw adjacency frequency defines eligibility while corrected nonoverlap gain defines selection.",
+    "Internal assert-based verification was insufficient for a strong verification claim.",
+    "All outcomes remain exposed development diagnostics and do not establish independent confirmation or general fairness."
+  ],
+  "runtime_resolution": {
+    "training_trace_replay_sha256": "7344e3e2dca508edbcc5ec474e084a9a52696fc2366efedcfbbe23afe2ad6cb4",
+    "explicit_checks_not_asserts": true,
+    "all_3000_selected_merges_replayed": true,
+    "all_selected_train_and_dev_gains_match": true,
+    "all_merge_files_and_final_totals_match": true,
+    "min_exact_positive_constrained_gap_eff_minmax": 6.111940209382603e-08,
+    "min_exact_positive_constrained_gap_eff_pooled": 4.500999194929569e-06
+  },
+  "unresolved_scope": [
+    "Replay validates the selected sequence but does not independently enumerate and prove global selector optimality for every unselected pair.",
+    "No new output is an unexposed confirmation set.",
+    "The experiment is bilingual and does not establish multilingual or third-language robustness."
+  ]
+}

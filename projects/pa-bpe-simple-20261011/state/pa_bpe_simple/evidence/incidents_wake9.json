@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "window": "wake9",
+  "incidents": [
+    {
+      "observed_at_utc": "2026-10-12T02:29:00Z",
+      "kind": "hf_tree_pagination_limit_rejected",
+      "symptom": "The pinned-commit Hugging Face tree request used limit=1000 and returned HTTP400: Invalid limit for index tree pagination.",
+      "impact": "The first metadata probe failed before a runner science task was launched; no manifest was accepted from it.",
+      "repair": "Changed only pagination to the supported limit=100, retained the failed response, then fetched all pages at the same fixed revisions."
+    },
+    {
+      "observed_at_utc": "2026-10-12T02:34:00Z",
+      "kind": "runner_receipt_redirect_path_error",
+      "symptom": "A management command redirected its receipt to a nonexistent relative output directory and exited before calling runner respond.",
+      "impact": "No runner state changed and no scientific task was launched or repeated.",
+      "repair": "Retried with an absolute output path under the wake9 execution root."
+    },
+    {
+      "observed_at_utc": "2026-10-12T02:34:00Z",
+      "kind": "runner_respond_cli_argument_mismatch",
+      "symptom": "The local runner rejected --file because this snapshot requires --response.",
+      "impact": "Argument parsing stopped before state mutation; scientific artifacts were unaffected.",
+      "repair": "Used the runner help and retried with --response; the milestone was recorded and the finite supervisor stopped cleanly."
+    }
+  ]
+}

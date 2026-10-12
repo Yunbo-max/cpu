@@ -1,0 +1,63 @@
+{
+  "response_id": "wake2-opus-selective-extract",
+  "request_id": "decision-f5089a979d86420fb3eff3edba8adf65",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The explicit-member diagnostic verifies all 12 three-language works and exact compressed sizes. Extract only the two smallest whole works by byte range and join their one-to-one XCES links into auditable three-language aligned rows; this is a data-pipeline smoke test, not a confirmation claim.",
+  "tasks": [
+    {
+      "task_id": "opus-selective-aligned-smoke-wake2",
+      "argv": [
+        "/usr/bin/env",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "python3",
+        "scripts/measure_command.py",
+        "output/opus_selective_extract.resources.json",
+        "scripts/opus_selective_extract_wake2.py",
+        "output/opus_zip_index_wake2_v3.json",
+        "output/opus_identity_probe/raw",
+        "output/opus_selective_extract",
+        "output/opus_selective_extract_manifest.json"
+      ],
+      "phase": "sources",
+      "purpose": "Materialize two whole-work-isolated three-language aligned OPUS Books datasets from native XML for protocol and parser validation",
+      "timeout_seconds": 100,
+      "input_refs": [
+        {
+          "path": "scripts/opus_selective_extract_wake2.py",
+          "sha256": "63d956583e1b7926ae2675665505ab9062d15a4588d98dbf595306f1021c1040"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "output/opus_zip_index_wake2_v3.json",
+          "sha256": "82683ad2c200a9424ddbaf192e365bd920ef7075ab5642181ab484d587cd8bd6"
+        },
+        {
+          "path": "output/opus_identity_probe/raw/en-fr.xml.gz",
+          "sha256": "55c5665dc0b8d8daee41209e40fce9431b1028eac70bcf3bbabb8ee94cde6e6c"
+        },
+        {
+          "path": "output/opus_identity_probe/raw/en-es.xml.gz",
+          "sha256": "0f70293ddad1113b8a78b55b48b0ca6c3a2c536cbbea34c7526ec5c92f400eba"
+        }
+      ],
+      "outputs": [
+        "output/opus_selective_extract_manifest.json",
+        "output/opus_selective_extract/aligned/dev.tsv",
+        "output/opus_selective_extract/aligned/confirm.tsv",
+        "output/opus_selective_extract/raw_xml/dev.en.xml",
+        "output/opus_selective_extract/raw_xml/dev.fr.xml",
+        "output/opus_selective_extract/raw_xml/dev.es.xml",
+        "output/opus_selective_extract/raw_xml/confirm.en.xml",
+        "output/opus_selective_extract/raw_xml/confirm.fr.xml",
+        "output/opus_selective_extract/raw_xml/confirm.es.xml",
+        "output/opus_selective_extract.resources.json"
+      ]
+    }
+  ]
+}

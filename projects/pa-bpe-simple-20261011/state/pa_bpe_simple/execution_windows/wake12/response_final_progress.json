@@ -1,0 +1,21 @@
+{
+  "response_id": "wake12-result-blind-confirmation-index-progress-v1",
+  "request_id": "decision-fefc8f1987f44f3d9dc436af48e6010e",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Record a source/infrastructure milestone only. The independently reviewed fail-closed result-blind confirmation fingerprint index passed, but production selector integration, training-row provenance, tokenizer training and fairness outcomes remain HOLD.",
+  "events": [{
+    "kind": "progress",
+    "event_id": "globalvoices-result-blind-confirmation-index-wake12",
+    "next_phase": "sources",
+    "reason": "Official OPUS GlobalVoices v2018q4 en/es/fr archives were fetched and independently rehashed; 512 frozen trilingual units were resolved; the repaired hash-only SQLite index passed 2,286 independent assertions and a separate reviewer closed all five prior HOLD findings. This is not a tokenizer or fairness result.",
+    "evidence": [
+      {"path": "confirmation_index_build_manifest_v2.json", "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"},
+      {"path": "output/globalvoices_blinded_fingerprints_v2.sqlite3", "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"},
+      {"path": "output/blinded_index_summary_v2.json", "sha256": "f1dd00de45c89ee4c73f71c7a129722e471669da0f133fa803d865cab8e08c71"},
+      {"path": "output/blinded_index_verification_v2.json", "sha256": "60e1138a706f8fa58bc8b16ffa51414639ab7d2ff3eb4a9b9cba545b1624a2ae"},
+      {"path": "output/blinded_index_verification_v2.resources.json", "sha256": "e026401b891086bacb5b8976ced6e9f07874ccae1025aff7ab2809a003439af5"}
+    ]
+  }]
+}

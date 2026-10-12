@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "prospective protocol; formal payload gate remains closed",
+  "active_idea": "pa-bpe-domain-robustness",
+  "scientific_role": "matched-data control for a first development experiment, not an original-paper reproduction",
+  "universe": {
+    "languages": ["en", "fr", "es"],
+    "dump": "CC-MAIN-2013-20",
+    "dataset_revisions_and_shards": "fixed by wake9/training_shard_protocol.json and wake9/output/*_training_shards.json",
+    "required_formal_row_fields": ["id", "text", "dump", "language"],
+    "required_formal_source_fields": ["dataset_repo", "dataset_revision", "dataset_shard_path", "dataset_shard_lfs_sha256"]
+  },
+  "eligibility_before_ranking": {
+    "stable_id": "nonempty UTF-8 string; any missing ID is a dataset-wide hard failure; duplicate IDs are all rejected, not first-wins",
+    "text": "nonempty UTF-8 string; provenance hash is SHA256 of the exact raw UTF-8 bytes with no Unicode normalization",
+    "dump": "must equal CC-MAIN-2013-20",
+    "language": {"en": ["en"], "fr": ["fr", "fra"], "es": ["es", "spa"]},
+    "script": "FineWeb2 French and Spanish rows must declare Latn",
+    "decontamination_gate": "before formal selection, reject GlobalVoices hosts/URLs plus exact and near content matches under a separately frozen, result-blind rule; not yet implemented in wake10"
+  },
+  "rank": {
+    "algorithm": "SHA256",
+    "preimage_utf8": "pa-bpe-train-v1\\u0000<canonical_language>\\u0000<stable_id>",
+    "order": "ascending 32-byte digest, then ascending exact stable_id bytes",
+    "properties": ["independent of storage/shard enumeration order", "independent of text content and evaluation outcomes", "language-specific domain separation"]
+  },
+  "training_representation": {
+    "author_contract": "tokenizers.pre_tokenizers.Sequence([Whitespace(), ByteLevel(use_regex=False)])",
+    "format": "author --dict-input: one pretoken string and integer count per line; every serialized pretoken must contain no ASCII space, CR, or LF and must round-trip through the fixed author get_vocabulary parser",
+    "reason": "BPE consumes a token-frequency Counter, so dictionary input preserves the exact training multiset while permitting exact matched mass",
+    "normalization": "none beyond the author pretokenizer",
+    "dependency": "tokenizers==0.22.1 for the first development experiment; version is an added project freeze because the author pyproject is unpinned",
+    "pa_bpe_dev_contract": "the author applies one --dict-input switch to both training and dev files; therefore base/window runs with dev objectives must materialize every dev language with the identical pretokenizer into dict input too; ratio runs must pass no dev files",
+    "native_validation_gate": "before training, run minimal fixed-author Classical and PA-BPE commands for both supported contracts and verify their parsed Counters against generated hashes"
+  },
+  "budget": {
+    "first_formal_development_target_per_language": 100000,
+    "unit": "author-pretokenizer output occurrences",
+    "selection": "walk eligible rows in rank order; reject rows yielding zero pretokens; include all pretokens from each row until the target; for the boundary row include only its deterministic pretoken prefix needed to hit the target exactly",
+    "manifest": "record row identity, rank, raw-text hash, available pretoken count, included prefix count, and source-shard identity",
+    "cost_reporting": ["selected documents", "raw UTF-8 bytes", "Unicode scalar count", "pretoken occurrences", "unique pretokens", "author initial symbol mass=sum(len(pretoken)*count)"],
+    "warning": "equal training pretoken mass is a data-balance control, not itself a fairness result"
+  },
+  "development_probe": {
+    "inputs": ["inputs/en_probe.json", "inputs/fr_probe.json", "inputs/es_probe.json"],
+    "limitations": "first-row storage-order probes already exposed during source qualification; no formal sampling, benchmark scoring, or model comparison",
+    "diagnostic_budget_per_language": 256,
+    "required_unit_checks": ["input-order invariance", "all-copies duplicate rejection", "missing-ID dataset failure", "exact matched pretoken mass", "deterministic dictionary hash", "fixed-author parser round-trip", "multi-document boundary truncation", "zero-pretoken skip", "insufficient-budget failure"]
+  },
+  "gates": {
+    "formal_payload_sampling": "HOLD until decontamination rule, bounded-memory production selector, row-to-shard provenance, complete dependency/wheel lock, and selected-row manifest are verified",
+    "tokenizer_training": "HOLD until the formal payload gate passes",
+    "fairness_claims": "HOLD; wake10 can establish only protocol/software invariants"
+  }
+}

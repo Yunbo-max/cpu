@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-11T19:46:08.615346+00:00",
+  "protocol_scope": "resource-bounded data-pipeline smoke test; not a confirmatory experiment",
+  "selection_rule": "two smallest compressed three-language works from the verified 12-work OPUS Books core",
+  "splits": {
+    "dev": {
+      "work": "Carroll_Lewis-Alice_in_wonderland",
+      "raw": {
+        "en": {
+          "path": "output/opus_selective_extract/raw_xml/dev.en.xml",
+          "sha256": "5f529f2e476bca967273b192930bb6321272a771593792f3f0612aac306d4b56",
+          "bytes": 3034910,
+          "sentence_count": 1439,
+          "source_member": "Books/xml/en/Carroll_Lewis-Alice_in_wonderland.xml"
+        },
+        "fr": {
+          "path": "output/opus_selective_extract/raw_xml/dev.fr.xml",
+          "sha256": "ca8c291e1ccef8f58ba9b14a35fc77dfae8b450f18458bed0ee0c3f35cf11cc2",
+          "bytes": 1812213,
+          "sentence_count": 1538,
+          "source_member": "Books/xml/fr/Carroll_Lewis-Alice_in_wonderland.xml"
+        },
+        "es": {
+          "path": "output/opus_selective_extract/raw_xml/dev.es.xml",
+          "sha256": "19888ef87838c37b1e30938ad66e92a13a03fa34235c8232df636362e7c56de7",
+          "bytes": 2004539,
+          "sentence_count": 1786,
+          "source_member": "Books/xml/es/Carroll_Lewis-Alice_in_wonderland.xml"
+        }
+      },
+      "en_fr_one_to_one": 934,
+      "en_es_one_to_one": 899,
+      "three_way_rows": 682,
+      "tsv": {
+        "path": "output/opus_selective_extract/aligned/dev.tsv",
+        "sha256": "e7fdc895e89dc4faa8d0c2f454a224599d85513f87b08bd90d2cf4a3553da59b",
+        "bytes": 190792
+      }
+    },
+    "confirm": {
+      "work": "Poe_Edgar_Allan-Fall_of_the_House_of_Usher",
+      "raw": {
+        "en": {
+          "path": "output/opus_selective_extract/raw_xml/confirm.en.xml",
+          "sha256": "8bc02e327917e453ec8a90f0fd4fb63e57f553060c9cc013f65888004f55bddb",
+          "bytes": 737963,
+          "sentence_count": 282,
+          "source_member": "Books/xml/en/Poe_Edgar_Allan-Fall_of_the_House_of_Usher.xml"
+        },
+        "fr": {
+          "path": "output/opus_selective_extract/raw_xml/confirm.fr.xml",
+          "sha256": "f86c731a167742955dc86c294d6f2043cc599e57c13083f4327394fb9d27c006",
+          "bytes": 484633,
+          "sentence_count": 282,
+          "source_member": "Books/xml/fr/Poe_Edgar_Allan-Fall_of_the_House_of_Usher.xml"
+        },
+        "es": {
+          "path": "output/opus_selective_extract/raw_xml/confirm.es.xml",
+          "sha256": "9feb7ca9039cb7eb20e9b16cfd86c0d9b499ec049f2fa4f367d2441d52115613",
+          "bytes": 488242,
+          "sentence_count": 289,
+          "source_member": "Books/xml/es/Poe_Edgar_Allan-Fall_of_the_House_of_Usher.xml"
+        }
+      },
+      "en_fr_one_to_one": 271,
+      "en_es_one_to_one": 273,
+      "three_way_rows": 264,
+      "tsv": {
+        "path": "output/opus_selective_extract/aligned/confirm.tsv",
+        "sha256": "d7dcf7da4ecfcb0d10eb1c6596e50d668eb7a533aeb584c05da8e78ca432f739",
+        "bytes": 127095
+      }
+    }
+  }
+}

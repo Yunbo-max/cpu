@@ -1,0 +1,54 @@
+{
+  "alerts": [
+    {
+      "delivery_state": "local_pending_report",
+      "event_id": "cli:a076f5be012e4110a645eb1901e524a4",
+      "evidence": [],
+      "exception_type": "FileNotFoundError",
+      "kind": "cli_exception",
+      "next_action": "Inspect the requested operation and retained project state before retrying",
+      "observed_at": "2026-10-11T18:43:11.684671+00:00",
+      "reason": "FileNotFoundError: [Errno 2] No such file or directory: 'pa_bpe_simple/response_native_w1.json'",
+      "root": "/workspace/scratch/42f1128b703b/pa_bpe_simple",
+      "schema_version": 1,
+      "user_notified": false
+    },
+    {
+      "attempt_id": "attempt-bf653b62b7b34729ad7ddf6a967f2d1d",
+      "delivery_state": "local_pending_report",
+      "event_id": "result:attempt-bf653b62b7b34729ad7ddf6a967f2d1d",
+      "evidence": [
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-bf653b62b7b34729ad7ddf6a967f2d1d/receipt.json",
+          "sha256": "ac9dac190c6a2cbecc77229b42312628bb9dd2449e9f1c3fada22ac1e17e3581"
+        }
+      ],
+      "kind": "task_result",
+      "next_action": "Inspect the referenced receipt and logs; repair or reconcile this attempt before replacement",
+      "observed_at": "2026-10-11T18:46:49.272443+00:00",
+      "reason": "Command Popen failed: [Errno 2] No such file or directory: '/usr/bin/time'",
+      "root": "/workspace/scratch/42f1128b703b/pa_bpe_simple",
+      "schema_version": 1,
+      "status": "launch_failed",
+      "task_id": "prepare-v2-w1",
+      "user_notified": false
+    },
+    {
+      "delivery_state": "local_pending_report",
+      "event_id": "pause:paused_budget:1791745200.854211",
+      "evidence": [],
+      "kind": "paused_budget",
+      "next_action": "Review remaining work and the retained limits; resume only within an authorized revision",
+      "observed_at": "2026-10-11T18:48:09.818998+00:00",
+      "reason": "Runner cannot continue within its retained budget boundary",
+      "root": "/workspace/scratch/42f1128b703b/pa_bpe_simple",
+      "schema_version": 1,
+      "status": "paused_budget",
+      "user_notified": false
+    }
+  ],
+  "delivery_state": "local_pending_report",
+  "errors": [],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_simple",
+  "user_notified": false
+}

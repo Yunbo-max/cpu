@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-10-11T22:35:00Z",
+  "runner_status": "awaiting_decision",
+  "attempts_used": 3,
+  "elapsed_seconds": 2.917685155989602,
+  "reserved_seconds": 0,
+  "tasks": [
+    {"task_id": "objective-mismatch-analysis-wake5", "attempt_id": "attempt-82e2632ab5fb43e8a8d4004b332e034d", "state": "succeeded"},
+    {"task_id": "mass-cancellation-audit-wake5", "attempt_id": "attempt-a9ee799ace9640909cf264cefaca3fed", "state": "failed", "exit_code": 1},
+    {"task_id": "mass-cancellation-audit-wake5-r1", "attempt_id": "attempt-b5fe61b246974e1e81ead5ece4457216", "state": "succeeded", "supersedes": "mass-cancellation-audit-wake5"}
+  ],
+  "scientific_processes_active": 0,
+  "process_check_method": "ps plus awk after rg loader failure",
+  "supervisor": "deliberately interrupted after all attempts became terminal; subsequent local health=lost is expected",
+  "outputs": {
+    "execution_windows/wake5/output/objective_mismatch_diagnostic.json": "d82d3cfe8e488cbf961ad4361e4282d7be982c017114a1599582b48719ef825b",
+    "execution_windows/wake5/output/mass_cancellation_audit.json": "c44873be9ffd96796780c81322bbb7405c738a79436832d0bd10c80db16b221a",
+    "execution_windows/wake5/output/mass_cancellation_summary.md": "d70b8966a5be9be0afe77085e637ba2cce55c4a9f9bc2d75a883cf2e88bd4279"
+  }
+}

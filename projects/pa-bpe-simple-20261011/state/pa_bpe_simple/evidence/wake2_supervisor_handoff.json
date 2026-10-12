@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "observed_utc": "2026-10-11T19:52:10+00:00",
+  "action": "Coordinator sent SIGINT to the idle child supervisor after it reached awaiting_decision.",
+  "reason": "Prevent post-checkpoint mutation while releasing the canonical writer lock; this does not stop the research goal.",
+  "process_exit_code": 130,
+  "runner_status_after_interrupt": "awaiting_decision",
+  "runner_sequence": 11,
+  "active_scientific_attempts": 0,
+  "reserved_seconds": 0,
+  "health_observation": "Supervisor identity is no longer alive; health file has no orderly exit marker because SIGINT terminated the CLI.",
+  "next_action": "On the next authorized wake, restore the latest checkpoint, confirm no retained attempt is active, and create or resume a finite child execution window without rerunning completed tasks."
+}

@@ -1,0 +1,57 @@
+{
+  "response_id": "wake4-verify-traces-and-tables-v1",
+  "request_id": "decision-9854d6f2a6ff44aa88b661f209cd5cc2",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Independently replay every selected merge and recompute all reported integer-table metrics before interpreting the exposed diagnostics.",
+  "tasks": [
+    {
+      "task_id": "training-trace-replay-wake4",
+      "phase": "verify",
+      "purpose": "Explicitly replay all 1000 merges for each new arm, verify selected gains, exact constrained descent, eligibility, merge files and final token totals without relying on training-script assertions.",
+      "cwd": ".",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/training_trace_replay.resources.json", "scripts/replay_training_traces.py"],
+      "timeout_seconds": 60,
+      "depends_on": [],
+      "input_refs": [
+        {"path": "scripts/replay_training_traces.py", "sha256": "873e50fca7247559feb320cac8c328e084c4950b5d89c6d4497b2bd68ffab9d5"},
+        {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+        {"path": "scripts/native_pa_source.py", "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"},
+        {"path": "scripts/evaluator_reference.py", "sha256": "612d66ff544e6cb72047d59f36e702766061abcc10e387453e3356ec231651eb"},
+        {"path": "cost_constrained_clarification.json", "sha256": "4c109fdcead15ded03fb56c08049d81d698f3e7f35661a84a0223978e22e13d2"},
+        {"path": "inputs/train.en", "sha256": "30e91713f1ab02873aadf82bff10530f4b4cba267f22e6292e78b217bbefa2b8"},
+        {"path": "inputs/train.fr", "sha256": "bf2cb9ce2143a7ed77d42886fd94adf8d0bbfad208814fa2da0fa28d181d9483"},
+        {"path": "inputs/dev2.tico.en", "sha256": "823561bdb9a9b231b6a78fb7767ec4bdec649cd837e3d0540fab8c4511d7b53e"},
+        {"path": "inputs/dev2.tico.fr", "sha256": "1162933dbcbebac060f504c7b78268543bfdd81750286e2de8702569fce7921e"},
+        {"path": "inputs/dev2.books.en", "sha256": "80020ecf26660daed7129215bbe958bd14a04ad2fbca642e0fad01bbfb893660"},
+        {"path": "inputs/dev2.books.fr", "sha256": "113ecdeeb27f0e8c7d1cf33d93f55eb39316fbd6e13b6a0da2f3ce28e4759ec4"},
+        {"path": "output/eff_minmax.trace.json", "sha256": "ed25ae8bed5ad02449c7b6a50ad17cb78ef005c619d93cb1c0b53cf10bf096df"},
+        {"path": "output/eff_minmax.merges", "sha256": "b0a78d5873eea507b720642a15dc445dbc40dbec986d21055f51c0e21d17e0fd"},
+        {"path": "output/eff_pooled.trace.json", "sha256": "6a9e6a3b99cb5130f93cc9ceffd8164da1470b44d775509a9d39e82695f134c1"},
+        {"path": "output/eff_pooled.merges", "sha256": "451e939dcc110a876a8ee49021dfbc5c28cb4e46881882d50091da1881c9f060"},
+        {"path": "output/exact_train.trace.json", "sha256": "2eedbc1e72ac62b258349f3601515c9936f4f0f05c6c4b451a9ad906baaf9be7"},
+        {"path": "output/exact_train.merges", "sha256": "fc5a7eb7a3d276e3da884e45f6320bc61113f38d6ceadeb7982ec7865be1e8cc"}
+      ],
+      "outputs": ["output/training_trace_replay.json", "output/training_trace_replay.resources.json"]
+    },
+    {
+      "task_id": "efficiency-table-verification-wake4",
+      "phase": "verify",
+      "purpose": "Independently recompute 36 aligned token-cost tables, aggregate Books metrics and all baseline contrasts from integer counts.",
+      "cwd": ".",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/table_verification.resources.json", "scripts/verify_efficiency_tables.py"],
+      "timeout_seconds": 30,
+      "depends_on": [],
+      "input_refs": [
+        {"path": "scripts/verify_efficiency_tables.py", "sha256": "258a026115595c265ca58461880291cac960875fe06187a50fb6a21e9b996002"},
+        {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+        {"path": "output/efficiency_candidate_evaluation.json", "sha256": "d88df96a5d11405477098d10b11a6bea98e8c06a5bdf1c51379d2ff2a572f002"},
+        {"path": "inputs/multibook_analysis.json", "sha256": "b65764559c4e6efe60c13567ffdb607611fbdadc0e8edba1cca2b340d063e11c"},
+        {"path": "inputs/full_candidate_evaluation.json", "sha256": "75c9b9983a0d53d693f02fded94da2e78acbfaa5ed522eec179e84f6e6ba4512"}
+      ],
+      "outputs": ["output/efficiency_table_verification.json", "output/table_verification.resources.json"]
+    }
+  ],
+  "await_tasks": true
+}

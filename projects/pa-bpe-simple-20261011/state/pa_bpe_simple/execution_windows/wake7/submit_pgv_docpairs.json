@@ -1,0 +1,36 @@
+{
+  "submission_id": "pgv-docpairs-qualification-wake7-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "pgv-docpairs-qualification-wake7",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/pgv_docpairs.resources.json",
+        "scripts/qualify_pgv_docpairs.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Fetch and structurally qualify the official PGV document-pair metadata without reading story text or tokenization outcomes.",
+      "timeout_seconds": 90,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "confirmation_source_protocol.json", "sha256": "754c8efb70f523018fa18833c6d14d4bfce9faa8a4f0d8eee6e44cb1ea520ab0"},
+        {"path": "window_parent_binding.json", "sha256": "3022a6d8df15d70d320832082e9a123d08b3abc253c13971132624874a6c990a"},
+        {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+        {"path": "scripts/qualify_pgv_docpairs.py", "sha256": "049a3aa20f728eb8f8d10294ae0d94cc0af33ff29a30db073799aa22362428f5"}
+      ],
+      "outputs": [
+        "inputs/pgv_docpairs.txt.zip",
+        "output/pgv_docpairs_qualification.json",
+        "output/pgv_docpairs.resources.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "updated_utc": "2026-10-12T04:50:00+00:00",
+  "goal_mode": "continuous_research",
+  "authorization_ref": "evidence/continuous_authorization_20261011.json",
+  "phase_limit_seconds": null,
+  "superseded_phase_limit_seconds": 3600,
+  "total_attempt_limit": null,
+  "total_research_cycle_limit": null,
+  "finite_windows_auto_renew": true,
+  "historical_pilot_wall_seconds": 9.545,
+  "historical_inclusion": "Conservatively include inherited earlier CPU pilot once; not a new experiment",
+  "windows": [
+    {
+      "id": "wake1-20261011",
+      "root": "/workspace/scratch/42f1128b703b/pa_bpe_simple",
+      "attempts": 12,
+      "wall_seconds": 39.85872861300595,
+      "reserved_seconds": 0,
+      "status": "paused_budget",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "evidence/attempt_inventory_w1.json"
+    },
+    {
+      "id": "wake2-20261011",
+      "root": "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake2",
+      "attempts": 10,
+      "wall_seconds": 352.62387728596514,
+      "reserved_seconds": 0,
+      "status": "awaiting_decision",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake2/.research-autopilot/simple-loop.sqlite3",
+      "notes": "Includes source recovery, two scientifically invalid ZIP member-matching outputs retained as negative diagnostics, one failed evaluator attempt, repaired whole-work evaluation, and all successful commands."
+    },
+    {
+      "id": "wake3a-20261011",
+      "root": "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake3",
+      "attempts": 12,
+      "wall_seconds": 98.27506668501883,
+      "reserved_seconds": 0,
+      "status": "paused_budget",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "evidence/wake3_batch_a_status.json"
+    },
+    {
+      "id": "wake3b-20261011",
+      "root": "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake3b",
+      "attempts": 6,
+      "wall_seconds": 94.62100220799039,
+      "reserved_seconds": 0,
+      "status": "awaiting_decision",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "evidence/wake3b_attempt_inventory.json",
+      "notes": "Auto-renewed within samehost undercontinuousauthorization; pilot/vectorpilot/twofullmodels/evaluation/verification; controlledidle supervisor exit130 is not scientificfailure"
+    },
+    {
+      "id": "wake4-20261011",
+      "root": "/workspace/scratch/42f1128b703b/wake4_project/pa_bpe_simple/execution_windows/wake4",
+      "attempts": 8,
+      "wall_seconds": 175.09700747598254,
+      "reserved_seconds": 0,
+      "status": "awaiting_decision",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "evidence/wake4_attempt_inventory.json",
+      "notes": "Cost-constrained pilot, three full 1000-merge arms, exposed Books/TICO evaluation, source-overlap audit, explicit 3000-step replay and independent 36-table arithmetic verification; all scientific attempts exit0. Idle supervisor was deliberately interrupted after settlement; this is not a scientific failure. One rejected CLI response contract and host rg/jq loader faults are retained separately and did not launch science."
+    },
+    {
+      "id": "wake5-20261011",
+      "root": "/workspace/scratch/42f1128b703b/wake5_project/pa_bpe_simple/execution_windows/wake5",
+      "attempts": 3,
+      "wall_seconds": 2.917685155989602,
+      "reserved_seconds": 0,
+      "status": "awaiting_decision",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake5/.research-autopilot/simple-loop.sqlite3",
+      "notes": "Retrospective exposed-data aggregate/row/cancellation diagnostics. Two attempts succeeded; one 0.265376-second optional stored-field KeyError failed and was repaired without changing the frozen scientific rule. Idle supervisor was deliberately interrupted after settlement."
+    },
+    {
+      "id": "wake6-20261011",
+      "root": "/workspace/scratch/42f1128b703b/wake6_project/pa_bpe_simple/execution_windows/wake6",
+      "attempts": 3,
+      "wall_seconds": 7.344077398011,
+      "reserved_seconds": 0,
+      "status": "awaiting_decision",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake6/.research-autopilot/runner/attempts",
+      "notes": "Exposed-data conditional-shift decomposition, independent arithmetic verification, and support-only joint-stratum diagnostic. All three attempts exit0. Idle supervisor was deliberately interrupted after settlement; retained health identity therefore reports lost, with no unresolved scientific attempt."
+    },
+    {
+      "id": "wake7-20261012",
+      "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+      "attempts": 4,
+      "wall_seconds": 42.19615712101222,
+      "reserved_seconds": 0,
+      "status": "ready_after_milestone",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake7/.research-autopilot/runner/attempts",
+      "notes": "Low-memory provenance and alignment-structure qualification only: official PGV document metadata, PGV triangle support, OPUS GlobalVoices v2018q4 XCES schema, and closed trilingual component construction. All four attempts exit0; no raw story text or tokenizer outcome was accessed. Idle supervisor was deliberately interrupted after settlement."
+    },
+    {
+      "id": "wake8-20261012",
+      "root": "/workspace/scratch/42f1128b703b/wake8_project/pa_bpe_simple/execution_windows/wake8",
+      "attempts": 1,
+      "wall_seconds": 4.250019469996914,
+      "reserved_seconds": 0,
+      "status": "stopped_after_milestone",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake8/.research-autopilot/runner/attempts",
+      "notes": "Spanish FineWeb2 source-access qualification only. One exit0 task retrieved and hashed 44 first-rows records; storage-order rows remain ineligible for formal training."
+    },
+    {
+      "id": "wake9-20261012",
+      "root": "/workspace/scratch/42f1128b703b/wake9_project/pa_bpe_simple/execution_windows/wake9",
+      "attempts": 4,
+      "wall_seconds": 31.158552691005752,
+      "reserved_seconds": 0,
+      "status": "stopped_after_milestone",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake9/.research-autopilot/runner/attempts",
+      "notes": "Pinned-commit metadata-only enumeration of 205 English FineWeb, 135 French FineWeb2 and 146 Spanish FineWeb2 candidate Parquet shards plus aggregate verification. All attempts exit0; payload bytes downloaded zero. Immutable shard identity subgate passed independently, while sampling/training remains HOLD."
+    },
+    {
+      "id": "wake10-20261012",
+      "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+      "attempts": 4,
+      "wall_seconds": 16.434940842009382,
+      "reserved_seconds": 0,
+      "status": "stopped_after_milestone",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake10/.research-autopilot/runner/attempts",
+      "notes": "Two isolated-environment setup tasks and two deterministic-selection/protocol verification tasks, all exit0. Twenty-five revised checks passed, including fixed-author dictionary parser round-trips. No formal payload, tokenizer training or evaluation; production gates remain HOLD."
+    },
+    {
+      "id": "wake11-20261012",
+      "root": "/workspace/scratch/42f1128b703b/wake11_project/pa_bpe_simple/execution_windows/wake11",
+      "attempts": 6,
+      "wall_seconds": 3.3702338249859167,
+      "reserved_seconds": 0,
+      "status": "stopped_after_milestone",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake11/.research-autopilot/runner/attempts",
+      "notes": "Prospective result-blind decontamination and disk-backed ranked-row stream verification. Four attempts exit0 and two retained repair attempts exit1 (SQLite schema lock and test-helper import). Final v6 passed 25 checks plus a 20,000-row generator probe; no real confirmation outcome, formal payload, tokenizer or fairness result."
+    },
+    {
+      "id": "wake12-20261012",
+      "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+      "attempts": 10,
+      "wall_seconds": 116.76645598000323,
+      "reserved_seconds": 0,
+      "status": "stopped_after_milestone",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake12/.research-autopilot/runner/attempts",
+      "notes": "Official OPUS GlobalVoices v2018q4 en/fr/es raw-source recovery, 512-unit schema qualification, fail-closed hash-only confirmation index build and independent verification. Eight attempts exit0; two retained failures cover .xml.gz-to-.xml member representation and a repaired CLI contract. No tokenizer or fairness result."
+    },
+    {
+      "id": "wake13-20261012",
+      "root": "/workspace/scratch/42f1128b703b (erased before checkpoint)",
+      "attempts": 4,
+      "wall_seconds": 1.9898372650204692,
+      "reserved_seconds": 0,
+      "status": "artifacts_lost_host_erasure_recovery_checkpoint_only",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "lost with scratch root; terminal observations reconstructed in PA_BPE_Wake13_Report.md",
+      "notes": "Two v1 and two repaired v2 adapter/verifier commands exited 0 before total scratch erasure. Because source/receipts/results were lost before persistence, adapter gate remains HOLD and rerun is mandatory."
+    },
+    {
+      "id": "wake14-20261012",
+      "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+      "attempts": 2,
+      "wall_seconds": 0.539728273000037,
+      "reserved_seconds": 0,
+      "status": "stopped_after_milestone_supervisor_health_lost",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake14/.research-autopilot/runner/attempts",
+      "notes": "Rebuilt and reran the repaired hash-only confirmation adapter and its 20-check verifier. Both attempts exit0; independent read-only review accepted only adapter mechanics and frozen-index preservation. Runner stop state is persisted and /proc shows no active PID; final supervisor health remained lost and is retained as an incident."
+    }
+  ],
+  "cumulative_charged_seconds": 996.9883702889974,
+  "remaining_seconds": null,
+  "unknown_model_tokens": true,
+  "allocation_rule": "User explicitly removed cumulative time limits on 2026-10-11. Auto-renew finite CPU-only safety windows without a project-wide time/attempt/cycle endpoint; retain all historical and failed usage/reservations and original executor deadlines. Null limit/remaining means no cumulative cap, not zero usage. Existing hardware, memory, concurrency, permissions and user stops remain binding."
+}

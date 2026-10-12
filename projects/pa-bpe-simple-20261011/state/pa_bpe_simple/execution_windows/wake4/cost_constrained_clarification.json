@@ -1,0 +1,20 @@
+{
+  "created_after_static_review_before_result_evaluation": true,
+  "implementation_identity_unchanged": true,
+  "terminology": {
+    "train_gain": "Exact realized nonoverlapping training compression for the selected pair, conditional on native statistics/replacement semantics.",
+    "descent": "Floating-point objective decrease greater than 1e-12; fairness is a constraint only when such a feasible pair exists.",
+    "exact_train": "No-descent-constraint, minmax-tiebroken exact-train-gain control; it is not development-blind and its fallback count is not comparable to candidate fallback counts."
+  },
+  "rational_gap_bound": {
+    "max_initial_two_language_domain_sum": 32393,
+    "min_nonzero_domain_gini_gap_lower_bound": 4.765052196872565e-10,
+    "initial_pooled_sum": 49775,
+    "min_nonzero_pooled_gini_gap_lower_bound": 2.0181222331228852e-10,
+    "tolerance": 1e-12,
+    "interpretation": "For observed nonincreasing positive integer costs, a mathematically nonzero rational Gini difference is bounded above the tolerance. The executed selector still used float64, so reports retain its actual thresholded-float semantics rather than claiming symbolic arithmetic."
+  },
+  "verification_response": "The completed trainer used ordinary python3, but its assert-backed hard-coded success flags are not accepted alone. A separate replay task will use explicit RuntimeError checks over every selected merge and independent final tokenizer totals.",
+  "eligibility": "Compatibility rule remains native raw adjacency frequency >=2 and novel concatenated symbol; corrected nonoverlap gain controls selection, not eligibility.",
+  "claim_scope": "All Books/TICO outcomes remain exposed development diagnostics. Favorable results cannot establish confirmation, novelty, causal mechanism, third-language robustness or broad fairness."
+}

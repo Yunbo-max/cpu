@@ -1,0 +1,63 @@
+{
+  "attempt_id": "attempt-2717fdd322fe47edbc628c85a920bea9",
+  "command_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 283977,
+    "start_ticks": 12971758
+  },
+  "contract_sha256": "5eb40afef2fe60bcd9c97496940c8999918574cb8005d967f1a3e54223c2c77a",
+  "elapsed_seconds": 1.5779444209911162,
+  "error": "Command exited with status 1; Cannot safely read output/raw_schema.json: [Errno 2] No such file or directory: 'raw_schema.json'",
+  "exit_code": 1,
+  "finished_at": "2026-10-12T05:35:35.345355+00:00",
+  "input_refs": [
+    {
+      "path": "inputs/reference/opus_gv_closed_components.json",
+      "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+    },
+    {
+      "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+      "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+    },
+    {
+      "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+      "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+    },
+    {
+      "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+      "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+    },
+    {
+      "path": "scripts/inspect_raw_schema.py",
+      "sha256": "a144060f6dc48934ea1173d0d70cf91ae205d728daad9d9ca55bbd02ac8072db"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/raw_schema.resources.json",
+      "sha256": "30979cd04c2bce5940e5176ba746c3499fe238e4e33a98c401d4a320d12ce21c"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+  "schema_version": 1,
+  "started_at": "2026-10-12T05:35:33.767414+00:00",
+  "status": "failed",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-2717fdd322fe47edbc628c85a920bea9/stderr.txt",
+    "sha256": "6f39b7699bd24b0606bc65af9604de2e880cca8995f30f29c93e9703c4b1b06b"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-2717fdd322fe47edbc628c85a920bea9/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "inspect-globalvoices-raw-schema-wake12-v1",
+  "worker_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 283976,
+    "start_ticks": 12971736
+  }
+}

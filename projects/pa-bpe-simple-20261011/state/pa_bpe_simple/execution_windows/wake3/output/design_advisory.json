@@ -1,0 +1,1809 @@
+{
+  "claims": [
+    {
+      "coverage": "gaps",
+      "documented_comparison_ids": [],
+      "gap_codes": [
+        "authorization_documentation_missing",
+        "calibration_missing",
+        "claim_kind",
+        "comparison_mapping",
+        "exposure_missing",
+        "hardware_unknown",
+        "invalid_identifier",
+        "invalid_structure",
+        "invalid_version",
+        "missing_control_arm",
+        "missing_design_field",
+        "missing_paper_design",
+        "resource_estimate_missing",
+        "scope_missing"
+      ],
+      "id": "preprocessing_sensitivity",
+      "missing_comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "required_comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "coverage": "gaps",
+      "documented_comparison_ids": [],
+      "gap_codes": [
+        "authorization_documentation_missing",
+        "calibration_missing",
+        "claim_kind",
+        "comparison_mapping",
+        "exposure_missing",
+        "hardware_unknown",
+        "invalid_identifier",
+        "invalid_structure",
+        "invalid_version",
+        "missing_control_arm",
+        "missing_design_field",
+        "missing_paper_design",
+        "resource_estimate_missing",
+        "scope_missing"
+      ],
+      "id": "work_generalization",
+      "missing_comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "required_comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    }
+  ],
+  "decision_review": {
+    "advisories": [
+      {
+        "claim_ids": [
+          "preprocessing_sensitivity",
+          "work_generalization"
+        ],
+        "code": "workflow_binding_unreviewed",
+        "comparison_ids": [],
+        "message": "Scientific policy and executor editions are not separately declared",
+        "next_action": "Recover the active scientific edition and executor from project records; do not infer a policy migration from an executor upgrade",
+        "path": "workflow_binding"
+      },
+      {
+        "claim_ids": [
+          "preprocessing_sensitivity"
+        ],
+        "code": "decision_review_unreviewed",
+        "comparison_ids": [
+          "raw-versus-annotated-same-ids"
+        ],
+        "message": "No structured decision review is recorded; existing design coverage is unchanged",
+        "next_action": "Identify the decision this comparison changes and the cheapest discriminating check when useful",
+        "path": "comparisons.raw-versus-annotated-same-ids.decision_review"
+      },
+      {
+        "claim_ids": [
+          "work_generalization"
+        ],
+        "code": "decision_review_unreviewed",
+        "comparison_ids": [
+          "fixed-nine-arms-new-works"
+        ],
+        "message": "No structured decision review is recorded; existing design coverage is unchanged",
+        "next_action": "Identify the decision this comparison changes and the cheapest discriminating check when useful",
+        "path": "comparisons.fixed-nine-arms-new-works.decision_review"
+      }
+    ],
+    "claims": [
+      {
+        "advisory_codes": [
+          "decision_review_unreviewed",
+          "workflow_binding_unreviewed"
+        ],
+        "id": "preprocessing_sensitivity",
+        "status": "unreviewed"
+      },
+      {
+        "advisory_codes": [
+          "decision_review_unreviewed",
+          "workflow_binding_unreviewed"
+        ],
+        "id": "work_generalization",
+        "status": "unreviewed"
+      }
+    ],
+    "limitations": "Optional structured declarations and local artifact bytes only. No natural-language policy inference, semantic baseline/metric verification, statistical acceptance, historical decision rewrite, dispatch or admission gate. A matching hash does not establish who ran a check, its correctness, or prospective independence.",
+    "next_actions": [
+      {
+        "action": "Recover the active scientific edition and executor from project records; do not infer a policy migration from an executor upgrade",
+        "claim_ids": [
+          "preprocessing_sensitivity",
+          "work_generalization"
+        ],
+        "comparison_ids": []
+      },
+      {
+        "action": "Identify the decision this comparison changes and the cheapest discriminating check when useful",
+        "claim_ids": [
+          "preprocessing_sensitivity"
+        ],
+        "comparison_ids": [
+          "raw-versus-annotated-same-ids"
+        ]
+      },
+      {
+        "action": "Identify the decision this comparison changes and the cheapest discriminating check when useful",
+        "claim_ids": [
+          "work_generalization"
+        ],
+        "comparison_ids": [
+          "fixed-nine-arms-new-works"
+        ]
+      }
+    ],
+    "status": "advisories"
+  },
+  "design_id": null,
+  "dispatch_performed": false,
+  "execution_authorization": false,
+  "gaps": [
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "code": "invalid_identifier",
+      "comparison_ids": [],
+      "message": "An actual nonempty identity string is required",
+      "next_action": "Record the actual design_id; an applicability note cannot substitute for an identity",
+      "path": "plan.design_id"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "code": "invalid_identifier",
+      "comparison_ids": [],
+      "message": "An actual nonempty identity string is required",
+      "next_action": "Record the actual idea; an applicability note cannot substitute for an identity",
+      "path": "plan.idea"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "code": "invalid_version",
+      "comparison_ids": [],
+      "message": "A positive declared version is required",
+      "next_action": "Bind the plan to its actual goal contract and idea revision",
+      "path": "goal_contract_version"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "code": "invalid_version",
+      "comparison_ids": [],
+      "message": "A positive declared version is required",
+      "next_action": "Bind the plan to its actual goal contract and idea revision",
+      "path": "revision"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [],
+      "message": "Missing claim_scope or a specific applicability reason",
+      "next_action": "Specify claim_scope for this comparison, or explain why it does not apply",
+      "path": "scope.claim_scope"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "code": "scope_missing",
+      "comparison_ids": [],
+      "message": "Design scope is not declared",
+      "next_action": "Declare diagnostic, development, confirmation or formal scope",
+      "path": "scope.level"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "code": "exposure_missing",
+      "comparison_ids": [],
+      "message": "Prior result exposure is not declared",
+      "next_action": "Declare whether the design precedes results, follows inspected results, or uses separate confirmation",
+      "path": "exposure.mode"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [],
+      "message": "Missing prior_observations or a specific applicability reason",
+      "next_action": "Specify prior_observations for this comparison, or explain why it does not apply",
+      "path": "exposure.prior_observations"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [],
+      "message": "Missing heldout_policy or a specific applicability reason",
+      "next_action": "Specify heldout_policy for this comparison, or explain why it does not apply",
+      "path": "exposure.heldout_policy"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "code": "invalid_identifier",
+      "comparison_ids": [],
+      "message": "Missing or duplicate identifier",
+      "next_action": "Give each entry a distinct stable identifier",
+      "path": "paper_designs[0]"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [],
+      "message": "Missing statement or a specific applicability reason",
+      "next_action": "Specify statement for this comparison, or explain why it does not apply",
+      "path": "claims.preprocessing_sensitivity.statement"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "claim_kind",
+      "comparison_ids": [],
+      "message": "Claim kind is unspecified",
+      "next_action": "Declare empirical or formal scope",
+      "path": "claims.preprocessing_sensitivity.kind"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "comparison_mapping",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Comparison raw-versus-annotated-same-ids is absent or does not link back to this claim",
+      "next_action": "Add the required comparison and its claim link",
+      "path": "claims.preprocessing_sensitivity.required_comparison_ids"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [],
+      "message": "Missing statement or a specific applicability reason",
+      "next_action": "Specify statement for this comparison, or explain why it does not apply",
+      "path": "claims.work_generalization.statement"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "claim_kind",
+      "comparison_ids": [],
+      "message": "Claim kind is unspecified",
+      "next_action": "Declare empirical or formal scope",
+      "path": "claims.work_generalization.kind"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "comparison_mapping",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Comparison fixed-nine-arms-new-works is absent or does not link back to this claim",
+      "next_action": "Add the required comparison and its claim link",
+      "path": "claims.work_generalization.required_comparison_ids"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "invalid_structure",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Expected unique string identifiers",
+      "next_action": "List each required identifier once",
+      "path": "comparisons.raw-versus-annotated-same-ids.claim_ids"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "comparison_mapping",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Comparison needs known affected claims",
+      "next_action": "Map this comparison to declared claims",
+      "path": "comparisons.raw-versus-annotated-same-ids.claim_ids"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "invalid_structure",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Expected unique string identifiers",
+      "next_action": "List each required identifier once",
+      "path": "comparisons.raw-versus-annotated-same-ids.paper_design_ids"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_paper_design",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "No complete published design mapping",
+      "next_action": "Read the relevant published comparison and record what was borrowed and adapted",
+      "path": "comparisons.raw-versus-annotated-same-ids.paper_design_ids"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing purpose or a specific applicability reason",
+      "next_action": "Specify purpose for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.purpose"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing prediction or a specific applicability reason",
+      "next_action": "Specify prediction for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.prediction"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing supports or a specific applicability reason",
+      "next_action": "Specify supports for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.outcome_rules.supports"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing weakens or a specific applicability reason",
+      "next_action": "Specify weakens for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.outcome_rules.weakens"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing inconclusive or a specific applicability reason",
+      "next_action": "Specify inconclusive for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.outcome_rules.inconclusive"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing source or a specific applicability reason",
+      "next_action": "Specify source for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.data.source"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing version or a specific applicability reason",
+      "next_action": "Specify version for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.data.version"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing split or a specific applicability reason",
+      "next_action": "Specify split for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.data.split"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing leakage_control or a specific applicability reason",
+      "next_action": "Specify leakage_control for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.data.leakage_control"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing definition or a specific applicability reason",
+      "next_action": "Specify definition for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.metric.definition"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing aggregation or a specific applicability reason",
+      "next_action": "Specify aggregation for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.metric.aggregation"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing direction or a specific applicability reason",
+      "next_action": "Specify direction for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.metric.direction"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing unit or a specific applicability reason",
+      "next_action": "Specify unit for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.statistics.unit"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing pairing or a specific applicability reason",
+      "next_action": "Specify pairing for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.statistics.pairing"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing precision or a specific applicability reason",
+      "next_action": "Specify precision for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.statistics.precision"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing randomness or a specific applicability reason",
+      "next_action": "Specify randomness for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.statistics.randomness"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing multiplicity or a specific applicability reason",
+      "next_action": "Specify multiplicity for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.statistics.multiplicity"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing stopping or a specific applicability reason",
+      "next_action": "Specify stopping for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.statistics.stopping"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "invalid_structure",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Expected an array",
+      "next_action": "Supply an explicit array for this field",
+      "path": "comparisons.raw-versus-annotated-same-ids.arms"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_control_arm",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Comparison needs method and baseline/control arms",
+      "next_action": "Add the consequential baseline or simple control and specify matched resources/protocol",
+      "path": "comparisons.raw-versus-annotated-same-ids.arms"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing analysis or a specific applicability reason",
+      "next_action": "Specify analysis for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.execution.analysis"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "authorization_documentation_missing",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Resource authorization/allocation documentation is incomplete: status, basis, allocation, duration",
+      "next_action": "Record the existing user/session authorization, exact allocation and time window; reuse known permission and continue resource/source work while resolving this prerequisite",
+      "path": "comparisons.raw-versus-annotated-same-ids.resources.authorization"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "hardware_unknown",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "The actual execution hardware is not established",
+      "next_action": "Inspect the authorized host, record CPU/GPU and memory constraints, then adapt the matrix",
+      "path": "comparisons.raw-versus-annotated-same-ids.resources"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "resource_estimate_missing",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "No positive finite resource estimate",
+      "next_action": "Calibrate wall_seconds on the available hardware and record a feasible estimate",
+      "path": "comparisons.raw-versus-annotated-same-ids.resources.estimates.wall_seconds"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "resource_estimate_missing",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "No positive finite resource estimate",
+      "next_action": "Calibrate peak_memory_gib on the available hardware and record a feasible estimate",
+      "path": "comparisons.raw-versus-annotated-same-ids.resources.estimates.peak_memory_gib"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "calibration_missing",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Execution estimates have no recorded calibration",
+      "next_action": "Run a bounded resource calibration, or record the unavailable condition and narrow the planned scope",
+      "path": "comparisons.raw-versus-annotated-same-ids.resources.calibration"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing reason or a specific applicability reason",
+      "next_action": "Specify reason for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.resources.calibration.reason"
+    },
+    {
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ],
+      "message": "Missing scope_adjustment or a specific applicability reason",
+      "next_action": "Specify scope_adjustment for this comparison, or explain why it does not apply",
+      "path": "comparisons.raw-versus-annotated-same-ids.resources.scope_adjustment"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "invalid_structure",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Expected unique string identifiers",
+      "next_action": "List each required identifier once",
+      "path": "comparisons.fixed-nine-arms-new-works.claim_ids"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "comparison_mapping",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Comparison needs known affected claims",
+      "next_action": "Map this comparison to declared claims",
+      "path": "comparisons.fixed-nine-arms-new-works.claim_ids"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "invalid_structure",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Expected unique string identifiers",
+      "next_action": "List each required identifier once",
+      "path": "comparisons.fixed-nine-arms-new-works.paper_design_ids"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_paper_design",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "No complete published design mapping",
+      "next_action": "Read the relevant published comparison and record what was borrowed and adapted",
+      "path": "comparisons.fixed-nine-arms-new-works.paper_design_ids"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing purpose or a specific applicability reason",
+      "next_action": "Specify purpose for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.purpose"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing prediction or a specific applicability reason",
+      "next_action": "Specify prediction for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.prediction"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing supports or a specific applicability reason",
+      "next_action": "Specify supports for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.outcome_rules.supports"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing weakens or a specific applicability reason",
+      "next_action": "Specify weakens for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.outcome_rules.weakens"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing inconclusive or a specific applicability reason",
+      "next_action": "Specify inconclusive for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.outcome_rules.inconclusive"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing source or a specific applicability reason",
+      "next_action": "Specify source for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.data.source"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing version or a specific applicability reason",
+      "next_action": "Specify version for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.data.version"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing split or a specific applicability reason",
+      "next_action": "Specify split for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.data.split"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing leakage_control or a specific applicability reason",
+      "next_action": "Specify leakage_control for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.data.leakage_control"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing definition or a specific applicability reason",
+      "next_action": "Specify definition for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.metric.definition"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing aggregation or a specific applicability reason",
+      "next_action": "Specify aggregation for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.metric.aggregation"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing direction or a specific applicability reason",
+      "next_action": "Specify direction for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.metric.direction"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing unit or a specific applicability reason",
+      "next_action": "Specify unit for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.statistics.unit"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing pairing or a specific applicability reason",
+      "next_action": "Specify pairing for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.statistics.pairing"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing precision or a specific applicability reason",
+      "next_action": "Specify precision for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.statistics.precision"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing randomness or a specific applicability reason",
+      "next_action": "Specify randomness for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.statistics.randomness"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing multiplicity or a specific applicability reason",
+      "next_action": "Specify multiplicity for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.statistics.multiplicity"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing stopping or a specific applicability reason",
+      "next_action": "Specify stopping for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.statistics.stopping"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "invalid_structure",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Expected an array",
+      "next_action": "Supply an explicit array for this field",
+      "path": "comparisons.fixed-nine-arms-new-works.arms"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_control_arm",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Comparison needs method and baseline/control arms",
+      "next_action": "Add the consequential baseline or simple control and specify matched resources/protocol",
+      "path": "comparisons.fixed-nine-arms-new-works.arms"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing analysis or a specific applicability reason",
+      "next_action": "Specify analysis for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.execution.analysis"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "authorization_documentation_missing",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Resource authorization/allocation documentation is incomplete: status, basis, allocation, duration",
+      "next_action": "Record the existing user/session authorization, exact allocation and time window; reuse known permission and continue resource/source work while resolving this prerequisite",
+      "path": "comparisons.fixed-nine-arms-new-works.resources.authorization"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "hardware_unknown",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "The actual execution hardware is not established",
+      "next_action": "Inspect the authorized host, record CPU/GPU and memory constraints, then adapt the matrix",
+      "path": "comparisons.fixed-nine-arms-new-works.resources"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "resource_estimate_missing",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "No positive finite resource estimate",
+      "next_action": "Calibrate wall_seconds on the available hardware and record a feasible estimate",
+      "path": "comparisons.fixed-nine-arms-new-works.resources.estimates.wall_seconds"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "resource_estimate_missing",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "No positive finite resource estimate",
+      "next_action": "Calibrate peak_memory_gib on the available hardware and record a feasible estimate",
+      "path": "comparisons.fixed-nine-arms-new-works.resources.estimates.peak_memory_gib"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "calibration_missing",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Execution estimates have no recorded calibration",
+      "next_action": "Run a bounded resource calibration, or record the unavailable condition and narrow the planned scope",
+      "path": "comparisons.fixed-nine-arms-new-works.resources.calibration"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing reason or a specific applicability reason",
+      "next_action": "Specify reason for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.resources.calibration.reason"
+    },
+    {
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "code": "missing_design_field",
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ],
+      "message": "Missing scope_adjustment or a specific applicability reason",
+      "next_action": "Specify scope_adjustment for this comparison, or explain why it does not apply",
+      "path": "comparisons.fixed-nine-arms-new-works.resources.scope_adjustment"
+    }
+  ],
+  "goal_contract_version": null,
+  "next_actions": [
+    {
+      "action": "Record the actual design_id; an applicability note cannot substitute for an identity",
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Record the actual idea; an applicability note cannot substitute for an identity",
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Bind the plan to its actual goal contract and idea revision",
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Bind the plan to its actual goal contract and idea revision",
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Specify claim_scope for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Declare diagnostic, development, confirmation or formal scope",
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Declare whether the design precedes results, follows inspected results, or uses separate confirmation",
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Specify prior_observations for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Specify heldout_policy for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Give each entry a distinct stable identifier",
+      "claim_ids": [
+        "preprocessing_sensitivity",
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Specify statement for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Declare empirical or formal scope",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Add the required comparison and its claim link",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify statement for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Declare empirical or formal scope",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": []
+    },
+    {
+      "action": "Add the required comparison and its claim link",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "List each required identifier once",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Map this comparison to declared claims",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "List each required identifier once",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Read the relevant published comparison and record what was borrowed and adapted",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify purpose for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify prediction for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify supports for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify weakens for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify inconclusive for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify source for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify version for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify split for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify leakage_control for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify definition for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify aggregation for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify direction for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify unit for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify pairing for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify precision for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify randomness for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify multiplicity for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify stopping for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Supply an explicit array for this field",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Add the consequential baseline or simple control and specify matched resources/protocol",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify analysis for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Record the existing user/session authorization, exact allocation and time window; reuse known permission and continue resource/source work while resolving this prerequisite",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Inspect the authorized host, record CPU/GPU and memory constraints, then adapt the matrix",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Calibrate wall_seconds on the available hardware and record a feasible estimate",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Calibrate peak_memory_gib on the available hardware and record a feasible estimate",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Run a bounded resource calibration, or record the unavailable condition and narrow the planned scope",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify reason for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "Specify scope_adjustment for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "preprocessing_sensitivity"
+      ],
+      "comparison_ids": [
+        "raw-versus-annotated-same-ids"
+      ]
+    },
+    {
+      "action": "List each required identifier once",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Map this comparison to declared claims",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "List each required identifier once",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Read the relevant published comparison and record what was borrowed and adapted",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify purpose for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify prediction for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify supports for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify weakens for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify inconclusive for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify source for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify version for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify split for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify leakage_control for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify definition for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify aggregation for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify direction for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify unit for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify pairing for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify precision for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify randomness for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify multiplicity for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify stopping for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Supply an explicit array for this field",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Add the consequential baseline or simple control and specify matched resources/protocol",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify analysis for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Record the existing user/session authorization, exact allocation and time window; reuse known permission and continue resource/source work while resolving this prerequisite",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Inspect the authorized host, record CPU/GPU and memory constraints, then adapt the matrix",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Calibrate wall_seconds on the available hardware and record a feasible estimate",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Calibrate peak_memory_gib on the available hardware and record a feasible estimate",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Run a bounded resource calibration, or record the unavailable condition and narrow the planned scope",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify reason for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    },
+    {
+      "action": "Specify scope_adjustment for this comparison, or explain why it does not apply",
+      "claim_ids": [
+        "work_generalization"
+      ],
+      "comparison_ids": [
+        "fixed-nine-arms-new-works"
+      ]
+    }
+  ],
+  "plan_ref": {
+    "path": "plan_wake3.json",
+    "sha256": "3e28115bf48d4c8bd9bc3de9bb56895cf5823be5b84978a30556871bcf732f6e"
+  },
+  "prospective_independence_verified": false,
+  "resource_authorization_verified": false,
+  "resource_snapshot_is_a_lease": false,
+  "run_identity_authenticated": false,
+  "schema_version": 1,
+  "scientific_certification": false,
+  "status": "gaps",
+  "supplied_goal_contract_version": null
+}

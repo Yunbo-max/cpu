@@ -1,0 +1,133 @@
+{
+  "actual_counts": {
+    "confirmation": 1536,
+    "grams": 27225,
+    "mass": 27346,
+    "url_hash": 801
+  },
+  "all_checks_passed": true,
+  "checks": [
+    {
+      "check": "oracle_normalization_sha256",
+      "passed": true
+    },
+    {
+      "check": "oracle_url_default_port_query_fragment",
+      "passed": true
+    },
+    {
+      "check": "oracle_url_ipv6",
+      "passed": true
+    },
+    {
+      "check": "oracle_shingle_sha256",
+      "passed": true
+    },
+    {
+      "check": "fixture_hash_only_import",
+      "passed": true
+    },
+    {
+      "check": "fixture_no_plaintext_confirmation_url",
+      "passed": true
+    },
+    {
+      "check": "fixture_reopen_idempotence",
+      "passed": true
+    },
+    {
+      "check": "late_bind_and_protocol_mismatch_guard",
+      "passed": true
+    },
+    {
+      "check": "completed_reimport_wrong_protocol_guard",
+      "passed": true
+    },
+    {
+      "check": "completed_reimport_wrong_contract_guard",
+      "passed": true
+    },
+    {
+      "check": "hash_url_exact_semantics",
+      "passed": true,
+      "rejected": [
+        "near_content",
+        "exact_content",
+        "exact_url"
+      ]
+    },
+    {
+      "check": "hash_exact_content_semantics",
+      "passed": true
+    },
+    {
+      "check": "hash_shingle_near_semantics",
+      "passed": true
+    },
+    {
+      "accepted": [
+        "clean"
+      ],
+      "check": "clean_row_survives",
+      "passed": true
+    },
+    {
+      "check": "corrupt_mass_fails_before_import",
+      "passed": true
+    },
+    {
+      "check": "early_bind_protocol_mismatch_guard",
+      "passed": true
+    },
+    {
+      "check": "actual_index_count_preservation",
+      "passed": true,
+      "source": {
+        "confirmation": 1536,
+        "grams": 27225,
+        "mass": 27346,
+        "url_hash": 801
+      },
+      "target": {
+        "confirmation": 1536,
+        "grams": 27225,
+        "mass": 27346,
+        "url_hash": 801
+      }
+    },
+    {
+      "check": "actual_exact_and_shingle_record_preservation",
+      "exact_delta": 0,
+      "gram_delta": 0,
+      "passed": true
+    },
+    {
+      "check": "actual_url_hash_set_preservation",
+      "passed": true,
+      "source_minus_target": 0,
+      "target_minus_source": 0
+    },
+    {
+      "check": "actual_target_contains_no_staged_development_text",
+      "passed": true
+    }
+  ],
+  "formal_gates": {
+    "blinded_confirmation_adapter": "PASS",
+    "fairness_claims": "HOLD",
+    "production_development_selection": "HOLD",
+    "row_to_fixed_shard_provenance": "HOLD",
+    "tokenizer_training": "HOLD"
+  },
+  "implementation_sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42",
+  "memory_at_start": {
+    "current_bytes": 7205965824,
+    "headroom_bytes": 1383968768,
+    "limit_bytes": 8589934592
+  },
+  "peak_rss_kib": 19256,
+  "protocol_sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735",
+  "schema_version": 1,
+  "scope": "adapter mechanics and frozen confirmation-index preservation only; no real development selection, tokenizer, or fairness output",
+  "source_index_sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+}

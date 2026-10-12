@@ -1,0 +1,69 @@
+{
+  "format": "rsi-simple-delegation-note-v1",
+  "lifecycle_state": "running",
+  "request_id": "pa-bpe-wake1",
+  "delegation_id": "metric_protocol_audit",
+  "generation": 1,
+  "parent_binding": {
+    "goal_contract_version": 1,
+    "idea_id": "pa-bpe-domain-robustness",
+    "idea_revision": 1,
+    "source_digest": null,
+    "checkpoint_ref": {
+      "path": "/workspace/scratch/42f1128b703b/pa_bpe_simple/PA_BPE_Simple_Checkpoint.md",
+      "sha256": "4b5a0b6e608fd866daa58250c47bc647520a50908bcc5be63d6b870db1bd3f1a"
+    },
+    "plan_ref": null,
+    "input_refs": [
+      {
+        "path": "author_source/parity_aware_bpe/parity_aware_learn_bpe.py",
+        "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+      }
+    ],
+    "not_applicable_reasons": {
+      "runner": "not initialized; Simple .9 policy, bootstrap checkpoint is active plan"
+    }
+  },
+  "assignment": {
+    "objective": "Independently audit fairness metric and native PA-BPE source for a small cross-domain diagnostic. Find consequential pitfalls and necessary controls.",
+    "deliverable": "Evidence-based protocol/code review with exact source locations, no superiority conclusion",
+    "read_paths": [
+      "/workspace/scratch/42f1128b703b/pa_bpe_simple/PA_BPE_Simple_Checkpoint.md",
+      "/workspace/scratch/42f1128b703b/pa_bpe_simple/author_source"
+    ],
+    "write_paths": [
+      "/workspace/scratch/42f1128b703b/pa_bpe_simple/review/wake1_metric_protocol.md"
+    ],
+    "output_directory": "/workspace/scratch/42f1128b703b/pa_bpe_simple/review",
+    "dependencies": [],
+    "deadline_utc": "2026-10-11T18:44:00+00:00",
+    "budget_authority": {
+      "authorization_ref": "user automation request, current turn",
+      "project_budget_ref": "/workspace/scratch/42f1128b703b/pa_bpe_simple/PA_BPE_Simple_Checkpoint.md",
+      "delegated_allowance": "Read-only scientific review, one native agent, no experimental execution, no nested agents",
+      "usage_measurement": "native model usage unavailable",
+      "experiments_permitted": false,
+      "further_delegation_permitted": false
+    },
+    "completion_requirements": [
+      "pin inspected sources",
+      "separate paper and code discrepancies",
+      "derive metric reference independently",
+      "return limitations and next action"
+    ]
+  },
+  "launch": {
+    "host_capability": "collaboration.spawn_agent",
+    "call_correlation": "pa_bpe_metric_audit_wake1",
+    "intent_recorded_at_utc": "2026-10-11T18:33:46.617010+00:00",
+    "native_agent_id": "/root/pa_bpe_metric_audit_wake1",
+    "launched_at_utc": "2026-10-11T18:35:00Z",
+    "launched_at_note": "Approximate time; native identity confirmed by tool"
+  },
+  "result": {
+    "status": "not_received"
+  },
+  "acceptance": {
+    "state": "not_reviewed"
+  }
+}

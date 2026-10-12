@@ -1,0 +1,34 @@
+{
+  "delegation_id": "wake3-pair-gain-review",
+  "generation": 1,
+  "parent": {
+    "project": "pa-bpe-simple-20261011",
+    "goal_contract_version": 2,
+    "idea": "pa-bpe-domain-robustness",
+    "revision": 1,
+    "method_revision": 2,
+    "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "inputs": {
+    "execution_windows/wake3/scripts/train_pair_aware.py": "ebb7b70bd4a1332dad35c43a0411fa2de09ec1d0ecb05abb31462ce855dfcc49",
+    "execution_windows/wake3/pair_candidate_plan.json": "6a64ace4fc6a06dc390ef3289727b83b2aa25e805530f0f0b9be617a29446a11",
+    "execution_windows/wake3/output/merge_descent_audit.json": "c13c05c9a06b371ac494728262b38c7c1dee2715dd520b3a0b620d089575cfff",
+    "execution_windows/wake3/output/multibook_analysis.json": "b65764559c4e6efe60c13567ffdb607611fbdadc0e8edba1cca2b340d063e11c",
+    "execution_windows/wake3/output/paired_raw_rescore.json": "5846a385ad344ebdd84bc7c96616af39ccb8658290aca649c2ca5d3eb1a47a94"
+  },
+  "question": "Audit exact pair-gain lookahead logic and whether measured negative transfer supports proposed diagnostic adaptation; avoid causal/novelty overclaims.",
+  "authority": {
+    "deadline_utc": "2026-10-11T20:46:00Z",
+    "scientific_commands": 0,
+    "nested_delegation": false,
+    "model_tokens": "unknown"
+  },
+  "write_scope": "review/wake3_pair_gain_review.md",
+  "lifecycle_state": "dispatching",
+  "launch": {
+    "task_name": "pa_bpe_preprocessing_audit_wake3",
+    "via": "followup_task",
+    "existing_agent_id": "/root/pa_bpe_preprocessing_audit_wake3",
+    "intent_recorded_at_utc": "2026-10-11T20:39:00Z"
+  }
+}

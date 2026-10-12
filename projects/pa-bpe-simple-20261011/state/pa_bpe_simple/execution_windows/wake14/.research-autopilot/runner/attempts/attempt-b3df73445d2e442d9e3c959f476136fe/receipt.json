@@ -1,0 +1,71 @@
+{
+  "attempt_id": "attempt-b3df73445d2e442d9e3c959f476136fe",
+  "command_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 13094,
+    "start_ticks": 470717
+  },
+  "contract_sha256": "3948fc95b1c1bec846611d8a8eb7d6535571f5228cca2ade52129a44688e2cd4",
+  "elapsed_seconds": 0.28696718999981385,
+  "error": null,
+  "exit_code": 0,
+  "finished_at": "2026-10-12T08:40:39.146305+00:00",
+  "input_refs": [
+    {
+      "path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+      "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+    },
+    {
+      "path": "decontamination_selector_protocol.json",
+      "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+    },
+    {
+      "path": "adapter_contract.json",
+      "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"
+    },
+    {
+      "path": "scripts/decontam_selector.py",
+      "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"
+    },
+    {
+      "path": "scripts/import_blinded_confirmation.py",
+      "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/selector_confirmation.sqlite3",
+      "sha256": "0a64e0aa92683df0cd897631865d422cb440f27d3a709bbfc5194c80230cfff7"
+    },
+    {
+      "path": "output/blinded_adapter_summary.json",
+      "sha256": "feecbcd5d8ed27604eae0660179d29b38557660eebaa709251459138fa17948e"
+    },
+    {
+      "path": "output/blinded_adapter.resources.json",
+      "sha256": "a4c7415fc26708e762e6b4c9e8ddd7898338d162e4f80d40b8a4dc31f32d5d9c"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/wake14_restore/project/pa_bpe_simple/execution_windows/wake14",
+  "schema_version": 1,
+  "started_at": "2026-10-12T08:40:38.859345+00:00",
+  "status": "succeeded",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/stdout.txt",
+    "sha256": "fe2445810346255366083792959836d3e4247369ecf2fdf781e9c5d74ff74f65"
+  },
+  "task_id": "wake14-import-blinded-confirmation-v1",
+  "worker_identity": {
+    "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+    "pid": 13093,
+    "start_ticks": 470713
+  }
+}

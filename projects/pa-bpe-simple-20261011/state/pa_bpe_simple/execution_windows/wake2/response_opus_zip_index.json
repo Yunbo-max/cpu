@@ -1,0 +1,45 @@
+{
+  "response_id": "wake2-opus-zip-index",
+  "request_id": "decision-bacf207752f24244ade958e901acbe6d",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The XCES alignments establish a 12-work three-language core and the corrected FineWeb2 URLs are byte-range addressable. Before downloading any raw books, inspect only the ZIP central directories to verify exact members and quantify the smallest auditable grouped subset.",
+  "tasks": [
+    {
+      "task_id": "opus-raw-zip-index-wake2",
+      "argv": [
+        "/usr/bin/env",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "python3",
+        "scripts/measure_command.py",
+        "output/opus_zip_index.resources.json",
+        "scripts/opus_zip_index_wake2.py",
+        "output/opus_identity_probe/opus_identity_and_hf_probe_wake2.json",
+        "output/opus_zip_index_wake2.json"
+      ],
+      "phase": "sources",
+      "purpose": "Verify native raw XML members and estimate compressed sizes for the 12 three-language OPUS Books works without downloading full archives",
+      "timeout_seconds": 80,
+      "input_refs": [
+        {
+          "path": "scripts/opus_zip_index_wake2.py",
+          "sha256": "0bf1a608ce52ebc3f2a22335ef8ac41df751e57760f02a9b563fe20429d013e9"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "output/opus_identity_probe/opus_identity_and_hf_probe_wake2.json",
+          "sha256": "49afa96737680dd605fdc2cc2c85029e969fd9a7f70f0aa7998a4c047119ae13"
+        }
+      ],
+      "outputs": [
+        "output/opus_zip_index_wake2.json",
+        "output/opus_zip_index.resources.json"
+      ]
+    }
+  ]
+}

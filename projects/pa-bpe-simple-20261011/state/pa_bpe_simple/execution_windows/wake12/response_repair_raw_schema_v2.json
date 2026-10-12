@@ -1,0 +1,29 @@
+{
+  "response_id": "wake12-repair-raw-member-suffix-v2",
+  "request_id": "decision-e079ec4a9a104871859ec83c98b9ef77",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The retained traceback shows XCES references end in .xml.gz while the raw ZIP stores the corresponding member without the inner gzip suffix. The matcher now accepts only that explicit representation change and still rejects zero or ambiguous matches.",
+  "tasks": [
+    {
+      "task_id": "inspect-globalvoices-raw-schema-wake12-v2",
+      "supersedes": "inspect-globalvoices-raw-schema-wake12-v1",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "PYTHONHASHSEED=0", "python3", "scripts/measure_command.py", "output/raw_schema_v2.resources.json", "scripts/inspect_raw_schema.py", "--units", "inputs/reference/opus_gv_closed_components.json", "--raw-dir", "inputs/opus_gv_v2018q4/raw", "--output", "output/raw_schema_v2.json"],
+      "phase": "sources",
+      "purpose": "Rerun the 512-unit real raw identity qualification with the diagnosed .xml.gz-to-.xml archive representation mapping.",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "inputs/reference/opus_gv_closed_components.json", "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"},
+        {"path": "inputs/opus_gv_v2018q4/raw/fr.zip", "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"},
+        {"path": "inputs/opus_gv_v2018q4/raw/es.zip", "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"},
+        {"path": "inputs/opus_gv_v2018q4/raw/en.zip", "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"},
+        {"path": "scripts/inspect_raw_schema.py", "sha256": "6e18a54d354bfb9cff02c1a83c7a779ad3125ac1434b30e87e8a1b2fdbfd31a6"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"}
+      ],
+      "outputs": ["output/raw_schema_v2.json", "output/raw_schema_v2.resources.json"]
+    }
+  ]
+}

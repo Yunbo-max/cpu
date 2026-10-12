@@ -1,0 +1,35 @@
+{
+  "submission_id": "training-shard-identities-wake9-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "training-shards-en-wake9",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/en_training_shards.resources.json", "scripts/fetch_hf_tree_manifest.py", "--language", "en", "--repo", "HuggingFaceFW/fineweb", "--revision", "9bb295ddab0e05d785b879661af7260fed5140fc", "--tree-path", "data/CC-MAIN-2013-20", "--expected-count", "205", "--output", "output/en_training_shards.json"],
+      "phase": "sources", "purpose": "Freeze immutable English FineWeb shard identities at the fixed revision without downloading payloads.", "timeout_seconds": 110, "cwd": ".", "depends_on": [],
+      "input_refs": [{"path":"window_parent_binding.json","sha256":"509fd947670b15ccb0418a96caec975a80031937cb512bf4957636ed94dc789a"},{"path":"training_shard_protocol.json","sha256":"93fd7de78520369112449c9d0e0f75b1be004e330db45daa92d9fca37b10abcb"},{"path":"scripts/measure_command.py","sha256":"56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"},{"path":"scripts/fetch_hf_tree_manifest.py","sha256":"4706908a9f2a28ede2b2d923dacdc3ea828ca5e5f7667632efb03b6dd48b19be"}],
+      "outputs": ["output/en_training_shards.json","output/en_training_shards.resources.json"]
+    },
+    {
+      "task_id": "training-shards-fr-wake9",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/fr_training_shards.resources.json", "scripts/fetch_hf_tree_manifest.py", "--language", "fr", "--repo", "HuggingFaceFW/fineweb-2", "--revision", "af9c13333eb981300149d5ca60a8e9d659b276b9", "--tree-path", "data/fra_Latn/train", "--expected-count", "135", "--output", "output/fr_training_shards.json"],
+      "phase": "sources", "purpose": "Freeze immutable French FineWeb2 shard identities at the fixed revision without downloading payloads.", "timeout_seconds": 110, "cwd": ".", "depends_on": [],
+      "input_refs": [{"path":"window_parent_binding.json","sha256":"509fd947670b15ccb0418a96caec975a80031937cb512bf4957636ed94dc789a"},{"path":"training_shard_protocol.json","sha256":"93fd7de78520369112449c9d0e0f75b1be004e330db45daa92d9fca37b10abcb"},{"path":"scripts/measure_command.py","sha256":"56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"},{"path":"scripts/fetch_hf_tree_manifest.py","sha256":"4706908a9f2a28ede2b2d923dacdc3ea828ca5e5f7667632efb03b6dd48b19be"}],
+      "outputs": ["output/fr_training_shards.json","output/fr_training_shards.resources.json"]
+    },
+    {
+      "task_id": "training-shards-es-wake9",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/es_training_shards.resources.json", "scripts/fetch_hf_tree_manifest.py", "--language", "es", "--repo", "HuggingFaceFW/fineweb-2", "--revision", "af9c13333eb981300149d5ca60a8e9d659b276b9", "--tree-path", "data/spa_Latn/train", "--expected-count", "146", "--output", "output/es_training_shards.json"],
+      "phase": "sources", "purpose": "Freeze immutable Spanish FineWeb2 shard identities at the fixed revision without downloading payloads.", "timeout_seconds": 110, "cwd": ".", "depends_on": [],
+      "input_refs": [{"path":"window_parent_binding.json","sha256":"509fd947670b15ccb0418a96caec975a80031937cb512bf4957636ed94dc789a"},{"path":"training_shard_protocol.json","sha256":"93fd7de78520369112449c9d0e0f75b1be004e330db45daa92d9fca37b10abcb"},{"path":"scripts/measure_command.py","sha256":"56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"},{"path":"scripts/fetch_hf_tree_manifest.py","sha256":"4706908a9f2a28ede2b2d923dacdc3ea828ca5e5f7667632efb03b6dd48b19be"}],
+      "outputs": ["output/es_training_shards.json","output/es_training_shards.resources.json"]
+    },
+    {
+      "task_id": "verify-training-shards-wake9",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/training_shard_manifest_verification.resources.json", "scripts/verify_training_shard_manifests.py"],
+      "phase": "verify", "purpose": "Verify count, uniqueness, immutable LFS SHA256 identities, byte sizes, and zero payload download across all three language manifests.", "timeout_seconds": 30, "cwd": ".", "depends_on": ["training-shards-en-wake9","training-shards-fr-wake9","training-shards-es-wake9"],
+      "input_refs": [{"path":"training_shard_protocol.json","sha256":"93fd7de78520369112449c9d0e0f75b1be004e330db45daa92d9fca37b10abcb"},{"path":"scripts/measure_command.py","sha256":"56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"},{"path":"scripts/verify_training_shard_manifests.py","sha256":"2570f1120fd6553dfb47a72511b21e27605626913bbe75930e771cad50caa287"}],
+      "outputs": ["output/training_shard_manifest_verification.json","output/training_shard_manifest_verification.resources.json"]
+    }
+  ]
+}

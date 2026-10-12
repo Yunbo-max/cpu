@@ -1,0 +1,62 @@
+{
+  "response_id": "archive-cycles-w1",
+  "request_id": "decision-9815eb76ff524cccbe5b04b0e83cf024",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Archive two actual hypothesis-test-interpretation chains and retain broader goal; current window attempts exhausted",
+  "events": [
+    {
+      "event_id": "domain-transfer-cycle-w1",
+      "kind": "research_cycle",
+      "reason": "Frozen aligned pilot exposed transfer reversal",
+      "hypothesis": "PA-BPE development-domain fairness may fail under domain shift",
+      "prediction": "TICO benefit can attenuate or reverse on literary text",
+      "result": "base improved TICOtest Gini0.024695\u21920.002885 but worsened Books0.013834\u21920.046917; all arms1000merges/1256vocab",
+      "interpretation": "Supports local domain sensitivity, not population-level claim; language cost ordering reverses",
+      "next_action": "Compare matched pooled control and domain-normalized selector using new confirmation",
+      "evidence": [
+        {
+          "path": "experiment_plan_v1.json",
+          "sha256": "fea9a3ab5a8d407e4296374dd361170585d4d50b4d2ccfbb7007fb7acc940f34"
+        },
+        {
+          "path": "runs/evaluation_v1.json",
+          "sha256": "9e52a4d690c2e5c53ec591e3ef85f52ae284d0b981d0c6b65fa7e74b3c8e0d58"
+        },
+        {
+          "path": "data/manifest.json",
+          "sha256": "8b26a50989582e714147415c9092524afbd8d0cf1c9db3385ff1883c8c53e1e3"
+        }
+      ]
+    },
+    {
+      "event_id": "domain-selector-cycle-w1",
+      "kind": "research_cycle",
+      "reason": "Tested mechanism-motivated candidate with matched-information pooled control and separate confirmation",
+      "hypothesis": "Worst-normalized-domain selector improves cross-domain tradeoff compared with pooled raw totals",
+      "prediction": "Lower worst-domain Gini than pooled; report strong Classical baseline and cost tradeoffs",
+      "result": "Confirmation maxGini robust0.024083 pooled0.032297 Classical0.022705. Candidate improves pooled but does not beat Classical and has higher total costs.197TICO+100Books;3 exact-overlap exclusions",
+      "interpretation": "Local support against pooled; negative against Classical overall. No superiority or novelty claim; contiguousBooks and2languages limit inference",
+      "next_action": "Respect12-attempt window boundary; nextauthorizedwindow inspect book/source groups and expand necessary thirdlanguage coverage before candidate revision, using new confirmation",
+      "evidence": [
+        {
+          "path": "experiment_plan_v2.json",
+          "sha256": "913e67b88ad4c16159a5c92e725f26a9131079e1cc2ba96b52edd4f89856ab15"
+        },
+        {
+          "path": "runs/evaluation_v2.json",
+          "sha256": "9b1bdaef9c1a0b49f7fae5e312fc5af3dbf23c5843060a005a4e6e4b72350a36"
+        },
+        {
+          "path": "data/manifest_v2.json",
+          "sha256": "3975732ee246e2f74d0c072f27aadfe43c8fec2ee81536a87feb41799bbbd2d9"
+        },
+        {
+          "path": "PA_BPE_Wake1_Report.md",
+          "sha256": "6bcea50231a066f1c00cbfd488184d3a7dd811f2bdd0a30f643151653559cff3"
+        }
+      ]
+    }
+  ]
+}

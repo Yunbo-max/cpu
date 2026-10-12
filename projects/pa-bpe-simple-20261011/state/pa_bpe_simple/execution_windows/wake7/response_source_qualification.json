@@ -1,0 +1,24 @@
+{
+  "response_id": "wake7-globalvoices-structure-milestone-v1",
+  "request_id": "decision-5809e9838451406ca89e4893c36a6446",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Record the provenance-first confirmation-source qualification milestone; no tokenizer outcome was computed and the continuous research goal remains active.",
+  "events": [
+    {
+      "kind": "milestone",
+      "event_id": "globalvoices-trilingual-structure-wake7",
+      "label": "GlobalVoices trilingual structural support qualified before outcome access",
+      "next_phase": "sources",
+      "reason": "Official PGV document metadata contains 11,004 all-three-edge English-French-Spanish document triangles. Independently recommended OPUS GlobalVoices v2018q4 XCES files expose stable document and sentence identities; a preregistered 512-document scope yielded 11,919 unique closed three-language all-pair components, so 512 unit identities were reserved without opening raw story text or tokenizer outputs. Confirmation scoring remains blocked on attribution/leakage audit and a frozen method, preprocessing, metric and token-cost protocol.",
+      "evidence": [
+        {"path": "output/pgv_docpairs_qualification.json", "sha256": "470b730c5516c0e0228ddd5cf82423ed41813057707836d542d0dba3167e3d7b"},
+        {"path": "output/pgv_triangle_qualification.json", "sha256": "6cc1be257fe8502922cb46804951200775f43df4d47af7cadee3f2ac9a4fd3b5"},
+        {"path": "output/opus_gv_xces_schema.json", "sha256": "b40288c91108c1f4da8c1533d1b7421aee787cdb8ce67b58243c7e6652260ca8"},
+        {"path": "opus_gv_closed_components_protocol.json", "sha256": "4732917c779853ccc76933b56cdd5c52db617e8337173e14d3c407c8ae28f64c"},
+        {"path": "output/opus_gv_closed_components.json", "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"}
+      ]
+    }
+  ]
+}

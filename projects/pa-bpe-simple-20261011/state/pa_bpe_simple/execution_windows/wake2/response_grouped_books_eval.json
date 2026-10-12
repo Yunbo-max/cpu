@@ -1,0 +1,55 @@
+{
+  "response_id": "wake2-grouped-books-eval",
+  "request_id": "decision-503093d7bb124a86856f4af5eb4c00a1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The native parser produced 682 Alice rows and 264 Poe rows with whole-work isolation. Evaluate the nine existing English/French tokenizers on these two frozen works, retaining exact paired costs and independent Gini checks; exclude Spanish because these tokenizers were not trained on Spanish.",
+  "tasks": [
+    {
+      "task_id": "grouped-books-enfr-evaluation-wake2",
+      "argv": [
+        "/usr/bin/env",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/grouped_books_eval.resources.json",
+        "scripts/evaluate_grouped_books_wake2.py",
+        "output/opus_selective_extract/aligned",
+        "input_grouped_eval_manifest.json",
+        "output/grouped_books_evaluation_wake2.json"
+      ],
+      "phase": "evaluator",
+      "purpose": "Measure English/French token-cost parity on two genuinely work-isolated Books domains for all nine existing 1000-merge tokenizers",
+      "timeout_seconds": 60,
+      "input_refs": [
+        {
+          "path": "scripts/evaluate_grouped_books_wake2.py",
+          "sha256": "4d48d140b861197454fd462a698620b520a4ea62f82196bda1a649156d9af79d"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "input_grouped_eval_manifest.json",
+          "sha256": "84070160eb172360b009f1155f856f6187e260e3f234e1665e186a316b2fe28f"
+        },
+        {
+          "path": "output/opus_selective_extract/aligned/dev.tsv",
+          "sha256": "e7fdc895e89dc4faa8d0c2f454a224599d85513f87b08bd90d2cf4a3553da59b"
+        },
+        {
+          "path": "output/opus_selective_extract/aligned/confirm.tsv",
+          "sha256": "d7dcf7da4ecfcb0d10eb1c6596e50d668eb7a533aeb584c05da8e78ca432f739"
+        }
+      ],
+      "outputs": [
+        "output/grouped_books_evaluation_wake2.json",
+        "output/grouped_books_eval.resources.json"
+      ]
+    }
+  ]
+}

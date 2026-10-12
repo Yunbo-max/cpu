@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "frozen_at_utc": "2026-10-12T05:42:00Z",
+  "release": "OPUS-GlobalVoices/v2018q4",
+  "purpose": "result-blind confirmation fingerprint source; no tokenizer or fairness outcome may be emitted",
+  "archives": {
+    "en": {
+      "url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/raw/en.zip",
+      "expected_bytes": 115069300,
+      "expected_etag": "784830696482dfd4ee1ed7096b3d3547",
+      "expected_last_modified": "Fri, 13 Nov 2020 07:42:11 GMT"
+    },
+    "fr": {
+      "url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/raw/fr.zip",
+      "expected_bytes": 37776586,
+      "expected_etag": "90f2f70b8fec375179f371ed633553de",
+      "expected_last_modified": "Fri, 13 Nov 2020 07:42:11 GMT"
+    },
+    "es": {
+      "url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/raw/es.zip",
+      "expected_bytes": 80028192,
+      "expected_etag": "85c840e723f7faabba7fd7b569c3c695",
+      "expected_last_modified": "Fri, 13 Nov 2020 07:42:11 GMT"
+    }
+  },
+  "source_evidence": {
+    "review_path": "../../review/wake7_confirmation_source_review.md",
+    "release_protocol_path": "../wake7/opus_gv_closed_components_protocol.json",
+    "reserved_units_path": "../wake7/output/opus_gv_closed_components.json"
+  },
+  "output_policy": {
+    "raw_archives": "private checkpoint only; do not redistribute",
+    "logs": "archive hashes, byte counts and HTTP provenance only; never raw text",
+    "fingerprint_builder": "emit blinded document IDs, content fingerprints and aggregate counts only"
+  }
+}

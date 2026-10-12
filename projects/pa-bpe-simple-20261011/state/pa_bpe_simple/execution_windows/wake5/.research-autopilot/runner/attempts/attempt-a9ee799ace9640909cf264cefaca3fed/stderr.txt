@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/42f1128b703b/wake5_project/pa_bpe_simple/execution_windows/wake5/scripts/measure_command.py", line 5, in <module>
+    try:runpy.run_path(script,run_name='__main__')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "scripts/analyze_mass_cancellation.py", line 151, in <module>
+    "stored_macro_matches": abs(observed["macro_sentence_gini"]["decimal"] - stored["mean_sentence_gini"]) <= 1e-12,
+                                                                             ~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'mean_sentence_gini'

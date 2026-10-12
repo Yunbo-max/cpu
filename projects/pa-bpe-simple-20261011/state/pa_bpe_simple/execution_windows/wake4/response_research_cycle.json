@@ -1,0 +1,28 @@
+{
+  "response_id": "wake4-cost-constrained-negative-cycle-v1",
+  "request_id": "decision-ed6bd96cc74d4bbe98b91654c0c27fa7",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Record one complete prospective research cycle after independent replay, arithmetic verification and scoped review; the continuous research goal remains active.",
+  "events": [
+    {
+      "kind": "research_cycle",
+      "event_id": "cost-constrained-transfer-efficiency-wake4",
+      "hypothesis": "Among fairness-improving merges, lexicographically maximizing exact realized train compression will preserve development fairness while reducing the out-of-domain token-cost penalty seen for full-minmax PA-BPE.",
+      "prediction": "eff_minmax will have lower Books total token cost than full_minmax and lower Books mean Gini than full_pooled on the frozen exposed diagnostic rows.",
+      "result": "The primary cost prediction failed: eff_minmax minus full_minmax was +0.4224609375 mean Books total tokens and +0.0008401350 mean Books Gini. The secondary Gini comparison passed: eff_minmax minus full_pooled was -0.0005490363, but total cost was +2.1048828125. Against Classical, eff_minmax was +3.77421875 total tokens and +0.0017708530 Gini. The no-descent exact-train control nearly matched Classical but remained slightly worse (+0.0521484375 total; +0.0001179418 Gini).",
+      "interpretation": "Immediate train-compression maximization under a thresholded development-Gini descent filter did not repair fairness/cost transfer. The matched no-descent control being strongest among the new arms suggests that path changes induced by the development fairness constraint dominate this small bilingual setup. All Books and TICO rows are exposed diagnostics, so this is a mechanism-level negative result, not confirmation or a general multilingual claim.",
+      "next_action": "Keep the same active idea and diagnose objective misalignment before proposing another method: compare aggregate-domain Gini with sentence-aligned fairness and cost behavior across the existing frozen arms, then prospectively freeze a cost-budgeted or sentence-level candidate only if the mechanism evidence discriminates it. Do not tune on Books or label exposed TICO as confirmation.",
+      "reason": "The evidence chain combines one prospective candidate, matched controls, 3000-step replay, 36-table recomputation, overlap audit and independent static review rather than counting commands as research cycles.",
+      "evidence": [
+        {"path": "cost_constrained_plan.json", "sha256": "579cf6e3a820546fc720a66174cccb7437446377787ac46dd2377f407a663d19"},
+        {"path": "cost_constrained_clarification.json", "sha256": "4c109fdcead15ded03fb56c08049d81d698f3e7f35661a84a0223978e22e13d2"},
+        {"path": "output/efficiency_candidate_summary.json", "sha256": "5312df3830e052bf3cac371cbeefd393aab62f0efe0bf4ca65a1bda57ae3dd0b"},
+        {"path": "output/efficiency_table_verification.json", "sha256": "9d4a4f05370d052a4e73256a2a23f944094c27e3402dbc0a6e18f774e9ec409a"},
+        {"path": "output/training_trace_replay.json", "sha256": "7344e3e2dca508edbcc5ec474e084a9a52696fc2366efedcfbbe23afe2ad6cb4"},
+        {"path": "output/source_overlap_audit.json", "sha256": "6fbe88e8181980450b52b7b73bd41ced3044205adcc8663100fd461f69dd1b64"}
+      ]
+    }
+  ]
+}

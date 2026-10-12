@@ -1,0 +1,84 @@
+{
+  "response_id": "vector-pilot-wake3b",
+  "request_id": "decision-3bafa809f7de4f6590d249d96a0875d9",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Scalarfullpoolnonlinearscalingriskscommandlimit; calibratevectorizedequivalent",
+  "tasks": [
+    {
+      "task_id": "vector-full-pilot-wake3b",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/vector_pilot.resources.json",
+        "scripts/train_full_pool_vectorized.py",
+        "minmax",
+        "100",
+        "vector_pilot"
+      ],
+      "phase": "verify",
+      "purpose": "Calibrate vectorized exact pool search and compare trace to scalarpilot",
+      "timeout_seconds": 60,
+      "input_refs": [
+        {
+          "path": "full_pool_plan.json",
+          "sha256": "09f3b5c9f190ca3b5a9376eb1fe0ef752f8d250c4bd356a422ae6e7a17977202"
+        },
+        {
+          "path": "vectorization_plan.json",
+          "sha256": "0281e500f412f2da1686ee85476850020e051366685749f8fb6a6be316037e42"
+        },
+        {
+          "path": "scripts/train_full_pool_vectorized.py",
+          "sha256": "3979126eef319f75bd9244615849e0cc8cbb7872b2307c52dc9a69fd0988f4c0"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "scripts/native_pa_source.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        },
+        {
+          "path": "scripts/evaluator_reference.py",
+          "sha256": "612d66ff544e6cb72047d59f36e702766061abcc10e387453e3356ec231651eb"
+        },
+        {
+          "path": "inputs/train.en",
+          "sha256": "30e91713f1ab02873aadf82bff10530f4b4cba267f22e6292e78b217bbefa2b8"
+        },
+        {
+          "path": "inputs/train.fr",
+          "sha256": "bf2cb9ce2143a7ed77d42886fd94adf8d0bbfad208814fa2da0fa28d181d9483"
+        },
+        {
+          "path": "inputs/dev2.tico.en",
+          "sha256": "823561bdb9a9b231b6a78fb7767ec4bdec649cd837e3d0540fab8c4511d7b53e"
+        },
+        {
+          "path": "inputs/dev2.tico.fr",
+          "sha256": "1162933dbcbebac060f504c7b78268543bfdd81750286e2de8702569fce7921e"
+        },
+        {
+          "path": "inputs/dev2.books.en",
+          "sha256": "80020ecf26660daed7129215bbe958bd14a04ad2fbca642e0fad01bbfb893660"
+        },
+        {
+          "path": "inputs/dev2.books.fr",
+          "sha256": "113ecdeeb27f0e8c7d1cf33d93f55eb39316fbd6e13b6a0da2f3ce28e4759ec4"
+        }
+      ],
+      "outputs": [
+        "output/vector_pilot.merges",
+        "output/vector_pilot.trace.json",
+        "output/vector_pilot.resources.json"
+      ]
+    }
+  ]
+}

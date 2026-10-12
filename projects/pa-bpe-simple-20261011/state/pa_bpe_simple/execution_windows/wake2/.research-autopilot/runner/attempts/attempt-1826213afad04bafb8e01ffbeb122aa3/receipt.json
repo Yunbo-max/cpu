@@ -1,0 +1,59 @@
+{
+  "attempt_id": "attempt-1826213afad04bafb8e01ffbeb122aa3",
+  "command_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 144065,
+    "start_ticks": 9446056
+  },
+  "contract_sha256": "5c3808060e0a05190c33984b2ce08195a7ed2a0462a650271deef8a4a488bda6",
+  "elapsed_seconds": 0.14251290199172217,
+  "error": "Command exited with status 1; Cannot safely read output/grouped_books_evaluation_wake2.json: [Errno 2] No such file or directory: 'grouped_books_evaluation_wake2.json'",
+  "exit_code": 1,
+  "finished_at": "2026-10-11T19:47:57.074340+00:00",
+  "input_refs": [
+    {
+      "path": "scripts/evaluate_grouped_books_wake2.py",
+      "sha256": "4d48d140b861197454fd462a698620b520a4ea62f82196bda1a649156d9af79d"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+    },
+    {
+      "path": "input_grouped_eval_manifest.json",
+      "sha256": "84070160eb172360b009f1155f856f6187e260e3f234e1665e186a316b2fe28f"
+    },
+    {
+      "path": "output/opus_selective_extract/aligned/dev.tsv",
+      "sha256": "e7fdc895e89dc4faa8d0c2f454a224599d85513f87b08bd90d2cf4a3553da59b"
+    },
+    {
+      "path": "output/opus_selective_extract/aligned/confirm.tsv",
+      "sha256": "d7dcf7da4ecfcb0d10eb1c6596e50d668eb7a533aeb584c05da8e78ca432f739"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/grouped_books_eval.resources.json",
+      "sha256": "932f3dad8345746d24b654fe7f8cbe71c6496d8873d2e24968edb827ed57bb93"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake2",
+  "schema_version": 1,
+  "started_at": "2026-10-11T19:47:56.931831+00:00",
+  "status": "failed",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-1826213afad04bafb8e01ffbeb122aa3/stderr.txt",
+    "sha256": "1b16a626b8527975da18fb1027dc90f245f5c7d536b4796aaa06ab66f04b8b0f"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-1826213afad04bafb8e01ffbeb122aa3/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "grouped-books-enfr-evaluation-wake2",
+  "worker_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 144064,
+    "start_ticks": 9446052
+  }
+}

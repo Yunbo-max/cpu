@@ -1,0 +1,34 @@
+{
+  "response_id": "wake2-research-cycle-work-isolation",
+  "request_id": "decision-fa403fa177444f34b4b535b97f8ec0d9",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Native work identities invalidate the old row-offset claim, while the repaired whole-work evaluation gives opposite relative fairness outcomes on Alice and Poe. Record the bounded cycle and continue with multi-work macro evaluation rather than claiming either robust transfer or failure.",
+  "events": [
+    {
+      "event_id": "wake2-work-isolation-cycle",
+      "kind": "research_cycle",
+      "reason": "Tested the active cross-domain robustness hypothesis on native whole-work-separated Books data and retained the non-dominating, mixed result.",
+      "hypothesis": "The robust-domain PA-BPE candidate loses its fairness advantage relative to Classical BPE on a genuinely unseen literary work.",
+      "prediction": "On a whole-work-isolated confirmation set, robust_domain will have Gini no lower than Classical BPE and will not improve worst-language token cost.",
+      "result": "On Alice development, robust_domain Gini was 0.013865 versus Classical 0.002063. On Poe confirmation, robust_domain Gini was lower, 0.003492 versus 0.007505, but its worst-language cost was 61.708 versus 61.477 and total language-mean cost was 122.561 versus 121.136.",
+      "interpretation": "The predicted universal fairness loss was not observed: robust_domain improves balance on Poe but is worse on Alice and pays a cost penalty. With one work per split this is descriptive evidence only; the earlier row-offset Books conclusion is not stable under correct work isolation.",
+      "next_action": "Retrieve several additional complete three-language works, freeze work-level development and confirmation partitions, and compare book-macro Gini, worst-language cost and total cost before designing a positive-dev-gain selector.",
+      "evidence": [
+        {
+          "path": "output/grouped_books_evaluation_wake2_v2.json",
+          "sha256": "b3ed10c45e50107adbfd730c25a5b262c5e3574266a6c6ee0899fa52bac29140"
+        },
+        {
+          "path": "output/opus_selective_extract_manifest.json",
+          "sha256": "b3e5e2bc961897858b0623a0f91155ed792ecd4a73718de9c50d3c951ad13f84"
+        },
+        {
+          "path": "output/mechanism_analysis_wake2.json",
+          "sha256": "8432d05e6f0855ce7ef546375b4a199ca04d45fd1dad6e57422cc292a1700ccf"
+        }
+      ]
+    }
+  ]
+}

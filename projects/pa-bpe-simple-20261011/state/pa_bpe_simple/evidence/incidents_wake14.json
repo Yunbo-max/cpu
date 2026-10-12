@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "wake": 14,
+  "incidents": [
+    {
+      "time_utc": "2026-10-12T08:36:00Z",
+      "kind": "host_process_listing_failure",
+      "evidence": "ps returned: fatal library error, lookup self",
+      "impact": "The standard process-list command was unavailable; no scientific command was affected.",
+      "repair": "Used /proc identity inspection and Simple runner health/status instead."
+    },
+    {
+      "time_utc": "2026-10-12T08:37:00Z",
+      "kind": "resource_probe_cli_rejection",
+      "evidence": "simple_resources.py rejected unsupported --json and required --output",
+      "impact": "No scientific process launched and no experimental budget consumed.",
+      "repair": "Reran with --output and recorded the successful resource inventory."
+    },
+    {
+      "time_utc": "2026-10-12T08:38:00Z",
+      "kind": "runner_plan_phase_rejection",
+      "evidence": "RunnerError: Unknown task phase",
+      "impact": "Plan was rejected before task launch.",
+      "repair": "Changed the phase from evaluate to the supported experiment phase."
+    },
+    {
+      "time_utc": "2026-10-12T08:39:00Z",
+      "kind": "runner_evidence_root_rejection",
+      "evidence": "Evidence path cannot be safely read because paths were rooted above the runner project root",
+      "impact": "Plan was rejected before task launch.",
+      "repair": "Rebound argv, input_refs and outputs to wake14-root-relative paths."
+    },
+    {
+      "time_utc": "2026-10-12T08:46:00Z",
+      "kind": "supervisor_exit_without_final_health_receipt",
+      "evidence": "Runner stop state persisted as stopped; both attempts terminal/succeeded; health later reported lost and /proc/13092 did not exist.",
+      "impact": "No task or reservation remained active, but the health record lacks a normal supervisor exit status.",
+      "repair": "Retained the stopped runner database, terminal receipts, lost health record and /proc observation; no rerun was performed."
+    }
+  ]
+}

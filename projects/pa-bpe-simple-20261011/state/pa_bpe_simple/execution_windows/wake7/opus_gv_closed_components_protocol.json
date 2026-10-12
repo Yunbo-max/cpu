@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "frozen_at_utc": "2026-10-12T00:53:00Z",
+  "release": "OPUS-GlobalVoices/v2018q4",
+  "input_hashes": {
+    "inputs/opus_gv_v2018q4/en-fr.xml.gz": "2eda1355fbc62bb601d997e0743749fcb8729049eabde905b6289b219c323d11",
+    "inputs/opus_gv_v2018q4/en-es.xml.gz": "a7e928c2751cdfe2ed8ae52848ef7abbd61057b4df5063217f40e74707b8949f",
+    "inputs/opus_gv_v2018q4/es-fr.xml.gz": "beabbf7e8c1adf542faa3fdf5079cb6d4d170670b2df88ab50ced1443bbe6bd5"
+  },
+  "construction": {
+    "document_triangle": "An (en,fr,es) document triple with all en-fr, en-es and es-fr linkGrp edges.",
+    "document_deduplication": "For each English document, keep the lexicographically first all-edge (fr,es) pair.",
+    "document_scope": "Rank canonical en|fr|es triples by SHA-256 and structurally inspect the first 512 only.",
+    "unit_graph": "Within each selected document triple, create nodes (language,document,sentence-id); for every nonempty XCES link, join every node on both sides and retain the pair type.",
+    "closed_unit": "A connected component containing en, fr and es nodes and at least one link of each pair type en-fr, en-es and es-fr. Many-to-many IDs remain in the same component.",
+    "unit_identity": "SHA-256 of release, three document references and sorted per-language sentence-ID lists.",
+    "reservation": "Rank all closed units in the 512-document scope by unit identity hash and reserve the first 512 only if at least 512 exist."
+  },
+  "rejections": [
+    "empty-sided XCES links",
+    "components missing any of the three languages",
+    "components missing any of the three pair types",
+    "duplicate unit identities"
+  ],
+  "advance_rule": "Advance OPUS GlobalVoices to structure-qualified confirmation candidate only if at least 512 unique closed units exist, with zero input hash mismatches and zero duplicate unit identities.",
+  "firewall": "No raw story archive, text content or tokenizer output is accessed in this diagnostic."
+}

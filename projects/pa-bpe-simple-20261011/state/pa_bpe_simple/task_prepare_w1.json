@@ -1,0 +1,32 @@
+{
+  "submission_id": "prepare-w1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "prepare-w1",
+      "argv": [
+        "/usr/bin/env",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/prepare_pilot.py"
+      ],
+      "phase": "sources",
+      "purpose": "Prepare real aligned bilingual pilot and immutable sampling manifest",
+      "timeout_seconds": 30,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/prepare_pilot.py",
+          "sha256": "9a0f6009850c3c5a72a06640932b188dd62063efbcb53f9982ac79703963e4ac"
+        }
+      ],
+      "outputs": [
+        "data/manifest.json"
+      ]
+    }
+  ]
+}

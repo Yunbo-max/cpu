@@ -1,0 +1,31 @@
+{
+  "languages": [
+    "en",
+    "fr"
+  ],
+  "licenses": {
+    "FineWeb": "ODC-BY; original web text rights retained",
+    "TICO19": "Translations CC0; retain per-row source license and URL",
+    "OPUS Books": "personal educational research use; no commercial or mass redistribution; Andras Farkas / OPUS attribution"
+  },
+  "protocol": "New bilingual cross-domain pilot; NOT FLORES+ reproduction",
+  "ratio_dev": [
+    1.0,
+    1.2598905654120378
+  ],
+  "pretokenizer": {
+    "type": "Sequence",
+    "pretokenizers": [
+      {
+        "type": "Whitespace"
+      },
+      {
+        "type": "ByteLevel",
+        "add_prefix_space": true,
+        "trim_offsets": true,
+        "use_regex": false
+      }
+    ]
+  },
+  "balanced_total_pretokens": 65961
+}

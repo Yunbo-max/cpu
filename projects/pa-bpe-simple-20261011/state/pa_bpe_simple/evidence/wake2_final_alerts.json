@@ -1,0 +1,67 @@
+{
+  "alerts": [
+    {
+      "delivery_state": "local_pending_report",
+      "event_id": "supervisor-start:bc4471d6bcac2f897607dab9f4670737fd5fa7077e8239f12426538b896b371d",
+      "evidence": [],
+      "exception_type": "RunnerError",
+      "kind": "supervisor_start_failed",
+      "next_action": "Inspect the existing supervisor and project path before retrying; do not start a competing owner",
+      "observed_at": "2026-10-11T19:33:47.372000+00:00",
+      "reason": "RunnerError: Another supervisor owns this project lock",
+      "root": "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake2",
+      "schema_version": 1,
+      "user_notified": false
+    },
+    {
+      "delivery_state": "local_pending_report",
+      "event_id": "cli:166787ae79004014973b01d1bcd86db2",
+      "evidence": [],
+      "exception_type": "RunnerError",
+      "kind": "cli_exception",
+      "next_action": "Inspect the requested operation and retained project state before retrying",
+      "observed_at": "2026-10-11T19:37:15.687998+00:00",
+      "reason": "RunnerError: Unknown task phase",
+      "root": "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake2",
+      "schema_version": 1,
+      "user_notified": false
+    },
+    {
+      "delivery_state": "local_pending_report",
+      "event_id": "cli:761fca1df17f450ba01a4350d2cfd72b",
+      "evidence": [],
+      "exception_type": "RunnerError",
+      "kind": "cli_exception",
+      "next_action": "Inspect the requested operation and retained project state before retrying",
+      "observed_at": "2026-10-11T19:41:21.017383+00:00",
+      "reason": "RunnerError: Cannot replace a live, uncertain or successful task",
+      "root": "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake2",
+      "schema_version": 1,
+      "user_notified": false
+    },
+    {
+      "attempt_id": "attempt-1826213afad04bafb8e01ffbeb122aa3",
+      "delivery_state": "local_pending_report",
+      "event_id": "result:attempt-1826213afad04bafb8e01ffbeb122aa3",
+      "evidence": [
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-1826213afad04bafb8e01ffbeb122aa3/receipt.json",
+          "sha256": "87d197bedc373fe5554eb99aedddbf752418422b7d7834ef91ba4203bcbd1b3f"
+        }
+      ],
+      "kind": "task_result",
+      "next_action": "Inspect the referenced receipt and logs; repair or reconcile this attempt before replacement",
+      "observed_at": "2026-10-11T19:47:57.162105+00:00",
+      "reason": "Command exited with status 1; Cannot safely read output/grouped_books_evaluation_wake2.json: [Errno 2] No such file or directory: 'grouped_books_evaluation_wake2.json'",
+      "root": "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake2",
+      "schema_version": 1,
+      "status": "failed",
+      "task_id": "grouped-books-enfr-evaluation-wake2",
+      "user_notified": false
+    }
+  ],
+  "delivery_state": "local_pending_report",
+  "errors": [],
+  "root": "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake2",
+  "user_notified": false
+}

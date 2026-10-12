@@ -1,0 +1,20 @@
+{
+  "submission_id": "source-probe-wake2",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [{
+    "task_id": "source-probe-wake2",
+    "argv": ["/usr/bin/env", "OPENBLAS_NUM_THREADS=1", "OMP_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/source_probe.resources.json", "scripts/source_probe_wake2.py", "output/source_probe"],
+    "phase": "sources",
+    "purpose": "Locate official OPUS book/document metadata and legal Spanish training source before freezing three-language grouped-domain design",
+    "timeout_seconds": 90,
+    "cwd": ".",
+    "depends_on": [],
+    "input_refs": [
+      {"path": "scripts/source_probe_wake2.py", "sha256": "5c868d69938c485ba15522ce7cb4592992f9412692bd178f53934c0bf2fff8a3"},
+      {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+      {"path": "window_parent_binding.json", "sha256": "5c68823344fb361edc806e1e79666c3ab80ed60d42180192153c60ae4bf8db1e"}
+    ],
+    "outputs": ["output/source_probe/source_probe_wake2.json", "output/source_probe.resources.json"]
+  }]
+}

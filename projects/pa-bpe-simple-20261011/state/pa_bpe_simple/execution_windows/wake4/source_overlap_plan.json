@@ -1,0 +1,9 @@
+{
+  "status": "prospective_before_overlap_output",
+  "question": "Do the 80 FineWeb2 training documents contain detectable verbatim passages from the ten raw OPUS Books works used in the exploratory evaluation?",
+  "inputs": "The exact 40 English and 40 French FineWeb2 rows used for training, and the frozen 5120 paired raw Books evaluation units.",
+  "test": "Unicode NFKC, casefold, word extraction, then exact same-language SHA256 matching of every contiguous 15-word and 30-word shingle.",
+  "prediction": "No 30-word matches; any match is reported with source IDs and work instead of being removed post hoc.",
+  "scope": "A negative result rules out only detectable verbatim overlap at these lengths within the actual 80 documents. It does not prove semantic independence, complete source separation, author independence, or restore confirmation status after evaluation exposure.",
+  "decision": "Any 30-word match triggers row/work leakage annotation. No match narrows the training-overlap concern but leaves all ten works exposed development diagnostics."
+}

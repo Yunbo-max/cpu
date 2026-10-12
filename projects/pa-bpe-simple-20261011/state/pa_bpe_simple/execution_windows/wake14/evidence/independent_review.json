@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "assignment_id": "wake14-blinded-adapter-independent-review-v1",
+  "review_mode": "independent read-only; no edits and no scientific commands",
+  "verdict": "PASS",
+  "blocking_defects": [],
+  "warranted_scope": "For the frozen input index with SHA256 26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7, this implementation imports and preserves confirmation records, exact hashes, word and shingle mass, shingle multiplicities, and the canonical-URL hash set; its fixed fixtures exercise exact-URL, exact-content, near-content, and clean-row decisions. This supports only blinded confirmation adapter mechanics and frozen-index field/set preservation.",
+  "evidence_summary": {
+    "runner_tasks_terminal_succeeded": 2,
+    "checks_passed": 20,
+    "checks_total": 20,
+    "confirmation_records": 1536,
+    "unique_shingle_records": 27225,
+    "shingle_mass": 27346,
+    "unique_url_hashes": 801,
+    "exact_record_delta": 0,
+    "shingle_record_delta": 0,
+    "url_source_minus_target": 0,
+    "url_target_minus_source": 0
+  },
+  "code_review_findings": [
+    "Import-before-bind and bind-before-import protocol consistency is implemented.",
+    "Completed reimport binds source SHA, source manifest, protocol, contract, and representation.",
+    "Declared columns, runtime SQLite types, hash lengths, languages, mass consistency, and orphan shingles are validated.",
+    "URL matching uses the global set of canonical URL SHA256 values.",
+    "The tested shingle-mass corruption is rejected before any target rows are imported."
+  ],
+  "nonblocking_limitations": [
+    "Correct early-bind then import is code-reviewed but not separately executed; only early wrong-protocol rejection is tested.",
+    "Completed reimport wrong-source and wrong-manifest cases are code-reviewed but not separately tested; wrong protocol and wrong contract are tested.",
+    "Dynamic corruption coverage targets mass; schema, type, and orphan guards are primarily code-reviewed.",
+    "An immutable source with no concurrent WAL mutation is a precondition; no adversarial race test covers mutation after the second file hash and before copy completion.",
+    "URL and normalization fixed-oracle coverage is intentionally small; builder-to-selector full-corpus canonicalization equivalence is not re-proved here.",
+    "There are no real development rows, formal shard provenance, production selection, tokenizer, or fairness results in this batch."
+  ],
+  "formal_gates": {
+    "blinded_confirmation_adapter": "PASS",
+    "row_to_fixed_shard_provenance": "HOLD",
+    "production_development_selection": "HOLD",
+    "tokenizer_training": "HOLD",
+    "fairness_claims": "HOLD"
+  },
+  "operational_notes": [
+    "The runner remains awaiting_decision after both tasks succeeded and should be cleanly stopped before archival.",
+    "Two corrected CLI alerts remain in local diagnostics and must be retained as incidents: unknown phase name and wrongly rooted evidence path."
+  ]
+}

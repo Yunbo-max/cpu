@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "review_mode": "independent read-only static and receipt review",
+  "final_decision": "PASS_AS_PROSPECTIVE_SOFTWARE_MILESTONE_FORMAL_GATES_HOLD",
+  "accepted": {
+    "runner_artifact_integrity": "PASS",
+    "result_blind_contract": "PASS_PROSPECTIVE_ONLY",
+    "full_sha256_content_fingerprints": "PASS",
+    "completed_stage_close_reopen_idempotence": "PASS",
+    "sql_duplicate_aggregation_and_streamed_output": "PASS_ON_BOUNDED_PROBES",
+    "url_type_dns_root_ipv6_rules": "PASS_FOR_TESTED_RULES",
+    "transaction_rollback": "PASS",
+    "provenance_syntax": "PASS",
+    "atomic_nominal_publish": "PASS"
+  },
+  "holds": [
+    "real GlobalVoices fingerprint build and result-blind production log audit",
+    "row-to-fixed-shard provenance truth",
+    "pretoken-budget selector integration",
+    "formal payload acquisition and scan",
+    "production-scale RSS qualification",
+    "atomic crash recovery",
+    "native tokenizer training",
+    "fairness and cross-domain scientific conclusions"
+  ],
+  "final_evidence": {
+    "checks": 25,
+    "checks_passed": 25,
+    "moderate_scale_rows": 20000,
+    "final_peak_rss_bytes": 21159936,
+    "runner_wall_seconds": 0.9667967760033207
+  }
+}

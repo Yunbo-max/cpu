@@ -1,0 +1,27 @@
+{
+  "submission_id": "decontam-selector-contract-wake11-v2",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "verify-decontam-selector-wake11-v2",
+      "supersedes": "verify-decontam-selector-wake11-v1",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "PYTHONHASHSEED=0", "python3", "scripts/measure_command.py", "output/decontam_selector_verification_v2.resources.json", "scripts/verify_decontam_selector.py"],
+      "phase": "verify",
+      "purpose": "Repair the SQLite schema-lock fault by reusing one temporary shingle table; rerun the otherwise unchanged prospective software contract.",
+      "timeout_seconds": 60,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "decontamination_selector_protocol.json", "sha256": "ca1f80a5641a7d0e89f08d3311c9818b5fed7dd2b140792116495d2dd8cf2592"},
+        {"path": "scripts/decontam_selector.py", "sha256": "cbe53a852a6dc05f542ec8f494bd87f78008d4a9dcd11828993c86cacec9cfac"},
+        {"path": "scripts/verify_decontam_selector.py", "sha256": "6571ca2e98da4ec1a990fed53f27b615e302e12a4535ae3edb57a6a3562d67f3"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"},
+        {"path": "inputs/en_probe.json", "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"},
+        {"path": "inputs/fr_probe.json", "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"},
+        {"path": "inputs/es_probe.json", "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"}
+      ],
+      "outputs": ["output/decontam_selector_verification.json", "output/decontam_selector_verification_v2.resources.json"]
+    }
+  ]
+}

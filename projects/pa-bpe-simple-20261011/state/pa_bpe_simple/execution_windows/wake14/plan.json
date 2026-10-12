@@ -1,0 +1,72 @@
+{
+  "submission_id": "wake14-adapter-rerun-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake14-import-blinded-confirmation-v1",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/blinded_adapter.resources.json",
+        "scripts/import_blinded_confirmation.py",
+        "--source",
+        "inputs/globalvoices_blinded_fingerprints_v2.sqlite3",
+        "--target",
+        "output/selector_confirmation.sqlite3",
+        "--protocol",
+        "decontamination_selector_protocol.json",
+        "--contract",
+        "adapter_contract.json",
+        "--summary",
+        "output/blinded_adapter_summary.json"
+      ],
+      "phase": "experiment",
+      "purpose": "Import the frozen hash-only confirmation index into a production selector database while measuring the actual CPU process.",
+      "timeout_seconds": 60,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3", "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"},
+        {"path": "decontamination_selector_protocol.json", "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"},
+        {"path": "adapter_contract.json", "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"},
+        {"path": "scripts/decontam_selector.py", "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"},
+        {"path": "scripts/import_blinded_confirmation.py", "sha256": "7ece5ac97c8497ce256ab11c6bd6576ef6835431f57831e0d68a22f03c9f4442"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"}
+      ],
+      "outputs": [
+        "output/selector_confirmation.sqlite3",
+        "output/blinded_adapter_summary.json",
+        "output/blinded_adapter.resources.json"
+      ],
+      "supersedes": null
+    },
+    {
+      "task_id": "wake14-verify-blinded-adapter-v1",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/blinded_adapter_verification.resources.json",
+        "scripts/verify_blinded_adapter.py"
+      ],
+      "phase": "verify",
+      "purpose": "Independently exercise fixed oracles, binding guards, exact/near/URL semantics, corruption rejection, and record-level preservation against the frozen index.",
+      "timeout_seconds": 90,
+      "cwd": ".",
+      "depends_on": ["wake14-import-blinded-confirmation-v1"],
+      "input_refs": [
+        {"path": "inputs/globalvoices_blinded_fingerprints_v2.sqlite3", "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"},
+        {"path": "decontamination_selector_protocol.json", "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"},
+        {"path": "adapter_contract.json", "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"},
+        {"path": "scripts/decontam_selector.py", "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"},
+        {"path": "scripts/verify_blinded_adapter.py", "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"}
+      ],
+      "outputs": [
+        "output/blinded_adapter_verification.json",
+        "output/blinded_adapter_verification.resources.json"
+      ],
+      "supersedes": null
+    }
+  ]
+}

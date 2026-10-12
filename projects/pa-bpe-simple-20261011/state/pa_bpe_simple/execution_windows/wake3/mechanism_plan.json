@@ -1,0 +1,18 @@
+{
+  "design_id": "wake3-fixed-merge-descent-audit",
+  "created_utc": "2026-10-11T20:35:00Z",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "parent_goal_contract_version": 2,
+  "exposure": "Raw-text and ten-work outcomes have been observed. This is retrospective mechanism diagnosis, not new confirmation or retraining.",
+  "question": "Does selecting the highest relative-cost development language guarantee that the actual selected train-frequency merge decreases maximum development-domain Gini?",
+  "prediction": "It does not. Existing robust-domain trajectory may contain zero selected-slice gains and increasing maximum-domain Gini steps.",
+  "math": "For costs a>b>0 and gains x,y>=0 without an order crossing, G=(a-b)/(2(a+b)) decreases iff b*x>a*y, equivalently x/a>y/b. Choosing a high-cost language without measuring actual dev gains does not enforce this. With crossings or changing worst domain, evaluate the exact objective.",
+  "arms": ["classical", "pooled", "robust_domain"],
+  "inputs": "Frozen 1000 merges for each arm; identical original four development files (TICO en/fr and Books en/fr,100 rows each) used by pooled/robust. Existing tokenizers and shared pretokenizer unchanged.",
+  "procedure": "Replay each frozen merge over exact counted development pretokens using native replace_pair_dict. Before/after every merge record four exact total costs, domain Ginies, maximum-domain Gini, compression gains and selected-worst-domain/language. Verify final totals independently via frozen tokenizers. For nonrobust arms, reported worst-domain target is a diagnostic hypothetical, not their actual selection policy.",
+  "measurement": "1000-step deterministic trajectories, counts of increase/decrease/no-change with tolerance1e-12; zero chosen-slice compression; no statistical significance or causal attribution of OOD failure from association alone.",
+  "decision": "If exact non-descent occurs, consider a directly measured objective-descent candidate under matched information and training constraints, with explicit fallback. If no non-descent is observed, do not invent this mechanism; investigate domain sampling or selection instead.",
+  "resources": "CPU1thread1process, task timeout90s, remaining shared wake3 safety batch, RSS target2GiB; no new total budget.",
+  "outputs": ["output/merge_descent_audit.json", "output/merge_descent.resources.json"]
+}

@@ -1,0 +1,19 @@
+{
+  "hypothesis": "Restricted top4/language pool may miss available strictly descending merges at fallback states; descriptive counterfactual at fixed trajectory, no retraining and no transfer claim.",
+  "selected_steps": [
+    13,
+    105,
+    203,
+    300,
+    400,
+    501,
+    603,
+    700,
+    801,
+    900
+  ],
+  "selection": "first fallback in each successive100-step block, frozen before full-pool gains inspected",
+  "all_eligible": "train adjacency frequency>=2 and novel concatenation, same eligibility as candidate",
+  "outcome": "number of available strict-descent alternatives, optimal one-step objective, exact gains checked by direct token-word scan for chosen bestalternative",
+  "next_if_positive": "Evaluate wider-pool computational calibration with same matched pooled control; keep exposed development status."
+}

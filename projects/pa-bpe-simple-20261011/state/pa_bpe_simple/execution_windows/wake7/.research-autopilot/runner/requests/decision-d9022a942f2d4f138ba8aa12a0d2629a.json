@@ -1,0 +1,1722 @@
+{
+  "agent_error": null,
+  "agent_version": 0,
+  "attempts": [
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7/.research-autopilot/runner/attempts/attempt-07d9ab698f064b1bb141e11c1f9c37ee",
+      "attempt_id": "attempt-07d9ab698f064b1bb141e11c1f9c37ee",
+      "contract": {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "TOKENIZERS_PARALLELISM=false",
+          "python3",
+          "scripts/measure_command.py",
+          "output/pgv_docpairs.resources.json",
+          "scripts/qualify_pgv_docpairs.py"
+        ],
+        "attempt_id": "attempt-07d9ab698f064b1bb141e11c1f9c37ee",
+        "cwd": ".",
+        "deadline_epoch": 1791767072.9993062,
+        "input_refs": [
+          {
+            "path": "confirmation_source_protocol.json",
+            "sha256": "754c8efb70f523018fa18833c6d14d4bfce9faa8a4f0d8eee6e44cb1ea520ab0"
+          },
+          {
+            "path": "window_parent_binding.json",
+            "sha256": "3022a6d8df15d70d320832082e9a123d08b3abc253c13971132624874a6c990a"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+          },
+          {
+            "path": "scripts/qualify_pgv_docpairs.py",
+            "sha256": "049a3aa20f728eb8f8d10294ae0d94cc0af33ff29a30db073799aa22362428f5"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "inputs/pgv_docpairs.txt.zip",
+          "output/pgv_docpairs_qualification.json",
+          "output/pgv_docpairs.resources.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "pgv-docpairs-qualification-wake7",
+        "timeout_seconds": 90
+      },
+      "contract_sha256": "d761900682ff5d38116cdb61f2d3a09819553e52894d8423ab161fe9b20f121e",
+      "elapsed_seconds": 8.972638641003869,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-07d9ab698f064b1bb141e11c1f9c37ee",
+        "command_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 209325,
+          "start_ticks": 11214619
+        },
+        "contract_sha256": "d761900682ff5d38116cdb61f2d3a09819553e52894d8423ab161fe9b20f121e",
+        "elapsed_seconds": 8.972638641003869,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T00:42:51.531485+00:00",
+        "input_refs": [
+          {
+            "path": "confirmation_source_protocol.json",
+            "sha256": "754c8efb70f523018fa18833c6d14d4bfce9faa8a4f0d8eee6e44cb1ea520ab0"
+          },
+          {
+            "path": "window_parent_binding.json",
+            "sha256": "3022a6d8df15d70d320832082e9a123d08b3abc253c13971132624874a6c990a"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+          },
+          {
+            "path": "scripts/qualify_pgv_docpairs.py",
+            "sha256": "049a3aa20f728eb8f8d10294ae0d94cc0af33ff29a30db073799aa22362428f5"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "inputs/pgv_docpairs.txt.zip",
+            "sha256": "d270acc7c000a30a79138d1f6259150641b444229ff10167efc36b2cbedeedfd"
+          },
+          {
+            "path": "output/pgv_docpairs_qualification.json",
+            "sha256": "470b730c5516c0e0228ddd5cf82423ed41813057707836d542d0dba3167e3d7b"
+          },
+          {
+            "path": "output/pgv_docpairs.resources.json",
+            "sha256": "4b7c15ad00fb3cb133438849c5cd87f72aa5161053722846de63ff0ddcc9bef8"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+        "schema_version": 1,
+        "started_at": "2026-10-12T00:42:42.558850+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-07d9ab698f064b1bb141e11c1f9c37ee/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-07d9ab698f064b1bb141e11c1f9c37ee/stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "task_id": "pgv-docpairs-qualification-wake7",
+        "worker_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 209324,
+          "start_ticks": 11214614
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-07d9ab698f064b1bb141e11c1f9c37ee/receipt.json",
+        "sha256": "4e95198622103efb4f564bbe15c4011240c831ab7ebe05d21d43085a71dceb87"
+      },
+      "reservation_seconds": 93.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "pgv-docpairs-qualification-wake7"
+    },
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7/.research-autopilot/runner/attempts/attempt-44448136fb1546e9a6cfcc6c0eb34b95",
+      "attempt_id": "attempt-44448136fb1546e9a6cfcc6c0eb34b95",
+      "contract": {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "TOKENIZERS_PARALLELISM=false",
+          "python3",
+          "scripts/measure_command.py",
+          "output/opus_gv_closed_components.resources.json",
+          "scripts/build_opus_gv_closed_components.py"
+        ],
+        "attempt_id": "attempt-44448136fb1546e9a6cfcc6c0eb34b95",
+        "cwd": ".",
+        "deadline_epoch": 1791767072.9993062,
+        "input_refs": [
+          {
+            "path": "opus_gv_closed_components_protocol.json",
+            "sha256": "4732917c779853ccc76933b56cdd5c52db617e8337173e14d3c407c8ae28f64c"
+          },
+          {
+            "path": "scripts/build_opus_gv_closed_components.py",
+            "sha256": "3142462fd665716ca2374ec41bccbb6e575d3832b47535321bce0d1f2df2aa64"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+          },
+          {
+            "path": "output/opus_gv_xces_schema.json",
+            "sha256": "b40288c91108c1f4da8c1533d1b7421aee787cdb8ce67b58243c7e6652260ca8"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/en-fr.xml.gz",
+            "sha256": "2eda1355fbc62bb601d997e0743749fcb8729049eabde905b6289b219c323d11"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/en-es.xml.gz",
+            "sha256": "a7e928c2751cdfe2ed8ae52848ef7abbd61057b4df5063217f40e74707b8949f"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/es-fr.xml.gz",
+            "sha256": "beabbf7e8c1adf542faa3fdf5079cb6d4d170670b2df88ab50ced1443bbe6bd5"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "output/opus_gv_closed_components.json",
+          "output/opus_gv_closed_components.resources.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "opus-gv-closed-components-wake7",
+        "timeout_seconds": 120
+      },
+      "contract_sha256": "65614bf4362986ed33bc69e9713749e79cea73ced95b8bda9e3cb24c58687b13",
+      "elapsed_seconds": 7.307593017991167,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-44448136fb1546e9a6cfcc6c0eb34b95",
+        "command_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 215615,
+          "start_ticks": 11245341
+        },
+        "contract_sha256": "65614bf4362986ed33bc69e9713749e79cea73ced95b8bda9e3cb24c58687b13",
+        "elapsed_seconds": 7.307593017991167,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T00:47:57.079238+00:00",
+        "input_refs": [
+          {
+            "path": "opus_gv_closed_components_protocol.json",
+            "sha256": "4732917c779853ccc76933b56cdd5c52db617e8337173e14d3c407c8ae28f64c"
+          },
+          {
+            "path": "scripts/build_opus_gv_closed_components.py",
+            "sha256": "3142462fd665716ca2374ec41bccbb6e575d3832b47535321bce0d1f2df2aa64"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+          },
+          {
+            "path": "output/opus_gv_xces_schema.json",
+            "sha256": "b40288c91108c1f4da8c1533d1b7421aee787cdb8ce67b58243c7e6652260ca8"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/en-fr.xml.gz",
+            "sha256": "2eda1355fbc62bb601d997e0743749fcb8729049eabde905b6289b219c323d11"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/en-es.xml.gz",
+            "sha256": "a7e928c2751cdfe2ed8ae52848ef7abbd61057b4df5063217f40e74707b8949f"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/es-fr.xml.gz",
+            "sha256": "beabbf7e8c1adf542faa3fdf5079cb6d4d170670b2df88ab50ced1443bbe6bd5"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "output/opus_gv_closed_components.json",
+            "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+          },
+          {
+            "path": "output/opus_gv_closed_components.resources.json",
+            "sha256": "9de78e6caf3b71722e71b77fb4f9057aa16ea081475e9ae6db1a20081ab6fc8f"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+        "schema_version": 1,
+        "started_at": "2026-10-12T00:47:49.771642+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-44448136fb1546e9a6cfcc6c0eb34b95/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-44448136fb1546e9a6cfcc6c0eb34b95/stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "task_id": "opus-gv-closed-components-wake7",
+        "worker_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 215614,
+          "start_ticks": 11245336
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-44448136fb1546e9a6cfcc6c0eb34b95/receipt.json",
+        "sha256": "c199b8e18475dd42abab9eb7c28584fc54f7b4ec3eb65fd5ba62c2e4cb9ec1ba"
+      },
+      "reservation_seconds": 123.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "opus-gv-closed-components-wake7"
+    },
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7/.research-autopilot/runner/attempts/attempt-d804f04e7d1a435492602b03f40d3c37",
+      "attempt_id": "attempt-d804f04e7d1a435492602b03f40d3c37",
+      "contract": {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "TOKENIZERS_PARALLELISM=false",
+          "python3",
+          "scripts/measure_command.py",
+          "output/opus_gv_xces_schema.resources.json",
+          "scripts/inspect_opus_gv_xces.py"
+        ],
+        "attempt_id": "attempt-d804f04e7d1a435492602b03f40d3c37",
+        "cwd": ".",
+        "deadline_epoch": 1791767072.9993062,
+        "input_refs": [
+          {
+            "path": "opus_gv_xces_protocol.json",
+            "sha256": "56874bce83789277a5e026fa0cfdbfb844fb80a23aa2c0ab51c69e85af7608cd"
+          },
+          {
+            "path": "scripts/inspect_opus_gv_xces.py",
+            "sha256": "a1bdcf198feeddc5b050db80eca57e90a1063fda1624ec4b91236b5d34d0cce4"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+          },
+          {
+            "path": "source_review_binding.json",
+            "sha256": "b96c6d932da83bfbb41150494345ef9fb45f6d7707770b5a9a6d6c0be029f429"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "inputs/opus_gv_v2018q4/en-fr.xml.gz",
+          "inputs/opus_gv_v2018q4/en-es.xml.gz",
+          "inputs/opus_gv_v2018q4/es-fr.xml.gz",
+          "output/opus_gv_xces_schema.json",
+          "output/opus_gv_xces_schema.resources.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "opus-gv-xces-schema-wake7",
+        "timeout_seconds": 120
+      },
+      "contract_sha256": "243fd98a065347abb6d06d3e7ccbce06d4ea9c1bb3a7b66ae9cd7ba41d26470c",
+      "elapsed_seconds": 25.17440410501149,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-d804f04e7d1a435492602b03f40d3c37",
+        "command_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 215217,
+          "start_ticks": 11234830
+        },
+        "contract_sha256": "243fd98a065347abb6d06d3e7ccbce06d4ea9c1bb3a7b66ae9cd7ba41d26470c",
+        "elapsed_seconds": 25.17440410501149,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T00:46:29.846337+00:00",
+        "input_refs": [
+          {
+            "path": "opus_gv_xces_protocol.json",
+            "sha256": "56874bce83789277a5e026fa0cfdbfb844fb80a23aa2c0ab51c69e85af7608cd"
+          },
+          {
+            "path": "scripts/inspect_opus_gv_xces.py",
+            "sha256": "a1bdcf198feeddc5b050db80eca57e90a1063fda1624ec4b91236b5d34d0cce4"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+          },
+          {
+            "path": "source_review_binding.json",
+            "sha256": "b96c6d932da83bfbb41150494345ef9fb45f6d7707770b5a9a6d6c0be029f429"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "inputs/opus_gv_v2018q4/en-fr.xml.gz",
+            "sha256": "2eda1355fbc62bb601d997e0743749fcb8729049eabde905b6289b219c323d11"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/en-es.xml.gz",
+            "sha256": "a7e928c2751cdfe2ed8ae52848ef7abbd61057b4df5063217f40e74707b8949f"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/es-fr.xml.gz",
+            "sha256": "beabbf7e8c1adf542faa3fdf5079cb6d4d170670b2df88ab50ced1443bbe6bd5"
+          },
+          {
+            "path": "output/opus_gv_xces_schema.json",
+            "sha256": "b40288c91108c1f4da8c1533d1b7421aee787cdb8ce67b58243c7e6652260ca8"
+          },
+          {
+            "path": "output/opus_gv_xces_schema.resources.json",
+            "sha256": "ed5ee51f6929b474df521a1eaafbb996a4981c25899e832580d6ce9287597e54"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+        "schema_version": 1,
+        "started_at": "2026-10-12T00:46:04.671935+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-d804f04e7d1a435492602b03f40d3c37/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-d804f04e7d1a435492602b03f40d3c37/stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "task_id": "opus-gv-xces-schema-wake7",
+        "worker_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 215216,
+          "start_ticks": 11234824
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-d804f04e7d1a435492602b03f40d3c37/receipt.json",
+        "sha256": "67cb7f4bf0917c30f7d160698a6266a6423d1accd3afff008210201ec6ef84d7"
+      },
+      "reservation_seconds": 123.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "opus-gv-xces-schema-wake7"
+    },
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7/.research-autopilot/runner/attempts/attempt-ed548f19036b4ef0b222cebb450ef898",
+      "attempt_id": "attempt-ed548f19036b4ef0b222cebb450ef898",
+      "contract": {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "TOKENIZERS_PARALLELISM=false",
+          "python3",
+          "scripts/measure_command.py",
+          "output/pgv_triangle.resources.json",
+          "scripts/analyze_pgv_triangles.py"
+        ],
+        "attempt_id": "attempt-ed548f19036b4ef0b222cebb450ef898",
+        "cwd": ".",
+        "deadline_epoch": 1791767072.9993062,
+        "input_refs": [
+          {
+            "path": "pgv_triangle_protocol_v2.json",
+            "sha256": "036df61f86721d84c82e123a77770542f891fef414e1067439bc1730636df145"
+          },
+          {
+            "path": "scripts/analyze_pgv_triangles.py",
+            "sha256": "1a666b689476e79b80e77a6dfeb75ca77ffb5dc7e1135f835c98956eb461247f"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+          },
+          {
+            "path": "inputs/pgv_docpairs.txt.zip",
+            "sha256": "d270acc7c000a30a79138d1f6259150641b444229ff10167efc36b2cbedeedfd"
+          },
+          {
+            "path": "output/pgv_docpairs_qualification.json",
+            "sha256": "470b730c5516c0e0228ddd5cf82423ed41813057707836d542d0dba3167e3d7b"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "output/pgv_triangle_qualification.json",
+          "output/pgv_triangle.resources.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "pgv-triangle-qualification-wake7",
+        "timeout_seconds": 30
+      },
+      "contract_sha256": "3459ee7eeea868c4ed5bab85fdb6247a471386d1965eb2027e97f80150ee90c7",
+      "elapsed_seconds": 0.7415213570056949,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-ed548f19036b4ef0b222cebb450ef898",
+        "command_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 210105,
+          "start_ticks": 11224669
+        },
+        "contract_sha256": "3459ee7eeea868c4ed5bab85fdb6247a471386d1965eb2027e97f80150ee90c7",
+        "elapsed_seconds": 0.7415213570056949,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T00:44:23.784091+00:00",
+        "input_refs": [
+          {
+            "path": "pgv_triangle_protocol_v2.json",
+            "sha256": "036df61f86721d84c82e123a77770542f891fef414e1067439bc1730636df145"
+          },
+          {
+            "path": "scripts/analyze_pgv_triangles.py",
+            "sha256": "1a666b689476e79b80e77a6dfeb75ca77ffb5dc7e1135f835c98956eb461247f"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+          },
+          {
+            "path": "inputs/pgv_docpairs.txt.zip",
+            "sha256": "d270acc7c000a30a79138d1f6259150641b444229ff10167efc36b2cbedeedfd"
+          },
+          {
+            "path": "output/pgv_docpairs_qualification.json",
+            "sha256": "470b730c5516c0e0228ddd5cf82423ed41813057707836d542d0dba3167e3d7b"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "output/pgv_triangle_qualification.json",
+            "sha256": "6cc1be257fe8502922cb46804951200775f43df4d47af7cadee3f2ac9a4fd3b5"
+          },
+          {
+            "path": "output/pgv_triangle.resources.json",
+            "sha256": "67c2be6760f5516d046009ca3fd7cae50c7a43ebfb6fa02a7c5947361a42fdaf"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+        "schema_version": 1,
+        "started_at": "2026-10-12T00:44:23.042571+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-ed548f19036b4ef0b222cebb450ef898/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-ed548f19036b4ef0b222cebb450ef898/stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "task_id": "pgv-triangle-qualification-wake7",
+        "worker_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 210100,
+          "start_ticks": 11224659
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-ed548f19036b4ef0b222cebb450ef898/receipt.json",
+        "sha256": "7b8d045e2c8ef522b4025bb0f3db7ecef677aa38e597120d83cfd2155d771eb8"
+      },
+      "reservation_seconds": 33.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "pgv-triangle-qualification-wake7"
+    }
+  ],
+  "budget": {
+    "attempts_used": 4,
+    "deadline_epoch": 1791767072.9993062,
+    "elapsed_seconds": 42.19615712101222,
+    "max_attempts": 12,
+    "max_command_seconds": 600,
+    "remaining_deadline_seconds": 887.7487907409668,
+    "remaining_seconds": 557.8038428789878,
+    "reserved_seconds": 0
+  },
+  "continuation": null,
+  "current_question": "Milestone observed: GlobalVoices trilingual structural support qualified before outcome access; continue sources",
+  "goal": "Continuously test and improve the cross-domain stability of multilingual tokenization fairness using legal aligned data, strong controls, verified metrics and retained negative results.",
+  "goal_contract": {
+    "completion_criteria": [
+      {
+        "description": "Identify and test mechanisms governing cross-domain fairness transfer with independently checked aligned-token metrics.",
+        "id": "mechanism"
+      },
+      {
+        "description": "Prospectively evaluate justified method revisions against Classical BPE and matched controls while accounting for token cost.",
+        "id": "improvement"
+      },
+      {
+        "description": "Separate exposed development evidence from genuinely fresh confirmation and expand language/domain coverage only with legal provenance.",
+        "id": "scope"
+      }
+    ],
+    "mode": "continuous_research"
+  },
+  "goal_contract_version": 1,
+  "idea": "pa-bpe-domain-robustness",
+  "idea_status": "active",
+  "journal_version": 5,
+  "milestones": [
+    {
+      "event_id": "globalvoices-trilingual-structure-wake7",
+      "evidence": [
+        {
+          "path": "output/pgv_docpairs_qualification.json",
+          "sha256": "470b730c5516c0e0228ddd5cf82423ed41813057707836d542d0dba3167e3d7b"
+        },
+        {
+          "path": "output/pgv_triangle_qualification.json",
+          "sha256": "6cc1be257fe8502922cb46804951200775f43df4d47af7cadee3f2ac9a4fd3b5"
+        },
+        {
+          "path": "output/opus_gv_xces_schema.json",
+          "sha256": "b40288c91108c1f4da8c1533d1b7421aee787cdb8ce67b58243c7e6652260ca8"
+        },
+        {
+          "path": "opus_gv_closed_components_protocol.json",
+          "sha256": "4732917c779853ccc76933b56cdd5c52db617e8337173e14d3c407c8ae28f64c"
+        },
+        {
+          "path": "output/opus_gv_closed_components.json",
+          "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+        }
+      ],
+      "idea": "pa-bpe-domain-robustness",
+      "label": "GlobalVoices trilingual structural support qualified before outcome access",
+      "reason": "Official PGV document metadata contains 11,004 all-three-edge English-French-Spanish document triangles. Independently recommended OPUS GlobalVoices v2018q4 XCES files expose stable document and sentence identities; a preregistered 512-document scope yielded 11,919 unique closed three-language all-pair components, so 512 unit identities were reserved without opening raw story text or tokenizer outputs. Confirmation scoring remains blocked on attribution/leakage audit and a frozen method, preprocessing, metric and token-cost protocol.",
+      "revision": 1
+    }
+  ],
+  "next_action": "Milestone observed: GlobalVoices trilingual structural support qualified before outcome access; continue sources",
+  "observations": [
+    {
+      "event_id": "result:attempt-07d9ab698f064b1bb141e11c1f9c37ee",
+      "kind": "task_result",
+      "payload": {
+        "attempt_id": "attempt-07d9ab698f064b1bb141e11c1f9c37ee",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-07d9ab698f064b1bb141e11c1f9c37ee",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 209325,
+            "start_ticks": 11214619
+          },
+          "contract_sha256": "d761900682ff5d38116cdb61f2d3a09819553e52894d8423ab161fe9b20f121e",
+          "elapsed_seconds": 8.972638641003869,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T00:42:51.531485+00:00",
+          "input_refs": [
+            {
+              "path": "confirmation_source_protocol.json",
+              "sha256": "754c8efb70f523018fa18833c6d14d4bfce9faa8a4f0d8eee6e44cb1ea520ab0"
+            },
+            {
+              "path": "window_parent_binding.json",
+              "sha256": "3022a6d8df15d70d320832082e9a123d08b3abc253c13971132624874a6c990a"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+            },
+            {
+              "path": "scripts/qualify_pgv_docpairs.py",
+              "sha256": "049a3aa20f728eb8f8d10294ae0d94cc0af33ff29a30db073799aa22362428f5"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "inputs/pgv_docpairs.txt.zip",
+              "sha256": "d270acc7c000a30a79138d1f6259150641b444229ff10167efc36b2cbedeedfd"
+            },
+            {
+              "path": "output/pgv_docpairs_qualification.json",
+              "sha256": "470b730c5516c0e0228ddd5cf82423ed41813057707836d542d0dba3167e3d7b"
+            },
+            {
+              "path": "output/pgv_docpairs.resources.json",
+              "sha256": "4b7c15ad00fb3cb133438849c5cd87f72aa5161053722846de63ff0ddcc9bef8"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+          "schema_version": 1,
+          "started_at": "2026-10-12T00:42:42.558850+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-07d9ab698f064b1bb141e11c1f9c37ee/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-07d9ab698f064b1bb141e11c1f9c37ee/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "pgv-docpairs-qualification-wake7",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 209324,
+            "start_ticks": 11214614
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-07d9ab698f064b1bb141e11c1f9c37ee/receipt.json",
+          "sha256": "4e95198622103efb4f564bbe15c4011240c831ab7ebe05d21d43085a71dceb87"
+        },
+        "status": "succeeded",
+        "task_id": "pgv-docpairs-qualification-wake7"
+      },
+      "request_id": null,
+      "sequence": 1
+    },
+    {
+      "event_id": "result:attempt-ed548f19036b4ef0b222cebb450ef898",
+      "kind": "task_result",
+      "payload": {
+        "attempt_id": "attempt-ed548f19036b4ef0b222cebb450ef898",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-ed548f19036b4ef0b222cebb450ef898",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 210105,
+            "start_ticks": 11224669
+          },
+          "contract_sha256": "3459ee7eeea868c4ed5bab85fdb6247a471386d1965eb2027e97f80150ee90c7",
+          "elapsed_seconds": 0.7415213570056949,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T00:44:23.784091+00:00",
+          "input_refs": [
+            {
+              "path": "pgv_triangle_protocol_v2.json",
+              "sha256": "036df61f86721d84c82e123a77770542f891fef414e1067439bc1730636df145"
+            },
+            {
+              "path": "scripts/analyze_pgv_triangles.py",
+              "sha256": "1a666b689476e79b80e77a6dfeb75ca77ffb5dc7e1135f835c98956eb461247f"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+            },
+            {
+              "path": "inputs/pgv_docpairs.txt.zip",
+              "sha256": "d270acc7c000a30a79138d1f6259150641b444229ff10167efc36b2cbedeedfd"
+            },
+            {
+              "path": "output/pgv_docpairs_qualification.json",
+              "sha256": "470b730c5516c0e0228ddd5cf82423ed41813057707836d542d0dba3167e3d7b"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/pgv_triangle_qualification.json",
+              "sha256": "6cc1be257fe8502922cb46804951200775f43df4d47af7cadee3f2ac9a4fd3b5"
+            },
+            {
+              "path": "output/pgv_triangle.resources.json",
+              "sha256": "67c2be6760f5516d046009ca3fd7cae50c7a43ebfb6fa02a7c5947361a42fdaf"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+          "schema_version": 1,
+          "started_at": "2026-10-12T00:44:23.042571+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-ed548f19036b4ef0b222cebb450ef898/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-ed548f19036b4ef0b222cebb450ef898/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "pgv-triangle-qualification-wake7",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 210100,
+            "start_ticks": 11224659
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-ed548f19036b4ef0b222cebb450ef898/receipt.json",
+          "sha256": "7b8d045e2c8ef522b4025bb0f3db7ecef677aa38e597120d83cfd2155d771eb8"
+        },
+        "status": "succeeded",
+        "task_id": "pgv-triangle-qualification-wake7"
+      },
+      "request_id": null,
+      "sequence": 2
+    },
+    {
+      "event_id": "result:attempt-d804f04e7d1a435492602b03f40d3c37",
+      "kind": "task_result",
+      "payload": {
+        "attempt_id": "attempt-d804f04e7d1a435492602b03f40d3c37",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-d804f04e7d1a435492602b03f40d3c37",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 215217,
+            "start_ticks": 11234830
+          },
+          "contract_sha256": "243fd98a065347abb6d06d3e7ccbce06d4ea9c1bb3a7b66ae9cd7ba41d26470c",
+          "elapsed_seconds": 25.17440410501149,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T00:46:29.846337+00:00",
+          "input_refs": [
+            {
+              "path": "opus_gv_xces_protocol.json",
+              "sha256": "56874bce83789277a5e026fa0cfdbfb844fb80a23aa2c0ab51c69e85af7608cd"
+            },
+            {
+              "path": "scripts/inspect_opus_gv_xces.py",
+              "sha256": "a1bdcf198feeddc5b050db80eca57e90a1063fda1624ec4b91236b5d34d0cce4"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+            },
+            {
+              "path": "source_review_binding.json",
+              "sha256": "b96c6d932da83bfbb41150494345ef9fb45f6d7707770b5a9a6d6c0be029f429"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "inputs/opus_gv_v2018q4/en-fr.xml.gz",
+              "sha256": "2eda1355fbc62bb601d997e0743749fcb8729049eabde905b6289b219c323d11"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/en-es.xml.gz",
+              "sha256": "a7e928c2751cdfe2ed8ae52848ef7abbd61057b4df5063217f40e74707b8949f"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/es-fr.xml.gz",
+              "sha256": "beabbf7e8c1adf542faa3fdf5079cb6d4d170670b2df88ab50ced1443bbe6bd5"
+            },
+            {
+              "path": "output/opus_gv_xces_schema.json",
+              "sha256": "b40288c91108c1f4da8c1533d1b7421aee787cdb8ce67b58243c7e6652260ca8"
+            },
+            {
+              "path": "output/opus_gv_xces_schema.resources.json",
+              "sha256": "ed5ee51f6929b474df521a1eaafbb996a4981c25899e832580d6ce9287597e54"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+          "schema_version": 1,
+          "started_at": "2026-10-12T00:46:04.671935+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-d804f04e7d1a435492602b03f40d3c37/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-d804f04e7d1a435492602b03f40d3c37/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "opus-gv-xces-schema-wake7",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 215216,
+            "start_ticks": 11234824
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-d804f04e7d1a435492602b03f40d3c37/receipt.json",
+          "sha256": "67cb7f4bf0917c30f7d160698a6266a6423d1accd3afff008210201ec6ef84d7"
+        },
+        "status": "succeeded",
+        "task_id": "opus-gv-xces-schema-wake7"
+      },
+      "request_id": null,
+      "sequence": 3
+    },
+    {
+      "event_id": "result:attempt-44448136fb1546e9a6cfcc6c0eb34b95",
+      "kind": "task_result",
+      "payload": {
+        "attempt_id": "attempt-44448136fb1546e9a6cfcc6c0eb34b95",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-44448136fb1546e9a6cfcc6c0eb34b95",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 215615,
+            "start_ticks": 11245341
+          },
+          "contract_sha256": "65614bf4362986ed33bc69e9713749e79cea73ced95b8bda9e3cb24c58687b13",
+          "elapsed_seconds": 7.307593017991167,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T00:47:57.079238+00:00",
+          "input_refs": [
+            {
+              "path": "opus_gv_closed_components_protocol.json",
+              "sha256": "4732917c779853ccc76933b56cdd5c52db617e8337173e14d3c407c8ae28f64c"
+            },
+            {
+              "path": "scripts/build_opus_gv_closed_components.py",
+              "sha256": "3142462fd665716ca2374ec41bccbb6e575d3832b47535321bce0d1f2df2aa64"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+            },
+            {
+              "path": "output/opus_gv_xces_schema.json",
+              "sha256": "b40288c91108c1f4da8c1533d1b7421aee787cdb8ce67b58243c7e6652260ca8"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/en-fr.xml.gz",
+              "sha256": "2eda1355fbc62bb601d997e0743749fcb8729049eabde905b6289b219c323d11"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/en-es.xml.gz",
+              "sha256": "a7e928c2751cdfe2ed8ae52848ef7abbd61057b4df5063217f40e74707b8949f"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/es-fr.xml.gz",
+              "sha256": "beabbf7e8c1adf542faa3fdf5079cb6d4d170670b2df88ab50ced1443bbe6bd5"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "output/opus_gv_closed_components.resources.json",
+              "sha256": "9de78e6caf3b71722e71b77fb4f9057aa16ea081475e9ae6db1a20081ab6fc8f"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+          "schema_version": 1,
+          "started_at": "2026-10-12T00:47:49.771642+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-44448136fb1546e9a6cfcc6c0eb34b95/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-44448136fb1546e9a6cfcc6c0eb34b95/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "opus-gv-closed-components-wake7",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 215614,
+            "start_ticks": 11245336
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-44448136fb1546e9a6cfcc6c0eb34b95/receipt.json",
+          "sha256": "c199b8e18475dd42abab9eb7c28584fc54f7b4ec3eb65fd5ba62c2e4cb9ec1ba"
+        },
+        "status": "succeeded",
+        "task_id": "opus-gv-closed-components-wake7"
+      },
+      "request_id": null,
+      "sequence": 4
+    },
+    {
+      "event_id": "followup:wake7-globalvoices-structure-milestone-v1",
+      "kind": "decision_followup",
+      "payload": {
+        "journal_phase": "sources",
+        "reason": "Record the provenance-first confirmation-source qualification milestone; no tokenizer outcome was computed and the continuous research goal remains active."
+      },
+      "request_id": null,
+      "sequence": 5
+    }
+  ],
+  "request_id": "decision-d9022a942f2d4f138ba8aa12a0d2629a",
+  "research_cycles": [],
+  "revision": 1,
+  "root": "/workspace/scratch/42f1128b703b/wake7_project/pa_bpe_simple/execution_windows/wake7",
+  "source": {
+    "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+      },
+      {
+        "path": "references/rsi-simple.md",
+        "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+      },
+      {
+        "path": "references/simple-runner.md",
+        "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+      },
+      {
+        "path": "scripts/_simple_process.py",
+        "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+      },
+      {
+        "path": "scripts/_simple_source.py",
+        "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+      },
+      {
+        "path": "scripts/simple_loop.py",
+        "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+      },
+      {
+        "path": "scripts/simple_runner.py",
+        "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+      },
+      {
+        "path": "references/simple-experiment-design.md",
+        "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+      },
+      {
+        "path": "scripts/simple_design.py",
+        "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+      },
+      {
+        "path": "scripts/simple_resources.py",
+        "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+      },
+      {
+        "path": "assets/templates/simple-experiment-plan.json",
+        "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+      },
+      {
+        "path": "assets/templates/simple-experiment-results.json",
+        "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+      },
+      {
+        "path": "references/simple-collaboration.md",
+        "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+      },
+      {
+        "path": "assets/templates/simple-delegation.json",
+        "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+      }
+    ],
+    "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "tasks": [
+    {
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/opus_gv_closed_components.resources.json",
+        "scripts/build_opus_gv_closed_components.py"
+      ],
+      "attempt_id": "attempt-44448136fb1546e9a6cfcc6c0eb34b95",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "opus-gv-xces-schema-wake7"
+      ],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "opus_gv_closed_components_protocol.json",
+          "sha256": "4732917c779853ccc76933b56cdd5c52db617e8337173e14d3c407c8ae28f64c"
+        },
+        {
+          "path": "scripts/build_opus_gv_closed_components.py",
+          "sha256": "3142462fd665716ca2374ec41bccbb6e575d3832b47535321bce0d1f2df2aa64"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "output/opus_gv_xces_schema.json",
+          "sha256": "b40288c91108c1f4da8c1533d1b7421aee787cdb8ce67b58243c7e6652260ca8"
+        },
+        {
+          "path": "inputs/opus_gv_v2018q4/en-fr.xml.gz",
+          "sha256": "2eda1355fbc62bb601d997e0743749fcb8729049eabde905b6289b219c323d11"
+        },
+        {
+          "path": "inputs/opus_gv_v2018q4/en-es.xml.gz",
+          "sha256": "a7e928c2751cdfe2ed8ae52848ef7abbd61057b4df5063217f40e74707b8949f"
+        },
+        {
+          "path": "inputs/opus_gv_v2018q4/es-fr.xml.gz",
+          "sha256": "beabbf7e8c1adf542faa3fdf5079cb6d4d170670b2df88ab50ced1443bbe6bd5"
+        }
+      ],
+      "outputs": [
+        "output/opus_gv_closed_components.json",
+        "output/opus_gv_closed_components.resources.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Construct closed English-French-Spanish XCES identity components inside a preregistered 512-document scope without accessing raw text or tokenizer outcomes.",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "opus-gv-closed-components-wake7",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/opus_gv_xces_schema.resources.json",
+        "scripts/inspect_opus_gv_xces.py"
+      ],
+      "attempt_id": "attempt-d804f04e7d1a435492602b03f40d3c37",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "pgv-triangle-qualification-wake7"
+      ],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "opus_gv_xces_protocol.json",
+          "sha256": "56874bce83789277a5e026fa0cfdbfb844fb80a23aa2c0ab51c69e85af7608cd"
+        },
+        {
+          "path": "scripts/inspect_opus_gv_xces.py",
+          "sha256": "a1bdcf198feeddc5b050db80eca57e90a1063fda1624ec4b91236b5d34d0cce4"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "source_review_binding.json",
+          "sha256": "b96c6d932da83bfbb41150494345ef9fb45f6d7707770b5a9a6d6c0be029f429"
+        }
+      ],
+      "outputs": [
+        "inputs/opus_gv_v2018q4/en-fr.xml.gz",
+        "inputs/opus_gv_v2018q4/en-es.xml.gz",
+        "inputs/opus_gv_v2018q4/es-fr.xml.gz",
+        "output/opus_gv_xces_schema.json",
+        "output/opus_gv_xces_schema.resources.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Download, hash and structurally inspect the three OPUS GlobalVoices v2018q4 XCES alignments without accessing raw story text or tokenizer outcomes.",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "opus-gv-xces-schema-wake7",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/pgv_docpairs.resources.json",
+        "scripts/qualify_pgv_docpairs.py"
+      ],
+      "attempt_id": "attempt-07d9ab698f064b1bb141e11c1f9c37ee",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "confirmation_source_protocol.json",
+          "sha256": "754c8efb70f523018fa18833c6d14d4bfce9faa8a4f0d8eee6e44cb1ea520ab0"
+        },
+        {
+          "path": "window_parent_binding.json",
+          "sha256": "3022a6d8df15d70d320832082e9a123d08b3abc253c13971132624874a6c990a"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "scripts/qualify_pgv_docpairs.py",
+          "sha256": "049a3aa20f728eb8f8d10294ae0d94cc0af33ff29a30db073799aa22362428f5"
+        }
+      ],
+      "outputs": [
+        "inputs/pgv_docpairs.txt.zip",
+        "output/pgv_docpairs_qualification.json",
+        "output/pgv_docpairs.resources.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Fetch and structurally qualify the official PGV document-pair metadata without reading story text or tokenization outcomes.",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "pgv-docpairs-qualification-wake7",
+      "timeout_seconds": 90
+    },
+    {
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/pgv_triangle.resources.json",
+        "scripts/analyze_pgv_triangles.py"
+      ],
+      "attempt_id": "attempt-ed548f19036b4ef0b222cebb450ef898",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "pgv-docpairs-qualification-wake7"
+      ],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "pgv_triangle_protocol_v2.json",
+          "sha256": "036df61f86721d84c82e123a77770542f891fef414e1067439bc1730636df145"
+        },
+        {
+          "path": "scripts/analyze_pgv_triangles.py",
+          "sha256": "1a666b689476e79b80e77a6dfeb75ca77ffb5dc7e1135f835c98956eb461247f"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "inputs/pgv_docpairs.txt.zip",
+          "sha256": "d270acc7c000a30a79138d1f6259150641b444229ff10167efc36b2cbedeedfd"
+        },
+        {
+          "path": "output/pgv_docpairs_qualification.json",
+          "sha256": "470b730c5516c0e0228ddd5cf82423ed41813057707836d542d0dba3167e3d7b"
+        }
+      ],
+      "outputs": [
+        "output/pgv_triangle_qualification.json",
+        "output/pgv_triangle.resources.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Test whether the official PGV document-pair graph contains at least 512 deterministic all-three-edge English-French-Spanish document triangles.",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "pgv-triangle-qualification-wake7",
+      "timeout_seconds": 30
+    }
+  ]
+}

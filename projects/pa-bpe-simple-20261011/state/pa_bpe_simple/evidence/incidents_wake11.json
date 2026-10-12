@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "window": "wake11",
+  "incidents": [
+    {
+      "kind": "host_ps_loader_fault",
+      "symptom": "ps returned fatal library error, lookup self while checking project processes.",
+      "impact": "Process identity could not be trusted from ps.",
+      "repair": "Enumerated /proc cmdline entries directly and confirmed no live runner for this project before acquiring writer locks."
+    },
+    {
+      "kind": "resource_probe_cli_rejections",
+      "symptom": "Two management calls were rejected before measurement: first missing --output, then timeout_seconds exceeded the tool maximum of 60.",
+      "impact": "No scientific command ran and no resource conclusion was produced by those calls.",
+      "repair": "Used the documented output path and a 60-second timeout; the probe then measured 8-CPU quota and 4.72 GiB instantaneous cgroup headroom."
+    },
+    {
+      "kind": "sqlite_schema_lock_failure",
+      "symptom": "v1 attempted to DROP a temporary shingle table during a streaming row cursor and failed with sqlite3.OperationalError: database table is locked.",
+      "impact": "Attempt exit1 after 0.087114321 seconds; no primary result file.",
+      "repair": "Created the temp table once and reused it; v2 passed. The failed receipt remains retained."
+    },
+    {
+      "kind": "successful_task_supersede_rejected",
+      "symptom": "A v3 submission tried to supersede successful v2 and was rejected by the runner.",
+      "impact": "Zero scientific commands launched and zero wall charged.",
+      "repair": "Kept v2 as a milestone and submitted v3 as a separate hardening task."
+    },
+    {
+      "kind": "test_helper_import_failure",
+      "symptom": "v4 renamed the small-data helper with a leading underscore; wildcard import excluded it and raised NameError.",
+      "impact": "Attempt exit1 after 0.084865906 seconds; the previous main result was not accepted as changed output.",
+      "repair": "Renamed it select_small_for_tests_only; v5 passed and the failed receipt remains retained."
+    },
+    {
+      "kind": "falsey_nonstring_url_review_gap",
+      "symptom": "Independent v5 review found 0, False and empty bytes bypassed URL type checking.",
+      "impact": "v5 was only conditionally accepted.",
+      "repair": "Moved the null check before the string type check and added three regression cases; v6 passed 25/25."
+    }
+  ]
+}

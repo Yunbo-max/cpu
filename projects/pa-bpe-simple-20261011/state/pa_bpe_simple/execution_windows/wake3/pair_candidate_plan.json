@@ -1,0 +1,17 @@
+{
+  "design_id": "wake3-pair-aware-minimax-development-v1",
+  "created_utc": "2026-10-11T20:38:00Z",
+  "idea": "pa-bpe-domain-robustness",
+  "idea_revision": 1,
+  "method_revision": 2,
+  "exposure": "All current Books/TICO pilot outcomes are development-exposed. This is candidate development, not independent confirmation.",
+  "mechanism_evidence": "Frozen robust_domain replay has345/1000 merges increasing maximum development-domain Gini despite selecting its costly language. This proves lack of greedy descent but does not establish the cause of unseen-work failure.",
+  "candidate": "At each step form the identical pool of top4 train-frequency pairs per training language plus the global top-frequency pair, with min total train frequency2 and no duplicate vocabulary symbols. Compute exact nonoverlapping pair compression on the same original four development slices. Prefer the pool pair minimizing resulting maximum-domain Gini among strict-descent moves. If none descends, fall back to global train-frequency pair. Tie-break by higher total train frequency then lexicographic pair.1000 merges, same256-byte initial alphabet.",
+  "matched_control": "pair_pooled: identical train/dev information, candidate pool, gain computation, fallback and tie-breaking; replace maximum-domain Gini by Gini of pooled language costs. Classical is the simple global-frequency control. Retain previous robust_domain and pooled.",
+  "prediction": "Direct gain selection should reduce development max-domain Gini compared with the proxy selector, but may overfit or sacrifice compression. Do not claim improvement unless cost and transfer evidence support it.",
+  "measurements": "Development objective trajectories, fallback fraction, exact predicted-versus-applied gains, independently encoded final dev totals, realized merge/vocabulary counts, train/scoring CPU-wall-RSS; Gini/worst/total cost on exposed10-work raw diagnostic and retained TICO pilot rows.",
+  "resources": "1thread1scienceprocess CPU-only.100-merge calibration, then each1000-merge arm only if measured extrapolation with headroom fits120s and2GiB. K4 is a fixed bounded candidate coverage choice, not tuned on scores. No candidate search over K.",
+  "outcome_rules": "If development objective is not improved, inspect predicted-gain correctness/fallback. If development improves but Books or costs degrade, retain overfitting/efficiency negative result and do not scale or call success. New unexposed source-work/domain confirmation remains required before any superiority claim.",
+  "novelty": "Unassessed. Direct objective lookahead is a diagnostic adaptation, not yet a claimed novel algorithm.",
+  "deferred": "Third-language retraining, larger vocabulary, complete exposure mapping, fresh confirmation and further strong mechanism controls."
+}

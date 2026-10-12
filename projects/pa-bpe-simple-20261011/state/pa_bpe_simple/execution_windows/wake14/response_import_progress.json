@@ -1,0 +1,21 @@
+{
+  "response_id": "wake14-import-progress-v1",
+  "request_id": "decision-0296b65d12f6448bad104599f0f8e58e",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Record the completed frozen-index import as an infrastructure milestone while retaining the downstream verification result for its own decision snapshot.",
+  "events": [
+    {
+      "kind": "progress",
+      "event_id": "wake14-frozen-index-import-v1",
+      "next_phase": "verify",
+      "reason": "The fixed SHA256 confirmation index was imported without raw confirmation text: 1536 balanced records, 27225 unique shingle records, shingle mass 27346, and 801 URL hashes. This is an adapter import observation, not a tokenizer or fairness result.",
+      "evidence": [
+        {"path": "output/blinded_adapter_summary.json", "sha256": "feecbcd5d8ed27604eae0660179d29b38557660eebaa709251459138fa17948e"},
+        {"path": "output/blinded_adapter.resources.json", "sha256": "a4c7415fc26708e762e6b4c9e8ddd7898338d162e4f80d40b8a4dc31f32d5d9c"},
+        {"path": ".research-autopilot/runner/attempts/attempt-b3df73445d2e442d9e3c959f476136fe/receipt.json", "sha256": "72a6ed8b91341472c14381bc8139bb22868f23327fd40a4b6f8765732f9ca30f"}
+      ]
+    }
+  ]
+}

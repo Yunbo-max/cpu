@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "request_id": "wake6-conditional-shift-review",
+  "delegation_id": "pa-bpe-wake6-conditional-shift-review",
+  "generation": 1,
+  "lifecycle_state": "completed",
+  "completion": {
+    "observed_at_utc": "2026-10-11T23:31:23Z",
+    "output": "review/wake6_conditional_shift_review.md",
+    "output_sha256": "45048ed8df99c811a18270777a8e97f73215a34995fbbc8576562dd29f16178a",
+    "input_hashes_verified": true,
+    "scope_compliance": "Reviewer wrote only the assigned review artifact and ran no experiment or method selection."
+  },
+  "launch": {
+    "intent_recorded_at_utc": "2026-10-11T23:29:00Z",
+    "task_name": "pa_bpe_conditional_shift_review_wake6",
+    "native_agent_id": "/root/pa_bpe_conditional_shift_review_wake6",
+    "observed_launch_time_utc": "2026-10-11T23:29:30Z"
+  },
+  "parent_binding": {
+    "checkpoint_generation": 6,
+    "manifest_sha256": "ca709d80394c9e7baceb49983151ca4c489ceaba4397459c895ad0f1e895695d",
+    "goal_mode": "continuous_research",
+    "active_idea": "pa-bpe-domain-robustness",
+    "idea_revision": 1,
+    "research_autopilot_simple_version": "0.3.0-simple.9",
+    "runner_source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "inputs": [
+    {"path": "execution_windows/wake5/output/mass_cancellation_audit.json", "sha256": "c44873be9ffd96796780c81322bbb7405c738a79436832d0bd10c80db16b221a"},
+    {"path": "execution_windows/wake3/output/multibook_raw_evaluation.json", "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"},
+    {"path": "execution_windows/wake3/output/pair_candidate_evaluation.json", "sha256": "da6d11dbd9a50111664f58c28ad20c9ea3b67e309b751ca3a895afb883b2ff20"},
+    {"path": "execution_windows/wake3b/output/full_candidate_evaluation.json", "sha256": "75c9b9983a0d53d693f02fded94da2e78acbfaa5ed522eec179e84f6e6ba4512"},
+    {"path": "execution_windows/wake4/output/efficiency_candidate_evaluation.json", "sha256": "d88df96a5d11405477098d10b11a6bea98e8c06a5bdf1c51379d2ff2a572f002"},
+    {"path": "PA_BPE_Wake5_Report.md", "sha256": "004f6d39dec38799c472e66cc375efeec0adb693e2b244831bd19bf4b1388e82"}
+  ],
+  "assignment": {
+    "question": "Audit whether the proposed exposed-data conditional-shift decomposition can distinguish baseline composition shift from changed method response without claiming causality or selecting a new method.",
+    "proposed_protocol": [
+      "For every existing arm versus Classical, align rows and define baseline sign by Classical d0=en-fr: positive, zero, negative.",
+      "Freeze four length bins using nearest-rank q25/q50/q75 of Classical TICO dev100 baseline total token cost, then apply the same numeric thresholds to TICO and Books.",
+      "For each domain and group report group mass and conditional means of macro-row Gini gain g_classical-g_arm, absolute-gap reduction |d0|-|d_arm|, and total-cost delta s_arm-s0.",
+      "For sign and length partitions separately, decompose mean outcome shift exactly as Books mean minus TICO mean = composition component plus conditional component, where composition reweights TICO conditional means by Books group proportions.",
+      "Mechanically enumerate all 15 arm contrasts; highlight full_minmax, eff_minmax, exact_train only because they were pre-specified earlier, not because of new outcomes.",
+      "Check sign of total/composition/conditional components under leave-one-Books-author-block-out; remain descriptive and exposed."
+    ],
+    "deliverable": "Identify mathematical mistakes, missing cells/zero-mass handling, misleading classifications, and the minimum defensible interpretation. Recommend exact formulas and a decision rule, or state that no categorical rule is justified.",
+    "completion_requirements": [
+      "Verify all bound input hashes before reviewing.",
+      "Do not run experiments or select a method.",
+      "Write only review/wake6_conditional_shift_review.md.",
+      "State scope and limitations explicitly."
+    ]
+  },
+  "authority": {
+    "experiments_permitted": false,
+    "further_delegation_permitted": false,
+    "write_scope": ["review/wake6_conditional_shift_review.md"],
+    "deadline": "bounded to this active host window",
+    "model_usage": "unknown"
+  }
+}

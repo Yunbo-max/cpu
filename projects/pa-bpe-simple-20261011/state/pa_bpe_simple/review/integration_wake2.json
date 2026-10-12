@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "delegation_id": "wake2-books-protocol-audit",
+  "integrated_at_utc": "2026-10-11T19:49:00Z",
+  "result": {
+    "path": "review/wake2_books_protocol_audit.md",
+    "sha256": "d7f22abbb6c9ac31a6f24e9fc24b0ecfb5bc1ae114f228e52d3e36a96d0937f9"
+  },
+  "accepted_findings": [
+    "HF row offsets do not establish book or work independence.",
+    "The prior Books dev and confirm rows are strongly indicated to share the exposed Alain-Fournier work.",
+    "Native XCES document identities and whole-work grouping are required before a book-disjoint claim.",
+    "Uncertainty must be clustered or macro-aggregated by work; one confirmation work is descriptive only."
+  ],
+  "coordinator_followup": {
+    "native_alignment_recovered": true,
+    "three_language_common_works_verified": 12,
+    "previous_books_confirmation_status": "downgraded_to_row_level_descriptive",
+    "whole_work_smoke_splits": {
+      "dev": "Carroll_Lewis-Alice_in_wonderland",
+      "confirm": "Poe_Edgar_Allan-Fall_of_the_House_of_Usher"
+    },
+    "scope_limit": "Two smallest works were selected for a resource-bounded pipeline smoke test. They do not certify a multi-book confirmation result."
+  },
+  "independence_note": "The reviewer performed no experiments and did not inspect coordinator outcomes. The coordinator alone downloaded native artifacts, executed scientific commands and accepted the protocol conclusions."
+}

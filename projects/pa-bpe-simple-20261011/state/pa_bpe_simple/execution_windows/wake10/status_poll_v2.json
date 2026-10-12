@@ -1,0 +1,1689 @@
+{
+  "agent": {
+    "command": null,
+    "enabled": false,
+    "error": null,
+    "history": [
+      {
+        "command": null,
+        "reason": "Initial configuration",
+        "version": 0
+      }
+    ],
+    "repairs": {},
+    "version": 0
+  },
+  "attempts": [
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10/.research-autopilot/runner/attempts/attempt-0c7f3602f8834649b5cf6113f9ee6e9d",
+      "attempt_id": "attempt-0c7f3602f8834649b5cf6113f9ee6e9d",
+      "contract": {
+        "argv": [
+          "python3",
+          "-m",
+          "venv",
+          ".venv"
+        ],
+        "attempt_id": "attempt-0c7f3602f8834649b5cf6113f9ee6e9d",
+        "cwd": ".",
+        "deadline_epoch": 1791777109.5005426,
+        "input_refs": [
+          {
+            "path": "window_parent_binding.json",
+            "sha256": "5cc08d232c5a4cd8fb05645640222cd85d5a4d11a1f3888916551f70bfcf0430"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          ".venv/pyvenv.cfg"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "create-isolated-env-wake10",
+        "timeout_seconds": 40
+      },
+      "contract_sha256": "d4fd63d8582000aa1940d52d2ec89e1ca60555a9c5121b3097dd68bec8dddeea",
+      "elapsed_seconds": 2.7297750339930644,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-0c7f3602f8834649b5cf6113f9ee6e9d",
+        "command_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 255916,
+          "start_ticks": 12235591
+        },
+        "contract_sha256": "d4fd63d8582000aa1940d52d2ec89e1ca60555a9c5121b3097dd68bec8dddeea",
+        "elapsed_seconds": 2.7297750339930644,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T03:32:55.011483+00:00",
+        "input_refs": [
+          {
+            "path": "window_parent_binding.json",
+            "sha256": "5cc08d232c5a4cd8fb05645640222cd85d5a4d11a1f3888916551f70bfcf0430"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": ".venv/pyvenv.cfg",
+            "sha256": "62795abdbafc06e78fb3cdc2f97711e940e3681073e983f4df02a5cc1ae094fc"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+        "schema_version": 1,
+        "started_at": "2026-10-12T03:32:52.281705+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-0c7f3602f8834649b5cf6113f9ee6e9d/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-0c7f3602f8834649b5cf6113f9ee6e9d/stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "task_id": "create-isolated-env-wake10",
+        "worker_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 255915,
+          "start_ticks": 12235586
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-0c7f3602f8834649b5cf6113f9ee6e9d/receipt.json",
+        "sha256": "46b5b7dfff9c7fee15ddb146c15581858716459b106e6719f697805371577ff6"
+      },
+      "reservation_seconds": 43.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "create-isolated-env-wake10"
+    },
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10/.research-autopilot/runner/attempts/attempt-65b351c884354f399a283f0119e4d411",
+      "attempt_id": "attempt-65b351c884354f399a283f0119e4d411",
+      "contract": {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "TOKENIZERS_PARALLELISM=false",
+          ".venv/bin/python",
+          "scripts/measure_command.py",
+          "output/row_selection_verification_v2.resources.json",
+          "scripts/verify_row_selection.py"
+        ],
+        "attempt_id": "attempt-65b351c884354f399a283f0119e4d411",
+        "cwd": ".",
+        "deadline_epoch": 1791777109.5005426,
+        "input_refs": [
+          {
+            "path": "row_selection_protocol.json",
+            "sha256": "3d617b5eea67465fa78d66763c9f410f251c929636a28a1fd8f1ca41c5ff53ba"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          },
+          {
+            "path": "scripts/verify_row_selection.py",
+            "sha256": "3819ab6103775a6e2ec5bdad7c1284479bc6fc63b0deafe140f25606ef8875e3"
+          },
+          {
+            "path": "inputs/en_probe.json",
+            "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"
+          },
+          {
+            "path": "inputs/fr_probe.json",
+            "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"
+          },
+          {
+            "path": "inputs/es_probe.json",
+            "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"
+          },
+          {
+            "path": "inputs/learn_bpe.py",
+            "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+          },
+          {
+            "path": "inputs/parity_aware_learn_bpe.py",
+            "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "output/row_selection_verification_v2.json",
+          "output/row_selection_verification_v2.resources.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "verify-row-selection-v2-wake10",
+        "timeout_seconds": 40
+      },
+      "contract_sha256": "a5accadfb22c8e29fdb09ef179f659a3e6c0c5cccdbff459ba80cddb30e03fc8",
+      "elapsed_seconds": 0.11933245100954082,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-65b351c884354f399a283f0119e4d411",
+        "command_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 257240,
+          "start_ticks": 12263006
+        },
+        "contract_sha256": "a5accadfb22c8e29fdb09ef179f659a3e6c0c5cccdbff459ba80cddb30e03fc8",
+        "elapsed_seconds": 0.11933245100954082,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T03:37:26.548403+00:00",
+        "input_refs": [
+          {
+            "path": "row_selection_protocol.json",
+            "sha256": "3d617b5eea67465fa78d66763c9f410f251c929636a28a1fd8f1ca41c5ff53ba"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          },
+          {
+            "path": "scripts/verify_row_selection.py",
+            "sha256": "3819ab6103775a6e2ec5bdad7c1284479bc6fc63b0deafe140f25606ef8875e3"
+          },
+          {
+            "path": "inputs/en_probe.json",
+            "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"
+          },
+          {
+            "path": "inputs/fr_probe.json",
+            "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"
+          },
+          {
+            "path": "inputs/es_probe.json",
+            "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"
+          },
+          {
+            "path": "inputs/learn_bpe.py",
+            "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+          },
+          {
+            "path": "inputs/parity_aware_learn_bpe.py",
+            "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "output/row_selection_verification_v2.json",
+            "sha256": "3ed58ac0740585fff3bc904a036a15b2f99c31b13e9ec495f98c8a0a202e494c"
+          },
+          {
+            "path": "output/row_selection_verification_v2.resources.json",
+            "sha256": "99d743ba75de5fee521e701dba8ee20b5142cb48eaffba147b7c82dfe621e61f"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+        "schema_version": 1,
+        "started_at": "2026-10-12T03:37:26.429074+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-65b351c884354f399a283f0119e4d411/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-65b351c884354f399a283f0119e4d411/stdout.txt",
+          "sha256": "c640a517e5067abc71a28c34598685990ce940519db80d827da8861e0ed746df"
+        },
+        "task_id": "verify-row-selection-v2-wake10",
+        "worker_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 257239,
+          "start_ticks": 12263000
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-65b351c884354f399a283f0119e4d411/receipt.json",
+        "sha256": "050ee86b267d9d05412d37fba4ef5b5364bdf2db4451278fe658329b8d184924"
+      },
+      "reservation_seconds": 43.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "verify-row-selection-v2-wake10"
+    },
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10/.research-autopilot/runner/attempts/attempt-bcd4118341f4463daf677f402e2944a0",
+      "attempt_id": "attempt-bcd4118341f4463daf677f402e2944a0",
+      "contract": {
+        "argv": [
+          ".venv/bin/python",
+          "-m",
+          "pip",
+          "install",
+          "--disable-pip-version-check",
+          "--only-binary=:all:",
+          "--report",
+          "output/tokenizers_install_report.json",
+          "tokenizers==0.22.1"
+        ],
+        "attempt_id": "attempt-bcd4118341f4463daf677f402e2944a0",
+        "cwd": ".",
+        "deadline_epoch": 1791777109.5005426,
+        "input_refs": [
+          {
+            "path": "row_selection_protocol.json",
+            "sha256": "349afa25e652464073349edccd9372112ac21047cf95182f4dd087edf543001b"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "output/tokenizers_install_report.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "install-tokenizers-wake10",
+        "timeout_seconds": 110
+      },
+      "contract_sha256": "6fb0d4877876ac021bd10baf6409ed49c5db8f12b0f56c0f07bcb7b81f1ee43e",
+      "elapsed_seconds": 13.353749850997701,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-bcd4118341f4463daf677f402e2944a0",
+        "command_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 255938,
+          "start_ticks": 12235874
+        },
+        "contract_sha256": "6fb0d4877876ac021bd10baf6409ed49c5db8f12b0f56c0f07bcb7b81f1ee43e",
+        "elapsed_seconds": 13.353749850997701,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T03:33:08.468023+00:00",
+        "input_refs": [
+          {
+            "path": "row_selection_protocol.json",
+            "sha256": "349afa25e652464073349edccd9372112ac21047cf95182f4dd087edf543001b"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "output/tokenizers_install_report.json",
+            "sha256": "fcf79b7da6ead7d0f5e63b93d1e1a85ef5dcd2f00a6565e0b2f98a05ec3648b9"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+        "schema_version": 1,
+        "started_at": "2026-10-12T03:32:55.114272+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-bcd4118341f4463daf677f402e2944a0/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-bcd4118341f4463daf677f402e2944a0/stdout.txt",
+          "sha256": "d6edbd2206a7513e10e75d3743ba49808440336bc223750f723f951f122608da"
+        },
+        "task_id": "install-tokenizers-wake10",
+        "worker_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 255937,
+          "start_ticks": 12235865
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-bcd4118341f4463daf677f402e2944a0/receipt.json",
+        "sha256": "f6ed32b9710ce89a0216126323a683a810ffb69a7d359a2c45f967387dcef8d4"
+      },
+      "reservation_seconds": 113.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "install-tokenizers-wake10"
+    },
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10/.research-autopilot/runner/attempts/attempt-c9d954b9d13a4ecf932b8b6958a6689c",
+      "attempt_id": "attempt-c9d954b9d13a4ecf932b8b6958a6689c",
+      "contract": {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "TOKENIZERS_PARALLELISM=false",
+          ".venv/bin/python",
+          "scripts/measure_command.py",
+          "output/row_selection_verification.resources.json",
+          "scripts/verify_row_selection.py"
+        ],
+        "attempt_id": "attempt-c9d954b9d13a4ecf932b8b6958a6689c",
+        "cwd": ".",
+        "deadline_epoch": 1791777109.5005426,
+        "input_refs": [
+          {
+            "path": "row_selection_protocol.json",
+            "sha256": "349afa25e652464073349edccd9372112ac21047cf95182f4dd087edf543001b"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          },
+          {
+            "path": "scripts/verify_row_selection.py",
+            "sha256": "5dea160c1590d75644299300af6b1f7d3afbfa172ed71739ea9ee49bc5ce5656"
+          },
+          {
+            "path": "inputs/en_probe.json",
+            "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"
+          },
+          {
+            "path": "inputs/fr_probe.json",
+            "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"
+          },
+          {
+            "path": "inputs/es_probe.json",
+            "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "output/row_selection_verification.json",
+          "output/row_selection_verification.resources.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "verify-row-selection-wake10",
+        "timeout_seconds": 40
+      },
+      "contract_sha256": "0588b62db8c9f2bdf6bc542daddb6867e905a524ca09cda57f94ef973d4e2f9b",
+      "elapsed_seconds": 0.2320835060090758,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-c9d954b9d13a4ecf932b8b6958a6689c",
+        "command_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 256067,
+          "start_ticks": 12237232
+        },
+        "contract_sha256": "0588b62db8c9f2bdf6bc542daddb6867e905a524ca09cda57f94ef973d4e2f9b",
+        "elapsed_seconds": 0.2320835060090758,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T03:33:08.921268+00:00",
+        "input_refs": [
+          {
+            "path": "row_selection_protocol.json",
+            "sha256": "349afa25e652464073349edccd9372112ac21047cf95182f4dd087edf543001b"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          },
+          {
+            "path": "scripts/verify_row_selection.py",
+            "sha256": "5dea160c1590d75644299300af6b1f7d3afbfa172ed71739ea9ee49bc5ce5656"
+          },
+          {
+            "path": "inputs/en_probe.json",
+            "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"
+          },
+          {
+            "path": "inputs/fr_probe.json",
+            "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"
+          },
+          {
+            "path": "inputs/es_probe.json",
+            "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "output/row_selection_verification.json",
+            "sha256": "3114c0f5523affaa48521dfb7b7f8e23c054f6b3ba3ff575fbc275eb8ccba9ea"
+          },
+          {
+            "path": "output/row_selection_verification.resources.json",
+            "sha256": "10cdd76c3a55f3a808b0b2a204bdf04831ccbb71d1cffa3b68625089c8846f6b"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+        "schema_version": 1,
+        "started_at": "2026-10-12T03:33:08.689186+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-c9d954b9d13a4ecf932b8b6958a6689c/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-c9d954b9d13a4ecf932b8b6958a6689c/stdout.txt",
+          "sha256": "c640a517e5067abc71a28c34598685990ce940519db80d827da8861e0ed746df"
+        },
+        "task_id": "verify-row-selection-wake10",
+        "worker_identity": {
+          "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+          "pid": 256066,
+          "start_ticks": 12237225
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-c9d954b9d13a4ecf932b8b6958a6689c/receipt.json",
+        "sha256": "534607209fbbce98a4f57d731d7eacd4ae70bde78619b3df55c1cc9a139062b7"
+      },
+      "reservation_seconds": 43.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "verify-row-selection-wake10"
+    }
+  ],
+  "budget": {
+    "attempts_used": 4,
+    "deadline_epoch": 1791777109.5005426,
+    "elapsed_seconds": 16.434940842009382,
+    "max_attempts": 12,
+    "max_command_seconds": 600,
+    "remaining_deadline_seconds": 858.0280301570892,
+    "remaining_seconds": 583.5650591579906,
+    "reserved_seconds": 0
+  },
+  "complete_goal": false,
+  "continuations": [],
+  "current_question": "Continue verify: Execution observation for verify-row-selection-v2-wake10: succeeded; Command execution reported succeeded",
+  "external_waits": [],
+  "goal": "Continuously test and improve cross-domain multilingual tokenization fairness with legal aligned data, verified metrics, matched controls, and retained negative results.",
+  "goal_completions": [],
+  "goal_contract": {
+    "completion_criteria": [
+      {
+        "description": "Test mechanisms governing cross-domain fairness transfer.",
+        "id": "mechanism"
+      },
+      {
+        "description": "Evaluate justified revisions against Classical BPE and matched controls at accounted token cost.",
+        "id": "improvement"
+      },
+      {
+        "description": "Keep development evidence separate from fresh confirmation and require legal provenance.",
+        "id": "scope"
+      }
+    ],
+    "mode": "continuous_research"
+  },
+  "goal_contract_history": [
+    {
+      "contract": {
+        "completion_criteria": [
+          {
+            "description": "Test mechanisms governing cross-domain fairness transfer.",
+            "id": "mechanism"
+          },
+          {
+            "description": "Evaluate justified revisions against Classical BPE and matched controls at accounted token cost.",
+            "id": "improvement"
+          },
+          {
+            "description": "Keep development evidence separate from fresh confirmation and require legal provenance.",
+            "id": "scope"
+          }
+        ],
+        "mode": "continuous_research"
+      },
+      "goal": "Continuously test and improve cross-domain multilingual tokenization fairness with legal aligned data, verified metrics, matched controls, and retained negative results.",
+      "reason": "Initial objective scope",
+      "version": 1
+    }
+  ],
+  "goal_contract_version": 1,
+  "idea_status": "active",
+  "journal": {
+    "active_idea": "pa-bpe-domain-robustness",
+    "blocker": null,
+    "budget_exhausted": false,
+    "counters": {
+      "iterations": 4,
+      "repairs": 0,
+      "usage": {
+        "wall_seconds": 16.434940842009382
+      }
+    },
+    "goal": "Continuously test and improve cross-domain multilingual tokenization fairness with legal aligned data, verified metrics, matched controls, and retained negative results.",
+    "history": [
+      {
+        "created_at": "2026-10-12T03:31:49.495380+00:00",
+        "event": {
+          "goal": "Continuously test and improve cross-domain multilingual tokenization fairness with legal aligned data, verified metrics, matched controls, and retained negative results.",
+          "idea": "pa-bpe-domain-robustness",
+          "kind": "initialize",
+          "max_iterations": null,
+          "max_repairs": 3
+        },
+        "idea": "pa-bpe-domain-robustness",
+        "revision": 1,
+        "version": 0
+      },
+      {
+        "created_at": "2026-10-12T03:32:55.017237+00:00",
+        "event": {
+          "event_id": "runner-result:attempt-0c7f3602f8834649b5cf6113f9ee6e9d",
+          "evidence": [
+            {
+              "path": ".research-autopilot/runner/attempts/attempt-0c7f3602f8834649b5cf6113f9ee6e9d/receipt.json",
+              "sha256": "46b5b7dfff9c7fee15ddb146c15581858716459b106e6719f697805371577ff6"
+            }
+          ],
+          "kind": "progress",
+          "next_phase": "verify",
+          "reason": "Execution observation for create-isolated-env-wake10: succeeded; Command execution reported succeeded",
+          "usage": {
+            "wall_seconds": 2.7297750339930644
+          }
+        },
+        "idea": "pa-bpe-domain-robustness",
+        "revision": 1,
+        "version": 1
+      },
+      {
+        "created_at": "2026-10-12T03:33:08.617516+00:00",
+        "event": {
+          "event_id": "runner-result:attempt-bcd4118341f4463daf677f402e2944a0",
+          "evidence": [
+            {
+              "path": ".research-autopilot/runner/attempts/attempt-bcd4118341f4463daf677f402e2944a0/receipt.json",
+              "sha256": "f6ed32b9710ce89a0216126323a683a810ffb69a7d359a2c45f967387dcef8d4"
+            }
+          ],
+          "kind": "progress",
+          "next_phase": "verify",
+          "reason": "Execution observation for install-tokenizers-wake10: succeeded; Command execution reported succeeded",
+          "usage": {
+            "wall_seconds": 13.353749850997701
+          }
+        },
+        "idea": "pa-bpe-domain-robustness",
+        "revision": 1,
+        "version": 2
+      },
+      {
+        "created_at": "2026-10-12T03:33:09.087430+00:00",
+        "event": {
+          "event_id": "runner-result:attempt-c9d954b9d13a4ecf932b8b6958a6689c",
+          "evidence": [
+            {
+              "path": ".research-autopilot/runner/attempts/attempt-c9d954b9d13a4ecf932b8b6958a6689c/receipt.json",
+              "sha256": "534607209fbbce98a4f57d731d7eacd4ae70bde78619b3df55c1cc9a139062b7"
+            }
+          ],
+          "kind": "progress",
+          "next_phase": "verify",
+          "reason": "Execution observation for verify-row-selection-wake10: succeeded; Command execution reported succeeded",
+          "usage": {
+            "wall_seconds": 0.2320835060090758
+          }
+        },
+        "idea": "pa-bpe-domain-robustness",
+        "revision": 1,
+        "version": 3
+      },
+      {
+        "created_at": "2026-10-12T03:37:26.592072+00:00",
+        "event": {
+          "event_id": "runner-result:attempt-65b351c884354f399a283f0119e4d411",
+          "evidence": [
+            {
+              "path": ".research-autopilot/runner/attempts/attempt-65b351c884354f399a283f0119e4d411/receipt.json",
+              "sha256": "050ee86b267d9d05412d37fba4ef5b5364bdf2db4451278fe658329b8d184924"
+            }
+          ],
+          "kind": "progress",
+          "next_phase": "verify",
+          "reason": "Execution observation for verify-row-selection-v2-wake10: succeeded; Command execution reported succeeded",
+          "usage": {
+            "wall_seconds": 0.11933245100954082
+          }
+        },
+        "idea": "pa-bpe-domain-robustness",
+        "revision": 1,
+        "version": 4
+      }
+    ],
+    "idea_history": [],
+    "limits": {
+      "max_iterations": null,
+      "max_repairs": 3
+    },
+    "milestones": [],
+    "next_action": "Continue verify: Execution observation for verify-row-selection-v2-wake10: succeeded; Command execution reported succeeded",
+    "pending_launch": null,
+    "phase": "verify",
+    "reported_outcome": null,
+    "research_cycles": [],
+    "revision": 1,
+    "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+    "schema_version": 1,
+    "scientific_certification": false,
+    "status": "active",
+    "version": 4,
+    "wait": null
+  },
+  "next_action": "Continue verify: Execution observation for verify-row-selection-v2-wake10: succeeded; Command execution reported succeeded",
+  "outbox": [
+    {
+      "error": null,
+      "event": {
+        "event_id": "runner-result:attempt-0c7f3602f8834649b5cf6113f9ee6e9d",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-0c7f3602f8834649b5cf6113f9ee6e9d/receipt.json",
+            "sha256": "46b5b7dfff9c7fee15ddb146c15581858716459b106e6719f697805371577ff6"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for create-isolated-env-wake10: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 2.7297750339930644
+        }
+      },
+      "state": "recorded"
+    },
+    {
+      "error": null,
+      "event": {
+        "event_id": "runner-result:attempt-65b351c884354f399a283f0119e4d411",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-65b351c884354f399a283f0119e4d411/receipt.json",
+            "sha256": "050ee86b267d9d05412d37fba4ef5b5364bdf2db4451278fe658329b8d184924"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for verify-row-selection-v2-wake10: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 0.11933245100954082
+        }
+      },
+      "state": "recorded"
+    },
+    {
+      "error": null,
+      "event": {
+        "event_id": "runner-result:attempt-bcd4118341f4463daf677f402e2944a0",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-bcd4118341f4463daf677f402e2944a0/receipt.json",
+            "sha256": "f6ed32b9710ce89a0216126323a683a810ffb69a7d359a2c45f967387dcef8d4"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for install-tokenizers-wake10: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 13.353749850997701
+        }
+      },
+      "state": "recorded"
+    },
+    {
+      "error": null,
+      "event": {
+        "event_id": "runner-result:attempt-c9d954b9d13a4ecf932b8b6958a6689c",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-c9d954b9d13a4ecf932b8b6958a6689c/receipt.json",
+            "sha256": "534607209fbbce98a4f57d731d7eacd4ae70bde78619b3df55c1cc9a139062b7"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for verify-row-selection-wake10: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 0.2320835060090758
+        }
+      },
+      "state": "recorded"
+    }
+  ],
+  "requests": [
+    {
+      "agent_attempt_id": null,
+      "error": null,
+      "request_ref": {
+        "path": ".research-autopilot/runner/requests/decision-86ee27517ce94ddea87d7013ab7ddeb2.json",
+        "sha256": "1fbf6de382db8cc2abba3e53d472ff073528c915daee8236758ec674f3560f08"
+      },
+      "snapshot": {
+        "agent_error": null,
+        "agent_version": 0,
+        "attempts": [],
+        "budget": {
+          "attempts_used": 0,
+          "deadline_epoch": 1791777109.5005426,
+          "elapsed_seconds": 0.0,
+          "max_attempts": 12,
+          "max_command_seconds": 600,
+          "remaining_deadline_seconds": 1176.5771174430847,
+          "remaining_seconds": 600.0,
+          "reserved_seconds": 0
+        },
+        "continuation": null,
+        "current_question": "Inspect the existing method and choose its next important uncertainty",
+        "goal": "Continuously test and improve cross-domain multilingual tokenization fairness with legal aligned data, verified metrics, matched controls, and retained negative results.",
+        "goal_contract": {
+          "completion_criteria": [
+            {
+              "description": "Test mechanisms governing cross-domain fairness transfer.",
+              "id": "mechanism"
+            },
+            {
+              "description": "Evaluate justified revisions against Classical BPE and matched controls at accounted token cost.",
+              "id": "improvement"
+            },
+            {
+              "description": "Keep development evidence separate from fresh confirmation and require legal provenance.",
+              "id": "scope"
+            }
+          ],
+          "mode": "continuous_research"
+        },
+        "goal_contract_version": 1,
+        "idea": "pa-bpe-domain-robustness",
+        "idea_status": "active",
+        "journal_version": 0,
+        "milestones": [],
+        "next_action": "Inspect the existing method and choose its next important uncertainty",
+        "observations": [],
+        "request_id": "decision-86ee27517ce94ddea87d7013ab7ddeb2",
+        "research_cycles": [],
+        "revision": 1,
+        "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "tasks": []
+      },
+      "state": "open"
+    }
+  ],
+  "research_cycle_count": 0,
+  "root": "/workspace/scratch/42f1128b703b/wake10_project/pa_bpe_simple/execution_windows/wake10",
+  "sequence": 4,
+  "source": {
+    "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+      },
+      {
+        "path": "references/rsi-simple.md",
+        "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+      },
+      {
+        "path": "references/simple-runner.md",
+        "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+      },
+      {
+        "path": "scripts/_simple_process.py",
+        "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+      },
+      {
+        "path": "scripts/_simple_source.py",
+        "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+      },
+      {
+        "path": "scripts/simple_loop.py",
+        "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+      },
+      {
+        "path": "scripts/simple_runner.py",
+        "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+      },
+      {
+        "path": "references/simple-experiment-design.md",
+        "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+      },
+      {
+        "path": "scripts/simple_design.py",
+        "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+      },
+      {
+        "path": "scripts/simple_resources.py",
+        "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+      },
+      {
+        "path": "assets/templates/simple-experiment-plan.json",
+        "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+      },
+      {
+        "path": "assets/templates/simple-experiment-results.json",
+        "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+      },
+      {
+        "path": "references/simple-collaboration.md",
+        "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+      },
+      {
+        "path": "assets/templates/simple-delegation.json",
+        "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+      }
+    ],
+    "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "source_error": null,
+  "source_history": [
+    {
+      "reason": "Initial source snapshot",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      }
+    }
+  ],
+  "status": "awaiting_decision",
+  "stop_requested": null,
+  "tasks": [
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "venv",
+        ".venv"
+      ],
+      "attempt_id": "attempt-0c7f3602f8834649b5cf6113f9ee6e9d",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "window_parent_binding.json",
+          "sha256": "5cc08d232c5a4cd8fb05645640222cd85d5a4d11a1f3888916551f70bfcf0430"
+        }
+      ],
+      "outputs": [
+        ".venv/pyvenv.cfg"
+      ],
+      "phase": "sources",
+      "purpose": "Create a project-local dependency environment without modifying the shared Python installation.",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "create-isolated-env-wake10",
+      "timeout_seconds": 40
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--disable-pip-version-check",
+        "--only-binary=:all:",
+        "--report",
+        "output/tokenizers_install_report.json",
+        "tokenizers==0.22.1"
+      ],
+      "attempt_id": "attempt-bcd4118341f4463daf677f402e2944a0",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "create-isolated-env-wake10"
+      ],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "row_selection_protocol.json",
+          "sha256": "349afa25e652464073349edccd9372112ac21047cf95182f4dd087edf543001b"
+        }
+      ],
+      "outputs": [
+        "output/tokenizers_install_report.json"
+      ],
+      "phase": "sources",
+      "purpose": "Freeze the previously unpinned author dependency inside the project window so exact author-pretokenizer accounting can be verified.",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "install-tokenizers-wake10",
+      "timeout_seconds": 110
+    },
+    {
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        ".venv/bin/python",
+        "scripts/measure_command.py",
+        "output/row_selection_verification_v2.resources.json",
+        "scripts/verify_row_selection.py"
+      ],
+      "attempt_id": "attempt-65b351c884354f399a283f0119e4d411",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "row_selection_protocol.json",
+          "sha256": "3d617b5eea67465fa78d66763c9f410f251c929636a28a1fd8f1ca41c5ff53ba"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/verify_row_selection.py",
+          "sha256": "3819ab6103775a6e2ec5bdad7c1284479bc6fc63b0deafe140f25606ef8875e3"
+        },
+        {
+          "path": "inputs/en_probe.json",
+          "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"
+        },
+        {
+          "path": "inputs/fr_probe.json",
+          "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"
+        },
+        {
+          "path": "inputs/es_probe.json",
+          "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"
+        },
+        {
+          "path": "inputs/learn_bpe.py",
+          "sha256": "f24dfe59d37d03a84e3721ad37f6f2dd20685af1da3078cfd5ff0465f5d47d35"
+        },
+        {
+          "path": "inputs/parity_aware_learn_bpe.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        }
+      ],
+      "outputs": [
+        "output/row_selection_verification_v2.json",
+        "output/row_selection_verification_v2.resources.json"
+      ],
+      "phase": "verify",
+      "purpose": "Strengthen the diagnostic with exact fixed-author parser round-trips, a multi-document boundary fixture, zero-pretoken and insufficient-budget behavior, and the PA-BPE shared train/dev dict-input contract.",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "verify-row-selection-v2-wake10",
+      "timeout_seconds": 40
+    },
+    {
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        ".venv/bin/python",
+        "scripts/measure_command.py",
+        "output/row_selection_verification.resources.json",
+        "scripts/verify_row_selection.py"
+      ],
+      "attempt_id": "attempt-c9d954b9d13a4ecf932b8b6958a6689c",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "install-tokenizers-wake10"
+      ],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "row_selection_protocol.json",
+          "sha256": "349afa25e652464073349edccd9372112ac21047cf95182f4dd087edf543001b"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+        },
+        {
+          "path": "scripts/verify_row_selection.py",
+          "sha256": "5dea160c1590d75644299300af6b1f7d3afbfa172ed71739ea9ee49bc5ce5656"
+        },
+        {
+          "path": "inputs/en_probe.json",
+          "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"
+        },
+        {
+          "path": "inputs/fr_probe.json",
+          "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"
+        },
+        {
+          "path": "inputs/es_probe.json",
+          "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"
+        }
+      ],
+      "outputs": [
+        "output/row_selection_verification.json",
+        "output/row_selection_verification.resources.json"
+      ],
+      "phase": "verify",
+      "purpose": "Unit-verify result-blind row ranking, duplicate/missing-ID behavior, exact matched pretoken mass, and deterministic dictionary hashes on development-only source probes.",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "verify-row-selection-wake10",
+      "timeout_seconds": 40
+    }
+  ]
+}

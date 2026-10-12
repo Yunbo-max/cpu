@@ -1,0 +1,50 @@
+{
+  "observed_utc": "2026-10-12T09:34:38.624785+00:00",
+  "scope": "migration only; no scientific commands",
+  "incidents": [
+    {
+      "action": "partial-clone git add",
+      "result": "missing new blob IDs triggered repeated remote not-our-ref lookups; interrupted own exec session 68225, exit 130"
+    },
+    {
+      "action": "premature commit and add retry",
+      "exit_code": 128,
+      "result": "index.lock refused; no commit or source deletion occurred"
+    }
+  ],
+  "repair": "Only own stopped staging lock removed. Retry with GIT_NO_LAZY_FETCH=1 and remote.origin.promisor=false.",
+  "repair_verified": "GIT_NO_LAZY_FETCH=1 with promisor=false add exited 0; original latest archive roundtrip and no-overwrite/corrupt-chunk guards passed.",
+  "additional_incidents": [
+    {
+      "action": "shell git push",
+      "exit_code": 128,
+      "reason": "No command-line GitHub write credential; connected GitHub app has repository push permission. No force push or credential extraction attempted."
+    },
+    {
+      "action": "32 MiB blob through direct orchestration",
+      "result": "Transport request failed; native current HostedAppsClient successfully uploaded the exact blob in 10.4086 seconds, remote Git SHA matched."
+    },
+    {
+      "observed_utc": "2026-10-12T09:51:56.619804+00:00",
+      "action": "native 32 MiB create_blob",
+      "error": "ReadTimeout",
+      "repair": "Rechunk archive transport into 4 MiB objects; preserve original whole-archive hashes and all source files."
+    },
+    {
+      "observed_utc": "2026-10-12T10:11:28.442428+00:00",
+      "action": "bounded UTF-8 tree upload verification",
+      "exit_code": 1,
+      "reason": "create_tree returns only tree SHA; verifier expected inline tree entries",
+      "repair": "Fetch the created tree by returned SHA, then validate every blob identity; branch unchanged and local sources retained."
+    },
+    {
+      "observed_utc": "2026-10-12T10:15:23.789734+00:00",
+      "action": "create complete project tree with 2118 paths",
+      "exit_code": 1,
+      "error": "ReadTimeout",
+      "impact": "All blobs uploaded; branch commit not created; source retained",
+      "repair": "Resumable tree-object batches of 200 entries; no branch change before complete tree."
+    }
+  ],
+  "publication_transport": "Current HostedAppsClient, observed GitHub connector metadata, same authenticated GitHub create_blob/create_tree/create_commit/update_ref tools"
+}

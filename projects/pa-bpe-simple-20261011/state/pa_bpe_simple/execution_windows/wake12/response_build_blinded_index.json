@@ -1,0 +1,33 @@
+{
+  "response_id": "wake12-build-real-blinded-fingerprint-index-v1",
+  "request_id": "decision-c5f81a3e38e34bcd9ce443db69471f5e",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The repaired raw-schema pass resolved every frozen identity: 267 documents per language and 567/572/561 requested sentence IDs for en/es/fr, with no raw-text or tokenizer output. Build the real fingerprint index now, storing only blinded unit IDs, URL hashes, normalized exact hashes, full SHA256 5-word shingles and counts.",
+  "tasks": [
+    {
+      "task_id": "build-globalvoices-blinded-index-wake12-v1",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "PYTHONHASHSEED=0", "python3", "scripts/measure_command.py", "output/blinded_index.resources.json", "scripts/build_blinded_fingerprints.py", "--units", "inputs/reference/opus_gv_closed_components.json", "--raw-dir", "inputs/opus_gv_v2018q4/raw", "--source-manifest", "confirmation_raw_source_manifest.json", "--fetch-receipts", "output", "--database", "output/globalvoices_blinded_fingerprints.sqlite3", "--summary", "output/blinded_index_summary.json"],
+      "phase": "code",
+      "purpose": "Construct the real result-blind GlobalVoices confirmation fingerprint index for the pre-frozen 512 trilingual units without persisting raw text or computing tokenizer/fairness outcomes.",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "inputs/reference/opus_gv_closed_components.json", "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"},
+        {"path": "inputs/opus_gv_v2018q4/raw/fr.zip", "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"},
+        {"path": "inputs/opus_gv_v2018q4/raw/es.zip", "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"},
+        {"path": "inputs/opus_gv_v2018q4/raw/en.zip", "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"},
+        {"path": "confirmation_raw_source_manifest.json", "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"},
+        {"path": "output/fetch_fr.json", "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"},
+        {"path": "output/fetch_es.json", "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"},
+        {"path": "output/fetch_en.json", "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"},
+        {"path": "output/raw_schema_v2.json", "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"},
+        {"path": "scripts/build_blinded_fingerprints.py", "sha256": "bd64bd432d6e6971f7e90122b6d7a0b3d986ba88a5e99684227a019d5d2fda2d"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"}
+      ],
+      "outputs": ["output/globalvoices_blinded_fingerprints.sqlite3", "output/blinded_index_summary.json", "output/blinded_index.resources.json"]
+    }
+  ]
+}

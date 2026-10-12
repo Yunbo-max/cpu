@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "request_id": "wake12-blinded-index-review-request-v1",
+  "delegation_id": "wake12-blinded-index-review",
+  "generation": 1,
+  "lifecycle_state": "running",
+  "launch": {
+    "intent_recorded_at_utc": "2026-10-12T05:47:00Z",
+    "task_name": "pa_bpe_blinded_index_review_wake12",
+    "native_agent_id": "/root/pa_bpe_blinded_index_review_wake12",
+    "observed_launch_time_utc": "2026-10-12T05:48:00Z"
+  },
+  "parent_binding": {
+    "goal_contract_version": 1,
+    "active_idea": "pa-bpe-domain-robustness",
+    "idea_revision": 1,
+    "adopted_source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "checkpoint_generation": 12
+  },
+  "assignment": {
+    "question": "Does the real GlobalVoices fingerprint builder and resulting SQLite artifact uphold result blindness, immutable source binding and the frozen 512-unit identity contract?",
+    "deliverable": "Read-only code/artifact audit with pass/hold findings, exact evidence, limitations and next action.",
+    "read_paths": [
+      "execution_windows/wake12/scripts/build_blinded_fingerprints.py",
+      "execution_windows/wake12/output/blinded_index_summary.json",
+      "execution_windows/wake12/output/globalvoices_blinded_fingerprints.sqlite3",
+      "execution_windows/wake12/output/raw_schema_v2.json",
+      "execution_windows/wake12/confirmation_raw_source_manifest.json",
+      "execution_windows/wake11/decontamination_selector_protocol.json"
+    ],
+    "write_scope": "none; return findings to coordinator only",
+    "completion_requirements": [
+      "Check artifact hashes and SQLite schema/counts without printing confirmation raw text",
+      "Check whether plaintext text, raw document paths, sentence IDs or URLs are persisted",
+      "Check binding gaps that block consuming this index in the production decontamination selector",
+      "Do not run tokenizer/fairness scoring"
+    ]
+  },
+  "input_refs": [
+    {"path": "execution_windows/wake12/scripts/build_blinded_fingerprints.py", "sha256": "bd64bd432d6e6971f7e90122b6d7a0b3d986ba88a5e99684227a019d5d2fda2d"},
+    {"path": "execution_windows/wake12/output/blinded_index_summary.json", "sha256": "db6f1d7c4fb60fb2368c0a40b5e35f685b604ea7504f036d6e8fceb2a74c3c32"},
+    {"path": "execution_windows/wake12/output/globalvoices_blinded_fingerprints.sqlite3", "sha256": "8e8b1716be87bcc65fd420dcd53f3314c82a23bc76517dc1bcb4605653be97fa"},
+    {"path": "execution_windows/wake12/output/raw_schema_v2.json", "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"},
+    {"path": "execution_windows/wake12/confirmation_raw_source_manifest.json", "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"}
+  ],
+  "authority": {
+    "source": "user continuous_research authorization and Simple collaboration guidance",
+    "deadline": "current wake",
+    "experiments_permitted": false,
+    "further_delegation_permitted": false,
+    "model_usage": "unknown"
+  },
+  "result": null,
+  "acceptance": {"state": "pending", "reason": null}
+}

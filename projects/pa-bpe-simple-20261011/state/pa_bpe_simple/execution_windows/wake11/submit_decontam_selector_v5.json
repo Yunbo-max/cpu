@@ -1,0 +1,25 @@
+{
+  "submission_id": "decontam-selector-contract-wake11-v5",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [{
+    "task_id": "verify-decontam-selector-wake11-v5",
+    "supersedes": "verify-decontam-selector-wake11-v4",
+    "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "PYTHONHASHSEED=0", "python3", "scripts/measure_command.py", "output/decontam_selector_verification_v5.resources.json", "scripts/verify_decontam_selector.py"],
+    "phase": "verify",
+    "purpose": "Repair only the test-helper import name after v4 NameError; rerun the reviewed entrypoint hardening and 20k-row stream probe unchanged.",
+    "timeout_seconds": 90,
+    "cwd": ".",
+    "depends_on": [],
+    "input_refs": [
+      {"path": "decontamination_selector_protocol.json", "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"},
+      {"path": "scripts/decontam_selector.py", "sha256": "7b45061c22210d0f657ccfca9745344f200820f433669796a2f36115d5568f2e"},
+      {"path": "scripts/verify_decontam_selector.py", "sha256": "f2717b04b1dbcefd2724e703bff284b2d1c000cd7f96a5d341f3618966d0d12a"},
+      {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"},
+      {"path": "inputs/en_probe.json", "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"},
+      {"path": "inputs/fr_probe.json", "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"},
+      {"path": "inputs/es_probe.json", "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"}
+    ],
+    "outputs": ["output/decontam_selector_verification.json", "output/decontam_selector_verification_v5.resources.json"]
+  }]
+}

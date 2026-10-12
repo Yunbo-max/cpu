@@ -1,0 +1,22 @@
+{
+  "response_id": "wake11-decontam-ranked-stream-milestone-v1",
+  "request_id": "decision-5126fcb7cb4444569908a4e6808924be",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Record a prospective software milestone only. The result-blind decontamination and disk-backed ranked-row stream passed bounded probes after two retained failures, but real confirmation fingerprints, true row-to-shard provenance, pretoken-budget integration, production-scale payload, tokenizer training and fairness evidence remain HOLD.",
+  "events": [{
+    "kind": "milestone",
+    "event_id": "decontaminated-ranked-row-stream-wake11",
+    "label": "Result-blind decontamination and disk-backed ranked-row stream unit-verified",
+    "next_phase": "sources",
+    "reason": "The final v5 attempt passed 24 checks: full-SHA256 exact/near content rules, conservative GlobalVoices/invalid/IPv6 URL handling, language scoping, all-copy duplicate rejection, missing-ID and provenance failures, transactional rollback, close/reopen idempotence, implementation/input/provenance/confirmation bindings, incomplete-stage emission guard, atomic streamed manifest, three probe-order equivalences, and a 20,000-row generator scale probe. Peak RSS was 22,179,840 bytes. This does not qualify the 1.60 TB candidate universe or open confirmation outcomes.",
+    "evidence": [
+      {"path": "decontamination_selector_protocol.json", "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"},
+      {"path": "scripts/decontam_selector.py", "sha256": "7b45061c22210d0f657ccfca9745344f200820f433669796a2f36115d5568f2e"},
+      {"path": "scripts/verify_decontam_selector.py", "sha256": "f2717b04b1dbcefd2724e703bff284b2d1c000cd7f96a5d341f3618966d0d12a"},
+      {"path": "output/decontam_selector_verification.json", "sha256": "4c9e21dfb39b779b66fdc6ddd2c2ff61f73a98f495a370a808f302e993d17bdc"},
+      {"path": "output/decontam_selector_verification_v5.resources.json", "sha256": "d3503dd44b0cb6b16bac6dbe82e657b1e4b1abee1c02d62569cc2f78ecf4dabd"}
+    ]
+  }]
+}

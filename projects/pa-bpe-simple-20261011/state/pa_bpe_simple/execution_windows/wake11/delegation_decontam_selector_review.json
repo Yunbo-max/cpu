@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "assignment_id": "wake11-decontam-selector-independent-review",
+  "created_at_utc": "2026-10-12T04:40:30Z",
+  "coordinator": "automation-wake11-20261012T0433Z",
+  "worker_role": "independent read-only software/method reviewer",
+  "active_idea": "pa-bpe-domain-robustness",
+  "scope": [
+    "Inspect the frozen decontamination and SQLite selector protocol, implementation, verifier, output, and runner receipts.",
+    "Check result-blindness, URL/text normalization semantics, near-match arithmetic, duplicate and provenance behavior, restart binding, atomic-write evidence, and claim boundaries.",
+    "Return PASS/HOLD/FAIL decisions with concrete evidence and required corrections."
+  ],
+  "prohibitions": ["no file edits", "no experiment execution", "no network access", "no raw confirmation text", "no tokenizer/fairness result inspection"],
+  "inputs": [
+    "execution_windows/wake11/decontamination_selector_protocol.json",
+    "execution_windows/wake11/scripts/decontam_selector.py",
+    "execution_windows/wake11/scripts/verify_decontam_selector.py",
+    "execution_windows/wake11/output/decontam_selector_verification.json",
+    "execution_windows/wake11/output/decontam_selector_verification_v2.resources.json",
+    "execution_windows/wake11/output/status_after_v2.json"
+  ],
+  "expected_return": "Concise review text plus machine-readable acceptance recommendations; coordinator alone writes canonical artifacts."
+}

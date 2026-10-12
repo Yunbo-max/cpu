@@ -1,0 +1,23 @@
+{
+  "response_id": "wake8-spanish-source-milestone-v1",
+  "request_id": "decision-6876cd8f46c641a5b59e3f40848a8ddb",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Record a source-access qualification, not a tokenizer result; keep the continuous goal active and the formal training gate on hold.",
+  "events": [
+    {
+      "kind": "milestone",
+      "event_id": "spanish-fineweb2-access-wake8",
+      "label": "Spanish FineWeb2 source existence and row schema qualified",
+      "next_phase": "sources",
+      "reason": "The official first-rows endpoint returned 44 unique spa_Latn/train records, all from CC-MAIN-2013-20, with stable ids, URLs and shard paths. This resolves data-existence uncertainty after the rows endpoint timeout, but storage-order rows remain ineligible as formal training input pending immutable shard identities, deterministic hash-ranked sampling and frozen GlobalVoices decontamination.",
+      "evidence": [
+        {"path": "spanish_source_protocol.json", "sha256": "81a90afe02796dcf8c369a8afa8bb90f262454711e96bc369c70f41e201b5e64"},
+        {"path": "inputs/fineweb2_spa_first_rows.json", "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"},
+        {"path": "output/spanish_source_qualification.json", "sha256": "1fb676b5fedef8369654e9c19a4dfdf8d28e7510614eb4a1fc0759851dc14c8b"},
+        {"path": "output/spanish_source.resources.json", "sha256": "ec7207753bf70fcd6856cfc8235a421ced44b53d21b5a386cac4b7866404ed2e"}
+      ]
+    }
+  ]
+}

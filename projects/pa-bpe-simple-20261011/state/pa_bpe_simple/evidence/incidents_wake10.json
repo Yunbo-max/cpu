@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "window": "wake10",
+  "incidents": [
+    {
+      "observed_at_utc": "2026-10-12T03:28:00Z",
+      "kind": "low_shared_memory_headroom",
+      "symptom": "The cgroup allowed 8 GiB but only about 317 MiB headroom was initially available; CPU quota remained 8.",
+      "impact": "Parquet payload, decontamination index construction and tokenizer training were withheld to avoid OOM.",
+      "repair": "Restricted the window to low-memory protocol work, installed an explicit 384 MiB task guard, and remeasured before execution. The verification later used only 23,846,912 bytes peak RSS."
+    },
+    {
+      "observed_at_utc": "2026-10-12T03:30:00Z",
+      "kind": "author_pretokenizer_dependency_missing",
+      "symptom": "System Python raised ModuleNotFoundError for tokenizers; the author pyproject declared it without a version pin.",
+      "impact": "Exact author-pretokenizer accounting could not initially be claimed.",
+      "repair": "Created a project-local venv and installed tokenizers==0.22.1 with a pip installation report; exact accounting and fixed-author parser round-trips then passed."
+    },
+    {
+      "observed_at_utc": "2026-10-12T03:32:12Z",
+      "kind": "runner_plan_phase_rejected",
+      "symptom": "The first submission used unsupported task phase setup and was rejected as Unknown task phase.",
+      "impact": "Zero commands ran and runner usage remained zero.",
+      "repair": "Changed only the two environment tasks to the supported sources phase and retained the rejected receipt."
+    },
+    {
+      "observed_at_utc": "2026-10-12T03:32:52Z",
+      "kind": "duplicate_supervisor_start_prevented",
+      "symptom": "A second run invocation reported that another supervisor owned the project lock.",
+      "impact": "No competing supervisor started. The original same-window supervisor was alive and already executing the accepted plan.",
+      "repair": "Inspected health and process identity, did not clear the live lock, and monitored the original supervisor to terminal task states."
+    }
+  ]
+}

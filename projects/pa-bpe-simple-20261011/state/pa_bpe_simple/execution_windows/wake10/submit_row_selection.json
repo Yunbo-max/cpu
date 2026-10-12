@@ -1,0 +1,51 @@
+{
+  "submission_id": "row-selection-protocol-wake10-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "create-isolated-env-wake10",
+      "argv": ["python3", "-m", "venv", ".venv"],
+      "phase": "sources",
+      "purpose": "Create a project-local dependency environment without modifying the shared Python installation.",
+      "timeout_seconds": 40,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "window_parent_binding.json", "sha256": "5cc08d232c5a4cd8fb05645640222cd85d5a4d11a1f3888916551f70bfcf0430"}
+      ],
+      "outputs": [".venv/pyvenv.cfg"]
+    },
+    {
+      "task_id": "install-tokenizers-wake10",
+      "argv": [".venv/bin/python", "-m", "pip", "install", "--disable-pip-version-check", "--only-binary=:all:", "--report", "output/tokenizers_install_report.json", "tokenizers==0.22.1"],
+      "phase": "sources",
+      "purpose": "Freeze the previously unpinned author dependency inside the project window so exact author-pretokenizer accounting can be verified.",
+      "timeout_seconds": 110,
+      "cwd": ".",
+      "depends_on": ["create-isolated-env-wake10"],
+      "input_refs": [
+        {"path": "row_selection_protocol.json", "sha256": "349afa25e652464073349edccd9372112ac21047cf95182f4dd087edf543001b"}
+      ],
+      "outputs": ["output/tokenizers_install_report.json"]
+    },
+    {
+      "task_id": "verify-row-selection-wake10",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", ".venv/bin/python", "scripts/measure_command.py", "output/row_selection_verification.resources.json", "scripts/verify_row_selection.py"],
+      "phase": "verify",
+      "purpose": "Unit-verify result-blind row ranking, duplicate/missing-ID behavior, exact matched pretoken mass, and deterministic dictionary hashes on development-only source probes.",
+      "timeout_seconds": 40,
+      "cwd": ".",
+      "depends_on": ["install-tokenizers-wake10"],
+      "input_refs": [
+        {"path": "row_selection_protocol.json", "sha256": "349afa25e652464073349edccd9372112ac21047cf95182f4dd087edf543001b"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"},
+        {"path": "scripts/verify_row_selection.py", "sha256": "5dea160c1590d75644299300af6b1f7d3afbfa172ed71739ea9ee49bc5ce5656"},
+        {"path": "inputs/en_probe.json", "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"},
+        {"path": "inputs/fr_probe.json", "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"},
+        {"path": "inputs/es_probe.json", "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"}
+      ],
+      "outputs": ["output/row_selection_verification.json", "output/row_selection_verification.resources.json"]
+    }
+  ]
+}

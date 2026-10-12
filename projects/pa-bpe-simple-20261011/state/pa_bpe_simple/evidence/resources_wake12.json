@@ -1,0 +1,136 @@
+{
+  "collected_at_utc": "2026-10-12T05:30:18.178543Z",
+  "cpu": {
+    "affinity": {
+      "count": 9,
+      "ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "source": "os.sched_getaffinity(0)",
+      "status": "observed"
+    },
+    "capacity_upper_bound": 8.0,
+    "cgroup": {
+      "cpu_quota_count_upper_bound": 8.0,
+      "cpuset_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "hierarchy_complete": true,
+      "observations": [
+        {
+          "cpuset_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "path": "/sys/fs/cgroup",
+          "period_us": 100000,
+          "quota_count": 8.0,
+          "quota_state": "observed",
+          "quota_us": 800000,
+          "sources": [
+            "/sys/fs/cgroup/cpu.max",
+            "/sys/fs/cgroup/cpuset.cpus.effective"
+          ],
+          "version": 2
+        }
+      ],
+      "scope": "Mapped membership through visible mount roots; hidden ancestors may impose tighter limits"
+    },
+    "logical_count": 9,
+    "note": "An observed upper bound, not dedicated cores, current idle capacity or authorization; unknown constraints may lower it",
+    "sources": {
+      "capacity_upper_bound": "Minimum of known logical count, affinity, intersected cpusets and ancestor quota/period",
+      "logical_count": "os.cpu_count()"
+    }
+  },
+  "diagnostics": [],
+  "host": {
+    "hostname": "c49d3e35039a",
+    "machine": "x86_64",
+    "system": "Linux"
+  },
+  "memory": {
+    "cgroup_headroom_bytes": 755073024,
+    "cgroup_limit_bytes": 8589934592,
+    "cgroup_observations": [
+      {
+        "current_bytes": 7834861568,
+        "headroom_bytes": 755073024,
+        "limit_bytes": 8589934592,
+        "limit_state": "observed",
+        "path": "/sys/fs/cgroup",
+        "raw_limit": "8589934592",
+        "sources": [
+          "/sys/fs/cgroup/memory.max",
+          "/sys/fs/cgroup/memory.current"
+        ],
+        "version": 2
+      }
+    ],
+    "effective_total_bytes_upper_bound": 8589934592,
+    "mem_available_bytes": 7995637760,
+    "mem_total_bytes": 10475843584,
+    "note": "MemTotal may describe host RAM; cgroup headroom is instantaneous and shared, excludes future reclaim, and is not reserved memory",
+    "observed_headroom_bytes": 755073024,
+    "sources": {
+      "cgroup_headroom_bytes": "Minimum max(0, limit-current) in cgroup_observations",
+      "cgroup_limit_bytes": "Minimum known limit in cgroup_observations",
+      "effective_total_bytes_upper_bound": "Minimum known MemTotal and cgroup limit",
+      "mem_available_bytes": "/proc/meminfo:MemAvailable",
+      "mem_total_bytes": "/proc/meminfo:MemTotal",
+      "observed_headroom_bytes": "Minimum known MemAvailable and current cgroup headroom"
+    }
+  },
+  "nvidia_gpus": {
+    "devices": null,
+    "diagnostics": [
+      {
+        "component": "nvidia_gpus",
+        "kind": "missing_tool",
+        "message": "nvidia-smi was not found; GPU inventory remains unknown and CPU work can continue"
+      }
+    ],
+    "source": {
+      "query": "index,uuid,name,memory.total,memory.free,utilization.gpu",
+      "timeout_seconds": 60.0,
+      "tool": "nvidia-smi"
+    },
+    "status": "unknown",
+    "visibility": {
+      "cuda_visible_devices_raw": null,
+      "mapping_status": "unknown",
+      "reason": "CUDA_VISIBLE_DEVICES expresses visibility, not authorization; nvidia-smi indices are not confirmed CUDA ordinals. CUDA/MIG runtime mapping is not probed"
+    }
+  },
+  "schema_version": 1,
+  "scope": {
+    "authorizes_execution": false,
+    "local_only": true,
+    "note": "Observation only; declare the user's allocation separately and measure an authorized workload pilot. No research task is launched",
+    "reserves_resources": false,
+    "resource_lease": false
+  }
+}

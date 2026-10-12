@@ -1,0 +1,23 @@
+{
+  "response_id": "wake10-row-selection-protocol-milestone-v1",
+  "request_id": "decision-86ee27517ce94ddea87d7013ab7ddeb2",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Record a protocol/software milestone only. No formal training payload, tokenizer model, evaluation outcome, or fairness result was produced; the continuous research goal remains active and every formal gate remains HOLD.",
+  "events": [
+    {
+      "kind": "milestone",
+      "event_id": "deterministic-row-selection-unit-contract-wake10",
+      "label": "Result-blind row ranking and exact pretoken-budget contract unit-verified",
+      "next_phase": "sources",
+      "reason": "At tokenizers 0.22.1, 25 software/protocol checks passed on already exposed first-row probes plus an explicitly synthetic boundary fixture. These cover storage-order invariance, all-copy duplicate rejection, missing-ID dataset failure, exact 256-pretoken mass, Classical and PA-BPE fixed-author dictionary-parser round-trips, multi-document boundary truncation, zero-pretoken skip, insufficient-budget failure, and the PA-BPE shared train/dev dict-input switch. Equal pretoken counts had unequal author initial symbol mass (en 1418, fr 1315, es 1429), so symbol mass must be reported separately. Formal payload sampling remains HOLD pending result-blind GlobalVoices decontamination, row-to-fixed-shard provenance, a bounded-memory production selector, complete wheel/environment lock, and selected-row manifests.",
+      "evidence": [
+        {"path": "row_selection_protocol.json", "sha256": "3d617b5eea67465fa78d66763c9f410f251c929636a28a1fd8f1ca41c5ff53ba"},
+        {"path": "output/row_selection_verification_v2.json", "sha256": "3ed58ac0740585fff3bc904a036a15b2f99c31b13e9ec495f98c8a0a202e494c"},
+        {"path": "output/row_selection_verification_v2.resources.json", "sha256": "99d743ba75de5fee521e701dba8ee20b5142cb48eaffba147b7c82dfe621e61f"},
+        {"path": "output/tokenizers_install_report.json", "sha256": "fcf79b7da6ead7d0f5e63b93d1e1a85ef5dcd2f00a6565e0b2f98a05ec3648b9"}
+      ]
+    }
+  ]
+}

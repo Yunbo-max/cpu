@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake2/scripts/measure_command.py", line 5, in <module>
+    try:runpy.run_path(script,run_name='__main__')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "scripts/evaluate_grouped_books_wake2.py", line 87, in <module>
+    main()
+  File "scripts/evaluate_grouped_books_wake2.py", line 55, in main
+    pair = [len(tok.encode(row[lang]).ids) for lang in ("en", "fr")]
+                ^^^^^^^^^^^^^^^^^^^^^
+TypeError: TextInputSequence must be str

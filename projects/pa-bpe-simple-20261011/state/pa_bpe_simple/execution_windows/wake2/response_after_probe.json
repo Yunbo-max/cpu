@@ -1,0 +1,42 @@
+{
+  "response_id": "wake2-source-repair-and-mechanism",
+  "request_id": "decision-2ca9ea151c304703830345fadaccc693",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Official OPUS XML metadata is available, while all three FineWeb2 Spanish viewer/parquet endpoints returned HTTP 500. Use a materially different repository-tree/range route and independently analyze already exposed verbose trajectories before expanding experiments.",
+  "tasks": [
+    {
+      "task_id": "hf-spanish-repair-wake2",
+      "argv": ["/usr/bin/env", "OPENBLAS_NUM_THREADS=1", "OMP_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/hf_spanish_repair.resources.json", "scripts/hf_spanish_repair_wake2.py", "output/hf_spanish_repair"],
+      "phase": "sources",
+      "purpose": "Locate concrete official FineWeb2 Spanish parquet objects through repository metadata/range access after Dataset Viewer 500 errors",
+      "timeout_seconds": 70,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "scripts/hf_spanish_repair_wake2.py", "sha256": "17d40221710f9a77ebca064c8d480d9129b781f3b5de4e249ade891d9950f9a1"},
+        {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+        {"path": "output/source_probe/source_probe_wake2.json", "sha256": "a162de2f46e6f12a8bebea31b163975b81ad65dadbc7b37d0c4accdd8ef6337d"}
+      ],
+      "outputs": ["output/hf_spanish_repair/hf_spanish_repair_wake2.json", "output/hf_spanish_repair.resources.json"]
+    },
+    {
+      "task_id": "mechanism-log-analysis-wake2",
+      "argv": ["/usr/bin/env", "OPENBLAS_NUM_THREADS=1", "OMP_NUM_THREADS=1", "python3", "scripts/measure_command.py", "output/mechanism_analysis.resources.json", "scripts/mechanism_analysis_wake2.py", "input_logs", "output/mechanism_analysis_wake2.json"],
+      "phase": "analysis",
+      "purpose": "Retrospectively quantify language/domain selection, switches, and zero-gain steps in existing base, pooled, and robust candidate logs",
+      "timeout_seconds": 20,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "scripts/mechanism_analysis_wake2.py", "sha256": "b6664af67868881eb1e7c3c2cf3c2bab5f139f4c97aef285675d69ac3bd5a031"},
+        {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+        {"path": "input_logs/base.stderr.txt", "sha256": "f0e7a95455da02fdd86655cb89a49f830307a2a1105959f35b3a70c2fe17e9ac"},
+        {"path": "input_logs/pooled.stderr.txt", "sha256": "022895986a4b8a74e9c8a7e402cee131bcc710aa1fcd9e92deba4709adcf8116"},
+        {"path": "input_logs/robust.stderr.txt", "sha256": "a8bf899bd527cbc213b0a58a8c788853f193f461828e93650c19e2ff55cf2c37"}
+      ],
+      "outputs": ["output/mechanism_analysis_wake2.json", "output/mechanism_analysis.resources.json"]
+    }
+  ]
+}

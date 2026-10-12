@@ -1,0 +1,22 @@
+{
+  "assignment_id": "wake8-training-source-review",
+  "status": "accepted_with_conditions",
+  "worker": "/root/pa_bpe_training_source_review_wake8",
+  "dispatched_utc": "2026-10-12T01:35:00Z",
+  "created_utc": "2026-10-12T01:34:00Z",
+  "parent_checkpoint_generation": 8,
+  "parent_manifest_sha256": "0dde0a3560d07e0419dd0e3a2614b8108e7152a15f723b72dbf77d78be5e1c64",
+  "question": "Are the retained English/French training samples source-comparable, and what lawful provenance-complete route can supply English/French/Spanish training text without contaminating the independent GlobalVoices confirmation set?",
+  "scope": "Review retained metadata and official primary documentation only. Do not download dataset payloads, run tokenizer experiments, alter checkpoint state, or delegate further.",
+  "inputs": {
+    "evidence/fineweb_en_v1.json": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4",
+    "evidence/fineweb_fr.json": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce",
+    "evidence/fineweb_meta.json": "fa6a0861d431b3b944b2bee9c6185020d7e5cd42b39271d1c6dcc36715bcea57",
+    "execution_windows/wake2/output/source_probe/source_probe_wake2.json": "a162de2f46e6f12a8bebea31b163975b81ad65dadbc7b37d0c4accdd8ef6337d"
+  },
+  "output": "review/wake8_training_source_review.md",
+  "deadline_utc": "2026-10-12T01:52:00Z",
+  "completed_utc": "2026-10-12T01:37:00Z",
+  "output_sha256": "5b1e205121fcee8499cbdcac7eca6babcc85c59c87f00f0734fca099fbbb480e",
+  "acceptance": "review/wake8_training_source_acceptance.json"
+}

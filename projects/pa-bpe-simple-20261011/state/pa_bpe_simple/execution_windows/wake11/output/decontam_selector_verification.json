@@ -1,0 +1,172 @@
+{
+  "all_checks_passed": true,
+  "checks": [
+    {
+      "check": "publisher_domain_block",
+      "observed": {
+        "duplicate_id_all_copies": 2,
+        "exact_content": 1,
+        "exact_url": 2,
+        "globalvoices_host": 1,
+        "invalid_url": 1,
+        "near_content": 1
+      },
+      "passed": true
+    },
+    {
+      "check": "invalid_supplied_url_rejected",
+      "passed": true
+    },
+    {
+      "check": "canonical_exact_and_ipv6_url_block",
+      "passed": true
+    },
+    {
+      "check": "exact_normalized_content",
+      "passed": true
+    },
+    {
+      "check": "near_multiset_containment",
+      "passed": true
+    },
+    {
+      "check": "short_and_cross_language_survive",
+      "passed": true,
+      "selected": [
+        "clean",
+        "cross",
+        "short"
+      ]
+    },
+    {
+      "check": "all_duplicate_copies_rejected",
+      "passed": true
+    },
+    {
+      "check": "full_sha256_shingles",
+      "passed": true
+    },
+    {
+      "check": "confirmation_raw_text_not_emitted",
+      "passed": true
+    },
+    {
+      "check": "close_reopen_stage_idempotence",
+      "passed": true
+    },
+    {
+      "check": "restart_binding_and_mismatch_guard",
+      "passed": true
+    },
+    {
+      "check": "provenance_mode_binding_guard",
+      "passed": true
+    },
+    {
+      "check": "atomic_stream_manifest_hash",
+      "passed": true
+    },
+    {
+      "check": "en_sqlite_rank_equivalence",
+      "passed": true,
+      "rows": 40
+    },
+    {
+      "check": "en_formal_provenance_hard_failure",
+      "passed": true
+    },
+    {
+      "check": "fr_sqlite_rank_equivalence",
+      "passed": true,
+      "rows": 40
+    },
+    {
+      "check": "fr_formal_provenance_hard_failure",
+      "passed": true
+    },
+    {
+      "check": "es_sqlite_rank_equivalence",
+      "passed": true,
+      "rows": 44
+    },
+    {
+      "check": "es_formal_provenance_hard_failure",
+      "passed": true
+    },
+    {
+      "check": "missing_id_dataset_hard_failure",
+      "passed": true
+    },
+    {
+      "check": "late_provenance_failure_rolls_back",
+      "passed": true
+    },
+    {
+      "check": "incomplete_stage_emission_guard",
+      "passed": true
+    },
+    {
+      "check": "url_type_guard_and_rollback",
+      "passed": true
+    },
+    {
+      "cases": 3,
+      "check": "falsey_nonstring_url_guards",
+      "passed": true
+    },
+    {
+      "baseline_peak_rss_kib": 18872,
+      "check": "moderate_streaming_scale_probe",
+      "passed": true,
+      "peak_rss_kib": 20664
+    }
+  ],
+  "fixture_rejections": {
+    "duplicate_id_all_copies": 2,
+    "exact_content": 1,
+    "exact_url": 2,
+    "globalvoices_host": 1,
+    "invalid_url": 1,
+    "near_content": 1
+  },
+  "formal_gates": {
+    "decontamination_on_real_confirmation": "HOLD",
+    "fairness_claims": "HOLD",
+    "payload_sampling": "HOLD",
+    "production_scale": "HOLD",
+    "row_to_fixed_shard_provenance": "HOLD",
+    "tokenizer_training": "HOLD"
+  },
+  "memory_at_start": {
+    "current_bytes": 3077259264,
+    "headroom_bytes": 5512675328,
+    "max_bytes": 8589934592
+  },
+  "moderate_scale_probe": {
+    "baseline_peak_rss_kib": 18872,
+    "claim": "software scale probe only; not production qualification",
+    "peak_rss_kib": 20664,
+    "rows": 20000
+  },
+  "probe_summary": {
+    "en": {
+      "input_rows": 40,
+      "rejected": {},
+      "selected": 40
+    },
+    "es": {
+      "input_rows": 44,
+      "rejected": {},
+      "selected": 44
+    },
+    "fr": {
+      "input_rows": 40,
+      "rejected": {},
+      "selected": 40
+    }
+  },
+  "protocol_sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735",
+  "schema_version": 1,
+  "scope": "software verification only; synthetic decontamination fixture plus already exposed source probes; no confirmation raw text, formal payload, tokenizer, or fairness outcome",
+  "sqlite_version": "3.53.1"
+}

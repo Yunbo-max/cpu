@@ -1,0 +1,89 @@
+{
+  "response_id": "evaluate-pair-candidates-wake3",
+  "request_id": "decision-e6141f54d1614b989285baf45056ab35",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Both1000-merge arms completed with exact gain and independent final count checks; execute planned development-exposed cost/parity comparison, retaining failed development prediction.",
+  "tasks": [
+    {
+      "task_id": "pair-candidate-evaluation-wake3",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/pair_evaluation.resources.json",
+        "scripts/evaluate_pair_candidates.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Measure transfer and compression tradeoffs for pair-aware candidate and matched pooled control",
+      "timeout_seconds": 60,
+      "depends_on": [
+        "pair_minmax-train-wake3",
+        "pair_pooled-train-wake3"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/evaluate_pair_candidates.py",
+          "sha256": "ac3598cf8541656d4db53c125c63c4ce1f9fb77e8b3936ee00e89ed6e8a97ad9"
+        },
+        {
+          "path": "scripts/evaluator_reference.py",
+          "sha256": "612d66ff544e6cb72047d59f36e702766061abcc10e387453e3356ec231651eb"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "pair_candidate_plan.json",
+          "sha256": "6a64ace4fc6a06dc390ef3289727b83b2aa25e805530f0f0b9be617a29446a11"
+        },
+        {
+          "path": "output/pair_minmax.merges",
+          "sha256": "bc9f05d5d4df48fccb193061b65f418f0947b6c5cb1b741aeb75a2216e2f4109"
+        },
+        {
+          "path": "output/pair_pooled.merges",
+          "sha256": "5ab67219efb502f2cf6faa78edb988ba51ff74fa4bf4e450225457ddf62afc8a"
+        },
+        {
+          "path": "output/pair_minmax.trace.json",
+          "sha256": "3cca545addfdeb2c1b091744bfa9bb1b3aeeace0f3a4ba4fe4db52c9a8980703"
+        },
+        {
+          "path": "output/pair_pooled.trace.json",
+          "sha256": "84265078e29e38125fba6d74fca7b039e00119a14f5fa938126d824b1c378989"
+        },
+        {
+          "path": "output/multibook_raw_evaluation.json",
+          "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"
+        },
+        {
+          "path": "output/multibook_analysis.json",
+          "sha256": "b65764559c4e6efe60c13567ffdb607611fbdadc0e8edba1cca2b340d063e11c"
+        },
+        {
+          "path": "inputs/tico.dev100.json",
+          "sha256": "006d673eeb7ba371004bac9027e195b89219b7483c8eee8428db8eb1f6f423a3"
+        },
+        {
+          "path": "inputs/tico.confirm.json",
+          "sha256": "4c373cc4803577b786d9fb6e064734549eb3c98681e93c954b6b4a576585c24e"
+        },
+        {
+          "path": "inputs/old_candidate_evaluation.json",
+          "sha256": "9b1bdaef9c1a0b49f7fae5e312fc5af3dbf23c5843060a005a4e6e4b72350a36"
+        }
+      ],
+      "outputs": [
+        "output/pair_candidate_evaluation.json",
+        "output/pair_candidate_summary.json",
+        "output/pair_evaluation.resources.json"
+      ]
+    }
+  ]
+}

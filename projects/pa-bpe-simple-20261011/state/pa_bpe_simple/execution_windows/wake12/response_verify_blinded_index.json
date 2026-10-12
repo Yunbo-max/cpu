@@ -1,0 +1,30 @@
+{
+  "response_id": "wake12-verify-real-blinded-index-v1",
+  "request_id": "decision-fdcb9e27cd81444e94978fa97faa7700",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The real index build completed for 512 units per language with no persisted raw text by construction. Independently recompute SQLite schema/integrity/count bindings and scan deterministic raw metadata/text markers for accidental plaintext persistence before accepting the milestone.",
+  "tasks": [
+    {
+      "task_id": "verify-globalvoices-blinded-index-wake12-v1",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "PYTHONHASHSEED=0", "python3", "scripts/measure_command.py", "output/blinded_index_verification.resources.json", "scripts/verify_blinded_index.py", "--database", "output/globalvoices_blinded_fingerprints.sqlite3", "--summary", "output/blinded_index_summary.json", "--units", "inputs/reference/opus_gv_closed_components.json", "--raw-dir", "inputs/opus_gv_v2018q4/raw", "--output", "output/blinded_index_verification.json"],
+      "phase": "verify",
+      "purpose": "Independently verify the real result-blind index integrity, hash-only schema, aggregate recomputation and sampled plaintext absence without tokenizer or fairness scoring.",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "output/globalvoices_blinded_fingerprints.sqlite3", "sha256": "8e8b1716be87bcc65fd420dcd53f3314c82a23bc76517dc1bcb4605653be97fa"},
+        {"path": "output/blinded_index_summary.json", "sha256": "db6f1d7c4fb60fb2368c0a40b5e35f685b604ea7504f036d6e8fceb2a74c3c32"},
+        {"path": "inputs/reference/opus_gv_closed_components.json", "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"},
+        {"path": "inputs/opus_gv_v2018q4/raw/fr.zip", "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"},
+        {"path": "inputs/opus_gv_v2018q4/raw/es.zip", "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"},
+        {"path": "inputs/opus_gv_v2018q4/raw/en.zip", "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"},
+        {"path": "scripts/verify_blinded_index.py", "sha256": "dd4016d37db61886a46ba44adbce7c8201427f9d2370f64a851479187d3fbe7e"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"}
+      ],
+      "outputs": ["output/blinded_index_verification.json", "output/blinded_index_verification.resources.json"]
+    }
+  ]
+}

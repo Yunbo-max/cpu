@@ -1,0 +1,49 @@
+{
+  "response_id": "wake2-opus-zip-index-repair-v2",
+  "request_id": "decision-8c0ea20c8d78499e91aceedf6c744c2d",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The first ZIP index task executed but produced invalid member matching because canonicalization retained nested archive prefixes. The code now uses the member basename and records sample archive names; rerun as a versioned replacement while retaining the invalid predecessor.",
+  "tasks": [
+    {
+      "task_id": "opus-raw-zip-index-repair-wake2",
+      "argv": [
+        "/usr/bin/env",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "python3",
+        "scripts/measure_command.py",
+        "output/opus_zip_index_v2.resources.json",
+        "scripts/opus_zip_index_wake2.py",
+        "output/opus_identity_probe/opus_identity_and_hf_probe_wake2.json",
+        "output/opus_zip_index_wake2_v2.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Verify the basename canonicalization repair and recover per-work raw ZIP member sizes",
+      "timeout_seconds": 80,
+      "input_refs": [
+        {
+          "path": "scripts/opus_zip_index_wake2.py",
+          "sha256": "eb07891a4961bede6151f6e89842567d97bcf9f60269185295e276bfd9e8eee0"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "output/opus_identity_probe/opus_identity_and_hf_probe_wake2.json",
+          "sha256": "49afa96737680dd605fdc2cc2c85029e969fd9a7f70f0aa7998a4c047119ae13"
+        },
+        {
+          "path": "output/opus_zip_index_wake2.json",
+          "sha256": "a75500d43a8a58b94b5f2f6e07ff0340839c9b3e776e1f5f84259ae191e9a81c"
+        }
+      ],
+      "outputs": [
+        "output/opus_zip_index_wake2_v2.json",
+        "output/opus_zip_index_v2.resources.json"
+      ]
+    }
+  ]
+}

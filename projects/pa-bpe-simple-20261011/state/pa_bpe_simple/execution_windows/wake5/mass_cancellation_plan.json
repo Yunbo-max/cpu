@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "plan_id": "wake5-mass-cancellation-audit-v1",
+  "scope": "Retrospective audit of already-exposed bilingual paired token costs; not confirmation and not method selection.",
+  "active_idea": "pa-bpe-domain-robustness",
+  "question": "Do aggregate-Gini improvements versus Classical arise from greater signed-gap cancellation while token-mass-weighted aligned-row imbalance fails to improve, and is any such signature stable to leaving out each Books author block?",
+  "reference": "classical",
+  "contrasts": "mechanically enumerate all 15 non-reference arms",
+  "metrics": [
+    "aggregate_gini",
+    "mass_weighted_sentence_gini",
+    "macro_sentence_gini",
+    "cancellation_load",
+    "cancellation_fraction",
+    "signed_gap_counts_and_masses",
+    "total_cost",
+    "worst_language_cost"
+  ],
+  "quantiles": "nearest-rank at p in {0.5,0.9,1.0} on nonempty rows",
+  "books_aggregation": ["per_work", "macro_over_works", "pooled_rows"],
+  "stability": "leave one author block out from the Books macro-over-works metric; author is frozen by the work identifier prefix before the first hyphen",
+  "mismatch_rule": "delta aggregate_gini < 0 and delta mass_weighted_sentence_gini >= 0",
+  "macro_mismatch_rule": "delta aggregate_gini < 0 and delta macro_sentence_gini >= 0",
+  "aligned_improvement_rule": "delta aggregate_gini < 0 and delta mass_weighted_sentence_gini < 0",
+  "interpretation_guard": "Exact deterministic diagnostics on exposed English-French data cannot establish causality, broader multilingual validity, or prospective method benefit."
+}

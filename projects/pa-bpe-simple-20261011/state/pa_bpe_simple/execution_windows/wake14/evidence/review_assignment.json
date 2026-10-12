@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "assignment_id": "wake14-blinded-adapter-independent-review-v1",
+  "active_idea": "pa-bpe-domain-robustness",
+  "idea_revision": 1,
+  "role": "independent read-only adapter reviewer",
+  "question": "Does the repaired hash-only confirmation adapter and its 20-check verifier justify a scoped PASS for adapter mechanics and frozen-index preservation, without implying production development selection, tokenizer, or fairness validity?",
+  "constraints": [
+    "Read only; do not edit project files.",
+    "Do not launch scientific commands or repeat the experiment.",
+    "Inspect code, protocol, contract, output summaries, and runner receipts.",
+    "Report concrete defects, untested semantic gaps, and exact scope of any acceptable PASS."
+  ],
+  "evidence": [
+    {"path": "execution_windows/wake14/scripts/decontam_selector.py", "sha256": "44e23bf0fa24ddce5fdd014823193cd038da85ae836d81d497628dc6394f2c42"},
+    {"path": "execution_windows/wake14/scripts/verify_blinded_adapter.py", "sha256": "74379355044a61a68e66d2ff8196ebb7f4ae7c3b33a4d0d973fb1e26dd77bd0c"},
+    {"path": "execution_windows/wake14/output/blinded_adapter_summary.json", "sha256": "feecbcd5d8ed27604eae0660179d29b38557660eebaa709251459138fa17948e"},
+    {"path": "execution_windows/wake14/output/blinded_adapter_verification.json", "sha256": "774c6e5acb536332e9c170b056d79a845f124169cdf852486a465bd2ecd84c0d"},
+    {"path": "execution_windows/wake14/evidence/status_after_run.json", "sha256": "7bdeacd8d1118ac640b7373525a20503a363fe84e79b47ec076c547afa05581f"},
+    {"path": "execution_windows/wake14/decontamination_selector_protocol.json", "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"},
+    {"path": "execution_windows/wake14/adapter_contract.json", "sha256": "8119aec135c9c19832118e2fe9ae891fddf34e126f31128d9a63f736cf8660a3"}
+  ],
+  "requested_output": "Return a concise review with verdict PASS/HOLD/REPAIR, blocking defects, nonblocking limitations, and exact warranted claim scope."
+}

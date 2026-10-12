@@ -1,0 +1,12 @@
+{
+  "assignment_id": "wake8-training-source-review",
+  "worker": "/root/pa_bpe_training_source_review_wake8",
+  "review_sha256": "5b1e205121fcee8499cbdcac7eca6babcc85c59c87f00f0734fca099fbbb480e",
+  "accepted_utc": "2026-10-12T01:38:00Z",
+  "decision": "accepted_with_conditions",
+  "accepted_findings": [
+    "FineWeb2 intentionally excludes English and recommends pairing with FineWeb, so English FineWeb plus French/Spanish FineWeb2 is an official companion design but not one preprocessing pipeline.",
+    "The retained English and French 40-row files lack sufficient immutable retrieval provenance and remain probes only.",
+    "Formal training is HOLD until revisions, configs, split/dump, shard identities, deterministic sampling and GlobalVoices decontamination are frozen."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "response_id": "wake2-grouped-books-eval-repair",
+  "request_id": "decision-a9c17fe23d364de08a53510be1a15008",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The failed evaluator localized the issue to CSV quote interpretation: literal leading double quotes in two valid sentences caused column merging. The reader now disables CSV quoting and validates the exact six-column schema; rerun without changing data, tokenizers or metrics.",
+  "tasks": [
+    {
+      "task_id": "grouped-books-enfr-evaluation-repair-wake2",
+      "supersedes": "grouped-books-enfr-evaluation-wake2",
+      "argv": [
+        "/usr/bin/env",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/grouped_books_eval_v2.resources.json",
+        "scripts/evaluate_grouped_books_wake2.py",
+        "output/opus_selective_extract/aligned",
+        "input_grouped_eval_manifest.json",
+        "output/grouped_books_evaluation_wake2_v2.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Verify the literal-quote TSV reader repair and produce the whole-work English/French evaluation",
+      "timeout_seconds": 60,
+      "input_refs": [
+        {
+          "path": "scripts/evaluate_grouped_books_wake2.py",
+          "sha256": "d712ee58b66e90f9bfb00eb0d0d4e8c0d56ef14b4fa75c88c242bb5909f143b8"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "input_grouped_eval_manifest.json",
+          "sha256": "84070160eb172360b009f1155f856f6187e260e3f234e1665e186a316b2fe28f"
+        },
+        {
+          "path": "output/opus_selective_extract/aligned/dev.tsv",
+          "sha256": "e7fdc895e89dc4faa8d0c2f454a224599d85513f87b08bd90d2cf4a3553da59b"
+        },
+        {
+          "path": "output/opus_selective_extract/aligned/confirm.tsv",
+          "sha256": "d7dcf7da4ecfcb0d10eb1c6596e50d668eb7a533aeb584c05da8e78ca432f739"
+        }
+      ],
+      "outputs": [
+        "output/grouped_books_evaluation_wake2_v2.json",
+        "output/grouped_books_eval_v2.resources.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "plan_id": "objective-mismatch-retrospective-wake5-v1",
+  "created_at_utc": "2026-10-11T22:31:00Z",
+  "active_idea": "pa-bpe-domain-robustness",
+  "idea_revision": 1,
+  "goal_contract_version": 1,
+  "evidence_role": "Retrospective mechanism diagnostic on already exposed bilingual development data; not confirmation and not a new method comparison.",
+  "question": "Does aggregate two-language Gini understate sentence-aligned imbalance through cancellation of opposite signed token gaps, making it a misaligned selection objective for cross-domain transfer?",
+  "mathematics": {
+    "aggregate_gini": "abs(mean(a)-mean(b))/(2*(mean(a)+mean(b)))",
+    "sentence_gini": "mean_i(abs(a_i-b_i)/(2*(a_i+b_i)))",
+    "mean_abs_gap": "mean_i(abs(a_i-b_i))",
+    "cancellation_ratio": "1-abs(sum_i(a_i-b_i))/sum_i(abs(a_i-b_i)); defined as 0 only when every gap is zero",
+    "structural_note": "Aggregate equality can be zero while sentence imbalance is positive because signed gaps cancel; varying denominators mean aggregate Gini and mean sentence Gini have no general equality or ordering."
+  },
+  "inputs": {
+    "books": "The identical 10 exposed OPUS Books works with 512 aligned English-French rows each.",
+    "development": "Exposed TICO dev100 paired token costs; the file historically named tico.confirm remains exposed and is excluded from method-selection conclusions.",
+    "arms": "Nine original arms plus pair_minmax/pair_pooled, full_minmax/full_pooled, eff_minmax/eff_pooled/exact_train: 16 total."
+  },
+  "retrospective_predictions": [
+    "full_minmax has zero aggregate Gini on TICO dev100 but nonzero sentence Gini and near-complete signed-gap cancellation.",
+    "The percentage reduction from Classical will be materially larger for aggregate Gini than for sentence Gini, exposing an objective-to-estimand gap.",
+    "Across the 16 arms, rankings by exposed TICO aggregate Gini and Books sentence-level fairness will disagree; descriptive Spearman magnitude below 0.3 is called weak, 0.3 to 0.6 moderate, and above 0.6 strong, without inferential significance wording.",
+    "A method is not treated as a promising sentence-aware successor unless it improves Books mean sentence Gini or mean absolute gap versus Classical without increasing mean total token cost; all such observations remain development-only."
+  ],
+  "analysis": {
+    "primary_units": "Paired sentences for within-dataset metrics; Books works for macro comparisons and direction counts.",
+    "outputs": [
+      "Per-arm TICO dev100 aggregate Gini, sentence Gini, mean absolute gap, cancellation ratio, signed-gap counts and cost.",
+      "Per-arm Books micro and work-macro versions of the same metrics.",
+      "Exact recomputation checks against stored Gini/mean_sentence_gini values.",
+      "Spearman rank correlations and rank differences across arms.",
+      "Deterministic contrasts with Classical and the three recent minmax-family arms."
+    ],
+    "uncertainty": "No p-values or population confidence claims. The 16 arms are correlated design variants, and 10 works are not author-independent.",
+    "decision_rule": "If mismatch is observed, freeze no candidate yet: derive whether a sentence-level objective can be updated exactly and cost-constrained on the current CPU budget. If aggregate and sentence rankings agree strongly and recent arms improve both, reject this mechanism and investigate domain/source shift instead."
+  },
+  "resource_authorization": {
+    "host": "Current shared CPU host only",
+    "processes": 1,
+    "threads": 1,
+    "command_timeout_seconds": 30,
+    "expected_peak_rss_bytes": 268435456,
+    "no_gpu_or_paid_service": true
+  }
+}

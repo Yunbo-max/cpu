@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "window": "wake8",
+  "incidents": [
+    {
+      "observed_at_utc": "2026-10-12T01:31:00Z",
+      "kind": "host_management_loader_fault",
+      "symptom": "A combined lock/process inventory command returned fatal library error, lookup self.",
+      "impact": "The intended shell inventory path was unavailable; no scientific task had started.",
+      "repair": "Used Python standard-library /proc inspection and exact lock paths, confirmed no writer owner and no PA-BPE process, then acquired explicit generation-8 locks."
+    },
+    {
+      "observed_at_utc": "2026-10-12T01:36:00Z",
+      "kind": "fineweb2_spanish_rows_backend_timeout",
+      "symptom": "Dataset Viewer spa_Latn/train /rows length=1 returned HTTP500 while fra_Latn returned HTTP200; server response reports a 10-second read timeout on huggingface.co parquet.",
+      "impact": "The ordinary Viewer row route could not restore Spanish input.",
+      "repair": "Used the official /first-rows endpoint, which returned 44 records and was qualified in a finite runner task."
+    },
+    {
+      "observed_at_utc": "2026-10-12T01:37:00Z",
+      "kind": "fineweb2_spanish_parquet_manifest_backend_timeout",
+      "symptom": "The Hub parquet manifest route returned HTTP400 with the same cached parquet read-timeout body.",
+      "impact": "API-generated immutable shard listing remains unavailable in this window.",
+      "repair": "Retained the response and kept formal training HOLD; next recovery will derive the shard manifest from the 299 fixed-commit sibling paths already present in official Hub metadata."
+    }
+  ]
+}

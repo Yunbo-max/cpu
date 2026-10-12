@@ -1,0 +1,3391 @@
+[
+  {
+    "agent_error": null,
+    "agent_version": 0,
+    "attempts": [
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12/.research-autopilot/runner/attempts/attempt-1a61320a77844058ba23902bb046e109",
+        "attempt_id": "attempt-1a61320a77844058ba23902bb046e109",
+        "contract": {
+          "argv": [
+            "/usr/bin/env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "PYTHONHASHSEED=0",
+            "python3",
+            "scripts/measure_command.py",
+            "output/fetch_es.resources.json",
+            "scripts/fetch_raw_archive.py",
+            "--manifest",
+            "confirmation_raw_source_manifest.json",
+            "--language",
+            "es",
+            "--output",
+            "inputs/opus_gv_v2018q4/raw/es.zip",
+            "--receipt",
+            "output/fetch_es.json"
+          ],
+          "attempt_id": "attempt-1a61320a77844058ba23902bb046e109",
+          "cwd": ".",
+          "deadline_epoch": 1791784297.9222581,
+          "input_refs": [
+            {
+              "path": "confirmation_raw_source_manifest.json",
+              "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+            },
+            {
+              "path": "scripts/fetch_raw_archive.py",
+              "sha256": "037b8cf015027268d4d9648847d35fdfdaea5535dc3c8cc4d8174093ac02d7eb"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "inputs/opus_gv_v2018q4/raw/es.zip",
+            "output/fetch_es.json",
+            "output/fetch_es.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "fetch-globalvoices-es-wake12-v1",
+          "timeout_seconds": 120
+        },
+        "contract_sha256": "96c112e131d88eb97a7d2acc14f7d6e789f454620dfa36e0d0fa246bc2db51ab",
+        "elapsed_seconds": 7.042630829004338,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-1a61320a77844058ba23902bb046e109",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 283222,
+            "start_ticks": 12956297
+          },
+          "contract_sha256": "96c112e131d88eb97a7d2acc14f7d6e789f454620dfa36e0d0fa246bc2db51ab",
+          "elapsed_seconds": 7.042630829004338,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T05:33:06.384464+00:00",
+          "input_refs": [
+            {
+              "path": "confirmation_raw_source_manifest.json",
+              "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+            },
+            {
+              "path": "scripts/fetch_raw_archive.py",
+              "sha256": "037b8cf015027268d4d9648847d35fdfdaea5535dc3c8cc4d8174093ac02d7eb"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "output/fetch_es.json",
+              "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+            },
+            {
+              "path": "output/fetch_es.resources.json",
+              "sha256": "f6b8b2fae275c9b00d45ea90de5ce5eaeae3f9de0c1c41163f231137892b270b"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "started_at": "2026-10-12T05:32:59.341835+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-1a61320a77844058ba23902bb046e109/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-1a61320a77844058ba23902bb046e109/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "fetch-globalvoices-es-wake12-v1",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 283221,
+            "start_ticks": 12956291
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-1a61320a77844058ba23902bb046e109/receipt.json",
+          "sha256": "4c0176ef92eae68e9f6b26eb2e1608d5af1da56e3e6dceb337f101e35949b56f"
+        },
+        "reservation_seconds": 123.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "fetch-globalvoices-es-wake12-v1"
+      },
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12/.research-autopilot/runner/attempts/attempt-2717fdd322fe47edbc628c85a920bea9",
+        "attempt_id": "attempt-2717fdd322fe47edbc628c85a920bea9",
+        "contract": {
+          "argv": [
+            "/usr/bin/env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "PYTHONHASHSEED=0",
+            "python3",
+            "scripts/measure_command.py",
+            "output/raw_schema.resources.json",
+            "scripts/inspect_raw_schema.py",
+            "--units",
+            "inputs/reference/opus_gv_closed_components.json",
+            "--raw-dir",
+            "inputs/opus_gv_v2018q4/raw",
+            "--output",
+            "output/raw_schema.json"
+          ],
+          "attempt_id": "attempt-2717fdd322fe47edbc628c85a920bea9",
+          "cwd": ".",
+          "deadline_epoch": 1791784297.9222581,
+          "input_refs": [
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "scripts/inspect_raw_schema.py",
+              "sha256": "a144060f6dc48934ea1173d0d70cf91ae205d728daad9d9ca55bbd02ac8072db"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "output/raw_schema.json",
+            "output/raw_schema.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "inspect-globalvoices-raw-schema-wake12-v1",
+          "timeout_seconds": 120
+        },
+        "contract_sha256": "5eb40afef2fe60bcd9c97496940c8999918574cb8005d967f1a3e54223c2c77a",
+        "elapsed_seconds": 1.5779444209911162,
+        "kind": "task",
+        "reason": "Command exited with status 1; Cannot safely read output/raw_schema.json: [Errno 2] No such file or directory: 'raw_schema.json'",
+        "receipt": {
+          "attempt_id": "attempt-2717fdd322fe47edbc628c85a920bea9",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 283977,
+            "start_ticks": 12971758
+          },
+          "contract_sha256": "5eb40afef2fe60bcd9c97496940c8999918574cb8005d967f1a3e54223c2c77a",
+          "elapsed_seconds": 1.5779444209911162,
+          "error": "Command exited with status 1; Cannot safely read output/raw_schema.json: [Errno 2] No such file or directory: 'raw_schema.json'",
+          "exit_code": 1,
+          "finished_at": "2026-10-12T05:35:35.345355+00:00",
+          "input_refs": [
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "scripts/inspect_raw_schema.py",
+              "sha256": "a144060f6dc48934ea1173d0d70cf91ae205d728daad9d9ca55bbd02ac8072db"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/raw_schema.resources.json",
+              "sha256": "30979cd04c2bce5940e5176ba746c3499fe238e4e33a98c401d4a320d12ce21c"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "started_at": "2026-10-12T05:35:33.767414+00:00",
+          "status": "failed",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-2717fdd322fe47edbc628c85a920bea9/stderr.txt",
+            "sha256": "6f39b7699bd24b0606bc65af9604de2e880cca8995f30f29c93e9703c4b1b06b"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-2717fdd322fe47edbc628c85a920bea9/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "inspect-globalvoices-raw-schema-wake12-v1",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 283976,
+            "start_ticks": 12971736
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-2717fdd322fe47edbc628c85a920bea9/receipt.json",
+          "sha256": "b6b317d2756193abd3b6feb00772e0f1430fb56370a4be0ffb647757010ac9c3"
+        },
+        "reservation_seconds": 123.0,
+        "response_handled": true,
+        "result": "failed",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "inspect-globalvoices-raw-schema-wake12-v1"
+      },
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12/.research-autopilot/runner/attempts/attempt-27ac6b57d6194467b93d760e26a7da86",
+        "attempt_id": "attempt-27ac6b57d6194467b93d760e26a7da86",
+        "contract": {
+          "argv": [
+            "/usr/bin/env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "PYTHONHASHSEED=0",
+            "python3",
+            "scripts/measure_command.py",
+            "output/blinded_index_v3.resources.json",
+            "scripts/build_blinded_fingerprints.py",
+            "--units",
+            "inputs/reference/opus_gv_closed_components.json",
+            "--source-manifest",
+            "confirmation_index_build_manifest_v2.json",
+            "--fetch-receipts",
+            "output",
+            "--raw-schema",
+            "output/raw_schema_v2.json",
+            "--selector-protocol",
+            "inputs/reference/decontamination_selector_protocol.json",
+            "--raw-dir",
+            "inputs/opus_gv_v2018q4/raw",
+            "--database",
+            "output/globalvoices_blinded_fingerprints_v2.sqlite3",
+            "--summary",
+            "output/blinded_index_summary_v2.json"
+          ],
+          "attempt_id": "attempt-27ac6b57d6194467b93d760e26a7da86",
+          "cwd": ".",
+          "deadline_epoch": 1791784297.9222581,
+          "input_refs": [
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "confirmation_index_build_manifest_v2.json",
+              "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+            },
+            {
+              "path": "output/raw_schema_v2.json",
+              "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+            },
+            {
+              "path": "inputs/reference/decontamination_selector_protocol.json",
+              "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "output/fetch_fr.json",
+              "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+            },
+            {
+              "path": "output/fetch_es.json",
+              "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+            },
+            {
+              "path": "output/fetch_en.json",
+              "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+            },
+            {
+              "path": "scripts/build_blinded_fingerprints.py",
+              "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "output/globalvoices_blinded_fingerprints_v2.sqlite3",
+            "output/blinded_index_summary_v2.json",
+            "output/blinded_index_v3.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "build-globalvoices-blinded-index-wake12-v3",
+          "timeout_seconds": 120
+        },
+        "contract_sha256": "efe25462838bb891833b3273312126407e428ff25bbcc92c53d084f43d40b837",
+        "elapsed_seconds": 24.25279197699274,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-27ac6b57d6194467b93d760e26a7da86",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 286131,
+            "start_ticks": 13039680
+          },
+          "contract_sha256": "efe25462838bb891833b3273312126407e428ff25bbcc92c53d084f43d40b837",
+          "elapsed_seconds": 24.25279197699274,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T05:47:17.255039+00:00",
+          "input_refs": [
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "confirmation_index_build_manifest_v2.json",
+              "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+            },
+            {
+              "path": "output/raw_schema_v2.json",
+              "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+            },
+            {
+              "path": "inputs/reference/decontamination_selector_protocol.json",
+              "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "output/fetch_fr.json",
+              "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+            },
+            {
+              "path": "output/fetch_es.json",
+              "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+            },
+            {
+              "path": "output/fetch_en.json",
+              "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+            },
+            {
+              "path": "scripts/build_blinded_fingerprints.py",
+              "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/globalvoices_blinded_fingerprints_v2.sqlite3",
+              "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+            },
+            {
+              "path": "output/blinded_index_summary_v2.json",
+              "sha256": "f1dd00de45c89ee4c73f71c7a129722e471669da0f133fa803d865cab8e08c71"
+            },
+            {
+              "path": "output/blinded_index_v3.resources.json",
+              "sha256": "79da19c70fcb8380b27fa7442b23cd7da895efcb77d2acfd9d4de0e4d3a1f421"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "started_at": "2026-10-12T05:46:53.002251+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-27ac6b57d6194467b93d760e26a7da86/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-27ac6b57d6194467b93d760e26a7da86/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "build-globalvoices-blinded-index-wake12-v3",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 286130,
+            "start_ticks": 13039657
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-27ac6b57d6194467b93d760e26a7da86/receipt.json",
+          "sha256": "e7bb2b85af430841cfb8f6aa80db8902aaa767309e46eb849fc914dad8aaa203"
+        },
+        "reservation_seconds": 123.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "build-globalvoices-blinded-index-wake12-v3"
+      },
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12/.research-autopilot/runner/attempts/attempt-47e2d45d897a44c5828be3d9a15adb3f",
+        "attempt_id": "attempt-47e2d45d897a44c5828be3d9a15adb3f",
+        "contract": {
+          "argv": [
+            "/usr/bin/env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "PYTHONHASHSEED=0",
+            "python3",
+            "scripts/measure_command.py",
+            "output/blinded_index_v2.resources.json",
+            "scripts/build_blinded_fingerprints.py",
+            "--units",
+            "inputs/reference/opus_gv_closed_components.json",
+            "--source-manifest",
+            "confirmation_raw_source_manifest.json",
+            "--build-manifest",
+            "confirmation_index_build_manifest_v2.json",
+            "--raw-schema",
+            "output/raw_schema_v2.json",
+            "--selector-protocol",
+            "inputs/reference/decontamination_selector_protocol.json",
+            "--raw-dir",
+            "inputs/opus_gv_v2018q4/raw",
+            "--output",
+            "output/globalvoices_blinded_fingerprints_v2.sqlite3",
+            "--summary",
+            "output/blinded_index_summary_v2.json"
+          ],
+          "attempt_id": "attempt-47e2d45d897a44c5828be3d9a15adb3f",
+          "cwd": ".",
+          "deadline_epoch": 1791784297.9222581,
+          "input_refs": [
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "confirmation_raw_source_manifest.json",
+              "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+            },
+            {
+              "path": "confirmation_index_build_manifest_v2.json",
+              "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+            },
+            {
+              "path": "output/raw_schema_v2.json",
+              "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+            },
+            {
+              "path": "inputs/reference/decontamination_selector_protocol.json",
+              "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "output/fetch_fr.json",
+              "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+            },
+            {
+              "path": "output/fetch_es.json",
+              "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+            },
+            {
+              "path": "output/fetch_en.json",
+              "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+            },
+            {
+              "path": "scripts/build_blinded_fingerprints.py",
+              "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "output/globalvoices_blinded_fingerprints_v2.sqlite3",
+            "output/blinded_index_summary_v2.json",
+            "output/blinded_index_v2.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "build-globalvoices-blinded-index-wake12-v2",
+          "timeout_seconds": 120
+        },
+        "contract_sha256": "f9de64982a678d00828f7f7ebe9e8a34de63d9333b04ceb327d1e1aacb329b2d",
+        "elapsed_seconds": 0.46037109500321094,
+        "kind": "task",
+        "reason": "Command exited with status 2; Cannot safely read output/globalvoices_blinded_fingerprints_v2.sqlite3: [Errno 2] No such file or directory: 'globalvoices_blinded_fingerprints_v2.sqlite3'; Cannot safely read output/blinded_index_summary_v2.json: [Errno 2] No such file or directory: 'blinded_index_summary_v2.json'",
+        "receipt": {
+          "attempt_id": "attempt-47e2d45d897a44c5828be3d9a15adb3f",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 285949,
+            "start_ticks": 13035046
+          },
+          "contract_sha256": "f9de64982a678d00828f7f7ebe9e8a34de63d9333b04ceb327d1e1aacb329b2d",
+          "elapsed_seconds": 0.46037109500321094,
+          "error": "Command exited with status 2; Cannot safely read output/globalvoices_blinded_fingerprints_v2.sqlite3: [Errno 2] No such file or directory: 'globalvoices_blinded_fingerprints_v2.sqlite3'; Cannot safely read output/blinded_index_summary_v2.json: [Errno 2] No such file or directory: 'blinded_index_summary_v2.json'",
+          "exit_code": 2,
+          "finished_at": "2026-10-12T05:46:07.108074+00:00",
+          "input_refs": [
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "confirmation_raw_source_manifest.json",
+              "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+            },
+            {
+              "path": "confirmation_index_build_manifest_v2.json",
+              "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+            },
+            {
+              "path": "output/raw_schema_v2.json",
+              "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+            },
+            {
+              "path": "inputs/reference/decontamination_selector_protocol.json",
+              "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "output/fetch_fr.json",
+              "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+            },
+            {
+              "path": "output/fetch_es.json",
+              "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+            },
+            {
+              "path": "output/fetch_en.json",
+              "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+            },
+            {
+              "path": "scripts/build_blinded_fingerprints.py",
+              "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/blinded_index_v2.resources.json",
+              "sha256": "2ccadd3d0881a34e69638f6923e9134e4774d8db4ab34b80c3861a9eb3a16611"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "started_at": "2026-10-12T05:46:06.647710+00:00",
+          "status": "failed",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-47e2d45d897a44c5828be3d9a15adb3f/stderr.txt",
+            "sha256": "fce7f06190c0338c7101f3b95bf0724f54d8b9bc3a5f0cbc888a96d721f37f64"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-47e2d45d897a44c5828be3d9a15adb3f/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "build-globalvoices-blinded-index-wake12-v2",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 285948,
+            "start_ticks": 13035022
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-47e2d45d897a44c5828be3d9a15adb3f/receipt.json",
+          "sha256": "e784fc3e591f64641a3a672d2827f57d5832254a705ec03d5752f261a00ebaa9"
+        },
+        "reservation_seconds": 123.0,
+        "response_handled": true,
+        "result": "failed",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "build-globalvoices-blinded-index-wake12-v2"
+      },
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12/.research-autopilot/runner/attempts/attempt-6f609901266f4961bb8b30e91b43bbdd",
+        "attempt_id": "attempt-6f609901266f4961bb8b30e91b43bbdd",
+        "contract": {
+          "argv": [
+            "/usr/bin/env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "PYTHONHASHSEED=0",
+            "python3",
+            "scripts/measure_command.py",
+            "output/blinded_index.resources.json",
+            "scripts/build_blinded_fingerprints.py",
+            "--units",
+            "inputs/reference/opus_gv_closed_components.json",
+            "--raw-dir",
+            "inputs/opus_gv_v2018q4/raw",
+            "--source-manifest",
+            "confirmation_raw_source_manifest.json",
+            "--fetch-receipts",
+            "output",
+            "--database",
+            "output/globalvoices_blinded_fingerprints.sqlite3",
+            "--summary",
+            "output/blinded_index_summary.json"
+          ],
+          "attempt_id": "attempt-6f609901266f4961bb8b30e91b43bbdd",
+          "cwd": ".",
+          "deadline_epoch": 1791784297.9222581,
+          "input_refs": [
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "confirmation_raw_source_manifest.json",
+              "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+            },
+            {
+              "path": "output/fetch_fr.json",
+              "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+            },
+            {
+              "path": "output/fetch_es.json",
+              "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+            },
+            {
+              "path": "output/fetch_en.json",
+              "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+            },
+            {
+              "path": "output/raw_schema_v2.json",
+              "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+            },
+            {
+              "path": "scripts/build_blinded_fingerprints.py",
+              "sha256": "bd64bd432d6e6971f7e90122b6d7a0b3d986ba88a5e99684227a019d5d2fda2d"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "output/globalvoices_blinded_fingerprints.sqlite3",
+            "output/blinded_index_summary.json",
+            "output/blinded_index.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "build-globalvoices-blinded-index-wake12-v1",
+          "timeout_seconds": 120
+        },
+        "contract_sha256": "2c3efd9bfb7174baef91bc65f862285cf8d80cb90ed6a2ff349a68beb67e0333",
+        "elapsed_seconds": 29.72304533299757,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-6f609901266f4961bb8b30e91b43bbdd",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 284864,
+            "start_ticks": 12990842
+          },
+          "contract_sha256": "2c3efd9bfb7174baef91bc65f862285cf8d80cb90ed6a2ff349a68beb67e0333",
+          "elapsed_seconds": 29.72304533299757,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T05:39:14.311158+00:00",
+          "input_refs": [
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "confirmation_raw_source_manifest.json",
+              "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+            },
+            {
+              "path": "output/fetch_fr.json",
+              "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+            },
+            {
+              "path": "output/fetch_es.json",
+              "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+            },
+            {
+              "path": "output/fetch_en.json",
+              "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+            },
+            {
+              "path": "output/raw_schema_v2.json",
+              "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+            },
+            {
+              "path": "scripts/build_blinded_fingerprints.py",
+              "sha256": "bd64bd432d6e6971f7e90122b6d7a0b3d986ba88a5e99684227a019d5d2fda2d"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/globalvoices_blinded_fingerprints.sqlite3",
+              "sha256": "8e8b1716be87bcc65fd420dcd53f3314c82a23bc76517dc1bcb4605653be97fa"
+            },
+            {
+              "path": "output/blinded_index_summary.json",
+              "sha256": "db6f1d7c4fb60fb2368c0a40b5e35f685b604ea7504f036d6e8fceb2a74c3c32"
+            },
+            {
+              "path": "output/blinded_index.resources.json",
+              "sha256": "460a9437d4c4e76730966d8fa7c1277c314eb2cf066c92ffe12b2a1236bd9b1b"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "started_at": "2026-10-12T05:38:44.588121+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-6f609901266f4961bb8b30e91b43bbdd/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-6f609901266f4961bb8b30e91b43bbdd/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "build-globalvoices-blinded-index-wake12-v1",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 284863,
+            "start_ticks": 12990816
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-6f609901266f4961bb8b30e91b43bbdd/receipt.json",
+          "sha256": "c934c5e1fa0ebb5e4a89f73e474a4bf17e8b9b902ad66945e70b25a920c0a1ba"
+        },
+        "reservation_seconds": 123.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "build-globalvoices-blinded-index-wake12-v1"
+      },
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12/.research-autopilot/runner/attempts/attempt-83340a2237184d45865742b70f9affa5",
+        "attempt_id": "attempt-83340a2237184d45865742b70f9affa5",
+        "contract": {
+          "argv": [
+            "/usr/bin/env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "PYTHONHASHSEED=0",
+            "python3",
+            "scripts/measure_command.py",
+            "output/fetch_en.resources.json",
+            "scripts/fetch_raw_archive.py",
+            "--manifest",
+            "confirmation_raw_source_manifest.json",
+            "--language",
+            "en",
+            "--output",
+            "inputs/opus_gv_v2018q4/raw/en.zip",
+            "--receipt",
+            "output/fetch_en.json"
+          ],
+          "attempt_id": "attempt-83340a2237184d45865742b70f9affa5",
+          "cwd": ".",
+          "deadline_epoch": 1791784297.9222581,
+          "input_refs": [
+            {
+              "path": "confirmation_raw_source_manifest.json",
+              "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+            },
+            {
+              "path": "scripts/fetch_raw_archive.py",
+              "sha256": "037b8cf015027268d4d9648847d35fdfdaea5535dc3c8cc4d8174093ac02d7eb"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "inputs/opus_gv_v2018q4/raw/en.zip",
+            "output/fetch_en.json",
+            "output/fetch_en.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "fetch-globalvoices-en-wake12-v1",
+          "timeout_seconds": 120
+        },
+        "contract_sha256": "ae0e16483821f9e748918172b2fcb5d22f633ab844933c592daf94188b8d9085",
+        "elapsed_seconds": 7.341116317998967,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-83340a2237184d45865742b70f9affa5",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 283243,
+            "start_ticks": 12957030
+          },
+          "contract_sha256": "ae0e16483821f9e748918172b2fcb5d22f633ab844933c592daf94188b8d9085",
+          "elapsed_seconds": 7.341116317998967,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T05:33:14.013395+00:00",
+          "input_refs": [
+            {
+              "path": "confirmation_raw_source_manifest.json",
+              "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+            },
+            {
+              "path": "scripts/fetch_raw_archive.py",
+              "sha256": "037b8cf015027268d4d9648847d35fdfdaea5535dc3c8cc4d8174093ac02d7eb"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "output/fetch_en.json",
+              "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+            },
+            {
+              "path": "output/fetch_en.resources.json",
+              "sha256": "4d71fb84d82698fd27a4eae95d44ffa615f53389cd395436de833c3dbd44c8fc"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "started_at": "2026-10-12T05:33:06.672244+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-83340a2237184d45865742b70f9affa5/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-83340a2237184d45865742b70f9affa5/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "fetch-globalvoices-en-wake12-v1",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 283242,
+            "start_ticks": 12957025
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-83340a2237184d45865742b70f9affa5/receipt.json",
+          "sha256": "1b5cb8144be43ed69900898ef5e4e40b4b10391f8b54d74ffd3ef91d05d9dbea"
+        },
+        "reservation_seconds": 123.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "fetch-globalvoices-en-wake12-v1"
+      },
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12/.research-autopilot/runner/attempts/attempt-89d7ed8fb26e404ea7b983957853d88d",
+        "attempt_id": "attempt-89d7ed8fb26e404ea7b983957853d88d",
+        "contract": {
+          "argv": [
+            "/usr/bin/env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "PYTHONHASHSEED=0",
+            "python3",
+            "scripts/measure_command.py",
+            "output/blinded_index_verification.resources.json",
+            "scripts/verify_blinded_index.py",
+            "--database",
+            "output/globalvoices_blinded_fingerprints.sqlite3",
+            "--summary",
+            "output/blinded_index_summary.json",
+            "--units",
+            "inputs/reference/opus_gv_closed_components.json",
+            "--raw-dir",
+            "inputs/opus_gv_v2018q4/raw",
+            "--output",
+            "output/blinded_index_verification.json"
+          ],
+          "attempt_id": "attempt-89d7ed8fb26e404ea7b983957853d88d",
+          "cwd": ".",
+          "deadline_epoch": 1791784297.9222581,
+          "input_refs": [
+            {
+              "path": "output/globalvoices_blinded_fingerprints.sqlite3",
+              "sha256": "8e8b1716be87bcc65fd420dcd53f3314c82a23bc76517dc1bcb4605653be97fa"
+            },
+            {
+              "path": "output/blinded_index_summary.json",
+              "sha256": "db6f1d7c4fb60fb2368c0a40b5e35f685b604ea7504f036d6e8fceb2a74c3c32"
+            },
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "scripts/verify_blinded_index.py",
+              "sha256": "dd4016d37db61886a46ba44adbce7c8201427f9d2370f64a851479187d3fbe7e"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "output/blinded_index_verification.json",
+            "output/blinded_index_verification.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "verify-globalvoices-blinded-index-wake12-v1",
+          "timeout_seconds": 120
+        },
+        "contract_sha256": "69eeadd1de2ec15390d3df2eb4764c8683d7bf79090ed3520eeb8c0d355ec807",
+        "elapsed_seconds": 7.113105861004442,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-89d7ed8fb26e404ea7b983957853d88d",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 285205,
+            "start_ticks": 13005184
+          },
+          "contract_sha256": "69eeadd1de2ec15390d3df2eb4764c8683d7bf79090ed3520eeb8c0d355ec807",
+          "elapsed_seconds": 7.113105861004442,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T05:41:15.160597+00:00",
+          "input_refs": [
+            {
+              "path": "output/globalvoices_blinded_fingerprints.sqlite3",
+              "sha256": "8e8b1716be87bcc65fd420dcd53f3314c82a23bc76517dc1bcb4605653be97fa"
+            },
+            {
+              "path": "output/blinded_index_summary.json",
+              "sha256": "db6f1d7c4fb60fb2368c0a40b5e35f685b604ea7504f036d6e8fceb2a74c3c32"
+            },
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "scripts/verify_blinded_index.py",
+              "sha256": "dd4016d37db61886a46ba44adbce7c8201427f9d2370f64a851479187d3fbe7e"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/blinded_index_verification.json",
+              "sha256": "b5862620b24ffc504497c534285f89fa07b8c874a20b710a0b13e7eea8b8426f"
+            },
+            {
+              "path": "output/blinded_index_verification.resources.json",
+              "sha256": "42f24c984ff63d7278305b300958f84ee18f8b04880bf67dab01772d7b2f4f24"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "started_at": "2026-10-12T05:41:08.047499+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-89d7ed8fb26e404ea7b983957853d88d/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-89d7ed8fb26e404ea7b983957853d88d/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "verify-globalvoices-blinded-index-wake12-v1",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 285203,
+            "start_ticks": 13005162
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-89d7ed8fb26e404ea7b983957853d88d/receipt.json",
+          "sha256": "49ce75f2c749bfafed1e63d9a3006f4fe62fa36d63ce07b6199bb477aa65fe83"
+        },
+        "reservation_seconds": 123.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "verify-globalvoices-blinded-index-wake12-v1"
+      },
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12/.research-autopilot/runner/attempts/attempt-c07c88b8bdb84100b1601c8b533c1788",
+        "attempt_id": "attempt-c07c88b8bdb84100b1601c8b533c1788",
+        "contract": {
+          "argv": [
+            "/usr/bin/env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "PYTHONHASHSEED=0",
+            "python3",
+            "scripts/measure_command.py",
+            "output/fetch_fr.resources.json",
+            "scripts/fetch_raw_archive.py",
+            "--manifest",
+            "confirmation_raw_source_manifest.json",
+            "--language",
+            "fr",
+            "--output",
+            "inputs/opus_gv_v2018q4/raw/fr.zip",
+            "--receipt",
+            "output/fetch_fr.json"
+          ],
+          "attempt_id": "attempt-c07c88b8bdb84100b1601c8b533c1788",
+          "cwd": ".",
+          "deadline_epoch": 1791784297.9222581,
+          "input_refs": [
+            {
+              "path": "confirmation_raw_source_manifest.json",
+              "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+            },
+            {
+              "path": "scripts/fetch_raw_archive.py",
+              "sha256": "037b8cf015027268d4d9648847d35fdfdaea5535dc3c8cc4d8174093ac02d7eb"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "inputs/opus_gv_v2018q4/raw/fr.zip",
+            "output/fetch_fr.json",
+            "output/fetch_fr.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "fetch-globalvoices-fr-wake12-v1",
+          "timeout_seconds": 120
+        },
+        "contract_sha256": "cab5f8531cc67e1f2d1b8a6552c20e7f9617b08d0a25438379599488926ad350",
+        "elapsed_seconds": 7.2147240710037295,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-c07c88b8bdb84100b1601c8b533c1788",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 282970,
+            "start_ticks": 12949756
+          },
+          "contract_sha256": "cab5f8531cc67e1f2d1b8a6552c20e7f9617b08d0a25438379599488926ad350",
+          "elapsed_seconds": 7.2147240710037295,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T05:32:01.147268+00:00",
+          "input_refs": [
+            {
+              "path": "confirmation_raw_source_manifest.json",
+              "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+            },
+            {
+              "path": "scripts/fetch_raw_archive.py",
+              "sha256": "037b8cf015027268d4d9648847d35fdfdaea5535dc3c8cc4d8174093ac02d7eb"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "output/fetch_fr.json",
+              "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+            },
+            {
+              "path": "output/fetch_fr.resources.json",
+              "sha256": "82fe879a8dcc03878d9573279f53dae20c2f09e9a3a2a8618d4cf56d5a206e89"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "started_at": "2026-10-12T05:31:53.932541+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-c07c88b8bdb84100b1601c8b533c1788/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-c07c88b8bdb84100b1601c8b533c1788/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "fetch-globalvoices-fr-wake12-v1",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 282969,
+            "start_ticks": 12949751
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-c07c88b8bdb84100b1601c8b533c1788/receipt.json",
+          "sha256": "59bb75881ab66e9bbc92259538514f9c44c8defd2f36651ab3c1dda1ede14092"
+        },
+        "reservation_seconds": 123.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "fetch-globalvoices-fr-wake12-v1"
+      },
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12/.research-autopilot/runner/attempts/attempt-d71792a0c3da4624b7cf654a2e707a12",
+        "attempt_id": "attempt-d71792a0c3da4624b7cf654a2e707a12",
+        "contract": {
+          "argv": [
+            "/usr/bin/env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "PYTHONHASHSEED=0",
+            "python3",
+            "scripts/measure_command.py",
+            "output/raw_schema_v2.resources.json",
+            "scripts/inspect_raw_schema.py",
+            "--units",
+            "inputs/reference/opus_gv_closed_components.json",
+            "--raw-dir",
+            "inputs/opus_gv_v2018q4/raw",
+            "--output",
+            "output/raw_schema_v2.json"
+          ],
+          "attempt_id": "attempt-d71792a0c3da4624b7cf654a2e707a12",
+          "cwd": ".",
+          "deadline_epoch": 1791784297.9222581,
+          "input_refs": [
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "scripts/inspect_raw_schema.py",
+              "sha256": "6e18a54d354bfb9cff02c1a83c7a779ad3125ac1434b30e87e8a1b2fdbfd31a6"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "output/raw_schema_v2.json",
+            "output/raw_schema_v2.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "inspect-globalvoices-raw-schema-wake12-v2",
+          "timeout_seconds": 120
+        },
+        "contract_sha256": "b2495fab418ad7575fe9b3ba6a48a8b026830ac15165bd6911c2246b7f03727d",
+        "elapsed_seconds": 25.528993047002587,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-d71792a0c3da4624b7cf654a2e707a12",
+          "command_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 284482,
+            "start_ticks": 12979764
+          },
+          "contract_sha256": "b2495fab418ad7575fe9b3ba6a48a8b026830ac15165bd6911c2246b7f03727d",
+          "elapsed_seconds": 25.528993047002587,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T05:37:19.381242+00:00",
+          "input_refs": [
+            {
+              "path": "inputs/reference/opus_gv_closed_components.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            },
+            {
+              "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "scripts/inspect_raw_schema.py",
+              "sha256": "6e18a54d354bfb9cff02c1a83c7a779ad3125ac1434b30e87e8a1b2fdbfd31a6"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/raw_schema_v2.json",
+              "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+            },
+            {
+              "path": "output/raw_schema_v2.resources.json",
+              "sha256": "65cb03ab92fd0c1c24d8785f53c17af19beeff4f9b7fad6fb480fe798c36c490"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+          "schema_version": 1,
+          "started_at": "2026-10-12T05:36:53.852756+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-d71792a0c3da4624b7cf654a2e707a12/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-d71792a0c3da4624b7cf654a2e707a12/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "inspect-globalvoices-raw-schema-wake12-v2",
+          "worker_identity": {
+            "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+            "pid": 284479,
+            "start_ticks": 12979743
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-d71792a0c3da4624b7cf654a2e707a12/receipt.json",
+          "sha256": "2f9957bd5f1a1866ca1cf949282db96e7fcab904dce73fa45d39fa1858a995f7"
+        },
+        "reservation_seconds": 123.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "inspect-globalvoices-raw-schema-wake12-v2"
+      }
+    ],
+    "budget": {
+      "attempts_used": 9,
+      "deadline_epoch": 1791784297.9222581,
+      "elapsed_seconds": 110.2547229519987,
+      "max_attempts": 12,
+      "max_command_seconds": 600,
+      "remaining_deadline_seconds": 260.3689696788788,
+      "remaining_seconds": 489.7452770480013,
+      "reserved_seconds": 0
+    },
+    "continuation": null,
+    "current_question": "Continue verify: Execution observation for build-globalvoices-blinded-index-wake12-v3: succeeded; Command execution reported succeeded",
+    "error": null,
+    "goal": "\u68c0\u9a8c\u5e76\u6539\u8fdb\u591a\u8bed\u8a00\u5206\u8bcd\u516c\u5e73\u6027\u7684\u8de8\u9886\u57df\u7a33\u5b9a\u6027\uff0c\u4fdd\u7559\u8d1f\u7ed3\u679c\uff0c\u5e76\u5728\u5408\u6cd5\u771f\u5b9e\u6765\u6e90\u3001\u5bf9\u9f50\u516c\u5e73\u6307\u6807\u548cCPU\u7ea6\u675f\u4e0b\u6301\u7eed\u63a8\u8fdb",
+    "goal_contract": {
+      "completion_criteria": [
+        {
+          "description": "\u6301\u7eed\u6784\u5efa\u53ef\u590d\u6838\u7684\u771f\u5b9e\u591a\u8bed\u8a00\u6765\u6e90\u3001\u5bf9\u9f50\u6307\u6807\u3001\u5f3a\u5bf9\u7167\u3001\u673a\u5236\u8bc1\u636e\u548c\u72ec\u7acb\u786e\u8ba4",
+          "id": "evidence"
+        },
+        {
+          "description": "\u5bf9\u6bcf\u4e2a\u6709\u5224\u522b\u529b\u7684\u5047\u8bbe\u7ed9\u51fa\u652f\u6301\u3001\u4e0d\u652f\u6301\u6216\u8bc1\u636e\u4e0d\u8db3\u7684\u8303\u56f4\u5316\u7ed3\u8bba\u5e76\u9009\u62e9\u4e0b\u4e00\u5fc5\u8981\u52a8\u4f5c",
+          "id": "interpretation"
+        }
+      ],
+      "mode": "continuous_research"
+    },
+    "goal_contract_version": 1,
+    "idea": "pa-bpe-domain-robustness",
+    "idea_status": "active",
+    "journal_version": 9,
+    "milestones": [],
+    "next_action": "Continue verify: Execution observation for build-globalvoices-blinded-index-wake12-v3: succeeded; Command execution reported succeeded",
+    "observations": [
+      {
+        "event_id": "result:attempt-27ac6b57d6194467b93d760e26a7da86",
+        "kind": "task_result",
+        "payload": {
+          "attempt_id": "attempt-27ac6b57d6194467b93d760e26a7da86",
+          "reason": "Command execution reported succeeded",
+          "receipt": {
+            "attempt_id": "attempt-27ac6b57d6194467b93d760e26a7da86",
+            "command_identity": {
+              "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+              "pid": 286131,
+              "start_ticks": 13039680
+            },
+            "contract_sha256": "efe25462838bb891833b3273312126407e428ff25bbcc92c53d084f43d40b837",
+            "elapsed_seconds": 24.25279197699274,
+            "error": null,
+            "exit_code": 0,
+            "finished_at": "2026-10-12T05:47:17.255039+00:00",
+            "input_refs": [
+              {
+                "path": "inputs/reference/opus_gv_closed_components.json",
+                "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+              },
+              {
+                "path": "confirmation_index_build_manifest_v2.json",
+                "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+              },
+              {
+                "path": "output/raw_schema_v2.json",
+                "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+              },
+              {
+                "path": "inputs/reference/decontamination_selector_protocol.json",
+                "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+              },
+              {
+                "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+                "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+              },
+              {
+                "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+                "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+              },
+              {
+                "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+                "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+              },
+              {
+                "path": "output/fetch_fr.json",
+                "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+              },
+              {
+                "path": "output/fetch_es.json",
+                "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+              },
+              {
+                "path": "output/fetch_en.json",
+                "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+              },
+              {
+                "path": "scripts/build_blinded_fingerprints.py",
+                "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+              },
+              {
+                "path": "scripts/measure_command.py",
+                "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+              }
+            ],
+            "output_refs": [
+              {
+                "path": "output/globalvoices_blinded_fingerprints_v2.sqlite3",
+                "sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7"
+              },
+              {
+                "path": "output/blinded_index_summary_v2.json",
+                "sha256": "f1dd00de45c89ee4c73f71c7a129722e471669da0f133fa803d865cab8e08c71"
+              },
+              {
+                "path": "output/blinded_index_v3.resources.json",
+                "sha256": "79da19c70fcb8380b27fa7442b23cd7da895efcb77d2acfd9d4de0e4d3a1f421"
+              }
+            ],
+            "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+            "schema_version": 1,
+            "started_at": "2026-10-12T05:46:53.002251+00:00",
+            "status": "succeeded",
+            "stderr_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-27ac6b57d6194467b93d760e26a7da86/stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stdout_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-27ac6b57d6194467b93d760e26a7da86/stdout.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "task_id": "build-globalvoices-blinded-index-wake12-v3",
+            "worker_identity": {
+              "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+              "pid": 286130,
+              "start_ticks": 13039657
+            }
+          },
+          "receipt_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-27ac6b57d6194467b93d760e26a7da86/receipt.json",
+            "sha256": "e7bb2b85af430841cfb8f6aa80db8902aaa767309e46eb849fc914dad8aaa203"
+          },
+          "status": "succeeded",
+          "task_id": "build-globalvoices-blinded-index-wake12-v3"
+        },
+        "request_id": null,
+        "sequence": 9
+      }
+    ],
+    "request_id": "decision-4f11c3312f0b4e0390266e5f6c2e7518",
+    "request_ref": {
+      "path": ".research-autopilot/runner/requests/decision-4f11c3312f0b4e0390266e5f6c2e7518.json",
+      "sha256": "3a0883bd56b78dcc939bf47c3e1fc41cfa1d1e7d64dc05731cc7b95dd174f398"
+    },
+    "research_cycles": [],
+    "revision": 1,
+    "root": "/workspace/scratch/42f1128b703b/wake12_project/pa_bpe_simple/execution_windows/wake12",
+    "source": {
+      "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+        },
+        {
+          "path": "references/rsi-simple.md",
+          "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+        },
+        {
+          "path": "references/simple-runner.md",
+          "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+        },
+        {
+          "path": "scripts/_simple_process.py",
+          "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+        },
+        {
+          "path": "scripts/_simple_source.py",
+          "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+        },
+        {
+          "path": "scripts/simple_loop.py",
+          "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+        },
+        {
+          "path": "scripts/simple_runner.py",
+          "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+        },
+        {
+          "path": "references/simple-experiment-design.md",
+          "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+        },
+        {
+          "path": "scripts/simple_design.py",
+          "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+        },
+        {
+          "path": "scripts/simple_resources.py",
+          "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+        },
+        {
+          "path": "assets/templates/simple-experiment-plan.json",
+          "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+        },
+        {
+          "path": "assets/templates/simple-experiment-results.json",
+          "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+        },
+        {
+          "path": "references/simple-collaboration.md",
+          "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+        },
+        {
+          "path": "assets/templates/simple-delegation.json",
+          "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+        }
+      ],
+      "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+    },
+    "state": "open",
+    "tasks": [
+      {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "PYTHONHASHSEED=0",
+          "python3",
+          "scripts/measure_command.py",
+          "output/blinded_index.resources.json",
+          "scripts/build_blinded_fingerprints.py",
+          "--units",
+          "inputs/reference/opus_gv_closed_components.json",
+          "--raw-dir",
+          "inputs/opus_gv_v2018q4/raw",
+          "--source-manifest",
+          "confirmation_raw_source_manifest.json",
+          "--fetch-receipts",
+          "output",
+          "--database",
+          "output/globalvoices_blinded_fingerprints.sqlite3",
+          "--summary",
+          "output/blinded_index_summary.json"
+        ],
+        "attempt_id": "attempt-6f609901266f4961bb8b30e91b43bbdd",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "inputs/reference/opus_gv_closed_components.json",
+            "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+            "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+            "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+            "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+          },
+          {
+            "path": "confirmation_raw_source_manifest.json",
+            "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+          },
+          {
+            "path": "output/fetch_fr.json",
+            "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+          },
+          {
+            "path": "output/fetch_es.json",
+            "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+          },
+          {
+            "path": "output/fetch_en.json",
+            "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+          },
+          {
+            "path": "output/raw_schema_v2.json",
+            "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+          },
+          {
+            "path": "scripts/build_blinded_fingerprints.py",
+            "sha256": "bd64bd432d6e6971f7e90122b6d7a0b3d986ba88a5e99684227a019d5d2fda2d"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "outputs": [
+          "output/globalvoices_blinded_fingerprints.sqlite3",
+          "output/blinded_index_summary.json",
+          "output/blinded_index.resources.json"
+        ],
+        "phase": "code",
+        "purpose": "Construct the real result-blind GlobalVoices confirmation fingerprint index for the pre-frozen 512 trilingual units without persisting raw text or computing tokenizer/fairness outcomes.",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": null,
+        "task_id": "build-globalvoices-blinded-index-wake12-v1",
+        "timeout_seconds": 120
+      },
+      {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "PYTHONHASHSEED=0",
+          "python3",
+          "scripts/measure_command.py",
+          "output/blinded_index_v2.resources.json",
+          "scripts/build_blinded_fingerprints.py",
+          "--units",
+          "inputs/reference/opus_gv_closed_components.json",
+          "--source-manifest",
+          "confirmation_raw_source_manifest.json",
+          "--build-manifest",
+          "confirmation_index_build_manifest_v2.json",
+          "--raw-schema",
+          "output/raw_schema_v2.json",
+          "--selector-protocol",
+          "inputs/reference/decontamination_selector_protocol.json",
+          "--raw-dir",
+          "inputs/opus_gv_v2018q4/raw",
+          "--output",
+          "output/globalvoices_blinded_fingerprints_v2.sqlite3",
+          "--summary",
+          "output/blinded_index_summary_v2.json"
+        ],
+        "attempt_id": "attempt-47e2d45d897a44c5828be3d9a15adb3f",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "inputs/reference/opus_gv_closed_components.json",
+            "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+          },
+          {
+            "path": "confirmation_raw_source_manifest.json",
+            "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+          },
+          {
+            "path": "confirmation_index_build_manifest_v2.json",
+            "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+          },
+          {
+            "path": "output/raw_schema_v2.json",
+            "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+          },
+          {
+            "path": "inputs/reference/decontamination_selector_protocol.json",
+            "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+            "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+            "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+            "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+          },
+          {
+            "path": "output/fetch_fr.json",
+            "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+          },
+          {
+            "path": "output/fetch_es.json",
+            "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+          },
+          {
+            "path": "output/fetch_en.json",
+            "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+          },
+          {
+            "path": "scripts/build_blinded_fingerprints.py",
+            "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "outputs": [
+          "output/globalvoices_blinded_fingerprints_v2.sqlite3",
+          "output/blinded_index_summary_v2.json",
+          "output/blinded_index_v2.resources.json"
+        ],
+        "phase": "code",
+        "purpose": "Build the fail-closed result-blind confirmation index after independently identified provenance and URL canonicalization defects in v1.",
+        "reason": "Command exited with status 2; Cannot safely read output/globalvoices_blinded_fingerprints_v2.sqlite3: [Errno 2] No such file or directory: 'globalvoices_blinded_fingerprints_v2.sqlite3'; Cannot safely read output/blinded_index_summary_v2.json: [Errno 2] No such file or directory: 'blinded_index_summary_v2.json'",
+        "replaced_by": "build-globalvoices-blinded-index-wake12-v3",
+        "revision": 1,
+        "state": "failed",
+        "supersedes": null,
+        "task_id": "build-globalvoices-blinded-index-wake12-v2",
+        "timeout_seconds": 120
+      },
+      {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "PYTHONHASHSEED=0",
+          "python3",
+          "scripts/measure_command.py",
+          "output/blinded_index_v3.resources.json",
+          "scripts/build_blinded_fingerprints.py",
+          "--units",
+          "inputs/reference/opus_gv_closed_components.json",
+          "--source-manifest",
+          "confirmation_index_build_manifest_v2.json",
+          "--fetch-receipts",
+          "output",
+          "--raw-schema",
+          "output/raw_schema_v2.json",
+          "--selector-protocol",
+          "inputs/reference/decontamination_selector_protocol.json",
+          "--raw-dir",
+          "inputs/opus_gv_v2018q4/raw",
+          "--database",
+          "output/globalvoices_blinded_fingerprints_v2.sqlite3",
+          "--summary",
+          "output/blinded_index_summary_v2.json"
+        ],
+        "attempt_id": "attempt-27ac6b57d6194467b93d760e26a7da86",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "inputs/reference/opus_gv_closed_components.json",
+            "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+          },
+          {
+            "path": "confirmation_index_build_manifest_v2.json",
+            "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+          },
+          {
+            "path": "output/raw_schema_v2.json",
+            "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+          },
+          {
+            "path": "inputs/reference/decontamination_selector_protocol.json",
+            "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+            "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+            "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+            "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+          },
+          {
+            "path": "output/fetch_fr.json",
+            "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+          },
+          {
+            "path": "output/fetch_es.json",
+            "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+          },
+          {
+            "path": "output/fetch_en.json",
+            "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+          },
+          {
+            "path": "scripts/build_blinded_fingerprints.py",
+            "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "outputs": [
+          "output/globalvoices_blinded_fingerprints_v2.sqlite3",
+          "output/blinded_index_summary_v2.json",
+          "output/blinded_index_v3.resources.json"
+        ],
+        "phase": "code",
+        "purpose": "Build the fail-closed result-blind confirmation index after independently identified provenance and URL canonicalization defects in v1.",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": "build-globalvoices-blinded-index-wake12-v2",
+        "task_id": "build-globalvoices-blinded-index-wake12-v3",
+        "timeout_seconds": 120
+      },
+      {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "PYTHONHASHSEED=0",
+          "python3",
+          "scripts/measure_command.py",
+          "output/fetch_en.resources.json",
+          "scripts/fetch_raw_archive.py",
+          "--manifest",
+          "confirmation_raw_source_manifest.json",
+          "--language",
+          "en",
+          "--output",
+          "inputs/opus_gv_v2018q4/raw/en.zip",
+          "--receipt",
+          "output/fetch_en.json"
+        ],
+        "attempt_id": "attempt-83340a2237184d45865742b70f9affa5",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [
+          "fetch-globalvoices-es-wake12-v1"
+        ],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "confirmation_raw_source_manifest.json",
+            "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+          },
+          {
+            "path": "scripts/fetch_raw_archive.py",
+            "sha256": "037b8cf015027268d4d9648847d35fdfdaea5535dc3c8cc4d8174093ac02d7eb"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "outputs": [
+          "inputs/opus_gv_v2018q4/raw/en.zip",
+          "output/fetch_en.json",
+          "output/fetch_en.resources.json"
+        ],
+        "phase": "sources",
+        "purpose": "Fetch and hash the real English OPUS GlobalVoices raw archive without inspecting text or outcomes after the Spanish source settles.",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": null,
+        "task_id": "fetch-globalvoices-en-wake12-v1",
+        "timeout_seconds": 120
+      },
+      {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "PYTHONHASHSEED=0",
+          "python3",
+          "scripts/measure_command.py",
+          "output/fetch_es.resources.json",
+          "scripts/fetch_raw_archive.py",
+          "--manifest",
+          "confirmation_raw_source_manifest.json",
+          "--language",
+          "es",
+          "--output",
+          "inputs/opus_gv_v2018q4/raw/es.zip",
+          "--receipt",
+          "output/fetch_es.json"
+        ],
+        "attempt_id": "attempt-1a61320a77844058ba23902bb046e109",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "confirmation_raw_source_manifest.json",
+            "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+          },
+          {
+            "path": "scripts/fetch_raw_archive.py",
+            "sha256": "037b8cf015027268d4d9648847d35fdfdaea5535dc3c8cc4d8174093ac02d7eb"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "outputs": [
+          "inputs/opus_gv_v2018q4/raw/es.zip",
+          "output/fetch_es.json",
+          "output/fetch_es.resources.json"
+        ],
+        "phase": "sources",
+        "purpose": "Fetch and hash the real Spanish OPUS GlobalVoices raw archive without inspecting text or outcomes.",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": null,
+        "task_id": "fetch-globalvoices-es-wake12-v1",
+        "timeout_seconds": 120
+      },
+      {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "PYTHONHASHSEED=0",
+          "python3",
+          "scripts/measure_command.py",
+          "output/fetch_fr.resources.json",
+          "scripts/fetch_raw_archive.py",
+          "--manifest",
+          "confirmation_raw_source_manifest.json",
+          "--language",
+          "fr",
+          "--output",
+          "inputs/opus_gv_v2018q4/raw/fr.zip",
+          "--receipt",
+          "output/fetch_fr.json"
+        ],
+        "attempt_id": "attempt-c07c88b8bdb84100b1601c8b533c1788",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "confirmation_raw_source_manifest.json",
+            "sha256": "4c4eeb0b953a9eb77f930b5d0aa33c9431a26880d688f37123fd01a83ec854e8"
+          },
+          {
+            "path": "scripts/fetch_raw_archive.py",
+            "sha256": "037b8cf015027268d4d9648847d35fdfdaea5535dc3c8cc4d8174093ac02d7eb"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "outputs": [
+          "inputs/opus_gv_v2018q4/raw/fr.zip",
+          "output/fetch_fr.json",
+          "output/fetch_fr.resources.json"
+        ],
+        "phase": "sources",
+        "purpose": "Fetch and hash the smallest real OPUS GlobalVoices raw archive without inspecting text, as a bounded access and provenance discriminator before the full blinded fingerprint build.",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": null,
+        "task_id": "fetch-globalvoices-fr-wake12-v1",
+        "timeout_seconds": 120
+      },
+      {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "PYTHONHASHSEED=0",
+          "python3",
+          "scripts/measure_command.py",
+          "output/raw_schema.resources.json",
+          "scripts/inspect_raw_schema.py",
+          "--units",
+          "inputs/reference/opus_gv_closed_components.json",
+          "--raw-dir",
+          "inputs/opus_gv_v2018q4/raw",
+          "--output",
+          "output/raw_schema.json"
+        ],
+        "attempt_id": "attempt-2717fdd322fe47edbc628c85a920bea9",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "inputs/reference/opus_gv_closed_components.json",
+            "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+            "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+            "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+            "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+          },
+          {
+            "path": "scripts/inspect_raw_schema.py",
+            "sha256": "a144060f6dc48934ea1173d0d70cf91ae205d728daad9d9ca55bbd02ac8072db"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "outputs": [
+          "output/raw_schema.json",
+          "output/raw_schema.resources.json"
+        ],
+        "phase": "sources",
+        "purpose": "Qualify the genuine raw archive member and sentence identities for all 512 frozen trilingual units without printing raw text or any tokenizer outcome.",
+        "reason": "Command exited with status 1; Cannot safely read output/raw_schema.json: [Errno 2] No such file or directory: 'raw_schema.json'",
+        "replaced_by": "inspect-globalvoices-raw-schema-wake12-v2",
+        "revision": 1,
+        "state": "failed",
+        "supersedes": null,
+        "task_id": "inspect-globalvoices-raw-schema-wake12-v1",
+        "timeout_seconds": 120
+      },
+      {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "PYTHONHASHSEED=0",
+          "python3",
+          "scripts/measure_command.py",
+          "output/raw_schema_v2.resources.json",
+          "scripts/inspect_raw_schema.py",
+          "--units",
+          "inputs/reference/opus_gv_closed_components.json",
+          "--raw-dir",
+          "inputs/opus_gv_v2018q4/raw",
+          "--output",
+          "output/raw_schema_v2.json"
+        ],
+        "attempt_id": "attempt-d71792a0c3da4624b7cf654a2e707a12",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "inputs/reference/opus_gv_closed_components.json",
+            "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+            "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+            "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+            "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+          },
+          {
+            "path": "scripts/inspect_raw_schema.py",
+            "sha256": "6e18a54d354bfb9cff02c1a83c7a779ad3125ac1434b30e87e8a1b2fdbfd31a6"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "outputs": [
+          "output/raw_schema_v2.json",
+          "output/raw_schema_v2.resources.json"
+        ],
+        "phase": "sources",
+        "purpose": "Rerun the 512-unit real raw identity qualification with the diagnosed .xml.gz-to-.xml archive representation mapping.",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": "inspect-globalvoices-raw-schema-wake12-v1",
+        "task_id": "inspect-globalvoices-raw-schema-wake12-v2",
+        "timeout_seconds": 120
+      },
+      {
+        "argv": [
+          "/usr/bin/env",
+          "OMP_NUM_THREADS=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "PYTHONHASHSEED=0",
+          "python3",
+          "scripts/measure_command.py",
+          "output/blinded_index_verification.resources.json",
+          "scripts/verify_blinded_index.py",
+          "--database",
+          "output/globalvoices_blinded_fingerprints.sqlite3",
+          "--summary",
+          "output/blinded_index_summary.json",
+          "--units",
+          "inputs/reference/opus_gv_closed_components.json",
+          "--raw-dir",
+          "inputs/opus_gv_v2018q4/raw",
+          "--output",
+          "output/blinded_index_verification.json"
+        ],
+        "attempt_id": "attempt-89d7ed8fb26e404ea7b983957853d88d",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "pa-bpe-domain-robustness",
+        "input_refs": [
+          {
+            "path": "output/globalvoices_blinded_fingerprints.sqlite3",
+            "sha256": "8e8b1716be87bcc65fd420dcd53f3314c82a23bc76517dc1bcb4605653be97fa"
+          },
+          {
+            "path": "output/blinded_index_summary.json",
+            "sha256": "db6f1d7c4fb60fb2368c0a40b5e35f685b604ea7504f036d6e8fceb2a74c3c32"
+          },
+          {
+            "path": "inputs/reference/opus_gv_closed_components.json",
+            "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/fr.zip",
+            "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/es.zip",
+            "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+          },
+          {
+            "path": "inputs/opus_gv_v2018q4/raw/en.zip",
+            "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+          },
+          {
+            "path": "scripts/verify_blinded_index.py",
+            "sha256": "dd4016d37db61886a46ba44adbce7c8201427f9d2370f64a851479187d3fbe7e"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+          }
+        ],
+        "outputs": [
+          "output/blinded_index_verification.json",
+          "output/blinded_index_verification.resources.json"
+        ],
+        "phase": "verify",
+        "purpose": "Independently verify the real result-blind index integrity, hash-only schema, aggregate recomputation and sampled plaintext absence without tokenizer or fairness scoring.",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": null,
+        "task_id": "verify-globalvoices-blinded-index-wake12-v1",
+        "timeout_seconds": 120
+      }
+    ]
+  }
+]

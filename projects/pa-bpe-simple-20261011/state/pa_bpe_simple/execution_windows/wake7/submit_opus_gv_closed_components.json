@@ -1,0 +1,38 @@
+{
+  "submission_id": "opus-gv-closed-components-wake7-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "opus-gv-closed-components-wake7",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/opus_gv_closed_components.resources.json",
+        "scripts/build_opus_gv_closed_components.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Construct closed English-French-Spanish XCES identity components inside a preregistered 512-document scope without accessing raw text or tokenizer outcomes.",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": ["opus-gv-xces-schema-wake7"],
+      "input_refs": [
+        {"path": "opus_gv_closed_components_protocol.json", "sha256": "4732917c779853ccc76933b56cdd5c52db617e8337173e14d3c407c8ae28f64c"},
+        {"path": "scripts/build_opus_gv_closed_components.py", "sha256": "3142462fd665716ca2374ec41bccbb6e575d3832b47535321bce0d1f2df2aa64"},
+        {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+        {"path": "output/opus_gv_xces_schema.json", "sha256": "b40288c91108c1f4da8c1533d1b7421aee787cdb8ce67b58243c7e6652260ca8"},
+        {"path": "inputs/opus_gv_v2018q4/en-fr.xml.gz", "sha256": "2eda1355fbc62bb601d997e0743749fcb8729049eabde905b6289b219c323d11"},
+        {"path": "inputs/opus_gv_v2018q4/en-es.xml.gz", "sha256": "a7e928c2751cdfe2ed8ae52848ef7abbd61057b4df5063217f40e74707b8949f"},
+        {"path": "inputs/opus_gv_v2018q4/es-fr.xml.gz", "sha256": "beabbf7e8c1adf542faa3fdf5079cb6d4d170670b2df88ab50ced1443bbe6bd5"}
+      ],
+      "outputs": [
+        "output/opus_gv_closed_components.json",
+        "output/opus_gv_closed_components.resources.json"
+      ]
+    }
+  ]
+}

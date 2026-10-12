@@ -1,0 +1,54 @@
+{
+  "method_revision": 4,
+  "parent_idea": "pa-bpe-domain-robustness",
+  "parent_idea_revision": 1,
+  "goal_mode": "continuous_research",
+  "parent_goal_contract_version": 2,
+  "status": "prospective_before_candidate_outputs",
+  "trigger": {
+    "full_minmax_final_dev_max_gini": 0.0,
+    "full_minmax_mean_book_gini": 0.01342294861615594,
+    "classical_mean_book_gini": 0.012492230665781343,
+    "full_minmax_mean_book_total": 112.6220703125,
+    "classical_mean_book_total": 109.2703125,
+    "interpretation": "Exact fairness minimization selected low-compression moves and fit exposed development means without beating Classical transfer or cost."
+  },
+  "rule": "Among every eligible pair with strict exact development-objective descent, maximize exact realized training compression. Break ties by lower post-merge objective, then lexicographically larger pair. If none exists, maximize exact realized training compression with the same secondary ties.",
+  "mathematical_role": "Lexicographic constrained optimization: training compression is optimized subject to strict fairness descent, avoiding a tuned scalar tradeoff weight.",
+  "arms": {
+    "eff_minmax": "Maximum of the two domain-level two-language Ginis.",
+    "eff_pooled": "Gini after summing domain token totals; matched aggregation control.",
+    "exact_train": "Always maximize exact realized training compression; matched train-gain control."
+  },
+  "held_constant": [
+    "40 English and 40 French training documents",
+    "two 100-unit exposed development domains",
+    "1000 merges and 256-byte initial alphabet",
+    "Whitespace plus ByteLevel(use_regex=false) pretokenizer",
+    "all-eligible-pair search, exact nonoverlap gains, one process and one thread"
+  ],
+  "primary_prediction": "eff_minmax will reduce mean book total cost relative to full_minmax while retaining lower mean book Gini than full_pooled.",
+  "falsifiers": [
+    "Mean book total cost is not lower than full_minmax.",
+    "Mean book Gini is not lower than full_pooled.",
+    "Any predicted selected-pair train or development gain disagrees with the realized replacement or independent final tokenizer totals."
+  ],
+  "secondary_comparisons": [
+    "Classical BPE remains the strong simple baseline.",
+    "exact_train quantifies the cost and fairness effect of the fairness constraint under matched gain accounting.",
+    "All ten Books works and both TICO files are exposed development diagnostics, not confirmation."
+  ],
+  "resource_plan": {
+    "pilot": "100 merges on eff_minmax before full runs",
+    "scientific_concurrency": 1,
+    "threads": 1,
+    "command_timeout_seconds": 110,
+    "initial_peak_rss_target_bytes": 2147483648,
+    "finite_window_attempt_limit": 12,
+    "finite_window_wall_limit_seconds": 600
+  },
+  "decision": {
+    "if_supported": "Retain as an efficiency-aware candidate, then require truly unexposed source/author-level confirmation and third-language extension.",
+    "if_fairness_or_cost_fails": "Keep the negative result and analyze whether per-step lexicographic descent, aggregate Gini, or exposed-domain overfit is the limiting mechanism."
+  }
+}

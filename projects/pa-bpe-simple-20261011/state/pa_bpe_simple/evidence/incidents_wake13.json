@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "wake": 13,
+  "incidents": [
+    {
+      "time_utc": "2026-10-12T07:33:24Z",
+      "kind": "shared_memory_headroom_low",
+      "evidence": {"cgroup_limit_bytes": 8589934592, "observed_headroom_bytes": 314613760, "safety_gate_bytes": 402653184},
+      "impact": "Production verification launch deferred until headroom recovered.",
+      "repair": "Continued low-memory source work; re-probed at 1.517GB headroom before launch."
+    },
+    {
+      "time_utc": "2026-10-12T07:47:00Z",
+      "kind": "runner_contract_rejection",
+      "evidence": "Cannot replace a live, uncertain or successful task",
+      "impact": "No command launched and no artifact overwritten.",
+      "repair": "Removed supersedes from successful v1 task; submitted versioned v2 tasks."
+    },
+    {
+      "time_utc": "2026-10-12T07:49:00Z",
+      "kind": "exec_create_process_failure",
+      "evidence": "CreateProcess rejected: No such file or directory",
+      "impact": "Runner response command did not launch.",
+      "repair": "Retried from parent directory, which exposed full scratch-root loss."
+    },
+    {
+      "time_utc": "2026-10-12T07:50:00Z",
+      "kind": "scratch_workspace_erased_before_checkpoint",
+      "evidence": "ls from /workspace: /workspace/scratch/42f1128b703b does not exist",
+      "impact": "All wake13 source, SQLite, JSON and runner receipts lost before Library writeback; observed PASS cannot be certified.",
+      "repair": "Materialized Library version13, SHA256 8c0c6b716d093d7b78b58c83516e5396a03f8bd5ec8a6030a6e31699510a200a; wrote recovery-only generation14 and retained rerun requirement."
+    }
+  ]
+}

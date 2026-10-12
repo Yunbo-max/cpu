@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "count": 8,
+  "peak_rss_bytes": 77336576,
+  "commands": [
+    {
+      "path": "execution_windows/wake4/output/eff_minmax.resources.json",
+      "argv": [
+        "scripts/train_efficiency_constrained.py",
+        "minmax",
+        "1000",
+        "eff_minmax"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 54.29392554500373,
+      "user_cpu_seconds": 53.970687000000005,
+      "system_cpu_seconds": 0.162552,
+      "peak_rss_bytes": 70701056,
+      "scope": "single Python scientific process including wrapper; no subprocesses"
+    },
+    {
+      "path": "execution_windows/wake4/output/eff_pilot.resources.json",
+      "argv": [
+        "scripts/train_efficiency_constrained.py",
+        "minmax",
+        "100",
+        "eff_pilot"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 3.136898185010068,
+      "user_cpu_seconds": 2.94453,
+      "system_cpu_seconds": 0.174586,
+      "peak_rss_bytes": 55726080,
+      "scope": "single Python scientific process including wrapper; no subprocesses"
+    },
+    {
+      "path": "execution_windows/wake4/output/eff_pooled.resources.json",
+      "argv": [
+        "scripts/train_efficiency_constrained.py",
+        "pooled",
+        "1000",
+        "eff_pooled"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 51.635264980010106,
+      "user_cpu_seconds": 51.471292,
+      "system_cpu_seconds": 0.136775,
+      "peak_rss_bytes": 69980160,
+      "scope": "single Python scientific process including wrapper; no subprocesses"
+    },
+    {
+      "path": "execution_windows/wake4/output/efficiency_evaluation.resources.json",
+      "argv": [
+        "scripts/evaluate_efficiency_candidates.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 2.435020592994988,
+      "user_cpu_seconds": 2.327857,
+      "system_cpu_seconds": 0.106444,
+      "peak_rss_bytes": 46419968,
+      "scope": "single Python scientific process including wrapper; no subprocesses"
+    },
+    {
+      "path": "execution_windows/wake4/output/exact_train.resources.json",
+      "argv": [
+        "scripts/train_efficiency_constrained.py",
+        "trainonly",
+        "1000",
+        "exact_train"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 57.20942710599047,
+      "user_cpu_seconds": 57.126418,
+      "system_cpu_seconds": 0.061763,
+      "peak_rss_bytes": 70737920,
+      "scope": "single Python scientific process including wrapper; no subprocesses"
+    },
+    {
+      "path": "execution_windows/wake4/output/source_overlap.resources.json",
+      "argv": [
+        "scripts/audit_source_overlap.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.6460692140099127,
+      "user_cpu_seconds": 0.613714,
+      "system_cpu_seconds": 0.03234,
+      "peak_rss_bytes": 46055424,
+      "scope": "single Python scientific process including wrapper; no subprocesses"
+    },
+    {
+      "path": "execution_windows/wake4/output/table_verification.resources.json",
+      "argv": [
+        "scripts/verify_efficiency_tables.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.21728096400329378,
+      "user_cpu_seconds": 0.082547,
+      "system_cpu_seconds": 0.134645,
+      "peak_rss_bytes": 34938880,
+      "scope": "single Python scientific process including wrapper; no subprocesses"
+    },
+    {
+      "path": "execution_windows/wake4/output/training_trace_replay.resources.json",
+      "argv": [
+        "scripts/replay_training_traces.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 4.488488110000617,
+      "user_cpu_seconds": 4.345041,
+      "system_cpu_seconds": 0.14295,
+      "peak_rss_bytes": 77336576,
+      "scope": "single Python scientific process including wrapper; no subprocesses"
+    }
+  ]
+}

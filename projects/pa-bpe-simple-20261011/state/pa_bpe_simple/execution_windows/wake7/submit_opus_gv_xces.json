@@ -1,0 +1,38 @@
+{
+  "submission_id": "opus-gv-xces-schema-wake7-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "opus-gv-xces-schema-wake7",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/opus_gv_xces_schema.resources.json",
+        "scripts/inspect_opus_gv_xces.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Download, hash and structurally inspect the three OPUS GlobalVoices v2018q4 XCES alignments without accessing raw story text or tokenizer outcomes.",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": ["pgv-triangle-qualification-wake7"],
+      "input_refs": [
+        {"path": "opus_gv_xces_protocol.json", "sha256": "56874bce83789277a5e026fa0cfdbfb844fb80a23aa2c0ab51c69e85af7608cd"},
+        {"path": "scripts/inspect_opus_gv_xces.py", "sha256": "a1bdcf198feeddc5b050db80eca57e90a1063fda1624ec4b91236b5d34d0cce4"},
+        {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+        {"path": "source_review_binding.json", "sha256": "b96c6d932da83bfbb41150494345ef9fb45f6d7707770b5a9a6d6c0be029f429"}
+      ],
+      "outputs": [
+        "inputs/opus_gv_v2018q4/en-fr.xml.gz",
+        "inputs/opus_gv_v2018q4/en-es.xml.gz",
+        "inputs/opus_gv_v2018q4/es-fr.xml.gz",
+        "output/opus_gv_xces_schema.json",
+        "output/opus_gv_xces_schema.resources.json"
+      ]
+    }
+  ]
+}

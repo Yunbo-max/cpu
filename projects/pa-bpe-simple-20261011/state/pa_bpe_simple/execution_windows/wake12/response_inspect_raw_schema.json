@@ -1,0 +1,28 @@
+{
+  "response_id": "wake12-inspect-real-raw-schema-v1",
+  "request_id": "decision-edf16d36b91d4f42a476ca05e3596731",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "All three frozen raw archives are byte- and SHA256-bound. Before computing fingerprints, verify that every frozen document and sentence identity resolves in the genuine raw archives while emitting only schema names, counts and hashes.",
+  "tasks": [
+    {
+      "task_id": "inspect-globalvoices-raw-schema-wake12-v1",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "PYTHONHASHSEED=0", "python3", "scripts/measure_command.py", "output/raw_schema.resources.json", "scripts/inspect_raw_schema.py", "--units", "inputs/reference/opus_gv_closed_components.json", "--raw-dir", "inputs/opus_gv_v2018q4/raw", "--output", "output/raw_schema.json"],
+      "phase": "sources",
+      "purpose": "Qualify the genuine raw archive member and sentence identities for all 512 frozen trilingual units without printing raw text or any tokenizer outcome.",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "inputs/reference/opus_gv_closed_components.json", "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"},
+        {"path": "inputs/opus_gv_v2018q4/raw/fr.zip", "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"},
+        {"path": "inputs/opus_gv_v2018q4/raw/es.zip", "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"},
+        {"path": "inputs/opus_gv_v2018q4/raw/en.zip", "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"},
+        {"path": "scripts/inspect_raw_schema.py", "sha256": "a144060f6dc48934ea1173d0d70cf91ae205d728daad9d9ca55bbd02ac8072db"},
+        {"path": "scripts/measure_command.py", "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"}
+      ],
+      "outputs": ["output/raw_schema.json", "output/raw_schema.resources.json"]
+    }
+  ]
+}

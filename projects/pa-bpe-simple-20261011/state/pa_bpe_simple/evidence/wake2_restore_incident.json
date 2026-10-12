@@ -1,0 +1,10 @@
+{
+  "observed_utc": "2026-10-11T19:29:03.567638+00:00",
+  "kind": "runtime_issue",
+  "phenomenon": "status on freshly extracted checkpoint was refused because journal stores prior absolute project root",
+  "impact": "no command started; fresh bytes remain authoritative, cached root may be used only after full manifest verification for old state reads",
+  "repair": "verify every cached member against generation1 manifest, then read old status/alerts/health at bound path; new scientific work uses distinct runner child root",
+  "status": "recovered",
+  "recovered_utc": "2026-10-11T19:30:20+00:00",
+  "outcome": "All generation-1 manifest members were verified before reading the bound cache; a distinct child runner root executed wake-2 work without modifying the historical runner."
+}

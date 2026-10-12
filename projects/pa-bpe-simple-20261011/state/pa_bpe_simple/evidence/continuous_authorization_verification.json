@@ -1,0 +1,73 @@
+{
+  "observed_utc": "2026-10-11T20:03:48.957683+00:00",
+  "scope": "authorization/settings only; no new experiment",
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/runtime/scripts/simple_runner.py",
+        "--root",
+        "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake2",
+        "status"
+      ],
+      "exit_code": 0,
+      "administrative_wall_seconds": 0.1878546530060703,
+      "scientific_attempt": false
+    },
+    {
+      "argv": [
+        "python3",
+        "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/runtime/scripts/simple_loop.py",
+        "--root",
+        "/workspace/scratch/42f1128b703b/wake2_project/pa_bpe_simple/execution_windows/wake2",
+        "status"
+      ],
+      "exit_code": 0,
+      "administrative_wall_seconds": 0.04936941000050865,
+      "scientific_attempt": false
+    }
+  ],
+  "runner": {
+    "status": "paused_deadline",
+    "sequence": 12,
+    "goal_contract": {
+      "completion_criteria": [
+        {
+          "description": "Aligned independent metrics and strong native/simple controls across domains",
+          "id": "valid_comparison"
+        },
+        {
+          "description": "Mechanism-supported candidate tested with development and confirmation separated",
+          "id": "candidate"
+        },
+        {
+          "description": "Report supported, negative, and unresolved evidence with full provenance",
+          "id": "interpretation"
+        }
+      ],
+      "mode": "continuous_research"
+    },
+    "goal_contract_version": 2,
+    "complete_goal": false,
+    "budget": {
+      "attempts_used": 10,
+      "deadline_epoch": 1791748581.4497967,
+      "elapsed_seconds": 352.62387728596514,
+      "max_attempts": 12,
+      "max_command_seconds": 600,
+      "remaining_deadline_seconds": 0.0,
+      "remaining_seconds": 247.37612271403486,
+      "reserved_seconds": 0
+    }
+  },
+  "historical_members_checked": 482,
+  "changed_existing_members": [
+    "PA_BPE_Simple_Checkpoint.md",
+    "execution_windows/wake2/.research-autopilot/simple-loop.sqlite3",
+    "phase_budget.json"
+  ],
+  "historical_scientific_artifacts_unchanged": true,
+  "ledger_cumulative_seconds": 402.0276058989711,
+  "automation_enabled": true,
+  "same_automation_schedule": true
+}

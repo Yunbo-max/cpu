@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "active_idea": "pa-bpe-domain-robustness",
+  "idea_revision": 1,
+  "purpose": "Result-blind import of the frozen wake12 confirmation fingerprint database into the wake11 selector without raw confirmation text.",
+  "source_requirements": {"sqlite_integrity":"ok","complete":"true","raw_text_stored":"false","tokenizer_or_fairness_output_computed":"false","languages":["en","es","fr"],"hashes":"full lowercase SHA-256","shingles":"full 32-byte SHA-256 with positive multiplicity"},
+  "semantic_mapping": {"confirmation.normalized_exact_sha256":"conf.exact","confirmation.canonical_url_sha256":"conf_url_hash.url_hash","confirmation.word_count":"conf.words","confirmation.shingle_mass":"conf.mass","shingles.shingle_sha256":"grams.g","shingles.multiplicity":"grams.n"},
+  "exclusions": ["No raw confirmation text is read or reconstructed.","No development rows are selected in the import step.","No tokenizer or fairness metric is computed."]
+}

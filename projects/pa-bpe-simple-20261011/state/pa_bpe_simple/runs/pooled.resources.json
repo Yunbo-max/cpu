@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "scripts/prepare_and_pool.py",
+    "--input",
+    "data/train.en",
+    "data/train.fr",
+    "--dev",
+    "data/dev2.pooled.en",
+    "data/dev2.pooled.fr",
+    "--symbols",
+    "1000",
+    "--min-frequency",
+    "2",
+    "--num-workers",
+    "1",
+    "--verbose",
+    "--output",
+    "runs/pooled.merges"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 4.731017473008251,
+  "user_cpu_seconds": 4.544803,
+  "system_cpu_seconds": 0.17396799999999998,
+  "peak_rss_bytes": 59658240,
+  "scope": "single Python scientific process including wrapper; no subprocesses"
+}

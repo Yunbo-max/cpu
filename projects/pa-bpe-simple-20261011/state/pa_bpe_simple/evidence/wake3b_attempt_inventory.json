@@ -1,0 +1,116 @@
+[
+  {
+    "task_id": "full-table-verification-wake3b",
+    "attempt_id": "attempt-08997ce89f22431c9b9b26ea910e7a29",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/full_verification.resources.json",
+      "scripts/verify_full_tables.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.2077261219965294,
+    "receipt": "execution_windows/wake3b/.research-autopilot/runner/attempts/attempt-08997ce89f22431c9b9b26ea910e7a29/receipt.json"
+  },
+  {
+    "task_id": "vector-full-pilot-wake3b",
+    "attempt_id": "attempt-1dbca8c97841481b9d3bf7dfd1c4b845",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/vector_pilot.resources.json",
+      "scripts/train_full_pool_vectorized.py",
+      "minmax",
+      "100",
+      "vector_pilot"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 1.4946989669988398,
+    "receipt": "execution_windows/wake3b/.research-autopilot/runner/attempts/attempt-1dbca8c97841481b9d3bf7dfd1c4b845/receipt.json"
+  },
+  {
+    "task_id": "full-pool-evaluation-wake3b",
+    "attempt_id": "attempt-55d2dfff1c1f4d468616ad4255ba3b8d",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/full_evaluation.resources.json",
+      "scripts/evaluate_full_candidates.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 1.701660961000016,
+    "receipt": "execution_windows/wake3b/.research-autopilot/runner/attempts/attempt-55d2dfff1c1f4d468616ad4255ba3b8d/receipt.json"
+  },
+  {
+    "task_id": "full-pool-pilot-wake3b",
+    "attempt_id": "attempt-733db43a694a4731a061414c71f47d21",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/full_pilot.resources.json",
+      "scripts/train_full_pool.py",
+      "minmax",
+      "100",
+      "full_pilot"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 5.562294498988194,
+    "receipt": "execution_windows/wake3b/.research-autopilot/runner/attempts/attempt-733db43a694a4731a061414c71f47d21/receipt.json"
+  },
+  {
+    "task_id": "full_minmax-train-wake3b",
+    "attempt_id": "attempt-90c44bc5d2ff4e0ab92540652ca7f7ee",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/full_minmax.resources.json",
+      "scripts/train_full_pool_vectorized.py",
+      "minmax",
+      "1000",
+      "full_minmax"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 42.001602435004315,
+    "receipt": "execution_windows/wake3b/.research-autopilot/runner/attempts/attempt-90c44bc5d2ff4e0ab92540652ca7f7ee/receipt.json"
+  },
+  {
+    "task_id": "full_pooled-train-wake3b",
+    "attempt_id": "attempt-916a1a1130d443c191b8d91489109423",
+    "argv": [
+      "/usr/bin/env",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "TOKENIZERS_PARALLELISM=false",
+      "python3",
+      "scripts/measure_command.py",
+      "output/full_pooled.resources.json",
+      "scripts/train_full_pool_vectorized.py",
+      "pooled",
+      "1000",
+      "full_pooled"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 43.65301922400249,
+    "receipt": "execution_windows/wake3b/.research-autopilot/runner/attempts/attempt-916a1a1130d443c191b8d91489109423/receipt.json"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "method_revision": 3,
+  "parent_idea_revision": 1,
+  "goal_mode": "continuous_research",
+  "parent_goal_contract_version": 2,
+  "parent_window": "wake3",
+  "parent_cumulative_seconds": 500.30267258398993,
+  "trigger": "10/10 fixed fallback states had missed descending merges; broaden pool to all eligible pairs",
+  "change": "Only pool eligibility coverage changes from top4/language+global to all qualifying train pairs; exactgain/objective/fallback/tie rule retained",
+  "hypothesis": "Full pool will reduce fallback and final development max-domain Gini versus narrow pool",
+  "counterhypothesis": "Full pool can worsen compression/transfer through low frequency merges and development overfit",
+  "arms": [
+    "full_minmax",
+    "full_pooled"
+  ],
+  "budget": "calibrate100 steps before1000; 1CPU process1thread; command<=120s; all existing data exposed; no confirmation claims",
+  "lexicographic_tie": "lexicographically largest pair after objective and totalfrequency ties",
+  "next_confirmation": "Requires newly frozen unexposed works/domains and complete training provenance; current outputs exploratory"
+}

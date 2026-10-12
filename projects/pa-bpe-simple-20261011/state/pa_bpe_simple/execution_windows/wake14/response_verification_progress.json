@@ -1,0 +1,22 @@
+{
+  "response_id": "wake14-adapter-verification-progress-v1",
+  "request_id": "decision-a2961a0c851c425190c0ed26845b783a",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Accept the independently reviewed narrow adapter gate, preserve its explicit exclusions, and continue next with real development rows plus formal row-to-fixed-shard provenance.",
+  "events": [
+    {
+      "kind": "progress",
+      "event_id": "wake14-blinded-adapter-mechanics-pass-v1",
+      "next_phase": "sources",
+      "reason": "The repaired adapter passed 20/20 fixed and record-level checks and an independent read-only review found no blocking defect. The PASS is restricted to hash-only adapter mechanics and frozen-index preservation; real development selection, shard provenance, tokenizer training, and fairness claims remain HOLD. Next obtain and bind real development rows to fixed source shards before production decontamination.",
+      "evidence": [
+        {"path": "output/blinded_adapter_verification.json", "sha256": "774c6e5acb536332e9c170b056d79a845f124169cdf852486a465bd2ecd84c0d"},
+        {"path": "output/blinded_adapter_verification.resources.json", "sha256": "89f89bc33e96fc7a73d846792ff0cff1805f1fb578129d757329d8e8fcbdbfd0"},
+        {"path": "evidence/independent_review.json", "sha256": "dbf2fb1599181a7a47a802812866eb9b6867f23333e2d806025ef7f0cfae3ffa"},
+        {"path": ".research-autopilot/runner/attempts/attempt-cb8cd58117ae4f2fa745ce8792ad16ad/receipt.json", "sha256": "aac43a20079ed401548be099fd3242a7de5e10181cc727079e34e95fc9b78d20"}
+      ]
+    }
+  ]
+}

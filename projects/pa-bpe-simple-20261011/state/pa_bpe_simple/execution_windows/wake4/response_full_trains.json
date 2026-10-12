@@ -1,0 +1,265 @@
+{
+  "response_id": "efficiency-full-trains-wake4",
+  "request_id": "decision-86552272264145689195a7d693c4dfc4",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "100-step pilot verified exact train/dev gains and independent final counts with low resources; execute frozen full comparison serially",
+  "tasks": [
+    {
+      "task_id": "eff-minmax-train-wake4",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/eff_minmax.resources.json",
+        "scripts/train_efficiency_constrained.py",
+        "minmax",
+        "1000",
+        "eff_minmax"
+      ],
+      "phase": "experiment",
+      "purpose": "Train eff_minmax under frozen lexicographic rule; preserve negative outcome",
+      "timeout_seconds": 110,
+      "depends_on": [
+        "efficiency-constrained-pilot-wake4"
+      ],
+      "input_refs": [
+        {
+          "path": "cost_constrained_plan.json",
+          "sha256": "579cf6e3a820546fc720a66174cccb7437446377787ac46dd2377f407a663d19"
+        },
+        {
+          "path": "window_parent_binding.json",
+          "sha256": "13c7279c7635a286f769528ae94d86b0dc317c7377591ae36b9ab0c8c0fd384b"
+        },
+        {
+          "path": "scripts/train_efficiency_constrained.py",
+          "sha256": "8cf94da571e44a12ee2ab00d390dd28768ee104c5913383d1f547854ddf6fc1b"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "scripts/native_pa_source.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        },
+        {
+          "path": "scripts/evaluator_reference.py",
+          "sha256": "612d66ff544e6cb72047d59f36e702766061abcc10e387453e3356ec231651eb"
+        },
+        {
+          "path": "output/eff_pilot.trace.json",
+          "sha256": "3edbec8f8d12b41736c44769059c7dbe9441bf59d2c8502fa00c2f4361c9cab2"
+        },
+        {
+          "path": "output/eff_pilot.resources.json",
+          "sha256": "4ecb8b2d2473d2f51e91c04d3a9aaa5112b43b7753270a25982a250fd20abba4"
+        },
+        {
+          "path": "inputs/train.en",
+          "sha256": "30e91713f1ab02873aadf82bff10530f4b4cba267f22e6292e78b217bbefa2b8"
+        },
+        {
+          "path": "inputs/train.fr",
+          "sha256": "bf2cb9ce2143a7ed77d42886fd94adf8d0bbfad208814fa2da0fa28d181d9483"
+        },
+        {
+          "path": "inputs/dev2.tico.en",
+          "sha256": "823561bdb9a9b231b6a78fb7767ec4bdec649cd837e3d0540fab8c4511d7b53e"
+        },
+        {
+          "path": "inputs/dev2.tico.fr",
+          "sha256": "1162933dbcbebac060f504c7b78268543bfdd81750286e2de8702569fce7921e"
+        },
+        {
+          "path": "inputs/dev2.books.en",
+          "sha256": "80020ecf26660daed7129215bbe958bd14a04ad2fbca642e0fad01bbfb893660"
+        },
+        {
+          "path": "inputs/dev2.books.fr",
+          "sha256": "113ecdeeb27f0e8c7d1cf33d93f55eb39316fbd6e13b6a0da2f3ce28e4759ec4"
+        }
+      ],
+      "outputs": [
+        "output/eff_minmax.merges",
+        "output/eff_minmax.trace.json",
+        "output/eff_minmax.resources.json"
+      ]
+    },
+    {
+      "task_id": "eff-pooled-train-wake4",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/eff_pooled.resources.json",
+        "scripts/train_efficiency_constrained.py",
+        "pooled",
+        "1000",
+        "eff_pooled"
+      ],
+      "phase": "experiment",
+      "purpose": "Train eff_pooled under frozen lexicographic rule; preserve negative outcome",
+      "timeout_seconds": 110,
+      "depends_on": [
+        "eff-minmax-train-wake4"
+      ],
+      "input_refs": [
+        {
+          "path": "cost_constrained_plan.json",
+          "sha256": "579cf6e3a820546fc720a66174cccb7437446377787ac46dd2377f407a663d19"
+        },
+        {
+          "path": "window_parent_binding.json",
+          "sha256": "13c7279c7635a286f769528ae94d86b0dc317c7377591ae36b9ab0c8c0fd384b"
+        },
+        {
+          "path": "scripts/train_efficiency_constrained.py",
+          "sha256": "8cf94da571e44a12ee2ab00d390dd28768ee104c5913383d1f547854ddf6fc1b"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "scripts/native_pa_source.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        },
+        {
+          "path": "scripts/evaluator_reference.py",
+          "sha256": "612d66ff544e6cb72047d59f36e702766061abcc10e387453e3356ec231651eb"
+        },
+        {
+          "path": "output/eff_pilot.trace.json",
+          "sha256": "3edbec8f8d12b41736c44769059c7dbe9441bf59d2c8502fa00c2f4361c9cab2"
+        },
+        {
+          "path": "output/eff_pilot.resources.json",
+          "sha256": "4ecb8b2d2473d2f51e91c04d3a9aaa5112b43b7753270a25982a250fd20abba4"
+        },
+        {
+          "path": "inputs/train.en",
+          "sha256": "30e91713f1ab02873aadf82bff10530f4b4cba267f22e6292e78b217bbefa2b8"
+        },
+        {
+          "path": "inputs/train.fr",
+          "sha256": "bf2cb9ce2143a7ed77d42886fd94adf8d0bbfad208814fa2da0fa28d181d9483"
+        },
+        {
+          "path": "inputs/dev2.tico.en",
+          "sha256": "823561bdb9a9b231b6a78fb7767ec4bdec649cd837e3d0540fab8c4511d7b53e"
+        },
+        {
+          "path": "inputs/dev2.tico.fr",
+          "sha256": "1162933dbcbebac060f504c7b78268543bfdd81750286e2de8702569fce7921e"
+        },
+        {
+          "path": "inputs/dev2.books.en",
+          "sha256": "80020ecf26660daed7129215bbe958bd14a04ad2fbca642e0fad01bbfb893660"
+        },
+        {
+          "path": "inputs/dev2.books.fr",
+          "sha256": "113ecdeeb27f0e8c7d1cf33d93f55eb39316fbd6e13b6a0da2f3ce28e4759ec4"
+        }
+      ],
+      "outputs": [
+        "output/eff_pooled.merges",
+        "output/eff_pooled.trace.json",
+        "output/eff_pooled.resources.json"
+      ]
+    },
+    {
+      "task_id": "exact-train-train-wake4",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/exact_train.resources.json",
+        "scripts/train_efficiency_constrained.py",
+        "trainonly",
+        "1000",
+        "exact_train"
+      ],
+      "phase": "experiment",
+      "purpose": "Train exact_train under frozen lexicographic rule; preserve negative outcome",
+      "timeout_seconds": 110,
+      "depends_on": [
+        "eff-pooled-train-wake4"
+      ],
+      "input_refs": [
+        {
+          "path": "cost_constrained_plan.json",
+          "sha256": "579cf6e3a820546fc720a66174cccb7437446377787ac46dd2377f407a663d19"
+        },
+        {
+          "path": "window_parent_binding.json",
+          "sha256": "13c7279c7635a286f769528ae94d86b0dc317c7377591ae36b9ab0c8c0fd384b"
+        },
+        {
+          "path": "scripts/train_efficiency_constrained.py",
+          "sha256": "8cf94da571e44a12ee2ab00d390dd28768ee104c5913383d1f547854ddf6fc1b"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "scripts/native_pa_source.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        },
+        {
+          "path": "scripts/evaluator_reference.py",
+          "sha256": "612d66ff544e6cb72047d59f36e702766061abcc10e387453e3356ec231651eb"
+        },
+        {
+          "path": "output/eff_pilot.trace.json",
+          "sha256": "3edbec8f8d12b41736c44769059c7dbe9441bf59d2c8502fa00c2f4361c9cab2"
+        },
+        {
+          "path": "output/eff_pilot.resources.json",
+          "sha256": "4ecb8b2d2473d2f51e91c04d3a9aaa5112b43b7753270a25982a250fd20abba4"
+        },
+        {
+          "path": "inputs/train.en",
+          "sha256": "30e91713f1ab02873aadf82bff10530f4b4cba267f22e6292e78b217bbefa2b8"
+        },
+        {
+          "path": "inputs/train.fr",
+          "sha256": "bf2cb9ce2143a7ed77d42886fd94adf8d0bbfad208814fa2da0fa28d181d9483"
+        },
+        {
+          "path": "inputs/dev2.tico.en",
+          "sha256": "823561bdb9a9b231b6a78fb7767ec4bdec649cd837e3d0540fab8c4511d7b53e"
+        },
+        {
+          "path": "inputs/dev2.tico.fr",
+          "sha256": "1162933dbcbebac060f504c7b78268543bfdd81750286e2de8702569fce7921e"
+        },
+        {
+          "path": "inputs/dev2.books.en",
+          "sha256": "80020ecf26660daed7129215bbe958bd14a04ad2fbca642e0fad01bbfb893660"
+        },
+        {
+          "path": "inputs/dev2.books.fr",
+          "sha256": "113ecdeeb27f0e8c7d1cf33d93f55eb39316fbd6e13b6a0da2f3ce28e4759ec4"
+        }
+      ],
+      "outputs": [
+        "output/exact_train.merges",
+        "output/exact_train.trace.json",
+        "output/exact_train.resources.json"
+      ]
+    }
+  ]
+}

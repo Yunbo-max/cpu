@@ -1,0 +1,80 @@
+{
+  "response_id": "fallback-pool-audit-wake3",
+  "request_id": "decision-1206f01bae9c4a1ab937cefa96d52ec1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Use observed frequent fallback to test concrete pool-coverage mechanism; no new training or holdout use",
+  "tasks": [
+    {
+      "task_id": "fallback-pool-audit-wake3",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/fallback_audit.resources.json",
+        "scripts/audit_fallback_pool.py"
+      ],
+      "phase": "verify",
+      "purpose": "Distinguish missed pool coverage from absence of descending moves at10fixed fallback states",
+      "timeout_seconds": 90,
+      "input_refs": [
+        {
+          "path": "fallback_audit_plan.json",
+          "sha256": "8583c6f32506918e569ae33abc52d994fbc87cecb19400383f9612b704fce0b0"
+        },
+        {
+          "path": "scripts/audit_fallback_pool.py",
+          "sha256": "840b22eac0ab1a670c77dc15e1a41cef65a50da9f72308f5d25ec6111491a5ca"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "scripts/native_pa_source.py",
+          "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"
+        },
+        {
+          "path": "scripts/evaluator_reference.py",
+          "sha256": "612d66ff544e6cb72047d59f36e702766061abcc10e387453e3356ec231651eb"
+        },
+        {
+          "path": "output/pair_minmax.trace.json",
+          "sha256": "3cca545addfdeb2c1b091744bfa9bb1b3aeeace0f3a4ba4fe4db52c9a8980703"
+        },
+        {
+          "path": "inputs/train.en",
+          "sha256": "30e91713f1ab02873aadf82bff10530f4b4cba267f22e6292e78b217bbefa2b8"
+        },
+        {
+          "path": "inputs/train.fr",
+          "sha256": "bf2cb9ce2143a7ed77d42886fd94adf8d0bbfad208814fa2da0fa28d181d9483"
+        },
+        {
+          "path": "inputs/dev2.tico.en",
+          "sha256": "823561bdb9a9b231b6a78fb7767ec4bdec649cd837e3d0540fab8c4511d7b53e"
+        },
+        {
+          "path": "inputs/dev2.tico.fr",
+          "sha256": "1162933dbcbebac060f504c7b78268543bfdd81750286e2de8702569fce7921e"
+        },
+        {
+          "path": "inputs/dev2.books.en",
+          "sha256": "80020ecf26660daed7129215bbe958bd14a04ad2fbca642e0fad01bbfb893660"
+        },
+        {
+          "path": "inputs/dev2.books.fr",
+          "sha256": "113ecdeeb27f0e8c7d1cf33d93f55eb39316fbd6e13b6a0da2f3ce28e4759ec4"
+        }
+      ],
+      "outputs": [
+        "output/fallback_pool_audit.json",
+        "output/fallback_audit.resources.json"
+      ]
+    }
+  ]
+}

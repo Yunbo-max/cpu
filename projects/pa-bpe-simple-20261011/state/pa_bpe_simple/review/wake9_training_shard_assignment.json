@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "assignment_id": "pa-bpe-training-shard-review-wake9",
+  "parent_checkpoint_generation": 9,
+  "parent_manifest_sha256": "ecf1fe56cfc04673a08222148a7a73e72bb453c5d77ea1fde0e4f864f02194e8",
+  "active_idea": "pa-bpe-domain-robustness-rev1",
+  "scope": "Independent read-only audit of immutable training shard identities and the remaining pre-sampling gate conditions.",
+  "inputs": [
+    "execution_windows/wake9/training_shard_protocol.json",
+    "execution_windows/wake9/output/en_training_shards.json",
+    "execution_windows/wake9/output/fr_training_shards.json",
+    "execution_windows/wake9/output/es_training_shards.json",
+    "execution_windows/wake9/output/training_shard_manifest_verification.json"
+  ],
+  "questions": [
+    "Do repo revision, tree path, file path, LFS SHA-256, and byte size provide an immutable auditable shard identity for each candidate file?",
+    "Are the stated counts, uniqueness, and cross-language non-overlap claims supported by the artifacts?",
+    "What remains unresolved before any payload sampling or tokenizer training can be scientifically valid?"
+  ],
+  "constraints": {
+    "read_only_except_output": true,
+    "no_network": true,
+    "no_payload_download": true,
+    "no_experiment": true,
+    "no_delegation": true
+  },
+  "required_output": "review/wake9_training_shard_review.md",
+  "status": "completed",
+  "review_sha256": "0ab8d65e3a5a676544a8fde34522a84be3302c58d50ee10315d20a50ef8e78a2"
+}

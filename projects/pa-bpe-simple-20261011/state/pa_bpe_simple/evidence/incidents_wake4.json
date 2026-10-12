@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "observed_utc_date": "2026-10-11",
+  "incidents": [
+    {
+      "observed_at_utc": "2026-10-11T21:27:00Z",
+      "kind": "host_administrative_tool_failure",
+      "phenomenon": "rg exited with 'fatal library error, lookup self' while filtering the process table.",
+      "impact": "No scientific command, data, score or runner state was affected.",
+      "repair": "Used basic ps/Python inspection and continued with one scientific process.",
+      "next_action": "Reprobe the host dynamic-link environment before depending on rg in the next finite window."
+    },
+    {
+      "observed_at_utc": "2026-10-11T21:35:32Z",
+      "kind": "rejected_runner_response_contract",
+      "phenomenon": "The first verification-task response included idea/revision inside task objects; Simple runner rejected it with RunnerError: Unexpected task fields before queuing or launching work.",
+      "evidence": "execution_windows/wake4/.research-autopilot/runner/diagnostics/alerts and evidence/wake4_final_alerts.json",
+      "impact": "No scientific attempt was created and no result was overwritten. The CLI exception remains in runner diagnostics.",
+      "repair": "Removed the two runner-owned task fields and resubmitted the same frozen tasks; both later succeeded with exit code 0.",
+      "next_action": "Retain this event and use the runner task-field allowlist for future responses."
+    },
+    {
+      "observed_at_utc": "2026-10-11T21:38:00Z",
+      "kind": "host_administrative_tool_failure",
+      "phenomenon": "jq was present at /usr/bin/jq but exited with the same 'fatal library error, lookup self'.",
+      "impact": "Only JSON bookkeeping was affected; Python and the runner remained healthy and all eight scientific attempts were terminal-successful.",
+      "repair": "Used Python for read-only JSON extraction and packaging metadata.",
+      "next_action": "Treat rg/jq as unavailable until the host loader fault clears; do not count this as experimental progress or scientific failure."
+    },
+    {
+      "observed_at_utc": "2026-10-11T21:38:00Z",
+      "kind": "controlled_idle_supervisor_shutdown",
+      "phenomenon": "The idle supervisor was interrupted after all eight scientific attempts settled and reservation reached zero; health reports the old identity as lost with stage awaiting_decision.",
+      "impact": "No active scientific process or unknown reservation remains. The open decision is intentionally recoverable next wake.",
+      "repair": "Saved final status, health, alerts and an empty scientific-process check.",
+      "next_action": "Start a fresh finite window only after restoring the latest checkpoint and acquiring the single-writer lock."
+    },
+    {
+      "observed_at_utc": "2026-10-11T21:39:00Z",
+      "kind": "host_administrative_tool_recovery",
+      "phenomenon": "Fresh probes returned ripgrep 15.2.0 and jq 1.7 successfully.",
+      "impact": "The earlier loader failure was transient. No scientific command depended on either tool while it was failing.",
+      "repair": "No further intervention was required; retained the Python/ps fallback evidence.",
+      "next_action": "Reprobe at the start of the next host window rather than assuming persistent recovery."
+    }
+  ]
+}

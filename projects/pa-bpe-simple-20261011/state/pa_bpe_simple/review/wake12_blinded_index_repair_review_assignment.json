@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "assignment_id": "wake12-blinded-index-repair-review",
+  "project": "pa-bpe-simple-20261011",
+  "idea": "pa-bpe-domain-robustness",
+  "idea_revision": 1,
+  "role": "independent_reviewer",
+  "scope": "Review only whether the five HOLD findings from the v1 review are closed by the fail-closed v2 builder and artifacts; do not compute tokenizer or fairness outcomes and do not modify project files.",
+  "prior_verdict": "HOLD",
+  "prior_findings": [
+    "archives were not independently rehashed",
+    "expected unit manifest and canonical identities were not fail-closed",
+    "URL canonicalization violated the frozen trailing-root-dot rule and lacked IPv6 bracketing",
+    "provenance bindings were absent from the database and summary",
+    "current result-blind structure otherwise passed"
+  ],
+  "inputs": {
+    "builder": "execution_windows/wake12/scripts/build_blinded_fingerprints.py",
+    "builder_sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b",
+    "build_manifest": "execution_windows/wake12/confirmation_index_build_manifest_v2.json",
+    "build_manifest_sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4",
+    "database": "execution_windows/wake12/output/globalvoices_blinded_fingerprints_v2.sqlite3",
+    "database_sha256": "26e99931e2379b281d697149f47e62c0edd51d8466acca8016561e369fa520d7",
+    "summary": "execution_windows/wake12/output/blinded_index_summary_v2.json",
+    "summary_sha256": "f1dd00de45c89ee4c73f71c7a129722e471669da0f133fa803d865cab8e08c71",
+    "resource_receipt": "execution_windows/wake12/output/blinded_index_v3.resources.json",
+    "resource_receipt_sha256": "79da19c70fcb8380b27fa7442b23cd7da895efcb77d2acfd9d4de0e4d3a1f421",
+    "selector_protocol": "execution_windows/wake12/inputs/reference/decontamination_selector_protocol.json",
+    "selector_protocol_sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+  },
+  "requested_output": "Return PASS, HOLD, or FAIL; map each prior finding to evidence and state any residual issue precisely. Do not write files."
+}

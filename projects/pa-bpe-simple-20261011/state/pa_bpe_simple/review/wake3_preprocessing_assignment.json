@@ -1,0 +1,33 @@
+{
+  "delegation_id": "wake3-preprocessing-audit",
+  "generation": 1,
+  "parent": {
+    "project": "pa-bpe-simple-20261011",
+    "goal_contract_version": 2,
+    "idea": "pa-bpe-domain-robustness",
+    "revision": 1,
+    "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "question": "Independently audit what existing Books preprocessing/evaluator permits us to conclude and the minimal decisive raw-text comparison.",
+  "inputs": {
+    "scripts/evaluate_pilot.py": "612d66ff544e6cb72047d59f36e702766061abcc10e387453e3356ec231651eb",
+    "execution_windows/wake2/scripts/opus_selective_extract_wake2.py": "63d956583e1b7926ae2675665505ab9062d15a4588d98dbf595306f1021c1040",
+    "execution_windows/wake2/output/opus_selective_extract/raw_xml/dev.en.xml": "5f529f2e476bca967273b192930bb6321272a771593792f3f0612aac306d4b56",
+    "execution_windows/wake2/output/opus_selective_extract/raw_xml/dev.fr.xml": "ca8c291e1ccef8f58ba9b14a35fc77dfae8b450f18458bed0ee0c3f35cf11cc2",
+    "execution_windows/wake2/output/grouped_books_evaluation_wake2_v2.json": "b3ed10c45e50107adbfd730c25a5b262c5e3574266a6c6ee0899fa52bac29140"
+  },
+  "write_scope": "review/wake3_preprocessing_audit.md",
+  "authority": {
+    "deadline_utc": "2026-10-11T20:40:00Z",
+    "scientific_commands": 0,
+    "further_delegation": false,
+    "model_tokens": "unknown",
+    "instructions": "Read-only source/code/data inspection and analytical reasoning; do not train, score or launch numerical diagnostics. No shared-state edits."
+  },
+  "lifecycle_state": "dispatching",
+  "launch": {
+    "task_name": "pa_bpe_preprocessing_audit_wake3",
+    "intent_recorded_at_utc": "2026-10-11T20:30:30Z",
+    "agent_id": null
+  }
+}

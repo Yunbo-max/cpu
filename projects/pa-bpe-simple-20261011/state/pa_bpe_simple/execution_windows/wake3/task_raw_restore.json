@@ -1,0 +1,136 @@
+{
+  "submission_id": "w3-raw-source-restore",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "raw-en-wake3",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/raw_en.resources.json",
+        "scripts/recover_raw.py",
+        "en"
+      ],
+      "phase": "sources",
+      "purpose": "Restore official untokenized text for same-ID preprocessing check and fixed-model work generalization",
+      "timeout_seconds": 100,
+      "input_refs": [
+        {
+          "path": "plan_wake3.json",
+          "sha256": "3e28115bf48d4c8bd9bc3de9bb56895cf5823be5b84978a30556871bcf732f6e"
+        },
+        {
+          "path": "window_parent_binding.json",
+          "sha256": "5be83ca619a9cef2cae7e1f7f975feedcbf690071eec28120b0b5282cf27821d"
+        },
+        {
+          "path": "scripts/recover_raw.py",
+          "sha256": "ccd20d98fc6e6ab0e997495bd82cd72fe5887c4221ce2f299fd33a741f13764c"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "inputs/tokenized_inventory.json",
+          "sha256": "82683ad2c200a9424ddbaf192e365bd920ef7075ab5642181ab484d587cd8bd6"
+        }
+      ],
+      "outputs": [
+        "output/raw_en_manifest.json",
+        "output/raw_en.resources.json"
+      ]
+    },
+    {
+      "task_id": "raw-fr-wake3",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/raw_fr.resources.json",
+        "scripts/recover_raw.py",
+        "fr"
+      ],
+      "phase": "sources",
+      "purpose": "Restore official untokenized text for same-ID preprocessing check and fixed-model work generalization",
+      "timeout_seconds": 100,
+      "input_refs": [
+        {
+          "path": "plan_wake3.json",
+          "sha256": "3e28115bf48d4c8bd9bc3de9bb56895cf5823be5b84978a30556871bcf732f6e"
+        },
+        {
+          "path": "window_parent_binding.json",
+          "sha256": "5be83ca619a9cef2cae7e1f7f975feedcbf690071eec28120b0b5282cf27821d"
+        },
+        {
+          "path": "scripts/recover_raw.py",
+          "sha256": "ccd20d98fc6e6ab0e997495bd82cd72fe5887c4221ce2f299fd33a741f13764c"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "inputs/tokenized_inventory.json",
+          "sha256": "82683ad2c200a9424ddbaf192e365bd920ef7075ab5642181ab484d587cd8bd6"
+        }
+      ],
+      "outputs": [
+        "output/raw_fr_manifest.json",
+        "output/raw_fr.resources.json"
+      ]
+    },
+    {
+      "task_id": "raw-es-wake3",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/raw_es.resources.json",
+        "scripts/recover_raw.py",
+        "es"
+      ],
+      "phase": "sources",
+      "purpose": "Restore official untokenized text for same-ID preprocessing check and fixed-model work generalization",
+      "timeout_seconds": 100,
+      "input_refs": [
+        {
+          "path": "plan_wake3.json",
+          "sha256": "3e28115bf48d4c8bd9bc3de9bb56895cf5823be5b84978a30556871bcf732f6e"
+        },
+        {
+          "path": "window_parent_binding.json",
+          "sha256": "5be83ca619a9cef2cae7e1f7f975feedcbf690071eec28120b0b5282cf27821d"
+        },
+        {
+          "path": "scripts/recover_raw.py",
+          "sha256": "ccd20d98fc6e6ab0e997495bd82cd72fe5887c4221ce2f299fd33a741f13764c"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "inputs/tokenized_inventory.json",
+          "sha256": "82683ad2c200a9424ddbaf192e365bd920ef7075ab5642181ab484d587cd8bd6"
+        }
+      ],
+      "outputs": [
+        "output/raw_es_manifest.json",
+        "output/raw_es.resources.json"
+      ]
+    }
+  ]
+}

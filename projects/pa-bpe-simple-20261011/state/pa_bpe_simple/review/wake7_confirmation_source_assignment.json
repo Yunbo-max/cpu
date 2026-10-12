@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "request_id": "wake7-confirmation-source-review",
+  "delegation_id": "pa-bpe-wake7-confirmation-source-review",
+  "generation": 1,
+  "lifecycle_state": "completed",
+  "launch": {
+    "intent_recorded_at_utc": "2026-10-12T00:38:00Z",
+    "task_name": "pa_bpe_confirmation_source_review_wake7",
+    "native_agent_id": "/root/pa_bpe_confirmation_source_review_wake7",
+    "observed_launch_time_utc": "2026-10-12T00:39:00Z",
+    "observed_completion_time_utc": "2026-10-12T00:46:00Z",
+    "output_path": "review/wake7_confirmation_source_review.md",
+    "output_sha256": "c8af671379551f0f79691890c36355c4b48aa10d2fe13deb3aa45aff49a195f3"
+  },
+  "parent_binding": {
+    "checkpoint_generation": 7,
+    "manifest_sha256": "c804246c66c63bff70fb7fb56ee2c460207279c65bddf237204eaf1436b9ff7e",
+    "goal_mode": "continuous_research",
+    "active_idea": "pa-bpe-domain-robustness",
+    "idea_revision": 1,
+    "research_autopilot_simple_version": "0.3.0-simple.9"
+  },
+  "inputs": [
+    {
+      "path": "execution_windows/wake2/output/source_probe/source_probe_wake2.json",
+      "sha256": "a162de2f46e6f12a8bebea31b163975b81ad65dadbc7b37d0c4accdd8ef6337d"
+    },
+    {
+      "path": "PA_BPE_Wake3_Report.md",
+      "sha256": "7cd13ab3ddfefabf67901b6dbe005f1f3b2b2dfa5ba58b447cb0ed4d4b7c1ab6"
+    }
+  ],
+  "assignment": {
+    "question": "Which legally usable public corpus can serve as a genuinely new aligned English-French-Spanish confirmation domain after every OPUS Books work has been exposed?",
+    "candidate_priority": [
+      "OPUS GlobalVoices or its primary source",
+      "official TED/IWSLT multilingual releases",
+      "another public corpus only if license and row identity are clearer"
+    ],
+    "deliverable": "A source audit using primary/official pages only: exact version/URL, license or terms, alignment unit and stable identity, availability of en/fr/es on the same content, split or deterministic sampling options, download size, leakage/domain limitations, and a go/no-go recommendation. Distinguish missing license evidence from permission.",
+    "completion_requirements": [
+      "Verify both bound input hashes before review.",
+      "Do not download corpus payloads or inspect outcome text.",
+      "Do not run experiments or select a tokenizer.",
+      "Write only review/wake7_confirmation_source_review.md.",
+      "Cite exact official URLs and access dates."
+    ]
+  },
+  "authority": {
+    "experiments_permitted": false,
+    "payload_download_permitted": false,
+    "further_delegation_permitted": false,
+    "write_scope": ["review/wake7_confirmation_source_review.md"],
+    "deadline": "bounded to this active host window",
+    "model_usage": "unknown"
+  }
+}

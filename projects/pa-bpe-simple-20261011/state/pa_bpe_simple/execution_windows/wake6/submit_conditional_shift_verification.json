@@ -1,0 +1,37 @@
+{
+  "submission_id": "conditional-shift-verification-wake6-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "conditional-shift-verification-wake6",
+      "argv": [
+        "/usr/bin/env",
+        "OMP_NUM_THREADS=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/conditional_shift_verification.resources.json",
+        "scripts/verify_conditional_shift.py"
+      ],
+      "phase": "verify",
+      "purpose": "Independently verify exact component identities, group coverage, author-block ledgers and prior macro-row metric agreement.",
+      "timeout_seconds": 30,
+      "cwd": ".",
+      "depends_on": ["conditional-shift-decomposition-wake6"],
+      "input_refs": [
+        {"path": "conditional_shift_plan.json", "sha256": "aa15683e87a58eb9b8319e13a579e1490e853476c0aba35c9778106e9e6b1852"},
+        {"path": "window_parent_binding.json", "sha256": "0d58d52fa690de96342c7df0b319ce3c327ec4302276fef8312ccef515864551"},
+        {"path": "scripts/verify_conditional_shift.py", "sha256": "e1d4dcd40e6a3b1c384a572751a7762c9faa6d5f85504ac59e8d61a78534cda6"},
+        {"path": "scripts/measure_command.py", "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"},
+        {"path": "inputs/mass_cancellation_audit.json", "sha256": "c44873be9ffd96796780c81322bbb7405c738a79436832d0bd10c80db16b221a"},
+        {"path": "output/conditional_shift_decomposition.json", "sha256": "53b28afedd0226a78f95240b6b1339463f52bc26cf88555d78a7a36d230c0265"}
+      ],
+      "outputs": [
+        "output/conditional_shift_verification.json",
+        "output/conditional_shift_verification.resources.json"
+      ]
+    }
+  ]
+}

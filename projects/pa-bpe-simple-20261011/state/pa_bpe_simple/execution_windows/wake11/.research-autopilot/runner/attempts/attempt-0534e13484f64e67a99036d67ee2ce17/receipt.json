@@ -1,0 +1,67 @@
+{
+  "attempt_id": "attempt-0534e13484f64e67a99036d67ee2ce17",
+  "command_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 269816,
+    "start_ticks": 12680573
+  },
+  "contract_sha256": "58b0de8af8171af783aa1fa7a6374270bae05871ba2bc09d07bd5a5a8b9e29ea",
+  "elapsed_seconds": 0.08486590599932242,
+  "error": "Command exited with status 1; Declared output was not produced or changed by this attempt: output/decontam_selector_verification.json",
+  "exit_code": 1,
+  "finished_at": "2026-10-12T04:47:02.190511+00:00",
+  "input_refs": [
+    {
+      "path": "decontamination_selector_protocol.json",
+      "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+    },
+    {
+      "path": "scripts/decontam_selector.py",
+      "sha256": "7bc0d94c38d52c597c23dac1933062132e7c7326322834838de1c3a49a1513fb"
+    },
+    {
+      "path": "scripts/verify_decontam_selector.py",
+      "sha256": "df88013bc3a3a9a749932033c17d4b82007eaecb034874ff2c26d369eccb8296"
+    },
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "56f831e13359175e94fb0a38c03ecb2628b7a4d77e3016f4f3bbed0d00b486fc"
+    },
+    {
+      "path": "inputs/en_probe.json",
+      "sha256": "6811dc5a53900bc9a9279f85816705934776a9d7a6937ec400bec9962253aba4"
+    },
+    {
+      "path": "inputs/fr_probe.json",
+      "sha256": "69b869e99b8d80416369ddc2a40a62e871839072cab2afa5d299952cf556b5ce"
+    },
+    {
+      "path": "inputs/es_probe.json",
+      "sha256": "43d0fe0337fc8691724471e298c77c9f52f22230b3672cbc0af973b2b153b6a3"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/decontam_selector_verification_v4.resources.json",
+      "sha256": "3978c43b01acae9b965a7edef8109e81eca187d363cc6f112e647e15207c9130"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/wake11_project/pa_bpe_simple/execution_windows/wake11",
+  "schema_version": 1,
+  "started_at": "2026-10-12T04:47:02.105641+00:00",
+  "status": "failed",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-0534e13484f64e67a99036d67ee2ce17/stderr.txt",
+    "sha256": "a758cd57ea67d562efc6d79ffa24cebab43c5b7ba6f14816a379bff6eed4d792"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-0534e13484f64e67a99036d67ee2ce17/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "verify-decontam-selector-wake11-v4",
+  "worker_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 269814,
+    "start_ticks": 12680567
+  }
+}

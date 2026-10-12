@@ -1,0 +1,56 @@
+{
+  "response_id": "wake2-opus-identity-and-hf-main-probe-v2",
+  "request_id": "decision-d8b7c1b920bd4848a44c4d1a71d0932a",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The HF metadata already names exact Spanish Parquet paths on main, while the guessed convert/parquet paths returned 404. The Books review also shows that row offsets cannot establish work independence. Download the small native XCES alignments to recover document identities and probe only 4 KiB of the exact HF main paths before choosing any new training or evaluation run.",
+  "tasks": [
+    {
+      "task_id": "opus-identity-hf-main-probe-wake2",
+      "argv": [
+        "/usr/bin/env",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "TOKENIZERS_PARALLELISM=false",
+        "python3",
+        "scripts/measure_command.py",
+        "output/opus_identity_probe.resources.json",
+        "scripts/opus_identity_and_hf_probe_wake2.py",
+        "output/opus_identity_probe"
+      ],
+      "phase": "sources",
+      "purpose": "Recover OPUS Books document-pair identities for grouped splitting and validate exact FineWeb2 Spanish file paths without downloading full shards",
+      "timeout_seconds": 100,
+      "input_refs": [
+        {
+          "path": "scripts/opus_identity_and_hf_probe_wake2.py",
+          "sha256": "e39b2a236572488c4f306306c2087553ff11f7cb2c4d6e9e30c5666252f093f2"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "518fc6969d1a512b0d27dee97c1a8b27e163b8d6aaad102ccfd97dd05c00d98e"
+        },
+        {
+          "path": "output/source_probe/opus_books_en_fr_xml.json",
+          "sha256": "f55aced800c3360f9c3be7875c6f15005aef7362d9ed9f1e06ca37afb4f32622"
+        },
+        {
+          "path": "output/source_probe/opus_books_en_es_xml.json",
+          "sha256": "e79cb725b8b18aa7fecdd0b06c8eaec6f67e7a9b9da056a0a882a89cdd256076"
+        },
+        {
+          "path": "output/source_probe/opus_books_fr_es_xml.json",
+          "sha256": "e3a31cc9761b8637b7f9773ac6e814cb67cddccfcf52764ca4976c7bedd91cfb"
+        }
+      ],
+      "outputs": [
+        "output/opus_identity_probe/opus_identity_and_hf_probe_wake2.json",
+        "output/opus_identity_probe/raw/en-fr.xml.gz",
+        "output/opus_identity_probe/raw/en-es.xml.gz",
+        "output/opus_identity_probe/raw/es-fr.xml.gz",
+        "output/opus_identity_probe.resources.json"
+      ]
+    }
+  ]
+}

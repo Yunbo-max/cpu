@@ -1,0 +1,62 @@
+{
+  "response_id": "scientific-feedback-wake3",
+  "request_id": "decision-9a27f9dd1a404af1a3c7f2a01138cc21",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Retain2negative evidence chains, continue sameidea with mechanism evidence",
+  "events": [
+    {
+      "kind": "research_cycle",
+      "event_id": "raw-work-transfer-wake3",
+      "hypothesis": "Old worst-domain candidate gains transfer to more raw works",
+      "prediction": "Candidate beats classical on macrobook Gini",
+      "result": "Not supported:8/10works worseGini,10/10worse total; sameIDrawrepair does not reverse primary comparison",
+      "interpretation": "Rawrepair not sufficient explanation; broader descriptive evidence adverse, repeatedauthors/sourceoverlap preclude confirmation",
+      "next_action": "Audit actual merge descent",
+      "reason": "Completed falsifiable evidence chain; command count is not research cycle count",
+      "evidence": [
+        {
+          "path": "plan_wake3.json",
+          "sha256": "3e28115bf48d4c8bd9bc3de9bb56895cf5823be5b84978a30556871bcf732f6e"
+        },
+        {
+          "path": "output/multibook_analysis.json",
+          "sha256": "b65764559c4e6efe60c13567ffdb607611fbdadc0e8edba1cca2b340d063e11c"
+        },
+        {
+          "path": "output/independent_table_verification.json",
+          "sha256": "4b1620eeca5ba236b3f2276eea93763951ce299ff82e20501eb4bcbc5f9ae816"
+        }
+      ]
+    },
+    {
+      "kind": "research_cycle",
+      "event_id": "pair-lookahead-wake3",
+      "hypothesis": "Exact pair-gain minimax lookahead in top4pool repairs developmentobjective",
+      "prediction": "Lower final maxdomainGini than oldrobust",
+      "result": "Not supported: .028396 vs .018394; matched pooled better meanbookGini;573fallbacks",
+      "interpretation": "Exact gains are correct for selectedmoves;10/10auditedfallbackstatesmiss available descent; poolcoverage is concrete local issue, not proven OODcause",
+      "next_action": "Calibratefullpoolpairedcontrol in inherited nextfinitewindow",
+      "reason": "Completed falsifiable evidence chain; command count is not research cycle count",
+      "evidence": [
+        {
+          "path": "pair_candidate_plan.json",
+          "sha256": "6a64ace4fc6a06dc390ef3289727b83b2aa25e805530f0f0b9be617a29446a11"
+        },
+        {
+          "path": "output/pair_candidate_summary.json",
+          "sha256": "cd379738ac45d2b661578d2dd337d5d84450a9b1801489fa5318b0365c8dfd31"
+        },
+        {
+          "path": "output/independent_table_verification.json",
+          "sha256": "4b1620eeca5ba236b3f2276eea93763951ce299ff82e20501eb4bcbc5f9ae816"
+        },
+        {
+          "path": "output/fallback_pool_audit.json",
+          "sha256": "f20fb91b6d5dfcc4efe3761b052cddeb8d97c7b64dff5dd9944dc65ae033c7a1"
+        }
+      ]
+    }
+  ]
+}

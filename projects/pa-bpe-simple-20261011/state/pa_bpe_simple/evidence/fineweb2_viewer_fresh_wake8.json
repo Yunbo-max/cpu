@@ -1,0 +1,140 @@
+{
+  "checked_utc": "2026-10-12T01:31:36.631349+00:00",
+  "requests": [
+    {
+      "url": "https://datasets-server.huggingface.co/is-valid?dataset=HuggingFaceFW%2Ffineweb-2",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 76,
+      "sha256": "43203b08ebe297d116d215e33cd2f232e5d8611404c2c814693d6f3379713165",
+      "keys": [
+        "preview",
+        "viewer",
+        "search",
+        "filter",
+        "statistics"
+      ],
+      "body": {
+        "preview": true,
+        "viewer": true,
+        "search": true,
+        "filter": true,
+        "statistics": true
+      }
+    },
+    {
+      "url": "https://datasets-server.huggingface.co/rows?dataset=HuggingFaceFW%2Ffineweb-2&config=spa_Latn&split=train&offset=0&length=1",
+      "error": "<HTTPError 500: 'Internal Server Error'>",
+      "status": 500,
+      "error_body": "{\"error\":\"Could not read the parquet files: (ReadTimeoutError(\\\"HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)\\\"), '(Request ID: 722494a9-005e-450e-885a-b4343ffbf0da)')\"}",
+      "error_body_sha256": "06d6bfeb794abb38f3e331e2394e022db57bb886a4da304fde1b8959ee9289d1"
+    },
+    {
+      "url": "https://datasets-server.huggingface.co/rows?dataset=HuggingFaceFW%2Ffineweb-2&config=fra_Latn&split=train&offset=0&length=1",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 3943,
+      "sha256": "38db0d0098511f8ecfb8faf737979ec83ba1d22f9000ec3d379d73d77137e29b",
+      "keys": [
+        "features",
+        "rows",
+        "num_rows_total",
+        "num_rows_per_page",
+        "partial"
+      ],
+      "features": [
+        {
+          "feature_idx": 0,
+          "name": "text",
+          "type": {
+            "dtype": "string",
+            "_type": "Value"
+          }
+        },
+        {
+          "feature_idx": 1,
+          "name": "id",
+          "type": {
+            "dtype": "string",
+            "_type": "Value"
+          }
+        },
+        {
+          "feature_idx": 2,
+          "name": "dump",
+          "type": {
+            "dtype": "string",
+            "_type": "Value"
+          }
+        },
+        {
+          "feature_idx": 3,
+          "name": "url",
+          "type": {
+            "dtype": "string",
+            "_type": "Value"
+          }
+        },
+        {
+          "feature_idx": 4,
+          "name": "date",
+          "type": {
+            "dtype": "string",
+            "_type": "Value"
+          }
+        },
+        {
+          "feature_idx": 5,
+          "name": "file_path",
+          "type": {
+            "dtype": "string",
+            "_type": "Value"
+          }
+        },
+        {
+          "feature_idx": 6,
+          "name": "language",
+          "type": {
+            "dtype": "string",
+            "_type": "Value"
+          }
+        },
+        {
+          "feature_idx": 7,
+          "name": "language_score",
+          "type": {
+            "dtype": "float64",
+            "_type": "Value"
+          }
+        },
+        {
+          "feature_idx": 8,
+          "name": "language_script",
+          "type": {
+            "dtype": "string",
+            "_type": "Value"
+          }
+        },
+        {
+          "feature_idx": 9,
+          "name": "minhash_cluster_size",
+          "type": {
+            "dtype": "int64",
+            "_type": "Value"
+          }
+        },
+        {
+          "feature_idx": 10,
+          "name": "top_langs",
+          "type": {
+            "dtype": "string",
+            "_type": "Value"
+          }
+        }
+      ],
+      "num_rows_total": 360058973,
+      "dataset_git_revision": null,
+      "rows_count": 1
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "checks_passed": 2265,
+  "database_sha256": "8e8b1716be87bcc65fd420dcd53f3314c82a23bc76517dc1bcb4605653be97fa",
+  "limitations": [
+    "This verifies index structure, bindings, aggregate counts and sampled plaintext absence, not semantic independence or tokenizer fairness.",
+    "Production selector compatibility still requires a reviewed URL-hash and schema adapter plus actual training-row provenance."
+  ],
+  "operator_output_contains_raw_text": false,
+  "qualification": "verified_result_blind_fingerprint_index",
+  "raw_markers_checked": {
+    "document_references": 1536,
+    "normalized_sentence_samples": 96,
+    "unit_identities": 512,
+    "urls": 96
+  },
+  "raw_text_or_plaintext_metadata_detected": false,
+  "recomputed_counts": {
+    "en": {
+      "shingle_mass": 8390,
+      "source_url_present": 512,
+      "units": 512,
+      "words": 10415
+    },
+    "es": {
+      "shingle_mass": 9080,
+      "source_url_present": 512,
+      "units": 512,
+      "words": 11106
+    },
+    "fr": {
+      "shingle_mass": 9876,
+      "source_url_present": 512,
+      "units": 512,
+      "words": 11908
+    }
+  },
+  "schema_version": 1,
+  "sqlite_integrity": "ok",
+  "tokenizer_or_fairness_output_computed": false,
+  "unique_check_labels": 24
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "window": "wake7",
+  "incidents": [
+    {
+      "observed_at_utc": "2026-10-12T00:36:00Z",
+      "kind": "stale_global_writer_metadata",
+      "symptom": "The global lock retained owner automation-wake6-20261011T2326Z and library_version 6 even though the canonical file was already version 7.",
+      "evidence": "The owner file mtime was 2026-10-11T23:28:26Z; no matching PA-BPE process was active; Library read returned version 7 with the generation-7 file identity.",
+      "impact": "The stale owner record could not be treated as a live writer and temporarily blocked mutation.",
+      "repair": "Removed only the verified stale owner/directory, then acquired explicit generation-7 global and project writer ownership before any project mutation."
+    },
+    {
+      "observed_at_utc": "2026-10-12T00:42:00Z",
+      "kind": "runner_submission_schema_rejected",
+      "symptom": "The first PGV metadata submission used the unsupported custom phase source_diagnostic and was rejected with Unknown task phase.",
+      "evidence": "Runner attempts remained zero and no scientific process was launched.",
+      "impact": "No scientific result or resource reservation was affected.",
+      "repair": "Changed only the task phase to the supported diagnostic enum and resubmitted the unchanged frozen task."
+    },
+    {
+      "observed_at_utc": "2026-10-12T00:50:00Z",
+      "kind": "runner_evidence_path_rejected",
+      "symptom": "The first OPUS XCES submission referenced review files outside the execution root and was rejected as an unsafe project-relative path.",
+      "evidence": "The new task did not appear and attempts_used remained two.",
+      "impact": "No scientific process launched and no XCES outcome was observed.",
+      "repair": "Created a root-local binding containing the canonical review hashes and referenced that safe immutable binding instead."
+    }
+  ]
+}
