@@ -71,6 +71,16 @@ unpublished objects remain. Retain only small recovery pointers and the
 current working set. Report disk bytes removed separately from measured RAM;
 filesystem cache, anonymous memory, and /dev/shm are different quantities.
 
+On this host some successful unlink operations were undone between tool
+contexts. Only after remote verification, those byte-matching idle payloads
+were emptied and marked in `GITHUB_EVICTED_FILES.json`. A listed absent or
+zero-byte file must be restored before use. The archiver recognizes only
+markers matching the prior original SHA256 and byte count: `--overlay` retains
+the original remote data, and restore can replace that explicitly marked empty
+placeholder. Unmarked differing local files still cannot be overwritten.
+Always verify cleanup again in a later tool context; report payload eviction
+separately from disappearance of the filename.
+
 Existing durable checkpoint files remain a fallback during this migration;
 this policy does not authorize deleting those remote originals.
 

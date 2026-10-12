@@ -38,4 +38,12 @@ class ArchiveChecks(unittest.TestCase):
    try:
     a.split_file(p/'x',p/'pack');r=a.PartsReader(p,'pack');r.seek(4000);self.assertEqual(r.read(12000),data[4000:16000]);r.seek(-20,2);self.assertEqual(r.read(),data[-20:])
    finally:a.CHUNK=old
+ def test_verified_eviction_placeholder(self):
+  with tempfile.TemporaryDirectory() as td,contextlib.redirect_stdout(io.StringIO()):
+   p=Path(td);src=p/'src';src.mkdir();repo=p/'repo';repo.mkdir();data=b'original research evidence';(src/'x').write_bytes(data)
+   a.snapshot(repo,src,'test','full');m=json.loads((repo/'projects/test/snapshots/full.json').read_text());entry=m['files'][0]
+   a.write_json(src/'GITHUB_EVICTED_FILES.json',{'files':[entry]});(src/'x').write_bytes(b'')
+   a.snapshot(repo,src,'test','overlay',overlay=True);a.restore(repo,'test',src,prefix='x');self.assertEqual((src/'x').read_bytes(),data)
+   (src/'x').write_bytes(b'');(src/'GITHUB_EVICTED_FILES.json').unlink()
+   with self.assertRaises(ValueError):a.restore(repo,'test',src,prefix='x')
 if __name__=='__main__':unittest.main()

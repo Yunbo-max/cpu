@@ -23,6 +23,9 @@ def digest(p):
 def write_json(p,j):
     p.parent.mkdir(parents=True,exist_ok=True)
     p.write_text(json.dumps(j,indent=2,ensure_ascii=False)+'\n')
+def evictions(root):
+    p=root/'GITHUB_EVICTED_FILES.json'
+    return {x['path']:x for x in json.loads(p.read_text())['files']} if p.exists() else {}
 def split_file(source,dest):
     dest.mkdir(parents=True,exist_ok=False); parts=[];h=hashlib.sha256();size=0
     with source.open('rb') as f:
@@ -76,7 +79,7 @@ class PartsReader(io.RawIOBase):
         return bytes(out)
 
 def snapshot(repo,root,project,tag,overlay=False):
-    ns='projects/'+safe(project);base=repo/ns;latest=base/'LATEST.json';prior={}
+    ns='projects/'+safe(project);base=repo/ns;latest=base/'LATEST.json';prior={};evicted=evictions(root)
     if latest.exists():
         last=json.loads(latest.read_text());old=base/safe(last['manifest'])
         if digest(old)!=last['sha256']:raise ValueError('Bad previous manifest')
@@ -95,6 +98,10 @@ def snapshot(repo,root,project,tag,overlay=False):
                     if p.is_symlink() or name.endswith(('-wal','-shm','.pyc','.o','.a')) or name in {'.env','.credentials','id_rsa','id_ed25519'}:
                         manifest['excluded'].append({'path':rel,'reason':'symlink, credential file, SQLite transient sidecar, or reproducible intermediate'});continue
                     before=p.stat();source=p;is_db=False
+                    marker=evicted.get(rel);old=prior.get(rel)
+                    if before.st_size==0 and marker and old and marker['sha256']==old['sha256'] and marker['bytes']==old['bytes']:
+                        if not overlay:raise ValueError('Evicted placeholders require --overlay')
+                        manifest['excluded'].append({'path':rel,'reason':'Verified eviction placeholder; retain prior original bytes'});continue
                     with p.open('rb') as f:is_db=f.read(16)==b'SQLite format 3\0'
                     if is_db:
                         source=td/'sqlite-copy'
@@ -134,7 +141,7 @@ def snapshot(repo,root,project,tag,overlay=False):
 def restore(repo,project,dest,prefix=None,verify=False):
     base=repo/'projects'/safe(project);latest=json.loads((base/'LATEST.json').read_text());mp=base/safe(latest['manifest'])
     if digest(mp)!=latest['sha256']:raise ValueError('Manifest hash mismatch')
-    m=json.loads(mp.read_text());packs={};count=0
+    m=json.loads(mp.read_text());packs={};count=0;evicted=evictions(dest) if dest else {}
     for x in m['files']:
         rel=safe(x['path'])
         if prefix and not (rel==prefix or rel.startswith(prefix.rstrip('/')+'/')):continue
@@ -144,8 +151,11 @@ def restore(repo,project,dest,prefix=None,verify=False):
             parent=target.parent.resolve()
             if not parent.is_relative_to(dest.resolve()):raise ValueError('Destination symlink escape')
             if target.exists() or target.is_symlink():
-                if target.is_symlink() or digest(target)!=x['sha256']:raise ValueError('Refuse overwrite')
-                count+=1;continue
+                marker=evicted.get(rel)
+                placeholder=not target.is_symlink() and target.stat().st_size==0 and marker and marker['sha256']==x['sha256'] and marker['bytes']==x['bytes']
+                if not placeholder:
+                    if target.is_symlink() or digest(target)!=x['sha256']:raise ValueError('Refuse overwrite')
+                    count+=1;continue
             target.parent.mkdir(parents=True,exist_ok=True)
         output=contextlib.nullcontext(None) if not target else (target.with_name(target.name+'.restoring')).open('xb')
         with packs[x['pack']].open(x['member']) as f,output as o:
