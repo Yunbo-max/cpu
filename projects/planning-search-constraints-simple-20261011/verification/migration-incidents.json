@@ -1,0 +1,39 @@
+{
+  "scope": "Storage engineering incidents, not new algorithm experiments or Simple runner attempts.",
+  "incidents": [
+    {
+      "id": "native-git-write-credential-unavailable",
+      "resolution": "Authorized GitHub connector writes; anonymous native Git reads remain usable."
+    },
+    {
+      "id": "large-mcp-payload-400",
+      "resolution": "Re-segmented artifacts from32MiB to8MiB; original full SHA256 unchanged."
+    },
+    {
+      "id": "transient-conflicting-request-metadata",
+      "resolution": "Resumed only blobs without confirmed matching GitSHA; all final blobs verified."
+    },
+    {
+      "id": "artifact-output-truncation",
+      "resolution": "Use600000-byte local reads, not750000-byte reads; no truncated content accepted."
+    },
+    {
+      "id": "create-tree-timeouts",
+      "count": 2,
+      "resolution": "At most60 tree entries per call; only update main after complete tree construction with expected_sha."
+    },
+    {
+      "id": "memory-guard-paused-remote-verification",
+      "observed_bytes": [
+        8042508288,
+        8191021056
+      ],
+      "resolution": "Waited for actual headroom; advised cache on own Git packs and checked-out archive parts; independent verification subsequently completed. No experimental guard modified."
+    },
+    {
+      "id": "nondurable-unlink",
+      "resolution": "Cross-context reappearance retained in cleanup receipts. Only remotely verified idle payloads were emptied as marked eviction placeholders; subsequent snapshots preserve original nonempty entries. Old temporary caches were retired; fresh sparse clone retained."
+    }
+  ],
+  "new_scientific_claims": false
+}
