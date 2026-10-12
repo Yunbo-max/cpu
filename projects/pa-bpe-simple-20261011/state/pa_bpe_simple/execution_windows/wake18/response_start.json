@@ -1,0 +1,18 @@
+{
+  "response_id": "wake18-start-secondary-controls-v1",
+  "request_id": "decision-7388141ec2ac453ba0778e8d77b5b098",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The next uncertainty is whether any pre-existing fixed secondary PA-BPE control improves the exposed FLORES fairness-cost trade-off beyond hybrid; the frozen descriptive plan and three dependent tasks are ready.",
+  "events": [
+    {
+      "event_id": "wake18-secondary-controls-plan-frozen",
+      "kind": "progress",
+      "reason": "Bound fixed secondary controls before execution and retained the exposed-domain limitation.",
+      "next_phase": "experiment",
+      "evidence": [{"path": "secondary_plan.json", "sha256": "2f17536dd3513a9817bc8c1df7ed50ebb46cc1db0f13863b4bc1a138946a8cdf"}]
+    }
+  ],
+  "await_tasks": true
+}

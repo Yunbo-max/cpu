@@ -1,0 +1,55 @@
+{
+  "submission_id": "wake18-secondary-controls-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "fetch-flores-wake18",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "MKL_NUM_THREADS=1", "NUMEXPR_NUM_THREADS=1", "python3", "scripts/measure_command.py", "output/flores_fetch.resources.json", "scripts/fetch_flores.py"],
+      "phase": "sources",
+      "purpose": "Restore the official archive by its frozen URL and hash without inspecting text",
+      "timeout_seconds": 60,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "scripts/fetch_flores.py", "sha256": "b299f90b80bab2aea28eb3b2265a311800803895302e93428c30dff72108caec"},
+        {"path": "scripts/measure_command.py", "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"},
+        {"path": "secondary_plan.json", "sha256": "2f17536dd3513a9817bc8c1df7ed50ebb46cc1db0f13863b4bc1a138946a8cdf"}
+      ],
+      "outputs": ["inputs/flores200_dataset.tar.gz", "output/flores_fetch.json", "output/flores_fetch.resources.json"]
+    },
+    {
+      "task_id": "evaluate-flores-secondary",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "MKL_NUM_THREADS=1", "NUMEXPR_NUM_THREADS=1", "TOKENIZERS_PARALLELISM=false", "python3", "scripts/measure_command.py", "output/flores_secondary.resources.json", "scripts/evaluate_secondary.py"],
+      "phase": "experiment",
+      "purpose": "Evaluate the three fixed secondary PA-BPE arms on all 1012 aligned FLORES devtest rows",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": ["fetch-flores-wake18"],
+      "input_refs": [
+        {"path": "secondary_plan.json", "sha256": "2f17536dd3513a9817bc8c1df7ed50ebb46cc1db0f13863b4bc1a138946a8cdf"},
+        {"path": "scripts/evaluate_secondary.py", "sha256": "a8a57b754ade0f686a145908e79d74d823f0f3d991f040a3f82e790a4dc4d217"},
+        {"path": "scripts/measure_command.py", "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"},
+        {"path": "inputs/base.codes", "sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f"},
+        {"path": "inputs/window.codes", "sha256": "12d283dcfd73cca42b21b19fe25ec004ee5c4b1e81cdc151f3dcd11d27a561aa"},
+        {"path": "inputs/ratio.codes", "sha256": "6f67e4c4d5190b9db89465e055837d01a9f38e5b69c541c8b73deb693e04a068"},
+        {"path": "inputs/flores_primary.json", "sha256": "d626acc24d2a02a5732fd4ee41dcee15a33301ff95b52395e9e1bbf341a52d6b"}
+      ],
+      "outputs": ["output/flores_secondary.json", "output/flores_secondary.resources.json", "output/eval_capacity.json"]
+    },
+    {
+      "task_id": "verify-flores-secondary",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "MKL_NUM_THREADS=1", "NUMEXPR_NUM_THREADS=1", "python3", "scripts/measure_command.py", "output/flores_secondary_verification.resources.json", "scripts/verify_secondary.py"],
+      "phase": "verify",
+      "purpose": "Independently recompute all aggregates and paired bootstrap intervals with a closed-form three-language Gini",
+      "timeout_seconds": 60,
+      "cwd": ".",
+      "depends_on": ["evaluate-flores-secondary"],
+      "input_refs": [
+        {"path": "scripts/verify_secondary.py", "sha256": "b7a291fa46a6046bf39afa81b346e9ecd9e23813fd5a3ec13ff817873cf155ea"},
+        {"path": "scripts/measure_command.py", "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"}
+      ],
+      "outputs": ["output/flores_secondary_verification.json", "output/flores_secondary_verification.resources.json"]
+    }
+  ]
+}

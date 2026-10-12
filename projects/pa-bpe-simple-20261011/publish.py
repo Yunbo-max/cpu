@@ -14,6 +14,7 @@ import sys
 import time
 
 NAMESPACE = 'projects/pa-bpe-simple-20261011'
+TREE_BATCH_SIZE = 50
 
 def unpack(value):
     for _ in range(8):
@@ -140,7 +141,7 @@ def main():
                     'tree': None if args.expected_project_tree == 'absent' else args.expected_project_tree}
     while progress['next_entry'] < len(entries):
         offset = progress['next_entry']
-        batch = entries[offset:offset + 200]
+        batch = entries[offset:offset + TREE_BATCH_SIZE]
         project_body = {'repository_full_name': 'Yunbo-max/cpu', 'tree_elements': batch}
         if progress['tree']:
             project_body['base_tree_sha'] = progress['tree']

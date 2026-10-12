@@ -1,0 +1,186 @@
+{
+  "inputs": {
+    "globalvoices_sha256": "63163a398e83b133df6bb2c6df14f3c78c160e2bace4d9a28a7894725e55636f",
+    "flores_sha256": "f9b5c217133ee281fef868661ff24179a50ed5a8cacdfaaeb719e6f49126693b"
+  },
+  "table": {
+    "GlobalVoices": {
+      "classical": {
+        "gini": 0.02257288171762558,
+        "gain": 0.0,
+        "total_cost_change": 0.0,
+        "worst_cost_change": 0.0,
+        "worst_language": "fr",
+        "mean_sentence_gini": 0.05340456993520493
+      },
+      "base": {
+        "gini": 0.0183683015595943,
+        "gain": 0.0042045801580312785,
+        "total_cost_change": 0.039146877852730855,
+        "worst_cost_change": 0.04701682814890362,
+        "worst_language": "en",
+        "mean_sentence_gini": 0.05064215453816917
+      },
+      "window": {
+        "gini": 0.019542608450425113,
+        "gain": 0.0030302732672004666,
+        "total_cost_change": 0.03696546491363262,
+        "worst_cost_change": 0.048852626211116856,
+        "worst_language": "en",
+        "mean_sentence_gini": 0.05062141828219986
+      },
+      "hybrid": {
+        "gini": 0.002322772100322003,
+        "gain": 0.02025010961730358,
+        "total_cost_change": 0.017403881492370932,
+        "worst_cost_change": -0.021451640319564813,
+        "worst_language": "en",
+        "mean_sentence_gini": 0.046574010905788596
+      },
+      "ratio": {
+        "gini": 0.031072355201810342,
+        "gain": -0.008499473484184762,
+        "total_cost_change": 0.012875078542721408,
+        "worst_cost_change": 0.03287438381778007,
+        "worst_language": "fr",
+        "mean_sentence_gini": 0.05685924732807982
+      }
+    },
+    "FLORES": {
+      "classical": {
+        "gini": 0.040695938283750364,
+        "gain": 0.0,
+        "total_cost_change": 0.0,
+        "worst_cost_change": 0.0,
+        "worst_language": "fr",
+        "mean_sentence_gini": 0.05524044087711877
+      },
+      "base": {
+        "gini": 0.007425018932389336,
+        "gain": 0.03327091935136103,
+        "total_cost_change": 0.04022511555308861,
+        "worst_cost_change": -0.005317664568540437,
+        "worst_language": "es",
+        "mean_sentence_gini": 0.036490869191543034
+      },
+      "window": {
+        "gini": 0.0077412541254125245,
+        "gain": 0.03295468415833784,
+        "total_cost_change": 0.04080219399728513,
+        "worst_cost_change": -0.004961086477938692,
+        "worst_language": "es",
+        "mean_sentence_gini": 0.036875757793062874
+      },
+      "hybrid": {
+        "gini": 0.02275913577913957,
+        "gain": 0.017936802504610796,
+        "total_cost_change": 0.01793889563673745,
+        "worst_cost_change": 0.001674366686304385,
+        "worst_language": "es",
+        "mean_sentence_gini": 0.040436787106662646
+      },
+      "ratio": {
+        "gini": 0.04813398200619054,
+        "gain": -0.0074380437224401755,
+        "total_cost_change": 0.014459937016009894,
+        "worst_cost_change": 0.031254844811013704,
+        "worst_language": "fr",
+        "mean_sentence_gini": 0.06009700238256105
+      }
+    }
+  },
+  "per_domain": {
+    "GlobalVoices": {
+      "dominance_pairs": [
+        [
+          "classical",
+          "ratio"
+        ],
+        [
+          "hybrid",
+          "base"
+        ],
+        [
+          "hybrid",
+          "window"
+        ]
+      ],
+      "frontier": [
+        "classical",
+        "hybrid"
+      ]
+    },
+    "FLORES": {
+      "dominance_pairs": [
+        [
+          "classical",
+          "ratio"
+        ],
+        [
+          "base",
+          "window"
+        ]
+      ],
+      "frontier": [
+        "classical",
+        "base",
+        "hybrid"
+      ]
+    }
+  },
+  "robust_summary": {
+    "classical": {
+      "minimum_gain_across_domains": 0.0,
+      "maximum_total_cost_change_across_domains": 0.0,
+      "maximum_worst_cost_change_across_domains": 0.0
+    },
+    "base": {
+      "minimum_gain_across_domains": 0.0042045801580312785,
+      "maximum_total_cost_change_across_domains": 0.04022511555308861,
+      "maximum_worst_cost_change_across_domains": 0.04701682814890362
+    },
+    "window": {
+      "minimum_gain_across_domains": 0.0030302732672004666,
+      "maximum_total_cost_change_across_domains": 0.04080219399728513,
+      "maximum_worst_cost_change_across_domains": 0.048852626211116856
+    },
+    "hybrid": {
+      "minimum_gain_across_domains": 0.017936802504610796,
+      "maximum_total_cost_change_across_domains": 0.01793889563673745,
+      "maximum_worst_cost_change_across_domains": 0.001674366686304385
+    },
+    "ratio": {
+      "minimum_gain_across_domains": -0.008499473484184762,
+      "maximum_total_cost_change_across_domains": 0.014459937016009894,
+      "maximum_worst_cost_change_across_domains": 0.03287438381778007
+    }
+  },
+  "robust_dominance_pairs": [
+    [
+      "classical",
+      "ratio"
+    ],
+    [
+      "base",
+      "window"
+    ],
+    [
+      "hybrid",
+      "base"
+    ],
+    [
+      "hybrid",
+      "window"
+    ]
+  ],
+  "robust_frontier": [
+    "classical",
+    "hybrid"
+  ],
+  "flores_gini_vs_total_cost_scalarization_breakpoint": {
+    "base": 0.6880537347430444,
+    "window": 0.6568554290330006
+  },
+  "interpretation": "Among these frozen arms, hybrid robustly dominates base and window across the two exposed domains when comparing minimum fairness gain and maximum total/worst cost. Classical robustly dominates ratio. The robust frontier is Classical versus hybrid: accepting hybrid means trading a bounded token-cost increase for a positive fairness gain in both domains. This is descriptive mechanism evidence, not causal proof or fresh confirmation.",
+  "scope": "Post-exposure cross-domain analysis of two retained aligned datasets; no tuning, no new tokenizer, and no general multilingual claim."
+}

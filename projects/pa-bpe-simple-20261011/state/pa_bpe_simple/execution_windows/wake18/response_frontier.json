@@ -1,0 +1,42 @@
+{
+  "response_id": "wake18-secondary-results-to-frontier-v1",
+  "request_id": "decision-6ed5d782da284ec486a49b6961ec32ed",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "All three frozen controls and the independent arithmetic reconstruction succeeded; their trade-offs now require a cross-domain dominance analysis against retained GlobalVoices evidence.",
+  "events": [
+    {
+      "event_id": "wake18-flores-secondary-controls-cycle",
+      "kind": "research_cycle",
+      "hypothesis": "Hybrid remains the best fairness-cost compromise among fixed controls on exposed FLORES.",
+      "prediction": "No fixed secondary arm has lower Gini than hybrid without increasing either total or worst-language cost.",
+      "result": "Base and window reduce Gini below hybrid and reduce worst-language cost, but raise total token cost to about 4.0% versus hybrid's 1.79%; ratio worsens fairness and worst-language cost. No secondary arm satisfies the frozen three-objective falsifier.",
+      "interpretation": "Hybrid remains non-dominated, but not uniformly most fair; base/window expose a stronger fairness-versus-total-cost trade-off, while ratio is an adverse fixed control.",
+      "next_action": "Compute threshold-free per-domain and robust cross-domain dominance using the retained GlobalVoices confirmation.",
+      "reason": "Connect the executed fixed-arm comparison to the next decision without tuning on exposed data.",
+      "evidence": [
+        {"path": "output/flores_secondary.json", "sha256": "f9b5c217133ee281fef868661ff24179a50ed5a8cacdfaaeb719e6f49126693b"},
+        {"path": "output/flores_secondary_verification.json", "sha256": "6799a93816ac4df7ed23185383bc40b97985937b9a16d05fe80ddafd307da73e"}
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "analyze-cross-domain-frontier",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "MKL_NUM_THREADS=1", "NUMEXPR_NUM_THREADS=1", "python3", "scripts/measure_command.py", "output/cross_domain_frontier.resources.json", "scripts/analyze_cross_domain_frontier.py"],
+      "phase": "analysis",
+      "purpose": "Compute per-domain and robust Pareto dominance without selecting a post-exposure threshold",
+      "timeout_seconds": 30,
+      "cwd": ".",
+      "depends_on": ["verify-flores-secondary"],
+      "input_refs": [
+        {"path": "scripts/analyze_cross_domain_frontier.py", "sha256": "a3c0b111c78bac49d105065c3d517918a0e29f91a328650e52d627d88ee4030a"},
+        {"path": "scripts/measure_command.py", "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"},
+        {"path": "output/flores_secondary.json", "sha256": "f9b5c217133ee281fef868661ff24179a50ed5a8cacdfaaeb719e6f49126693b"},
+        {"path": "inputs/globalvoices_confirmation.json", "sha256": "63163a398e83b133df6bb2c6df14f3c78c160e2bace4d9a28a7894725e55636f"}
+      ],
+      "outputs": ["output/cross_domain_frontier.json", "output/cross_domain_frontier.resources.json"]
+    }
+  ]
+}

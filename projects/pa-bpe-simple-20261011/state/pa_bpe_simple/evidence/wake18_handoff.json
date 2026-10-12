@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "wake": "wake18-20261012",
+  "active_idea": "fixed secondary FLORES arms and exposed-domain robust frontier",
+  "scientific_attempts": 5,
+  "scientific_wall_seconds": 74.56982344499556,
+  "reserved_seconds": 0,
+  "all_attempts_terminal": true,
+  "all_attempts_succeeded": true,
+  "maximum_measured_rss_bytes": 37355520,
+  "memory_wait_required": false,
+  "flores_rows": 1012,
+  "flores_secondary_verification_checks": 42,
+  "cross_domain_verification_checks": 19,
+  "robust_frontier": ["classical", "hybrid"],
+  "robust_hybrid": {
+    "minimum_gini_gain": 0.017936802504610796,
+    "maximum_total_cost_change": 0.01793889563673745,
+    "maximum_worst_language_cost_change": 0.001674366686304385
+  },
+  "frozen_falsifier_satisfied": false,
+  "interpretation": "Hybrid is the robust fixed-arm tradeoff across the two exposed domains, not the per-domain minimum-Gini arm and not a causal mechanism proof.",
+  "next_action": "Audit merge ownership and per-language marginal token effects before versus after hybrid's fixed 500-global prefix using existing codes and development artifacts; do not tune on exposed confirmation domains."
+}

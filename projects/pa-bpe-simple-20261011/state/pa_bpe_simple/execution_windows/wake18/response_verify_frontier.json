@@ -1,0 +1,34 @@
+{
+  "response_id": "wake18-verify-frontier-v1",
+  "request_id": "decision-b9e373953a264c7097ad77c8dc837bac",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The cross-domain analysis identifies Classical and hybrid as the robust frontier, but this derived dominance conclusion should be reconstructed independently before integration.",
+  "events": [
+    {
+      "event_id": "wake18-cross-domain-frontier-computed",
+      "kind": "progress",
+      "reason": "Computed threshold-free per-domain and robust min/max dominance from the two exposed aligned domains.",
+      "next_phase": "verify",
+      "evidence": [{"path": "output/cross_domain_frontier.json", "sha256": "b5f46cc7c8602d62569372d9aa9bd067f68cf003750c75eecace586444915d17"}]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "verify-cross-domain-frontier",
+      "argv": ["/usr/bin/env", "OMP_NUM_THREADS=1", "OPENBLAS_NUM_THREADS=1", "MKL_NUM_THREADS=1", "NUMEXPR_NUM_THREADS=1", "python3", "scripts/measure_command.py", "output/cross_domain_frontier_verification.resources.json", "scripts/verify_cross_domain_frontier.py"],
+      "phase": "verify",
+      "purpose": "Independently reconstruct robust min/max summaries and dominance pairs",
+      "timeout_seconds": 30,
+      "cwd": ".",
+      "depends_on": ["analyze-cross-domain-frontier"],
+      "input_refs": [
+        {"path": "scripts/verify_cross_domain_frontier.py", "sha256": "177d864b992ed6de0d1004fe18fff29c476a4e5df7b8a9c38337b4b7c9d93e08"},
+        {"path": "scripts/measure_command.py", "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"},
+        {"path": "output/cross_domain_frontier.json", "sha256": "b5f46cc7c8602d62569372d9aa9bd067f68cf003750c75eecace586444915d17"}
+      ],
+      "outputs": ["output/cross_domain_frontier_verification.json", "output/cross_domain_frontier_verification.resources.json"]
+    }
+  ]
+}

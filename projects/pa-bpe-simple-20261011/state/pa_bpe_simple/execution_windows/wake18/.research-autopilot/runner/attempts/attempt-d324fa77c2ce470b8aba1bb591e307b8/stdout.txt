@@ -1,0 +1,76 @@
+{
+  "per_domain": {
+    "GlobalVoices": {
+      "dominance_pairs": [
+        [
+          "classical",
+          "ratio"
+        ],
+        [
+          "hybrid",
+          "base"
+        ],
+        [
+          "hybrid",
+          "window"
+        ]
+      ],
+      "frontier": [
+        "classical",
+        "hybrid"
+      ]
+    },
+    "FLORES": {
+      "dominance_pairs": [
+        [
+          "classical",
+          "ratio"
+        ],
+        [
+          "base",
+          "window"
+        ]
+      ],
+      "frontier": [
+        "classical",
+        "base",
+        "hybrid"
+      ]
+    }
+  },
+  "robust_summary": {
+    "classical": {
+      "minimum_gain_across_domains": 0.0,
+      "maximum_total_cost_change_across_domains": 0.0,
+      "maximum_worst_cost_change_across_domains": 0.0
+    },
+    "base": {
+      "minimum_gain_across_domains": 0.0042045801580312785,
+      "maximum_total_cost_change_across_domains": 0.04022511555308861,
+      "maximum_worst_cost_change_across_domains": 0.04701682814890362
+    },
+    "window": {
+      "minimum_gain_across_domains": 0.0030302732672004666,
+      "maximum_total_cost_change_across_domains": 0.04080219399728513,
+      "maximum_worst_cost_change_across_domains": 0.048852626211116856
+    },
+    "hybrid": {
+      "minimum_gain_across_domains": 0.017936802504610796,
+      "maximum_total_cost_change_across_domains": 0.01793889563673745,
+      "maximum_worst_cost_change_across_domains": 0.001674366686304385
+    },
+    "ratio": {
+      "minimum_gain_across_domains": -0.008499473484184762,
+      "maximum_total_cost_change_across_domains": 0.014459937016009894,
+      "maximum_worst_cost_change_across_domains": 0.03287438381778007
+    }
+  },
+  "robust_frontier": [
+    "classical",
+    "hybrid"
+  ],
+  "breakpoints": {
+    "base": 0.6880537347430444,
+    "window": 0.6568554290330006
+  }
+}

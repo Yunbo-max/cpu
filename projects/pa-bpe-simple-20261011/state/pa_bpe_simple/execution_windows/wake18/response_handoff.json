@@ -1,0 +1,24 @@
+{
+  "response_id": "wake18-frontier-handoff-v1",
+  "request_id": "decision-6f3f08783a824d39b28ca7deb3b6c85e",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Independent reconstruction accepted the robust two-domain frontier; preserve this milestone and continue the same active idea with a merge-allocation mechanism audit in the next bounded window.",
+  "events": [
+    {
+      "event_id": "wake18-robust-frontier-cycle",
+      "kind": "research_cycle",
+      "hypothesis": "The 500-global hybrid is robust because it avoids the large cross-domain total and worst-language cost excursions of full parity targeting while preserving positive fairness gain.",
+      "prediction": "Across retained GlobalVoices and FLORES, hybrid has larger minimum fairness gain and smaller maximum total/worst cost increase than base and window; Classical dominates ratio.",
+      "result": "Hybrid robustly dominates base and window under the stated min-gain/max-cost comparison; Classical robustly dominates ratio. The robust frontier is Classical versus hybrid. Independent reconstruction passed 19 checks.",
+      "interpretation": "The evidence supports hybrid as the robust fairness-cost compromise among these fixed arms, not as the lowest-Gini tokenizer on every domain. It remains descriptive and does not prove that the global prefix is causal.",
+      "next_action": "Audit merge ownership and per-language marginal token effects before versus after the hybrid's 500-global prefix using existing fixed codes and development artifacts, without tuning on exposed confirmation domains.",
+      "reason": "Advance from a stable cross-domain frontier to a falsifiable mechanism question while retaining the trade-off and adverse ratio result.",
+      "evidence": [
+        {"path": "output/cross_domain_frontier.json", "sha256": "b5f46cc7c8602d62569372d9aa9bd067f68cf003750c75eecace586444915d17"},
+        {"path": "output/cross_domain_frontier_verification.json", "sha256": "e523c4858f775fa3200d369242bbae46a27f9ba8f2a5ed187ff3727f81175acf"}
+      ]
+    }
+  ]
+}

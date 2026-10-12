@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "wake": "wake18-20261012",
+  "incidents": [
+    {
+      "event_id": "cli:a7ecc2eaaa9c46cfa8293f328efe461c",
+      "kind": "pre_science_runner_contract_rejection",
+      "reason": "Evidence paths must be safe project-relative paths",
+      "impact": "No scientific command launched; no attempt, reservation, or science wall was consumed.",
+      "repair": "Copied the frozen wake17 primary result into wake18 inputs, bound its SHA256, and resubmitted with project-relative evidence paths.",
+      "resolved": true
+    },
+    {
+      "kind": "controlled_idle_supervisor_interrupt",
+      "impact": "Final health reports lost because the externally interrupted supervisor has no graceful-exit record; all five tasks and attempts are terminal succeeded and reservation is zero.",
+      "resolved": true
+    },
+    {
+      "kind": "host_process_probe_loader_error",
+      "reason": "fatal library error, lookup self",
+      "impact": "Occurred after science settlement during a ps/rg management probe; scientific outputs and receipts are unaffected.",
+      "resolved": false,
+      "next_action": "Use /proc or Python standard-library process inspection if the host loader anomaly recurs."
+    },
+    {
+      "kind": "github_tree_batch_timeout",
+      "reason": "GitHub create-tree returned HTTP 422 timeout for a 200-entry incremental tree batch.",
+      "impact": "No branch reference changed; uploaded blobs remained reusable and local evidence was retained.",
+      "repair": "Reduced the resumable publisher tree batch size from 200 to 50 entries and retried with the same expected project tree guard.",
+      "resolved": true
+    }
+  ]
+}
