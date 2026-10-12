@@ -1,0 +1,62 @@
+{
+  "block_rows": 16384,
+  "buffer_nnz_per_column": 111,
+  "buffer_width": 16,
+  "converged": true,
+  "cumulative_iteration_seconds": 2.703168834996177,
+  "dimension": 3231961,
+  "experiment": "url_fainv_block_em_source_matched_v2",
+  "gates": {
+    "all_completed_diagonals_finite_positive": true,
+    "observed_iteration_proxy_at_most_1800_seconds": true,
+    "peak_rss_below_2_gib": true,
+    "source_matched_converged_within_5": true
+  },
+  "initialization_seconds": 0.45744889200432226,
+  "iterations": [
+    {
+      "finite_positive_output_diagonal": true,
+      "iteration": 1,
+      "iteration_seconds": 2.703168834996177,
+      "normalized_parameter_change": 9.058325262259351e-07,
+      "output_diagonal_max": 1.3773687848851146,
+      "output_diagonal_min": 1.2,
+      "phase_seconds": {
+        "gram_phi_seconds": 0.11742352999863215,
+        "output_update_seconds": 2.018526517000282,
+        "target_cross_seconds": 0.19643249300133903,
+        "uts_h_seconds": 0.3707862949959235
+      }
+    }
+  ],
+  "iterations_completed": 1,
+  "max_iterations": 5,
+  "owned_array_bytes": 879121808,
+  "owned_arrays": {
+    "buffer_indices": 14208,
+    "buffer_values": 14208,
+    "current_diagonal": 25855688,
+    "current_factor": 413691008,
+    "target_diagonal": 25855688,
+    "target_factor": 413691008
+  },
+  "process_limit_bytes": 4294967296,
+  "process_peak_rss_bytes": 917008384,
+  "projection": {
+    "accepted_updates_proxy_from_diag_cw": 6017,
+    "compressions_proxy_after_initial_factor_fill": 375,
+    "observed_iterations_per_compression_seconds": 1013.6883131235663,
+    "qualification": "Diagnostic lower bound for five-or-fewer observed iterations only; true FAinv update/compression counts and real buffer values are unknown."
+  },
+  "rank": 16,
+  "schema_version": 1,
+  "scope": "At most five source-matched full-dimension block-EM iterations on a deterministic cost fixture; no CW training or URL quality evaluation.",
+  "source_matched_initialization": "Dcur=D0 and Lcur=L0 before the first iteration",
+  "stop_threshold": 1e-06,
+  "thread_env": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "total_wall_seconds": 3.1610987879976165
+}

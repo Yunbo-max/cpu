@@ -1,0 +1,48 @@
+{
+  "request_id": "decision-51fe3891e12d4669a8ed4b9bf07ff043",
+  "idea": "lra-block-krylov-baseline-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "block-krylov-online-endpoint-submit-v1",
+  "reason": "The exact frozen B15 source and eta=.1 raw trajectory were recovered at the recorded commit. Reproduce the masks before comparing q=1 to both the historical dense SVD and a stronger support-aware exact baseline.",
+  "events": [
+    {
+      "event_id": "prior-b15-source-recovered-v1",
+      "kind": "milestone",
+      "label": "Recovered frozen B15 protocol and raw trajectory",
+      "reason": "Sparse checkout at commit b085f362dfec1127afa7e775c516796a2d252e0f recovered19 files and72596 bytes, including the exact eta=.1 NPZ and executable policy definition.",
+      "next_phase": "experiment",
+      "evidence": [
+        {"path": "sources/prior_b15_manifest_v1.json", "sha256": "a953497f1ba5c6bcfd0171c2ad67afeec1f30d41882cb427ea0e9282f2274a2b"},
+        {"path": "sources/prior-b15-repo/research/consistent-lra/b15-rsi-20261010T2240/B15_ROUND_CONTRACT.json", "sha256": "806dd9bd7487d70e5c336a7fefb8418eb4f3205dddb10a5e603f1ee0de65a0e3"},
+        {"path": "sources/prior-b15-repo/research/consistent-lra/b15-rsi-20261010T2240/run_b15_policy.py", "sha256": "0c8868cec74133896500dc0f49ffd03120f22d883836e8570105566fad30cbf5"},
+        {"path": "sources/prior-b15-repo/research/consistent-lra/b15-rsi-20261010T2240/B15_exact_svd_eta0p1_r0.npz", "sha256": "d6363727be36927e33d2f534a5ed673aac1c6845dc8371a667786288775b9bf1"}
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "block-krylov-online-endpoint-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/block_krylov_online_endpoint.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Reproduce the frozen eta=.1 masks and compare q=1 Block Krylov at71 late refreshes against dense and support-aware exact SVD endpoints",
+      "timeout_seconds": 300,
+      "cwd": ".",
+      "depends_on": ["prior-b15-source-recovery-v1"],
+      "input_refs": [
+        {"path": "plans/block_krylov_online_endpoint_v1.md", "sha256": "2d649f18ff412f033b32fce2591e677acc3f78198003b28a8ebd4657c12c4a38"},
+        {"path": "scripts/block_krylov_online_endpoint.py", "sha256": "409f7c1e271659548d0faae66e6d2bb81ac737b1d026cb46c8f55e8812ccf260"},
+        {"path": "scripts/cpu_guard.py", "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"},
+        {"path": "sources/prior_b15_manifest_v1.json", "sha256": "a953497f1ba5c6bcfd0171c2ad67afeec1f30d41882cb427ea0e9282f2274a2b"},
+        {"path": "sources/prior-b15-repo/research/consistent-lra/b15-rsi-20261010T2240/B15_exact_svd_eta0p1_r0.npz", "sha256": "d6363727be36927e33d2f534a5ed673aac1c6845dc8371a667786288775b9bf1"},
+        {"path": "sources/consistent-LRA/landmark.mtx", "sha256": "29fb87018e59049a52314c847c5ac2a4eaa3b875f7cd8467621fe074fbbc298b"}
+      ],
+      "outputs": ["results/block_krylov_online_endpoint_v1.json"]
+    }
+  ]
+}

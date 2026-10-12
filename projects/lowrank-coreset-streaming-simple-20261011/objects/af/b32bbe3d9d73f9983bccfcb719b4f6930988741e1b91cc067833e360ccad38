@@ -1,0 +1,67 @@
+{
+  "submission_id": "bootstrap-sources-v1",
+  "idea": "coreset-adaptive-comparison-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "native-sources-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/fetch_native.py"
+      ],
+      "phase": "sources",
+      "purpose": "Acquire pinned author code and real native Taxi file with hashes",
+      "timeout_seconds": 180,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "scripts/fetch_native.py",
+          "sha256": "8322ff61f930bbf03f43caf0c48c09ffdacb74e9dfbb3b24efdfb012c2280698"
+        }
+      ],
+      "outputs": [
+        "sources/download_manifest.json",
+        "sources/experiment1_comparison.ipynb",
+        "sources/l1_coresets.py",
+        "data/yellow_tripdata_2024-01.parquet"
+      ]
+    },
+    {
+      "task_id": "pyarrow-isolated-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "pip",
+        "install",
+        "--only-binary=:all:",
+        "--no-deps",
+        "--target",
+        ".deps",
+        "pyarrow==21.0.0"
+      ],
+      "phase": "code",
+      "purpose": "Enable original Parquet data loading in project-local dependencies only",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "native-sources-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        }
+      ],
+      "outputs": []
+    }
+  ]
+}

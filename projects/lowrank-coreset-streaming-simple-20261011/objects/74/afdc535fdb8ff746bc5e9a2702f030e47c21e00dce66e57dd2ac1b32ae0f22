@@ -1,0 +1,30 @@
+# Nested-prefix centered paper-VALE v1: analysis
+
+## Decision
+
+The primary paper-VALE prediction is falsified in the frozen centered non-isotropic condition. Nested paper-VALE has RMSE `0.0511195`, versus `0.0400170` for independently reshuffled paper-VALE, a ratio of `1.27745`. This fails the pre-registered 10% non-inferiority gate. The paired MSE increase is `0.00101185`, with developmental bootstrap 95% interval `[0.0001999, 0.0018349]`, entirely above zero.
+
+The `streaming-vale-nested-prefix-v1` route should be retired under the current bounded setting. Although nested order-2 OLS narrowly passes the formal gate at a `1.09062` RMSE ratio, its interval includes zero and it is worse than both fresh OLS and fresh paper-VALE. The earlier known-zero-mean isotropic OLS positive result therefore does not transfer to the stronger centered non-isotropic VALE setting. Keeping only the favorable OLS fixture would be selection on development evidence.
+
+## Evidence
+
+The fixed fixture used `d=48`, `N=3072`, 15 nodes, 96 paired pools, a generated covariance spectrum from `0.25` to `1.50`, squared mean norm `0.25`, and ordinary centered `1/(n-1)` covariance. All `2880` full covariance eigendecompositions completed. The run used 1.519 wall/process-CPU seconds and 37,806,080 bytes peak RSS; all numerical and resource checks passed.
+
+| estimator | fresh RMSE | nested RMSE | ratio | paired MSE difference, nested-fresh | bootstrap 95% interval |
+|---|---:|---:|---:|---:|---:|
+| OLS order 2 | 0.0503004 | 0.0548588 | 1.09062 | 0.0004794 | [-0.0006202, 0.0016707] |
+| paper-VALE order 2 | 0.0400170 | 0.0511195 | 1.27745 | 0.0010118 | [0.0001999, 0.0018349] |
+
+The plug-in endpoint RMSE was `0.172246`. Fresh paper-VALE is the strongest tested arm. The scalar overlap quadratic predicted nested/fresh variance ratios `0.96891` for OLS and `1.24180` for VALE. It correctly predicted the qualitative VALE penalty and was close to the observed `1.27745` RMSE ratio, while the OLS finite-sample result was slightly worse than its first-order prediction.
+
+## Mechanism and scoped negative conclusion
+
+The paper-VALE weights favor larger, lower-variance nodes. Under a single nested chain, their deterministic maximal overlaps yield a less favorable mixed-sign covariance quadratic than independent reshuffling. Marginal node expectations are still unchanged; the failure is a joint-variance effect, exactly the risk identified in the audit.
+
+One active count/sum/Gram state uses `18,824` bytes versus `282,360` bytes for 15 concurrent states, a factor-15 reduction. This is real engineering compression, but it is not a favorable accuracy-state frontier here because fresh paper-VALE has substantially lower RMSE and the absolute state sizes are already small at this dimension.
+
+This conclusion is limited to one synthetic centered non-isotropic condition and formula-level VALE. It is not a theorem that every nested schedule is worse, does not refute OLS in all settings, and does not make an ImageNet claim. However, it is the exact pre-registered falsifier for the active VALE route, so no native-source restoration or larger run is justified for this candidate.
+
+## Next action
+
+Retire `streaming-vale-nested-prefix-v1` with the positive isotropic OLS result and this centered VALE counterexample both preserved. On the next research branch, avoid another wrapper around FID sufficient statistics; select a problem where the 8 GB CPU constraint is a genuine bottleneck and where the strongest simple baseline is not already both more accurate and cheap.

@@ -1,0 +1,44 @@
+{
+  "response_id": "nested-prefix-vale-centered-submit-v1",
+  "request_id": "decision-fac070d310c74feea2a492ae4d251149",
+  "idea": "streaming-vale-nested-prefix-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The primary paper fixes deterministic VALE weights and the OLS diagnostic passed, so a centered non-isotropic order-2 VALE comparison is the smallest prospective falsifier before native-code restoration or any larger application experiment.",
+  "events": [
+    {
+      "event_id": "nested-prefix-vale-centered-plan-v1",
+      "kind": "milestone",
+      "label": "Centered paper-VALE membership diagnostic frozen",
+      "reason": "The plan moves one controlled axis beyond the prior fixture: unknown mean, unbiased centered covariance, non-isotropic spectrum, paper-defined VALE weights, and OLS baseline, while preserving the same paired membership question and explicit retirement gate.",
+      "evidence": [
+        {"path": "notes/nested_prefix_vale_source_addendum_v1.md", "sha256": "af5fe9001387795a1c07832de957ac88caf3ebd9d4cc899b8380e4b9a3bcb9b6"},
+        {"path": "plans/nested_prefix_vale_centered_v1.md", "sha256": "4c9992841b90430762a4c99a1b8f81d0f76af9676aff79f314b026edd3fd6d1e"}
+      ],
+      "next_phase": "diagnostic"
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "nested-prefix-vale-centered-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/run_nested_prefix_vale_centered_v1.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Compare centered non-isotropic order-2 paper-VALE and OLS bias/RMSE for independently reshuffled levels versus one nested prefix",
+      "timeout_seconds": 300,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "notes/nested_prefix_vale_source_addendum_v1.md", "sha256": "af5fe9001387795a1c07832de957ac88caf3ebd9d4cc899b8380e4b9a3bcb9b6"},
+        {"path": "plans/nested_prefix_vale_centered_v1.md", "sha256": "4c9992841b90430762a4c99a1b8f81d0f76af9676aff79f314b026edd3fd6d1e"},
+        {"path": "scripts/run_nested_prefix_vale_centered_v1.py", "sha256": "504e7014a77cf39f40c870d38d7b7994b75129e3aa270882fa6828f6cd8bb933"},
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"}
+      ],
+      "outputs": ["results/nested_prefix_vale_centered_v1.json"]
+    }
+  ]
+}

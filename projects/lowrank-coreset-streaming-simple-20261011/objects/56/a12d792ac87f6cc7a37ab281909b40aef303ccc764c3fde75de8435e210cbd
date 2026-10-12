@@ -1,0 +1,55 @@
+{
+  "response_id": "moment-boundary-next-v1",
+  "request_id": "decision-7a6346087ca9410f81abbef473766141",
+  "idea": "streaming-moment-native-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Pinned source inspection identifies concrete indexing and wrong-window hypotheses. Isolate these before scaling a native experiment.",
+  "tasks": [
+    {
+      "task_id": "moment-boundary-diagnostic-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/moment_boundary_diagnostic.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Test source-observed window/scoring boundary mismatches using unchanged native functions and exact deterministic fixtures",
+      "timeout_seconds": 60,
+      "cwd": ".",
+      "depends_on": [
+        "moment-native-sources-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "plans/moment_boundary_diagnostic_v1.md",
+          "sha256": "503ff142821804bfeb52865d0ffae65dfb981335068f4b382e04c05b146fc018"
+        },
+        {
+          "path": "scripts/moment_boundary_diagnostic.py",
+          "sha256": "1115f56b11d50786937fcf88e968eab3381403066b95939b06bacf127e182e89"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "sources/moments/AMS-AMSA-CAIDA.ipynb",
+          "sha256": "2a15b98cc4cce7f8c115c9c8d81cd16c245bf4275f52e242b16a731ee0bf700b"
+        },
+        {
+          "path": "sources/moments/SS-SSA-CAIDA.ipynb",
+          "sha256": "595fe594508d8068d03ff999f3661fb35b70b9f547e81dff3fbe4ffe70a16d20"
+        },
+        {
+          "path": "sources/moments/utils.py",
+          "sha256": "5b89dfa2a9419e0f32d561eb25755264a848db0a015b27b658e675c758a190b8"
+        }
+      ],
+      "outputs": [
+        "results/moment_boundary_diagnostic_v1.json"
+      ]
+    }
+  ]
+}

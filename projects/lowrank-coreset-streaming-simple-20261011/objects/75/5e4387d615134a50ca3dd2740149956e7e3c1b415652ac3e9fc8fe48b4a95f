@@ -1,0 +1,32 @@
+{
+  "study": "B15-native512-warm-lobpcg-endpoint-comparator",
+  "solver": "warm_lobpcg",
+  "eta": 0.1,
+  "repeat": 0,
+  "rows": 512,
+  "dimension": 2704,
+  "rank": 25,
+  "queries_after_growth": 205,
+  "refreshes_after_growth": 100,
+  "algorithm_cpu_seconds": 6.891581866,
+  "algorithm_wall_seconds": 6.896047915000963,
+  "component_cpu_seconds": {
+    "gram_update": 0.10359999299999695,
+    "residual": 1.560884514999992,
+    "exact_eigvals": 1.0115249440000011,
+    "endpoint": 4.071698349000002,
+    "bookkeeping": 0.14387406500000832
+  },
+  "endpoint_matvec_columns_total": 3550,
+  "runtime_fallbacks_after_5k": 71,
+  "solver_warnings_total": 213,
+  "max_endpoint_excess_over_tol": 1.137870659023934e-05,
+  "endpoint_tolerance_violations": 0,
+  "peak_rss_kib": 131368,
+  "input_sha256": "d0de6bb598161e85557321a309e9d720cb1c398b722140725e47d8365e3ec68a",
+  "raw_file": "B15_warm_lobpcg_eta0p1_r0.npz",
+  "raw_sha256": "7ccf0a0a7b1d5df5f1c2496cb5c76cd3dd3469ad8b6015f21df15aaa894efb91",
+  "development_only": true,
+  "new_method": false,
+  "native5000": false
+}

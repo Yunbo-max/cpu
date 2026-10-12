@@ -1,0 +1,59 @@
+{
+  "request_id": "decision-fa93e91dbffb45a99b64271dff33ba48",
+  "idea": "streaming-moment-native-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 2,
+  "response_id": "moment-smooth-reference-submit-v1",
+  "reason": "PaperAlgorithm1 differs concretely from native notebook heuristic. Test its norm-specific accurate retention contract using exact suffix oracle control.",
+  "tasks": [
+    {
+      "task_id": "moment-smooth-reference-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/moment_smooth_reference.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Test accuracy-linked Algorithm1 predecessor query and measured retention cost",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "moment-query-bracket-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "plans/moment_smooth_reference_v1.md",
+          "sha256": "d4208daaafa394189b44a78897a3a9fd4cd54a830daf06012b0146f24148095e"
+        },
+        {
+          "path": "scripts/moment_smooth_reference.py",
+          "sha256": "b95e0ad08e0a26682a299503573cd923f16bbf6eee9a73b37782e1bd2d1adc44"
+        },
+        {
+          "path": "scripts/moment_prefix_window.py",
+          "sha256": "c60568ef841a0f35070b315ae530d05fb43ce211661e4b332a9a3afaca549a5f"
+        },
+        {
+          "path": "scripts/moment_native_pilot.py",
+          "sha256": "050a8e322fdc70a6cdee82015a0949cda598b0263c5d139b9e12e6f8b2fbb9b6"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "data/moment_native_shift_1000.npy",
+          "sha256": "3dbac94d8f07a64a5584229523a6f80b80d9d08d9acbb998a36d4c52cb1c49e6"
+        },
+        {
+          "path": "sources/moments/paper.pdf",
+          "sha256": "58cdba20e5ac40e27225b6d29b08f432b0d8643dd98dd8731c61d6b04ad17b61"
+        }
+      ],
+      "outputs": [
+        "results/moment_smooth_reference_v1.json"
+      ]
+    }
+  ]
+}

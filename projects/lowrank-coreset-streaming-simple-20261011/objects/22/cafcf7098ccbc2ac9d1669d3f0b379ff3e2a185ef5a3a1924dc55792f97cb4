@@ -1,0 +1,27 @@
+{
+  "request_id": "decision-5e958bbe45c34e028b492b694d867e74",
+  "idea": "url-cw-fact-native-reproduction-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "url-author-code-interpret-v1",
+  "reason": "The pinned author archive implements the confidence-weighted factor-analysis equations and synthetic examples, but contains no URL loader or native URL experiment. The active idea remains viable only as a source-guided native-data reimplementation with independently disclosed parser and protocol code.",
+  "events": [
+    {
+      "event_id": "url-author-code-audit-milestone-v1",
+      "kind": "milestone",
+      "label": "Pinned the author equations and identified the missing native-data pipeline",
+      "reason": "Nine MATLAB files were hashed and inspected. They define FA/FAinv, diagonal/full CW and simple baselines, but the supplied driver is only a generated 1000-by-100 synthetic benchmark. Two source hazards were also isolated for later unit tests: a getparam filename/function-name mismatch and a repeated issparse(a) condition in my_dot.m.",
+      "next_phase": "sources",
+      "evidence": [
+        {
+          "path": "sources/url_cw_fa_code_manifest_v1.json",
+          "sha256": "76e0d297e03f634cd2d757b69585f4eedac11aaa71878d4ecd723dfb8471fd85"
+        },
+        {
+          "path": "notes/url_cw_fa_code_audit_v1.md",
+          "sha256": "6da1d0ad9d4dde96bd8fedb67b8f15cc8a85541427eb0dd52a85bd26213bd20b"
+        }
+      ]
+    }
+  ]
+}

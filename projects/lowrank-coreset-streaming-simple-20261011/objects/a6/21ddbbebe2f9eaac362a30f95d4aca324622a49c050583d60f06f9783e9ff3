@@ -1,0 +1,39 @@
+{
+  "request_id": "decision-e72b441b1e044ef590874f108bbeeb6c",
+  "idea": "url-cw-fact-native-reproduction-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "url-prefix-baseline-interpret-v1",
+  "reason": "The exact two-day native prefix passed parser, signal, finiteness, wall-time and memory gates. This establishes a healthy source-guided baseline pipeline but not a low-rank result; the direct FAinv cost now requires a full-dimension kernel audit before implementation.",
+  "events": [
+    {
+      "event_id": "url-prefix-baseline-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "The preregistered official two-day stream, author-aligned equations, constant sanity baseline, exact state accounting and guarded runner receipt are all available.",
+      "goal_contract_version": 1,
+      "hypothesis": "The official Day0-to-Day1 URL prefix satisfies the binary SVM-light invariants and contains learnable chronological signal for at least one source-aligned online learner under the CPU and memory limits.",
+      "prediction": "All parser and finiteness gates pass; at least one of PA, averaged PA, or diagonal-L2 CW improves Day1 mistake rate by at least 0.01 absolute over constant-negative; total guarded wall time is at most 300 seconds.",
+      "result": "All gates passed on 36,000 examples and 4,151,738 nonzeros. Constant-negative Day1 error was 0.3404; PA 0.02785; averaged PA 0.02735; diagonal-L2 CW 0.02000. Total script wall time was 9.226 seconds, process peak RSS 79,822,848 bytes, and maximum exact retained array state 51,711,376 bytes.",
+      "interpretation": "The native data, label orientation, chronological predict-then-update evaluator and simple confidence-weighted baseline are operational. The 0.735-point Day1 advantage of diagonal CW over averaged PA is only a two-day deterministic diagnostic and gives no evidence yet for low rank, the full paper protocol, or novelty.",
+      "next_action": "Audit and guardedly benchmark the released FAinv cache-rebuild and prediction kernels at the full published dimension before porting the complete updater; retire the direct released-code route if its measured resource scaling is incompatible with the 4 GiB process limit or finite CPU window.",
+      "evidence": [
+        {
+          "path": "plans/url_prefix_baseline_calibration_v1.md",
+          "sha256": "32dc0742ab1d11171a8adaee5f30f176ff774697346bc8c4ca9cdb4551d7aee3"
+        },
+        {
+          "path": "results/url_prefix_baseline_calibration_v1.json",
+          "sha256": "fc50f5b1750d004d3ac5209c0b65d00b970ddde12ef20b1b2cb59096a12e4609"
+        },
+        {
+          "path": "notes/url_prefix_baseline_analysis_v1.md",
+          "sha256": "ac1e497154b613f9f923c2879b78e5b9853e0aabb7800601611eddf24a9357a8"
+        },
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-0f4f23975d3f4e80b6dc70216ed8c943/receipt.json",
+          "sha256": "36e1c1206c9547d023266e94dc22332def24d96013d70038c1d6838075abe10d"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "submission_id": "fid-rtd-gaussian-smoke-v1",
+  "idea": "generative-fid-rtd-native-reproduction-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "fid-rtd-gaussian-smoke-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/run_fid_rtd_gaussian_smoke_v1.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Execute the unchanged author CPU Gaussian example and test the frozen status, finiteness, RTD-degree, wall-time, and memory gates",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/fid_rtd_gaussian_smoke_v1.md",
+          "sha256": "5c929be4233c7768e5e69e4e08b4ed40665b8d986a5d556da50b7436dec04756"
+        },
+        {
+          "path": "scripts/run_fid_rtd_gaussian_smoke_v1.py",
+          "sha256": "a5677a73972e5c1b71dd9ae4930683d195d8f5438ad90d0bb2c561cae871cc39"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "sources/fid_rtd_source_manifest_v1.json",
+          "sha256": "2a2794e5de63bb78008806e3c11d47995d7de2841dafbf7cf014608954031964"
+        },
+        {
+          "path": "notes/fid_rtd_source_audit_v1.md",
+          "sha256": "b03a844caeba7b3df854aa88f78733cf393852b02074d1f6ea80e82ef25f1b92"
+        }
+      ],
+      "outputs": [
+        "results/fid_rtd_gaussian_smoke_v1.json"
+      ]
+    }
+  ]
+}

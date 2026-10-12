@@ -1,0 +1,27 @@
+{
+  "request_id": "decision-2308e02e5c824bf78e21917c67d4fd27",
+  "idea": "url-cw-fact-native-reproduction-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "url-dataset-acquisition-interpret-v1",
+  "reason": "The official archive was acquired, hashed, safely inventoried, and reduced to an exact two-day chronological prefix without placing raw data in the checkpoint. This removes the data-availability blocker and supports a bounded parser and baseline calibration.",
+  "events": [
+    {
+      "event_id": "url-dataset-pinned-milestone-v1",
+      "kind": "milestone",
+      "label": "Pinned the official 121-day archive and the first two chronological days",
+      "reason": "The 245,011,835-byte archive has SHA-256 a05cbbcba7235221fd4229ea7e54476e75b9bc7d45ff43c2cebaf538640831eb and 123 safe members. Day0 and Day1 were extracted and independently hashed; raw bytes remain only under checkpoint-excluded .deps.",
+      "next_phase": "design",
+      "evidence": [
+        {
+          "path": "plans/url_dataset_acquisition_v1.md",
+          "sha256": "9024849d8fe919ed782129e01ead8f25ea71e44a2c4b2f087e3f916accf3382a"
+        },
+        {
+          "path": "sources/url_dataset_manifest_v1.json",
+          "sha256": "7f84885352bf9a9a32f4779d0f5dbf021aa2f55e0dece1ff37774417154cc76a"
+        }
+      ]
+    }
+  ]
+}

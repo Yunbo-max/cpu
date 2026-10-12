@@ -1,0 +1,28 @@
+# URL CW-factor author-code acquisition v1
+
+## Question
+
+Does the source-linked author archive contain an executable implementation of
+the published diagonal-plus-low-rank CW update, with enough definition to plan
+a native small-day calibration without reconstructing the method from prose?
+
+## Bounded action
+
+Download only `cw_fa_code.tar.gz` from the UCSD maintainer page, compute its
+SHA-256 and size, reject unsafe archive members, extract it under `.deps`, and
+record the member inventory and hashes.  Do not download the 234 MB URL data in
+this task and do not execute code from the archive.
+
+The archive and extracted code have no explicit license located in the source
+page, so they remain recoverable local `.deps` material and are excluded from
+the persistent checkpoint.  Only the manifest is persistent.
+
+## Outcomes
+
+- If the archive is unavailable, retain the exact URL/error and continue with a
+  prose-derived implementation only after deciding whether that loss of native
+  code provenance is acceptable.
+- If it contains the published update and data interfaces, audit equations,
+  dependencies and array shapes before downloading native data.
+- If it is synthetic-only or lacks the URL path, record that limitation; do not
+  call a rewritten implementation an author-code reproduction.

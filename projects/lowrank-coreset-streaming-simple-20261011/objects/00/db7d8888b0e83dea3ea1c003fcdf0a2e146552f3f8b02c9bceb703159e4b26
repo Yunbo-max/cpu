@@ -1,0 +1,79 @@
+{
+  "response_id": "url-fainv-block-em-response-v1",
+  "request_id": "decision-2cdbc7dee5524b91b3f9b0c87d6a827e",
+  "idea": "url-cw-fact-sparse-lazy-feasibility-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The deterministic equivalence check confirms the bounded exact invariant and row-block FA decomposition. Runtime of a full-dimension compression, rather than state growth, is now the decision-changing uncertainty.",
+  "events": [
+    {
+      "event_id": "url-fainv-sparse-lazy-equivalence-cycle-v1",
+      "kind": "research_cycle",
+      "hypothesis": "The released FAinv trajectory can preserve exact mean updates with bounded state by retaining coefficients in the current Woodbury basis and flushing them into one materialized mean vector before non-nested factor compression; the FA EM update can be evaluated row-blockwise without full dense temporaries.",
+      "prediction": "Sparse updates and basis appends will match dense Woodbury mean/score calculations within 1e-12, a no-flush basis rotation will have a nonzero residual, and one row-block EM iteration will match the released dense formula within 1e-12.",
+      "result": "All gates passed. The largest lazy-mean error was 5.551e-17, score error 2.776e-17, post-flush error 5.551e-17, no-flush counterexample residual 1.0, and maximum row-block factor error 2.776e-17. Runner elapsed time was 0.1425 seconds with 24,727,552-byte peak RSS.",
+      "interpretation": "The original unbounded-history concern is refuted for the mean: one compression-boundary materialization suffices. The result repairs the algebraic memory route only, is an implementation transformation with strong prior-art overlap, and leaves full-dimension compression time unresolved.",
+      "next_action": "Measure one exact full-dimension rank-16 block-EM iteration and reject the two-day route if even a one-iteration-per-compression proxy exceeds the 1,800-second command window.",
+      "reason": "The prospective plan, source-derived derivation, deterministic executable check, retained result, and scoped interpretation form one complete hypothesis-to-decision chain.",
+      "evidence": [
+        {
+          "path": "plans/url_fainv_sparse_lazy_feasibility_v1.md",
+          "sha256": "04704d426d535a07a6931720d86aa6b5b293d73da3f1a4a168c8af60948b361a"
+        },
+        {
+          "path": "notes/url_fainv_sparse_lazy_math_audit_v1.md",
+          "sha256": "2b85bca32bce26346e5a0c60c6c131f71cdff32cfcea13c78fb8978880ddae1d"
+        },
+        {
+          "path": "results/url_fainv_sparse_lazy_equivalence_v1.json",
+          "sha256": "9dc4e47297af638a4d4f62c679488bee575f7b88a46c3ca83bd68c98a2284ff8"
+        },
+        {
+          "path": "notes/url_fainv_sparse_lazy_equivalence_analysis_v1.md",
+          "sha256": "8ceda2d8cd6d7c8fdca6bf3b5f5d9a2ea2e7ae566fb9c6753505d622c2a318df"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "url-fainv-block-em-calibration-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/run_url_fainv_block_em_calibration_v1.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Measure one full-dimension rank-16 row-block FA-EM iteration and test the frozen memory and one-iteration CPU-window gates",
+      "timeout_seconds": 600,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/url_fainv_block_em_calibration_v1.md",
+          "sha256": "25323486f78486d88555485ab9df207cbd8ecaad73a5903c43b8ba76f9ed9c68"
+        },
+        {
+          "path": "scripts/run_url_fainv_block_em_calibration_v1.py",
+          "sha256": "3492e7b8d553bfaeeabcfed83d8a3ba6b0fcdb0266c50475647fc8b1f3725c45"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "results/url_fainv_sparse_lazy_equivalence_v1.json",
+          "sha256": "9dc4e47297af638a4d4f62c679488bee575f7b88a46c3ca83bd68c98a2284ff8"
+        },
+        {
+          "path": "notes/url_fainv_sparse_lazy_equivalence_analysis_v1.md",
+          "sha256": "8ceda2d8cd6d7c8fdca6bf3b5f5d9a2ea2e7ae566fb9c6753505d622c2a318df"
+        }
+      ],
+      "outputs": [
+        "results/url_fainv_block_em_calibration_v1.json"
+      ]
+    }
+  ]
+}

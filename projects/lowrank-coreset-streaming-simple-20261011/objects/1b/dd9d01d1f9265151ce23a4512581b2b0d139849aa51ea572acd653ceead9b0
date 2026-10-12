@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+"""Compare author plugin_curve with exact one-pass per-node sufficient statistics."""
+from __future__ import annotations
+import hashlib, json, math, pathlib, resource, sys, time
+import numpy as np
+
+ROOT=pathlib.Path(__file__).resolve().parents[1]
+REPO=ROOT/'.deps/fid_rtd/repo-1e90579840cf81284287583fcb607581704993ab/sample-optimal-fid-estimation-1e90579840cf81284287583fcb607581704993ab'
+PLAN=ROOT/'plans/streaming_fid_infinity_exact_moments_v1.md'
+OUTPUT=ROOT/'results/streaming_fid_infinity_exact_moments_v1.json'
+
+def sha(path): return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
+
+def main():
+    sys.path[:0]=[str(REPO/'src'),str(REPO)]
+    from experiments.gaussian.stress_families import build_fixed_reference_pair
+    from experiments.gaussian.run import prepare_reference, sampling_factor, sample_pool
+    from experiments.gaussian.config import stable_seed
+    from gaussian_w2.estimators import plugin_curve, extrapolation_sample_sizes, fit_inverse_sample_polynomial
+    from gaussian_w2._core.linalg import psd_eigh, symmetrize
+
+    config={'backend':'numpy','gpu':{'device':0,'sample_batch_size':4096,'synchronize_timing':True},
+      'numerics':{'eig_rtol':1e-10,'eig_atol':1e-12}}
+    d=64; N=4096; master=20261014; case='streaming_exact_moments_v1'
+    pair=build_fixed_reference_pair('isotropic',d,xp=np,target_w2_sq=5.0,generated_scale=0.5)
+    reference=prepare_reference(pair.A,config,np); root=sampling_factor(pair.B,config,np)
+    sample_seed=stable_seed(master,'sample',case,d,0,0); curve_seed=stable_seed(sample_seed,'ols',N)
+    samples=sample_pool(pair.B,N,sample_seed,config,np,root=root)
+    t0=time.perf_counter()
+    batch=plugin_curve(reference,samples,minimum_samples=512,num_points=15,sample_schedule='uniform_n',
+      regression_orders=(1,2,3),regression_weightings=('ordinary_ols','variance_aware'),seed=curve_seed,
+      known_zero_mean=True,rtol=1e-10,atol=1e-12)
+    batch_wall=time.perf_counter()-t0
+
+    sizes=extrapolation_sample_sizes(N,minimum_samples=512,num_points=15,schedule='uniform_n')
+    rng=np.random.default_rng(curve_seed); masks=[]
+    for n in sizes:
+        if n==N: mask=np.ones(N,dtype=bool)
+        else:
+            mask=np.zeros(N,dtype=bool); mask[rng.permutation(N)[:n]]=True
+        masks.append(mask)
+    grams=[np.zeros((d,d),dtype=np.float64) for _ in sizes]; counts=np.zeros(len(sizes),dtype=np.int64)
+    t1=time.perf_counter()
+    chunk=37
+    for start in range(0,N,chunk):
+        stop=min(N,start+chunk); block=samples[start:stop]
+        for j,mask in enumerate(masks):
+            chosen=block[mask[start:stop]]
+            if len(chosen): grams[j]+=chosen.T@chosen; counts[j]+=len(chosen)
+    values=[]
+    for n,gram in zip(sizes,grams):
+        covariance=symmetrize(gram/float(n))
+        middle=symmetrize(reference.sqrt_covariance@covariance@reference.sqrt_covariance)
+        eig,_,_=psd_eigh(middle,rtol=1e-10,atol=1e-12)
+        values.append(float(np.trace(reference.covariance)+np.trace(covariance)-2*np.sqrt(eig).sum()))
+    streamed_wall=time.perf_counter()-t1
+    fits={w:{str(o):fit_inverse_sample_polynomial(sizes,values,order=o,weighting=w)['intercept'] for o in (1,2,3)} for w in ('ordinary_ols','variance_aware')}
+    batch_fits={w:{str(o):batch['fits_by_weighting'][w][o]['intercept'] for o in (1,2,3)} for w in ('ordinary_ols','variance_aware')}
+    node_errors=[abs(a-b) for a,b in zip(values,batch['plugin_values'])]
+    fit_errors=[abs(fits[w][str(o)]-batch_fits[w][str(o)]) for w in fits for o in (1,2,3)]
+    peak=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024
+    checks={'counts_exact':counts.tolist()==list(sizes),'memberships_exact_sizes':all(int(m.sum())==n for m,n in zip(masks,sizes)),
+      'all_finite':all(math.isfinite(x) for x in values+node_errors+fit_errors),'node_tolerance':max(node_errors)<=2e-10,
+      'intercept_tolerance':max(fit_errors)<=2e-9,'peak_rss_below_1gib':peak<1024**3}
+    result={'schema_version':1,'scope':'known-zero-mean fixed-reference author-curve equivalence diagnostic',
+      'source':{'commit':'1e90579840cf81284287583fcb607581704993ab','plugin_curve_sha256':sha(REPO/'src/gaussian_w2/estimators/fixed_reference.py')},
+      'plan_sha256':sha(PLAN),'settings':{'d':d,'N':N,'num_nodes':len(sizes),'chunk_size':chunk,'sample_seed':sample_seed,'curve_seed':curve_seed},
+      'sample_sizes':list(sizes),'counts':counts.tolist(),'max_abs_node_error':max(node_errors),'max_abs_intercept_error':max(fit_errors),
+      'node_errors':node_errors,'fit_errors':fit_errors,'batch_plugin_values':list(batch['plugin_values']),'streamed_plugin_values':values,
+      'batch_intercepts':batch_fits,'streamed_intercepts':fits,'timing_seconds':{'author_batch':batch_wall,'streamed_python':streamed_wall},
+      'state_bytes':{'gram_accumulators':sum(g.nbytes for g in grams),'membership_masks':sum(m.nbytes for m in masks),'counts':counts.nbytes,
+                     'raw_samples_input_not_part_of_streaming_state':samples.nbytes},
+      'peak_rss_bytes':peak,'checks':checks,'all_checks_pass':all(checks.values()),
+      'limitations':['known-zero-mean path only','materialized samples provide an identical-input fixture','Python diagnostic has no speed claim','not an originality result']}
+    OUTPUT.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+    print(json.dumps({k:result[k] for k in ('max_abs_node_error','max_abs_intercept_error','timing_seconds','state_bytes','peak_rss_bytes','checks','all_checks_pass')},sort_keys=True))
+    if not result['all_checks_pass']: raise SystemExit(2)
+
+if __name__=='__main__': main()

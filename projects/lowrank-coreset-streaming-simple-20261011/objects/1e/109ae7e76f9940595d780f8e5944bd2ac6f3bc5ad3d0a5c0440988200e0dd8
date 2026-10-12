@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w002/scripts/block_krylov_calibration.py", line 55, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w002/scripts/block_krylov_calibration.py", line 36, in main
+    sparse=mmread(src);a=np.asarray(sparse[:512].toarray(),dtype=np.float64);del sparse
+                                    ~~~~~~^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/scipy/sparse/_coo.py", line 1878, in __getitem__
+    raise TypeError("'coo_matrix' object is not subscriptable")
+TypeError: 'coo_matrix' object is not subscriptable

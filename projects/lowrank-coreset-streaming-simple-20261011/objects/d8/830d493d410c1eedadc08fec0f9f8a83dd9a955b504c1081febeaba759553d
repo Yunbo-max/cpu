@@ -1,0 +1,61 @@
+{
+  "request_id": "decision-5ece9de37be348ec9b83443df5465422",
+  "idea": "model-application-streaming-text-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "discriminative-streaming-hash-interpret-v1",
+  "reason": "The fixed one-pass endpoint fails quality and time, and its oversized hashed parameter state is dominated by the full sparse model. Retain only the algebraically implied state-matched uncertainty.",
+  "events": [
+    {
+      "event_id": "discriminative-streaming-hash-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "A prospective one-pass hypothesis, three fixed orders, explicit bounded state, full sparse reference, complete metrics/costs, and a mechanism-level state audit are available.",
+      "hypothesis": "A stateless 2^18 hashed representation and one-pass averaged SGD can recover most full sparse quality while reducing wall time.",
+      "prediction": "The endpoint is competitive only with median macro-F1 loss at most0.05 and median wall ratio at most0.75 across three fixed orders.",
+      "result": "Median macro-F1 was0.618128, loss0.057419, and wall ratio1.0453, so both gates failed. Internal NumPy arrays used125,829,920 bytes, versus about2,847,520 coefficient bytes for20 by17,797 full Ridge features.",
+      "interpretation": "This exact hashed endpoint is slower, less accurate, and has much larger parameter state than the full sparse reference. The failure reflects an overlarge hash dimension as well as one-pass optimization, so it does not reject algebraically state-matched hashing.",
+      "next_action": "Test only the two state-crossover endpoints:2^14 without averaging and2^12 with averaging, preserving the original quality/time gates; if both fail, close streaming hashing on this benchmark.",
+      "evidence": [
+        {
+          "path": "plans/discriminative_streaming_hash_pilot_v1.md",
+          "sha256": "91cc4012eebd14180067919b265c87bed37aa9bb47e45c80b6de4ba6afeb1f44"
+        },
+        {
+          "path": "results/discriminative_streaming_hash_pilot_v1.json",
+          "sha256": "85bdf9f08c1158d62c13d85b9bedcad844612540718c1f3b56be3b598d2fbcc9"
+        },
+        {
+          "path": "notes/discriminative_streaming_hash_analysis_v1.md",
+          "sha256": "3e8ba8d6710353591733a860b53126d495f34e7b33762b874537050e74759399"
+        }
+      ]
+    },
+    {
+      "event_id": "discriminative-streaming-hash-retire-v1",
+      "kind": "retire_idea",
+      "reason": "The2^18 averaged one-pass endpoint fails both gates and uses more parameter state than full sparse Ridge.",
+      "evidence": [
+        {
+          "path": "results/discriminative_streaming_hash_pilot_v1.json",
+          "sha256": "85bdf9f08c1158d62c13d85b9bedcad844612540718c1f3b56be3b598d2fbcc9"
+        }
+      ]
+    },
+    {
+      "event_id": "discriminative-state-matched-hash-replace-v1",
+      "kind": "replace_idea",
+      "idea": "model-application-state-matched-streaming-v1",
+      "reason": "Resolve only the two hash dimensions implied by the parameter-state crossover before closing streaming hashing on this benchmark.",
+      "evidence": [
+        {
+          "path": "plans/discriminative_state_matched_hash_scope_v1.md",
+          "sha256": "c5a935a4646af92d34fb7ba1d869772b7e4070ed49bf9d408cde3d1615bd1d35"
+        },
+        {
+          "path": "notes/discriminative_streaming_hash_analysis_v1.md",
+          "sha256": "3e8ba8d6710353591733a860b53126d495f34e7b33762b874537050e74759399"
+        }
+      ]
+    }
+  ]
+}

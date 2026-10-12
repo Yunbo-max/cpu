@@ -1,0 +1,23 @@
+# Native FID-RTD Gaussian smoke calibration v1
+
+## Hypothesis
+
+At pinned author commit `1e90579840cf81284287583fcb607581704993ab`, the unchanged CPU example will execute plug-in FID, OLS/FID-infinity, variance-aware extrapolation, and RTD across its isotropic, random, and rank-deficient Gaussian cases without mandatory CUDA, numerical failure, or resource-gate violation.
+
+## Frozen protocol
+
+Run `experiments.gaussian.run.run` from the author source against the unchanged `configs/examples/gaussian.yaml`. Set the output to a new checkpoint-excluded directory. Do not install or patch author code. Inject only the repository root and `src` into `sys.path`, then collect every saved task record into one persistent JSON summary.
+
+The task must run through `scripts/cpu_guard.py`: one CPU affinity, single-thread numerical libraries, empty `CUDA_VISIBLE_DEVICES`, and 4 GiB `RLIMIT_AS`. No image/model assets and no network are used.
+
+## Predictions and gates
+
+- Exactly 3 tasks and 96 estimator rows: 3 covariance cases x 2 trials x 2 budgets x 8 methods.
+- All 96 rows have `status == "ok"`; every truth, estimate, signed error, absolute error, and runtime is finite.
+- Every adaptive RTD row uses `L_used == 2`, because the correction sample counts are 32 and 40 at dimension 4.
+- Peak RSS stays below 2 GiB and total wall time below 120 seconds.
+- Source records, frozen config, and author manifest are all retained by hash; raw estimates are not clipped.
+
+## Decision rule
+
+If every gate passes, record a scoped native-reproduction cycle and proceed to a stronger, prospectively sized Gaussian comparison only after defining what it can falsify. If any gate fails, preserve the raw author record and receipt, diagnose whether the cause is the compatible-but-not-pinned dependency environment, source logic, or resource limit before retrying. No ImageNet expansion follows from this smoke run.

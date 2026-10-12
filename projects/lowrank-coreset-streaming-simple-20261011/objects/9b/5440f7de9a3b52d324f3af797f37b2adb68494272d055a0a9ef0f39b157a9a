@@ -1,0 +1,57 @@
+{
+  "request_id": "decision-d6e772b7f09148b9af2e5fbd24f47aaa",
+  "idea": "model-application-state-matched-streaming-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "state-matched-hash-interpret-v1",
+  "reason": "Both algebraically state-matched endpoints satisfy the speed and retained-state constraints but fail the frozen macro-F1-loss gate, so the prespecified close rule retires streaming hashing on 20 Newsgroups and moves to a source-defined larger-task audit.",
+  "events": [
+    {
+      "event_id": "state-matched-hash-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "The two frozen endpoints, three fixed input orders, unchanged gates, strong full sparse reference, complete retained-array accounting and an exposed-test limitation are all available for the close decision.",
+      "hypothesis": "Reducing hash dimension at the algebraic full-model state crossover can repair the oversized-state and time defects of the 2^18 averaged endpoint while retaining macro-F1 within 0.05 of full sparse Ridge.",
+      "prediction": "An endpoint is viable only if median macro-F1 loss is at most 0.05, median wall ratio at most 0.75, and maximum measured NumPy parameter arrays no larger than 2,847,680 bytes.",
+      "result": "The 2^14 non-averaged endpoint had median macro-F1 0.611684, loss 0.063864, wall ratio 0.6618 and 2,621,920 state bytes. The 2^12 averaged endpoint had median macro-F1 0.571189, loss 0.104358, wall ratio 0.5618 and 1,966,880 state bytes. Both failed only the quality gate; peak RSS was 298,057,728 bytes.",
+      "interpretation": "State matching repairs state and speed but exposes a quality bottleneck. Further tuning on the already inspected test split would violate the frozen close rule, so one-pass hashing is not justified on this benchmark. This is scoped negative development evidence, not a general impossibility claim.",
+      "next_action": "Audit a source-defined larger sparse/streaming benchmark with genuine full-model resource pressure, pinning source, license, split, metric, sparse footprint and bounded CPU/8 GB feasibility before any large run.",
+      "evidence": [
+        {
+          "path": "plans/discriminative_state_matched_hash_experiment_v1.md",
+          "sha256": "d3d456ed05c87494e358106bbd2afe0308c5e3c0d68e5405ceb2e79c6a2fc7be"
+        },
+        {
+          "path": "results/discriminative_state_matched_hash_v1.json",
+          "sha256": "8b955c649cb34e6ea7339c5db7c8471f2708922e509ab7d0cc10a166109d61fe"
+        },
+        {
+          "path": "notes/discriminative_state_matched_hash_analysis_v1.md",
+          "sha256": "7de64cdeadb63ac7c21a359a8961caf14a21bfdc9731d70c3b908ad4df2724ee"
+        }
+      ]
+    },
+    {
+      "event_id": "state-matched-hash-retire-v1",
+      "kind": "retire_idea",
+      "reason": "Neither of the only two preregistered state-crossover endpoints met the unchanged quality/time/state gate on the exposed 20 Newsgroups protocol.",
+      "evidence": [
+        {
+          "path": "results/discriminative_state_matched_hash_v1.json",
+          "sha256": "8b955c649cb34e6ea7339c5db7c8471f2708922e509ab7d0cc10a166109d61fe"
+        }
+      ]
+    },
+    {
+      "event_id": "large-stream-source-audit-replace-v1",
+      "kind": "replace_idea",
+      "idea": "model-application-large-stream-source-audit-v1",
+      "reason": "The next uncertainty is whether an authentic larger sparse task creates real model-state or full-pass pressure while remaining supportable under CPU and 8 GB; source and protocol audit must precede any experiment.",
+      "evidence": [
+        {
+          "path": "notes/discriminative_state_matched_hash_analysis_v1.md",
+          "sha256": "7de64cdeadb63ac7c21a359a8961caf14a21bfdc9731d70c3b908ad4df2724ee"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "response_id": "nested-prefix-vale-source-v1",
+  "request_id": "decision-56bd361d4b5b4124bef27f01310bd9c1",
+  "idea": "streaming-vale-nested-prefix-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Primary-paper inspection removes the data-dependent-weight uncertainty and narrows originality: VALE weights are deterministic from the schedule, while the paper already derives shared-pool overlap covariance for independently reshuffled levels. The unresolved contribution is only the nested overlap geometry plus one-state implementation.",
+  "events": [
+    {
+      "event_id": "nested-prefix-vale-primary-source-audit-v1",
+      "kind": "milestone",
+      "label": "VALE weights and closest covariance theory pinned from primary paper",
+      "reason": "arXiv:2610.07114v2 equation (44) gives deterministic variance-aware weights C X (X^T C X)^-1 e1, and Appendix B.1 Proposition 7 already expresses common-pool covariance by subset overlap; nested prefixes are a distinct maximal-overlap geometry, not a new general covariance observation.",
+      "evidence": [
+        {"path": "notes/nested_prefix_vale_source_addendum_v1.md", "sha256": "af5fe9001387795a1c07832de957ac88caf3ebd9d4cc899b8380e4b9a3bcb9b6"}
+      ],
+      "next_phase": "design"
+    }
+  ]
+}

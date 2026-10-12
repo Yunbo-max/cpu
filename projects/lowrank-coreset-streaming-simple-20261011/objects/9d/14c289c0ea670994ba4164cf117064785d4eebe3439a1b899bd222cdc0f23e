@@ -1,0 +1,250 @@
+#!/usr/bin/env python3
+"""Native 20 Newsgroups sparse/reservoir/SVD baseline gate."""
+
+from __future__ import annotations
+
+import json
+import pathlib
+import platform
+import resource
+import sys
+import time
+from collections import Counter
+from datetime import datetime, timezone
+
+import numpy as np
+import scipy
+import sklearn
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.decomposition import TruncatedSVD
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import RidgeClassifier
+from sklearn.metrics import accuracy_score, f1_score
+
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+DATA_HOME = ROOT / ".deps" / "sklearn_data"
+OUTPUT = ROOT / "results" / "discriminative_compression_pilot_v1.json"
+REMOVE = ("headers", "footers", "quotes")
+SEEDS = (19, 71, 211)
+FRACTIONS = (0.25, 0.50)
+SVD_RANKS = (128, 256)
+VECTORIZER_KW = {
+    "sublinear_tf": True,
+    "max_df": 0.5,
+    "min_df": 5,
+    "stop_words": "english",
+}
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def peak_rss_bytes() -> int:
+    value = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    return int(value * 1024 if sys.platform != "darwin" else value)
+
+
+def reservoir_indices(n: int, k: int, seed: int) -> np.ndarray:
+    rng = np.random.default_rng(seed)
+    reservoir = np.arange(k, dtype=np.int64)
+    for i in range(k, n):
+        j = int(rng.integers(0, i + 1))
+        if j < k:
+            reservoir[j] = i
+    reservoir.sort()
+    return reservoir
+
+
+def metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict:
+    return {
+        "macro_f1": float(f1_score(y_true, y_pred, average="macro")),
+        "accuracy": float(accuracy_score(y_true, y_pred)),
+    }
+
+
+def sparse_pipeline(train_docs, y_train, test_docs, y_test, indices=None) -> dict:
+    start = time.perf_counter()
+    selection_seconds = 0.0
+    if indices is None:
+        selected_docs = train_docs
+        selected_y = y_train
+    else:
+        t0 = time.perf_counter()
+        selected_docs = [train_docs[int(i)] for i in indices]
+        selected_y = y_train[indices]
+        selection_seconds = time.perf_counter() - t0
+
+    vectorizer = TfidfVectorizer(**VECTORIZER_KW)
+    t0 = time.perf_counter()
+    x_train = vectorizer.fit_transform(selected_docs)
+    train_vectorize_seconds = time.perf_counter() - t0
+    t0 = time.perf_counter()
+    x_test = vectorizer.transform(test_docs)
+    test_vectorize_seconds = time.perf_counter() - t0
+    clf = RidgeClassifier(alpha=1.0, solver="sparse_cg", tol=1e-2)
+    t0 = time.perf_counter()
+    clf.fit(x_train, selected_y)
+    fit_seconds = time.perf_counter() - t0
+    t0 = time.perf_counter()
+    pred = clf.predict(x_test)
+    predict_seconds = time.perf_counter() - t0
+    total = time.perf_counter() - start
+    return {
+        **metrics(y_test, pred),
+        "n_train": int(x_train.shape[0]),
+        "n_features": int(x_train.shape[1]),
+        "train_nnz": int(x_train.nnz),
+        "test_nnz": int(x_test.nnz),
+        "class_counts": {str(k): int(v) for k, v in sorted(Counter(selected_y).items())},
+        "selection_seconds": selection_seconds,
+        "train_vectorize_seconds": train_vectorize_seconds,
+        "test_vectorize_seconds": test_vectorize_seconds,
+        "fit_seconds": fit_seconds,
+        "predict_seconds": predict_seconds,
+        "method_wall_seconds": total,
+        "cumulative_peak_rss_bytes": peak_rss_bytes(),
+    }
+
+
+def main() -> None:
+    DATA_HOME.mkdir(parents=True, exist_ok=True)
+    load_start = time.perf_counter()
+    train = fetch_20newsgroups(
+        data_home=str(DATA_HOME), subset="train", shuffle=False, remove=REMOVE
+    )
+    test = fetch_20newsgroups(
+        data_home=str(DATA_HOME), subset="test", shuffle=False, remove=REMOVE
+    )
+    load_seconds = time.perf_counter() - load_start
+    if tuple(train.target_names) != tuple(test.target_names):
+        raise RuntimeError("train/test target names differ")
+    if len(train.target_names) != 20:
+        raise RuntimeError(f"expected 20 classes, got {len(train.target_names)}")
+
+    y_train = np.asarray(train.target)
+    y_test = np.asarray(test.target)
+    result = {
+        "schema_version": 1,
+        "created_at_utc": utc_now(),
+        "dataset": {
+            "name": "20 Newsgroups bydate via fetch_20newsgroups",
+            "remove": list(REMOVE),
+            "shuffle": False,
+            "n_train": len(train.data),
+            "n_test": len(test.data),
+            "n_classes": len(train.target_names),
+            "target_names": list(train.target_names),
+            "train_class_counts": {
+                str(k): int(v) for k, v in sorted(Counter(y_train).items())
+            },
+            "test_class_counts": {
+                str(k): int(v) for k, v in sorted(Counter(y_test).items())
+            },
+            "load_or_download_seconds": load_seconds,
+            "raw_cache_checkpointed": False,
+        },
+        "environment": {
+            "python": platform.python_version(),
+            "numpy": np.__version__,
+            "scipy": scipy.__version__,
+            "sklearn": sklearn.__version__,
+            "platform": platform.platform(),
+        },
+        "fixed_protocol": {
+            "vectorizer": VECTORIZER_KW,
+            "ridge_sparse": {"alpha": 1.0, "solver": "sparse_cg", "tol": 1e-2},
+            "reservoir_fractions": list(FRACTIONS),
+            "reservoir_seeds": list(SEEDS),
+            "svd_ranks": list(SVD_RANKS),
+            "svd_seed": 19,
+            "svd_n_iter": 5,
+            "quality_loss_gate": 0.03,
+            "time_ratio_gate": 0.75,
+        },
+        "methods": {},
+    }
+
+    result["methods"]["full_sparse"] = sparse_pipeline(
+        train.data, y_train, test.data, y_test
+    )
+
+    for fraction in FRACTIONS:
+        k = int(round(fraction * len(train.data)))
+        for seed in SEEDS:
+            t0 = time.perf_counter()
+            indices = reservoir_indices(len(train.data), k, seed)
+            index_seconds = time.perf_counter() - t0
+            row = sparse_pipeline(train.data, y_train, test.data, y_test, indices)
+            row["selection_seconds"] += index_seconds
+            row["method_wall_seconds"] += index_seconds
+            row["fraction"] = fraction
+            row["seed"] = seed
+            result["methods"][f"reservoir_{int(fraction * 100)}_seed_{seed}"] = row
+
+    vectorizer = TfidfVectorizer(**VECTORIZER_KW)
+    full_vector_start = time.perf_counter()
+    x_train = vectorizer.fit_transform(train.data)
+    full_train_vector_seconds = time.perf_counter() - full_vector_start
+    t0 = time.perf_counter()
+    x_test = vectorizer.transform(test.data)
+    full_test_vector_seconds = time.perf_counter() - t0
+    full_vector_seconds = full_train_vector_seconds + full_test_vector_seconds
+
+    for rank in SVD_RANKS:
+        method_start = time.perf_counter()
+        svd = TruncatedSVD(
+            n_components=rank, algorithm="randomized", n_iter=5, random_state=19
+        )
+        t0 = time.perf_counter()
+        z_train = svd.fit_transform(x_train)
+        svd_fit_transform_seconds = time.perf_counter() - t0
+        t0 = time.perf_counter()
+        z_test = svd.transform(x_test)
+        svd_test_transform_seconds = time.perf_counter() - t0
+        clf = RidgeClassifier(alpha=1.0, solver="lsqr", tol=1e-2)
+        t0 = time.perf_counter()
+        clf.fit(z_train, y_train)
+        fit_seconds = time.perf_counter() - t0
+        t0 = time.perf_counter()
+        pred = clf.predict(z_test)
+        predict_seconds = time.perf_counter() - t0
+        post_vector_wall = time.perf_counter() - method_start
+        result["methods"][f"svd_{rank}"] = {
+            **metrics(y_test, pred),
+            "rank": rank,
+            "n_train": int(z_train.shape[0]),
+            "n_features_before": int(x_train.shape[1]),
+            "n_features_after": int(z_train.shape[1]),
+            "explained_variance_ratio_sum": float(svd.explained_variance_ratio_.sum()),
+            "train_vectorize_seconds": full_train_vector_seconds,
+            "test_vectorize_seconds": full_test_vector_seconds,
+            "svd_fit_transform_seconds": svd_fit_transform_seconds,
+            "svd_test_transform_seconds": svd_test_transform_seconds,
+            "fit_seconds": fit_seconds,
+            "predict_seconds": predict_seconds,
+            "post_vector_wall_seconds": post_vector_wall,
+            "method_wall_seconds": full_vector_seconds + post_vector_wall,
+            "cumulative_peak_rss_bytes": peak_rss_bytes(),
+        }
+
+    baseline = result["methods"]["full_sparse"]
+    for name, row in result["methods"].items():
+        row["macro_f1_loss_vs_full"] = float(baseline["macro_f1"] - row["macro_f1"])
+        row["wall_ratio_vs_full"] = float(
+            row["method_wall_seconds"] / baseline["method_wall_seconds"]
+        )
+        row["passes_joint_gate"] = bool(
+            row["macro_f1_loss_vs_full"] <= 0.03
+            and row["wall_ratio_vs_full"] <= 0.75
+        )
+
+    result["final_peak_rss_bytes"] = peak_rss_bytes()
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(result, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

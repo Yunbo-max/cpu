@@ -1,0 +1,25 @@
+# URL dataset acquisition plan v1
+
+## Purpose
+
+Acquire the official UCSD malicious-URL SVM-light archive as recoverable, checkpoint-excluded material. Hash and safely inventory the entire archive, but extract only the first two chronological day files plus feature metadata for a bounded parser/protocol calibration.
+
+## Source and storage
+
+- Source: `https://www.sysnet.ucsd.edu/projects/url/url_svmlight.tar.gz`
+- Archive destination: `.deps/url_dataset/url_svmlight.tar.gz`
+- Extracted prefix: `.deps/url_dataset/prefix/`
+- Persistent output: `sources/url_dataset_manifest_v1.json`
+- Raw archive and extracted data remain under `.deps` and must not enter the checkpoint. The public page requests citation but no explicit redistribution license has been located, so no raw bytes will be redistributed.
+
+## Safety and integrity
+
+1. Download to an atomic `.part` file, streaming both bytes and SHA-256; reuse an already completed local archive after re-hashing it.
+2. Reject archive members that are absolute, contain `..`, are links, devices, or other non-regular/non-directory types.
+3. Record every member name and uncompressed size in the manifest.
+4. Extract only members whose basenames are `Day0.svm`, `Day1.svm`, or `FeatureTypes`. Copy their streams to flat, atomically replaced files and hash them.
+5. Fail if either day file is absent. Do not parse examples or run numerical learning in this acquisition task.
+
+## Decision rule
+
+Proceed to a separately preregistered numerical calibration only if the archive is safely readable and both chronological day files are pinned. Otherwise retain the failure and repair only the acquisition/parser boundary.

@@ -1,0 +1,48 @@
+"""Exact small-state permutation calibration check, not a native CTT benchmark."""
+from fractions import Fraction as F
+from itertools import product
+from pathlib import Path
+import hashlib
+import json
+import resource
+import time
+
+start = time.monotonic()
+cpu = time.process_time()
+root = Path(__file__).resolve().parents[1]
+totals = {a: F(0) for a in ('asymmetric', 'all_one', 'all_two')}
+rows = []
+for raw in product((-1, 1), repeat=8):
+    bins = [raw[2*i:2*i+2] for i in range(4)]
+    for coin in (0, 1):
+        one = [F(b[coin]) for b in bins]
+        two = [F(sum(b), 2) for b in bins]
+        summaries = {'asymmetric': [one[0]] + two[1:], 'all_one': one, 'all_two': two}
+        record = {'raw': raw, 'coin': coin, 'arms': {}}
+        for arm, z in summaries.items():
+            stats = [(v - (sum(z)-v)/3)**2 for v in z]
+            top = max(stats)
+            ties = stats.count(top)
+            rejection = F(1, ties) if stats[0] == top else F(0)
+            totals[arm] += rejection
+            record['arms'][arm] = {'summaries': list(map(str, z)),
+                'statistics': list(map(str, stats)), 'reject_probability': str(rejection)}
+        rows.append(record)
+rates = {a: t/len(rows) for a, t in totals.items()}
+checks = {'cases_512': len(rows) == 512, 'symmetric_one_exact': rates['all_one'] == F(1,4),
+    'symmetric_two_exact': rates['all_two'] == F(1,4),
+    'hand_prediction_matches': rates['asymmetric'] == F(25,64),
+    'null_inflation': rates['asymmetric'] > F(1,4)}
+out = root/'results/compression_exchangeability_exact_v1_rows.json'
+out.write_text(json.dumps(rows, separators=(',', ':'))+'\n')
+result = {'scope': 'Exact enumeration of an altered compression policy; not KT-Compress or real-data performance',
+    'cases': len(rows), 'alpha': '1/4', 'rates': {a: str(v) for a,v in rates.items()},
+    'rates_decimal': {a: float(v) for a,v in rates.items()}, 'checks': checks,
+    'plan_sha256': hashlib.sha256((root/'plans/compression_exchangeability_exact_v1.md').read_bytes()).hexdigest(),
+    'rows_sha256': hashlib.sha256(out.read_bytes()).hexdigest(),
+    'execution': {'wall_seconds': time.monotonic()-start, 'process_cpu_seconds': time.process_time()-cpu,
+        'peak_rss_bytes': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024},
+    'all_checks_pass': all(checks.values())}
+(root/'results/compression_exchangeability_exact_v1.json').write_text(json.dumps(result, indent=2)+'\n')
+print(json.dumps(result))
+assert all(checks.values())

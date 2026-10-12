@@ -1,0 +1,24 @@
+# FID-RTD bounded dimension scaling analysis v1
+
+## Validity
+
+The prospectively frozen author-engine comparison completed all 4 tasks, 32 trials per dimension, and 1024 estimator rows. Every status and numeric field was valid. Whole-command wall/process CPU time was 7.923/7.923 seconds and peak RSS was 50,696,192 bytes under the guarded one-thread CPU path.
+
+## Accuracy frontier
+
+The empirical plug-in mean signed error was positive and strictly increased with dimension: 0.0161, 0.0509, 0.1885, and 0.6506 for d=16,32,64,128 at N=4096. Its 95% t intervals excluded zero at every dimension, supporting the preregistered finite-sample bias mechanism in this bounded family.
+
+Released corrections substantially reduced that bias. At d=128, first-order variance-aware extrapolation had bias -0.0161 and RMSE 0.04494 versus plug-in bias 0.6506 and RMSE 0.65192. Adaptive RTD had bias 0.00848 and RMSE 0.110996.
+
+RTD was not on the two-objective absolute-bias/RMSE frontier in any tested dimension. It was dominated by:
+
+- d=16: VALE order 1 (absolute bias 0.000075, RMSE 0.03486) versus RTD (0.01369, 0.07600).
+- d=32: VALE order 1 (0.000236, 0.03401) versus RTD (0.01061, 0.08615).
+- d=64: OLS order 2 (0.00229, 0.04658) versus RTD (0.01566, 0.09278).
+- d=128: VALE order 3 (0.00534, 0.08775) versus RTD (0.00848, 0.11100); VALE order 1 had the best RMSE at 0.04494.
+
+This is a scoped negative result for adaptive RTD in the bounded CPU regime, not a refutation of its high-dimensional theorem or paper-scale d=5000,N=100000 experiment. The run held N fixed, so a distinct sample-budget axis remains unresolved. Author row timings for OLS and VALE share the same curve construction and cannot be summed as separate costs.
+
+## Decision
+
+Do not introduce low-rank or coreset machinery: measured memory is only 50.7 MB and released extrapolation baselines already remove most bias. Run one fresh, prospectively defined N-scaling comparison at d=128 with independent master seed. If RTD remains dominated in absolute-bias/RMSE across every sample budget, retire this bounded isotropic RTD branch and retain VALE/OLS as the strong baseline for any later streaming question.

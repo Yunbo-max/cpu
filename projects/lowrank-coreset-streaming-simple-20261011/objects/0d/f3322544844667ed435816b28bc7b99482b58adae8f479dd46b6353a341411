@@ -1,0 +1,91 @@
+{
+  "response_id": "url-fainv-first-compression-response-v1",
+  "request_id": "decision-4c2e11581c2b465bab58ef86580b6dd6",
+  "idea": "url-cw-fact-sparse-lazy-feasibility-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The repaired source-matched full-dimension fixture converged in one block-EM iteration within the memory and CPU gates. The decision-changing uncertainty is now whether authentic URL update directions reach compression at the proxy rate and retain that one-iteration behavior.",
+  "events": [
+    {
+      "event_id": "url-fainv-block-em-source-matched-cycle-v2",
+      "kind": "research_cycle",
+      "hypothesis": "Starting the released row-block FA-EM compression from its actual source state Dcur=D0 and Lcur=L0 will converge within five iterations and keep the full-dimensional rank-16 compression below the frozen memory and 1,800-second proxy gates.",
+      "prediction": "The source-matched fixture will retain finite positive diagonals, peak below 2 GiB, converge within five iterations, and project at most 1,800 seconds for the qualified 375-compression proxy.",
+      "result": "It converged in one iteration with normalized change 9.0583e-7. The iteration took 2.7032 seconds, peak RSS was 917,008,384 bytes, the output diagonal range was [1.2, 1.37737], and the qualified 375-compression projection was 1,013.7 seconds. All preregistered gates passed.",
+      "interpretation": "The source-matched repair validates the deterministic compression kernel's one-iteration cost and removes the v1 initialization ambiguity. It does not validate the substituted diagonal-CW update count or real URL geometry, so total runtime and quality remain unresolved.",
+      "next_action": "Run one bounded authentic Day0 trajectory through the first FAinv compression, then compare its trigger example, real sparse buffer, EM iteration count, memory, and time with the fixture without extrapolating a full stream.",
+      "reason": "The prospective v2 repair plan, guarded full-dimension result, retained receipt and post-run interpretation form a complete hypothesis-to-decision chain.",
+      "evidence": [
+        {
+          "path": "plans/url_fainv_block_em_source_matched_v2.md",
+          "sha256": "c259c949f87a998b2eda7e89f7fad175d04ff58c1b63e69ab1543586cd63c92f"
+        },
+        {
+          "path": "results/url_fainv_block_em_source_matched_v2.json",
+          "sha256": "8d372eff026e8b82550f90ced458289c11d460291332647e5221fb68972a7b79"
+        },
+        {
+          "path": "notes/url_fainv_block_em_source_matched_v2_analysis.md",
+          "sha256": "0df433b5dd435bf6b92fe9af438a7fcd9eb56fa2a695153d09d6111cc6e1c088"
+        },
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-23589dd284d34afa848b656825d4e555/receipt.json",
+          "sha256": "61e35e0ff02e7cbfa715880e0baf0ace63d28321b9021d0ac87e97996a43de5e"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "url-fainv-first-compression-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/run_url_fainv_first_compression_v1.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Run source-guided FAinv on the official chronological Day0 stream only through the first authentic rank-16/buffer-16 compression",
+      "timeout_seconds": 180,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/url_fainv_first_compression_v1.md",
+          "sha256": "b8ec1676ea17701299951e92dd1447f78f7422dbeee99253737c25afd7d85782"
+        },
+        {
+          "path": "scripts/run_url_fainv_first_compression_v1.py",
+          "sha256": "7323407335f1d5f2cf9d08dd272ad64d030d0391e50ab872f77615cf45def9b2"
+        },
+        {
+          "path": "scripts/run_url_fainv_block_em_source_matched_v2.py",
+          "sha256": "44b03abbade59761c97a548f06198a1aec7064aa1da0f55c78ef8fbe2b3d8b52"
+        },
+        {
+          "path": "scripts/run_url_fainv_block_em_calibration_v1.py",
+          "sha256": "3492e7b8d553bfaeeabcfed83d8a3ba6b0fcdb0266c50475647fc8b1f3725c45"
+        },
+        {
+          "path": "scripts/run_url_prefix_baseline_calibration_v1.py",
+          "sha256": "58d9d98097542fa862872e1479408e9ea082140b8cda3e76bfd78688e5522473"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "sources/url_cw_fa_code_manifest_v1.json",
+          "sha256": "76e0d297e03f634cd2d757b69585f4eedac11aaa71878d4ecd723dfb8471fd85"
+        },
+        {
+          "path": "sources/url_dataset_manifest_v1.json",
+          "sha256": "7f84885352bf9a9a32f4779d0f5dbf021aa2f55e0dece1ff37774417154cc76a"
+        }
+      ],
+      "outputs": [
+        "results/url_fainv_first_compression_v1.json"
+      ]
+    }
+  ]
+}

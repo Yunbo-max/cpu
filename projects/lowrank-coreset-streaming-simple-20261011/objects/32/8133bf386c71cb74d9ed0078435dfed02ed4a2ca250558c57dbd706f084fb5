@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "design_id": "moment-prefix-query-diagnostic-v1",
+  "goal_contract_version": 2,
+  "idea": "streaming-moment-native-audit-v1",
+  "revision": 1,
+  "plan_ref": {
+    "path": "plans/moment_prefix_query_documentation_v1.json",
+    "sha256": "ee1b8d86f5952479c5d70e9b02c98973634d333863af6064d64fc132459de76f"
+  },
+  "comparisons": [
+    {
+      "comparison_id": "query",
+      "status": "complete",
+      "arms": [
+        {
+          "arm_id": "prefix_cs",
+          "task_id": "moment-prefix-window-v1",
+          "run_id": "attempt-9ccedbd8f8214262a00e8932c63a7039",
+          "artifact_refs": [
+            {
+              "path": "results/moment_prefix_window_v1.json",
+              "sha256": "74444d4f3deb13fc0370a30774dabe917a04577fc047f158b3d0152fde00c58c"
+            }
+          ]
+        },
+        {
+          "arm_id": "native_hardcoded",
+          "task_id": "moment-prefix-window-v1",
+          "run_id": "attempt-9ccedbd8f8214262a00e8932c63a7039",
+          "artifact_refs": [
+            {
+              "path": "results/moment_prefix_window_v1.json",
+              "sha256": "74444d4f3deb13fc0370a30774dabe917a04577fc047f158b3d0152fde00c58c"
+            }
+          ]
+        },
+        {
+          "arm_id": "exact",
+          "task_id": "moment-prefix-window-v1",
+          "run_id": "attempt-9ccedbd8f8214262a00e8932c63a7039",
+          "artifact_refs": [
+            {
+              "path": "results/moment_prefix_window_v1.json",
+              "sha256": "74444d4f3deb13fc0370a30774dabe917a04577fc047f158b3d0152fde00c58c"
+            }
+          ]
+        }
+      ],
+      "analysis_refs": [
+        {
+          "path": "notes/moment_prefix_window_analysis_v1.md",
+          "sha256": "ed15af6522c66ef0c142a871abe3fbadca68dd12118e2d9e4999849231ca765f"
+        },
+        {
+          "path": "notes/moment_query_contract_analysis_v1.md",
+          "sha256": "24556506676e055b5471f241cafebcbc3ee712af0d17b1be8757260191256123"
+        },
+        {
+          "path": "results/moment_query_bracket_v1.json",
+          "sha256": "e51691f19c207756bde45ffb84bb6a233d3f411dc6ccbbfbeb3fe86c43050e88"
+        }
+      ],
+      "conclusion": "supported",
+      "limitations": "One downscaled correlated-seed development case; no theorem contradiction, novelty or fair speedup claim.",
+      "next_action": "Faithful paperAlgorithm1 query/retention correctness reference before approximate scaling."
+    }
+  ]
+}

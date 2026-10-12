@@ -1,0 +1,18 @@
+{
+  "study_id": "B15-RSI-native512-warm-lobpcg-comparator-20261010T2240",
+  "overall_project_status": "continuation_pending",
+  "scoped_hypothesis_pass": false,
+  "decision": "RETIRE_FROZEN_ZERO_EXTENDED_SCIPY_LOBPCG_COMPARATOR",
+  "scientific_result": "At eta=0.1, all 71 t>=125 refreshes triggered residual fallback before accepting any LOBPCG endpoint. A deterministic 1e-4 perturbation at the first late refresh reached residual tolerance 1e-4 but exceeded the frozen endpoint objective tolerance by 412.2206x.",
+  "trajectory_audit": "exact and warm-with-fallback arms match B09 V2 query/update/loss/queried-OPT arrays exactly; zero endpoint violations after actual fallback behavior",
+  "independent_review": {
+    "initial": "REVISE",
+    "revision_closure": "PASS",
+    "scope": "fixed zero-extended SciPy 1.17.0 comparator and versioned evidence identity only"
+  },
+  "new_method": false,
+  "native5000_executed": false,
+  "novelty_established": false,
+  "paper_ready": false,
+  "next_action": "Freeze an attributed randomized block-Krylov endpoint comparator with source identity, deterministic randomness, iteration/matvec budget and the same exact endpoint/trajectory audit; run a bounded native512 calibration before any native5000 decision."
+}

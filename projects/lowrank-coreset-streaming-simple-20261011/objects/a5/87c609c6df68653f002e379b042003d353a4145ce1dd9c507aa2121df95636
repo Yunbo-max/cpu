@@ -1,0 +1,36 @@
+{
+  "submission_id": "fid-rtd-source-v1",
+  "idea": "generative-fid-rtd-native-reproduction-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "fid-rtd-source-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/acquire_fid_rtd_source_v1.py"
+      ],
+      "phase": "sources",
+      "purpose": "Resolve, safely acquire, and hash only the immutable source-linked FID-RTD repository without installing or executing repository code",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/fid_rtd_source_acquisition_v1.md",
+          "sha256": "06f82aef9506b06e2125362acbfc40076c4faaef5ba6865b8e29660114ef4d16"
+        },
+        {
+          "path": "scripts/acquire_fid_rtd_source_v1.py",
+          "sha256": "60caf4548ad2b0a23291ef17d91e9370ea449a0cf9d0f1f468dc3d25c22d0799"
+        },
+        {
+          "path": "notes/generative_streaming_evaluation_scope_v1.md",
+          "sha256": "9d1b9e8aeafa4efbf62a7b66f2fa7656c10560c4699af8b76b6be7119c586c06"
+        }
+      ],
+      "outputs": [
+        "sources/fid_rtd_source_manifest_v1.json"
+      ]
+    }
+  ]
+}

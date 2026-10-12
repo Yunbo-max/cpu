@@ -1,0 +1,141 @@
+import json
+import math
+from pathlib import Path
+import resource
+import time
+import traceback
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+LOOKS = [64, 128, 256, 512, 1024, 2048, 4096, 8192]
+PAIRS = [(0, 1), (0, 2), (1, 2)]
+EPSILON, DELTA = .01, .05
+RHO = EPSILON / (2 + EPSILON)
+LH = math.log(2 * len(PAIRS) * len(LOOKS) / DELTA)
+LEB = math.log(4 * len(PAIRS) * len(LOOKS) / DELTA)
+
+def candidates(x, seed):
+    draw = np.random.default_rng(seed).integers(len(x), size=512)
+    return np.array([np.median(x[draw[:m]], axis=0) for m in [32, 128, 512]])
+
+def differences(x, a, b):
+    z = (np.abs(x - a) - np.abs(x - b)).sum(axis=1)
+    distance = float(np.abs(a - b).sum())
+    tol = 64 * np.finfo(float).eps * max(1., float(np.abs(x).max()), float(np.abs(a).max()), float(np.abs(b).max())) * x.shape[1]
+    if not np.all(np.isfinite(z)) or np.max(np.abs(z)) > distance + tol:
+        raise ArithmeticError('Paired difference violates the reverse triangle bound')
+    return z
+
+def merge(count, mean, m2, z):
+    added = len(z)
+    next_count = count + added
+    batch_mean = float(z.mean())
+    batch_m2 = float(np.square(z - batch_mean).sum())
+    shift = batch_mean - mean
+    return next_count, mean + shift * added / next_count, m2 + batch_m2 + shift * shift * count * added / next_count
+
+def select(x, seed, method):
+    wall, cpu = time.perf_counter(), time.process_time()
+    centers = candidates(x, seed)
+    distances = np.abs(centers[:, None] - centers[None, :]).sum(axis=2)
+    state = {pair: (0, 0., 0.) for pair in PAIRS}
+    rng = np.random.default_rng(seed + 1000000)
+    previous, selected, history = 0, None, []
+    for m in LOOKS:
+        batch = x[rng.integers(len(x), size=m-previous)]
+        upper = np.zeros((3, 3))
+        pair_records = []
+        for i, j in PAIRS:
+            z = differences(batch, centers[i], centers[j])
+            state[i, j] = merge(*state[i, j], z)
+            count, mean, m2 = state[i, j]
+            assert count == m
+            variance = m2 / (m - 1)
+            distance = distances[i, j]
+            if method == 'hoeffding':
+                radius = distance * math.sqrt(2 * LH / m)
+            else:
+                radius = math.sqrt(2 * variance * LEB / m) + 14 * distance * LEB / (3 * (m - 1))
+            upper[i, j], upper[j, i] = mean + radius, -mean + radius
+            pair_records.append({'pair': [i, j], 'mean': mean, 'sample_variance': variance,
+                                 'distance': float(distance), 'radius': float(radius)})
+        previous = m
+        eligible = np.flatnonzero(np.all(upper <= RHO * distances, axis=1))
+        history.append({'m': m, 'eligible': eligible.tolist(), 'pairs': pair_records})
+        if len(eligible):
+            selected = int(eligible[0]); break
+    fallback = selected is None
+    center = np.median(x, axis=0) if fallback else centers[selected]
+    return {'method': method, 'n': len(x), 'seed': seed, 'training_draws': 512,
+            'validation_draws': previous, 'fallback': fallback, 'candidate_index': selected,
+            'center': center.tolist(), 'candidate_centers': centers.tolist(), 'look_history': history,
+            'wall_seconds': time.perf_counter()-wall, 'cpu_seconds': time.process_time()-cpu}
+
+def simple(x, seed, method):
+    wall, cpu = time.perf_counter(), time.process_time()
+    if method == 'exact':
+        center = np.median(x, axis=0)
+    else:
+        center = np.median(x[np.random.default_rng(seed).integers(len(x), size=512)], axis=0)
+    return {'method': method, 'n': len(x), 'seed': seed, 'center': center.tolist(),
+            'wall_seconds': time.perf_counter()-wall, 'cpu_seconds': time.process_time()-cpu}
+
+def main():
+    start, cpu_start = time.perf_counter(), time.process_time()
+    points = np.load(ROOT/'data/taxi_clean_first100000.npy')
+    if not np.all(np.isfinite(points)):
+        raise ValueError('Nonfinite native inputs')
+    output = {'scope': 'paired development diagnostic; known mechanisms; no novelty or confirmatory generalization',
+              'epsilon': EPSILON, 'delta_per_policy_run': DELTA, 'looks': LOOKS,
+              'hypothesis': 'Empirical Bernstein helps only for small normalized paired variance',
+              'rows': [], 'population_pair_diagnostics': [], 'error': None,
+              'centered_tie_hoeffding_threshold': 2*LH/(RHO*RHO),
+              'timing_caveat': 'Shared CPU; randomized path order; descriptive only; Hoeffding here also computes moments for matched control overhead'}
+    try:
+        # A concrete numerical-risk check outside all method timing.
+        centers = candidates(points[:10000], 101)
+        draw = np.random.default_rng(1000101).integers(10000, size=8192)
+        z = differences(points[draw], centers[0], centers[1])
+        state, previous = (0, 0., 0.), 0
+        for m in LOOKS:
+            state = merge(*state, z[previous:m]); previous = m
+        merged_var = state[2]/(state[0]-1)
+        reference_var = float(np.var(z, ddof=1))
+        assert np.isclose(merged_var, reference_var, rtol=1e-12, atol=1e-14)
+        output['moment_check'] = {'merged_sample_variance': merged_var, 'numpy_sample_variance': reference_var, 'passed': True}
+        for n in [10000, 100000]:
+            x = points[:n]
+            optimum = float(np.abs(x-np.median(x, axis=0)).sum())
+            for seed in range(101, 113):
+                centers = candidates(x, seed)
+                pool_costs = [float(np.abs(x-c).sum()) for c in centers]
+                for i, j in PAIRS:
+                    z = differences(x, centers[i], centers[j])
+                    distance = float(np.abs(centers[i]-centers[j]).sum())
+                    output['population_pair_diagnostics'].append({'n': n, 'seed': seed, 'pair': [i, j],
+                        'distance': distance, 'cost_gap': float(z.mean()),
+                        'normalized_variance': float(np.var(z)/distance**2) if distance else None,
+                        'normalized_gap': float(z.mean()/distance) if distance else None})
+                order = ['hoeffding', 'empirical_bernstein', 'exact', 'uniform_512']
+                np.random.default_rng(seed+2000000).shuffle(order)
+                for position, method in enumerate(order):
+                    row = select(x, seed, method) if method in ['hoeffding', 'empirical_bernstein'] else simple(x, seed, method)
+                    cost = float(np.abs(x-np.array(row['center'])).sum())
+                    row.update(order=position, full_data_cost=cost, optimal_cost=optimum,
+                               relative_error=cost/optimum-1, pool_costs=pool_costs)
+                    if method in ['hoeffding', 'empirical_bernstein']:
+                        row['ratio_to_best_pool'] = cost/min(pool_costs)
+                        row['certificate_valid'] = None if row['fallback'] else bool(cost/min(pool_costs) <= 1+EPSILON+1e-10)
+                    output['rows'].append(row)
+            print(json.dumps({'completed_n': n, 'rows': len(output['rows'])}), flush=True)
+    except Exception:
+        output['error'] = traceback.format_exc()
+        raise
+    finally:
+        output.update(elapsed_seconds=time.perf_counter()-start, process_cpu_seconds=time.process_time()-cpu_start,
+                      peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+        (ROOT/'results/bernstein_diagnostic_v1.json').write_text(json.dumps(output, indent=2, allow_nan=False))
+        print(json.dumps({k:output[k] for k in ['elapsed_seconds', 'process_cpu_seconds', 'peak_rss_kib', 'error']}), flush=True)
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,70 @@
+# Independent mathematical review: compression and permutation calibration
+
+Status: mathematical result established for the constructed diagnostic. No numerical execution, enumeration program, KT-Compress run, native benchmark, or further delegation was performed. The plan disclosed its proposed answer before this review; the derivation below was performed independently after that exposure and is not a blinded prediction.
+
+## Exact input bindings
+
+- Delegation: calibration-math-v1; generation 1; request ctt-calibration-review-v1.
+- Assignment path: execution_windows/w005/delegations/calibration_math_v1/assignment.json.
+- SHA-256 of assignment bytes inspected: b09dc60041c349d07550f9baf24790e2fef457e96fcc59899eb8660597937cd8. This binds the inspected dispatching-state assignment, not any later parent update.
+- Bound plan: execution_windows/w005/plans/compression_exchangeability_exact_v1.md.
+- Expected and observed plan SHA-256: 72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e; match.
+- Parent idea: ctt-streaming-calibration-audit-v1, revision 1, goal_contract_version 1, source_digest e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8.
+- Supplementary primary source inspected: https://arxiv.org/html/2301.05974v3, Algorithm 1, Proposition 1, Remark 3, Appendix C. No local source snapshot or source-content hash was created.
+
+## Model and independent derivation
+
+Let X_ir, i=0,1,2,3 and r=1,2, be independent fair signs. Let U be an independent fair index in {1,2}. For the asymmetric rule, Z_0=X_0U and Z_i=(X_i1+X_i2)/2 for i=1,2,3. Consequently Z_0 is a fair sign, independent of the remaining summaries, which independently have probabilities (1/4,1/2,1/4) at (-1,0,+1). Both summary rules satisfy E[Z_i | all raw observations]=their own raw bin mean. Yet Var(Z_0)=1 and Var(Z_i)=1/2 for i>0, so their joint law is not exchangeable.
+
+Put S=sum_i Z_i. The singleton score is T_i=(4Z_i-S)^2/9. The conditional rejection probability is q_i=1/t if T_i attains the maximum among the four scores with multiplicity t, and 0 otherwise. This includes the all-equal-score case, where q_i=1/4.
+
+Global sign symmetry implies E[q_0]=E[q_0 | Z_0=+1]. Conditional on Z_0=+1, let (b,c,d) count -1,0,+1 among the other three summaries. Then b+c+d=3, S=1+d-b, and the multinomial probability is 3!/(b!c!d!) times (1/4)^(b+d)(1/2)^c. A positive summary has squared numerator (4-S)^2; a negative summary has (-4-S)^2; a zero summary has S^2. Their comparisons are
+
+(4-S)^2-(-4-S)^2=-16S,
+
+(4-S)^2-S^2=16-8S.
+
+Only score types actually present are compared; notably four positive summaries give four equal zero scores.
+
+| b | c | d | Probability | q_0 | Probability times q_0 |
+|---|---|---|---|---|---|
+| 0 | 3 | 0 | 8/64 | 1 | 32/256 |
+| 0 | 2 | 1 | 12/64 | 1/4 | 12/256 |
+| 0 | 1 | 2 | 6/64 | 0 | 0 |
+| 0 | 0 | 3 | 1/64 | 1/4 | 1/256 |
+| 1 | 2 | 0 | 12/64 | 1/2 | 24/256 |
+| 1 | 1 | 1 | 12/64 | 0 | 0 |
+| 1 | 0 | 2 | 3/64 | 0 | 0 |
+| 2 | 1 | 0 | 6/64 | 1 | 24/256 |
+| 2 | 0 | 1 | 3/64 | 1/4 | 3/256 |
+| 3 | 0 | 0 | 1/64 | 1 | 4/256 |
+
+The probabilities sum to one. Summing the final column gives 100/256=25/64. Thus the null rejection probability is 25/64 at nominal alpha=1/4, with excess 9/64 and ratio 25/16. This agrees with the exposed proposed prediction, by an explicit independent case derivation.
+
+## Symmetric controls
+
+For any fixed summary vector, sum_i q_i=1: exactly its t maximum-score entries contribute 1/t. For an exchangeable summary vector, the four expectations E[q_i] coincide, hence each is 1/4.
+
+For common budget 2, the summaries are iid raw bin means and thus exchangeable. For common budget 1 using the shared independent U, conditional on U the summaries X_0U,...,X_3U are iid fair signs; the conditional distribution is the same for either U. Therefore they are also unconditionally iid, and both controls have exact size 1/4. Shared randomness is not intrinsically invalid. These controls need no finite-state numerical enumeration to establish their sizes.
+
+## A sufficient permutation-validity condition
+
+Let G be the finite group of allowed bin permutations. Let B denote all raw bins and assume its null law is G-invariant. Let K(B,A) be the full joint conditional law of compressed outputs in measurable set A, including adaptive allocations, stochastic seeds, bandwidths, and other fitted objects used by the test. A sufficient condition is the Markov-kernel equivariance identity
+
+K(gB,gA)=K(B,A) for every g in G, B, and measurable A.
+
+Then for Z sampled from K(B,.),
+
+P(Z in gA)=E[K(B,gA)]=E[K(g^-1 B,A)]=E[K(B,A)]=P(Z in A).
+
+Thus the compressed object is G-invariant. With the full orbit evaluated consistently and independent uniform tie-breaking, the randomized upper rank is uniform; rejecting an alpha proportion of ranks, with independent boundary randomization where necessary, yields exact size alpha. Without boundary randomization the usual conservative rank rule yields size at most alpha. In this four-assignment problem alpha=1/4 selects exactly the top rank.
+
+An easy implementation-level sufficient condition is to apply the same per-bin compression kernel to equal-sized bins, with iid per-bin seeds or an exchangeable joint random seed mechanism. Shared randomness is allowed if the entire joint map is permutation-equivariant. Data-dependent budgets are allowed when the complete allocation-and-summary map transforms with the bins and any pooled hyperparameter fitting is invariant. Merely calling a rule label-blind, using a common mean, or giving summaries matching expectations is insufficient; bin order or nonsymmetric seed coupling can still matter. Equivariance is sufficient, not necessary: a particular non-equivariant procedure might happen to have correct size for a particular distribution/statistic.
+
+The asymmetric rule violates the condition because the distinguished original label permanently receives a different summary law. Permuting those frozen summaries does not reproduce the null law of assigning the special compression operation to another bin. A separate potential remedy is to include compression in the full raw-data permutation pipeline, with correctly handled augmented randomness; that is a different test and its own validity and cost must be assessed.
+
+## Relation to CTT and limits
+
+The inspected CTT Algorithm 1 uses equal-sized bins, a common compression level and common compression inputs for both groups, and permutes intact coresets. Proposition 1 states exact null size. Appendix C derives it from exchangeability and randomized rank/boundary handling. The source's common-policy construction is consistent with the sufficient condition above. The label-dependent replacement studied here changes that policy; it does not refute Proposition 1. Source: https://arxiv.org/html/2301.05974v3 (Algorithm 1; Proposition 1; Appendix C).
+
+This is a scalar-summary diagnostic, not native KT-Compress. The squared mean difference can be viewed as a linear-feature MMD statistic on equally weighted summaries; it is not automatically the statistic obtained by concatenating unequal-size coresets. The example proves only that per-bin conditional mean unbiasedness is insufficient for permutation exactness. It does not prove all unequal budgets are invalid, identify a bug in author code, assess characteristic kernels, establish power or computational improvements, or license empirical grids. It examines a fixed label-dependent budget rule, not an adaptive strategy whose rule was learned from the data. The 512-state execution proposed in the plan remains a separate authorized parent task; this review did not run it.

@@ -1,0 +1,28 @@
+# Full-dimension dense FAinv kernel cost analysis v1
+
+## Observed kernel costs
+
+The guarded task completed in 1.508 seconds and retained its full raw result. At the official `d=3,231,961`:
+
+- Rank 4: 387,838,712 exact live NumPy bytes; Gram/inverse 0.0253 s; one dense-output prediction 0.0175 s.
+- Rank 8: 698,107,800 bytes; Gram/inverse 0.0606 s; prediction 0.0266 s.
+- Rank 16: 1,318,647,512 bytes; Gram/inverse 0.1334 s; prediction 0.0292 s; observed RSS after prediction 1,366,274,048 bytes.
+
+The rank-16 no-buffer Gram has an algebraic cost of about 1.655 billion floating-point operations. The released full-buffer width is 32, for about 6.619 billion floating-point operations per cache rebuild and 827,382,016 bytes each for `Gam` and `iPG`.
+
+## Frozen gates
+
+Two independent gates reject the direct dense released-code route:
+
+1. Using the diagonal-CW two-day update count only as a declared diagnostic proxy, the measured rank-16 no-buffer kernels project to 1,854.1 seconds for 36,000 predictions and 6,017 cache rebuilds. This already exceeds the 1,800-command-second boundary before any buffer-width growth, factor compression, parsing, or parameter update work. The proxy is not a claim that FAinv accepts exactly the same updates.
+2. The source-derived full-buffer EM liveness estimate is 4,705,735,216 bytes versus the 4,294,967,296-byte process limit. It counts caller-held mean/diagonal/factor/buffer/cache/prediction arrays plus the simultaneously live EM vectors, factor temporaries, new factor, and the dense `Lam .* S` intermediate. Runtime and BLAS overhead are not included, so this is not a generous estimate.
+
+## Interpretation
+
+The failure is specific to a direct dense transcription of the released MATLAB representation under the present process boundary. It does not refute the AISTATS method, which may have used unprovided optimizations or a different implementation, and it does not establish that every sparse/lazy formulation is infeasible.
+
+The measured fast single cache rebuild also prevents an exaggerated claim: the bottleneck is not one isolated rank-16 matrix multiplication. It is the repeated rebuild, dense-output mean update, buffer doubling, and EM liveness across an online stream.
+
+## Direction change
+
+Retire `url-cw-fact-native-reproduction-v1` as a direct dense author-code reproduction. Replace it with a bounded mathematical feasibility audit, `url-cw-fact-sparse-lazy-feasibility-v1`, asking whether predictions and mean updates can be represented without materializing dense `sigma_x` or retaining historical factor bases. The audit must state the exact invariant and approximation introduced; if no exact bounded-state representation survives factor changes, record that negative and leave the discriminative URL application closed rather than running a broad tuning sweep. Any implementation would be a new source-guided method candidate, not an author reproduction, and requires a prior-art audit before originality claims.

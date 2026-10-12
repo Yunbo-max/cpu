@@ -1,0 +1,55 @@
+{
+  "status": "awaiting_decision",
+  "sequence": 8,
+  "research_cycle_count": 2,
+  "idea_status": "active",
+  "current_question": "Inspect replacement idea model-application-discriminative-scope-v1",
+  "next_action": "Inspect the replacement idea; preserve the previous negative evidence and cumulative budgets",
+  "budget": {
+    "attempts_used": 7,
+    "deadline_epoch": 1791778976.9954863,
+    "elapsed_seconds": 85.85543035103183,
+    "max_attempts": 32,
+    "max_command_seconds": 1800,
+    "remaining_deadline_seconds": 6143.106674194336,
+    "remaining_seconds": 1714.1445696489682,
+    "reserved_seconds": 0
+  },
+  "tasks": [
+    {
+      "task_id": "block-krylov-calibration-v1",
+      "state": "failed",
+      "reason": "Command exited with status 1; Cannot safely read results/block_krylov_calibration_v1.json: [Errno 2] No such file or directory: 'results'"
+    },
+    {
+      "task_id": "block-krylov-calibration-v2",
+      "state": "succeeded",
+      "reason": "Command execution reported succeeded"
+    },
+    {
+      "task_id": "block-krylov-online-endpoint-v1",
+      "state": "failed",
+      "reason": "Command exited with status 1; Cannot safely read results/block_krylov_online_endpoint_v1.json: [Errno 2] No such file or directory: 'block_krylov_online_endpoint_v1.json'"
+    },
+    {
+      "task_id": "block-krylov-online-endpoint-v2",
+      "state": "succeeded",
+      "reason": "Command execution reported succeeded"
+    },
+    {
+      "task_id": "block-krylov-result-audit-v1",
+      "state": "succeeded",
+      "reason": "Command execution reported succeeded"
+    },
+    {
+      "task_id": "lra-sources-v1",
+      "state": "succeeded",
+      "reason": "Command execution reported succeeded"
+    },
+    {
+      "task_id": "prior-b15-source-recovery-v1",
+      "state": "succeeded",
+      "reason": "Command execution reported succeeded"
+    }
+  ]
+}

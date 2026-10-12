@@ -1,0 +1,17 @@
+import urllib.request, hashlib, json, time
+from pathlib import Path
+
+root = Path(__file__).resolve().parents[1]
+commit = '48f0233eb65269b8552eb163f275627e5447921d'
+items = [(f'https://raw.githubusercontent.com/amircarmel-lab/StableCoresets/{commit}/{name}', 'sources/'+name) for name in ['l1_coresets.py','experiment1_comparison.ipynb','dimension_experiment.ipynb','README.md']]
+items.append(('https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-01.parquet','data/yellow_tripdata_2024-01.parquet'))
+manifest=[]
+for url, name in items:
+    path=root/name
+    started=time.time()
+    with urllib.request.urlopen(url, timeout=45) as response, path.open('wb') as out:
+        while block:=response.read(1024*1024):out.write(block)
+    entry={'url':url,'path':name,'bytes':path.stat().st_size,'sha256':hashlib.file_digest(path.open('rb'),'sha256').hexdigest(),'elapsed_seconds':time.time()-started}
+    manifest.append(entry)
+    (root/'sources/download_manifest.json').write_text(json.dumps(manifest,indent=2))
+    print(json.dumps(entry),flush=True)

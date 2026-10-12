@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "design_id": "moment-prefix-query-diagnostic-v1",
+  "goal_contract_version": 2,
+  "idea": "streaming-moment-native-audit-v1",
+  "revision": 1,
+  "scope": {
+    "level": "diagnostic",
+    "claim_scope": "Nearest-start query mismatch exists on the pinned native downscaled data; exact integer F3 baseline is correctly maintained.",
+    "residual_required_coverage": "Full paper Algorithm1, suffix-compatible advice, independent data and resource-matched approximate comparisons remain untested."
+  },
+  "exposure": {
+    "mode": "retrospective",
+    "prior_observations": "Structured transcription after B006/B007 results; original prospective Markdown plans preserved and hashed in task contracts.",
+    "heldout_policy": "One development stream, correlated original half seeds; no confirmation."
+  },
+  "paper_designs": [
+    {
+      "id": "native",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/1c64a54abd41035503c04119e06c28f9-Paper-Conference.pdf",
+      "locator": "Section5, AppendixA.1 Algorithm1, AppendixC; pinned notebook CS/SS-SSA",
+      "borrowed_design": "Native skewed shift, prefixCS and joint SS/SSA",
+      "adaptation_reason": "Downscale to1000arrivals and split500/500; independently verify requested vs represented suffixes."
+    }
+  ],
+  "claims": [
+    {
+      "id": "query-mismatch",
+      "kind": "empirical",
+      "statement": "Nearest-start window selection can dominate within-suffix estimation error on the pinned native development case.",
+      "required_comparison_ids": [
+        "query"
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "query",
+      "claim_ids": [
+        "query-mismatch"
+      ],
+      "paper_design_ids": [
+        "native"
+      ],
+      "purpose": "Separate window selection from estimator error.",
+      "prediction": "Exact Counter matches incremental F3; mismatched starts can change truth materially.",
+      "outcome_rules": {
+        "supports": "Nonzero exact requested vs represented norm gap",
+        "weakens": "No gap on planned windows",
+        "inconclusive": "Source/metric failures"
+      },
+      "arms": [
+        {
+          "id": "prefix_cs",
+          "role": "method",
+          "implementation": "Unchanged native code with prefixCS advice",
+          "fairness": "Same evaluation half; SS coupled to SSA pruning; no matched-resource superiority claim."
+        },
+        {
+          "id": "native_hardcoded",
+          "role": "control",
+          "implementation": "Unchanged native code with[1,2,3]",
+          "fairness": "Same evaluation half; SS coupled to SSA pruning; no matched-resource superiority claim."
+        },
+        {
+          "id": "exact",
+          "role": "baseline",
+          "implementation": "Counter+deque fixedW integerF3",
+          "fairness": "Same evaluation half; SS coupled to SSA pruning; no matched-resource superiority claim."
+        }
+      ],
+      "data": {
+        "source": "native generator reused B005 npy",
+        "version": "commit d2e49bb63f107ccd1f6af540cd97970d680937c9",
+        "split": "prefix500/test500",
+        "leakage_control": "No future training; original repeatedseed correlation remains"
+      },
+      "metric": {
+        "definition": "Signed(relative estimate error)=selection component+withinrepresented component; exact F3 equality",
+        "aggregation": "All10planned finalW;5000 baseline arrivalchecks",
+        "direction": "Zero error preferred"
+      },
+      "statistics": {
+        "unit": "One development stream",
+        "pairing": "Same suffix data",
+        "precision": "Deterministic arithmetic verification",
+        "randomness": "Originalseed42bothhalves",
+        "multiplicity": "No hypothesis-test inference",
+        "stopping": "Fixed planned matrices,no selection"
+      },
+      "execution": {
+        "task_ids": [
+          "moment-prefix-window-v1",
+          "moment-query-bracket-v1"
+        ],
+        "outputs": [
+          "results/moment_prefix_window_v1.json",
+          "results/moment_query_bracket_v1.json"
+        ],
+        "analysis": "notes/moment_prefix_window_analysis_v1.md;notes/moment_query_contract_analysis_v1.md"
+      },
+      "resources": {
+        "authorization": {
+          "status": "recorded",
+          "basis": "User continuing CPU-only authorization in project authorization.json",
+          "allocation": "One numerical CPU thread,4GiBAS,project8000000000bytes",
+          "duration": "Continuous with unchanged finite execution-window boundaries",
+          "evidence": []
+        },
+        "hardware_kind": "cpu",
+        "hardware": "Local shared x86_64 CPU,affinity one CPU via guard",
+        "hardware_status": "observed",
+        "inventory_refs": [
+          {
+            "path": "notes/resources_20261012T003429.json",
+            "sha256": "70e197136e14b6d1e3d6db4d7c3dada6d0c03394ef6af7936a3e332d43ee04c1"
+          }
+        ],
+        "estimates": {
+          "wall_seconds": 120,
+          "peak_memory_gib": 0.15
+        },
+        "calibration": {
+          "status": "observed",
+          "evidence": [
+            {
+              "path": "results/moment_native_pilot_v1.json",
+              "sha256": "0437c8c55df1f9c57e2321d61c65c52c60c5c6c59fdcf60149ed62dbec5312d7"
+            }
+          ],
+          "reason": "Prior same native path55MiB,3.4s"
+        },
+        "scope_adjustment": "Small native development case only."
+      }
+    }
+  ]
+}

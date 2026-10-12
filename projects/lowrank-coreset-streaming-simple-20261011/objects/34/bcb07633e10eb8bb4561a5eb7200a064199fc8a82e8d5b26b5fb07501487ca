@@ -1,0 +1,35 @@
+{
+  "response_id": "nested-prefix-vale-centered-interpret-v1",
+  "request_id": "decision-fe522679f6fc4e7b93d76c9d65af1417",
+  "idea": "streaming-vale-nested-prefix-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The centered non-isotropic paper-VALE arm failed its prospective 10% non-inferiority gate with a paired MSE interval entirely above zero. The state reduction is real but the strong fresh-VALE baseline is both more accurate and already cheap, so the candidate must be retired rather than selected on the earlier favorable OLS fixture.",
+  "events": [
+    {
+      "event_id": "nested-prefix-vale-centered-cycle-v1",
+      "kind": "research_cycle",
+      "hypothesis": "A single nested prefix preserves deterministic paper-VALE node marginals and can reduce active state by 15 times without more than 10% RMSE degradation relative to independently reshuffled levels in centered non-isotropic FID.",
+      "prediction": "Nested order-2 paper-VALE RMSE is at most 1.10 times fresh paper-VALE RMSE; failure retires the bounded nested-VALE route.",
+      "result": "Across 96 paired d=48,N=3072 centered non-isotropic pools, nested/fresh paper-VALE RMSE ratio was 1.27745. Paired MSE difference was +0.00101185 with bootstrap 95% interval [0.0001999,0.0018349]. Nested OLS ratio was 1.09062 with an interval spanning zero. Active count/sum/Gram state fell from 282,360 to 18,824 bytes. All 2,880 eigendecompositions passed; wall/process CPU were 1.519/1.519 seconds and peak RSS was 37,806,080 bytes.",
+      "interpretation": "The maximally overlapping nested geometry creates an unfavorable covariance quadratic for the paper-VALE weights in this stronger fixture. The earlier isotropic OLS positive does not transfer. The 15-fold engineering state reduction is not an attractive accuracy-state tradeoff here because fresh paper-VALE is substantially more accurate and the baseline state is already small.",
+      "next_action": "Retire streaming-vale-nested-prefix-v1, preserve both the favorable OLS development result and this VALE counterexample, and select a successor only where the CPU/8GB constraint is a genuine bottleneck and a strong simple baseline is not already cheap and superior.",
+      "reason": "The frozen plan, paper-defined deterministic weights, raw result, paired uncertainty, and resource receipt directly resolve the candidate's pre-registered falsifier.",
+      "evidence": [
+        {"path": "notes/nested_prefix_vale_source_addendum_v1.md", "sha256": "af5fe9001387795a1c07832de957ac88caf3ebd9d4cc899b8380e4b9a3bcb9b6"},
+        {"path": "plans/nested_prefix_vale_centered_v1.md", "sha256": "4c9992841b90430762a4c99a1b8f81d0f76af9676aff79f314b026edd3fd6d1e"},
+        {"path": "results/nested_prefix_vale_centered_v1.json", "sha256": "a797b2ed8c987aa39ca5644c3901f0a425492eb7324bcf1d050ba2a89f759abb"},
+        {"path": "notes/nested_prefix_vale_centered_v1_analysis.md", "sha256": "74afdc535fdb8ff746bc5e9a2702f030e47c21e00dce66e57dd2ac1b32ae0f22"}
+      ]
+    },
+    {
+      "event_id": "streaming-vale-nested-prefix-retire-v1",
+      "kind": "retire_idea",
+      "reason": "The primary centered paper-VALE gate failed by 27.7% RMSE with a paired MSE interval above zero, while the fresh-VALE state was already inexpensive; larger or native runs are not justified for this candidate.",
+      "evidence": [
+        {"path": "results/nested_prefix_vale_centered_v1.json", "sha256": "a797b2ed8c987aa39ca5644c3901f0a425492eb7324bcf1d050ba2a89f759abb"},
+        {"path": "notes/nested_prefix_vale_centered_v1_analysis.md", "sha256": "74afdc535fdb8ff746bc5e9a2702f030e47c21e00dce66e57dd2ac1b32ae0f22"}
+      ]
+    }
+  ]
+}

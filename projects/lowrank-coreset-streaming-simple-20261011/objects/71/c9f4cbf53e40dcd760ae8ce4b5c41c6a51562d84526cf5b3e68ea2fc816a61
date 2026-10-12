@@ -1,0 +1,54 @@
+{
+  "request_id": "decision-29685cd1ecb8415cba04cb0cef2b2219",
+  "idea": "lra-block-krylov-baseline-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "block-krylov-calibration-repair-v2",
+  "reason": "The failed task reached no numerical work: Matrix Market returned COO and direct slicing raised TypeError. Preserve v1 and retry only the mechanical COO-to-CSR repair under a new task identifier.",
+  "events": [
+    {
+      "event_id": "block-krylov-calibration-v1-failure",
+      "kind": "milestone",
+      "label": "Calibration v1 failed before matrix computation",
+      "reason": "The traceback proves a COO slicing TypeError before the 512-row dense array or any randomized method was formed; this is an implementation failure, not scientific evidence.",
+      "next_phase": "experiment",
+      "evidence": [
+        {
+          "path": "notes/block_krylov_calibration_failure_v1.md",
+          "sha256": "3548e1e1b39b1b7db589f0f86b8cdd62073c5ada602897e5d127f7915cb6f96a"
+        },
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-4d43141ec2694210918ec3f3ee2a556a/stderr.txt",
+          "sha256": "1e109ae7e76f9940595d780f8e5944bd2ac6f3bc5ad3d0a5c0440988200e0dd8"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "block-krylov-calibration-v2",
+      "supersedes": "block-krylov-calibration-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/block_krylov_calibration_v2.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Run the unchanged preregistered Block Krylov calibration after the mechanical COO-to-CSR repair",
+      "timeout_seconds": 300,
+      "cwd": ".",
+      "depends_on": ["lra-sources-v1"],
+      "input_refs": [
+        {"path": "plans/block_krylov_calibration_v1.md", "sha256": "eae61e5c7e3dc541b55b6b302f76d1d10ee8af278069412a40a52e7c3051ff0b"},
+        {"path": "scripts/block_krylov_calibration_v2.py", "sha256": "32bbeef794f1cbd1029e2cd4b6f7b9797bdbc3c6578b5f944c12cd1941342da2"},
+        {"path": "notes/block_krylov_calibration_failure_v1.md", "sha256": "3548e1e1b39b1b7db589f0f86b8cdd62073c5ada602897e5d127f7915cb6f96a"},
+        {"path": "scripts/cpu_guard.py", "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"},
+        {"path": "sources/lra_source_manifest_v1.json", "sha256": "e5f6edc3b134d9d52e279c9ae5cadb536765037c0e4f3823a10948fd79ac3271"},
+        {"path": "sources/consistent-LRA/landmark.mtx", "sha256": "29fb87018e59049a52314c847c5ac2a4eaa3b875f7cd8467621fe074fbbc298b"},
+        {"path": "sources/blockKrylov_arxiv_1504.05477v2.pdf", "sha256": "4b80a34b255c084c426e2cc196ffd09e4e9309bc23798f8010ff5930c2a318bd"}
+      ],
+      "outputs": ["results/block_krylov_calibration_v2.json"]
+    }
+  ]
+}

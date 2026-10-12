@@ -1,0 +1,33 @@
+{
+  "study": "B15-fixed-output-audit",
+  "exact_vs_reference_query_mismatches": 0,
+  "exact_vs_reference_update_mismatches": 0,
+  "warm_vs_reference_query_mismatches": 0,
+  "warm_vs_reference_update_mismatches": 0,
+  "exact_endpoint_tolerance_violations": 0,
+  "warm_endpoint_tolerance_violations_after_fallback": 0,
+  "warm_runtime_fallbacks_after_5k": 71,
+  "warm_solver_warning_count": 213,
+  "exact_algorithm_cpu_seconds": 6.927752805,
+  "warm_algorithm_cpu_seconds": 6.891581866,
+  "exact_over_warm_cpu_ratio": 1.0052485684278745,
+  "unperturbed_first_late_residual": 1.22456802291283,
+  "perturbed_excess_over_tolerance": 412.220575839355,
+  "pass": false,
+  "failed_predicates": [
+    "71/71 late refreshes triggered residual fallback, so the warm LOBPCG endpoint was never accepted",
+    "the deterministic perturbation repair violated endpoint objective tolerance by more than 400x at the first late refresh",
+    "the frozen hypothesis requires zero late fallback and both eta values; the eta=0.1 falsifier is sufficient for early stop"
+  ],
+  "route_decision": "RETIRE_WARM_LOBPCG_UNDER_FROZEN_STRICT_TOLERANCE",
+  "next_action": "Freeze a randomized block-Krylov endpoint comparator with a declared iteration budget and the same endpoint objective/trajectory audit; do not run native5000 yet.",
+  "input_hashes": {
+    "B15_ROUND_CONTRACT.json": "806dd9bd7487d70e5c336a7fefb8418eb4f3205dddb10a5e603f1ee0de65a0e3",
+    "run_b15_policy.py": "0c8868cec74133896500dc0f49ffd03120f22d883836e8570105566fad30cbf5",
+    "B15_exact_svd_eta0p1_r0.json": "d3543cfdec2b7df84f040eb42bfc6e66d7269576681b4f37d74408a7e8635758",
+    "B15_exact_svd_eta0p1_r0.npz": "d6363727be36927e33d2f534a5ed673aac1c6845dc8371a667786288775b9bf1",
+    "B15_warm_lobpcg_eta0p1_r0.json": "755e4387d615134a50ca3dd2740149956e7e3c1b415652ac3e9fc8fe48b4a95f",
+    "B15_warm_lobpcg_eta0p1_r0.npz": "7ccf0a0a7b1d5df5f1c2496cb5c76cd3dd3469ad8b6015f21df15aaa894efb91",
+    "B15_RANK_DEFICIENCY_DIAGNOSTIC.json": "ada1e833257a4f16692b4faedac21c61f1f2ec7447e3418eed03de2fb2ea3850"
+  }
+}

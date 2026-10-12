@@ -1,0 +1,44 @@
+{
+  "response_id": "nested-prefix-ols-submit-v1",
+  "request_id": "decision-8a464528c89b4d43afbccd477ac55d77",
+  "idea": "streaming-vale-nested-prefix-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The closest primary FID-infinity code and the pinned exact-match diagnostic use fresh per-node shuffles. The shared-prefix variant preserves deterministic-weight OLS node marginals but changes the covariance quadratic, so a paired OLS diagnostic is the smallest decision-changing experiment before restoring native VALE weights.",
+  "events": [
+    {
+      "event_id": "nested-prefix-protocol-math-audit-v1",
+      "kind": "milestone",
+      "label": "Closest protocol and covariance mechanism audited",
+      "reason": "Original FID-infinity and the pinned 2026 plugin-curve diagnostic use fresh node permutations; a shared prefix has the same marginal expectation for deterministic weights but covariance sigma^2/max(n_j,n_l), so its RMSE direction requires a test.",
+      "evidence": [
+        {"path": "notes/nested_prefix_protocol_math_audit_v1.md", "sha256": "73e71f78d23f239e991806483024a13037a5799432353d2c840642ac311facd5"},
+        {"path": "plans/nested_prefix_ols_diagnostic_v1.md", "sha256": "e1659fe9f5d96ae6b670181dd95faed7b9b9361e0537751184591b655c085e5e"}
+      ],
+      "next_phase": "diagnostic"
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "nested-prefix-ols-diagnostic-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/run_nested_prefix_ols_diagnostic_v1.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Compare scalar covariance predictions and paired plug-in-FID OLS bias/RMSE for fresh node permutations versus one shared nested prefix",
+      "timeout_seconds": 300,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "notes/nested_prefix_protocol_math_audit_v1.md", "sha256": "73e71f78d23f239e991806483024a13037a5799432353d2c840642ac311facd5"},
+        {"path": "plans/nested_prefix_ols_diagnostic_v1.md", "sha256": "e1659fe9f5d96ae6b670181dd95faed7b9b9361e0537751184591b655c085e5e"},
+        {"path": "scripts/run_nested_prefix_ols_diagnostic_v1.py", "sha256": "3e9292e1c2004d25f5fde90c1317c32958342452cbdc84c58ecd0fddfc091e91"},
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"}
+      ],
+      "outputs": ["results/nested_prefix_ols_diagnostic_v1.json"]
+    }
+  ]
+}

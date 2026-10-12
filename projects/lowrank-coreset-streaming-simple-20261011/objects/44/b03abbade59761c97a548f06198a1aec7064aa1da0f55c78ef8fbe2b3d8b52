@@ -1,0 +1,184 @@
+#!/usr/bin/env python3
+import json
+import os
+import resource
+import time
+from pathlib import Path
+
+import numpy as np
+
+from run_url_fainv_block_em_calibration_v1 import (
+    BLOCK_ROWS,
+    BUFFER_NNZ,
+    BUFFER_WIDTH,
+    DIM,
+    PROCESS_LIMIT,
+    RANK,
+    buffer_add,
+    buffer_diag_add,
+)
+
+
+def rss_bytes():
+    return int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024)
+
+
+def em_iteration(d0, l0, buffer_indices, buffer_values, dcur, lcur):
+    phase = {}
+    started = time.perf_counter()
+    gram = np.zeros((RANK, RANK), dtype=np.float64)
+    for lo in range(0, DIM, BLOCK_ROWS):
+        hi = min(DIM, lo + BLOCK_ROWS)
+        gram += lcur[lo:hi].T @ ((1.0 / dcur[lo:hi])[:, None] * lcur[lo:hi])
+    phi = np.linalg.inv(np.eye(RANK) + gram)
+    phase["gram_phi_seconds"] = time.perf_counter() - started
+
+    started = time.perf_counter()
+    cross_l = np.zeros((RANK, RANK), dtype=np.float64)
+    for lo in range(0, DIM, BLOCK_ROWS):
+        hi = min(DIM, lo + BLOCK_ROWS)
+        ups = ((1.0 / dcur[lo:hi])[:, None] * lcur[lo:hi]) @ phi
+        cross_l += l0[lo:hi].T @ ups
+    cross_b = np.zeros((BUFFER_WIDTH, RANK), dtype=np.float64)
+    for j in range(BUFFER_WIDTH):
+        idx = buffer_indices[j]
+        ups = ((1.0 / dcur[idx])[:, None] * lcur[idx]) @ phi
+        cross_b[j] = np.sum(buffer_values[j, :, None] * ups, axis=0)
+    phase["target_cross_seconds"] = time.perf_counter() - started
+
+    started = time.perf_counter()
+    uts = np.zeros((RANK, RANK), dtype=np.float64)
+    for lo in range(0, DIM, BLOCK_ROWS):
+        hi = min(DIM, lo + BLOCK_ROWS)
+        ups = ((1.0 / dcur[lo:hi])[:, None] * lcur[lo:hi]) @ phi
+        s = d0[lo:hi, None] * ups + l0[lo:hi] @ cross_l
+        buffer_add(s, lo, buffer_indices, buffer_values, cross_b)
+        uts += ups.T @ s
+    hmat = phi + uts
+    phase["uts_h_seconds"] = time.perf_counter() - started
+
+    started = time.perf_counter()
+    factor_abs_change = 0.0
+    diag_abs_change = 0.0
+    diag_min = float("inf")
+    diag_max = float("-inf")
+    for lo in range(0, DIM, BLOCK_ROWS):
+        hi = min(DIM, lo + BLOCK_ROWS)
+        old_l = lcur[lo:hi]
+        old_d = dcur[lo:hi]
+        ups = ((1.0 / old_d)[:, None] * old_l) @ phi
+        s = d0[lo:hi, None] * ups + l0[lo:hi] @ cross_l
+        buffer_add(s, lo, buffer_indices, buffer_values, cross_b)
+        lnext = np.linalg.solve(hmat.T, s.T).T
+        dnext = d0[lo:hi] + np.sum(l0[lo:hi] * l0[lo:hi], axis=1)
+        buffer_diag_add(dnext, lo, buffer_indices, buffer_values)
+        dnext -= np.sum(lnext * s, axis=1)
+        factor_abs_change += float(np.sum(np.abs(lnext - old_l)))
+        diag_abs_change += float(np.sum(np.abs(dnext - old_d)))
+        diag_min = min(diag_min, float(np.min(dnext)))
+        diag_max = max(diag_max, float(np.max(dnext)))
+        lcur[lo:hi] = lnext
+        dcur[lo:hi] = dnext
+    phase["output_update_seconds"] = time.perf_counter() - started
+    elapsed = sum(phase.values())
+    change = (factor_abs_change + diag_abs_change) / (DIM * (RANK + 1))
+    return {
+        "phase_seconds": phase,
+        "iteration_seconds": elapsed,
+        "normalized_parameter_change": change,
+        "output_diagonal_min": diag_min,
+        "output_diagonal_max": diag_max,
+        "finite_positive_output_diagonal": bool(np.isfinite(diag_min) and np.isfinite(diag_max) and diag_min > 0.0),
+    }
+
+
+def main():
+    total_started = time.perf_counter()
+    init_started = time.perf_counter()
+    d0 = np.empty(DIM, dtype=np.float64)
+    dcur = np.empty(DIM, dtype=np.float64)
+    l0 = np.empty((DIM, RANK), dtype=np.float64)
+    lcur = np.empty((DIM, RANK), dtype=np.float64)
+    col_int = np.arange(RANK, dtype=np.int64)[None, :]
+    for lo in range(0, DIM, BLOCK_ROWS):
+        hi = min(DIM, lo + BLOCK_ROWS)
+        rows = np.arange(lo, hi, dtype=np.int64)
+        base = ((((rows[:, None] * (col_int + 3)) + 17 * col_int) % 101) - 50).astype(np.float64) / 5000.0
+        l0[lo:hi] = base
+        lcur[lo:hi] = base
+        diag = 1.2 + (rows % 97) / 970.0
+        d0[lo:hi] = diag
+        dcur[lo:hi] = diag
+
+    buffer_indices = np.empty((BUFFER_WIDTH, BUFFER_NNZ), dtype=np.int64)
+    buffer_values = np.empty((BUFFER_WIDTH, BUFFER_NNZ), dtype=np.float64)
+    k = np.arange(BUFFER_NNZ, dtype=np.int64)
+    for j in range(BUFFER_WIDTH):
+        buffer_indices[j] = (j * 7_919 + k * 104_729 + 31) % DIM
+        buffer_values[j] = (((k * (j + 5) + 13) % 29) - 14) / 50.0
+    initialization_seconds = time.perf_counter() - init_started
+
+    iterations = []
+    for iteration in range(1, 6):
+        record = em_iteration(d0, l0, buffer_indices, buffer_values, dcur, lcur)
+        record["iteration"] = iteration
+        iterations.append(record)
+        if record["normalized_parameter_change"] <= 1e-6:
+            break
+
+    cumulative_iteration_seconds = sum(item["iteration_seconds"] for item in iterations)
+    compressions_proxy = (6_017 - RANK) // BUFFER_WIDTH
+    owned_arrays = {
+        "target_diagonal": d0.nbytes,
+        "current_diagonal": dcur.nbytes,
+        "target_factor": l0.nbytes,
+        "current_factor": lcur.nbytes,
+        "buffer_indices": buffer_indices.nbytes,
+        "buffer_values": buffer_values.nbytes,
+    }
+    peak = rss_bytes()
+    result = {
+        "schema_version": 1,
+        "experiment": "url_fainv_block_em_source_matched_v2",
+        "scope": "At most five source-matched full-dimension block-EM iterations on a deterministic cost fixture; no CW training or URL quality evaluation.",
+        "dimension": DIM,
+        "rank": RANK,
+        "buffer_width": BUFFER_WIDTH,
+        "buffer_nnz_per_column": BUFFER_NNZ,
+        "block_rows": BLOCK_ROWS,
+        "source_matched_initialization": "Dcur=D0 and Lcur=L0 before the first iteration",
+        "stop_threshold": 1e-6,
+        "max_iterations": 5,
+        "iterations_completed": len(iterations),
+        "converged": iterations[-1]["normalized_parameter_change"] <= 1e-6,
+        "iterations": iterations,
+        "initialization_seconds": initialization_seconds,
+        "cumulative_iteration_seconds": cumulative_iteration_seconds,
+        "owned_array_bytes": int(sum(owned_arrays.values())),
+        "owned_arrays": owned_arrays,
+        "process_peak_rss_bytes": peak,
+        "process_limit_bytes": PROCESS_LIMIT,
+        "thread_env": {name: os.environ.get(name) for name in ["OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"]},
+        "projection": {
+            "accepted_updates_proxy_from_diag_cw": 6_017,
+            "compressions_proxy_after_initial_factor_fill": compressions_proxy,
+            "observed_iterations_per_compression_seconds": cumulative_iteration_seconds * compressions_proxy,
+            "qualification": "Diagnostic lower bound for five-or-fewer observed iterations only; true FAinv update/compression counts and real buffer values are unknown.",
+        },
+        "gates": {
+            "all_completed_diagonals_finite_positive": all(item["finite_positive_output_diagonal"] for item in iterations),
+            "peak_rss_below_2_gib": peak < 2 * 1024**3,
+            "source_matched_converged_within_5": iterations[-1]["normalized_parameter_change"] <= 1e-6,
+            "observed_iteration_proxy_at_most_1800_seconds": cumulative_iteration_seconds * compressions_proxy <= 1_800.0,
+        },
+        "total_wall_seconds": time.perf_counter() - total_started,
+    }
+    out = Path("results/url_fainv_block_em_source_matched_v2.json")
+    out.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(result, sort_keys=True))
+    if not result["gates"]["all_completed_diagonals_finite_positive"]:
+        raise SystemExit(2)
+
+
+if __name__ == "__main__":
+    main()

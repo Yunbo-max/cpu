@@ -1,0 +1,26 @@
+# URL FAinv authentic first-compression calibration v1
+
+## Question
+
+On the official chronological Day0 stream, does a source-guided FAinv implementation reach its first rank-16/buffer-16 compression within a bounded prefix, and do the authentic sparse update directions preserve the source-matched one-iteration and resource conclusions from the deterministic cost fixture?
+
+## Frozen implementation and scope
+
+- Parse official `Day0.svm` in order, predict before update, use the released non-averaged standard-deviation CW equations with `eta=0.95`, precision initialization `D=1`, rank `FAm=16`, and buffer width 16.
+- Preserve the exact sparse/lazy mean invariant already verified: `mu=m+D^{-1}Gq`; extend `q` by zero after each nested factor/buffer append; materialize the lazy component immediately before the first non-nested compression.
+- Maintain Woodbury Gram blocks from the actual sparse update directions. Do not form a dense covariance action for every accepted update.
+- At the first authentic buffer fill, run the released FA-EM equations row-blockwise from the source-matched initial state `Dcur=D0`, `Lcur=L0`, stopping at `1e-6` or 50 iterations.
+- Stop immediately after that first compression. This is a trigger/runtime diagnostic, not a Day0 or published 20-day quality result.
+- Run single-threaded through `cpu_guard.py` with the 4 GiB address-space limit.
+
+## Predictions and gates
+
+- Based only on the earlier diagonal-CW acceptance rate, predict that 32 accepted FAinv updates occur within the first 2,000 Day0 examples; failure is retained, not retried with a larger hidden cap.
+- Every predictive variance and CW scalar must be finite, and variance must remain positive.
+- The lazy mean flush must be finite.
+- Predict that the authentic first compression converges in one EM iteration at the released `1e-6` threshold, as in the repaired deterministic source-matched fixture.
+- Peak RSS must remain below 2 GiB and total diagnostic wall time below 120 seconds.
+
+## Interpretation boundary
+
+One successful compression establishes feasibility and an authentic first trigger only. It does not validate the 375-compression proxy, full Day0/Day1 runtime, quality versus diagonal CW, the paper's sampled 20-day protocol, or originality. A later decision must use observed inter-compression counts or a bounded longer run before extrapolating total cost.

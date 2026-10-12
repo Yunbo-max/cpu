@@ -1,0 +1,39 @@
+# Nested-prefix FID extrapolation protocol and covariance audit v1
+
+## Closest-protocol evidence
+
+The original public FID-infinity implementation (`mchong6/FID_IS_infinity`, inspected 2026-10-12) chooses 15 sample sizes and calls `np.random.shuffle(activations)` again before taking the prefix for every node.  The path-based implementation does the same to `fake_act`.  Successive independent uniform shuffles therefore give fresh uniform node subsets conditional on the fixed feature pool; they are not one shared nested prefix.
+
+- Repository: https://github.com/mchong6/FID_IS_infinity
+- Code: https://github.com/mchong6/FID_IS_infinity/blob/master/score_infinity.py (functions `calculate_FID_infinity` and `calculate_FID_infinity_path`, lines displayed around the per-node shuffle)
+- Paper: https://arxiv.org/abs/1911.07023
+
+The pinned 2026 author implementation at commit `1e90579840cf81284287583fcb607581704993ab` also uses a fresh permutation for each node.  This is supported locally, not inferred from a README: `verify_streaming_fid_infinity_exact_moments_v1.py` recreated the fresh-permutation memberships from the pinned seed and matched all 15 author `plugin_curve` values within `1.42e-14`.  The repository README documents 15 sample-size nodes and returned extrapolation weights, but it does not advertise a nested-prefix protocol.
+
+This audit did not locate a primary FID-infinity/VALE protocol that already specifies a single shared permutation across all extrapolation nodes.  This is not a global novelty proof: adjacent common-random-number and nested-sampling designs remain broad prior art, and the current contribution must be described as a protocol variant unless a wider literature audit establishes more.
+
+## Exact expectation statement
+
+Let a fixed pool contain `N` observations.  Node `j` uses a uniformly random subset of size `n_j`, and let `Y_j` be its plug-in FID.  A shared uniform permutation followed by prefixes preserves the marginal distribution of every subset.  Hence, for deterministic extrapolation weights `a_j`,
+
+`E[sum_j a_j Y_j | pool]`
+
+is identical for fresh independent node permutations and a shared nested prefix.  OLS polynomial extrapolation has deterministic weights, so this proves equality of its conditional and unconditional expected intercept.  The same conclusion applies to any deterministic-weight WLS/VALE implementation, but it must not be extended to data-dependent weights without inspecting their definition.
+
+## Covariance mechanism
+
+For a scalar first-order influence term with variance `sigma^2`, independent uniform node subsets drawn from the same random pool satisfy
+
+- `Var(M_j) = sigma^2 / n_j`,
+- `Cov(M_j, M_l) = sigma^2 / N` for `j != l`.
+
+For nested prefixes, assuming `n_j <= n_l`, their intersection has size `n_j`, so
+
+- `Cov(M_j, M_l) = sigma^2 / n_l = sigma^2 / max(n_j,n_l)`.
+
+Thus the intercept variance is `a^T Sigma a`.  Nesting increases individual off-diagonal covariances relative to fresh node resampling, but extrapolation weights have mixed signs; the quadratic form can decrease or increase.  State drops from one Gram accumulator per node to one cumulative Gram plus checkpoint snapshots, i.e. from `O(m d^2)` active accumulation to `O(d^2)` when node values are emitted and discarded.  This algebra establishes neither lower RMSE nor novelty.
+
+## Decision
+
+Run one prospective paired OLS diagnostic using the same Gaussian definition, node schedule and fresh feature pools.  First compare the exact scalar influence covariance quadratic, then compare plug-in-FID bias/RMSE for independent nodes versus one shared prefix.  Do not add VALE until its deterministic weighting rule is restored and pinned from the source archive.
+

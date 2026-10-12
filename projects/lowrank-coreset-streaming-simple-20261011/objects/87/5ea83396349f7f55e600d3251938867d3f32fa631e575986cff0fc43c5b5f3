@@ -1,0 +1,66 @@
+{
+  "response_id": "sources-and-pilot-next-v1",
+  "request_id": "decision-3d46eed11d2d48d798a3afa9fa647894",
+  "idea": "coreset-adaptive-comparison-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Native scorer matches independent sorted-prefix costs. Exact median is a strong inexpensive comparator. Test conservative paired adaptive validation as a known-mechanism diagnostic, not novelty.",
+  "events": [
+    {
+      "event_id": "native-pilot-milestone-v1",
+      "kind": "milestone",
+      "label": "native metric and CPU calibration",
+      "reason": "38 method-result rows from author functions and exact median; measured931.43MiB peakRSS; source protocol produces10 features, whereas paper table lists11. Timings descriptive.",
+      "next_phase": "experiment",
+      "evidence": [
+        {
+          "path": "results/native_pilot_v1.json",
+          "sha256": "2c841481d9371bab66ace1ba99514ef0ff6a99e1f3840f1edf3eff22b20ec8d4"
+        },
+        {
+          "path": "plans/native_pilot_v1.md",
+          "sha256": "f72df51f71b8cc1599d32f0a5aa66ec5c3e6e7c4a95945e3fa19d63f4fa59913"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "paired-validator-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/paired_validator.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Determine whether pairwise adaptive validation saves useful work against fixed final look and strong exact baseline",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "native-pilot-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "scripts/paired_validator.py",
+          "sha256": "dceddca9cccdb6972f240ac47bbbba914b8678151a47b796c1911041c39769b5"
+        },
+        {
+          "path": "plans/paired_validator_v1.md",
+          "sha256": "9c910b4a70f1398818e2552ab647461971aace07db397d1f931210702c845a24"
+        },
+        {
+          "path": "data/taxi_clean_first100000.npy",
+          "sha256": "a607235bd70f74a33b60426472d38cbc01978e71e8baa7736394769ea71d07ac"
+        }
+      ],
+      "outputs": [
+        "results/paired_validator_v1.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+# URL FAinv authentic three-compression continuation v2
+
+## Question
+
+After the first authentic Day0 compression, do the next two rank-16/buffer-16 compressions remain close to one buffer width apart and require multiple released FA-EM iterations, or does the learned precision materially reduce the trigger rate or compression work?
+
+## Frozen continuation
+
+- Restart the source-guided implementation from the beginning of official chronological `Day0.svm` and execute one continuous trajectory; do not splice state from the previous process.
+- Preserve the released non-averaged standard-deviation CW equations, `eta=0.95`, predict-before-update order, precision initialization `D=1`, rank 16, buffer width 16, and FA-EM stop rule `1e-6` with at most 50 iterations.
+- Preserve the verified exact lazy mean `mu=m+D^{-1}Gq`. Flush it before every non-nested compression, reinstall the compressed `(D,L)`, reset only the current low-rank coefficient to zero, and rebuild `L' D^{-1} L` exactly by row blocks.
+- Stop after exactly three compressions or 512 examples, whichever comes first. Use real sparse update directions and record every trigger, interval, accepted-update count, EM iteration/change/time, variance range, lazy-flush time and Gram-rebuild time.
+- Single-threaded CPU through `cpu_guard.py`; 4 GiB address-space limit. No concurrent numerical task.
+
+## Predictions and falsifiers
+
+- Reproduce the first trigger at example 35 and its four EM iterations; otherwise the continuation is not comparable and must stop as an implementation discrepancy.
+- Predict both later compressions occur within 32 additional examples each and each requires at least two EM iterations. This operationalizes “near one buffer width” without inspecting the new results.
+- All predictive variances, CW scalars, materialized means and completed EM diagonals must remain finite; variances and diagonals must be positive.
+- Peak RSS must remain below 2 GiB and wall time below 180 seconds.
+
+## Decision rule
+
+- If both later trigger intervals are at most 32 examples and both need at least two EM iterations, retire the two-day URL FAinv application under the current CPU-window goal without a larger run. Report any full-prefix runtime projection only as a local-stationarity heuristic, not a guaranteed lower bound.
+- If either later interval exceeds 32 examples or either compression converges in one iteration, retain the route for a separately planned bounded 512-example calibration; do not jump to the full Day0-Day1 stream.
+- Any mismatch in the first-compression reproduction or nonfinite state is an implementation/numerical issue, not a scientific negative.
+
+This task does not evaluate comparative quality, reproduce the paper's sampled 20-day protocol, or establish originality.

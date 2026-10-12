@@ -1,0 +1,44 @@
+{
+  "request_id": "decision-3ffc993eec524a6c8ee4154f2ed3203d",
+  "idea": "lra-block-krylov-baseline-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "block-krylov-online-interpretation-v1",
+  "reason": "The frozen trajectory and strong simple baseline comparison give the predeclared negative decision. Close this endpoint gap and move serially to downstream model application scoping.",
+  "events": [
+    {
+      "event_id": "block-krylov-online-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "Frozen-trajectory hypothesis, quality prediction, complete endpoint results, strong baseline interpretation, and predeclared stop decision are available.",
+      "hypothesis": "The locally selected q=1 Block Krylov endpoint can preserve the frozen eta=.1 Landmark trajectory quality while reducing refresh cost.",
+      "prediction": "It should reproduce the recovered71 late refreshes, pass all strict endpoint gates, beat dense exact SVD, and must also beat a support-aware exact SVD in every paired total to justify further integration.",
+      "result": "The exact policy had zero mask mismatches and exactly71 late refreshes. All213 Block Krylov endpoints passed quality. Block totals0.9340-1.0335s beat dense exact totals3.9334-4.5813s, but support-aware exact totals were only0.07716-0.08374s, making Block Krylov about11.5-12.6 times slower.",
+      "interpretation": "Block Krylov's apparent dense-SVD advantage is removed by the strong simple sparse-support baseline. Quality comes from52-65 active columns and rank saturation, not scalable convergence. The classical endpoint is valid but practically dominated on this native trajectory.",
+      "next_action": "Retire the Block Krylov endpoint direction without native5000 expansion. Scope one downstream model application under CPU/8GB, beginning with a reproducible labeled discriminative benchmark and explicit full-data, uniform/reservoir, sparse-exact, and standard dimensionality-reduction baselines before any training.",
+      "evidence": [
+        {"path": "plans/block_krylov_online_endpoint_v1.md", "sha256": "2d649f18ff412f033b32fce2591e677acc3f78198003b28a8ebd4657c12c4a38"},
+        {"path": "results/block_krylov_online_endpoint_v2.json", "sha256": "f5b4a0ca47211882f2dd7573431fe8e84a3b4f9650d915fbd87007344790c0ac"},
+        {"path": "notes/block_krylov_online_analysis_v1.md", "sha256": "70862c49d2b818249ca29b1d061311f7fdf1ab4cdb9fa7c6459c4c168c4a26a3"}
+      ]
+    },
+    {
+      "event_id": "block-krylov-endpoint-retire-v1",
+      "kind": "retire_idea",
+      "reason": "The fixed q=1 classical endpoint passes quality but is decisively dominated by support-aware exact SVD on the complete frozen native trajectory; the plan's stop rule forbids larger expansion under this hypothesis.",
+      "evidence": [
+        {"path": "results/block_krylov_online_endpoint_v2.json", "sha256": "f5b4a0ca47211882f2dd7573431fe8e84a3b4f9650d915fbd87007344790c0ac"},
+        {"path": "notes/block_krylov_online_analysis_v1.md", "sha256": "70862c49d2b818249ca29b1d061311f7fdf1ab4cdb9fa7c6459c4c168c4a26a3"}
+      ]
+    },
+    {
+      "event_id": "model-application-scope-replace-v1",
+      "kind": "replace_idea",
+      "idea": "model-application-discriminative-scope-v1",
+      "reason": "The three original local mechanism gaps are now scoped negatives. Test whether any component yields a genuine downstream CPU resource-quality tradeoff, starting from a source-defined discriminative benchmark rather than assuming usefulness.",
+      "evidence": [
+        {"path": "plans/model_application_scope_v1.md", "sha256": "220f70db98acf1774a1558c78089e22097d6626ebd02ff0ae37dec17f8846e2f"},
+        {"path": "notes/block_krylov_online_analysis_v1.md", "sha256": "70862c49d2b818249ca29b1d061311f7fdf1ab4cdb9fa7c6459c4c168c4a26a3"}
+      ]
+    }
+  ]
+}

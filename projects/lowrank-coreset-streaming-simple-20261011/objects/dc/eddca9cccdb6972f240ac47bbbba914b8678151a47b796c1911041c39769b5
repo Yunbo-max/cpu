@@ -1,0 +1,63 @@
+import sys,json,time,resource,math
+from pathlib import Path
+import numpy as np
+root=Path(__file__).resolve().parents[1]
+points=np.load(root/'data/taxi_clean_first100000.npy')
+looks=[64,128,256,512,1024,2048,4096,8192]
+epsilon=.01;delta=.05;rho=epsilon/(2+epsilon)
+
+def candidates(x,seed):
+    rng=np.random.default_rng(seed)
+    draw=rng.integers(len(x),size=512)
+    return np.array([np.median(x[draw[:n]],axis=0) for n in [32,128,512]])
+
+def select(x,seed,adaptive):
+    wall=time.perf_counter();cpu=time.process_time()
+    c=candidates(x,seed)
+    D=np.abs(c[:,None,:]-c[None,:,:]).sum(axis=2)
+    rng=np.random.default_rng(seed+1000000)
+    cumulative=np.zeros((3,3));previous=0;selected=None;history=[]
+    for m in (looks if adaptive else [looks[-1]]):
+        batch=x[rng.integers(len(x),size=m-previous)]
+        for i in range(3):
+            for j in range(i+1,3):
+                z=(np.abs(batch-c[i])-np.abs(batch-c[j])).sum(axis=1)
+                tol=64*np.finfo(float).eps*max(1.,float(np.abs(batch).max()),float(np.abs(c).max()))*x.shape[1]
+                if np.max(np.abs(z))>D[i,j]+tol:raise RuntimeError('Paired difference exceeds reverse triangle bound')
+                cumulative[i,j]+=z.sum();cumulative[j,i]=-cumulative[i,j]
+        previous=m
+        radius=D*math.sqrt(2*math.log(2*3*len(looks)/delta)/m)
+        upper=cumulative/m+radius
+        eligible=np.flatnonzero(np.all(upper<=rho*D,axis=1))
+        history.append({'m':m,'eligible':eligible.tolist()})
+        if len(eligible):selected=int(eligible[0]);break
+    fallback=selected is None
+    center=np.median(x,axis=0) if fallback else c[selected]
+    return {'method':'adaptive' if adaptive else 'fixed_final_look','seed':seed,'n':len(x),'training_draws':512,'validation_draws':previous,'fallback':fallback,'candidate_index':selected,'center':center.tolist(),'candidate_centers':c.tolist(),'look_history':history,'wall_seconds':time.perf_counter()-wall,'cpu_seconds':time.process_time()-cpu}
+
+records=[];start=time.perf_counter()
+for n in [10000,100000]:
+    x=points[:n]
+    for seed in range(101,113):
+        wall=time.perf_counter();cpu=time.process_time();exact=np.median(x,axis=0)
+        row={'method':'exact','seed':seed,'n':n,'center':exact.tolist(),'wall_seconds':time.perf_counter()-wall,'cpu_seconds':time.process_time()-cpu}
+        optimum=float(np.abs(x-exact).sum());row['relative_error']=0.0;records.append(row)
+        for m in [32,128,512]:
+            wall=time.perf_counter();cpu=time.process_time();rng=np.random.default_rng(seed);c=np.median(x[rng.integers(n,size=m)],axis=0)
+            row={'method':f'uniform_{m}','seed':seed,'n':n,'center':c.tolist(),'wall_seconds':time.perf_counter()-wall,'cpu_seconds':time.process_time()-cpu}
+            row['relative_error']=float(np.abs(x-c).sum())/optimum-1;records.append(row)
+        for adaptive in ([True,False] if seed%2 else [False,True]):
+            row=select(x,seed,adaptive)
+            final=np.array(row['center']);pool=np.array(row['candidate_centers'])
+            cost=float(np.abs(x-final).sum())
+            pool_cost=[float(np.abs(x-c).sum()) for c in pool]
+            row['relative_error']=cost/optimum-1
+            row['pool_costs']=pool_cost
+            row['ratio_to_best_pool']=cost/min(pool_cost)
+            row['certificate_valid']=None if row['fallback'] else bool(row['ratio_to_best_pool']<=1+epsilon+1e-10)
+            if row['certificate_valid'] is False:raise RuntimeError('Observed certificate violation; preserve traceback and investigate')
+            records.append(row)
+    print(json.dumps({'completed_n':n,'records':len(records)}),flush=True)
+out={'scope':'development diagnostic of known mechanisms; not new-method confirmation','epsilon':epsilon,'delta':delta,'looks':looks,'rows':records,'elapsed_seconds':time.perf_counter()-start,'process_cpu_seconds':time.process_time(),'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'timing_caveat':'Shared host, descriptive only; repeated native development cases; no nominal error-rate verification'}
+(root/'results/paired_validator_v1.json').write_text(json.dumps(out,indent=2,allow_nan=False))
+print(json.dumps({k:out[k] for k in ['elapsed_seconds','process_cpu_seconds','peak_rss_kib']}),flush=True)

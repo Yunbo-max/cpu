@@ -1,0 +1,64 @@
+{
+  "request_id": "decision-ce9d8ea13f514c2f9d85ea190b3e2bce",
+  "idea": "model-application-discriminative-scope-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "discriminative-original-source-repair-v2",
+  "reason": "The fixed source task acquired all official scikit-learn protocol pages, while the original maintainer page alone returned HTTP 502. Preserve that result and perform one bounded landing-page-only repair before deciding the licensing limitation.",
+  "events": [
+    {
+      "event_id": "discriminative-source-audit-partial-v1",
+      "kind": "milestone",
+      "label": "20 Newsgroups protocol pages acquired with one source-access failure",
+      "reason": "Three official scikit-learn pages were hashed and establish the native date split, metadata leakage controls, and train-only TF-IDF protocol. The original maintainer landing page returned HTTP 502, leaving dataset-use language unresolved.",
+      "next_phase": "sources",
+      "evidence": [
+        {
+          "path": "sources/20newsgroups_protocol_manifest_v1.json",
+          "sha256": "0b440f41e4952bc1066cf5cedb02ea0171a6bf1b3fe77d120f1dac2db1882c4c"
+        },
+        {
+          "path": "notes/discriminative_source_audit_partial_v1.md",
+          "sha256": "b580ffb61764fb9539ad6b9a47856c4549e62b107d3e80b8d01112a34695cd6b"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "discriminative-original-source-v2",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/fetch_20newsgroups_original_source_v2.py"
+      ],
+      "phase": "sources",
+      "purpose": "Try two bounded variants of the original maintainer landing page without requesting the dataset archive",
+      "timeout_seconds": 90,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/discriminative_benchmark_source_audit_v1.md",
+          "sha256": "319b77ea3d3457b40b3b696e8cf7e5b259e0f64a9358e2885380b0e166664ced"
+        },
+        {
+          "path": "scripts/fetch_20newsgroups_original_source_v2.py",
+          "sha256": "d15465a0ab4c4e722b855207eff4071c1ac2f70841e0766b178e941478f639f0"
+        },
+        {
+          "path": "sources/20newsgroups_protocol_manifest_v1.json",
+          "sha256": "0b440f41e4952bc1066cf5cedb02ea0171a6bf1b3fe77d120f1dac2db1882c4c"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        }
+      ],
+      "outputs": [
+        "sources/20newsgroups_original_source_manifest_v2.json"
+      ]
+    }
+  ]
+}

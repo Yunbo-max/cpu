@@ -1,0 +1,11 @@
+# Block-Krylov calibration v1 mechanical failure
+
+The first calibration task exited before any dense matrix operation. `scipy.io.mmread`
+returned a COO matrix, while the script attempted direct row slicing. The preserved
+traceback is in the task receipt stderr and reports `TypeError: 'coo_matrix' object is
+not subscriptable` at `sparse[:512]`.
+
+The repair is limited to converting the Matrix Market object to CSR before slicing.
+The preregistered data, seeds, depths, metrics, thresholds, and comparisons are
+unchanged. The replacement has a new script, output, and task identifier; the failed
+task and original script remain intact.

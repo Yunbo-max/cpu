@@ -1,0 +1,64 @@
+# Larger sparse-stream source audit v1
+
+## Decision
+
+Select the anonymized UCSD malicious-URL stream for a bounded native
+reproduction audit.  Do not run RCV1 merely because it is larger than 20
+Newsgroups, and do not treat static webspam as the primary drift benchmark.
+
+## Why RCV1 is not the right pressure test
+
+RCV1-v2 is well specified: 804,414 examples, 47,236 TF-IDF features, 103 topic
+labels, and the LYRL2004 chronological split of 23,149 train / 781,265 test.
+The paper reports micro- and macro-F1 and explains the licensing/distribution
+status of the vector files.  It is feasible under 8 GB: the reported 0.16%
+density implies roughly 60.8 million nonzeros and roughly 0.73 GB for a basic
+float64/int32 CSR representation.
+
+But its source-defined learning problem is not a useful state-pressure test.
+A dense float64 103-by-47,236 coefficient matrix is about 38.9 MB; training has
+only 23,149 examples, while most rows are a fixed test set.  Streaming exact
+micro/macro confusion counts need only per-label counters.  A coreset, hashing,
+or approximate moment claim here would target a bottleneck the protocol does
+not have.
+
+## Why the URL stream is a better native application
+
+The UCSD source provides 121 daily SVM-light files, about 2.4 million URLs and
+3.2 million evolving features in a 234 MB archive.  The ICML protocol is truly
+online: predict an incoming URL, observe its label, update continuously, admit
+new features, and report cumulative mistakes over time.  The paper explicitly
+argues that feature drift and batch memory limits motivate online learning.
+
+The closest-work collision is unusually direct and must constrain originality:
+the AISTATS 2010 follow-up already models the inverse covariance as
+`D + R R^T`, evaluates rank 16 on a 20-day URL subset, preserves temporal
+order, and reports a roughly 5% relative mistake reduction over diagonal CW.
+This is a known mechanism, not a new low-rank proposal.  The next task is an
+author-code/native-data reproduction and cost audit, not invention or a claim
+of novelty.
+
+## Resource bound and proposed first calibration
+
+With d=3,231,961 and float64 state, one weight vector is 25,855,688 bytes;
+mean plus diagonal is 51,711,376 bytes; rank-16 `R` adds 413,691,008 bytes.
+The main published state is therefore about 465.4 MB plus small rank-space
+matrices and parser buffers, below the 4 GiB process cap.  The raw archive must
+remain under `.deps` and outside the persistent ZIP because its page does not
+state an explicit redistribution license.
+
+Before a 20-day run, retrieve and hash the author code and archive, inspect the
+actual implementation against equations and data ordering, then run only a
+small day-prefix calibration through `cpu_guard.py`.  Compare Perceptron, PA,
+diagonal CW, CW-fact16 and a simple online logistic baseline; record cumulative
+mistakes, update cost, peak RSS and new-feature handling.  Scale only if the
+native definitions and measured CPU cost survive this check.
+
+## Source locations
+
+- UCSD dataset page: https://www.sysnet.ucsd.edu/projects/url/
+- ICML 2009 application paper: https://www.cs.ucsd.edu/~jtma/papers/url-icml2009.pdf
+- AISTATS 2010 covariance paper: https://www.cs.ucsd.edu/~jtma/papers/covariance-aistats2010.pdf
+- LIBSVM dataset metadata: https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html
+- RCV1 paper: https://jmlr.org/papers/volume5/lewis04a/lewis04a.pdf
+- scikit-learn RCV1 documentation: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_rcv1.html

@@ -1,0 +1,55 @@
+import hashlib,json,resource,time
+from pathlib import Path
+import numpy as np
+from scipy.io import mmread
+from scipy.linalg import eigh
+
+ROOT=Path(__file__).resolve().parents[1]
+
+def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+def orth(x):
+    q,r=np.linalg.qr(x,mode='reduced')
+    if r.size==0:return q
+    tol=np.finfo(x.dtype).eps*max(x.shape)*abs(np.diag(r)).max(initial=0.)
+    rank=int(np.sum(abs(np.diag(r))>tol))
+    return q[:,:rank]
+
+def factors(a,omega,qdepth,method):
+    y=a@omega;blocks=[y]
+    for _ in range(qdepth):
+        z=orth(a.T@y);y=orth(a@z);blocks.append(y)
+    basis=orth(np.hstack(blocks) if method=='block_krylov' else y)
+    _,_,vt=np.linalg.svd(basis.T@a,full_matrices=False)
+    return vt[:25],basis
+
+def metrics(a,aat,v,v_exact,s,opt_f,opt_s2):
+    c=a@v.T;residual=a-c@v
+    frob=float(np.sum(residual*residual));gram=(aat-c@c.T);gram=(gram+gram.T)/2
+    lam=float(eigh(gram,subset_by_index=[len(gram)-1,len(gram)-1],check_finite=False,eigvals_only=True)[0])
+    clip=min(lam,0.);lam=max(lam,0.)
+    overlap=float(np.sum((v@v_exact.T)**2));proj=float(np.sqrt(max(0.,2*len(v)-2*overlap)))
+    energies=np.sum(c*c,axis=0);per=np.abs(s[:25]**2-energies)/opt_s2
+    return {'frob_cost':frob,'frob_ratio':frob/opt_f,'spectral_cost_squared':lam,'spectral_ratio':np.sqrt(lam/opt_s2),'gram_negative_clip':clip,'projection_frobenius_distance':proj,'max_per_vector_error_over_sigma26_squared':float(per.max())}
+
+def main():
+    begin=time.perf_counter();src=ROOT/'sources/consistent-LRA/landmark.mtx'
+    sparse=mmread(src);a=np.asarray(sparse[:512].toarray(),dtype=np.float64);del sparse
+    data_hash=hashlib.sha256(a.tobytes(order='C')).hexdigest();aat=a@a.T
+    t=time.perf_counter();_,s,v_exact=np.linalg.svd(a,full_matrices=False);exact_seconds=time.perf_counter()-t
+    opt_f=float(np.sum(s[25:]**2));opt_s2=float(s[25]**2)
+    out={'scope':'single-prefix development calibration of classical baselines','parameters':{'shape':list(a.shape),'k':25,'block_width':35,'seeds':[101,102,103],'q_depths':[0,1,2,4,7]},'data_sha256_dense512':data_hash,'source_hashes':{'landmark.mtx':sha(src),'blockKrylov_pdf':sha(ROOT/'sources/blockKrylov_arxiv_1504.05477v2.pdf')},'exact':{'seconds':exact_seconds,'opt_frob_cost':opt_f,'opt_spectral_cost_squared':opt_s2,'sigma25':float(s[24]),'sigma26':float(s[25])},'arms':[],'error':None}
+    try:
+        for seed in [101,102,103]:
+            omega=np.random.default_rng(seed).normal(size=(a.shape[1],35))/np.sqrt(35)
+            for qdepth in [0,1,2,4,7]:
+                for method in ['block_krylov','power']:
+                    t=time.perf_counter();cpu=time.process_time();v,basis=factors(a,omega,qdepth,method);alg=time.perf_counter()-t;cpu_alg=time.process_time()-cpu
+                    t=time.perf_counter();m=metrics(a,aat,v,v_exact,s,opt_f,opt_s2);eval_seconds=time.perf_counter()-t
+                    out['arms'].append({'seed':seed,'q':qdepth,'method':method,'matrix_passes':2*qdepth+2,'algorithm_seconds':alg,'algorithm_cpu_seconds':cpu_alg,'evaluation_seconds':eval_seconds,'basis_columns':basis.shape[1],'state_array_bytes_lower_bound':a.nbytes+omega.nbytes+basis.nbytes+v.nbytes,**m})
+    except Exception as exc:
+        out['error']=repr(exc);raise
+    finally:
+        out['elapsed_seconds']=time.perf_counter()-begin;out['peak_rss_kib']=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        (ROOT/'results').mkdir(exist_ok=True);(ROOT/'results/block_krylov_calibration_v1.json').write_text(json.dumps(out,indent=2,allow_nan=False));print(json.dumps({'arms':len(out['arms']),'elapsed_seconds':out['elapsed_seconds'],'peak_rss_kib':out['peak_rss_kib'],'error':out['error']}))
+
+if __name__=='__main__':main()

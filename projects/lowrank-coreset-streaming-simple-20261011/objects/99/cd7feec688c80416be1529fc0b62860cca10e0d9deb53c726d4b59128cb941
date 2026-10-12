@@ -1,0 +1,23 @@
+# FID-RTD bounded sample scaling plan v1
+
+Written after the dimension-scaling result and before this task's outputs. This is a fresh development comparison, not independent confirmation of a selected method.
+
+## Frozen design
+
+- Same pinned author commit and isotropic population definition as the preceding experiment.
+- Dimension d=128; nested budgets N=1024, 2048, 4096, 8192.
+- New master seed 20261013 and 32 independent maximum-pool trials, so none of the prior trial streams are reused.
+- Exact fixed reference; known zero means; uncentered `1/N` covariance; 15 FID-infinity nodes from 512 to each N.
+- Methods: plug-in; OLS orders 1--3; variance-aware orders 1--3; uncapped adaptive RTD.
+- Report signed bias with t interval, RMSE, median absolute error, whole-command CPU/wall/RSS, and non-additive author timings.
+
+## Predictions and decision rule
+
+1. Plug-in positive bias should decrease strictly as N increases.
+2. At least one correction should reduce both absolute bias and RMSE relative to plug-in at every N.
+3. The previous local negative result for RTD is weakened if RTD is non-dominated in absolute bias/RMSE at any N; it is strengthened if another released estimator strictly improves both objectives at all four N.
+4. All 1024 rows must be finite/successful. This run does not establish paper-scale asymptotics or ImageNet behavior.
+
+If RTD is dominated at all four N, close the bounded isotropic RTD comparison as a negative local result and move to the next unresolved streaming-statistics question with VALE/OLS retained as mandatory baselines. No low-rank/coreset modification is justified by memory in this experiment.
+
+Resource controls remain one CPU numerical process, one thread, GPU hidden, and 4 GiB RLIMIT_AS through `cpu_guard.py`.

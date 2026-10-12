@@ -1,0 +1,69 @@
+{
+  "response_id": "url-fainv-three-compressions-response-v2",
+  "request_id": "decision-1cc0cf0b90f24281905fb6d05b884932",
+  "idea": "url-cw-fact-sparse-lazy-feasibility-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The authentic first compression falsified the one-iteration fixture but left post-compression trigger spacing unresolved. The preregistered three-compression continuation reinstalls each compressed precision and tests the frozen retirement rule without a full-stream run.",
+  "tasks": [
+    {
+      "task_id": "url-fainv-three-compressions-v2",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/run_url_fainv_three_compressions_v2.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Measure trigger spacing and released FA-EM work through three authentic chronological Day0 compressions under the fixed sparse/lazy invariant",
+      "timeout_seconds": 180,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/url_fainv_three_compressions_v2.md",
+          "sha256": "5b229c7f119e52c35140d80c5063a160b691a675a2f8f375a7eb4b8cf2759c12"
+        },
+        {
+          "path": "scripts/run_url_fainv_three_compressions_v2.py",
+          "sha256": "144db3d50f5ee007c8879638b2243abe7bcc283031fa3daabd44e32cdcbdce0e"
+        },
+        {
+          "path": "scripts/run_url_fainv_block_em_source_matched_v2.py",
+          "sha256": "44b03abbade59761c97a548f06198a1aec7064aa1da0f55c78ef8fbe2b3d8b52"
+        },
+        {
+          "path": "scripts/run_url_fainv_block_em_calibration_v1.py",
+          "sha256": "3492e7b8d553bfaeeabcfed83d8a3ba6b0fcdb0266c50475647fc8b1f3725c45"
+        },
+        {
+          "path": "scripts/run_url_prefix_baseline_calibration_v1.py",
+          "sha256": "58d9d98097542fa862872e1479408e9ea082140b8cda3e76bfd78688e5522473"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "results/url_fainv_first_compression_v1.json",
+          "sha256": "a16209a7d977f205080b0fc04f71f0832288969b442364dae0e43fb5a6933701"
+        },
+        {
+          "path": "notes/url_fainv_first_compression_v1_analysis.md",
+          "sha256": "6279e6ee2fcc32aeb2f90505326c038b805520ea82cc2d6cc6c921319efac16a"
+        },
+        {
+          "path": "resource_current_20261012T0550Z.json",
+          "sha256": "6e0920d9281e34e05e88626f576e541792f91053b1f90e9462cf7b11e96da9ba"
+        },
+        {
+          "path": "sources/url_dataset_manifest_v1.json",
+          "sha256": "7f84885352bf9a9a32f4779d0f5dbf021aa2f55e0dece1ff37774417154cc76a"
+        }
+      ],
+      "outputs": [
+        "results/url_fainv_three_compressions_v2.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "request_id": "decision-04f069693aee4e99ae719d12f0760122",
+  "idea": "ctt-streaming-calibration-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "compression-exact-submit-v1",
+  "reason": "Lightweight exact rational counterexample verification and symmetric controls; no native performance claim.",
+  "tasks": [
+    {
+      "task_id": "compression-exchangeability-exact-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/compression_exchangeability_exact_v1.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Enumerate all 512 null states to test whether unbiased unequal compression preserves bin permutation size",
+      "timeout_seconds": 30,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/compression_exchangeability_exact_v1.md",
+          "sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e"
+        },
+        {
+          "path": "scripts/compression_exchangeability_exact_v1.py",
+          "sha256": "a062e4bdefaff2cd134c26a6804f391067cec0d33c5504ae7b4f2b432b2a1c0a"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        }
+      ],
+      "outputs": [
+        "results/compression_exchangeability_exact_v1.json",
+        "results/compression_exchangeability_exact_v1_rows.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "study": "B15-first-late-refresh-rank-deficiency-diagnostic",
+  "old_t": 124,
+  "t": 126,
+  "k": 25,
+  "unperturbed": {
+    "requested_tol": 1e-08,
+    "history_length": 2,
+    "final_max_residual": 1.22456802291283,
+    "matvec_columns": 50,
+    "warning_count": 3,
+    "first_warning": "Failed at iteration 0 with accuracies [1.22456802e+00 8.97120031e-02 9.45934755e-02 3.35623531e-01\n 4.50173911e-01 3.29684498e-01 1.15525057e-01 4.78280236e-02\n 9.82897978e-02 6.83435057e-02 4.37587597e-03 3.79518792e-02\n 2.91818544e-02 3.02521052e-03 2.22966454e-03 1.43966650e-03\n 4.24411505e-03 5.65836263e-03 2.78989158e-03 2.69832378e-03\n 1.68853800e-03 4.41716726e-04 3.36405678e-05 3.55657111e-04\n 2.63031597e-04]\n not reaching the requested tolerance 1e-08."
+  },
+  "deterministic_perturbation": {
+    "amplitude": 0.0001,
+    "seed": 126,
+    "requested_tol": 0.0001,
+    "history_length": 3,
+    "final_max_residual": 4.830758916923501e-05,
+    "matvec_columns": 74,
+    "warning_count": 0,
+    "endpoint_excess": 1.223105794423418e-06,
+    "endpoint_tolerance": 2.9671148557612766e-09,
+    "excess_over_tolerance": 412.220575839355
+  },
+  "process_cpu_seconds": 0.08132091699999999,
+  "process_wall_seconds": 0.0815254310000455,
+  "peak_rss_kib": 65620,
+  "conclusion": "unperturbed block fails from rank-deficient residuals; deterministic perturbation at a converged residual tolerance still violates the frozen endpoint objective tolerance"
+}

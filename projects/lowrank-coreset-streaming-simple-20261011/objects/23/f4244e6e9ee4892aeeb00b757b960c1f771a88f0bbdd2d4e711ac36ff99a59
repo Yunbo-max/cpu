@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+"""Run fresh-N scaling with the unchanged author Gaussian engine and summarize it."""
+from __future__ import annotations
+import hashlib, importlib.metadata, json, math, pathlib, resource, statistics, sys, time
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+CONFIG = ROOT / "configs" / "fid_rtd_sample_scaling_v1.yaml"
+PLAN = ROOT / "plans" / "fid_rtd_sample_scaling_v1.md"
+MANIFEST = ROOT / "sources" / "fid_rtd_source_manifest_v1.json"
+REPO = ROOT / ".deps" / "fid_rtd" / "repo-1e90579840cf81284287583fcb607581704993ab" / "sample-optimal-fid-estimation-1e90579840cf81284287583fcb607581704993ab"
+RAW = ROOT / ".deps" / "fid_rtd" / "sample_scaling_v1"
+OUTPUT = ROOT / "results" / "fid_rtd_sample_scaling_v1.json"
+
+def sha256(path):
+    h=hashlib.sha256()
+    with pathlib.Path(path).open('rb') as f:
+        for b in iter(lambda:f.read(1<<20),b''): h.update(b)
+    return h.hexdigest()
+
+def stats(values):
+    n=len(values); mean=statistics.fmean(values); sd=statistics.stdev(values); se=sd/math.sqrt(n); half=2.039513*se
+    return {'n':n,'mean':mean,'sample_sd':sd,'standard_error':se,'ci95_t':[mean-half,mean+half]}
+
+def main():
+    manifest=json.loads(MANIFEST.read_text())
+    sys.path[:0]=[str(REPO/'src'),str(REPO)]
+    from experiments.gaussian.run import run
+    w0=time.perf_counter(); c0=time.process_time(); author=run(CONFIG,RAW); cpu=time.process_time()-c0; wall=time.perf_counter()-w0
+    records=sorted((RAW/'records').glob('task_*.json')); rows=[]; refs=[]
+    for path in records:
+        payload=json.loads(path.read_text()); refs.append({'path':str(path.relative_to(ROOT)),'sha256':sha256(path),'size_bytes':path.stat().st_size})
+        for trial in payload['trials']: rows.extend(trial['rows'])
+    groups={}
+    for row in rows: groups.setdefault((int(row['N']),row['method']),[]).append(row)
+    summaries=[]
+    for (n,method),group in sorted(groups.items()):
+        signed=[float(x['signed_error_w2_sq_raw']) for x in group]; runtime=[float(x['runtime_seconds']) for x in group]; bias=stats(signed)
+        summaries.append({'N':n,'method':method,'bias':bias,'absolute_bias':abs(bias['mean']),
+          'rmse':math.sqrt(statistics.fmean(x*x for x in signed)),'median_absolute_error':statistics.median(abs(x) for x in signed),
+          'author_runtime_seconds':{'mean':statistics.fmean(runtime),'median':statistics.median(runtime),'sum_not_additive_for_shared_curves':sum(runtime)},
+          'L_used':sorted({x.get('L_used') for x in group if x.get('L_used') is not None})})
+    methods={x['method'] for x in rows}; expected={'empirical_plugin','fid_infinity_ols_order1','fid_infinity_ols_order2','fid_infinity_ols_order3','fid_infinity_variance_aware_order1','fid_infinity_variance_aware_order2','fid_infinity_variance_aware_order3','general_adaptive'}
+    numeric=('true_w2_sq','estimate_w2_sq_raw','signed_error_w2_sq_raw','abs_error_w2_sq_raw','runtime_seconds')
+    checks={'one_task':len(records)==1 and author.get('tasks')==1,'exactly_1024_rows':len(rows)==1024 and author.get('rows')==1024,
+      'all_status_ok':all(x.get('status')=='ok' for x in rows),'all_numeric_finite':all(math.isfinite(float(x[k])) for x in rows for k in numeric),
+      'method_set_exact':methods==expected,'group_size_32':len(groups)==32 and all(len(v)==32 for v in groups.values()),
+      'peak_rss_below_4gib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024<4*1024**3,'wall_below_900s':wall<900}
+    by={(s['N'],s['method']):s for s in summaries}; budgets=[1024,2048,4096,8192]
+    plugin=[by[(n,'empirical_plugin')] for n in budgets]
+    dominated=[]
+    for n in budgets:
+        rtd=by[(n,'general_adaptive')]
+        dominators=[s['method'] for s in summaries if s['N']==n and s['method']!='general_adaptive' and s['absolute_bias']<rtd['absolute_bias'] and s['rmse']<rtd['rmse']]
+        dominated.append({'N':n,'rtd_dominators':dominators,'rtd_dominated':bool(dominators)})
+    predictions={'plugin_bias_positive_all_budgets':all(s['bias']['mean']>0 for s in plugin),
+      'plugin_bias_strictly_decreasing_with_N':all(a['bias']['mean']>b['bias']['mean'] for a,b in zip(plugin,plugin[1:])),
+      'some_correction_improves_both_at_every_N':all(any(s['method']!='empirical_plugin' and s['absolute_bias']<by[(n,'empirical_plugin')]['absolute_bias'] and s['rmse']<by[(n,'empirical_plugin')]['rmse'] for s in summaries if s['N']==n) for n in budgets),
+      'rtd_dominated_at_every_N':all(x['rtd_dominated'] for x in dominated)}
+    result={'schema_version':1,'scope':'fresh prospective bounded author-engine isotropic N-scaling development comparison',
+      'source':{'commit':manifest['resolved_commit'],'archive_sha256':manifest['archive_sha256'],'manifest_sha256':sha256(MANIFEST)},
+      'plan_sha256':sha256(PLAN),'config_sha256':sha256(CONFIG),'environment':{'python':sys.version.split()[0],'numpy':importlib.metadata.version('numpy'),'scipy':importlib.metadata.version('scipy'),'pyyaml':importlib.metadata.version('PyYAML')},
+      'author_run_summary':author,'record_refs':refs,'rows':len(rows),'summaries':summaries,'rtd_dominance':dominated,'prediction_checks':predictions,
+      'execution':{'wall_seconds':wall,'process_cpu_seconds':cpu,'peak_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024},'checks':checks,'all_checks_pass':all(checks.values()),
+      'limitations':['development Gaussian evidence only','fresh CPU NumPy streams differ from paper CuPy streams','not paper-scale','author row timings share curve computations']}
+    OUTPUT.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+    print(json.dumps({'rows':len(rows),'checks':checks,'prediction_checks':predictions,'rtd_dominance':dominated,'execution':result['execution']},sort_keys=True))
+    if not result['all_checks_pass']: raise SystemExit(2)
+
+if __name__=='__main__': main()

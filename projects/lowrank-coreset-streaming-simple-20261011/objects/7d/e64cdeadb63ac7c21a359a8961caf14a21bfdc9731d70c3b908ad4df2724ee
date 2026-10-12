@@ -1,0 +1,38 @@
+# State-matched one-pass hashing analysis v1
+
+## Result
+
+Both frozen endpoints met the wall-time and retained-state gates but failed the
+unchanged quality gate:
+
+| endpoint | median macro-F1 | loss vs full | wall ratio | NumPy state | joint gate |
+| --- | ---: | ---: | ---: | ---: | --- |
+| 2^14, no averaging | 0.611684 | 0.063864 | 0.6618 | 2,621,920 B | fail: quality |
+| 2^12, averaging | 0.571189 | 0.104358 | 0.5618 | 1,966,880 B | fail: quality |
+
+The fixed full sparse reference is macro-F1 0.675548, median wall time 2.5224
+seconds, and 2,847,680 coefficient/intercept bytes.  The experiment peak RSS
+was 298,057,728 bytes, below both the 4 GiB process limit and 8 GB project cap.
+
+## Interpretation
+
+State matching repairs the oversized-state and speed defects of the 2^18
+averaged endpoint, but the resulting collision/optimization regime loses more
+than the predeclared 0.05 macro-F1 tolerance.  The no-averaging arm is the less
+bad endpoint yet still misses the quality gate by 0.013864.  The averaged arm
+at one quarter of its dimension is smaller and faster but substantially worse.
+
+This closes one-pass hashing as an application candidate on the exposed 20
+Newsgroups protocol.  It does not show that hashing, online IDF, or streaming
+moments fail on larger streams, and the three order seeds do not validate a
+nominal failure probability.  Further tuning against this already inspected
+test split would violate the frozen close rule.
+
+## Decision
+
+Retire `model-application-state-matched-streaming-v1`.  Before any further
+model-application experiment, audit a source-defined larger sparse/streaming
+benchmark whose full sparse state or workload is genuinely consequential under
+the CPU/8 GB authorization.  The audit must pin source, license/redistribution,
+split, labels/metric, sparse footprint, download cost and a bounded calibration;
+it may reject the benchmark without running a large numerical job.

@@ -1,0 +1,9 @@
+# Exact streamed FID-infinity sufficient-statistics analysis v1
+
+The fixed-reference known-zero-mean diagnostic passed every gate. For the author's exact 15 fresh-permutation memberships at d=64,N=4096, chunked one-pass Gram updates reproduced all node FID values with maximum absolute difference 1.42e-14 and all six OLS/VALE intercepts within 8.88e-15. Counts and memberships were exact; peak RSS was 37,224,448 bytes.
+
+The diagnostic state was 491,520 bytes of Gram accumulators, 61,440 bytes of membership masks, and 120 bytes of counts. The 2,097,152-byte raw sample matrix was retained only as an identical-input fixture and is explicitly not part of the proposed streaming state. The measured Python diagnostic happened to be faster than the author batch call, but this is not an accepted speed result because implementations and work decomposition differ.
+
+This establishes an implementation-equivalence mechanism for the known-zero-mean author curve: fresh independent node permutations require one accumulator per node for a one-pass exact realization; they cannot be collapsed into a single nested prefix accumulator without changing the realized protocol. It is ordinary sufficient-statistics algebra, not yet a new algorithm or originality result.
+
+The next necessary check is the actual centered `1/(N-1)` FID path used for image features, which requires per-node count, sum, and Gram. After that, closest prior online/streaming FID work must be audited before any scale experiment or novelty claim.

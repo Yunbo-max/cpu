@@ -1,0 +1,11 @@
+# B010 source audit: original `true_cost` is not an exact current-prefix comparator
+
+Primary identities: `samsonzhou/consistent-LRA` commit `d607c4f6467216c470d1e3b93989d44d5fcdec97`; `consistent-lra-landmark.py` SHA-256 `5999ad7cbfbe8e17677550c2c58fcce09d016ebd2eb7d99d6f57bbc57c295a86`; `landmark.mtx` SHA-256 `29fb87018e59049a52314c847c5ac2a4eaa3b875f7cd8467621fe074fbbc298b`; Musco-Musco arXiv1504.05477v2 PDF SHA-256 `4b80a34b255c084c426e2cc196ffd09e4e9309bc23798f8010ff5930c2a318bd`. The source task retained all file hashes. Landmark is71952x2704 with1151232 stored entries; the numerical shape inspection is diagnostic only.
+
+The author landmark script loads the full sparse matrix into dense memory, then uses the first5000 rows, k25 and `sklearn.randomized_svd(...,n_iter=7)`. Its `true_cost` is not the exact optimal cost of the current prefix. Variable `V` changes only at a refresh, and both `factors` and the denominator's `V[0:kcurr]` refer to that same last randomized refresh subspace between refreshes. Thus it cannot validate current-prefix approximation ratios. At the first refresh, `kcurr` is computed from the old `r=0`, so `factors=V[0:0]`; this boundary behavior must not be copied into the new baseline.
+
+The original projection routine forms a dense dxd projector through a pseudoinverse. For orthonormal right factors, equivalent residual evaluation can use `A-(A@V.T)@V`, avoiding the 2704x2704 projector and reducing memory. Exact thin SVD on the current512x2704 prefix supplies independent optimum values and right vectors. This changes the evaluator, not the author method, and will be labeled separately.
+
+The Musco-Musco Block Krylov method spans `[A Omega,(AA^T)A Omega,...,(AA^T)^q A Omega]`, orthonormalizes that space, and solves the small projected problem. For right factors in this project, compute the left Krylov basis and return the right singular vectors of `Q.T@A`. Matched simultaneous power keeps only the final powered block under the same Gaussian start, block width and number of A/A.T passes. Both include projected postprocessing.
+
+This source audit confirms why the next calibration requires an independent evaluator and matched work. It does not establish a speed or accuracy advantage and does not revisit the retired LOBPCG implementation.

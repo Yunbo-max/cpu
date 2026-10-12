@@ -1,0 +1,28 @@
+# Authentic URL FAinv first-compression analysis v1
+
+## Falsification result
+
+The guarded source-guided run reached the first rank-16/buffer-16 compression after only 35 chronological Day0 examples and 32 accepted updates. The preregistered bounded-trigger prediction passed, but the consequential one-iteration prediction failed on authentic update geometry.
+
+Starting from the released source state, the block EM changes were:
+
+1. `2.3818309881e-6` in 2.7627 s;
+2. `1.5861771395e-6` in 3.2839 s;
+3. `1.3623591168e-6` in 2.8326 s;
+4. `9.4962338980e-7` in 2.8535 s.
+
+Thus four iterations and 11.7326 s were required to cross the released `1e-6` threshold. The deterministic source-matched cost fixture was valid for per-iteration cost but not for iteration count. Its 375-compression/one-iteration projection cannot be used as a runtime estimate.
+
+## Positive checks
+
+- All 35 predictive variances were finite and positive; the observed range was `[8.2032, 99.6150]`.
+- The exact lazy component was materialized in 0.0203 s and produced a finite mean norm of 3.8240.
+- All four EM output diagonals were finite and positive; the final observed range was `[1.0, 1.07894]`.
+- Peak RSS was 662,487,040 bytes under the 4 GiB process limit, and total wall time was 11.8492 s.
+- The real buffer columns had 43–144 nonzeros, consistent with the earlier parser profile but not identical to its median fixture.
+
+## Interpretation boundary
+
+This is a valid negative result for the one-iteration fixture hypothesis, not a failure of the sparse/lazy implementation. It also reveals that substituting the diagonal-CW total update count obscures a very high initial FAinv acceptance rate: 32 of the first 35 examples updated. However, the first transient alone cannot be multiplied across Day0; after compression, the learned precision can change both acceptance and inter-compression spacing.
+
+The next falsifiable step is a separately planned continuation through a small fixed number of authentic compressions (for example three total) with a fixed example cap. It must reinstall each compressed `(D,L)`, rebuild the Woodbury Gram exactly, retain per-compression trigger intervals and EM iterations, and stop before any full Day0 quality claim. If the later compressions remain near 16 examples apart with multiple EM iterations, the two-day route is already dominated by runtime and should be retired without a large run.

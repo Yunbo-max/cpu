@@ -1,0 +1,28 @@
+# 20 Newsgroups protocol source audit: partial acquisition
+
+The fixed source task completed successfully as an execution task and produced
+its declared manifest.  Three scikit-learn primary documentation pages were
+acquired and hashed.  The original maintainer page returned HTTP 502 after
+10.98 seconds; this is a source-access failure, not evidence about the page's
+contents or dataset license.
+
+The acquired official documentation establishes the following protocol facts:
+
+- 20 native classes and 18,846 total text samples are exposed by the loader.
+- The documented train/test split is based on messages posted before versus
+  after a specific date; it is therefore retained rather than randomized.
+- Headers, signature-like footers, and quoted text can leak class-related
+  metadata.  All three removal filters will be applied symmetrically, with the
+  documented caveat that footers and quotes are heuristic and imperfect.
+- The official sparse example fits TF-IDF on training text and only transforms
+  test text, using `sublinear_tf=True`, `max_df=0.5`, `min_df=5`, and English
+  stop words.  These settings are frozen for the first native pilot.
+- The BSD markers on the acquired pages cover scikit-learn documentation and
+  example code; they do not by themselves establish a license for the message
+  corpus.  Dataset-use language remains unresolved until the maintainer page is
+  recovered or its absence is explicitly recorded.
+
+One bounded repair will try the HTTP and `www` variants of the same maintainer
+page.  It will not request any dataset archive.  Failure of both variants ends
+this source-recovery branch; it must not trigger repeated network retries.
+

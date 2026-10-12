@@ -1,0 +1,75 @@
+import hashlib,json,resource,time
+from pathlib import Path
+import numpy as np
+from scipy.io import mmread
+from scipy.linalg import eigh
+
+ROOT=Path(__file__).resolve().parents[1]
+SAVED=ROOT/'results/block_krylov_calibration_v2.json'
+
+def orth(x):
+    q,r=np.linalg.qr(x,mode='reduced')
+    if r.size==0:return q
+    tol=np.finfo(x.dtype).eps*max(x.shape)*abs(np.diag(r)).max(initial=0.)
+    return q[:,:int(np.sum(abs(np.diag(r))>tol))]
+
+def factors(a,omega,qdepth,method):
+    y=a@omega;blocks=[y]
+    for _ in range(qdepth):
+        z=orth(a.T@y);y=orth(a@z);blocks.append(y)
+    basis=orth(np.hstack(blocks) if method=='block_krylov' else y)
+    _,_,vt=np.linalg.svd(basis.T@a,full_matrices=False)
+    return vt[:25],basis
+
+def main():
+    begin=time.perf_counter();saved=json.loads(SAVED.read_text())
+    sparse=mmread(ROOT/'sources/consistent-LRA/landmark.mtx').tocsr()[:512]
+    support=int(np.count_nonzero(np.asarray(sparse.getnnz(axis=0)).ravel()))
+    a=np.asarray(sparse.toarray(),dtype=np.float64);del sparse
+    _,s,vt=np.linalg.svd(a,full_matrices=False);top=vt[:25];aat=a@a.T
+    tol=np.finfo(float).eps*max(a.shape)*s[0]
+    rank_info={'svd_standard_tolerance':float(tol),'standard_rank':int(np.sum(s>tol)),
+               'relative_ranks':{str(x):int(np.sum(s>s[0]*x)) for x in [1e-8,1e-10,1e-12]},
+               'nonzero_columns':support,'sigma1':float(s[0]),'sigma25':float(s[24]),
+               'sigma26':float(s[25]),'relative_gap_25_26':float((s[24]-s[25])/s[24])}
+    opt_f=float(np.sum(s[25:]**2));opt_s2=float(s[25]**2)
+    by={(x['seed'],x['q'],x['method']):x for x in saved['arms']};rows=[]
+    max_f=0.;max_sp=0.
+    for seed in [101,102,103]:
+      omega=np.random.default_rng(seed).normal(size=(a.shape[1],35))/np.sqrt(35)
+      for q in [0,1,2,4,7]:
+       for method in ['block_krylov','power']:
+        v,basis=factors(a,omega,q,method);c=a@v.T;res=a-c@v
+        fr=float(np.sum(res*res)/opt_f);gram=aat-c@c.T;gram=(gram+gram.T)/2
+        lam=float(eigh(gram,subset_by_index=[511,511],check_finite=False,eigvals_only=True)[0]);sr=float(np.sqrt(max(lam,0.)/opt_s2))
+        overlap=float(np.sum((v@top.T)**2));proj=float(np.sqrt(max(0.,50-2*overlap)))
+        # Stable chordal distance computed from both complementary residuals.
+        r1=v-(v@top.T)@top;r2=top-(top@v.T)@v
+        bidi=float(np.sqrt((np.sum(r1*r1)+np.sum(r2*r2))))
+        old=by[(seed,q,method)];df=abs(fr-old['frob_ratio']);ds=abs(sr-old['spectral_ratio']);max_f=max(max_f,df);max_sp=max(max_sp,ds)
+        rows.append({'seed':seed,'q':q,'method':method,'basis_columns':basis.shape[1],
+                     'frob_ratio':fr,'spectral_ratio':sr,'saved_abs_diff_frob':df,'saved_abs_diff_spectral':ds,
+                     'corrected_projection_frobenius_distance':proj,'bidirectional_residual_distance':bidi})
+    pairs=[]
+    for seed in [101,102,103]:
+      for q in [0,1,2,4,7]:
+        b=next(x for x in rows if (x['seed'],x['q'],x['method'])==(seed,q,'block_krylov'))
+        p=next(x for x in rows if (x['seed'],x['q'],x['method'])==(seed,q,'power'))
+        pairs.append({'seed':seed,'q':q,'block_minus_power_frob':b['frob_ratio']-p['frob_ratio'],'block_minus_power_spectral':b['spectral_ratio']-p['spectral_ratio']})
+    ready=[]
+    for q in [0,1,2,4,7]:
+      bs=[x for x in rows if x['q']==q and x['method']=='block_krylov']
+      if all(x['frob_ratio']<=1+1e-8 and x['spectral_ratio']<=1+1e-6 for x in bs):ready.append(q)
+    out={'scope':'independent audit of B011 saved gate metrics and correction of non-gating projection metric',
+         'input_sha256':hashlib.sha256(SAVED.read_bytes()).hexdigest(),'rank':rank_info,'rows':rows,'pairs':pairs,
+         'checks':{'max_saved_abs_diff_frob':max_f,'max_saved_abs_diff_spectral':max_sp,
+                   'saved_gate_metrics_reproduce':max_f<=1e-10 and max_sp<=1e-10,
+                   'block_no_worse_all_pairs_1e8':all(x['block_minus_power_frob']<=1e-8 and x['block_minus_power_spectral']<=1e-8 for x in pairs),
+                   'q0_methods_identical':all(abs(x['block_minus_power_frob'])<=1e-12 and abs(x['block_minus_power_spectral'])<=1e-12 for x in pairs if x['q']==0),
+                   'ready_q':ready,'selected_smallest_q':min(ready) if ready else None,
+                   'selected_basis_spans_numerical_rank':bool(ready and rank_info['standard_rank']<=next(x['basis_columns'] for x in rows if x['q']==min(ready) and x['method']=='block_krylov'))},
+         'elapsed_seconds':time.perf_counter()-begin,'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    (ROOT/'results/block_krylov_result_audit_v1.json').write_text(json.dumps(out,indent=2,allow_nan=False))
+    print(json.dumps({'rank':rank_info,'checks':out['checks'],'elapsed_seconds':out['elapsed_seconds'],'peak_rss_kib':out['peak_rss_kib']}))
+
+if __name__=='__main__':main()

@@ -1,0 +1,63 @@
+import sys, time, json, resource, hashlib, platform
+from pathlib import Path
+root = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(root/'.deps'))
+sys.path.insert(0, str(root/'sources'))
+import numpy as np
+import pyarrow as pa
+import pyarrow.parquet as pq
+import l1_coresets as author
+pa.set_cpu_count(1)
+pa.set_io_thread_count(1)
+
+def cost_sorted(points, center):
+    total = 0.0
+    for j, v in enumerate(center):
+        x = np.sort(points[:,j]); q = int(np.searchsorted(x, v))
+        total += q*v - float(np.sum(x[:q])) + float(np.sum(x[q:])) - (len(x)-q)*v
+    return total
+
+start=time.perf_counter()
+path=root/'data/yellow_tripdata_2024-01.parquet'
+schema=pq.read_schema(path)
+columns=[f.name for f in schema if pa.types.is_float64(f.type) and f.name!='RatecodeID']
+table=pq.read_table(path,columns=columns,use_threads=False)
+df=table.to_pandas().dropna(); del table
+clean_rows=len(df)
+points=np.ascontiguousarray(df.iloc[:100000].to_numpy(dtype=np.float64)); del df
+np.save(root/'data/taxi_clean_first100000.npy',points)
+load_seconds=time.perf_counter()-start
+rows=[];checks=[];preparation={}
+seeds=[11,29,47]
+for n in [10000,100000]:
+    x=points[:n]
+    t=time.perf_counter(); optimum=np.median(x,axis=0); exact_seconds=time.perf_counter()-t
+    reference=cost_sorted(x,optimum)
+    direct=float(np.abs(x-optimum).sum())
+    assert np.isclose(reference,direct,rtol=1e-10,atol=1e-7)
+    checks.append({'n':n,'optimal_cost_sorted':reference,'optimal_cost_direct':direct})
+    rows.append({'n':n,'method':'exact','size':n,'seed':None,'solve_seconds':exact_seconds,'relative_error':0.0,'center':optimum.tolist()})
+    np.random.seed(7)
+    if n==10000:
+        t=time.perf_counter(); two=author.construct_strong_coreset_probabilities(x); two_time=time.perf_counter()-t
+        t=time.perf_counter(); one=author.construct_strong_coreset_probabilities_one_iteration(x); one_time=time.perf_counter()-t
+        preparation[str(n)]={'two_step_seconds':two_time,'one_step_seconds':one_time}
+    for size in [150,300,1000]:
+        for seed in seeds:
+            for method in (['uniform','one_step','two_step'] if n==10000 else ['uniform']):
+                np.random.seed(seed)
+                t=time.perf_counter()
+                if method=='uniform':sample,weights=author.uniform_sample_coreset(x,size); setup=0.0
+                elif method=='one_step':sample,weights=author.construct_strong_coreset_one_iteration(x,size,one);setup=one_time
+                else:sample,weights=author.construct_strong_coreset(x,size,*two);setup=two_time
+                center=author.compute_median(sample,weights)
+                solve=time.perf_counter()-t
+                t=time.perf_counter(); native=float(author.evaluate_coreset(x,sample,weights)); score_time=time.perf_counter()-t
+                independent=(cost_sorted(x,center)-reference)/reference
+                if not np.isclose(native,independent,rtol=1e-10,atol=1e-10):raise RuntimeError(f'score mismatch: {native} vs {independent}')
+                rows.append({'n':n,'method':method,'size':size,'seed':seed,'relative_error':native,'independent_error':independent,'solve_seconds':solve,'setup_seconds':setup,'unamortized_solve_seconds':solve+setup,'scoring_seconds':score_time,'center':center.tolist()})
+    print(json.dumps({'completed_n':n,'rows':len(rows),'exact_solve_seconds':exact_seconds}),flush=True)
+
+report={'scope':'development calibration; author source reused; first100000 cleaned rows; no original full-paper or new-method claim','source_commit':'48f0233eb65269b8552eb163f275627e5447921d','columns':columns,'clean_rows_in_source':clean_rows,'shape_saved':list(points.shape),'data_sha256':hashlib.file_digest((root/'data/taxi_clean_first100000.npy').open('rb'),'sha256').hexdigest(),'load_seconds':load_seconds,'preparation':preparation,'metric_checks':checks,'rows':rows,'elapsed_seconds':time.perf_counter()-start,'process_cpu_seconds':time.process_time(),'max_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'python':platform.python_version(),'numpy':np.__version__,'pyarrow':pa.__version__,'timing_caveat':'Shared host; order fixed; descriptive timings only'}
+(root/'results/native_pilot_v1.json').write_text(json.dumps(report,indent=2,allow_nan=False))
+print(json.dumps({k:report[k] for k in ['clean_rows_in_source','shape_saved','elapsed_seconds','process_cpu_seconds','max_rss_kib']}),flush=True)

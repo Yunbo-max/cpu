@@ -1,0 +1,15 @@
+# Source-matched block FA-EM calibration v2 analysis
+
+## Result
+
+The repaired full-dimension diagnostic started the mutable EM state exactly at the released `FA.m` state, `Dcur=D0` and `Lcur=L0`, with the same rank-16, buffer-16, `d=3,231,961` construction as v1. It converged after one iteration: normalized mean absolute parameter change was `9.058325262259351e-7`, below the released `1e-6` stopping threshold.
+
+The iteration took 2.7032 seconds; initialization took 0.4574 seconds. Peak RSS was 917,008,384 bytes and owned arrays were 879,121,808 bytes, both far below the preregistered 2 GiB diagnostic gate and the 4 GiB process limit. The output diagonal remained finite and positive, ranging from 1.2 to 1.37737.
+
+Using the deliberately qualified diagonal-CW proxy of 375 compressions, the observed single-iteration cost projects to 1,013.7 seconds. This passes the 1,800-second command-window gate and corrects the earlier v1 ambiguity: the v1 resource timing was representative, while v2 is the valid source-matched convergence observation.
+
+## Limits and decision
+
+The deterministic factor and buffer values are a cost fixture. The 375 compressions come from substituting the diagonal-CW count of 6,017 accepted updates, not from an observed FAinv trajectory. Therefore this result does not validate true update frequency, total runtime, or URL quality, and it does not authorize a two-day or 20-day run.
+
+Retain the sparse/lazy route for one authentic first-compression calibration on the official chronological Day0 stream. That task must use the exact released scalar/update order, the already verified bounded lazy-mean invariant, actual sparse update directions, and source-matched block EM, then stop immediately after the first compression. Its purpose is to test the trigger and whether the one-iteration fixture survives real update geometry.

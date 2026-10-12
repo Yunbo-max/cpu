@@ -1,0 +1,39 @@
+import hashlib, json, os, resource, shutil, subprocess, time, urllib.request
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / 'sources'
+REPO = SRC / 'consistent-LRA'
+EXPECTED_PREFIX = 'd607c'
+
+def sha(path):
+    h=hashlib.sha256()
+    with path.open('rb') as f:
+        while b:=f.read(1024*1024): h.update(b)
+    return h.hexdigest()
+
+def run(args,cwd=None):
+    return subprocess.run(args,cwd=cwd,check=True,text=True,capture_output=True)
+
+def main():
+    t=time.perf_counter();SRC.mkdir(exist_ok=True)
+    if REPO.exists(): raise RuntimeError('Refusing to overwrite existing source directory')
+    run(['git','clone','--filter=blob:none','--no-checkout','https://github.com/samsonzhou/consistent-LRA.git',str(REPO)])
+    head=run(['git','rev-parse','origin/main'],REPO).stdout.strip()
+    if not head.startswith(EXPECTED_PREFIX): raise RuntimeError(f'Expected {EXPECTED_PREFIX}*, observed {head}')
+    run(['git','checkout','--detach',head],REPO)
+    paper=SRC/'blockKrylov_arxiv_1504.05477v2.pdf'
+    with urllib.request.urlopen('https://arxiv.org/pdf/1504.05477v2',timeout=60) as response, paper.open('wb') as out:
+        shutil.copyfileobj(response,out)
+    files=[]
+    for p in sorted(REPO.rglob('*')):
+        if p.is_file() and '.git' not in p.parts:
+            files.append({'path':str(p.relative_to(ROOT)),'bytes':p.stat().st_size,'sha256':sha(p)})
+    files.append({'path':str(paper.relative_to(ROOT)),'bytes':paper.stat().st_size,'sha256':sha(paper)})
+    total=sum(x['bytes'] for x in files)
+    if total>=8_000_000_000:raise RuntimeError(f'source bytes exceed project limit: {total}')
+    manifest={'repo_url':'https://github.com/samsonzhou/consistent-LRA.git','commit':head,'expected_prefix':EXPECTED_PREFIX,'paper_url':'https://arxiv.org/pdf/1504.05477v2','files':files,'total_bytes':total,'elapsed_seconds':time.perf_counter()-t,'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    (SRC/'lra_source_manifest_v1.json').write_text(json.dumps(manifest,indent=2))
+    print(json.dumps({k:manifest[k] for k in ['commit','total_bytes','elapsed_seconds','peak_rss_kib']}))
+
+if __name__=='__main__':main()

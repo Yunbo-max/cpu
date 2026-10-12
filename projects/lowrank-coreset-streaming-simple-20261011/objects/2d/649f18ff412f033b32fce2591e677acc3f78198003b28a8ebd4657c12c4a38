@@ -1,0 +1,37 @@
+# B014: frozen eta=.1 trajectory endpoint comparison with a support-aware exact baseline
+
+Source recovery fixed the prior B15 commit and recovered the exact eta=.1 output.
+The raw reference has205 post-growth queries,100 post-growth refreshes, and71 late
+refreshes at t>=125. First reconstruct the exact cached-Gram policy on the current
+pinned Landmark first512 rows and require bit-identical query/update masks to the
+recovered exact B15 NPZ. If either mask differs or there are not exactly71 late
+refreshes, preserve the mismatch and do not evaluate replacement endpoints.
+
+At the71 frozen late refresh prefixes compare three endpoint routines, each in
+three paired repeats/seeds: (a) full dense exact SVD, matching B15; (b) a strong
+simple exact SVD restricted to the incrementally known nonzero columns; and (c)
+the selected Block Krylov q=1,width35 with fixed Gaussian seeds101,102,103. The
+active-column set is derivable online and frozen before endpoint timing; the
+support-restricted matrix slice/copy remains inside its endpoint timer. Block
+Krylov uses a fixed full-dimension Omega per seed and counts four matrix passes.
+No warm start or parameter tuning is added.
+
+For every Block Krylov endpoint use an independently computed full exact SVD truth.
+Require Frobenius ratio<=1+1e-8, spectral ratio<=1+1e-6, and the frozen B15 strict
+objective excess<=1e-10*max(1,prefix energy). Preserve all213 endpoint rows and
+all timings. Evaluation and exact-policy reconstruction costs are reported
+separately from endpoint solver time; total task time is also retained.
+
+Predictions: the recovered masks reproduce because the same author raw rows are
+used; Block Krylov passes quality because every512-prefix row has support within65
+columns. It may beat the old full dense exact SVD, but the support-aware exact SVD
+is the decisive simple baseline. If Block Krylov fails any quality gate, do not
+integrate it. If it passes but is not faster than support-aware exact in every
+paired total (with medians also reported), reject a practical speed claim and
+retire this endpoint direction. Only if it passes quality and beats both exact
+baselines in every paired total may a separately planned full-policy timing test
+proceed. One correlated trajectory is development evidence, not generalization or
+novelty.
+
+CPU one thread via cpu_guard,4GiB address-space cap, timeout300s, expected peak
+below500MiB. No native5000 expansion is authorized by this plan.

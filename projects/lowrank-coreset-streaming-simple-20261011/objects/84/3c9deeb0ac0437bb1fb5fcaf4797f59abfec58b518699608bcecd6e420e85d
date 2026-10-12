@@ -1,0 +1,44 @@
+# 50% sampling robustness and strong baseline v1
+
+## Hypothesis
+
+The marginal 50% reservoir result is driven in part by random label-composition
+and timing variation.  A proportional label-stratified 50% sample should be a
+stronger simple supervised baseline, but neither sampler is considered locally
+promising unless it passes a fixed seed-robust aggregate gate.
+
+## Frozen protocol
+
+- Same cached native train/test split, metadata removal, train-only TF-IDF, and
+  sparse Ridge objective as `discriminative_compression_pilot_v1`.
+- Repeat the deterministic full sparse baseline three times in the same warm
+  process.  Use its median wall time as the time denominator and verify metrics
+  are bitwise identical across repeats.
+- Sample exactly round(0.5 * 11,314) training documents.
+- New seeds: 307, 401, 503, 601, 701.
+- `uniform_reservoir`: the same one-pass uniform reservoir algorithm.
+- `stratified_uniform`: `StratifiedShuffleSplit`, using labels only to preserve
+  class proportions; no feature or test-label information is used.
+- Each sample fits its own vectorizer and classifier and transforms the native
+  test set once.  Count selection, vectorization, fit, and prediction.
+
+## Aggregate decision rule
+
+A sampler is locally promising only if, among the five new seeds:
+
+1. median macro-F1 loss relative to repeated full sparse is at most 0.03;
+2. at least four of five seeds individually have loss at most 0.03;
+3. median wall-time ratio is at most 0.75; and
+4. every sample retains all 20 classes.
+
+This is a robustness screen, not a probability guarantee.
+
+## Predictions and stop rule
+
+Uniform reservoir is expected to remain near the quality boundary and may fail
+the four-of-five rule.  Stratification should reduce class-count variation; if
+it passes, it becomes the strong simple example-compression baseline for any
+later learned coreset.  If neither passes, close batch example compression on
+this benchmark.  Regardless of outcome, do not revisit SVD-128/256, which the
+pilot already showed to be dominated.
+

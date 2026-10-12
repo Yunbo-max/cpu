@@ -1,0 +1,40 @@
+{
+  "submission_id": "url-author-code-v1",
+  "idea": "url-cw-fact-native-reproduction-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "url-author-code-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/acquire_url_author_code_v1.py"
+      ],
+      "phase": "sources",
+      "purpose": "Acquire and hash only the source-linked CW factor-analysis author archive, without executing it or downloading the large dataset",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/url_author_code_acquisition_v1.md",
+          "sha256": "50bbd97c256656e30e087549270489de1f5811485f37a936de9fea186037c470"
+        },
+        {
+          "path": "scripts/acquire_url_author_code_v1.py",
+          "sha256": "f100086c7867e269b59b1fdaf6a46df41f6b57a811ca711bde8203a11455e59e"
+        },
+        {
+          "path": "sources/large_stream_candidate_manifest_v1.json",
+          "sha256": "8a228b85dc11f0ccd575fa07bb1f08e04336085dc16193f1511517d7c8e04fb7"
+        },
+        {
+          "path": "notes/large_stream_source_audit_v1.md",
+          "sha256": "606808f7a494fed647687673e56778debe8b0dd9a48177e3ceda0780edf4c84e"
+        }
+      ],
+      "outputs": [
+        "sources/url_cw_fa_code_manifest_v1.json"
+      ]
+    }
+  ]
+}

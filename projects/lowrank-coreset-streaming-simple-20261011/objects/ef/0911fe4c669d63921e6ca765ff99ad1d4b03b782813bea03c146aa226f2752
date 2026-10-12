@@ -1,0 +1,29 @@
+# Authentic URL FAinv three-compression analysis v2
+
+## Result against the frozen prediction
+
+The continuous Day0 trajectory reproduced the first compression exactly and reached three compressions after 70 examples:
+
+| compression | trigger example | examples since prior trigger | accepted updates since prior | EM iterations | EM seconds |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 1 | 35 | 35 | 32 | 4 | 12.5557 |
+| 2 | 51 | 16 | 16 | 4 | 11.5523 |
+| 3 | 70 | 19 | 16 | 2 | 5.3973 |
+
+Both post-first intervals were at most the preregistered 32-example threshold, and both later compressions required at least two EM iterations. The frozen dense-later-pattern prediction therefore passed, as did every validity and resource gate.
+
+The implementation processed 64 accepted updates among 70 examples and made 13 prequential mistakes before stopping. Predictive variances remained finite and positive in `[8.2032, 99.6150]`; every materialized mean and EM output diagonal was finite, all EM loops crossed the released `1e-6` threshold, and the first trigger/iteration count matched v1. Peak RSS was 944,275,456 bytes and total wall time was 30.5393 seconds under the 4 GiB/180-second task limits.
+
+## Runtime interpretation
+
+The post-first trajectory accepted every update needed to refill the 16-column buffer, with only three rejected examples between the second and third triggers. This directly rejects the possibility that the first compression immediately creates a long quiet period. It also confirms that the deterministic one-iteration fixture was not representative of authentic early-stream geometry: the second real compression again required four iterations.
+
+If the two post-first intervals and their mean EM time were stationary over the 36,000-example Day0-Day1 diagnostic, the local heuristic would be about 2,055 compressions and 17,417 EM seconds (about 4.84 hours), excluding prediction, parsing, Gram maintenance, lazy flushes and setup. This exceeds the 1,800-second command window by about 9.7 times. It is not a lower bound: only two post-first intervals were observed, later data can change the acceptance rate, and the published 20-day sampled protocol is different.
+
+## Decision
+
+Apply the prospective decision rule and retire `url-cw-fact-sparse-lazy-feasibility-v1` as a two-day URL application under the current CPU window. A larger URL run is not justified. The exact bounded lazy-mean identity and row-block compression remain valid implementation results, but they have strong prior-art overlap and no demonstrated quality or end-to-end resource advantage.
+
+This retirement does not claim that the 2010 method fails statistically, that all sparse implementations are slow, or that the heuristic projection is globally stationary. It says the current source-guided rank-16 route is not a useful next experiment under the project's CPU constraints and strong-baseline discipline.
+
+With the discriminative application branches now exhausted, the next serial direction should be a prior-art-and-protocol scope audit for a CPU-bounded generative-model use of streaming statistics. No generative experiment should start until it identifies a claim that is not already a standard streaming evaluation/sketching mechanism and names a strong exact/simple baseline.

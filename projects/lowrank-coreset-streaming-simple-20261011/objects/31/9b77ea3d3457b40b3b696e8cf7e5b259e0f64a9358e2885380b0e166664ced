@@ -1,0 +1,67 @@
+# Discriminative benchmark source audit v1
+
+## Decision question
+
+Can 20 Newsgroups support a reproducible CPU-only downstream comparison of
+full sparse learning, uniform/reservoir subsampling, and standard low-rank
+dimensionality reduction without label leakage or an invented split?
+
+This task is source/protocol audit only.  It must not download the dataset,
+vectorize documents, or fit a model.
+
+## Candidate and primary sources
+
+- Original maintainer page: `https://qwone.com/~jason/20Newsgroups/`.
+- Stable scikit-learn loader API page.
+- Stable scikit-learn sparse text classification example.
+- Stable scikit-learn real-world dataset guide.
+
+Every acquired byte is saved under `sources/20newsgroups-protocol-v1/` and
+recorded with URL, retrieval time, status, byte count, and SHA-256 in
+`sources/20newsgroups_protocol_manifest_v1.json`.  Failed retrievals remain in
+the manifest and are not silently replaced by secondary claims.
+
+## Acceptance conditions before any data download
+
+1. A primary source defines a native train/test split, and its construction is
+   recorded.  No random resplit may replace it.
+2. The label source and all 20 classes are native rather than synthesized from
+   the evaluated statistic.
+3. The protocol removes `headers`, `footers`, and `quotes` on both native
+   subsets, because official documentation identifies these as metadata that
+   can artificially reveal the class.  The heuristic imperfection is retained
+   as a limitation.
+4. `TfidfVectorizer(sublinear_tf=True, max_df=0.5, min_df=5,
+   stop_words="english")` is fitted on the native training text only and then
+   transforms the untouched test text.  This follows the official example;
+   vocabulary or IDF fitting on test data is prohibited.
+5. Dataset-use or licensing language is quoted only as a short locator and
+   paraphrased.  If no explicit dataset license or permission is found, raw
+   text must remain a recoverable local input and must not be redistributed in
+   checkpoints; the ambiguity is reported rather than inferred away.
+6. The task remains feasible under a 4 GiB process address-space limit and
+   single-thread execution.  Expected sample counts and sparse dimensions are
+   checked later from the native loader, not asserted from memory.
+
+## Predeclared downstream comparison, conditional on acceptance
+
+- Primary quality: macro-F1 on the native test set; secondary: accuracy.
+- Counted cost: download excluded as data acquisition, but metadata removal,
+  vectorizer fit/transform, subset construction or SVD fit/transform,
+  classifier fit, and prediction are timed and peak RSS is retained.
+- Strong full-data baselines: sparse Ridge classifier following the official
+  example and sparse logistic/SGD only if their hyperparameters are fixed from
+  training data without using the test set.
+- Compression baselines: deterministic uniform/reservoir subsets at the same
+  retained-example budgets and standard `TruncatedSVD` at fixed ranks, each
+  followed by the same classifier family where mathematically compatible.
+- No proposed coreset or sketch is tested until a prospective hypothesis,
+  budget, seeds, and stop rule are written against these baselines.
+
+## Rejection conditions
+
+Reject this benchmark for the active study if the native split cannot be
+verified, leakage cannot be bounded by the declared removal protocol, labels
+are not native, the representation is not genuinely high-dimensional and
+sparse after train-only fitting, or a 4 GiB pilot cannot complete safely.
+

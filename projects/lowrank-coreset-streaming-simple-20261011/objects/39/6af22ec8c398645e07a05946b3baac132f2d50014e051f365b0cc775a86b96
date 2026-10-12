@@ -1,0 +1,51 @@
+{
+  "response_id": "bernstein-diagnostic-next-v1",
+  "request_id": "decision-71969c701472491c856800e253ed4866",
+  "idea": "coreset-adaptive-comparison-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The derived near-tie bottleneck motivates a discriminating development test of the known variance-sensitive bound; mathematical scope and experiment fixed before outcomes.",
+  "tasks": [
+    {
+      "task_id": "bernstein-diagnostic-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/bernstein_diagnostic.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Test variance-aware pairwise stopping against Hoeffding on retained native cases with independently verified moment accumulator",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "paired-validator-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "scripts/bernstein_diagnostic.py",
+          "sha256": "97a9c4dc3a9414797303e0298f306a31033f2039d3df0991be6ae11e61b20ea6"
+        },
+        {
+          "path": "plans/bernstein_diagnostic_v1.md",
+          "sha256": "6b002abda84061d0a33cc7964b5ba05b651bafaa2f81c14363752b2a3dd403fd"
+        },
+        {
+          "path": "notes/near_tie_math_v1.md",
+          "sha256": "019c132c861c5a46cdcffb294025e75e1a1e2e90c306eae0f22abc34ed17ffac"
+        },
+        {
+          "path": "data/taxi_clean_first100000.npy",
+          "sha256": "a607235bd70f74a33b60426472d38cbc01978e71e8baa7736394769ea71d07ac"
+        }
+      ],
+      "outputs": [
+        "results/bernstein_diagnostic_v1.json"
+      ]
+    }
+  ]
+}

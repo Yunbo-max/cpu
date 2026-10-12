@@ -1,0 +1,62 @@
+{
+  "request_id": "decision-354c4dcb8fad4e78b2a2bc85727f129a",
+  "idea": "url-cw-fact-native-reproduction-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "url-fainv-kernel-cost-interpret-v1",
+  "reason": "Both preregistered resource gates reject a direct dense transcription of the released FAinv implementation at the official URL dimension. The negative is implementation- and boundary-specific, so a separate exactness-first sparse/lazy feasibility audit replaces the dense reproduction rather than implying a general impossibility.",
+  "events": [
+    {
+      "event_id": "url-fainv-kernel-cost-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "The source-derived operation graph, frozen ranks, full-dimension guarded measurements, algebraic full-buffer liveness inventory and retained receipt are available.",
+      "goal_contract_version": 1,
+      "hypothesis": "A direct dense port of the released FAinv representation can fit under 4 GiB and process the official two-day prefix within one 1,800-second command window.",
+      "prediction": "Retain the route only if the full-dimension task completes, the measured rank-16 kernels project to at most 1,800 seconds for the declared two-day diagnostic proxy, and the source-derived full-buffer EM liveness estimate is below 4 GiB.",
+      "result": "The task completed, but rank-16 no-buffer exact live arrays were 1,318,647,512 bytes and observed RSS after prediction was 1,366,274,048 bytes. Measured no-buffer kernels project to 1,854.1 seconds for 36,000 predictions plus 6,017 proxy cache rebuilds. Full-buffer source liveness is estimated at 4,705,735,216 bytes versus a 4,294,967,296-byte limit. Both time and memory gates failed.",
+      "interpretation": "The direct dense released-code route is not viable under the present process/window limits. This does not refute the published method or optimized sparse/lazy implementations; it identifies repeated cache rebuilds, dense-output updates, buffer doubling and EM temporaries as the concrete blockers.",
+      "next_action": "Derive whether an exact bounded-state sparse/lazy representation can preserve FAinv predictions and mean updates across factor/buffer changes without retaining unbounded historical bases; do not implement until the invariant and prior-art boundary are explicit.",
+      "evidence": [
+        {
+          "path": "plans/url_fainv_kernel_cost_v1.md",
+          "sha256": "2a55150724869d655375da9420614410c07d3f851f7eaf35a6977631d5d21631"
+        },
+        {
+          "path": "results/url_fainv_kernel_cost_v1.json",
+          "sha256": "e0c78f0985726083820036596cebdac0bf202be24b89a4a0b07b8477d915b968"
+        },
+        {
+          "path": "notes/url_fainv_kernel_cost_analysis_v1.md",
+          "sha256": "abf3540e742a300cc8f35316eaf227063e5225bfa57b5436240f348bb6049d32"
+        },
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-afc730aabe5b4128a48d0db1515a7eb5/receipt.json",
+          "sha256": "2a88f6aacc9530effbe342698e639653923e17b156385e658b86ba94cb9b5767"
+        }
+      ]
+    },
+    {
+      "event_id": "url-fainv-dense-retire-v1",
+      "kind": "retire_idea",
+      "reason": "The direct dense released-code reproduction failed both its preregistered two-day compute projection and 4 GiB full-buffer liveness gates.",
+      "evidence": [
+        {
+          "path": "results/url_fainv_kernel_cost_v1.json",
+          "sha256": "e0c78f0985726083820036596cebdac0bf202be24b89a4a0b07b8477d915b968"
+        }
+      ]
+    },
+    {
+      "event_id": "url-fainv-sparse-lazy-replace-v1",
+      "kind": "replace_idea",
+      "idea": "url-cw-fact-sparse-lazy-feasibility-v1",
+      "reason": "The remaining decision-changing uncertainty is mathematical: whether an exact or explicitly approximated sparse/lazy representation can avoid dense sigma_x and cache materialization while preserving bounded state across factor changes. This must be resolved before code or novelty claims.",
+      "evidence": [
+        {
+          "path": "notes/url_fainv_kernel_cost_analysis_v1.md",
+          "sha256": "abf3540e742a300cc8f35316eaf227063e5225bfa57b5436240f348bb6049d32"
+        }
+      ]
+    }
+  ]
+}

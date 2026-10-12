@@ -1,0 +1,58 @@
+{
+  "attempt_id": "attempt-4d43141ec2694210918ec3f3ee2a556a",
+  "command_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 237919,
+    "start_ticks": 11833241
+  },
+  "contract_sha256": "805045e18da802d3b810fd79f2a78cb99dc0f837d3f94f5c5a5520c1a5597058",
+  "elapsed_seconds": 0.645505004998995,
+  "error": "Command exited with status 1; Cannot safely read results/block_krylov_calibration_v1.json: [Errno 2] No such file or directory: 'results'",
+  "exit_code": 1,
+  "finished_at": "2026-10-12T02:25:49.403369+00:00",
+  "input_refs": [
+    {
+      "path": "plans/block_krylov_calibration_v1.md",
+      "sha256": "eae61e5c7e3dc541b55b6b302f76d1d10ee8af278069412a40a52e7c3051ff0b"
+    },
+    {
+      "path": "scripts/block_krylov_calibration.py",
+      "sha256": "8adbbf79870bcc1e51fc5fa2c8747b4e0ac8f2b31e36491ea556dd34d98316e0"
+    },
+    {
+      "path": "scripts/cpu_guard.py",
+      "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+    },
+    {
+      "path": "sources/lra_source_manifest_v1.json",
+      "sha256": "e5f6edc3b134d9d52e279c9ae5cadb536765037c0e4f3823a10948fd79ac3271"
+    },
+    {
+      "path": "sources/consistent-LRA/landmark.mtx",
+      "sha256": "29fb87018e59049a52314c847c5ac2a4eaa3b875f7cd8467621fe074fbbc298b"
+    },
+    {
+      "path": "sources/blockKrylov_arxiv_1504.05477v2.pdf",
+      "sha256": "4b80a34b255c084c426e2cc196ffd09e4e9309bc23798f8010ff5930c2a318bd"
+    }
+  ],
+  "output_refs": [],
+  "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w002",
+  "schema_version": 1,
+  "started_at": "2026-10-12T02:25:48.757869+00:00",
+  "status": "failed",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-4d43141ec2694210918ec3f3ee2a556a/stderr.txt",
+    "sha256": "1e109ae7e76f9940595d780f8e5944bd2ac6f3bc5ad3d0a5c0440988200e0dd8"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-4d43141ec2694210918ec3f3ee2a556a/stdout.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "task_id": "block-krylov-calibration-v1",
+  "worker_identity": {
+    "boot_id": "54f3ae8f-6c23-44aa-a39c-035ecb2733d1",
+    "pid": 237918,
+    "start_ticks": 11833234
+  }
+}

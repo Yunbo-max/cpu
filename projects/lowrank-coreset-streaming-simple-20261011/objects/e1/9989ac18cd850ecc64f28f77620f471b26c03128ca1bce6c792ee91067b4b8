@@ -1,0 +1,215 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "all_finite": true,
+    "endpoint_is_full_pool": true,
+    "peak_rss_below_4gib": true,
+    "sample_sizes_strictly_increasing": true,
+    "wall_below_900s": true,
+    "weights_sum_to_one": true
+  },
+  "comparisons": {
+    "1": {
+      "nested_to_fresh_rmse_ratio": 0.9770416459864185,
+      "paired_mse_difference": {
+        "mean_nested_minus_fresh": -0.00010074568073882453,
+        "percentile_95": [
+          -0.0007398879515073055,
+          0.0005143445777911094
+        ],
+        "resamples": 5000
+      },
+      "passes_10pct_noninferiority": true
+    },
+    "2": {
+      "nested_to_fresh_rmse_ratio": 0.852370304291542,
+      "paired_mse_difference": {
+        "mean_nested_minus_fresh": -0.000911795853399088,
+        "percentile_95": [
+          -0.0020210127344680168,
+          0.00014434706445075617
+        ],
+        "resamples": 5000
+      },
+      "passes_10pct_noninferiority": true
+    },
+    "3": {
+      "nested_to_fresh_rmse_ratio": 0.778243329787738,
+      "paired_mse_difference": {
+        "mean_nested_minus_fresh": -0.0035759405274423477,
+        "percentile_95": [
+          -0.0068273459570441465,
+          -0.0005653740401460036
+        ],
+        "resamples": 5000
+      },
+      "passes_10pct_noninferiority": true
+    }
+  },
+  "execution": {
+    "peak_rss_bytes": 38416384,
+    "process_cpu_seconds": 2.1186689260000002,
+    "wall_seconds": 2.119641245999901
+  },
+  "limitations": [
+    "known-zero-mean isotropic Gaussian development fixture only",
+    "ordinary OLS only; pinned native VALE weights not restored on this host",
+    "scalar influence covariance is a first-order mechanism proxy for nonlinear FID",
+    "paired bootstrap is developmental and the results are not unseen confirmation"
+  ],
+  "plan_sha256": "e1659fe9f5d96ae6b670181dd95faed7b9b9361e0537751184591b655c085e5e",
+  "scalar_influence_proxy": {
+    "1": {
+      "fresh_variance_per_sigma2": 0.0003291544956420881,
+      "nested_to_fresh_ratio": 1.0804883402207872,
+      "nested_variance_per_sigma2": 0.00035564759467253014,
+      "weight_sum": 1.0000000000000009,
+      "weights": [
+        -0.19565834433454346,
+        -0.06755172004455867,
+        -0.003498407899566306,
+        0.034933579387429116,
+        0.06055490424542608,
+        0.07885585057256678,
+        0.09258156031792228,
+        0.10325711234208768,
+        0.11179755396141998,
+        0.11878518801360098,
+        0.12460821639041848,
+        0.1295353942477256,
+        0.1337586895539888,
+        0.13741887881941695,
+        0.14062154442666658
+      ]
+    },
+    "2": {
+      "fresh_variance_per_sigma2": 0.0005347071508734845,
+      "nested_to_fresh_ratio": 0.9689102713978406,
+      "nested_variance_per_sigma2": 0.000518083250671194,
+      "weight_sum": 1.0000000000000044,
+      "weights": [
+        0.2159217870429753,
+        -0.29837434995398193,
+        -0.2988348746827044,
+        -0.21697117551361592,
+        -0.1281703702315894,
+        -0.04797795543701482,
+        0.021333767936407382,
+        0.08067542672461944,
+        0.13157125433878572,
+        0.17547610541721717,
+        0.2136191633993633,
+        0.24699868494647118,
+        0.2764156297694861,
+        0.3025120736271343,
+        0.3258048326164511
+      ]
+    },
+    "3": {
+      "fresh_variance_per_sigma2": 0.0014313298310050248,
+      "nested_to_fresh_ratio": 0.7704600586115331,
+      "nested_variance_per_sigma2": 0.0011027824654885672,
+      "weight_sum": 1.0000000000000413,
+      "weights": [
+        -0.15665041572906488,
+        0.8002548327411365,
+        -0.09460603771694659,
+        -0.5075603063660052,
+        -0.600790321471392,
+        -0.5371388749747152,
+        -0.40245243478027903,
+        -0.23927103043563863,
+        -0.06856427213279347,
+        0.09942182290054578,
+        0.25986616885211056,
+        0.4107345353110763,
+        0.5514317474163103,
+        0.6820968082951044,
+        0.8032277780905924
+      ]
+    }
+  },
+  "schema_version": 1,
+  "scope": "prospective paired isotropic OLS membership-dependence diagnostic",
+  "settings": {
+    "N": 4096,
+    "d": 64,
+    "generated_scale": 0.5,
+    "master_seed": 20261015,
+    "sample_sizes": [
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048,
+      2304,
+      2560,
+      2816,
+      3072,
+      3328,
+      3584,
+      3840,
+      4096
+    ],
+    "trials": 96
+  },
+  "state_bytes": {
+    "active_gram_compression_factor": 15,
+    "fresh_active_gram_bytes": 491520,
+    "nested_active_gram_bytes": 32768
+  },
+  "summaries": {
+    "fresh_ols_order1": {
+      "bias": -0.009480800274367096,
+      "median_absolute_error": 0.036282957720310094,
+      "n": 96,
+      "rmse": 0.04711236812845802,
+      "sample_sd": 0.04639081205034316
+    },
+    "fresh_ols_order2": {
+      "bias": -0.013474882674328031,
+      "median_absolute_error": 0.03823961671145959,
+      "n": 96,
+      "rmse": 0.057742826547475805,
+      "sample_sd": 0.05644331196613179
+    },
+    "fresh_ols_order3": {
+      "bias": 0.013385501708454864,
+      "median_absolute_error": 0.05742929396847396,
+      "n": 96,
+      "rmse": 0.09522724139152246,
+      "sample_sd": 0.09477671051460151
+    },
+    "nested_ols_order1": {
+      "bias": -0.008567968374909566,
+      "median_absolute_error": 0.03299704547367677,
+      "n": 96,
+      "rmse": 0.046030745702546706,
+      "sample_sd": 0.04546372399066857
+    },
+    "nested_ols_order2": {
+      "bias": -0.007588478241641032,
+      "median_absolute_error": 0.02875525794261291,
+      "n": 96,
+      "rmse": 0.04921827063492568,
+      "sample_sd": 0.04888503199805343
+    },
+    "nested_ols_order3": {
+      "bias": -0.0013471158501484892,
+      "median_absolute_error": 0.05279764131523024,
+      "n": 96,
+      "rmse": 0.07410996542703915,
+      "sample_sd": 0.0744866880675148
+    },
+    "plugin": {
+      "bias": 0.17398073817217416,
+      "median_absolute_error": 0.17376764566596137,
+      "n": 96,
+      "rmse": 0.17770559076349612,
+      "sample_sd": 0.03638363634964138
+    }
+  },
+  "true_fid": 5.490332008121911
+}

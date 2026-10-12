@@ -1,0 +1,24 @@
+# Exact streamed FID-infinity sufficient-statistics diagnostic v1
+
+## Hypothesis
+
+For the pinned author's known-zero-mean `plugin_curve`, precomputing exactly the same per-node permutation memberships and updating one Gram accumulator per node in a single pass gives the same plugin values and OLS/VALE intercepts as the batch subset implementation, up to a tolerance justified by floating-point accumulation order.
+
+## Algebra and state
+
+For node S of size n, the batch covariance is `C_S = (1/n) sum_{i in S} x_i x_i^T`. Addition is associative in exact arithmetic, so a chunked single pass over the pool can update all node Grams. The endpoint includes every row. For centered FID, the same construction additionally retains `sum x_i` and uses `(G - s s^T/n)/(n-1)`; this task tests only the source-matched known-zero-mean path.
+
+With m nodes and dimension d, exact one-pass state is m symmetric d-by-d accumulators plus membership metadata: O(m d^2 + mN bits), independent of raw feature storage N d. It is not a low-rank or coreset approximation. The author's fresh independent node permutations prevent collapsing the exact state to one nested accumulator without changing the realized protocol.
+
+## Frozen diagnostic
+
+- Author commit and isotropic task generator remain pinned.
+- d=64, N=4096, one deterministic new sample stream and the author 15-node schedule from 512 to 4096.
+- Compare all 15 plug-in node values and six OLS/VALE intercepts (orders 1--3) against unmodified `plugin_curve` on identical samples/seeds.
+- Stream in chunks of 37 rows so equality cannot be attributed to one batch Gram call.
+- Gates: identical memberships/counts; max absolute node error <= 2e-10; max absolute intercept error <= 2e-9; all finite; peak RSS < 1 GiB; no GPU.
+- Measure author batch and streamed wall times, but this Python diagnostic makes no speed claim.
+
+## Falsifiers and decision
+
+Failure beyond tolerance localizes a membership/RNG, normalization, or numerical-order error; repair before any streaming claim. Passing establishes implementation equivalence only for this fixed-reference known-zero-mean curve. It does not establish novelty, ImageNet equivalence, or a memory advantage at all d,N. After a pass, audit centered-feature extension and closest prior online-FID work before deciding whether the direction merits larger experiments.

@@ -1,0 +1,31 @@
+# B011-B012 Block-Krylov calibration analysis
+
+The preregistered residual gate reproduces exactly. Across all30 arms, the audit's
+Frobenius and spectral ratios have zero absolute difference from the saved B011
+values. All15 equal-pass pairs satisfy the no-worse threshold; Block Krylov minus
+power ranges from -4.0955444803e-5 to1.1102230246e-16 in Frobenius ratio and from
+-2.9742496026e-6 to3.3306690739e-16 in spectral ratio. The smallest common ready
+depth is q=1. Exact SVD took0.2610s in this one calibration; q=1 Block Krylov arm
+times were0.0193-0.0292s. These shared-host single executions are not a speedup
+claim.
+
+The mechanism is locally degenerate: the first512 Landmark rows have exactly65
+nonzero columns and numerical rank65 at the standard tolerance and at relative
+thresholds 1e-8,1e-10,1e-12. The q=1 Block Krylov basis also has65 columns, so it
+spans the entire numerical row space and returns the exact top25 subspace. Thus the
+quality gate is passed, but this prefix is not evidence of scalable Krylov
+convergence. Power q=1 remains slightly approximate.
+
+The original projection-distance field is invalid because it compared the
+approximate25-space to all512 exact right singular vectors. Since every computed
+right vector lies in the exact row space, that expression collapses toward zero.
+The corrected top25 comparison gives q=0 distances0.370758-1.011479, q=1 power
+distances0.011299-0.016560, and q=1 Block Krylov distance0. This metric was not a
+readiness gate, so its correction does not change the predeclared q=1 selection.
+
+Decision: retain q=1 as the locally ready classical endpoint, explicitly qualified
+as rank saturation. Do not extrapolate from this single prefix. The next valid
+test is the already specified eta=.1 online refresh trajectory with isolated exact
+and Block-Krylov endpoint costs and the same quality checks. Because only the B15
+summary is present locally, first recover the exact frozen B15 source/trajectory
+definition at its recorded commit; do not reconstruct the71 refreshes from prose.

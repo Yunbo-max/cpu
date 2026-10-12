@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+"""Run the pinned author Gaussian engine and summarize the prospective CPU scaling design."""
+from __future__ import annotations
+import hashlib
+import importlib.metadata
+import json
+import math
+import pathlib
+import resource
+import statistics
+import sys
+import time
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+CONFIG = ROOT / "configs" / "fid_rtd_isotropic_scaling_v1.yaml"
+PLAN = ROOT / "plans" / "fid_rtd_isotropic_scaling_v1.md"
+MANIFEST = ROOT / "sources" / "fid_rtd_source_manifest_v1.json"
+REPO = ROOT / ".deps" / "fid_rtd" / "repo-1e90579840cf81284287583fcb607581704993ab" / "sample-optimal-fid-estimation-1e90579840cf81284287583fcb607581704993ab"
+RAW = ROOT / ".deps" / "fid_rtd" / "isotropic_scaling_v1"
+OUTPUT = ROOT / "results" / "fid_rtd_isotropic_scaling_v1.json"
+
+def sha256(path: pathlib.Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for block in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(block)
+    return h.hexdigest()
+
+def quantile_t975(df: int) -> float:
+    table = {31: 2.039513}
+    return table[df]
+
+def summarize(values: list[float]) -> dict:
+    n = len(values)
+    mean = statistics.fmean(values)
+    sd = statistics.stdev(values)
+    se = sd / math.sqrt(n)
+    half = quantile_t975(n - 1) * se
+    return {"n": n, "mean": mean, "sample_sd": sd, "standard_error": se,
+            "ci95_t": [mean - half, mean + half]}
+
+def main() -> None:
+    manifest = json.loads(MANIFEST.read_text())
+    if manifest["resolved_commit"] != "1e90579840cf81284287583fcb607581704993ab":
+        raise RuntimeError("unexpected source commit")
+    if not REPO.is_dir():
+        raise FileNotFoundError(REPO)
+    sys.path.insert(0, str(REPO / "src"))
+    sys.path.insert(0, str(REPO))
+    from experiments.gaussian.run import run
+
+    wall0 = time.perf_counter()
+    cpu0 = time.process_time()
+    author_summary = run(CONFIG, RAW)
+    process_cpu = time.process_time() - cpu0
+    wall = time.perf_counter() - wall0
+
+    records = sorted((RAW / "records").glob("task_*.json"))
+    rows = []
+    record_refs = []
+    for path in records:
+        payload = json.loads(path.read_text())
+        record_refs.append({"path": str(path.relative_to(ROOT)), "sha256": sha256(path),
+                            "size_bytes": path.stat().st_size})
+        for trial in payload["trials"]:
+            rows.extend(trial["rows"])
+
+    grouped = {}
+    for row in rows:
+        grouped.setdefault((int(row["dimension"]), row["method"]), []).append(row)
+    summaries = []
+    for (dimension, method), group in sorted(grouped.items()):
+        signed = [float(r["signed_error_w2_sq_raw"]) for r in group]
+        absolute = [abs(x) for x in signed]
+        squared = [x * x for x in signed]
+        runtimes = [float(r["runtime_seconds"]) for r in group]
+        bias = summarize(signed)
+        summaries.append({
+            "dimension": dimension,
+            "method": method,
+            "bias": bias,
+            "absolute_bias": abs(bias["mean"]),
+            "rmse": math.sqrt(statistics.fmean(squared)),
+            "median_absolute_error": statistics.median(absolute),
+            "author_runtime_seconds": {
+                "mean": statistics.fmean(runtimes),
+                "median": statistics.median(runtimes),
+                "sum_not_additive_for_shared_curves": sum(runtimes),
+            },
+            "L_used": sorted({r.get("L_used") for r in group if r.get("L_used") is not None}),
+        })
+
+    expected_methods = {"empirical_plugin", "fid_infinity_ols_order1", "fid_infinity_ols_order2",
+        "fid_infinity_ols_order3", "fid_infinity_variance_aware_order1",
+        "fid_infinity_variance_aware_order2", "fid_infinity_variance_aware_order3", "general_adaptive"}
+    finite_fields = ("true_w2_sq", "estimate_w2_sq_raw", "signed_error_w2_sq_raw",
+                     "abs_error_w2_sq_raw", "runtime_seconds")
+    checks = {
+        "four_tasks": len(records) == 4 and author_summary.get("tasks") == 4,
+        "exactly_1024_rows": len(rows) == 1024 and author_summary.get("rows") == 1024,
+        "all_status_ok": all(r.get("status") == "ok" for r in rows),
+        "all_numeric_finite": all(math.isfinite(float(r[k])) for r in rows for k in finite_fields),
+        "method_set_exact": {r["method"] for r in rows} == expected_methods,
+        "group_size_32": len(grouped) == 32 and all(len(v) == 32 for v in grouped.values()),
+        "peak_rss_below_4gib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024 < 4 * 1024**3,
+        "wall_below_900s": wall < 900,
+    }
+    plugin = {s["dimension"]: s for s in summaries if s["method"] == "empirical_plugin"}
+    d128 = [s for s in summaries if s["dimension"] == 128]
+    predictions = {
+        "plugin_bias_positive_all_dimensions": all(s["bias"]["mean"] > 0 for s in plugin.values()),
+        "plugin_bias_strictly_increasing": all(plugin[a]["bias"]["mean"] < plugin[b]["bias"]["mean"]
+                                               for a, b in zip((16, 32, 64), (32, 64, 128))),
+        "some_correction_has_lower_absolute_bias_at_d128": any(
+            s["method"] != "empirical_plugin" and s["absolute_bias"] < plugin[128]["absolute_bias"] for s in d128),
+        "some_correction_has_lower_rmse_at_d128": any(
+            s["method"] != "empirical_plugin" and s["rmse"] < plugin[128]["rmse"] for s in d128),
+    }
+    result = {
+        "schema_version": 1,
+        "scope": "prospective bounded author-engine isotropic CPU development comparison",
+        "source": {"commit": manifest["resolved_commit"], "archive_sha256": manifest["archive_sha256"],
+                   "manifest_sha256": sha256(MANIFEST), "repo_run_sha256": sha256(REPO / "experiments" / "gaussian" / "run.py")},
+        "plan_sha256": sha256(PLAN),
+        "config_sha256": sha256(CONFIG),
+        "environment": {"python": sys.version.split()[0], "numpy": importlib.metadata.version("numpy"),
+                        "scipy": importlib.metadata.version("scipy"), "pyyaml": importlib.metadata.version("PyYAML")},
+        "author_run_summary": author_summary,
+        "record_refs": record_refs,
+        "rows": len(rows),
+        "summaries": summaries,
+        "prediction_checks": predictions,
+        "execution": {"wall_seconds": wall, "process_cpu_seconds": process_cpu,
+                      "peak_rss_bytes": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024},
+        "checks": checks,
+        "all_checks_pass": all(checks.values()),
+        "limitations": ["development Gaussian evidence only", "CPU NumPy streams differ from paper CuPy streams",
+                        "environment versions differ from paper reporting pins", "author row timings share curve computations"],
+    }
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    print(json.dumps({"checks": checks, "prediction_checks": predictions,
+                      "execution": result["execution"], "rows": len(rows)}, sort_keys=True))
+    if not result["all_checks_pass"]:
+        raise SystemExit(2)
+
+if __name__ == "__main__":
+    main()

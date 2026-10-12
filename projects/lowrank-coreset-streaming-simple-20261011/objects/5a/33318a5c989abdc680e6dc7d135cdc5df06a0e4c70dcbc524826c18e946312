@@ -1,0 +1,22 @@
+from collections import Counter
+import json,time,resource
+from pathlib import Path
+import numpy as np
+ROOT=Path(__file__).resolve().parents[1]
+t0=time.perf_counter();stream=np.load(ROOT/'data/moment_native_shift_1000.npy')[500:]
+r=json.loads((ROOT/'results/moment_prefix_window_v1.json').read_text());norms={500:0.};c=Counter();moment=0
+for t in range(499,-1,-1):
+ x=int(stream[t]);v=c[x];moment+=(v+1)**3-v**3;c[x]+=1;norms[t]=moment**(1/3)
+out={'scope':'optimistic exact-suffix interval diagnostic; not a native sketch certificate','arms':[]}
+for arm in r['arms']:
+ starts=sorted([s['start'] for s in arm['suffixes']]+[500]);rows=[]
+ for W in range(1,501):
+  t=500-W;a=max(s for s in starts if s<=t);b=min(s for s in starts if s>=t);L,U=norms[b],norms[a];true=norms[t]
+  independent=sum(v**3 for v in Counter(map(int,stream[t:])).values())**(1/3)
+  assert abs(independent-true)<1e-10 and L<=true<=U
+  radius=(U-L)/(U+L);point=2*L*U/(L+U)
+  assert abs(point-true)/true<=radius+1e-12
+  rows.append({'W':W,'earlier_start':a,'later_start':b,'L':L,'U':U,'truth':true,'interval_minimax_point':point,'relative_radius':radius,'certifies_10pct':radius<=.1})
+ out['arms'].append({'name':arm['name'],'retained_nonempty_starts':len(starts)-1,'windows':500,'certified_10pct_count':sum(x['certifies_10pct'] for x in rows),'max_relative_radius':max(x['relative_radius'] for x in rows),'rows':rows})
+out.update(elapsed_seconds=time.perf_counter()-t0,peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+(ROOT/'results/moment_query_bracket_v1.json').write_text(json.dumps(out,indent=2));print(json.dumps({k:v for k,v in out.items() if k!='arms'}))

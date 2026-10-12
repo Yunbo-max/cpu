@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+"""Bounded repair for the original 20 Newsgroups landing page only."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import pathlib
+import time
+import urllib.error
+import urllib.request
+from datetime import datetime, timezone
+
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+OUT = ROOT / "sources" / "20newsgroups-protocol-v2"
+MANIFEST = ROOT / "sources" / "20newsgroups_original_source_manifest_v2.json"
+URLS = [
+    "http://qwone.com/~jason/20Newsgroups/",
+    "https://www.qwone.com/~jason/20Newsgroups/",
+]
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def main() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    attempts = []
+    success = None
+    for index, url in enumerate(URLS, start=1):
+        started = time.perf_counter()
+        row = {"url": url, "attempt": index}
+        request = urllib.request.Request(
+            url,
+            headers={"User-Agent": "lowrank-coreset-streaming-source-audit/1.0"},
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=20) as response:
+                payload = response.read()
+                filename = f"original_home_variant_{index}.html"
+                (OUT / filename).write_bytes(payload)
+                row.update(
+                    {
+                        "ok": True,
+                        "filename": filename,
+                        "http_status": getattr(response, "status", None),
+                        "final_url": response.geturl(),
+                        "bytes": len(payload),
+                        "sha256": hashlib.sha256(payload).hexdigest(),
+                        "content_type": response.headers.get("Content-Type"),
+                    }
+                )
+                success = row
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            row.update(
+                {
+                    "ok": False,
+                    "error_type": type(exc).__name__,
+                    "error": str(exc),
+                }
+            )
+        row["elapsed_seconds"] = time.perf_counter() - started
+        row["retrieved_at_utc"] = utc_now()
+        attempts.append(row)
+        if success is not None:
+            break
+
+    manifest = {
+        "schema_version": 1,
+        "created_at_utc": utc_now(),
+        "scope": "original landing page variants only; no archive requested",
+        "attempts": attempts,
+        "succeeded": success is not None,
+        "selected": success,
+    }
+    MANIFEST.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(manifest, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

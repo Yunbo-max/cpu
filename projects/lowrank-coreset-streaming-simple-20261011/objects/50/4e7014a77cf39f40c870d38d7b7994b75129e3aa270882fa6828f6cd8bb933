@@ -1,0 +1,205 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+import pathlib
+import resource
+import time
+
+import numpy as np
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+PLAN = ROOT / "plans" / "nested_prefix_vale_centered_v1.md"
+OUTPUT = ROOT / "results" / "nested_prefix_vale_centered_v1.json"
+
+
+def sha256(path: pathlib.Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def extrapolation_weights(sample_sizes: np.ndarray, maximum: int, order: int, weighting: str) -> np.ndarray:
+    fractions = sample_sizes.astype(np.float64) / float(maximum)
+    design = np.column_stack([fractions ** (-power) for power in range(order + 1)])
+    if weighting == "ordinary_ols":
+        regression = np.ones_like(fractions)
+    elif weighting == "variance_aware":
+        regression = fractions
+    else:
+        raise ValueError(weighting)
+    normal = design.T @ (regression[:, None] * design)
+    e1 = np.zeros(order + 1, dtype=np.float64)
+    e1[0] = 1.0
+    return regression * (design @ np.linalg.solve(normal, e1))
+
+
+def fid_identity_centered(samples: np.ndarray) -> float:
+    n, d = samples.shape
+    mean = samples.mean(axis=0)
+    centered = samples - mean
+    covariance = (centered.T @ centered) / float(n - 1)
+    eigenvalues = np.linalg.eigvalsh((covariance + covariance.T) * 0.5)
+    eigenvalues = np.clip(eigenvalues, 0.0, None)
+    return float(mean @ mean + d + np.trace(covariance) - 2.0 * np.sqrt(eigenvalues).sum())
+
+
+def scalar_covariances(sample_sizes: np.ndarray, maximum: int) -> tuple[np.ndarray, np.ndarray]:
+    m = len(sample_sizes)
+    fresh = np.empty((m, m), dtype=np.float64)
+    nested = np.empty((m, m), dtype=np.float64)
+    for j, nj in enumerate(sample_sizes):
+        for k, nk in enumerate(sample_sizes):
+            fresh[j, k] = 1.0 / float(nj) if j == k else 1.0 / float(maximum)
+            nested[j, k] = 1.0 / float(max(nj, nk))
+    return fresh, nested
+
+
+def summarize(errors: np.ndarray) -> dict:
+    return {
+        "n": int(errors.size),
+        "bias": float(errors.mean()),
+        "rmse": float(np.sqrt(np.mean(errors * errors))),
+        "sample_sd": float(errors.std(ddof=1)),
+        "median_absolute_error": float(np.median(np.abs(errors))),
+    }
+
+
+def paired_bootstrap(nested: np.ndarray, fresh: np.ndarray, seed: int) -> dict:
+    difference = nested * nested - fresh * fresh
+    rng = np.random.default_rng(seed)
+    draws = rng.integers(0, difference.size, size=(5000, difference.size))
+    boot = difference[draws].mean(axis=1)
+    return {
+        "mean_nested_minus_fresh": float(difference.mean()),
+        "percentile_95": [float(x) for x in np.quantile(boot, [0.025, 0.975])],
+        "resamples": 5000,
+    }
+
+
+def main() -> None:
+    d = 48
+    maximum = 3072
+    trials = 96
+    master_seed = 20261016
+    sample_sizes = np.linspace(384, maximum, 15).astype(np.int64)
+    methods = ("ordinary_ols", "variance_aware")
+    weights = {method: extrapolation_weights(sample_sizes, maximum, 2, method) for method in methods}
+
+    fixture_rng = np.random.default_rng(1907)
+    q, _ = np.linalg.qr(fixture_rng.normal(size=(d, d)))
+    eigenvalues = np.geomspace(0.25, 1.50, d)
+    transform = q @ np.diag(np.sqrt(eigenvalues))
+    mean = np.linspace(-1.0, 1.0, d)
+    mean *= 0.5 / np.linalg.norm(mean)
+    true_fid = float(mean @ mean + np.sum(1.0 + eigenvalues - 2.0 * np.sqrt(eigenvalues)))
+
+    fresh_cov, nested_cov = scalar_covariances(sample_sizes, maximum)
+    proxy = {}
+    for method, w in weights.items():
+        vf = float(w @ fresh_cov @ w)
+        vn = float(w @ nested_cov @ w)
+        proxy[method] = {
+            "fresh_variance_per_sigma2": vf,
+            "nested_variance_per_sigma2": vn,
+            "nested_to_fresh_ratio": vn / vf,
+            "weights": [float(x) for x in w],
+            "weight_sum": float(w.sum()),
+        }
+
+    errors = {arm: {method: [] for method in methods} for arm in ("fresh", "nested")}
+    errors["plugin"] = []
+    master = np.random.default_rng(master_seed)
+    eigendecompositions = 0
+    wall0 = time.perf_counter()
+    cpu0 = time.process_time()
+    for _ in range(trials):
+        pool_rng = np.random.default_rng(int(master.integers(0, 2**63 - 1)))
+        nested_rng = np.random.default_rng(int(master.integers(0, 2**63 - 1)))
+        fresh_rng = np.random.default_rng(int(master.integers(0, 2**63 - 1)))
+        samples = pool_rng.normal(size=(maximum, d)) @ transform.T + mean
+        nested_perm = nested_rng.permutation(maximum)
+        nested_values = []
+        fresh_values = []
+        for n in sample_sizes:
+            nested_values.append(fid_identity_centered(samples[nested_perm[:n]]))
+            selected = np.arange(maximum) if n == maximum else fresh_rng.permutation(maximum)[:n]
+            fresh_values.append(fid_identity_centered(samples[selected]))
+            eigendecompositions += 2
+        nested_values = np.asarray(nested_values)
+        fresh_values = np.asarray(fresh_values)
+        errors["plugin"].append(float(fresh_values[-1] - true_fid))
+        for method, w in weights.items():
+            errors["nested"][method].append(float(w @ nested_values - true_fid))
+            errors["fresh"][method].append(float(w @ fresh_values - true_fid))
+    wall = time.perf_counter() - wall0
+    cpu = time.process_time() - cpu0
+
+    summaries = {"plugin": summarize(np.asarray(errors["plugin"]))}
+    comparisons = {}
+    for index, method in enumerate(methods):
+        fresh = np.asarray(errors["fresh"][method])
+        nested = np.asarray(errors["nested"][method])
+        sf = summarize(fresh)
+        sn = summarize(nested)
+        summaries[f"fresh_{method}_order2"] = sf
+        summaries[f"nested_{method}_order2"] = sn
+        comparisons[method] = {
+            "nested_to_fresh_rmse_ratio": sn["rmse"] / sf["rmse"],
+            "paired_mse_difference": paired_bootstrap(nested, fresh, master_seed + 20 + index),
+            "passes_10pct_noninferiority": sn["rmse"] <= 1.10 * sf["rmse"],
+        }
+
+    peak = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024
+    checks = {
+        "sample_sizes_strictly_increasing": bool(np.all(np.diff(sample_sizes) > 0)),
+        "endpoint_is_full_pool": int(sample_sizes[-1]) == maximum,
+        "weights_sum_to_one": all(abs(proxy[m]["weight_sum"] - 1.0) <= 1e-10 for m in methods),
+        "all_finite": all(math.isfinite(value) for group in summaries.values() for value in group.values()),
+        "peak_rss_below_4gib": peak < 4 * 1024**3,
+        "wall_below_300s": wall < 300.0,
+    }
+    result = {
+        "schema_version": 1,
+        "scope": "prospective paired centered non-isotropic paper-VALE membership diagnostic",
+        "plan_sha256": sha256(PLAN),
+        "settings": {
+            "d": d,
+            "N": maximum,
+            "trials": trials,
+            "master_seed": master_seed,
+            "sample_sizes": sample_sizes.tolist(),
+            "generated_eigenvalue_range": [float(eigenvalues.min()), float(eigenvalues.max())],
+            "generated_mean_squared_norm": float(mean @ mean),
+            "covariance_denominator": "n-1",
+        },
+        "true_fid": true_fid,
+        "scalar_influence_proxy": proxy,
+        "summaries": summaries,
+        "comparisons": comparisons,
+        "state_bytes": {
+            "fresh_active_count_sum_gram_bytes": len(sample_sizes) * (1 + d + d * d) * 8,
+            "nested_active_count_sum_gram_bytes": (1 + d + d * d) * 8,
+            "active_state_compression_factor": len(sample_sizes),
+        },
+        "full_covariance_eigendecompositions": eigendecompositions,
+        "execution": {"wall_seconds": wall, "process_cpu_seconds": cpu, "peak_rss_bytes": peak},
+        "checks": checks,
+        "all_checks_pass": all(checks.values()),
+        "limitations": [
+            "single centered synthetic non-isotropic Gaussian condition",
+            "paper-formula VALE; native source archive not restored on this host",
+            "scalar influence covariance is a first-order proxy for nonlinear FID",
+            "developmental paired bootstrap and no unseen confirmation",
+            "the paper already analyzes common-pool overlap covariance for independently reshuffled levels",
+        ],
+    }
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    print(json.dumps({"comparisons": comparisons, "proxy": proxy, "execution": result["execution"], "checks": checks}, sort_keys=True))
+    if not result["all_checks_pass"]:
+        raise SystemExit(2)
+
+
+if __name__ == "__main__":
+    main()

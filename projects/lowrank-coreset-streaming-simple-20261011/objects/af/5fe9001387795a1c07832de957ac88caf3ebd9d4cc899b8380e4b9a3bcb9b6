@@ -1,0 +1,23 @@
+# Nested-prefix VALE primary-source addendum v1
+
+This addendum records a primary-paper audit completed after the OLS diagnostic and does not modify the already hashed audit/analysis evidence.
+
+## Deterministic VALE weights
+
+The current arXiv v2 paper defines the variance-aware weights explicitly. With design matrix `X`, sample fractions `c`, and `C = diag(c)`, Section 4.3 equation (44) is
+
+`w_VA = C X (X^T C X)^{-1} e_1`.
+
+Thus the paper-level VALE weights are deterministic conditional on the sample-size schedule and regression order; they are not fitted from the observed FID node values. The unchanged-node-marginal expectation argument therefore extends directly to the paper-defined VALE weights. The released implementation still needs to be restored and hash-pinned before claiming native code equivalence.
+
+## Closest theory overlap
+
+Appendix B.1 already analyzes the authors' shared-pool protocol with independently reshuffled uniform subsets at each level. Proposition 7 gives the leading cross-level covariance in terms of overlap counts, `V |I_i intersection I_j|/(n_i n_j)`, plus a bounded remainder. This is the same general overlap principle used in the local audit.
+
+The appendix explicitly samples subsets independently across levels. A single nested chain instead has deterministic maximal overlap `|I_i intersection I_j| = min(n_i,n_j)`. Therefore this route is not a new shared-pool covariance observation. Its narrower unresolved question is whether the nested overlap geometry yields a favorable quadratic form for the fixed OLS/VALE weights while enabling one active Gram state.
+
+## Decision
+
+The uncertainty about data-dependent VALE weights is removed. A next prospective plan may use the paper-defined variance-aware weights without waiting for archive restoration, but native code equivalence still requires the pinned source. The next plan must explicitly acknowledge that the paper already derives overlap-count covariance for independently reshuffled common-pool subsets.
+
+Primary source checked 2026-10-12: Ziyun Chen, Jerry Li, Kevin Tian, and Yusong Zhu, *Sample-Optimal Estimation of the Frechet Inception Distance*, arXiv:2610.07114v2, Section 4.3 equations (41)--(44), Appendix B.1 Propositions 6--7.

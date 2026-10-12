@@ -1,0 +1,366 @@
+#!/usr/bin/env python3
+"""Continue source-guided FAinv through three authentic Day0 compressions."""
+
+from __future__ import annotations
+
+import json
+import math
+import os
+import pathlib
+import resource
+import statistics
+import time
+
+import numpy as np
+
+from run_url_fainv_block_em_source_matched_v2 import em_iteration
+from run_url_prefix_baseline_calibration_v1 import parse_line
+
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+DATA = ROOT / ".deps" / "url_dataset" / "prefix" / "Day0.svm"
+OUTPUT = ROOT / "results" / "url_fainv_three_compressions_v2.json"
+DIM = 3_231_961
+RANK = 16
+BUFFER_WIDTH = 16
+BLOCK_ROWS = 16_384
+MAX_COMPRESSIONS = 3
+EXAMPLE_CAP = 512
+ETA = 0.95
+PHI = statistics.NormalDist().inv_cdf(ETA)
+PSI = 1.0 + PHI * PHI / 2.0
+XI = 1.0 + PHI * PHI
+
+
+def peak_rss_bytes() -> int:
+    return int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024)
+
+
+def sparse_column_on_rows(
+    rows: np.ndarray, column_indices: np.ndarray, column_values: np.ndarray
+) -> np.ndarray:
+    out = np.zeros(rows.size, dtype=np.float64)
+    _, row_positions, column_positions = np.intersect1d(
+        rows, column_indices, assume_unique=True, return_indices=True
+    )
+    out[row_positions] = column_values[column_positions]
+    return out
+
+
+def rebuild_factor_gram(diagonal: np.ndarray, factor: np.ndarray) -> tuple[np.ndarray, float]:
+    started = time.perf_counter()
+    result = np.zeros((RANK, RANK), dtype=np.float64)
+    for lo in range(0, DIM, BLOCK_ROWS):
+        hi = min(DIM, lo + BLOCK_ROWS)
+        result += factor[lo:hi].T @ ((1.0 / diagonal[lo:hi])[:, None] * factor[lo:hi])
+    return result, time.perf_counter() - started
+
+
+def padded_buffer(
+    indices: list[np.ndarray], values: list[np.ndarray]
+) -> tuple[np.ndarray, np.ndarray]:
+    maximum_nnz = max(int(idx.size) for idx in indices)
+    padded_indices = np.zeros((BUFFER_WIDTH, maximum_nnz), dtype=np.int64)
+    padded_values = np.zeros((BUFFER_WIDTH, maximum_nnz), dtype=np.float64)
+    for j, (column_indices, column_values) in enumerate(zip(indices, values)):
+        padded_indices[j, : column_indices.size] = column_indices
+        padded_values[j, : column_values.size] = column_values
+    return padded_indices, padded_values
+
+
+def main() -> None:
+    total_started = time.perf_counter()
+    diagonal = np.ones(DIM, dtype=np.float64)
+    factor = np.zeros((DIM, RANK), dtype=np.float64)
+    material_mean = np.zeros(DIM, dtype=np.float64)
+    buffer_indices: list[np.ndarray] = []
+    buffer_values: list[np.ndarray] = []
+    coefficient = np.zeros(0, dtype=np.float64)
+    gram = np.zeros((RANK + BUFFER_WIDTH, RANK + BUFFER_WIDTH), dtype=np.float64)
+    active_rank = 0
+    accepted_updates = 0
+    mistakes = 0
+    examples_seen = 0
+    variance_min = math.inf
+    variance_max = -math.inf
+    alpha_min = math.inf
+    alpha_max = -math.inf
+    compressions: list[dict[str, object]] = []
+
+    with DATA.open("r", encoding="ascii") as stream:
+        for line_number, raw in enumerate(stream, 1):
+            if line_number > EXAMPLE_CAP or len(compressions) >= MAX_COMPRESSIONS:
+                break
+            y, indices, values = parse_line(raw)
+            examples_seen = line_number
+            inverse_values = values / diagonal[indices]
+
+            h_parts: list[np.ndarray] = []
+            if active_rank:
+                h_parts.append(factor[indices, :active_rank].T @ inverse_values)
+            if buffer_indices:
+                h_parts.append(
+                    np.asarray(
+                        [
+                            float(
+                                sparse_column_on_rows(indices, b_indices, b_values)
+                                @ inverse_values
+                            )
+                            for b_indices, b_values in zip(buffer_indices, buffer_values)
+                        ],
+                        dtype=np.float64,
+                    )
+                )
+            h = np.concatenate(h_parts) if h_parts else np.zeros(0, dtype=np.float64)
+            active_width = h.size
+            if active_width:
+                small = np.eye(active_width, dtype=np.float64) + gram[:active_width, :active_width]
+                woodbury_coefficient = np.linalg.solve(small, h)
+            else:
+                woodbury_coefficient = np.zeros(0, dtype=np.float64)
+
+            score = float(material_mean[indices] @ values + h @ coefficient)
+            margin = y * score
+            variance = float(values @ inverse_values - h @ woodbury_coefficient)
+            if not math.isfinite(variance) or variance <= 0.0:
+                raise FloatingPointError(
+                    f"invalid predictive variance at example {line_number}: {variance}"
+                )
+            variance_min = min(variance_min, variance)
+            variance_max = max(variance_max, variance)
+            mistakes += int(margin <= 0.0)
+
+            if margin >= PHI * math.sqrt(variance):
+                continue
+
+            radical = margin * margin * PHI**4 / 4.0 + variance * PHI * PHI * XI
+            alpha = (-margin * PSI + math.sqrt(radical)) / (variance * XI)
+            sqrt_u = (
+                -alpha * variance * PHI
+                + math.sqrt(alpha * alpha * variance * variance * PHI * PHI + 4.0 * variance)
+            ) / 2.0
+            precision_scale = alpha * PHI / sqrt_u
+            if not all(
+                math.isfinite(value) and value > 0.0
+                for value in (alpha, sqrt_u, precision_scale)
+            ):
+                raise FloatingPointError(f"invalid CW scalar at example {line_number}")
+            alpha_min = min(alpha_min, alpha)
+            alpha_max = max(alpha_max, alpha)
+
+            mean_scale = alpha * y
+            material_mean[indices] += mean_scale * inverse_values
+            coefficient -= mean_scale * woodbury_coefficient
+
+            new_values = math.sqrt(precision_scale) * values
+            existing_rows: list[np.ndarray] = []
+            if active_rank:
+                existing_rows.append(factor[indices, :active_rank])
+            if buffer_indices:
+                existing_rows.append(
+                    np.column_stack(
+                        [
+                            sparse_column_on_rows(indices, b_indices, b_values)
+                            for b_indices, b_values in zip(buffer_indices, buffer_values)
+                        ]
+                    )
+                )
+            if existing_rows:
+                existing = np.column_stack(existing_rows)
+                cross = existing.T @ (new_values / diagonal[indices])
+                gram[:active_width, active_width] = cross
+                gram[active_width, :active_width] = cross
+            gram[active_width, active_width] = float(
+                new_values @ (new_values / diagonal[indices])
+            )
+
+            if active_rank < RANK:
+                factor[indices, active_rank] = new_values
+                active_rank += 1
+            else:
+                buffer_indices.append(indices.copy())
+                buffer_values.append(new_values.copy())
+            coefficient = np.append(coefficient, 0.0)
+            accepted_updates += 1
+
+            if active_rank != RANK or len(buffer_indices) != BUFFER_WIDTH:
+                continue
+
+            previous_trigger = int(compressions[-1]["trigger_example"]) if compressions else 0
+            previous_updates = int(compressions[-1]["accepted_updates_total"]) if compressions else 0
+            flush_started = time.perf_counter()
+            for lo in range(0, DIM, BLOCK_ROWS):
+                hi = min(DIM, lo + BLOCK_ROWS)
+                material_mean[lo:hi] += (
+                    factor[lo:hi] @ coefficient[:RANK]
+                ) / diagonal[lo:hi]
+            for j, (b_indices, b_values) in enumerate(zip(buffer_indices, buffer_values)):
+                material_mean[b_indices] += (
+                    b_values / diagonal[b_indices]
+                ) * coefficient[RANK + j]
+            flush_seconds = time.perf_counter() - flush_started
+            mean_l2 = float(np.linalg.norm(material_mean))
+            if not math.isfinite(mean_l2):
+                raise FloatingPointError(f"nonfinite materialized mean at compression {len(compressions)+1}")
+
+            packed_indices, packed_values = padded_buffer(buffer_indices, buffer_values)
+            target_diagonal = diagonal
+            target_factor = factor
+            current_diagonal = target_diagonal.copy()
+            current_factor = target_factor.copy()
+            em_records: list[dict[str, object]] = []
+            for iteration in range(1, 51):
+                record = em_iteration(
+                    target_diagonal,
+                    target_factor,
+                    packed_indices,
+                    packed_values,
+                    current_diagonal,
+                    current_factor,
+                )
+                record["iteration"] = iteration
+                em_records.append(record)
+                if record["normalized_parameter_change"] <= 1e-6:
+                    break
+
+            diagonal = current_diagonal
+            factor = current_factor
+            buffer_nnz = [int(idx.size) for idx in buffer_indices]
+            buffer_indices = []
+            buffer_values = []
+            coefficient = np.zeros(RANK, dtype=np.float64)
+            active_rank = RANK
+            gram.fill(0.0)
+            factor_gram, gram_seconds = rebuild_factor_gram(diagonal, factor)
+            gram[:RANK, :RANK] = factor_gram
+
+            compressions.append(
+                {
+                    "compression": len(compressions) + 1,
+                    "trigger_example": line_number,
+                    "examples_since_previous_trigger": line_number - previous_trigger,
+                    "accepted_updates_total": accepted_updates,
+                    "updates_since_previous_trigger": accepted_updates - previous_updates,
+                    "buffer_nnz": buffer_nnz,
+                    "lazy_flush_seconds": flush_seconds,
+                    "materialized_mean_l2": mean_l2,
+                    "em_iterations": len(em_records),
+                    "em_converged": bool(
+                        em_records[-1]["normalized_parameter_change"] <= 1e-6
+                    ),
+                    "em_cumulative_seconds": float(
+                        sum(float(record["iteration_seconds"]) for record in em_records)
+                    ),
+                    "em_records": em_records,
+                    "gram_rebuild_seconds": gram_seconds,
+                }
+            )
+
+    elapsed = time.perf_counter() - total_started
+    peak = peak_rss_bytes()
+    reached_three = len(compressions) == MAX_COMPRESSIONS
+    first_reproduced = bool(
+        reached_three
+        and compressions[0]["trigger_example"] == 35
+        and compressions[0]["em_iterations"] == 4
+    )
+    later_intervals = [
+        int(item["examples_since_previous_trigger"]) for item in compressions[1:]
+    ]
+    later_iterations = [int(item["em_iterations"]) for item in compressions[1:]]
+    dense_later_pattern = bool(
+        reached_three
+        and all(interval <= 32 for interval in later_intervals)
+        and all(iterations >= 2 for iterations in later_iterations)
+    )
+    post_first_examples = (
+        int(compressions[-1]["trigger_example"]) - int(compressions[0]["trigger_example"])
+        if reached_three
+        else None
+    )
+    post_first_compressions = len(compressions) - 1
+    heuristic_full_prefix_compressions = (
+        (36_000 - int(compressions[0]["trigger_example"]))
+        * post_first_compressions
+        / post_first_examples
+        if post_first_examples and post_first_compressions > 0
+        else None
+    )
+    observed_em_seconds = float(
+        sum(float(item["em_cumulative_seconds"]) for item in compressions)
+    )
+    heuristic_em_seconds = (
+        heuristic_full_prefix_compressions
+        * float(np.mean([float(item["em_cumulative_seconds"]) for item in compressions[1:]]))
+        if heuristic_full_prefix_compressions is not None
+        else None
+    )
+    all_em_diagonals_valid = all(
+        record["finite_positive_output_diagonal"]
+        for item in compressions
+        for record in item["em_records"]
+    )
+    result = {
+        "schema_version": 1,
+        "experiment": "url_fainv_three_compressions_v2",
+        "scope": "One continuous official Day0 trajectory through three source-guided FAinv compressions or 512 examples; no comparative-quality or published-protocol result.",
+        "published_dimension": DIM,
+        "example_cap": EXAMPLE_CAP,
+        "examples_seen": examples_seen,
+        "accepted_updates": accepted_updates,
+        "mistakes_before_stop": mistakes,
+        "compressions_completed": len(compressions),
+        "compressions": compressions,
+        "predictive_variance_min": variance_min,
+        "predictive_variance_max": variance_max,
+        "alpha_min": alpha_min if math.isfinite(alpha_min) else None,
+        "alpha_max": alpha_max if math.isfinite(alpha_max) else None,
+        "observed_em_seconds": observed_em_seconds,
+        "process_peak_rss_bytes": peak,
+        "process_limit_bytes": 4 * 1024**3,
+        "total_wall_seconds": elapsed,
+        "thread_env": {
+            name: os.environ.get(name)
+            for name in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS")
+        },
+        "decision": {
+            "first_compression_reproduced": first_reproduced,
+            "later_trigger_intervals_examples": later_intervals,
+            "later_em_iterations": later_iterations,
+            "dense_later_pattern": dense_later_pattern,
+            "retire_two_day_url_route_under_current_cpu_window": bool(
+                first_reproduced and dense_later_pattern
+            ),
+            "otherwise_next_action": "If the dense later pattern is false but all validity gates pass, preregister a bounded 512-example calibration.",
+        },
+        "local_stationarity_heuristic": {
+            "post_first_examples": post_first_examples,
+            "post_first_compressions": post_first_compressions,
+            "projected_compressions_over_36000_examples": heuristic_full_prefix_compressions,
+            "projected_em_seconds_over_36000_examples": heuristic_em_seconds,
+            "qualification": "Heuristic extrapolation from only the second and third trigger intervals; not a guaranteed lower bound and not evidence for later Day0/Day1 stationarity.",
+        },
+        "gates": {
+            "three_compressions_within_512_examples": reached_three,
+            "first_compression_matches_v1": first_reproduced,
+            "all_variances_finite_positive": bool(
+                math.isfinite(variance_min) and variance_min > 0.0
+            ),
+            "all_materialized_means_finite": all(
+                math.isfinite(float(item["materialized_mean_l2"])) for item in compressions
+            ),
+            "all_em_converged": all(bool(item["em_converged"]) for item in compressions),
+            "all_em_diagonals_finite_positive": bool(all_em_diagonals_valid),
+            "peak_rss_below_2_gib": peak < 2 * 1024**3,
+            "wall_at_most_180_seconds": elapsed <= 180.0,
+        },
+        "interpretation_boundary": "The retirement rule is a scoped CPU-feasibility decision from a frozen early-stream diagnostic, not a theorem about the whole dataset or a comparative-quality result.",
+    }
+    OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(result, sort_keys=True))
+    if not all(result["gates"].values()):
+        raise SystemExit(2)
+
+
+if __name__ == "__main__":
+    main()

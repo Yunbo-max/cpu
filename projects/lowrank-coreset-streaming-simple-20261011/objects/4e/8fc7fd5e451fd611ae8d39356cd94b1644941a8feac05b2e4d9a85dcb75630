@@ -1,0 +1,60 @@
+{
+  "study_id": "B15-RSI-native512-warm-lobpcg-comparator-20261010T2240",
+  "executor": "authorized current GPT host CPU; no Simple/ACP/SQLite supervisor claimed",
+  "resource_observation": {
+    "cpu.max": "800000 100000",
+    "cpu_quota_cores": 8,
+    "memory.max": 8589934592,
+    "numeric_threads": 1,
+    "gpu_used": false,
+    "dependency_install": false,
+    "container_used": false
+  },
+  "candidate_commands": {
+    "count": 10,
+    "all_bounded_by_seconds": 120,
+    "all_wrapper_commands_completed": true,
+    "commands": [
+      "compile frozen policy",
+      "eta=0.1 exact-SVD policy repeat 0",
+      "eta=0.1 frozen warm-LOBPCG policy repeat 0",
+      "unperturbed first-failure source diagnosis",
+      "deterministic-perturbation diagnosis",
+      "compile structured diagnosis and audit",
+      "structured rank-deficiency diagnosis",
+      "fixed-output trajectory/arithmetic audit",
+      "compile versioned revision closure",
+      "versioned source/reference/wording closure check"
+    ],
+    "known_command_wall_seconds_lower_bound": 15.77,
+    "measured_process_cpu_seconds_lower_bound": 14.510655588,
+    "uninstrumented_command_durations": 2,
+    "peak_rss_kib": 131368
+  },
+  "independent_review_commands": {
+    "initial_review": {
+      "commands": 11,
+      "verdict": "REVISE",
+      "instrumented_audit_wall_seconds": 0.074944882,
+      "instrumented_audit_cpu_seconds": 0.07437445,
+      "peak_rss_kib": 70840,
+      "aggregate_command_duration": "unknown; reviewer estimated about 8.3 seconds of tool-reported wall time"
+    },
+    "revision_closure": {
+      "commands": 4,
+      "verdict": "PASS",
+      "instrumented_check_wall_seconds": 0.000407,
+      "instrumented_check_cpu_seconds": 0.000405,
+      "peak_rss_kib": 47928
+    }
+  },
+  "round_totals": {
+    "bounded_shell_commands": 25,
+    "known_instrumented_wall_seconds_lower_bound": 15.845351882,
+    "measured_process_cpu_seconds_lower_bound": 14.585435038,
+    "peak_rss_kib": 131368,
+    "reservation_seconds_at_handoff": 0,
+    "live_scientific_processes_at_handoff": 0,
+    "limitations": "Two candidate diagnostic command durations and most independent source-inspection durations are not instrumented, so wall and CPU totals are lower bounds. One independent combined inspection command contained a failed optional Python import but completed its source search and did not affect the evidence."
+  }
+}

@@ -1,0 +1,47 @@
+# State-matched one-pass hashing experiment v1
+
+## Binding and exposure
+
+This prospective development test implements the two endpoints frozen in
+`discriminative_state_matched_hash_scope_v1.md`.  The 20 Newsgroups test split
+was already inspected by prior compression and hashing development; these
+three order seeds are therefore not independent confirmation.
+
+## Hypothesis and falsifier
+
+The earlier 2^18 averaged endpoint may have failed partly because its retained
+classifier arrays exceeded the full sparse Ridge coefficient state.  Reducing
+the hash dimension at the algebraic state crossover may retain enough quality
+while becoming smaller and faster.  The hypothesis is falsified on this
+benchmark if neither frozen endpoint meets all three unchanged gates.
+
+## Endpoints and fixed protocol
+
+- `hash_16384_no_average`: 2^14 features, `average=False`.
+- `hash_4096_average`: 2^12 features, `average=True`.
+- Native 20 Newsgroups train/test split, with headers, footers and quotes
+  removed; loader cache reuses the recoverable w002 `.deps` material.
+- Stateless `HashingVectorizer(alternate_sign=False, norm="l2",
+  stop_words="english")`.
+- One sequential `SGDClassifier.partial_fit` pass, log loss, alpha 1e-4, L2,
+  optimal learning rate, batches of 256, seeds/orderings 19, 71 and 211.
+- CPU only, one process and one thread, 4 GiB process address-space limit.
+
+## Baseline and outcomes
+
+The pinned reference is the previously measured full TF-IDF + sparse Ridge
+baseline (`discriminative_reservoir_robustness_reference_v1.json`, SHA-256
+`3e5a549a5deb564401970429b629c5a4d550640b48f1103a71d07126132beb2b`):
+macro-F1 0.6755475838189995 and median wall time 2.522401476991945 seconds.
+The state reference is 20 * 17797 float64 coefficients plus 20 float64
+intercepts, 2,847,680 bytes.
+
+For each endpoint record macro-F1, accuracy, end-to-end wall time, component
+times, all retained NumPy arrays and cumulative peak RSS.  An endpoint passes
+only if its median macro-F1 loss is <=0.05, median wall ratio is <=0.75, and
+the maximum measured retained NumPy-array bytes is <=2,847,680.
+
+If neither passes, retire streaming hashing on this benchmark and require a
+source-defined larger sparse/streaming task before further application claims.
+If one passes, treat it only as a simple baseline for a later online-IDF or
+moment-estimation comparison, not as a new algorithmic result.

@@ -1,0 +1,26 @@
+{
+  "response_id": "nested-prefix-ols-interpret-v1",
+  "request_id": "decision-4968f818af4c419fbb52bdc77f0da99a",
+  "idea": "streaming-vale-nested-prefix-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The prospective OLS membership diagnostic passed its bounded non-inferiority gate, with a statistically separated order-3 paired MSE reduction and a factor-15 active-Gram state reduction; native VALE source identity and weighting must be restored before any broader experiment or claim.",
+  "events": [
+    {
+      "event_id": "nested-prefix-ols-diagnostic-cycle-v1",
+      "kind": "research_cycle",
+      "hypothesis": "One shared random permutation with nested prefixes preserves every OLS node's uniform-subset marginal expectation while changing cross-node covariance, and can reduce exact active Gram state from O(m d^2) to O(d^2) without more than 10% RMSE degradation for at least one tested extrapolation order.",
+      "prediction": "At least one of OLS orders 1, 2, or 3 has nested-prefix RMSE no more than 1.10 times fresh-permutation RMSE; scalar covariance quadratics predict the direction of the strongest effect.",
+      "result": "Across 96 paired d=64,N=4096 isotropic pools, nested/fresh RMSE ratios were 0.9770, 0.8524, and 0.7782 for orders 1, 2, and 3. All passed the 10% non-inferiority gate. Order-3 paired MSE difference was -0.003576 with bootstrap 95% interval [-0.006827,-0.000565]. Active Gram state fell from 491,520 to 32,768 bytes. Wall/process CPU were 2.120/2.119 seconds and peak RSS was 38,416,384 bytes.",
+      "interpretation": "Nested membership is a viable bounded mechanism candidate: its changed covariance materially improved order-3 OLS in this development fixture while preserving node-wise marginals. The scalar first-order proxy captured the order-2/3 direction but missed the small order-1 empirical improvement. This is not a native VALE, centered-FID, ImageNet, novelty, or global-superiority result.",
+      "next_action": "Restore and hash-pin the native 2026 VALE/FID-infinity weighting implementation, verify whether its weights are deterministic conditional on sample sizes, and only then prospectively freeze a centered fresh-stream native-VALE plus OLS membership comparison.",
+      "reason": "The frozen plan, source-protocol audit, raw result, paired uncertainty calculation, resource receipt, and analysis jointly satisfy one real hypothesis-prediction-result-interpretation cycle while delimiting the next falsifier.",
+      "evidence": [
+        {"path": "notes/nested_prefix_protocol_math_audit_v1.md", "sha256": "73e71f78d23f239e991806483024a13037a5799432353d2c840642ac311facd5"},
+        {"path": "plans/nested_prefix_ols_diagnostic_v1.md", "sha256": "e1659fe9f5d96ae6b670181dd95faed7b9b9361e0537751184591b655c085e5e"},
+        {"path": "results/nested_prefix_ols_diagnostic_v1.json", "sha256": "e19989ac18cd850ecc64f28f77620f471b26c03128ca1bce6c792ee91067b4b8"},
+        {"path": "notes/nested_prefix_ols_diagnostic_v1_analysis.md", "sha256": "6a4731b808b1b8bc3e3f0f2c6eeb7662a80aab4801df282515ec138e826dbb0c"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "response_id": "fid-rtd-source-interpret-response-v1",
+  "request_id": "decision-b204e6554cec47e39f370ce7e872e194",
+  "idea": "generative-fid-rtd-native-reproduction-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The immutable author source was acquired and audited without executing it. The advertised NumPy Gaussian path is self-contained under declared CPU dependencies, so the frozen native smoke calibration is justified.",
+  "events": [
+    {
+      "event_id": "fid-rtd-source-pinned-milestone-v1",
+      "kind": "milestone",
+      "label": "Pinned the FID-RTD source and isolated its native CPU Gaussian path",
+      "reason": "Commit 1e90579840cf81284287583fcb607581704993ab yielded a 10,539,178-byte archive with 118 inventoried files. All required estimator, Gaussian runner, example configuration and dependency paths are present. CUDA is optional; the unchanged example selects NumPy. The current compatible dependencies differ from the paper's exact reporting pins, which is retained as a reproduction limitation.",
+      "next_phase": "experiment",
+      "evidence": [
+        {
+          "path": "plans/fid_rtd_source_acquisition_v1.md",
+          "sha256": "06f82aef9506b06e2125362acbfc40076c4faaef5ba6865b8e29660114ef4d16"
+        },
+        {
+          "path": "sources/fid_rtd_source_manifest_v1.json",
+          "sha256": "2a2794e5de63bb78008806e3c11d47995d7de2841dafbf7cf014608954031964"
+        },
+        {
+          "path": "notes/fid_rtd_source_audit_v1.md",
+          "sha256": "b03a844caeba7b3df854aa88f78733cf393852b02074d1f6ea80e82ef25f1b92"
+        },
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-634f866a57824f62aa1c4d1c87aebe40/receipt.json",
+          "sha256": "6178f4dbcbbf6c2f93282c1ab1c02dc8f0e04ecad253e9a92d6e1f20c3c8e158"
+        }
+      ]
+    }
+  ],
+  "tasks": []
+}

@@ -1,0 +1,83 @@
+{
+  "delegation_id": "calibration-math-v1",
+  "generation": 1,
+  "request_id": "ctt-calibration-review-v1",
+  "status": "mathematical_result_established",
+  "assignment_sha256": "b09dc60041c349d07550f9baf24790e2fef457e96fcc59899eb8660597937cd8",
+  "assignment_hash_scope": "Inspected dispatching-state assignment bytes; later parent updates are not bound by this digest.",
+  "parent": {
+    "idea": "ctt-streaming-calibration-audit-v1",
+    "revision": 1,
+    "goal_contract_version": 1,
+    "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "input_bindings": [
+    {
+      "path": "plans/compression_exchangeability_exact_v1.md",
+      "path_base": "execution_windows/w005",
+      "expected_sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e",
+      "observed_sha256": "72d3930079280206b962c51739a1a473a061deda42e7aa67eceef0e30fd8511e",
+      "matches": true
+    }
+  ],
+  "primary_sources": [
+    {
+      "url": "https://arxiv.org/html/2301.05974v3",
+      "sections_inspected": ["Algorithm 1", "Proposition 1", "Remark 3", "Appendix C"],
+      "content_sha256": null,
+      "purpose": "Scope comparison with native CTT common compression policy and randomized-rank validity argument"
+    }
+  ],
+  "prediction_exposure": true,
+  "independent_derivation": true,
+  "blinded_confirmation": false,
+  "numerical_execution": false,
+  "native_kt_compress_experiment": false,
+  "native_model_usage": "unknown",
+  "further_delegation": false,
+  "results": {
+    "nominal_alpha": "1/4",
+    "asymmetric_size": "25/64",
+    "symmetric_budget_1_size": "1/4",
+    "symmetric_budget_2_size": "1/4",
+    "asymmetric_excess": "9/64",
+    "asymmetric_size_ratio": "25/16",
+    "matches_exposed_prediction": true
+  },
+  "derivation": {
+    "method": "Global sign symmetry; condition on Z0=+1; hand-derived multinomial case partition; exchangeability proof for controls",
+    "score_identity": "Ti=(4Zi-S)^2/9, S=sum_i Zi",
+    "count_order": ["negative", "zero", "positive"],
+    "conditional_cases": [
+      {"counts": [0, 3, 0], "probability": "8/64", "rejection_probability": "1", "contribution": "32/256"},
+      {"counts": [0, 2, 1], "probability": "12/64", "rejection_probability": "1/4", "contribution": "12/256"},
+      {"counts": [0, 1, 2], "probability": "6/64", "rejection_probability": "0", "contribution": "0"},
+      {"counts": [0, 0, 3], "probability": "1/64", "rejection_probability": "1/4", "contribution": "1/256"},
+      {"counts": [1, 2, 0], "probability": "12/64", "rejection_probability": "1/2", "contribution": "24/256"},
+      {"counts": [1, 1, 1], "probability": "12/64", "rejection_probability": "0", "contribution": "0"},
+      {"counts": [1, 0, 2], "probability": "3/64", "rejection_probability": "0", "contribution": "0"},
+      {"counts": [2, 1, 0], "probability": "6/64", "rejection_probability": "1", "contribution": "24/256"},
+      {"counts": [2, 0, 1], "probability": "3/64", "rejection_probability": "1/4", "contribution": "3/256"},
+      {"counts": [3, 0, 0], "probability": "1/64", "rejection_probability": "1", "contribution": "4/256"}
+    ],
+    "control_identity": "For every fixed summary vector sum_i qi=1; exchangeability makes every E[qi]=1/4. Shared independent index coin preserves exchangeability."
+  },
+  "sufficient_condition": {
+    "raw_null": "G-invariant raw-bin law",
+    "joint_compression_kernel": "K(gB,gA)=K(B,A) for all group elements, raw inputs and measurable output sets",
+    "test": "Consistent full-orbit evaluation with independent uniform tie-breaking and any necessary boundary randomization",
+    "conclusion": "Compressed output is G-invariant and randomized-rank test has exact size alpha",
+    "necessity_claim": false
+  },
+  "objections_and_limits": [
+    "Per-bin conditional unbiasedness preserves first moments, not the exchangeable joint law; asymmetric variances are 1 and 1/2.",
+    "The rule is fixed and label-dependent, not data-adaptive in its allocation decision.",
+    "All-equal-score cases require rejection probability 1/4 and were retained.",
+    "Shared randomness can be valid; independence of all seeds is a sufficient convenience, not a necessary condition.",
+    "Scalar equally weighted summaries do not automatically equal concatenation of unequal-size coresets.",
+    "Changing CTT's common compression policy is not a refutation of native CTT Proposition 1.",
+    "No novelty, real-data, speed, native implementation, or power claim is established.",
+    "The plan's proposed 512-state execution was not performed in this delegation."
+  ],
+  "report": "result.md"
+}

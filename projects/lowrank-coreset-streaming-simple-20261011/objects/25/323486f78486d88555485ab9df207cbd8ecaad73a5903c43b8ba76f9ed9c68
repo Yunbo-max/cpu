@@ -1,0 +1,25 @@
+# Full-dimension block FA-EM calibration v1
+
+## Question
+
+Does the exact row-block reformulation repair both the 4 GiB liveness failure and the finite CPU-window failure of direct dense FAinv at the official URL dimension?
+
+This is a one-iteration resource calibration.  It does not train CW-fact or measure prediction quality.
+
+## Frozen construction
+
+- Dimension `d=3,231,961`, rank 16, buffer width 16, float64.
+- Keep two dense factor arrays: the fixed target factor and the mutable current iterate.  Overwrite the current iterate row-blockwise after all small reductions are complete.
+- Use deterministic bounded nondegenerate factor entries generated from row/column modular patterns; no result-dependent tuning.
+- Represent each buffer column by 111 deterministic nonzero coordinates and values, matching the observed median URL example sparsity only as a cost fixture.  This is not a data-quality sample.
+- Use row blocks of 16,384 and exactly one released-equation EM iteration.  Record phase times, normalized parameter change, output diagonal range, exact owned array bytes and sampled peak RSS.
+- Run single-threaded through `cpu_guard.py` with the 4 GiB address-space limit.
+
+## Predictions and gates
+
+1. Peak RSS will stay below 2.0 GiB, confirming that blockwise evaluation repairs the direct-source 4.706 GB liveness failure.
+2. The exact owned NumPy arrays will stay below 1.5 GiB.
+3. Use the earlier 6,017 diagonal-CW accepted updates only as a diagnostic proxy.  After the first 16 factor columns, at least `floor((6017-16)/16)=375` buffer compressions would occur if FAinv accepted the same number of updates.  Multiply the measured one-iteration compression time by 375.
+4. The CPU-window route survives only if that **one-iteration-per-compression lower-bound proxy** is at most 1,800 seconds.  Passing is necessary, not sufficient because the released loop allows up to 50 iterations and FAinv's true update count is unknown.
+
+Failure of the time gate retires the present URL implementation route while retaining the exact bounded-memory result.  Passing permits a bounded multi-iteration convergence calibration before any native URL trajectory.

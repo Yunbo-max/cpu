@@ -1,0 +1,32 @@
+{
+  "request_id": "decision-5e8d6e12ebef4750826fd7abe28de652",
+  "idea": "lra-block-krylov-baseline-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "block-krylov-result-audit-submit-v1",
+  "reason": "The saved gate metrics indicate q=1 readiness, but the non-gating projection metric is invalid and the 65-column basis may merely span the prefix numerical rank. Audit both before online integration.",
+  "tasks": [
+    {
+      "task_id": "block-krylov-result-audit-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/block_krylov_result_audit.py"
+      ],
+      "phase": "verify",
+      "purpose": "Independently reproduce B011 gate metrics, correct the projection metric, and determine whether q=1 exactness is numerical-rank saturation",
+      "timeout_seconds": 180,
+      "cwd": ".",
+      "depends_on": ["block-krylov-calibration-v2"],
+      "input_refs": [
+        {"path": "plans/block_krylov_result_audit_v1.md", "sha256": "4f0f1331ae276f50d845061704c7a5b16419a68b66b94b59cbed7c727d2be10c"},
+        {"path": "scripts/block_krylov_result_audit.py", "sha256": "f1b8b43c43d5a12fab191f0fc645b3c5837fafa416ff9c9ff3c705234686f820"},
+        {"path": "scripts/cpu_guard.py", "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"},
+        {"path": "results/block_krylov_calibration_v2.json", "sha256": "2200f8b30731cc119ffef35551ef0dc6aa0f87be1b6ec7d6376f7372d69feea8"},
+        {"path": "sources/consistent-LRA/landmark.mtx", "sha256": "29fb87018e59049a52314c847c5ac2a4eaa3b875f7cd8467621fe074fbbc298b"}
+      ],
+      "outputs": ["results/block_krylov_result_audit_v1.json"]
+    }
+  ]
+}

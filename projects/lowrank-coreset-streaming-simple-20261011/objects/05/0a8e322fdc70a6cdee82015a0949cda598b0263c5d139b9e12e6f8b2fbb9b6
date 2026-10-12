@@ -1,0 +1,74 @@
+from collections import Counter
+import hashlib
+import json
+import os
+from pathlib import Path
+import resource
+import sys
+import time
+
+os.environ['MPLBACKEND']='Agg'
+ROOT=Path(__file__).resolve().parents[1]
+SRC=ROOT/'sources/moments'
+sys.path.insert(0,str(SRC))
+import numpy as np
+from utils import generate_stream_skewed
+
+def convert(value):
+    if isinstance(value,dict): return {str(k):convert(v) for k,v in value.items()}
+    if isinstance(value,(list,tuple)): return [convert(x) for x in value]
+    if isinstance(value,np.ndarray): return convert(value.tolist())
+    if isinstance(value,np.generic): return convert(value.item())
+    if isinstance(value,float) and not np.isfinite(value): return str(value)
+    return value
+
+def main():
+    start=time.perf_counter();cpu=time.process_time()
+    output={'scope':'downscaled native synthetic main-path pilot, not paper replication or new algorithm',
+            'parameters':{'n':100,'half_length':500,'seed_each_half':42,'first_q_k':[3,1],'second_q_k':[1,3],
+                          'heavy_advice':[1,2,3],'r1':3,'r2':5,'order':3,'q_ssa':.01,'q_ss':.1,'max_instances':20},
+            'oracle_scope':'hardcoded native synthetic advice, no learned oracle reproduction',
+            'rows':[],'error':None}
+    try:
+        notebook=json.loads((SRC/'SS-SSA.ipynb').read_text());ns={'__name__':'native_synthetic_definitions'}
+        for idx in [7,8,9,10,14]:
+            exec(compile(''.join(notebook['cells'][idx]['source']),f'SS-SSA.ipynb:cell{idx}','exec'),ns)
+        first,_=generate_stream_skewed(n=100,m=500,q=3,k=1,seed=42)
+        second,_=generate_stream_skewed(n=100,m=500,q=1,k=3,seed=42)
+        stream=np.concatenate((first,second));np.save(ROOT/'data/moment_native_shift_1000.npy',stream)
+        ns.update(hist_ssa={},hist_ss={},hist_hh_sums={},threads_vec_ssa=[],num_threads_max=20)
+        wall_alg,cpu_alg=time.perf_counter(),time.process_time()
+        ns['selective_subsampling_augmented'](heavy=[1,2,3],stream=stream,order=3,r1=3,r2=5,q=.01,q_ss=.1)
+        output.update(joint_algorithm_wall_seconds=time.perf_counter()-wall_alg,joint_algorithm_cpu_seconds=time.process_time()-cpu_alg)
+        evaluation_start=time.perf_counter()
+        for t in ns['hist_ssa']:
+            ssa=float(ns['estimate_norm'](t,3,3,5,.01));ss=float(ns['norm_helper'](t,3,3,5,.1))
+            _,counts=np.unique(stream[t:],return_counts=True)
+            native_truth=float(np.linalg.norm(counts,3))
+            exact_f3=sum(int(v)**3 for v in Counter(stream[t:].tolist()).values())
+            exact_norm=exact_f3**(1/3)
+            if not np.isclose(native_truth,exact_norm,rtol=1e-12,atol=1e-12):
+                raise ArithmeticError('Native synthetic evaluator differs from independent exact Counter')
+            output['rows'].append({'start_0indexed':int(t),'represented_window_length':int(len(stream)-t),
+                                   'ssa_l3':ssa,'ss_l3':ss,'native_truth_l3':native_truth,
+                                   'independent_truth_l3':exact_norm,'independent_truth_F3':exact_f3,
+                                   'ssa_absolute_relative_error':abs(ssa-exact_norm)/exact_norm,
+                                   'ss_absolute_relative_error':abs(ss-exact_norm)/exact_norm})
+        base_ssa,base_ss=output['rows'][0]['ssa_l3'],output['rows'][0]['ss_l3']
+        for row in output['rows']:
+            row['ssa_scaled_l3']=base_ssa*row['represented_window_length']/len(stream)
+            row['ss_scaled_l3']=base_ss*row['represented_window_length']/len(stream)
+        output['evaluation_wall_seconds']=time.perf_counter()-evaluation_start
+        output['retained_state']={k:ns[k] for k in ['hist_ssa','hist_ss','hist_hh_sums','threads_vec_ssa']}
+        output['source_hashes']={name:hashlib.sha256((SRC/name).read_bytes()).hexdigest() for name in ['SS-SSA.ipynb','utils.py']}
+        output['data_sha256']=hashlib.sha256((ROOT/'data/moment_native_shift_1000.npy').read_bytes()).hexdigest()
+    except Exception as exc:
+        output['error']=repr(exc);raise
+    finally:
+        output.update(elapsed_seconds=time.perf_counter()-start,process_cpu_seconds=time.process_time()-cpu,
+                      peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+        (ROOT/'results/moment_native_pilot_v1.json').write_text(json.dumps(convert(output),indent=2,allow_nan=False))
+        print(json.dumps({'rows':len(output['rows']),'elapsed_seconds':output['elapsed_seconds'],'peak_rss_kib':output['peak_rss_kib'],'error':output['error']}),flush=True)
+
+if __name__=='__main__':
+    main()

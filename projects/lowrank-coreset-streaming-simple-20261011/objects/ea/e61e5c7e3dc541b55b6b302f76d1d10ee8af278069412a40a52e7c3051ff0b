@@ -1,0 +1,17 @@
+# B011: 512-row Block Krylov calibration against exact SVD and matched power
+
+Development hypothesis: stabilized Block Krylov provides a viable strong refresh endpoint for the real Landmark prefix and, at equal matrix passes, its enlarged Krylov space should not be worse than simultaneous power. This tests a classical baseline; it is not a new method.
+
+Data: first512 rows of the pinned71952x2704 Landmark matrix, no scaling, k=25. Convert only those rows to float64 dense. Independent exact thin SVD supplies optimum Frobenius/spectral residuals and the reference right subspace. Preserve source hashes and matrix-slice hash.
+
+Arms: Gaussian seeds101,102,103; block width35 (k plus10); q in[0,1,2,4,7]. For every seed/q run stabilized Block Krylov and simultaneous power from the identical Gaussian matrix. Reorthogonalize after each A.T and A multiply; Block Krylov concatenates all powered blocks and performs a final QR. Both compute the right factors from the SVD of Q.T@A. Matrix pass count is2q+2, including initial A Omega and final Q.T A; QR and small SVD time remain included in full method time. Record state array bytes, not just passes. The exact SVD is a quality/control baseline; one timing is calibration evidence, not a speed claim.
+
+Metrics computed independently: Frobenius residual ratio to exact optimum; spectral residual ratio from the largest eigenvalue of `AA.T-(A@V.T)(A@V.T).T`; projection distance `sqrt(2k-2||V V_exact.T||_F^2)`; maximum per-vector captured-energy error normalized by sigma_26^2. Clip only tiny negative roundoff in Gram eigenvalues and record magnitude.
+
+Predictions and predeclared decisions:
+
+1. At every matched seed/q, Block Krylov Frobenius and spectral ratios should be no worse than power by more than1e-10 in exact arithmetic; an observed excess over1e-8 triggers implementation/numerical audit.
+2. Endpoint readiness requires all three seeds at one common q<=7 to achieve Frobenius ratio<=1+1e-8 and spectral ratio<=1+1e-6. Projection equality is reported but is not a readiness gate because near-degenerate leading spaces can differ while task quality is preserved.
+3. If ready, choose the smallest common q prospectively from these thresholds and next test the71-refresh eta=.1 trajectory with repeated isolated timing against exact refresh. If no q is ready, retain the negative result and do not integrate it online or tune beyond q7 without a changed mechanism hypothesis.
+
+All15 pairs and failures are retained. This is one correlated real prefix and three algorithm seeds, not independent dataset confirmation or nominal probability validation. CPU one thread through `cpu_guard.py`,4GiB address-space cap, timeout300s. Expected peak below750MiB from prior Landmark records and current2.69GB shared headroom; abort on memory error and do not fall back silently.

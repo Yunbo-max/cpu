@@ -1,0 +1,194 @@
+#!/usr/bin/env python3
+"""Evaluate the two preregistered state-matched one-pass hashing endpoints."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import pathlib
+import resource
+import sys
+import time
+from datetime import datetime, timezone
+
+import numpy as np
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.feature_extraction.text import HashingVectorizer
+from sklearn.linear_model import SGDClassifier
+from sklearn.metrics import accuracy_score, f1_score
+
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+PROJECT = ROOT.parents[1]
+DATA_HOME = PROJECT / "execution_windows" / "w002" / ".deps" / "sklearn_data"
+OUTPUT = ROOT / "results" / "discriminative_state_matched_hash_v1.json"
+REFERENCE = ROOT / "results" / "discriminative_reservoir_robustness_reference_v1.json"
+REFERENCE_SHA256 = "3e5a549a5deb564401970429b629c5a4d550640b48f1103a71d07126132beb2b"
+REMOVE = ("headers", "footers", "quotes")
+SEEDS = (19, 71, 211)
+BATCH_SIZE = 256
+ENDPOINTS = (
+    ("hash_16384_no_average", 2**14, False),
+    ("hash_4096_average", 2**12, True),
+)
+QUALITY_LOSS_GATE = 0.05
+WALL_RATIO_GATE = 0.75
+
+
+def peak_rss_bytes() -> int:
+    value = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    return int(value * 1024 if sys.platform != "darwin" else value)
+
+
+def main() -> None:
+    actual_hash = hashlib.sha256(REFERENCE.read_bytes()).hexdigest()
+    if actual_hash != REFERENCE_SHA256:
+        raise RuntimeError("reference result hash changed")
+    reference = json.loads(REFERENCE.read_text())
+    full_f1 = float(reference["full_macro_f1"])
+    full_wall = float(reference["full_median_wall_seconds"])
+    n_full_features = int(reference["full_repeats"][0]["n_features"])
+
+    train = fetch_20newsgroups(
+        data_home=str(DATA_HOME), subset="train", shuffle=False, remove=REMOVE
+    )
+    test = fetch_20newsgroups(
+        data_home=str(DATA_HOME), subset="test", shuffle=False, remove=REMOVE
+    )
+    y_train = np.asarray(train.target)
+    y_test = np.asarray(test.target)
+    classes = np.arange(len(train.target_names))
+    full_state_reference_bytes = int(
+        (len(classes) * n_full_features + len(classes)) * np.dtype(np.float64).itemsize
+    )
+
+    endpoints = {}
+    for endpoint_id, n_features, average in ENDPOINTS:
+        vectorizer = HashingVectorizer(
+            n_features=n_features,
+            alternate_sign=False,
+            norm="l2",
+            stop_words="english",
+        )
+        rows = []
+        for seed in SEEDS:
+            method_start = time.perf_counter()
+            order = np.random.default_rng(seed).permutation(len(train.data))
+            classifier = SGDClassifier(
+                loss="log_loss",
+                alpha=1e-4,
+                penalty="l2",
+                learning_rate="optimal",
+                average=average,
+                random_state=seed,
+                tol=None,
+            )
+            batch_transform_seconds = 0.0
+            update_seconds = 0.0
+            n_batches = 0
+            for start in range(0, len(order), BATCH_SIZE):
+                selected = order[start : start + BATCH_SIZE]
+                docs = [train.data[int(i)] for i in selected]
+                t0 = time.perf_counter()
+                x_batch = vectorizer.transform(docs)
+                batch_transform_seconds += time.perf_counter() - t0
+                t0 = time.perf_counter()
+                if start == 0:
+                    classifier.partial_fit(x_batch, y_train[selected], classes=classes)
+                else:
+                    classifier.partial_fit(x_batch, y_train[selected])
+                update_seconds += time.perf_counter() - t0
+                n_batches += 1
+
+            t0 = time.perf_counter()
+            x_test = vectorizer.transform(test.data)
+            test_transform_seconds = time.perf_counter() - t0
+            t0 = time.perf_counter()
+            pred = classifier.predict(x_test)
+            predict_seconds = time.perf_counter() - t0
+            method_wall = time.perf_counter() - method_start
+            internal_array_bytes = {
+                name: int(value.nbytes)
+                for name, value in vars(classifier).items()
+                if isinstance(value, np.ndarray)
+            }
+            internal_sum = int(sum(internal_array_bytes.values()))
+            macro_f1 = float(f1_score(y_test, pred, average="macro"))
+            rows.append(
+                {
+                    "seed": seed,
+                    "macro_f1": macro_f1,
+                    "accuracy": float(accuracy_score(y_test, pred)),
+                    "macro_f1_loss_vs_full": full_f1 - macro_f1,
+                    "wall_ratio_vs_full": method_wall / full_wall,
+                    "method_wall_seconds": method_wall,
+                    "batch_transform_seconds": batch_transform_seconds,
+                    "update_seconds": update_seconds,
+                    "test_transform_seconds": test_transform_seconds,
+                    "predict_seconds": predict_seconds,
+                    "n_batches": n_batches,
+                    "internal_array_bytes_by_name": internal_array_bytes,
+                    "internal_array_bytes_sum": internal_sum,
+                    "state_within_reference": internal_sum <= full_state_reference_bytes,
+                    "cumulative_peak_rss_bytes": peak_rss_bytes(),
+                }
+            )
+
+        losses = np.asarray([row["macro_f1_loss_vs_full"] for row in rows])
+        ratios = np.asarray([row["wall_ratio_vs_full"] for row in rows])
+        state_bytes = np.asarray([row["internal_array_bytes_sum"] for row in rows])
+        aggregate = {
+            "median_macro_f1": float(np.median([row["macro_f1"] for row in rows])),
+            "median_macro_f1_loss": float(np.median(losses)),
+            "median_wall_ratio": float(np.median(ratios)),
+            "max_internal_array_bytes": int(state_bytes.max()),
+            "passes_quality_gate": bool(np.median(losses) <= QUALITY_LOSS_GATE),
+            "passes_wall_gate": bool(np.median(ratios) <= WALL_RATIO_GATE),
+            "passes_state_gate": bool(state_bytes.max() <= full_state_reference_bytes),
+        }
+        aggregate["passes_joint_gate"] = bool(
+            aggregate["passes_quality_gate"]
+            and aggregate["passes_wall_gate"]
+            and aggregate["passes_state_gate"]
+        )
+        endpoints[endpoint_id] = {
+            "n_features": n_features,
+            "average": average,
+            "rows": rows,
+            "aggregate": aggregate,
+        }
+
+    result = {
+        "schema_version": 1,
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "development_evidence": True,
+        "test_split_previously_exposed": True,
+        "reference_sha256": actual_hash,
+        "full_macro_f1": full_f1,
+        "full_median_wall_seconds": full_wall,
+        "full_state_reference_bytes": full_state_reference_bytes,
+        "n_train": len(train.data),
+        "n_test": len(test.data),
+        "n_classes": len(classes),
+        "batch_size": BATCH_SIZE,
+        "seeds": list(SEEDS),
+        "gates": {
+            "max_median_macro_f1_loss": QUALITY_LOSS_GATE,
+            "max_median_wall_ratio": WALL_RATIO_GATE,
+            "max_internal_array_bytes": full_state_reference_bytes,
+        },
+        "endpoints": endpoints,
+        "any_endpoint_passes_joint_gate": any(
+            endpoint["aggregate"]["passes_joint_gate"] for endpoint in endpoints.values()
+        ),
+        "final_peak_rss_bytes": peak_rss_bytes(),
+        "data_home": str(DATA_HOME),
+        "raw_text_materialized_by_loader": True,
+    }
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(result, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

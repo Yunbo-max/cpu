@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+"""Verify centered fixed-reference FID/VALE from one-pass count/sum/Gram states."""
+from __future__ import annotations
+import hashlib, json, math, pathlib, resource, statistics, sys, time
+import numpy as np
+
+ROOT=pathlib.Path(__file__).resolve().parents[1]
+REPO=ROOT/'.deps/fid_rtd/repo-1e90579840cf81284287583fcb607581704993ab/sample-optimal-fid-estimation-1e90579840cf81284287583fcb607581704993ab'
+PLAN=ROOT/'plans/streaming_fid_infinity_centered_equivalence_v1.md'; OUT=ROOT/'results/streaming_fid_infinity_centered_equivalence_v1.json'
+def sha(p): return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+
+def main():
+    sys.path[:0]=[str(REPO/'src'),str(REPO)]
+    from gaussian_w2.estimators import make_fixed_reference, fixed_reference_empirical_fid, extrapolation_sample_sizes, fit_inverse_sample_polynomial
+    from gaussian_w2._core.linalg import psd_eigh, symmetrize
+    rng=np.random.default_rng(20261015); d=64; N=4096
+    reference_rows=rng.normal(size=(2048,d))@np.diag(np.linspace(0.7,1.3,d)) + np.linspace(-0.2,0.2,d)
+    generated=rng.normal(size=(N,d))@np.diag(np.linspace(0.5,1.5,d)) + np.linspace(0.1,-0.1,d)
+    reference=make_fixed_reference(reference_rows,covariance_normalization='1/(N-1)',rtol=1e-10,atol=1e-12)
+    sizes=extrapolation_sample_sizes(N,minimum_samples=512,num_points=15,schedule='uniform_n')
+    membership_rng=np.random.default_rng(774411); masks=[]
+    for n in sizes:
+        if n==N: mask=np.ones(N,dtype=bool)
+        else: mask=np.zeros(N,dtype=bool); mask[membership_rng.permutation(N)[:n]]=True
+        masks.append(mask)
+    t0=time.perf_counter(); batch=[]
+    for mask in masks: batch.append(fixed_reference_empirical_fid(reference,generated[mask],rtol=1e-10,atol=1e-12)['estimate_w2_sq_raw'])
+    batch_wall=time.perf_counter()-t0
+    grams=[np.zeros((d,d)) for _ in sizes]; sums=[np.zeros(d) for _ in sizes]; counts=np.zeros(len(sizes),dtype=np.int64)
+    t1=time.perf_counter(); chunk=37
+    for start in range(0,N,chunk):
+        stop=min(N,start+chunk); block=generated[start:stop]
+        for j,mask in enumerate(masks):
+            selected=block[mask[start:stop]]
+            if len(selected): grams[j]+=selected.T@selected; sums[j]+=selected.sum(axis=0); counts[j]+=len(selected)
+    streamed=[]
+    for n,g,s in zip(sizes,grams,sums):
+        mean=s/n; covariance=symmetrize((g-np.outer(s,s)/n)/(n-1))
+        middle=symmetrize(reference.sqrt_covariance@covariance@reference.sqrt_covariance)
+        eig,_,_=psd_eigh(middle,rtol=1e-10,atol=1e-12)
+        delta=reference.mean-mean
+        streamed.append(float(delta@delta+np.trace(reference.covariance)+np.trace(covariance)-2*np.sqrt(eig).sum()))
+    stream_wall=time.perf_counter()-t1
+    bf={w:{str(o):fit_inverse_sample_polynomial(sizes,batch,order=o,weighting=w)['intercept'] for o in (1,2,3)} for w in ('ordinary_ols','variance_aware')}
+    sf={w:{str(o):fit_inverse_sample_polynomial(sizes,streamed,order=o,weighting=w)['intercept'] for o in (1,2,3)} for w in ('ordinary_ols','variance_aware')}
+    node=[abs(a-b) for a,b in zip(batch,streamed)]; fit=[abs(bf[w][str(o)]-sf[w][str(o)]) for w in bf for o in (1,2,3)]; peak=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024
+    checks={'counts_exact':counts.tolist()==list(sizes),'all_finite':all(math.isfinite(x) for x in batch+streamed+node+fit),
+      'node_tolerance':max(node)<=3e-10,'intercept_tolerance':max(fit)<=3e-9,'peak_rss_below_1gib':peak<1024**3}
+    result={'schema_version':1,'scope':'centered fixed-reference sufficient-statistics equivalence diagnostic','plan_sha256':sha(PLAN),
+      'source':{'commit':'1e90579840cf81284287583fcb607581704993ab'},'settings':{'d':d,'N':N,'reference_N':len(reference_rows),'nodes':len(sizes),'chunk':chunk},
+      'max_abs_node_error':max(node),'max_abs_intercept_error':max(fit),'node_errors':node,'fit_errors':fit,'batch_values':batch,'streamed_values':streamed,
+      'batch_intercepts':bf,'streamed_intercepts':sf,'timing_seconds':{'author_batch':batch_wall,'streamed_python':stream_wall},
+      'state_bytes':{'grams':sum(x.nbytes for x in grams),'sums':sum(x.nbytes for x in sums),'counts':counts.nbytes,'masks':sum(x.nbytes for x in masks),
+                     'materialized_fixture_rows_not_streaming_state':generated.nbytes+reference_rows.nbytes},
+      'peak_rss_bytes':peak,'checks':checks,'all_checks_pass':all(checks.values()),
+      'limitations':['synthetic formula diagnostic','not ImageNet evidence','no speed claim','no originality claim']}
+    OUT.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n'); print(json.dumps({k:result[k] for k in ('max_abs_node_error','max_abs_intercept_error','timing_seconds','state_bytes','peak_rss_bytes','checks','all_checks_pass')},sort_keys=True))
+    if not result['all_checks_pass']: raise SystemExit(2)
+if __name__=='__main__': main()

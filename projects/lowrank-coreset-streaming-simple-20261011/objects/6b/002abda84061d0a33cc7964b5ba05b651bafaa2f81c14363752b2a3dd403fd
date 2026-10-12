@@ -1,0 +1,15 @@
+# B003 prospective development diagnostic
+
+Created after B002 results and before any B003 output. Purpose: test whether a rigorously allocated empirical-Bernstein pairwise bound fixes the observed fallback/validation bottleneck. This is a known-mechanism diagnostic, not confirmation of a novel method.
+
+Use the same native Taxi 10-dimensional prefixes n=10000 and100000 and the same development seeds101..112 for direct paired diagnosis. These are not new independent datasets or confirmatory seeds. Freeze candidates from nested uniform training sizes32,128,512, independent validation RNG seed+1000000, and look sizes64,128,256,512,1024,2048,4096,8192. Epsilon .01, delta .05, all3 unordered pairs, both directions. The derivation in notes/near_tie_math_v1.md fixes the formulas.
+
+Compare four complete paths: original Hoeffding, empirical Bernstein, optimized exact coordinate median, and uniform512. Include each path's own candidate construction/RNG/validation/interval/fallback costs. Randomize the order of the four paths per seed using a separate order RNG. Never count offline full-population objective/variance scoring as algorithm work. Report wall and CPU time descriptively on this shared host, fallback fraction, validation counts, full-data relative excess cost, every returned finite-pool certificate check, and full paired variance divided by D². Keep all centers, selected indices, look histories and raw per-pair moments/radii. Exact costs are never used to select except the explicitly declared exact fallback.
+
+Prediction from the derivation: EB helps only for sufficiently small normalized paired variance. Near medians the pair can have variance near D²; then the extra range correction may make EB worse than Hoeffding. If fallbacks and total cost do not improve, do not expand this replacement into a new method. Retain the negative result and next inspect the streaming-moment paper's actual main-algorithm entry points.
+
+Numerical safeguards: finite data; stable per-coordinate cost differences; reverse-triangle range check with recorded roundoff scale; stable batch-merge second moment (Chan/Welford) and unbiased variance; D=0 exact equality; no clipping of substantial invalid values; on assertion error save completed rows plus error as a partial artifact before exit. Independently verify merged variances against numpy sample variance for one representative full validation prefix. This check targets a concrete new implementation risk.
+
+CPU only, one guarded process/thread, address space4GiB, timeout120seconds. Expected memory comfortably below100MiB based on B002. Host resource snapshot before launch is notes/resources_resume.json. No new raw data download needed.
+
+Scope exclusions: finite-pool certificate is not global OPT/stable-coreset guarantee;12 seeds do not validate nominal failure probability; reusing development cases cannot establish generalization; task/row counts are not counts of discoveries.

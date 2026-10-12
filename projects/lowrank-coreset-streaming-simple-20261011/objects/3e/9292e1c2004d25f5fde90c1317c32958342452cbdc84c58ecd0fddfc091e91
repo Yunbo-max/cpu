@@ -1,0 +1,180 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+import pathlib
+import resource
+import time
+
+import numpy as np
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+PLAN = ROOT / "plans" / "nested_prefix_ols_diagnostic_v1.md"
+OUTPUT = ROOT / "results" / "nested_prefix_ols_diagnostic_v1.json"
+
+
+def sha256(path: pathlib.Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def intercept_weights(sample_sizes: np.ndarray, order: int, maximum: int) -> np.ndarray:
+    z = maximum / sample_sizes.astype(np.float64)
+    design = np.column_stack([z ** power for power in range(order + 1)])
+    return (np.linalg.solve(design.T @ design, design.T))[0]
+
+
+def fid_identity_known_zero(samples: np.ndarray) -> float:
+    n, d = samples.shape
+    covariance = (samples.T @ samples) / float(n)
+    eigenvalues = np.linalg.eigvalsh((covariance + covariance.T) * 0.5)
+    eigenvalues = np.clip(eigenvalues, 0.0, None)
+    return float(d + np.trace(covariance) - 2.0 * np.sqrt(eigenvalues).sum())
+
+
+def scalar_covariances(sample_sizes: np.ndarray, maximum: int) -> tuple[np.ndarray, np.ndarray]:
+    m = len(sample_sizes)
+    fresh = np.empty((m, m), dtype=np.float64)
+    nested = np.empty((m, m), dtype=np.float64)
+    for j, nj in enumerate(sample_sizes):
+        for k, nk in enumerate(sample_sizes):
+            fresh[j, k] = 1.0 / float(nj) if j == k else 1.0 / float(maximum)
+            nested[j, k] = 1.0 / float(max(nj, nk))
+    return fresh, nested
+
+
+def summarize(errors: np.ndarray) -> dict:
+    return {
+        "n": int(errors.size),
+        "bias": float(errors.mean()),
+        "rmse": float(np.sqrt(np.mean(errors * errors))),
+        "sample_sd": float(errors.std(ddof=1)),
+        "median_absolute_error": float(np.median(np.abs(errors))),
+    }
+
+
+def paired_bootstrap_mse_difference(nested: np.ndarray, fresh: np.ndarray, seed: int) -> dict:
+    difference = nested * nested - fresh * fresh
+    rng = np.random.default_rng(seed)
+    draws = rng.integers(0, difference.size, size=(5000, difference.size))
+    bootstrap = difference[draws].mean(axis=1)
+    return {
+        "mean_nested_minus_fresh": float(difference.mean()),
+        "percentile_95": [float(x) for x in np.quantile(bootstrap, [0.025, 0.975])],
+        "resamples": 5000,
+    }
+
+
+def main() -> None:
+    d = 64
+    maximum = 4096
+    generated_scale = 0.5
+    trials = 96
+    master_seed = 20261015
+    sample_sizes = np.linspace(512, maximum, 15).astype(np.int64)
+    orders = (1, 2, 3)
+    weights = {order: intercept_weights(sample_sizes, order, maximum) for order in orders}
+    covariance_fresh, covariance_nested = scalar_covariances(sample_sizes, maximum)
+    influence = {}
+    for order in orders:
+        a = weights[order]
+        vf = float(a @ covariance_fresh @ a)
+        vn = float(a @ covariance_nested @ a)
+        influence[str(order)] = {
+            "fresh_variance_per_sigma2": vf,
+            "nested_variance_per_sigma2": vn,
+            "nested_to_fresh_ratio": vn / vf,
+            "weights": [float(x) for x in a],
+            "weight_sum": float(a.sum()),
+        }
+
+    true_fid = d * (1.0 + generated_scale - 2.0 * math.sqrt(generated_scale))
+    errors = {"fresh": {order: [] for order in orders}, "nested": {order: [] for order in orders}, "plugin": []}
+    wall0 = time.perf_counter()
+    cpu0 = time.process_time()
+    master = np.random.default_rng(master_seed)
+    for _ in range(trials):
+        pool_seed = int(master.integers(0, 2**63 - 1))
+        nested_seed = int(master.integers(0, 2**63 - 1))
+        fresh_seed = int(master.integers(0, 2**63 - 1))
+        pool_rng = np.random.default_rng(pool_seed)
+        samples = pool_rng.normal(scale=math.sqrt(generated_scale), size=(maximum, d))
+        nested_permutation = np.random.default_rng(nested_seed).permutation(maximum)
+        fresh_rng = np.random.default_rng(fresh_seed)
+        nested_values = []
+        fresh_values = []
+        for n in sample_sizes:
+            nested_values.append(fid_identity_known_zero(samples[nested_permutation[:n]]))
+            if n == maximum:
+                selected = np.arange(maximum)
+            else:
+                selected = fresh_rng.permutation(maximum)[:n]
+            fresh_values.append(fid_identity_known_zero(samples[selected]))
+        nested_values = np.asarray(nested_values)
+        fresh_values = np.asarray(fresh_values)
+        errors["plugin"].append(float(fresh_values[-1] - true_fid))
+        for order in orders:
+            errors["nested"][order].append(float(weights[order] @ nested_values - true_fid))
+            errors["fresh"][order].append(float(weights[order] @ fresh_values - true_fid))
+    wall = time.perf_counter() - wall0
+    cpu = time.process_time() - cpu0
+
+    summaries = {"plugin": summarize(np.asarray(errors["plugin"]))}
+    comparisons = {}
+    for order in orders:
+        fresh = np.asarray(errors["fresh"][order])
+        nested = np.asarray(errors["nested"][order])
+        sf = summarize(fresh)
+        sn = summarize(nested)
+        summaries[f"fresh_ols_order{order}"] = sf
+        summaries[f"nested_ols_order{order}"] = sn
+        comparisons[str(order)] = {
+            "nested_to_fresh_rmse_ratio": sn["rmse"] / sf["rmse"],
+            "paired_mse_difference": paired_bootstrap_mse_difference(nested, fresh, master_seed + order),
+            "passes_10pct_noninferiority": sn["rmse"] <= 1.10 * sf["rmse"],
+        }
+
+    peak = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024
+    checks = {
+        "sample_sizes_strictly_increasing": bool(np.all(np.diff(sample_sizes) > 0)),
+        "endpoint_is_full_pool": int(sample_sizes[-1]) == maximum,
+        "weights_sum_to_one": all(abs(influence[str(o)]["weight_sum"] - 1.0) <= 1e-10 for o in orders),
+        "all_finite": all(math.isfinite(value) for group in summaries.values() for value in group.values()),
+        "peak_rss_below_4gib": peak < 4 * 1024**3,
+        "wall_below_900s": wall < 900.0,
+    }
+    state = {
+        "fresh_active_gram_bytes": len(sample_sizes) * d * d * 8,
+        "nested_active_gram_bytes": d * d * 8,
+        "active_gram_compression_factor": len(sample_sizes),
+    }
+    result = {
+        "schema_version": 1,
+        "scope": "prospective paired isotropic OLS membership-dependence diagnostic",
+        "plan_sha256": sha256(PLAN),
+        "settings": {"d": d, "N": maximum, "generated_scale": generated_scale, "trials": trials, "master_seed": master_seed, "sample_sizes": sample_sizes.tolist()},
+        "true_fid": true_fid,
+        "scalar_influence_proxy": influence,
+        "summaries": summaries,
+        "comparisons": comparisons,
+        "state_bytes": state,
+        "execution": {"wall_seconds": wall, "process_cpu_seconds": cpu, "peak_rss_bytes": peak},
+        "checks": checks,
+        "all_checks_pass": all(checks.values()),
+        "limitations": [
+            "known-zero-mean isotropic Gaussian development fixture only",
+            "ordinary OLS only; pinned native VALE weights not restored on this host",
+            "scalar influence covariance is a first-order mechanism proxy for nonlinear FID",
+            "paired bootstrap is developmental and the results are not unseen confirmation",
+        ],
+    }
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    print(json.dumps({"comparisons": comparisons, "scalar_influence_proxy": influence, "execution": result["execution"], "checks": checks}, sort_keys=True))
+    if not result["all_checks_pass"]:
+        raise SystemExit(2)
+
+
+if __name__ == "__main__":
+    main()

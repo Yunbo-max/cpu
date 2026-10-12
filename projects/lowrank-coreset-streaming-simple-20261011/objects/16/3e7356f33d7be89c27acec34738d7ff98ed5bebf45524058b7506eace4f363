@@ -1,0 +1,75 @@
+{
+  "response_id": "url-fainv-block-em-source-matched-response-v2",
+  "request_id": "decision-0960fefbc8734ec4b41bd12fd11557f9",
+  "idea": "url-cw-fact-sparse-lazy-feasibility-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The first full-dimension block-EM calibration established representative time and memory, but its perturbed initial factor did not match the released FA.m source state. The source-matched rerun preserves those resource measurements while repairing the convergence question before a scientific decision.",
+  "events": [
+    {
+      "event_id": "url-fainv-block-em-v1-initial-state-precision-v2",
+      "kind": "insufficient_precision",
+      "issue": "The v1 block-EM calibration initialized the current factor with a perturbation of the fixed target, whereas released FA.m begins the inner EM iteration from D0 and L0 themselves; v1 timing and memory remain usable, but its convergence change cannot answer the source-matched iteration count.",
+      "reason": "Direct post-run source/design review found an initial-state mismatch consequential to the iteration-count proxy. A source-matched v2 plan and script now isolate the repair without changing d, rank, sparse-buffer shape, block size, CPU guard, or resource gates.",
+      "change_evidence": [
+        {
+          "path": "results/url_fainv_block_em_calibration_v1.json",
+          "sha256": "49baae5e3a5ac9b7a25162c964c3d45216ebef72622c1e926a207b9243f7622c"
+        },
+        {
+          "path": "notes/url_fainv_block_em_calibration_v1_analysis.md",
+          "sha256": "758bf2c5ab397f54161d3957cafe9c688115469b0e061cec7d887dec0040d254"
+        },
+        {
+          "path": "plans/url_fainv_block_em_source_matched_v2.md",
+          "sha256": "c259c949f87a998b2eda7e89f7fad175d04ff58c1b63e69ab1543586cd63c92f"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "url-fainv-block-em-source-matched-v2",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/run_url_fainv_block_em_source_matched_v2.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Measure source-matched full-dimension block-EM convergence and its total-compression CPU proxy under the unchanged memory guard",
+      "timeout_seconds": 600,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/url_fainv_block_em_source_matched_v2.md",
+          "sha256": "c259c949f87a998b2eda7e89f7fad175d04ff58c1b63e69ab1543586cd63c92f"
+        },
+        {
+          "path": "scripts/run_url_fainv_block_em_source_matched_v2.py",
+          "sha256": "44b03abbade59761c97a548f06198a1aec7064aa1da0f55c78ef8fbe2b3d8b52"
+        },
+        {
+          "path": "scripts/run_url_fainv_block_em_calibration_v1.py",
+          "sha256": "3492e7b8d553bfaeeabcfed83d8a3ba6b0fcdb0266c50475647fc8b1f3725c45"
+        },
+        {
+          "path": "results/url_fainv_block_em_calibration_v1.json",
+          "sha256": "49baae5e3a5ac9b7a25162c964c3d45216ebef72622c1e926a207b9243f7622c"
+        },
+        {
+          "path": "notes/url_fainv_block_em_calibration_v1_analysis.md",
+          "sha256": "758bf2c5ab397f54161d3957cafe9c688115469b0e061cec7d887dec0040d254"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        }
+      ],
+      "outputs": [
+        "results/url_fainv_block_em_source_matched_v2.json"
+      ]
+    }
+  ]
+}

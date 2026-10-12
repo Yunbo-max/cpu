@@ -1,0 +1,46 @@
+{
+  "submission_id": "url-fainv-kernel-cost-v1",
+  "idea": "url-cw-fact-native-reproduction-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "url-fainv-kernel-cost-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/run_url_fainv_kernel_cost_v1.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Measure full-dimension dense FAinv cache and prediction kernels, then test the preregistered direct-route resource gates",
+      "timeout_seconds": 600,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/url_fainv_kernel_cost_v1.md",
+          "sha256": "2a55150724869d655375da9420614410c07d3f851f7eaf35a6977631d5d21631"
+        },
+        {
+          "path": "scripts/run_url_fainv_kernel_cost_v1.py",
+          "sha256": "1e7af4bdd1dc99c7c01845d8f250f15aa8d2045d75bd7721e1e20735d9a50ef2"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "results/url_prefix_baseline_calibration_v1.json",
+          "sha256": "fc50f5b1750d004d3ac5209c0b65d00b970ddde12ef20b1b2cb59096a12e4609"
+        },
+        {
+          "path": "notes/url_prefix_baseline_analysis_v1.md",
+          "sha256": "ac1e497154b613f9f923c2879b78e5b9853e0aabb7800601611eddf24a9357a8"
+        }
+      ],
+      "outputs": [
+        "results/url_fainv_kernel_cost_v1.json"
+      ]
+    }
+  ]
+}

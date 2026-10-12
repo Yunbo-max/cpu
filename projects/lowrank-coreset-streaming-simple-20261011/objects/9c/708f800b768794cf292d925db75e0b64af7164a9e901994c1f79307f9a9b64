@@ -1,0 +1,19 @@
+# Streaming FID prior-work audit v1
+
+## Primary-source collision
+
+TorchMetrics' maintained `FrechetInceptionDistance` already exposes iterative `update`/`compute` evaluation and stores, for both real and fake features, a feature sum, an outer-product/covariance sum, and a sample count. Its source performs `features.sum(dim=0)` and `features.t().mm(features)` updates. This is the same sufficient-statistics mechanism used by our centered single-node derivation.
+
+- Primary source: https://github.com/Lightning-AI/torchmetrics/blob/master/src/torchmetrics/image/fid.py
+- TorchMetrics software paper: https://joss.theoj.org/papers/10.21105/joss.04101
+
+The original effectively-unbiased FID work already defines extrapolation over multiple finite-sample FID values; the new 2026 sample-optimal FID paper generalizes those extrapolations and reports VALE/RTD. Our per-node state simply repeats the established FID state for the author's independently permuted node memberships.
+
+- FID-infinity paper: https://arxiv.org/abs/1911.07023
+- Sample-optimal FID paper: https://arxiv.org/abs/2610.07114
+
+## Scoped conclusion
+
+Ordinary one-pass FID sufficient statistics are not novel. Exact one-pass reproduction of the author's independently permuted FID-infinity/VALE nodes is a straightforward multi-state engineering composition, not enough for a new-method claim. It uses O(m d^2) state for m nodes.
+
+The only potentially decision-changing successor is whether replacing m independent node permutations with one shared random permutation and nested prefixes can reduce state to O(d^2) while retaining the extrapolation's marginal bias and acceptable RMSE. Each node remains a uniform subset marginally, so the expected weighted intercept is unchanged; dependence between nodes changes the variance. This requires a closest-protocol audit and a prospective paired comparison before any novelty claim.

@@ -1,0 +1,45 @@
+{
+  "request_id": "decision-ec4662d60dbe4a9caf7410a1880917f3",
+  "idea": "model-application-streaming-text-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "discriminative-streaming-hash-submit-v1",
+  "reason": "The batch directions are closed. Quantify one fixed stateless-hashing and one-pass bounded-state SGD endpoint before designing any online statistics enhancement.",
+  "tasks": [
+    {
+      "task_id": "discriminative-streaming-hash-pilot-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/run_discriminative_streaming_hash_pilot_v1.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Measure a stateless hashed representation and exactly one partial-fit pass across three fixed training orders against the full sparse reference",
+      "timeout_seconds": 600,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/discriminative_streaming_hash_pilot_v1.md",
+          "sha256": "91cc4012eebd14180067919b265c87bed37aa9bb47e45c80b6de4ba6afeb1f44"
+        },
+        {
+          "path": "scripts/run_discriminative_streaming_hash_pilot_v1.py",
+          "sha256": "e601ed08179b479cd83ab511b8e6158fe02c8f1fad781fe86842d62472335484"
+        },
+        {
+          "path": "results/discriminative_reservoir_robustness_v1.json",
+          "sha256": "3e5a549a5deb564401970429b629c5a4d550640b48f1103a71d07126132beb2b"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        }
+      ],
+      "outputs": [
+        "results/discriminative_streaming_hash_pilot_v1.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "request_id": "decision-def4ef25b0a34e89a569a79c000d52e7",
+  "idea": "model-application-discriminative-scope-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "discriminative-reservoir-robustness-submit-v1",
+  "reason": "The prospective pilot decisively rejects standard SVD and 25% sampling, while 50% uniform sampling is a non-robust boundary signal. Audit that single remaining uncertainty with new seeds and a stronger stratified baseline before any learned coreset work.",
+  "events": [
+    {
+      "event_id": "discriminative-compression-pilot-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "A source-defined native task, prospective joint gate, full sparse baseline, uniform sampling baselines, standard low-rank baselines, complete metrics/costs, and a bounded next decision are all available.",
+      "hypothesis": "Simple example compression or standard low-rank feature compression may yield a genuine end-to-end CPU time versus macro-F1 tradeoff relative to full sparse Ridge on metadata-stripped 20 Newsgroups.",
+      "prediction": "A compressed point is locally promising only with macro-F1 loss at most 0.03 and method wall at most 0.75 of full sparse; 50% reservoir may approach this gate, 25% may lose too much quality, and SVD may lose the time gate.",
+      "result": "Full sparse macro-F1 was 0.675548 in 2.57494s. All 25% reservoir seeds lost 0.071513-0.075927 macro-F1. SVD-128/256 lost 0.077935/0.053282 and took 1.323/2.093 times full. At 50%, one of three reservoir seeds passed both gates, two missed quality, and the median loss was 0.032212 with median wall ratio about0.547.",
+      "interpretation": "Standard SVD and 25% sampling are scoped negatives. The 50% result is not a confirmed benefit because selecting the single passing seed after observing test labels is invalid; it warrants only one seed-robust screen against a stronger stratified sampling baseline.",
+      "next_action": "Run five new 50% uniform and stratified seeds with a fixed four-of-five aggregate rule and repeated full-baseline timing; then close or retain only the sampling direction.",
+      "evidence": [
+        {
+          "path": "plans/discriminative_compression_pilot_v1.md",
+          "sha256": "5dc868c0a250e7c3bc59cc01a415162404fd2a0c9d62d4d6d6ce1ddd57797f0b"
+        },
+        {
+          "path": "results/discriminative_compression_pilot_v1.json",
+          "sha256": "7af645970a25b479debd8c34038404e99c2c7e8235864d82fa15847b8b9ed06f"
+        },
+        {
+          "path": "notes/discriminative_compression_pilot_analysis_v1.md",
+          "sha256": "4815362485f45902d912d01e936da2fb3664859dcaaa254e258ac381e3ccb8f3"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "discriminative-reservoir-robustness-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/run_discriminative_reservoir_robustness_v1.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Resolve the 50% sampling boundary with five new seeds, repeated full timing, and a label-stratified simple baseline under a fixed aggregate gate",
+      "timeout_seconds": 600,
+      "cwd": ".",
+      "depends_on": [
+        "discriminative-compression-pilot-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "plans/discriminative_reservoir_robustness_v1.md",
+          "sha256": "843c9deeb0ac0437bb1fb5fcaf4797f59abfec58b518699608bcecd6e420e85d"
+        },
+        {
+          "path": "scripts/run_discriminative_reservoir_robustness_v1.py",
+          "sha256": "237c40ec902d4809e88482e444d5a3a8b46a1f47a550e8938164487a58a4c2dd"
+        },
+        {
+          "path": "results/discriminative_compression_pilot_v1.json",
+          "sha256": "7af645970a25b479debd8c34038404e99c2c7e8235864d82fa15847b8b9ed06f"
+        },
+        {
+          "path": "scripts/run_discriminative_compression_pilot_v1.py",
+          "sha256": "9d14c289c0ea670994ba4164cf117064785d4eebe3439a1b899bd222cdc0f23e"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        }
+      ],
+      "outputs": [
+        "results/discriminative_reservoir_robustness_v1.json"
+      ]
+    }
+  ]
+}

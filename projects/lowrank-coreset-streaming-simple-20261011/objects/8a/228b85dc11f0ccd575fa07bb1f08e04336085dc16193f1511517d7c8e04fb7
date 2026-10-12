@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "retrieved_at_utc": "2026-10-12T04:40:00Z",
+  "purpose": "Select a source-defined larger sparse/streaming model application after the 20 Newsgroups branches closed",
+  "candidates": [
+    {
+      "id": "rcv1_v2",
+      "primary_sources": [
+        "https://jmlr.org/papers/volume5/lewis04a/lewis04a.pdf",
+        "https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_rcv1.html",
+        "https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/datasets/_rcv1.py"
+      ],
+      "facts": {
+        "samples": 804414,
+        "features": 47236,
+        "topic_labels": 103,
+        "train_samples": 23149,
+        "test_samples": 781265,
+        "feature_density_reported": 0.0016,
+        "compressed_download_bytes_approx": 656000000,
+        "protocol": "LYRL2004 chronological split; cosine-normalized log TF-IDF; micro- and macro-F1",
+        "distribution_note": "The paper says Reuters agreed to distribution of token/vector files without a license agreement, while encouraging licensing of the official CD-ROMs."
+      },
+      "decision": "reject_for_current_state_pressure_question",
+      "reason": "The source-defined training set is only 23,149 documents and a dense float64 103-by-47,236 coefficient matrix is about 38.9 MB. The large part is fixed test inference, while exact multilabel confusion counts require only O(103) state. It does not create the intended training-state or streaming-statistics bottleneck."
+    },
+    {
+      "id": "webspam_trigram",
+      "primary_sources": [
+        "https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#webspam",
+        "https://www.cs.ucsd.edu/~jtma/papers/covariance-aistats2010.pdf"
+      ],
+      "facts": {
+        "samples": 350000,
+        "nominal_features": 16609143,
+        "nonzero_feature_columns": 680715,
+        "protocol": "Static normalized trigram vectors; source paper uses 35 epochs of 10,000 and ten 50-percent temporal-order-preserving subsamples"
+      },
+      "decision": "secondary_control_only",
+      "reason": "The source explicitly describes webspam as static with no notion of time. It is useful as a known low-rank covariance control, not as the primary evolving-stream application."
+    },
+    {
+      "id": "ucsd_malicious_url",
+      "primary_sources": [
+        "https://www.sysnet.ucsd.edu/projects/url/",
+        "https://www.cs.ucsd.edu/~jtma/papers/url-icml2009.pdf",
+        "https://www.cs.ucsd.edu/~jtma/papers/covariance-aistats2010.pdf",
+        "https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#url"
+      ],
+      "facts": {
+        "days": 121,
+        "samples_approx": 2400000,
+        "features_approx": 3200000,
+        "svmlight_download_bytes": 234000000,
+        "labels": "malicious versus benign",
+        "source_protocol": "Prequential prediction then update, continuous training, variable feature set, cumulative mistakes; the 2010 low-rank study uses 20 days, ten temporal-order-preserving 50-percent subsamples, 200,000 examples per run and CW-fact16."
+      },
+      "availability_note": "The maintainer page offers an anonymized research dataset and requests citation, but no explicit license or redistribution grant was located. Raw data must remain recoverable local .deps material and must not enter checkpoints.",
+      "decision": "selected_for_bounded_native_reproduction",
+      "reason": "It is explicitly an evolving online-learning application, uses millions of examples and newly arriving sparse features, has source-defined baselines and a directly related published diagonal-plus-low-rank covariance method, and its published rank-16 state estimate fits the CPU/4 GiB process limit."
+    }
+  ]
+}

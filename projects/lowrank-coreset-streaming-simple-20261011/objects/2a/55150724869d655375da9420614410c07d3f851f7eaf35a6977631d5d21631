@@ -1,0 +1,35 @@
+# Full-dimension FAinv kernel cost audit v1
+
+## Question
+
+Is a direct, dense port of the released author `FAinv` representation resource-feasible on the official URL dimension under the 4 GiB per-process limit and the finite 1,800-command-second execution window?
+
+This is a kernel/resource audit. It does not train FAinv, evaluate prediction quality, or reproduce the published URL experiment.
+
+## Source-derived operations
+
+After an accepted update, `cw.m` rebuilds:
+
+1. `iPsi = 1 ./ Psi`;
+2. `Gam = [Lam, Bee]`;
+3. `iPG = iPsi .* Gam`;
+4. `iIGPG = inv(I + Gam' * iPG)`.
+
+Prediction then applies a Woodbury correction `iPG * (...)`, producing a dense `sigma_x`. At rank `r` with an empty buffer, the Gram rebuild performs about `2*d*r^2` floating-point operations and the dense correction about `2*d*r`. A full rank-16 buffer makes `Gam` width 32, doubling its bytes and quadrupling the Gram arithmetic relative to empty-buffer rank 16.
+
+## Frozen microbenchmark
+
+- Published dimension: `d=3,231,961`.
+- Dense float64 factors at ranks 4, 8, and 16, in that order.
+- Deterministic fully committed factors; no randomness and no data-dependent tuning.
+- For each rank, measure allocation/scaling time, `Gam' * iPG` plus inversion time, one sparse-input/dense-output Woodbury prediction time, exact live NumPy bytes, and sampled current RSS.
+- Free each rank's arrays before the next rank. Execute single-threaded through `cpu_guard.py`.
+- Do not allocate the full rank-16 buffer or run EM; compute their byte/flop counts algebraically to avoid an unnecessary near-limit allocation.
+
+## Predictions and decision rule
+
+1. Rank-16 no-buffer live NumPy arrays will exceed 1.2 GB and the cache-rebuild time will grow approximately quadratically with rank.
+2. Project a two-day lower-bound time as `36,000 * rank16_prediction_time + 6,017 * rank16_cache_rebuild_time`, using the observed diagonal-CW update count only as a declared diagnostic proxy.
+3. Estimate the released full-buffer/EM live-array bytes by listing arrays simultaneously required by the source, including caller caches and the new factor allocation.
+
+The direct dense released-code route is retained only if the task succeeds, the diagnostic two-day projection is at most 1,800 seconds, and the source-derived full-buffer EM liveness estimate is below 4 GiB. Passing is necessary, not sufficient; failing any condition retires only the direct dense released-code route and leaves a separately designed sparse/lazy reformulation open.

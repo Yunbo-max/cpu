@@ -1,0 +1,114 @@
+{
+  "response_id": "bernstein-interpretation-and-moment-pivot-v1",
+  "request_id": "decision-e43ad600446f4e408129d9d0cc5411fd",
+  "idea": "coreset-adaptive-comparison-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Advance the continuous topic goal using the real B003 result and the original unverified main-algorithm gap.",
+  "events": [
+    {
+      "event_id": "bernstein-diagnostic-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "Interpret the prospectively designed known-mechanism test and preserve its limited positive result.",
+      "hypothesis": "A variance-adaptive pairwise bound can reduce the observed conservative-validator fallback bottleneck.",
+      "prediction": "Improvement requires small normalized pair variance and must retain the range correction; near-tie sample cost can remain large.",
+      "result": "96 method rows and72 pair diagnostics. EB reduced exact fallback from12/24 to10/24 and mean validation draws from6229.3 to5888. Normalized variance medians0.727 and0.622. No observed issued-certificate violations; RSS58.42MiB.",
+      "interpretation": "A limited development benefit exists, but familiar paired-sampling/empirical-Bernstein mechanisms and lack of matched-guarantee advantage leave no confirmed new coreset method. A large100K median-time change partly reflects crossing the50percent fallback-mixture boundary, not a general3x gain.",
+      "next_action": "Retire this candidate as a proposed new method, retain unresolved global-certificate questions, and inspect the actual main sliding-window moment algorithm and oracle protocol.",
+      "evidence": [
+        {
+          "path": "plans/bernstein_diagnostic_v1.md",
+          "sha256": "6b002abda84061d0a33cc7964b5ba05b651bafaa2f81c14363752b2a3dd403fd"
+        },
+        {
+          "path": "notes/near_tie_math_v1.md",
+          "sha256": "019c132c861c5a46cdcffb294025e75e1a1e2e90c306eae0f22abc34ed17ffac"
+        },
+        {
+          "path": "results/bernstein_diagnostic_v1.json",
+          "sha256": "630dfedb2376f6bcfe63e3943d184db857ae90cc0a79a789b789c4e513ae64db"
+        },
+        {
+          "path": "notes/bernstein_analysis_v1.md",
+          "sha256": "7e46f8f8ff3827b8e1c53e02327342b7e98b60eac188100fd8980e1b734e3e8e"
+        }
+      ]
+    },
+    {
+      "event_id": "coreset-comparison-retire-v1",
+      "kind": "retire_idea",
+      "reason": "Known mechanisms; partial variance benefit does not establish novelty or matched-guarantee practical advantage. Retain all evidence and unresolved stronger-guarantee questions.",
+      "evidence": [
+        {
+          "path": "plans/bernstein_diagnostic_v1.md",
+          "sha256": "6b002abda84061d0a33cc7964b5ba05b651bafaa2f81c14363752b2a3dd403fd"
+        },
+        {
+          "path": "notes/near_tie_math_v1.md",
+          "sha256": "019c132c861c5a46cdcffb294025e75e1a1e2e90c306eae0f22abc34ed17ffac"
+        },
+        {
+          "path": "results/bernstein_diagnostic_v1.json",
+          "sha256": "630dfedb2376f6bcfe63e3943d184db857ae90cc0a79a789b789c4e513ae64db"
+        },
+        {
+          "path": "notes/bernstein_analysis_v1.md",
+          "sha256": "7e46f8f8ff3827b8e1c53e02327342b7e98b60eac188100fd8980e1b734e3e8e"
+        }
+      ]
+    },
+    {
+      "event_id": "moment-native-replace-v1",
+      "kind": "replace_idea",
+      "idea": "streaming-moment-native-audit-v1",
+      "reason": "The original CPU record only ran auxiliary SS/SSA. Resolve the actual main-algorithm and oracle/window-protocol evidence gap before any improvement claim.",
+      "evidence": [
+        {
+          "path": "plans/moment_source_audit_v1.md",
+          "sha256": "4f09ebecdfa78bfb6292fb4bf059d70a18afd3fd3cbe2c4a9827e20150041c95"
+        },
+        {
+          "path": "notes/bernstein_analysis_v1.md",
+          "sha256": "7e46f8f8ff3827b8e1c53e02327342b7e98b60eac188100fd8980e1b734e3e8e"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "moment-native-sources-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/fetch_moment_sources.py"
+      ],
+      "phase": "sources",
+      "purpose": "Acquire pinned main moment-estimation author source and published protocol for inspection, without executing downloaded notebooks",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "bernstein-diagnostic-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "scripts/fetch_moment_sources.py",
+          "sha256": "633735ea945005df7a286a03238d4fd29c0b286f71776a847fdcd898b61d3832"
+        },
+        {
+          "path": "plans/moment_source_audit_v1.md",
+          "sha256": "4f09ebecdfa78bfb6292fb4bf059d70a18afd3fd3cbe2c4a9827e20150041c95"
+        }
+      ],
+      "outputs": [
+        "sources/moments/download_manifest.json",
+        "sources/moments/tree.json",
+        "sources/moments/paper.pdf"
+      ]
+    }
+  ]
+}

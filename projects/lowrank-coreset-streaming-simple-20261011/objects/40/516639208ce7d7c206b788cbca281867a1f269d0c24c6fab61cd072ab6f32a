@@ -1,0 +1,30 @@
+{
+  "submission_id": "fid-rtd-isotropic-scaling-submit-v1",
+  "idea": "generative-fid-rtd-native-reproduction-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "fid-rtd-isotropic-scaling-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/run_fid_rtd_isotropic_scaling_v1.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Measure the prospective signed-bias, RMSE, and CPU-cost frontier of all released FID estimators across four isotropic dimensions",
+      "timeout_seconds": 900,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "plans/fid_rtd_isotropic_scaling_v1.md", "sha256": "5d7da4b1a4f81e39808a70e6f5f38324fb281612ba857a35f8a6edd5d1e9f016"},
+        {"path": "configs/fid_rtd_isotropic_scaling_v1.yaml", "sha256": "e41ad0515548929ab1e11a026534ffe407d415b0cd357eae091072de41f1f65e"},
+        {"path": "scripts/run_fid_rtd_isotropic_scaling_v1.py", "sha256": "5feeb613038abe09c1510b05325377278c1ed9f17024c05ae10a67498ad9dce4"},
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+        {"path": "sources/fid_rtd_source_manifest_v1.json", "sha256": "2a2794e5de63bb78008806e3c11d47995d7de2841dafbf7cf014608954031964"},
+        {"path": ".deps/fid_rtd/repo-1e90579840cf81284287583fcb607581704993ab/sample-optimal-fid-estimation-1e90579840cf81284287583fcb607581704993ab/experiments/gaussian/run.py", "sha256": "9bc841eb643f864e6c88681736ba827d515ab54f356785c3936ee961aa070a53"}
+      ],
+      "outputs": ["results/fid_rtd_isotropic_scaling_v1.json"]
+    }
+  ]
+}

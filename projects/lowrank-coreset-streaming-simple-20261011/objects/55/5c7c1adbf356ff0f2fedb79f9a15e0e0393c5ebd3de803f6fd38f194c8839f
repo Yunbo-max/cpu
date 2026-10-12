@@ -1,0 +1,43 @@
+{
+  "response_id": "streaming-centered-interpret-v1",
+  "request_id": "decision-d1fda415e3dc4f7ba2132068935b3825",
+  "idea": "streaming-fid-infinity-exact-moments-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Centered equivalence passes, but primary source inspection shows ordinary streaming FID already uses the same sufficient statistics; retire the exact multi-state composition as engineering and isolate the only nontrivial successor, nested-prefix variance.",
+  "events": [
+    {
+      "event_id": "streaming-fid-infinity-centered-cycle-v1",
+      "kind": "research_cycle",
+      "hypothesis": "Per-node count, sum, and Gram states exactly reproduce centered fixed-reference FID-infinity/VALE nodes and intercepts.",
+      "prediction": "All 15 centered node values match within 3e-10 and all six extrapolation intercepts within 3e-9.",
+      "result": "Maximum node/intercept errors were 5.95e-14 and 9.77e-15; all checks passed and peak RSS was 35,094,528 bytes.",
+      "interpretation": "Centered image-feature FID also has an exact one-pass O(m d^2) realization under fixed node memberships. TorchMetrics already implements the underlying one-node sum/outer-product/count state, so repeating it across independent extrapolation nodes is an engineering composition rather than a new method.",
+      "next_action": "Audit and test a shared-permutation nested-prefix design that reduces exact state from O(m d^2) to O(d^2), with unchanged node marginals but altered cross-node covariance.",
+      "reason": "The source-matched centered formula, numerical equivalence, and primary-source software collision jointly determine the scoped conclusion.",
+      "evidence": [
+        {"path": "plans/streaming_fid_infinity_centered_equivalence_v1.md", "sha256": "7bd2d274601d03adf1f632cc0b78f7089fe37e31ce693c2c02c4e8b5ac488e9b"},
+        {"path": "results/streaming_fid_infinity_centered_equivalence_v1.json", "sha256": "b02b1a984bd5660074498fa2dc9d76b3b1e4e6ba675354a08f4f4e7a037c50ad"},
+        {"path": "notes/streaming_fid_infinity_centered_equivalence_v1_analysis.md", "sha256": "2ae824c719d3e255f49d96ecad1596b18fe357fe9226928877636f5a33dd234c"},
+        {"path": "notes/streaming_fid_prior_work_audit_v1.md", "sha256": "9c708f800b768794cf292d925db75e0b64af7164a9e901994c1f79307f9a9b64"}
+      ]
+    },
+    {
+      "event_id": "streaming-fid-infinity-exact-moments-retire-v1",
+      "kind": "retire_idea",
+      "reason": "Exact per-node streaming is verified but is a straightforward repetition of established FID sufficient-statistics state and provides no supported novelty claim.",
+      "evidence": [
+        {"path": "notes/streaming_fid_prior_work_audit_v1.md", "sha256": "9c708f800b768794cf292d925db75e0b64af7164a9e901994c1f79307f9a9b64"}
+      ]
+    },
+    {
+      "event_id": "streaming-vale-nested-prefix-start-v1",
+      "kind": "replace_idea",
+      "idea": "streaming-vale-nested-prefix-v1",
+      "reason": "A shared random permutation preserves each node's uniform-subset marginal while enabling one O(d^2) prefix state; its changed cross-node covariance may help or harm extrapolation RMSE and is the next falsifiable mathematical question.",
+      "evidence": [
+        {"path": "notes/streaming_fid_prior_work_audit_v1.md", "sha256": "9c708f800b768794cf292d925db75e0b64af7164a9e901994c1f79307f9a9b64"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+import hashlib,json,resource,subprocess,time
+from pathlib import Path
+
+ROOT=Path(__file__).resolve().parents[1]
+TARGET=ROOT/'sources/prior-b15-repo'
+COMMIT='b085f362dfec1127afa7e775c516796a2d252e0f'
+SUBPATH='research/consistent-lra/b15-rsi-20261010T2240'
+URL='https://github.com/Yunbo-max/test10.8.git'
+
+def run(args,cwd=None):
+    return subprocess.run(args,cwd=cwd,text=True,check=True,capture_output=True,timeout=150)
+
+def main():
+    start=time.perf_counter()
+    if TARGET.exists():raise RuntimeError(f'refusing existing target: {TARGET}')
+    TARGET.mkdir(parents=True)
+    run(['git','init','.'],TARGET)
+    run(['git','remote','add','origin',URL],TARGET)
+    run(['git','config','core.sparseCheckout','true'],TARGET)
+    (TARGET/'.git/info/sparse-checkout').write_text('/'+SUBPATH+'/**\n')
+    run(['git','fetch','--depth','1','--filter=blob:none','origin',COMMIT],TARGET)
+    run(['git','checkout','--detach','FETCH_HEAD'],TARGET)
+    head=run(['git','rev-parse','HEAD'],TARGET).stdout.strip()
+    base=TARGET/SUBPATH
+    if head!=COMMIT:raise RuntimeError(f'commit mismatch: {head}')
+    if not base.is_dir():raise RuntimeError(f'missing sparse path: {SUBPATH}')
+    files=[]
+    for p in sorted(x for x in base.rglob('*') if x.is_file()):
+        b=p.read_bytes();files.append({'path':str(p.relative_to(ROOT)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})
+    out={'repository':URL,'commit':head,'subpath':SUBPATH,'files':files,'total_bytes':sum(x['bytes'] for x in files),
+         'elapsed_seconds':time.perf_counter()-start,'peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    path=ROOT/'sources/prior_b15_manifest_v1.json';path.write_text(json.dumps(out,indent=2,allow_nan=False))
+    print(json.dumps({'commit':head,'files':len(files),'total_bytes':out['total_bytes'],'elapsed_seconds':out['elapsed_seconds'],'peak_rss_kib':out['peak_rss_kib']}))
+
+if __name__=='__main__':main()

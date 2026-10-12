@@ -1,0 +1,40 @@
+{
+  "submission_id": "url-dataset-acquisition-v1",
+  "idea": "url-cw-fact-native-reproduction-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "url-dataset-acquisition-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/acquire_url_dataset_v1.py"
+      ],
+      "phase": "sources",
+      "purpose": "Acquire, hash, safely inventory, and minimally extract the official chronological URL stream without parsing or learning",
+      "timeout_seconds": 600,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/url_dataset_acquisition_v1.md",
+          "sha256": "9024849d8fe919ed782129e01ead8f25ea71e44a2c4b2f087e3f916accf3382a"
+        },
+        {
+          "path": "scripts/acquire_url_dataset_v1.py",
+          "sha256": "3f7d97dc7ba2c98a863e9f6502aba4e356d2ed7cae1bcaf5f5c575713d9e83ec"
+        },
+        {
+          "path": "sources/url_cw_fa_code_manifest_v1.json",
+          "sha256": "76e0d297e03f634cd2d757b69585f4eedac11aaa71878d4ecd723dfb8471fd85"
+        },
+        {
+          "path": "notes/url_cw_fa_code_audit_v1.md",
+          "sha256": "6da1d0ad9d4dde96bd8fedb67b8f15cc8a85541427eb0dd52a85bd26213bd20b"
+        }
+      ],
+      "outputs": [
+        "sources/url_dataset_manifest_v1.json"
+      ]
+    }
+  ]
+}

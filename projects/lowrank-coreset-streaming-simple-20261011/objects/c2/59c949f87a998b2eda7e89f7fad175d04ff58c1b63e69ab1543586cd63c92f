@@ -1,0 +1,21 @@
+# Source-matched full-dimension block FA-EM calibration v2
+
+## Repair and question
+
+Repair the v1 convergence-start mismatch by matching released `FA.m`: the fixed target is `P0=D0+L0 L0'+B B'`, while the first EM iterate is exactly `D=D0`, `L=L0`.  How many of the first five exact row-block iterations are required, what are their per-iteration costs, and does the retained diagonal stay finite and positive?
+
+## Frozen construction
+
+- Reuse the v1 dimension 3,231,961, rank 16, sparse buffer width 16 with 111 deterministic nonzeros per column, float64, and block size 16,384.
+- Use the same deterministic target diagonal/factor and sparse buffer generation, but set the mutable arrays to exact copies of the target arrays before the first iteration.
+- Run sequential released-equation EM iterations, stopping at normalized parameter change `<=1e-6` or after five iterations.  Retain each iteration's phase time, total time, normalized change and diagonal range.
+- Single-threaded CPU through `cpu_guard.py`, 4 GiB address-space limit.
+
+## Gates and interpretation
+
+- Algebra/numerics gate: every completed iterate is finite with positive diagonal.
+- Memory gate: peak RSS below 2 GiB.
+- Runtime diagnostic: multiply cumulative compression time by the same 375-compression diagonal-CW proxy.  This is not the true FAinv update count.
+- If the source-matched run needs at least two iterations, the prior one-iteration projection is explicitly insufficient.  If five iterations do not converge, do not extrapolate a precise 50-iteration total from convergence shape; report only the observed lower bound.
+
+The next scientific decision after v2 is whether an authentic small URL prefix should measure FAinv update/compression frequency and iteration counts.  No full two-day run is authorized by this calibration alone.

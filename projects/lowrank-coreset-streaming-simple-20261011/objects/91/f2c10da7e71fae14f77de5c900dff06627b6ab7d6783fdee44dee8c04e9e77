@@ -1,0 +1,50 @@
+{
+  "request_id": "decision-ce94b75872f340129833e71ef9a5c781",
+  "idea": "model-application-large-stream-source-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "large-stream-source-audit-v1",
+  "reason": "The source audit rejects RCV1 as a false state-pressure target, retains static webspam only as a control, and selects the source-defined UCSD malicious-URL stream for a bounded author-method reproduction under the existing CPU and memory limits.",
+  "events": [
+    {
+      "event_id": "large-stream-source-audit-milestone-v1",
+      "kind": "milestone",
+      "label": "Selected an authentic evolving sparse URL stream and pinned the closest low-rank collision",
+      "next_phase": "sources",
+      "reason": "RCV1 has a large fixed test set but only a 23,149-example source-defined training set and about 38.9 MB full multilabel coefficient state; the UCSD URL source instead provides 121 days, about 2.4 million examples and 3.2 million evolving features with a published prequential protocol. A 2010 diagonal-plus-rank-16 CW method is already the closest mechanism, so the next work is reproduction and cost audit rather than novelty claims.",
+      "evidence": [
+        {
+          "path": "sources/large_stream_candidate_manifest_v1.json",
+          "sha256": "8a228b85dc11f0ccd575fa07bb1f08e04336085dc16193f1511517d7c8e04fb7"
+        },
+        {
+          "path": "notes/large_stream_source_audit_v1.md",
+          "sha256": "606808f7a494fed647687673e56778debe8b0dd9a48177e3ceda0780edf4c84e"
+        }
+      ]
+    },
+    {
+      "event_id": "large-stream-source-audit-retire-v1",
+      "kind": "retire_idea",
+      "reason": "The bounded source-selection question is answered: URL is primary, webspam is secondary, and RCV1 is rejected for the current pressure claim.",
+      "evidence": [
+        {
+          "path": "sources/large_stream_candidate_manifest_v1.json",
+          "sha256": "8a228b85dc11f0ccd575fa07bb1f08e04336085dc16193f1511517d7c8e04fb7"
+        }
+      ]
+    },
+    {
+      "event_id": "url-cw-fact-native-reproduction-replace-v1",
+      "kind": "replace_idea",
+      "idea": "url-cw-fact-native-reproduction-v1",
+      "reason": "Retrieve and hash the offered anonymized daily stream and author code, audit the CW-fact equations and ordering, then run a small day-prefix native calibration with strong simple online baselines before any 20-day reproduction.",
+      "evidence": [
+        {
+          "path": "notes/large_stream_source_audit_v1.md",
+          "sha256": "606808f7a494fed647687673e56778debe8b0dd9a48177e3ceda0780edf4c84e"
+        }
+      ]
+    }
+  ]
+}

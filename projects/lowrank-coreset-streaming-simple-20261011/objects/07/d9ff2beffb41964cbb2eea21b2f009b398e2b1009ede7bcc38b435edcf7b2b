@@ -1,0 +1,77 @@
+{
+  "request_id": "decision-03184b0875f643b791f787915d482c4a",
+  "idea": "streaming-moment-native-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 2,
+  "response_id": "moment-prefix-result-and-bracket-submit-v1",
+  "reason": "Record a measured query-selection failure and test the exact-oracle interval limit before further algorithm design.",
+  "events": [
+    {
+      "event_id": "moment-prefix-window-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "Completed hypothesis-prediction-result-interpretation chain.",
+      "hypothesis": "Nearest retained-start querying conflates selection and estimation error; prefix-only advice and exact streaming baseline can disentangle them.",
+      "prediction": "Incremental exact F3 matches all recounts; requested versus represented window norms can differ even without sketch error.",
+      "result": "5000 exact checks passed; prefix-CS49labels. W8 selectsW9, giving25.44% selection error and24.31% totalSSA error; hardcoded W16 selectsW19 and36.48% selection error.",
+      "interpretation": "Window coverage is consequential independent of suffix estimator accuracy. No new method or matched-budget superiority established.",
+      "next_action": "Test optimistic exact-oracle monotone query brackets, then define a query-quality contract.",
+      "evidence": [
+        {
+          "path": "plans/moment_prefix_window_v1.md",
+          "sha256": "ea404643bb09a3ff297ad605f404da976f73223600f741ef76f3355d15db2430"
+        },
+        {
+          "path": "results/moment_prefix_window_v1.json",
+          "sha256": "74444d4f3deb13fc0370a30774dabe917a04577fc047f158b3d0152fde00c58c"
+        },
+        {
+          "path": "notes/moment_prefix_window_analysis_v1.md",
+          "sha256": "ed15af6522c66ef0c142a871abe3fbadca68dd12118e2d9e4999849231ca765f"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "moment-query-bracket-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/moment_query_bracket.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Measure fixed-W interval uncertainty with optimistic exact suffix oracles",
+      "timeout_seconds": 60,
+      "cwd": ".",
+      "depends_on": [
+        "moment-prefix-window-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "plans/moment_query_bracket_v1.md",
+          "sha256": "1188f6bc57a72596119e072a2ad3af45b35bdccfdd7f1fffdc32318d439c4c77"
+        },
+        {
+          "path": "scripts/moment_query_bracket.py",
+          "sha256": "5a33318a5c989abdc680e6dc7d135cdc5df06a0e4c70dcbc524826c18e946312"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "data/moment_native_shift_1000.npy",
+          "sha256": "3dbac94d8f07a64a5584229523a6f80b80d9d08d9acbb998a36d4c52cb1c49e6"
+        },
+        {
+          "path": "results/moment_prefix_window_v1.json",
+          "sha256": "74444d4f3deb13fc0370a30774dabe917a04577fc047f158b3d0152fde00c58c"
+        }
+      ],
+      "outputs": [
+        "results/moment_query_bracket_v1.json"
+      ]
+    }
+  ]
+}

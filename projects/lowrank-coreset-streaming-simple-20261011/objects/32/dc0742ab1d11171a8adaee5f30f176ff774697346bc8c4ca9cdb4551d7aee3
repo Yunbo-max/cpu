@@ -1,0 +1,40 @@
+# Native URL two-day baseline calibration v1
+
+## Research question
+
+Can the official Day0→Day1 sparse stream be parsed and evaluated with the author-defined predict-then-update convention, and do simple source-aligned online learners establish a nontrivial signal under the CPU/4 GiB process limit before a costly rank-16 FAinv port is attempted?
+
+This is a bounded diagnostic on a chronological prefix, not a reproduction of the paper's 20-day/200,000-example sampled protocol and not evidence of a low-rank advantage.
+
+## Hypothesis and frozen prediction
+
+Hypothesis: the official prefix satisfies the documented binary SVM-light invariants, and at least one author-aligned online learner will beat a constant-negative predictor on Day1 after chronological Day0 learning.
+
+The diagnostic passes only if:
+
+1. labels are exactly `{-1,+1}`, feature indices are strictly increasing per row and lie in `1..3,231,961`, and all values are finite;
+2. PA, averaged PA, and diagonal-L2 CW finish without nonfinite state in a single process below 4 GiB;
+3. at least one learner lowers Day1 mistake rate by at least 0.01 absolute relative to constant-negative;
+4. total guarded wall time is at most 300 seconds.
+
+Failure means the parser/protocol or simple-model boundary must be diagnosed before FAinv. Passing only licenses the known-method port; it does not support novelty or superiority.
+
+## Data and order
+
+- Exact hashes and sizes come from `sources/url_dataset_manifest_v1.json`.
+- Consume every line of Day0, then every line of Day1, in file order.
+- One initial profiling pass checks invariants and records counts; each learner then reparses the same files, so its measured wall time includes parsing and I/O.
+- SVM-light indices are converted from one-based to zero-based only for array access. No normalization, shuffling, subsampling, or test-tuned feature filtering is allowed.
+
+## Frozen methods
+
+- Constant-negative sanity baseline; no learned state.
+- Passive-aggressive exactly as in author `cw.m`: mistake when `y score <= 0`, update when margin `<1`, and `alpha=(1-margin)/||x||^2`.
+- Averaged passive-aggressive using the author's `v + i*mu` prediction and `v -= i*alpha*y*x` update, with global one-based example counter `i`.
+- Diagonal-L2 confidence-weighted with `eta=0.95`, `a=1`, standard-deviation update, and the exact scalar equations/order from author `cw.m`.
+
+All state is dense float64 over the published `d=3,231,961`, making retained-state costs explicit: 25,855,688 bytes for PA and 51,711,376 bytes for averaged PA or diagonal CW.
+
+## Outputs and interpretation
+
+Write `results/url_prefix_baseline_calibration_v1.json` with parser statistics, overall/day-wise mistakes, update counts, wall time, retained array bytes, sampled current RSS, process peak RSS, and diagnostic gates. Preserve every failure or exception through the runner receipt. Only after inspecting this output may the FAinv implementation plan be written.

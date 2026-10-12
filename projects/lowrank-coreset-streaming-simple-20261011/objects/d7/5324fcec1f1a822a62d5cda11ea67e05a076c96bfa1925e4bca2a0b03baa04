@@ -1,0 +1,14 @@
+# B013: recover the frozen B15 online protocol source
+
+The next preregistered step requires the eta=.1 Landmark-512 trajectory that had71
+late refreshes. The current checkpoint contains the audited B01-B15 review but not
+the frozen B15 source bytes. Recover only the recorded public repository commit
+`b085f362dfec1127afa7e775c516796a2d252e0f`, sparse-checking out
+`research/consistent-lra/b15-rsi-20261010T2240`. Inventory every recovered file,
+byte count and SHA-256, and record the checked-out full commit.
+
+This is source recovery, not a research cycle or numerical experiment. It may not
+run the old code, alter the old result, or infer success from filenames. If the
+commit/path is absent or network acquisition fails, preserve stderr and report the
+blocker; do not substitute a new trajectory. CPU one thread under the4GiB guard,
+timeout180s, and no paid service.

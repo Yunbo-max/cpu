@@ -1,0 +1,156 @@
+{
+  "author_alignment": {
+    "cw_variant": "diag_l2, stdev, eta=0.95, a=1",
+    "mistake_rule": "y * prediction_score <= 0",
+    "pa_update": "margin < 1; alpha=(1-margin)/||x||^2"
+  },
+  "dtype": "float64",
+  "environment": {
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "thread_env": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "experiment": "url_prefix_baseline_calibration_v1",
+  "gates": {
+    "all_methods_finite": true,
+    "best_day1_absolute_improvement_over_constant_negative": 0.32039999999999996,
+    "max_retained_array_bytes": 51711376,
+    "parser_invariants_pass": true,
+    "process_limit_bytes": 4294967296,
+    "signal_gate_at_least_0_01": true,
+    "wall_gate_at_most_300_seconds": true
+  },
+  "methods": [
+    {
+      "days": {
+        "Day0": {
+          "examples": 16000,
+          "mistake_rate": 0.3726875,
+          "mistakes": 5963
+        },
+        "Day1": {
+          "examples": 20000,
+          "mistake_rate": 0.3404,
+          "mistakes": 6808
+        }
+      },
+      "method": "constant_negative",
+      "overall_mistake_rate": 0.35475,
+      "overall_mistakes": 12771,
+      "retained_array_bytes": 0,
+      "updates": 0,
+      "wall_seconds": 0.0
+    },
+    {
+      "days": {
+        "Day0": {
+          "examples": 16000,
+          "mistake_rate": 0.036,
+          "mistakes": 576
+        },
+        "Day1": {
+          "examples": 20000,
+          "mistake_rate": 0.02785,
+          "mistakes": 557
+        }
+      },
+      "final_weight_l2": 4.488517402428722,
+      "method": "pa",
+      "overall_mistake_rate": 0.03147222222222222,
+      "overall_mistakes": 1133,
+      "retained_array_bytes": 25855688,
+      "sampled_max_rss_bytes": 50851840,
+      "updates": 4565,
+      "wall_seconds": 2.475330967004993
+    },
+    {
+      "days": {
+        "Day0": {
+          "examples": 16000,
+          "mistake_rate": 0.034625,
+          "mistakes": 554
+        },
+        "Day1": {
+          "examples": 20000,
+          "mistake_rate": 0.02735,
+          "mistakes": 547
+        }
+      },
+      "final_weight_l2": 4.488517402428722,
+      "method": "pa_average",
+      "overall_mistake_rate": 0.030583333333333334,
+      "overall_mistakes": 1101,
+      "retained_array_bytes": 51711376,
+      "sampled_max_rss_bytes": 79917056,
+      "updates": 4565,
+      "wall_seconds": 2.450374206993729
+    },
+    {
+      "days": {
+        "Day0": {
+          "examples": 16000,
+          "mistake_rate": 0.0256875,
+          "mistakes": 411
+        },
+        "Day1": {
+          "examples": 20000,
+          "mistake_rate": 0.02,
+          "mistakes": 400
+        }
+      },
+      "eta": 0.95,
+      "final_sigma_max": 1.0,
+      "final_sigma_min": 0.009821445732789372,
+      "final_weight_l2": 43.80497026789895,
+      "method": "cw_diag_l2",
+      "overall_mistake_rate": 0.02252777777777778,
+      "overall_mistakes": 811,
+      "phi": 1.6448536269514715,
+      "retained_array_bytes": 51711376,
+      "sampled_max_rss_bytes": 80027648,
+      "updates": 6017,
+      "wall_seconds": 2.0182457610062556
+    }
+  ],
+  "parser_profile": {
+    "days": {
+      "Day0": {
+        "examples": 16000,
+        "negative": 10037,
+        "positive": 5963
+      },
+      "Day1": {
+        "examples": 20000,
+        "negative": 13192,
+        "positive": 6808
+      }
+    },
+    "examples": 36000,
+    "feature_value_max": 3.0,
+    "feature_value_min": -3.27683,
+    "invariants": {
+      "indices_strictly_increasing": true,
+      "indices_within_published_dimension": true,
+      "labels_exactly_plus_minus_one": true,
+      "values_finite": true
+    },
+    "max_feature_index": 3231955,
+    "nnz_per_example": {
+      "max": 364,
+      "median": 111.0,
+      "min": 30,
+      "p95": 143.0
+    },
+    "total_nnz": 4151738
+  },
+  "process_peak_rss_bytes": 79822848,
+  "published_dimension": 3231961,
+  "schema_version": 1,
+  "scope": "All examples in official Day0 then Day1; bounded diagnostic, not the published 20-day sampled protocol.",
+  "total_wall_seconds": 9.225581909005996
+}

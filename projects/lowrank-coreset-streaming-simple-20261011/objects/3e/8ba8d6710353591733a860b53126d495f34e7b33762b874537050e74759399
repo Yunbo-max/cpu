@@ -1,0 +1,39 @@
+# One-pass hashed text pilot analysis v1
+
+## Result
+
+Across fixed training-order seeds 19, 71, and 211, the one-pass hashed SGD
+endpoint produced macro-F1 0.617724--0.623208.  Its median macro-F1 was
+0.618128, a median loss of 0.057419 from full sparse Ridge, outside the frozen
+0.05 quality gate.  Median wall ratio was 1.0453 (range 1.0148--1.0604), also
+outside the 0.75 time gate.  The endpoint therefore fails both sides of the
+prospective joint criterion.
+
+Peak RSS was 356,278,272 bytes.  Each fitted classifier exposed 41,943,200
+coefficient/intercept bytes, while all NumPy arrays retained internally by the
+averaged SGD object summed to 125,829,920 bytes.  The latter includes current
+and averaged parameter state and is the more conservative bounded-state count.
+
+## Mechanism audit
+
+The full sparse representation had only 17,797 fitted features.  A float64
+20-class Ridge coefficient matrix therefore occupies approximately
+20 * 17,797 * 8 = 2,847,520 bytes, excluding small intercept and object
+overhead.  The pilot's 262,144-dimensional hash was consequently not a strong
+resource baseline: exposed classifier state was about 14.7 times, and retained
+array state about 44.2 times, the full Ridge coefficient matrix.
+
+The failure cannot be used to reject stateless hashing in general.  It does
+reject this exact commonly sized `2**18`, averaged, one-pass endpoint on the
+native task.  A state-matched follow-up is justified by algebra rather than a
+test-score sweep:
+
+- without averaging, `2**14=16,384` hashed features gives about 2.62 MB of
+  coefficient state, near but below the full Ridge coefficient bytes;
+- with the observed roughly three retained parameter arrays, `2**12=4,096`
+  features gives about 1.97 MB of internal arrays, also below the reference.
+
+These two endpoints preserve the original 0.05 quality and 0.75 time gates.
+If neither passes, close streaming hashing on 20 Newsgroups rather than relaxing
+the gate after seeing test results.
+

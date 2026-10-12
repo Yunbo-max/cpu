@@ -1,0 +1,116 @@
+{
+  "claims": [
+    {
+      "coverage": "documented",
+      "documented_comparison_ids": [
+        "query"
+      ],
+      "gap_codes": [],
+      "id": "query-mismatch",
+      "missing_comparison_ids": [],
+      "required_comparison_ids": [
+        "query"
+      ]
+    }
+  ],
+  "decision_review": {
+    "advisories": [
+      {
+        "claim_ids": [
+          "query-mismatch"
+        ],
+        "code": "workflow_binding_unreviewed",
+        "comparison_ids": [],
+        "message": "Scientific policy and executor editions are not separately declared",
+        "next_action": "Recover the active scientific edition and executor from project records; do not infer a policy migration from an executor upgrade",
+        "path": "workflow_binding"
+      },
+      {
+        "claim_ids": [
+          "query-mismatch"
+        ],
+        "code": "decision_review_unreviewed",
+        "comparison_ids": [
+          "query"
+        ],
+        "message": "No structured decision review is recorded; existing design coverage is unchanged",
+        "next_action": "Identify the decision this comparison changes and the cheapest discriminating check when useful",
+        "path": "comparisons.query.decision_review"
+      },
+      {
+        "claim_ids": [
+          "query-mismatch"
+        ],
+        "code": "review_unreviewed",
+        "comparison_ids": [
+          "query"
+        ],
+        "message": "No review is recorded for this question",
+        "next_action": "Decide whether this review can change the next action; perform it or record why it does not apply",
+        "path": "results.comparisons[0].decision_feedback"
+      }
+    ],
+    "claims": [
+      {
+        "advisory_codes": [
+          "decision_review_unreviewed",
+          "review_unreviewed",
+          "workflow_binding_unreviewed"
+        ],
+        "id": "query-mismatch",
+        "status": "unreviewed"
+      }
+    ],
+    "limitations": "Optional structured declarations and local artifact bytes only. No natural-language policy inference, semantic baseline/metric verification, statistical acceptance, historical decision rewrite, dispatch or admission gate. A matching hash does not establish who ran a check, its correctness, or prospective independence.",
+    "next_actions": [
+      {
+        "action": "Recover the active scientific edition and executor from project records; do not infer a policy migration from an executor upgrade",
+        "claim_ids": [
+          "query-mismatch"
+        ],
+        "comparison_ids": []
+      },
+      {
+        "action": "Identify the decision this comparison changes and the cheapest discriminating check when useful",
+        "claim_ids": [
+          "query-mismatch"
+        ],
+        "comparison_ids": [
+          "query"
+        ]
+      },
+      {
+        "action": "Decide whether this review can change the next action; perform it or record why it does not apply",
+        "claim_ids": [
+          "query-mismatch"
+        ],
+        "comparison_ids": [
+          "query"
+        ]
+      }
+    ],
+    "status": "advisories"
+  },
+  "design_id": "moment-prefix-query-diagnostic-v1",
+  "dispatch_performed": false,
+  "execution_authorization": false,
+  "gaps": [],
+  "goal_contract_version": 2,
+  "next_actions": [],
+  "plan_ref": {
+    "path": "plans/moment_prefix_query_documentation_v1.json",
+    "sha256": "ee1b8d86f5952479c5d70e9b02c98973634d333863af6064d64fc132459de76f"
+  },
+  "prospective_independence_verified": false,
+  "resource_authorization_verified": false,
+  "resource_snapshot_is_a_lease": false,
+  "results_ref": {
+    "path": "results/moment_prefix_query_documentation_v1.json",
+    "sha256": "328133bf386c71cb74d9ed0078435dfed02ed4a2ca250558c57dbd706f084fb5"
+  },
+  "run_identity_authenticated": false,
+  "schema_version": 1,
+  "scientific_certification": false,
+  "status": "documented",
+  "supplied_goal_contract_version": 2
+}

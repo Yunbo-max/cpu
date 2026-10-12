@@ -1,0 +1,41 @@
+{
+  "request_id": "decision-a2298fb634c94df7a55db80026df5cd1",
+  "idea": "lra-block-krylov-baseline-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "lra-source-audit-submit-v1",
+  "reason": "Pin primary author data/code and block-Krylov paper before designing the 512-row comparison.",
+  "tasks": [
+    {
+      "task_id": "lra-sources-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/fetch_lra_sources.py"
+      ],
+      "phase": "sources",
+      "purpose": "Acquire exact primary sources and hashes for the block-Krylov baseline audit",
+      "timeout_seconds": 180,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "plans/lra_source_audit_v1.md",
+          "sha256": "57955074bff66e4172feea3fa973f7ad5c4d83132295b289df526418ff0356b6"
+        },
+        {
+          "path": "scripts/fetch_lra_sources.py",
+          "sha256": "5fb933c1572e76b3525f4e6a98f7fecd4419b1fc72b53d408fa2096c1ab0c732"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        }
+      ],
+      "outputs": [
+        "sources/lra_source_manifest_v1.json"
+      ]
+    }
+  ]
+}

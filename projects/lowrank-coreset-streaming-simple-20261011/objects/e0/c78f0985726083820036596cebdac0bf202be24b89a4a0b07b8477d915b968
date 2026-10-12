@@ -1,0 +1,95 @@
+{
+  "decision_gates": {
+    "projected_two_day_seconds_at_most_1800": false,
+    "rank16_no_buffer_live_arrays_at_least_1_2gb": true,
+    "retain_direct_dense_route": false,
+    "source_liveness_below_4gib": false,
+    "task_completed": true
+  },
+  "experiment": "url_fainv_kernel_cost_v1",
+  "full_buffer_algebra": {
+    "caller_live_bytes_estimate": 2559713112,
+    "em_additional_live_bytes_estimate": 2146022104,
+    "gam_bytes": 827382016,
+    "gram_approx_flops_per_rebuild": 6619056128,
+    "ipg_bytes": 827382016,
+    "process_limit_bytes": 4294967296,
+    "source_liveness_bytes_estimate": 4705735216,
+    "width": 32
+  },
+  "measurements": [
+    {
+      "algebra": {
+        "dense_correction_approx_flops": 25855688,
+        "factor_bytes": 103422752,
+        "factor_elements": 12927844,
+        "gram_approx_flops": 103422752
+      },
+      "allocation_and_scaling_seconds": 0.1164826099993661,
+      "exact_live_array_bytes": 387838712,
+      "gram_and_inverse_seconds": 0.025332863995572552,
+      "prediction_seconds": 0.017456112007494085,
+      "predictive_variance": 82.83464539283814,
+      "rank": 4,
+      "rss_after_cache_arrays_bytes": 383324160,
+      "rss_after_free_bytes": 21790720,
+      "rss_after_gram_bytes": 383496192,
+      "rss_after_prediction_bytes": 409636864,
+      "rss_before_bytes": 21291008
+    },
+    {
+      "algebra": {
+        "dense_correction_approx_flops": 51711376,
+        "factor_bytes": 206845504,
+        "factor_elements": 25855688,
+        "gram_approx_flops": 413691008
+      },
+      "allocation_and_scaling_seconds": 0.19578216099762358,
+      "exact_live_array_bytes": 698107800,
+      "gram_and_inverse_seconds": 0.06063248399004806,
+      "prediction_seconds": 0.02659829700132832,
+      "predictive_variance": 82.83464379046609,
+      "rank": 8,
+      "rss_after_cache_arrays_bytes": 694046720,
+      "rss_after_free_bytes": 99319808,
+      "rss_after_gram_bytes": 694067200,
+      "rss_after_prediction_bytes": 719863808,
+      "rss_before_bytes": 21790720
+    },
+    {
+      "algebra": {
+        "dense_correction_approx_flops": 103422752,
+        "factor_bytes": 413691008,
+        "factor_elements": 51711376,
+        "gram_approx_flops": 1654764032
+      },
+      "allocation_and_scaling_seconds": 0.7092127350042574,
+      "exact_live_array_bytes": 1318647512,
+      "gram_and_inverse_seconds": 0.1333806679904228,
+      "prediction_seconds": 0.02920987100515049,
+      "predictive_variance": 82.83463194849557,
+      "rank": 16,
+      "rss_after_cache_arrays_bytes": 1340395520,
+      "rss_after_free_bytes": 125202432,
+      "rss_after_gram_bytes": 1340420096,
+      "rss_after_prediction_bytes": 1366274048,
+      "rss_before_bytes": 99319808
+    }
+  ],
+  "process_peak_rss_bytes": 1366216704,
+  "projection": {
+    "accepted_updates_proxy_from_diag_cw": 6017,
+    "examples": 36000,
+    "qualification": "Diagnostic lower-bound proxy; FAinv update frequency and full-buffer costs can differ and are not inferred as equal.",
+    "rank16_no_buffer_projected_two_day_seconds": 1854.1068354837917
+  },
+  "published_dimension": 3231961,
+  "schema_version": 1,
+  "scope": "Dense released-code kernel audit only; no training or quality evaluation.",
+  "thread_env": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "total_wall_seconds": 1.3505905979982344
+}

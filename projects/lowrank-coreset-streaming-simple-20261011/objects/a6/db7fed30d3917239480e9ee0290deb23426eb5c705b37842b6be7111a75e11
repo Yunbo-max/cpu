@@ -1,0 +1,24 @@
+{
+  "response_id": "generative-scope-milestone-response-v1",
+  "request_id": "decision-a95d6b1920104a87b8119a0db5f86f86",
+  "idea": "generative-fid-rtd-native-reproduction-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The replacement is supported only as a source-matched baseline reproduction. The audit has explicit prior-art collisions, a bounded source-first protocol, and a retirement gate.",
+  "events": [
+    {
+      "event_id": "generative-streaming-evaluation-scope-milestone-v1",
+      "kind": "milestone",
+      "label": "Scoped and rejected three generic generative streaming-statistics proposals",
+      "reason": "Dense FID covariance fits comfortably under the project memory ceiling, streaming sliced Wasserstein already has a quantile-sketch method with guarantees, and sequential kernel-MMD tests already provide adaptive stopping. The audit therefore does not promote low-rank FID, streaming MIND, or sequential KID wrappers as novel methods.",
+      "next_phase": "sources",
+      "evidence": [
+        {
+          "path": "notes/generative_streaming_evaluation_scope_v1.md",
+          "sha256": "9d1b9e8aeafa4efbf62a7b66f2fa7656c10560c4699af8b76b6be7119c586c06"
+        }
+      ]
+    }
+  ],
+  "tasks": []
+}

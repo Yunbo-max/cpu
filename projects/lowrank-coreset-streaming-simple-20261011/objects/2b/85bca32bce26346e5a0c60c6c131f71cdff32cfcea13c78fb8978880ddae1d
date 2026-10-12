@@ -1,0 +1,153 @@
+# FAinv sparse/lazy mathematical audit v1
+
+## Scoped conclusion
+
+The strongest initial no-go conjecture is false.  The released FAinv mean update has an exact, bounded-state lazy representation across factor/buffer changes **provided that the current low-rank mean component is materialized once immediately before every non-nested factor-analysis compression**.  Retaining only coefficients in the new basis without that flush is generically inexact; retaining every historical basis is unnecessary.
+
+This is an implementation identity for the already approximate CW-fact model.  It is not a new statistical approximation and does not establish a runtime or accuracy advantage.
+
+## Fixed-state Woodbury quantities
+
+Let the precision represented by the released code be
+
+\[
+P=D+GG^\top,\qquad R=D^{-1},\qquad
+K=I+G^\top RG,
+\]
+
+where `G=[Lam,Bee]`.  For a sparse example `x`, define
+
+\[
+h=G^\top Rx,\qquad c=K^{-1}h.
+\]
+
+Then
+
+\[
+\Sigma x=P^{-1}x=Rx-RGc,
+\]
+
+and the scalar variance needed by CW is
+
+\[
+V=x^\top\Sigma x=x^\top Rx-h^\top c.
+\]
+
+Both `h` and `V` use only rows of the dense factor touched by `x`, plus a small `K` solve.  A dense `Sigma*x` is not needed to compute the margin, variance, `alpha`, or `beta`.
+
+## Exact lazy-mean invariant
+
+Maintain
+
+\[
+\mu=m+RGq,
+\]
+
+where `m` is one materialized length-`d` vector and `q` has the current factor/buffer width.  If an accepted CW update has coefficient `gamma=alpha*y`, then
+
+\[
+m\leftarrow m+\gamma Rx,\qquad q\leftarrow q-\gamma c.
+\]
+
+The first update touches only the support of `x`; the second is small.  Substitution gives exactly
+
+\[
+m+\gamma Rx+RG(q-\gamma c)=\mu+\gamma\Sigma x.
+\]
+
+The prediction score is also exact without materialization:
+
+\[
+x^\top\mu=x^\top m+h^\top q.
+\]
+
+The released update order first changes the mean and then appends a scaled copy of `x` to `Lam` or `Bee`.  Appending a column makes the old basis a subspace of the new one, so extending `q` with a zero preserves the invariant exactly.
+
+The author's optional averaged model can use the same construction with a second materialized vector/coefficient pair.  The current URL path uses the non-averaged CW default, so the second pair is not required for the first diagnostic.
+
+## Compression-boundary lemma and counterexample
+
+At a buffer flush, the released EM loop can change both `D` and the column space of `G`.  In general there is no `q_new` satisfying
+
+\[
+R_{old}G_{old}q_{old}=R_{new}G_{new}q_{new}.
+\]
+
+A two-dimensional counterexample is `R_old=R_new=I`, `G_old=e1`, `q_old=1`, and `G_new=e2`.  The old lazy component is `e1`, which is outside `span(e2)`.  Thus a no-flush basis replacement either loses information, needs a residual that can become dense, or retains historical bases whose count grows with compressions.
+
+The bounded exact transition is instead:
+
+1. `m <- m + R_old*G_old*q_old`;
+2. set the old coefficient vector to zero;
+3. run the factor-analysis compression and install `(D_new,G_new)`;
+4. initialize the new coefficient vector to zero.
+
+This costs one dense factor-vector materialization per compression, not per accepted update, and keeps only one dense mean vector.  Therefore basis rotation is a time cost, not a state-growth impossibility.
+
+## Sparse buffer and small cache
+
+Before compression, `D` and `Lam` are fixed and the released code only appends scaled sparse examples to `Bee`.  Store those columns sparsely.  Maintain the Gram blocks
+
+\[
+L^\top RL,\quad L^\top RB,\quad B^\top RB
+\]
+
+incrementally, rather than constructing dense `[L,B]`, `R[L,B]`, or a full-dimension `Sigma*x`.  This preserves the same `K` and Woodbury result in exact arithmetic.  Floating-point summation order can differ and must be covered by a numerical-equivalence tolerance; this is not bitwise identity.
+
+## Row-block form of the released FA EM step
+
+Let the fixed compression target be
+
+\[
+P_0=D_0+L_0L_0^\top+BB^\top.
+\]
+
+For the current EM iterate `(D,L)`, define
+
+\[
+\Phi=(I+L^\top D^{-1}L)^{-1},\quad U=D^{-1}L\Phi,
+\]
+
+\[
+C=L_0^\top U,\qquad E=B^\top U,
+\]
+
+and
+
+\[
+S=P_0U=D_0U+L_0C+BE.
+\]
+
+The released update is
+
+\[
+H=\Phi+U^\top S,\qquad L^+=SH^{-1},
+\]
+
+\[
+D^+=\operatorname{diag}(P_0)-\operatorname{rowsum}(L^+\odot S).
+\]
+
+`Phi`, `C`, `E`, and `H` are small.  Compute `U` and `S` by row blocks, accumulate `U' S` in a first pass, and recompute each block in a second pass to overwrite `(D,L)` with `(D+,L+)`.  The target `(D0,L0,B)` remains fixed.  Consequently full-dimension `U`, `S`, concatenated `G`, and scaled `R*G` temporaries are not algebraically required.
+
+At the official `d=3,231,961`, rank 16, two dense factor arrays require `827,382,016` bytes.  A materialized mean and two diagonal vectors add `77,567,064` bytes.  Even a dense rank-16 buffer would add `413,691,008` bytes; a sparse buffer is much smaller on the observed URL prefix.  Small matrices and bounded row blocks do not approach the 4 GiB process limit.  This replaces the earlier 4.706 GB direct-source liveness estimate with a plausible sub-1.4 GB algebraic state for a blockwise implementation.  It does **not** include runtime/library overhead and is not an observed peak.
+
+## Runtime boundary still unresolved
+
+Memory feasibility does not imply useful speed.  Each EM iteration still makes multiple full passes over the `d x r` factors and has order `O(d r^2 + nnz(B) r)` arithmetic.  With a rank-16 buffer, thousands of accepted updates can induce hundreds of compressions and up to 50 EM iterations each.  A full-dimension single-compression calibration is therefore required before any URL quality run.  The previous dense-cache timing cannot be reused as an EM runtime measurement.
+
+## Primary-work overlap audit
+
+| Primary work | Located overlap | Consequence here |
+| --- | --- | --- |
+| Ma et al., AISTATS 2010, *Exploiting Feature Covariance in High-Dimensional Online Learning* | Defines the same diagonal-plus-low-rank inverse covariance, Woodbury use, rank-sized update buffer, and factor-analysis compression. | The statistical mechanism and buffering are already the source method. |
+| Tan et al., AAAI 2016, *Learning Sparse Confidence-Weighted Classifier on Very High Dimensional Data* | Targets sparse/high-dimensional CW via sparse feature groups and block-diagonal covariance. | Sparse scalability in CW is established prior art, although the covariance structure differs. |
+| Liu et al., AAAI 2019, *Adaptive Sparse Confidence-Weighted Learning for Online Feature Selection* | Adds sparse CW feature selection and cost sensitivity for streams. | “Sparse CW” alone cannot be claimed as a contribution. |
+| Lambert et al., 2023, *Limited-memory RVGA* | Uses recursive factor-analysis EM to obtain linear-in-d storage for streaming Gaussian approximation. | Recursive/bounded-memory FA-EM is close prior art; a blockwise implementation identity is not enough for novelty. |
+| Chang et al., CoLLAs 2023, *Low-rank extended Kalman filtering* | Maintains a diagonal-plus-low-rank posterior precision with per-step cost linear in parameter dimension. | Modern online DLR precision filtering already covers the broader scalability concept under a different update/model. |
+
+The audit did not locate a primary source that explicitly states this exact `mu=m+RGq` flush-at-compression identity for the 2010 CW-fact code.  That absence is not an originality result.  Given the strong collision in mechanism, the present finding is classified as an implementation transformation and feasibility repair only.
+
+## Decision
+
+Keep `url-cw-fact-sparse-lazy-feasibility-v1` active for one deterministic equivalence verifier and then a separately planned full-dimension compression calibration.  Do not retire the branch on state-growth grounds, and do not begin the 20-day URL experiment.  If the blockwise compression cannot meet the finite CPU window, close the URL application with the retained exactness result and runtime negative.

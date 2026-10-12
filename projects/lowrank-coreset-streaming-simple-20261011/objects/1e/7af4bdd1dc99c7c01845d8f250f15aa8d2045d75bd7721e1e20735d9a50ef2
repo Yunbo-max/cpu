@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+"""Guarded full-dimension cost audit for released dense FAinv kernels."""
+
+from __future__ import annotations
+
+import gc
+import json
+import os
+import pathlib
+import resource
+import time
+
+import numpy as np
+
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+OUTPUT = ROOT / "results" / "url_fainv_kernel_cost_v1.json"
+D = 3_231_961
+RANKS = (4, 8, 16)
+NNZ = 128
+DAY_EXAMPLES = 36_000
+DIAG_CW_UPDATES_PROXY = 6_017
+LIMIT = 4 * 1024**3
+
+
+def rss_bytes() -> int:
+    with open("/proc/self/statm", "r", encoding="ascii") as f:
+        resident_pages = int(f.read().split()[1])
+    return resident_pages * os.sysconf("SC_PAGE_SIZE")
+
+
+def benchmark(rank: int) -> dict[str, object]:
+    gc.collect()
+    rss_before = rss_bytes()
+    allocation_start = time.perf_counter()
+    psi = np.ones(D, dtype=np.float64)
+    lam = np.empty((D, rank), dtype=np.float64)
+    for column in range(rank):
+        lam[:, column].fill((column + 1) * 1.0e-6)
+    ipsi = 1.0 / psi
+    gam = lam.copy(order="C")
+    ipg = ipsi[:, None] * gam
+    allocation_seconds = time.perf_counter() - allocation_start
+    rss_after_cache_arrays = rss_bytes()
+
+    gram_start = time.perf_counter()
+    gram = gam.T @ ipg
+    iigpg = np.linalg.inv(np.eye(rank, dtype=np.float64) + gram)
+    gram_seconds = time.perf_counter() - gram_start
+    rss_after_gram = rss_bytes()
+
+    indices = np.linspace(0, D - 1, NNZ, dtype=np.int64)
+    values = np.linspace(0.25, 1.25, NNZ, dtype=np.float64)
+    prediction_start = time.perf_counter()
+    ipsi_x_values = ipsi[indices] * values
+    inner = gam[indices, :].T @ ipsi_x_values
+    coefficient = iigpg @ inner
+    sigma_x = -(ipg @ coefficient)
+    sigma_x[indices] += ipsi_x_values
+    predictive_variance = float(np.dot(values, sigma_x[indices]))
+    prediction_seconds = time.perf_counter() - prediction_start
+    rss_after_prediction = rss_bytes()
+
+    arrays = (psi, lam, ipsi, gam, ipg, gram, iigpg, indices, values, ipsi_x_values, inner, coefficient, sigma_x)
+    exact_live_array_bytes = sum(array.nbytes for array in arrays)
+    result = {
+        "rank": rank,
+        "allocation_and_scaling_seconds": allocation_seconds,
+        "gram_and_inverse_seconds": gram_seconds,
+        "prediction_seconds": prediction_seconds,
+        "predictive_variance": predictive_variance,
+        "exact_live_array_bytes": exact_live_array_bytes,
+        "rss_before_bytes": rss_before,
+        "rss_after_cache_arrays_bytes": rss_after_cache_arrays,
+        "rss_after_gram_bytes": rss_after_gram,
+        "rss_after_prediction_bytes": rss_after_prediction,
+        "algebra": {
+            "factor_elements": D * rank,
+            "factor_bytes": D * rank * 8,
+            "gram_approx_flops": 2 * D * rank * rank,
+            "dense_correction_approx_flops": 2 * D * rank,
+        },
+    }
+    del arrays, sigma_x, coefficient, inner, ipsi_x_values, values, indices, iigpg, gram, ipg, gam, ipsi, lam, psi
+    gc.collect()
+    result["rss_after_free_bytes"] = rss_bytes()
+    return result
+
+
+def main() -> None:
+    total_start = time.perf_counter()
+    measurements = [benchmark(rank) for rank in RANKS]
+    rank16 = measurements[-1]
+    projected_two_day_seconds = (
+        DAY_EXAMPLES * float(rank16["prediction_seconds"])
+        + DIAG_CW_UPDATES_PROXY * float(rank16["gram_and_inverse_seconds"])
+    )
+
+    # Conservative source-liveness inventory at a full rank-16 buffer.
+    # Caller: mu, Psi, Lam, Bee, Gam, iPG, sigma_x.
+    caller_d_vectors = 3
+    caller_factor_widths = 16 + 16 + 32 + 32
+    caller_bytes = (caller_d_vectors + caller_factor_widths) * D * 8
+    # FA compression loop simultaneously needs Sigdiag, invPsi, a new Psi,
+    # invPsiLam, UpsT, S, and a new Lam while old inputs remain live.  The
+    # source expression sum(Lam .* S, 2) additionally materializes a d x r
+    # elementwise product in standard dense array evaluation.
+    em_d_vectors = 3
+    em_factor_widths = 16 * 5
+    em_bytes = (em_d_vectors + em_factor_widths) * D * 8
+    liveness_bytes = caller_bytes + em_bytes
+    full_buffer_width = 32
+    result = {
+        "schema_version": 1,
+        "experiment": "url_fainv_kernel_cost_v1",
+        "scope": "Dense released-code kernel audit only; no training or quality evaluation.",
+        "published_dimension": D,
+        "measurements": measurements,
+        "projection": {
+            "examples": DAY_EXAMPLES,
+            "accepted_updates_proxy_from_diag_cw": DIAG_CW_UPDATES_PROXY,
+            "rank16_no_buffer_projected_two_day_seconds": projected_two_day_seconds,
+            "qualification": "Diagnostic lower-bound proxy; FAinv update frequency and full-buffer costs can differ and are not inferred as equal.",
+        },
+        "full_buffer_algebra": {
+            "width": full_buffer_width,
+            "gam_bytes": D * full_buffer_width * 8,
+            "ipg_bytes": D * full_buffer_width * 8,
+            "gram_approx_flops_per_rebuild": 2 * D * full_buffer_width * full_buffer_width,
+            "caller_live_bytes_estimate": caller_bytes,
+            "em_additional_live_bytes_estimate": em_bytes,
+            "source_liveness_bytes_estimate": liveness_bytes,
+            "process_limit_bytes": LIMIT,
+        },
+        "decision_gates": {
+            "task_completed": True,
+            "rank16_no_buffer_live_arrays_at_least_1_2gb": int(rank16["exact_live_array_bytes"]) >= 1_200_000_000,
+            "projected_two_day_seconds_at_most_1800": projected_two_day_seconds <= 1800.0,
+            "source_liveness_below_4gib": liveness_bytes < LIMIT,
+        },
+        "total_wall_seconds": time.perf_counter() - total_start,
+        "process_peak_rss_bytes": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024,
+        "thread_env": {name: os.environ.get(name) for name in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS")},
+    }
+    result["decision_gates"]["retain_direct_dense_route"] = (
+        result["decision_gates"]["task_completed"]
+        and result["decision_gates"]["projected_two_day_seconds_at_most_1800"]
+        and result["decision_gates"]["source_liveness_below_4gib"]
+    )
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    temp = OUTPUT.with_suffix(OUTPUT.suffix + ".part")
+    temp.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    os.replace(temp, OUTPUT)
+    print(json.dumps({"measurements": measurements, "projection": result["projection"], "full_buffer_algebra": result["full_buffer_algebra"], "decision_gates": result["decision_gates"], "total_wall_seconds": result["total_wall_seconds"], "process_peak_rss_bytes": result["process_peak_rss_bytes"]}, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

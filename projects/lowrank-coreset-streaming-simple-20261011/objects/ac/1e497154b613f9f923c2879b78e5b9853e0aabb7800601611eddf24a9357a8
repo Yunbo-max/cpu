@@ -1,0 +1,21 @@
+# Native URL two-day baseline analysis v1
+
+## Result
+
+The bounded diagnostic passes all preregistered gates.
+
+- The official Day0→Day1 prefix contains 36,000 examples and 4,151,738 nonzero feature entries. Labels are exactly ±1, feature indices are strictly increasing and within the published dimension, values are finite, and the observed maximum feature index is 3,231,955.
+- Day0 has 16,000 examples and Day1 has 20,000. The constant-negative Day1 error is 34.04%.
+- Unaveraged PA reaches 2.785% Day1 error; averaged PA reaches 2.735%; diagonal-L2 CW reaches 2.000%.
+- Diagonal CW therefore improves over averaged PA by 0.735 percentage points (about 26.9% relative) on this single chronological prefix. This is diagnostic evidence only: there is no resampling uncertainty, no full published protocol, and no low-rank method in this comparison.
+- Total guarded wall time was 9.226 seconds; the runner receipt reports 9.423 seconds. Process peak RSS was 79,822,848 bytes, and the largest exact retained NumPy state was 51,711,376 bytes. All methods remained finite and the minimum final diagonal covariance was 0.009821.
+
+## Interpretation
+
+The official data, parser, chronological predict-then-update convention, and source-aligned simple baselines form a healthy native pipeline. The large constant-baseline gap rules out a label-orientation or all-one-class accident. The diagonal CW advantage over PA is consistent with a useful confidence-weighted signal on these two days, but cannot validate the factor-analysis approximation.
+
+The next uncertainty is resource feasibility of the released FAinv implementation. With `d=3,231,961` and rank 16, one dense factor costs 413,691,008 bytes. At a full rank-16 update buffer, the released code materializes both `[Lam,Bee]` and its diagonally scaled copy, each 827,382,016 bytes, in addition to the factor, buffer, diagonal and mean. Its cache rebuild also forms a `(rank+buffer) x (rank+buffer)` Gram matrix from all `d` rows after accepted updates. Blindly porting this structure into the 4 GiB process envelope is therefore unjustified.
+
+## Next falsifiable step
+
+Write a source-derived cost model and a guarded microbenchmark of the exact cache-rebuild/prediction kernels at full published `d`, separately for rank 4, 8 and 16 with no update buffer. Measure committed RSS and wall time, compare them with the algebraic byte/operation counts, and extrapolate only the explicitly identified full-buffer terms. If rank-16 no-buffer construction already leaves inadequate headroom or per-update time makes 36,000 examples impossible, retire the direct released-code reproduction and consider a sparse/lazy reformulation as a new, separately scoped idea. Do not claim a native low-rank result from the microbenchmark.

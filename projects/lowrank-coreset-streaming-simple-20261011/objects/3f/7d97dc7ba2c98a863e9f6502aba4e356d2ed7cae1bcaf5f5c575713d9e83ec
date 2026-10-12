@@ -1,0 +1,136 @@
+#!/usr/bin/env python3
+"""Acquire, hash, inventory, and minimally extract the official URL stream."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import pathlib
+import shutil
+import tarfile
+import urllib.request
+
+
+URL = "https://www.sysnet.ucsd.edu/projects/url/url_svmlight.tar.gz"
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+DEP = ROOT / ".deps" / "url_dataset"
+ARCHIVE = DEP / "url_svmlight.tar.gz"
+PREFIX = DEP / "prefix"
+MANIFEST = ROOT / "sources" / "url_dataset_manifest_v1.json"
+CHUNK = 1024 * 1024
+
+
+def sha256_file(path: pathlib.Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        while True:
+            block = f.read(CHUNK)
+            if not block:
+                break
+            h.update(block)
+    return h.hexdigest()
+
+
+def download() -> tuple[int, str, str | None, str | None]:
+    if ARCHIVE.is_file() and ARCHIVE.stat().st_size > 0:
+        return ARCHIVE.stat().st_size, sha256_file(ARCHIVE), None, None
+    part = ARCHIVE.with_suffix(ARCHIVE.suffix + ".part")
+    if part.exists():
+        part.unlink()
+    request = urllib.request.Request(URL, headers={"User-Agent": "research-reproduction/1.0"})
+    h = hashlib.sha256()
+    total = 0
+    with urllib.request.urlopen(request, timeout=120) as response, part.open("wb") as out:
+        content_type = response.headers.get("Content-Type")
+        content_length = response.headers.get("Content-Length")
+        while True:
+            block = response.read(CHUNK)
+            if not block:
+                break
+            out.write(block)
+            h.update(block)
+            total += len(block)
+        out.flush()
+        os.fsync(out.fileno())
+    os.replace(part, ARCHIVE)
+    return total, h.hexdigest(), content_type, content_length
+
+
+def safe_member(member: tarfile.TarInfo) -> bool:
+    path = pathlib.PurePosixPath(member.name)
+    if path.is_absolute() or ".." in path.parts:
+        return False
+    if not (member.isfile() or member.isdir()):
+        return False
+    return True
+
+
+def main() -> None:
+    DEP.mkdir(parents=True, exist_ok=True)
+    PREFIX.mkdir(parents=True, exist_ok=True)
+    size, digest, content_type, content_length = download()
+    inventory: list[dict[str, object]] = []
+    selected: dict[str, dict[str, object]] = {}
+    wanted = {"Day0.svm", "Day1.svm", "FeatureTypes"}
+    with tarfile.open(ARCHIVE, "r:gz") as tar:
+        members = tar.getmembers()
+        unsafe = [m.name for m in members if not safe_member(m)]
+        if unsafe:
+            raise RuntimeError(f"unsafe tar members: {unsafe[:5]}")
+        for member in members:
+            inventory.append({"name": member.name, "size": member.size, "type": "file" if member.isfile() else "directory"})
+            basename = pathlib.PurePosixPath(member.name).name
+            if member.isfile() and basename in wanted:
+                source = tar.extractfile(member)
+                if source is None:
+                    raise RuntimeError(f"cannot read selected member {member.name}")
+                target = PREFIX / basename
+                temp = target.with_suffix(target.suffix + ".part")
+                h = hashlib.sha256()
+                written = 0
+                with temp.open("wb") as out:
+                    while True:
+                        block = source.read(CHUNK)
+                        if not block:
+                            break
+                        out.write(block)
+                        h.update(block)
+                        written += len(block)
+                    out.flush()
+                    os.fsync(out.fileno())
+                os.replace(temp, target)
+                selected[basename] = {
+                    "archive_member": member.name,
+                    "local_path": str(target.relative_to(ROOT)),
+                    "size": written,
+                    "sha256": h.hexdigest(),
+                }
+    missing = sorted({"Day0.svm", "Day1.svm"} - set(selected))
+    if missing:
+        raise RuntimeError(f"required chronological prefix missing: {missing}")
+    result = {
+        "schema_version": 1,
+        "source_url": URL,
+        "license_status": "No explicit redistribution grant located; raw material retained only under checkpoint-excluded .deps.",
+        "archive": {
+            "local_path": str(ARCHIVE.relative_to(ROOT)),
+            "size": size,
+            "sha256": digest,
+            "content_type_on_download": content_type,
+            "content_length_on_download": content_length,
+        },
+        "archive_members": inventory,
+        "selected_prefix": selected,
+        "selection_rule": "Only Day0.svm, Day1.svm, and FeatureTypes basenames; required Day0 and Day1.",
+        "checkpoint_policy": "All archive and extracted raw bytes are excluded; only this manifest is persisted.",
+    }
+    MANIFEST.parent.mkdir(parents=True, exist_ok=True)
+    temp_manifest = MANIFEST.with_suffix(MANIFEST.suffix + ".part")
+    temp_manifest.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    os.replace(temp_manifest, MANIFEST)
+    print(json.dumps({"archive_size": size, "archive_sha256": digest, "members": len(inventory), "selected": selected}, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

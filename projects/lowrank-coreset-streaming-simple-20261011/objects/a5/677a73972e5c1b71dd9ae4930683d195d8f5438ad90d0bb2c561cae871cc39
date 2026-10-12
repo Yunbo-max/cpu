@@ -1,0 +1,136 @@
+#!/usr/bin/env python3
+"""Run the unchanged author Gaussian smoke protocol and persist a compact audit."""
+
+from __future__ import annotations
+
+import hashlib
+import importlib.metadata
+import json
+import math
+import pathlib
+import resource
+import shutil
+import sys
+import time
+
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+SOURCE_MANIFEST = ROOT / "sources" / "fid_rtd_source_manifest_v1.json"
+OUTPUT = ROOT / "results" / "fid_rtd_gaussian_smoke_v1.json"
+RAW_OUTPUT = ROOT / ".deps" / "fid_rtd" / "gaussian_smoke_v1"
+
+
+def sha256(path: pathlib.Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def finite(value: object) -> bool:
+    return isinstance(value, (int, float)) and math.isfinite(float(value))
+
+
+def main() -> None:
+    source_manifest = json.loads(SOURCE_MANIFEST.read_text())
+    repo = pathlib.Path(source_manifest["repository_local_path"])
+    config = repo / "configs" / "examples" / "gaussian.yaml"
+    sys.path.insert(0, str(repo / "src"))
+    sys.path.insert(0, str(repo))
+
+    from experiments.gaussian.run import run  # noqa: PLC0415
+
+    if RAW_OUTPUT.exists():
+        shutil.rmtree(RAW_OUTPUT)
+    started = time.perf_counter()
+    run_summary = run(config, RAW_OUTPUT)
+    wall = time.perf_counter() - started
+
+    record_files = sorted((RAW_OUTPUT / "records").glob("task_*.json"))
+    rows = []
+    record_refs = []
+    for path in record_files:
+        payload = json.loads(path.read_text())
+        record_refs.append({
+            "path": str(path.relative_to(ROOT)),
+            "sha256": sha256(path),
+            "size_bytes": path.stat().st_size,
+        })
+        for trial in payload["trials"]:
+            rows.extend(trial["rows"])
+
+    methods = sorted({row["method"] for row in rows})
+    per_method = {}
+    for method in methods:
+        selected = [row for row in rows if row["method"] == method]
+        errors = [float(row["abs_error_w2_sq_raw"]) for row in selected
+                  if finite(row.get("abs_error_w2_sq_raw"))]
+        estimates = [float(row["estimate_w2_sq_raw"]) for row in selected
+                     if finite(row.get("estimate_w2_sq_raw"))]
+        per_method[method] = {
+            "rows": len(selected),
+            "ok": sum(row["status"] == "ok" for row in selected),
+            "finite_estimates": len(estimates),
+            "mean_absolute_error": None if not errors else sum(errors) / len(errors),
+            "minimum_estimate": None if not estimates else min(estimates),
+            "maximum_estimate": None if not estimates else max(estimates),
+        }
+
+    numeric_fields = ["true_w2_sq", "estimate_w2_sq_raw", "signed_error_w2_sq_raw",
+                      "abs_error_w2_sq_raw", "runtime_seconds"]
+    all_numeric_finite = all(
+        finite(row.get(field)) for row in rows for field in numeric_fields
+    )
+    rtd_rows = [row for row in rows if row["method"] == "general_adaptive"]
+    peak_rss_bytes = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024
+    checks = {
+        "three_tasks": len(record_files) == 3 and run_summary.get("tasks") == 3,
+        "ninety_six_rows": len(rows) == 96 and run_summary.get("rows") == 96,
+        "all_status_ok": all(row["status"] == "ok" for row in rows),
+        "all_numeric_fields_finite": all_numeric_finite,
+        "all_rtd_degree_two": len(rtd_rows) == 12 and all(row.get("L_used") == 2 for row in rtd_rows),
+        "peak_rss_below_2gib": peak_rss_bytes < 2 * 1024**3,
+        "wall_below_120s": wall < 120.0,
+    }
+    result = {
+        "schema_version": 1,
+        "scope": "source-matched author Gaussian smoke calibration; not paper-scale reproduction",
+        "source": {
+            "commit": source_manifest["resolved_commit"],
+            "archive_sha256": source_manifest["archive_sha256"],
+            "manifest_sha256": sha256(SOURCE_MANIFEST),
+            "config_path": str(config.relative_to(repo)),
+            "config_sha256": sha256(config),
+        },
+        "environment": {
+            "python": sys.version.split()[0],
+            "numpy": importlib.metadata.version("numpy"),
+            "scipy": importlib.metadata.version("scipy"),
+            "pyyaml": importlib.metadata.version("PyYAML"),
+            "cuda_visible_devices": __import__("os").environ.get("CUDA_VISIBLE_DEVICES"),
+        },
+        "author_run_summary": run_summary,
+        "record_refs": record_refs,
+        "row_count": len(rows),
+        "methods": methods,
+        "per_method": per_method,
+        "rtd_metadata": [
+            {k: row.get(k) for k in ("case_label", "N", "trial_id", "m0", "n_correction",
+                                     "L_requested", "L_used", "estimate_w2_sq_raw", "status")}
+            for row in rtd_rows
+        ],
+        "checks": checks,
+        "all_checks_pass": all(checks.values()),
+        "wall_seconds": wall,
+        "peak_rss_bytes": peak_rss_bytes,
+    }
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(result, sort_keys=True))
+    if not result["all_checks_pass"]:
+        raise SystemExit(2)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,44 @@
+# FID-RTD bounded isotropic scaling plan v1
+
+## Question and status
+
+This is a prospective development comparison, written before the scaling output exists. It follows the successful two-trial author-code smoke but does not reuse its accuracy values as confirmation evidence. The question is whether the released estimators' signed-bias/RMSE frontier changes with dimension on a source-defined isotropic family under a fixed CPU-feasible sample budget.
+
+## Source and inherited protocol
+
+- Author repository commit: `1e90579840cf81284287583fcb607581704993ab`.
+- Family: author `stress/isotropic`, `target_w2_sq=5.0`, `generated_scale=0.5`.
+- Exact fixed reference covariance, known zero means, uncentered `1/N` generated covariance.
+- One maximum-size pool per independent trial; all estimators consume the same trial pool.
+- RTD pilot fraction `m0=floor(4N/5)`, `rho_design=0.25`, `C_T=1`, no Taylor-degree cap.
+- CPU backend uses NumPy's independent deterministic streams and therefore does not reproduce the paper's CuPy random arrays.
+
+## Frozen matrix
+
+- Dimensions: 16, 32, 64, 128.
+- Sample budget: N=4096 for every dimension, isolating dimension scaling.
+- Independent trials: 32 per dimension. This gives an approximate 95% t half-width of about 0.36 sample SD for a mean while keeping the complete native run bounded; intervals remain descriptive development evidence, not a powered equivalence test.
+- FID-infinity nodes: 15 uniformly spaced sample sizes from 512 to 4096.
+- Methods: empirical plug-in; ordinary-OLS FID-infinity orders 1--3; variance-aware FID-infinity orders 1--3; adaptive RTD.
+- Primary accuracy summaries per dimension/method: mean signed error (bias), sample SD, standard error, 95% t interval, RMSE, and median absolute error.
+- Cost summaries: whole-command wall time, process CPU time, peak RSS, plus author-recorded estimator timings. OLS/VALE share one curve construction, so repeated row timings must not be summed as independent method costs.
+
+## Predictions and falsifiers
+
+1. The empirical plug-in estimator's positive signed bias should grow as dimension increases at fixed N. A non-positive or non-increasing pattern weakens that mechanism claim.
+2. At d=128, at least one released bias-correction estimator should have smaller absolute mean bias than plug-in. Failure by all seven corrections would refute the practical correction premise in this bounded regime.
+3. Bias correction need not improve RMSE: if a method lowers absolute bias but raises RMSE, it is a bias/variance trade-off, not unqualified superiority.
+4. All 1024 estimator rows (4 dimensions x 32 trials x 8 methods) must be finite and successful. Any missing/numerical-failure row blocks the corresponding comparison.
+
+## Decision rules
+
+- Establish only the bounded Gaussian accuracy/cost frontier; do not claim the paper theorem, ImageNet reproduction, or a new method.
+- A low-rank or coreset modification is not motivated by this run unless measured covariance/state memory or total CPU cost is consequential under the 8 GB project setting and the modification can preserve the native estimand.
+- If released corrections are already cheap and dominate plug-in in the relevant bias/RMSE region, next inspect whether a streaming update can preserve that estimator exactly or with a declared error guarantee. If no correction improves the frontier, analyze the failure mechanism before any modification.
+
+## Resource and exposure controls
+
+- One local CPU process, one numerical task at a time, BLAS/thread variables fixed to one.
+- Execute through `scripts/cpu_guard.py`, RLIMIT_AS 4 GiB, GPU hidden.
+- Source tree and raw per-trial records are recoverable `.deps` material excluded from the checkpoint; compact configuration, hashes, summaries, logs, and receipts are retained.
+- Current compatible environment differs from the paper's reporting pins; this remains a source/API reproduction.

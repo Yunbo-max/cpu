@@ -1,0 +1,112 @@
+{
+  "binding": {
+    "request_id": "coreset-audit-v1",
+    "generation": 1,
+    "project_id": "lowrank-coreset-streaming-simple-20261011",
+    "goal_contract_version": 1,
+    "idea": "coreset-adaptive-comparison-v1",
+    "revision": 1,
+    "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "source_ref": {
+      "path": "runtime/SKILL.md",
+      "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+    },
+    "delegation_id": "coreset-audit-v1",
+    "assignment_ref": {
+      "path": "delegations/coreset-audit-v1/assignment.json",
+      "sha256": "f7f79fc325b224645c367acf35eae29e35e733875aa5cad942ca4ad3881db63f"
+    }
+  },
+  "status": "complete",
+  "acceptance": {
+    "state": "pending_coordinator_review"
+  },
+  "completed_at_utc": "2026-10-11T22:53:54.428894+00:00",
+  "artifacts": [
+    {
+      "path": "delegations/coreset-audit-v1/review.md",
+      "sha256": "758ae1fd441c0325fa0bf4e1ca5a9317601783f8c8467dd69966b3b3b271db36"
+    }
+  ],
+  "changed_files": [
+    "delegations/coreset-audit-v1/review.md",
+    "delegations/coreset-audit-v1/result.json"
+  ],
+  "commands_tests": {
+    "scientific_experiment_commands": [],
+    "activities": [
+      "Read assigned Simple skill, collaboration and experiment-design guidance",
+      "Read assignment and primary-source paper sections via web retrieval",
+      "Independent symbolic derivation of a sequential pairwise certificate and its relative-cost implication",
+      "Constructed analytical counterexample; no numerical experiment",
+      "Computed artifact SHA256 bindings"
+    ]
+  },
+  "observed_results": [
+    "Core mechanism overlaps with Indyk pairwise ordering, Med-dit adaptive identification, Correlated Sequential Halving paired reference sampling, and established confidence sequences.",
+    "Valid fixed-pair inference follows from reverse triangle inequality and an explicit geometric-look Hoeffding union bound.",
+    "An upper bound on F(a)-F(b) at epsilon/(2+epsilon) times distance(a,b) certifies F(a)<=(1+epsilon)F(b), but not near-optimality without a qualified anchor.",
+    "Independent training/validation randomization, stage and pair error spending, and fixed-candidate handling are necessary for the stated proof.",
+    "A 51-percent one, 49-percent zero dataset disproves the inference from agreement of two sample medians to a 1-percent global-optimality certificate."
+  ],
+  "scientific_conclusion": "inconclusive",
+  "novelty_conclusion": "not established; strong collision on principal mechanism",
+  "sources": [
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/408397eabe6bd3365730e9923975ed49-Paper-Conference.pdf",
+      "locations": [
+        "Definition 1.3",
+        "Theorem 1.4",
+        "Section 6",
+        "Appendix A.1"
+      ],
+      "read": true
+    },
+    {
+      "url": "https://proceedings.mlr.press/v84/bagaria18a/bagaria18a.pdf",
+      "locations": [
+        "Sections 2.1-2.2"
+      ],
+      "read": true
+    },
+    {
+      "url": "https://papers.nips.cc/paper_files/paper/2019/file/c4de8ced6214345614d33fb0b16a8acd-Paper.pdf",
+      "locations": [
+        "Sections 1.1-1.2",
+        "Section 2 and Algorithm 1",
+        "Section 3.1"
+      ],
+      "read": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/1810.08240",
+      "locations": [
+        "Section 4.1 Theorem 4",
+        "Section 5"
+      ],
+      "read": true
+    },
+    {
+      "url": "https://people.csail.mit.edu/indyk/thesis.html",
+      "read": "landing page only; theorem text not independently checked"
+    },
+    {
+      "url": "https://github.com/amircarmel-lab/StableCoresets/tree/48f0233eb65269b8552eb163f275627e5447921d",
+      "read": false,
+      "observation": "Pinned-tree open returned retrieval Internal Error; generic repository page was accessible"
+    }
+  ],
+  "limitations": [
+    "Targeted literature audit, not exhaustive novelty clearance",
+    "No empirical measurements or implementation parity check",
+    "Pinned author code was not inspected",
+    "Indyk theorem reported through the starting paper",
+    "Model and token usage not exposed"
+  ],
+  "resource_usage": {
+    "scientific_experiment_seconds": 0,
+    "native_model_usage": "unknown"
+  },
+  "next_action": "Coordinator should accept/reject this mathematical contract, then freeze a tiny matched-quality and whole-cost pilot against uniform fixed samples and optimized exact coordinate median, with valid pairwise confidence and explicit fallback. Do not label it an adaptive stable-coreset or global-optimality certificate.",
+  "further_delegation_used": false
+}

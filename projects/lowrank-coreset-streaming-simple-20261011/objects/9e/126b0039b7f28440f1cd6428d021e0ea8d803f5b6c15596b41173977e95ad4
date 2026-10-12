@@ -1,0 +1,39 @@
+{
+  "response_id": "fid-rtd-gaussian-smoke-interpret-response-v1",
+  "request_id": "decision-d68010a9a4b0427a91a3836416a51426",
+  "idea": "generative-fid-rtd-native-reproduction-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The unchanged source-matched CPU smoke run passed every frozen execution gate. It establishes a viable strong generative-evaluation baseline, while its two-trial accuracy summaries remain explicitly non-comparative.",
+  "events": [
+    {
+      "event_id": "fid-rtd-gaussian-smoke-cycle-v1",
+      "kind": "research_cycle",
+      "hypothesis": "At pinned author commit 1e90579840cf81284287583fcb607581704993ab, the unchanged CPU example will execute plug-in FID, OLS/FID-infinity, variance-aware extrapolation, and RTD across its isotropic, random, and rank-deficient Gaussian cases without mandatory CUDA, numerical failure, or resource-gate violation.",
+      "prediction": "The run will produce exactly three tasks and 96 finite successful estimator rows; all 12 adaptive RTD rows will use Taylor degree two; peak RSS will stay below 2 GiB and wall time below 120 seconds.",
+      "result": "All 96 rows succeeded with finite numerical fields. Every adaptive RTD row used requested and actual degree two. The guarded run used no visible GPU, peaked at 32,743,424 bytes RSS, took 0.0605 seconds inside the author computation, and completed in 0.2991 runner seconds.",
+      "interpretation": "The released plug-in, FID-infinity, VALE and RTD pipeline is genuinely runnable on local CPU, including the rank-deficient smoke case. Descriptive errors from two trials per case cannot rank the estimators, and the compatible dependency versions differ from the paper reporting pins. No theorem or ImageNet claim is reproduced.",
+      "next_action": "Prospectively design a bounded source-matched isotropic dimension/sample scaling comparison with independent trials, separate bias and RMSE, all strong estimator baselines, and total CPU cost before proposing any low-rank or coreset modification.",
+      "reason": "The frozen plan, immutable author source, guarded native run, retained raw summary and scoped post-run analysis form a complete hypothesis-to-decision chain.",
+      "evidence": [
+        {
+          "path": "plans/fid_rtd_gaussian_smoke_v1.md",
+          "sha256": "5c929be4233c7768e5e69e4e08b4ed40665b8d986a5d556da50b7436dec04756"
+        },
+        {
+          "path": "results/fid_rtd_gaussian_smoke_v1.json",
+          "sha256": "f992497b5d5b194fdaf2b917136b89fe6bb5bb49a904680e808d08b9873e0d98"
+        },
+        {
+          "path": "notes/fid_rtd_gaussian_smoke_analysis_v1.md",
+          "sha256": "f6cccd7f50ffd808b8814755c926cc3a6f11a742d1c308e669f597de8646e246"
+        },
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-43595cfaa4f64f1da4bd1dcd5f3d703d/receipt.json",
+          "sha256": "64db35a7613e518869385f17b18f10e71eca4af19ea24c8931c2b3e9428068e1"
+        }
+      ]
+    }
+  ],
+  "tasks": []
+}

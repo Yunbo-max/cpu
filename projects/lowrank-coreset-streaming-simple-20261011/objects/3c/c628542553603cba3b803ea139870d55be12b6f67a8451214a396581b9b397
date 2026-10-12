@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+import json
+import os
+import resource
+import time
+from pathlib import Path
+
+import numpy as np
+
+
+def woodbury_action(diag, factor, x):
+    rinv = 1.0 / diag
+    rg = rinv[:, None] * factor
+    h = factor.T @ (rinv * x)
+    small = np.eye(factor.shape[1]) + factor.T @ rg
+    coeff = np.linalg.solve(small, h)
+    return rinv * x - rg @ coeff, coeff, h
+
+
+def em_dense_once(d0, l0, buff, dcur, lcur):
+    rinv = 1.0 / dcur
+    phi = np.linalg.inv(np.eye(lcur.shape[1]) + lcur.T @ (rinv[:, None] * lcur))
+    ups = (rinv[:, None] * lcur) @ phi
+    s = d0[:, None] * ups + l0 @ (l0.T @ ups) + buff @ (buff.T @ ups)
+    hmat = phi + ups.T @ s
+    lnext = np.linalg.solve(hmat.T, s.T).T
+    sigdiag = d0 + np.sum(l0 * l0, axis=1) + np.sum(buff * buff, axis=1)
+    dnext = sigdiag - np.sum(lnext * s, axis=1)
+    return dnext, lnext, phi
+
+
+def em_block_once(d0, l0, buff, dcur, lcur, block_rows):
+    rank = lcur.shape[1]
+    gram = np.zeros((rank, rank))
+    for lo in range(0, dcur.size, block_rows):
+        hi = min(dcur.size, lo + block_rows)
+        gram += lcur[lo:hi].T @ ((1.0 / dcur[lo:hi])[:, None] * lcur[lo:hi])
+    phi = np.linalg.inv(np.eye(rank) + gram)
+
+    cross_l = np.zeros((rank, rank))
+    cross_b = np.zeros((buff.shape[1], rank))
+    for lo in range(0, dcur.size, block_rows):
+        hi = min(dcur.size, lo + block_rows)
+        ups = ((1.0 / dcur[lo:hi])[:, None] * lcur[lo:hi]) @ phi
+        cross_l += l0[lo:hi].T @ ups
+        cross_b += buff[lo:hi].T @ ups
+
+    uts = np.zeros((rank, rank))
+    for lo in range(0, dcur.size, block_rows):
+        hi = min(dcur.size, lo + block_rows)
+        ups = ((1.0 / dcur[lo:hi])[:, None] * lcur[lo:hi]) @ phi
+        s = d0[lo:hi, None] * ups + l0[lo:hi] @ cross_l + buff[lo:hi] @ cross_b
+        uts += ups.T @ s
+    hmat = phi + uts
+
+    dnext = np.empty_like(dcur)
+    lnext = np.empty_like(lcur)
+    for lo in range(0, dcur.size, block_rows):
+        hi = min(dcur.size, lo + block_rows)
+        ups = ((1.0 / dcur[lo:hi])[:, None] * lcur[lo:hi]) @ phi
+        s = d0[lo:hi, None] * ups + l0[lo:hi] @ cross_l + buff[lo:hi] @ cross_b
+        lblock = np.linalg.solve(hmat.T, s.T).T
+        sigdiag = d0[lo:hi] + np.sum(l0[lo:hi] ** 2, axis=1) + np.sum(buff[lo:hi] ** 2, axis=1)
+        dnext[lo:hi] = sigdiag - np.sum(lblock * s, axis=1)
+        lnext[lo:hi] = lblock
+    return dnext, lnext, phi
+
+
+def main():
+    started = time.perf_counter()
+    rng = np.random.default_rng(20261012)
+
+    dim = 7
+    diag = np.linspace(1.1, 1.7, dim)
+    rinv = 1.0 / diag
+    factor = rng.normal(scale=0.15, size=(dim, 2))
+    material = rng.normal(scale=0.2, size=dim)
+    coeff = rng.normal(scale=0.1, size=2)
+    mean_reference = material + (rinv[:, None] * factor) @ coeff
+    update_max_errors = []
+
+    examples = []
+    for support, values in [([0, 3], [1.2, -0.7]), ([1, 4, 6], [0.5, 1.1, -0.4]), ([2, 5], [-0.9, 0.8])]:
+        x = np.zeros(dim)
+        x[support] = values
+        examples.append(x)
+
+    for step, (x, gamma, scale) in enumerate(zip(examples, [0.3, -0.2, 0.15], [0.4, 0.25, 0.35])):
+        dense_action, small_coeff, _ = woodbury_action(diag, factor, x)
+        mean_reference = mean_reference + gamma * dense_action
+        material[x != 0.0] += gamma * rinv[x != 0.0] * x[x != 0.0]
+        coeff = coeff - gamma * small_coeff
+        reconstructed = material + (rinv[:, None] * factor) @ coeff
+        update_max_errors.append(float(np.max(np.abs(reconstructed - mean_reference))))
+
+        factor = np.column_stack([factor, scale * x])
+        coeff = np.concatenate([coeff, np.zeros(1)])
+        reconstructed = material + (rinv[:, None] * factor) @ coeff
+        update_max_errors.append(float(np.max(np.abs(reconstructed - mean_reference))))
+
+    query = np.array([0.0, -0.3, 0.0, 1.1, 0.0, 0.0, 0.6])
+    _, _, query_h = woodbury_action(diag, factor, query)
+    lazy_score = float(query @ material + query_h @ coeff)
+    dense_score = float(query @ mean_reference)
+
+    old_lazy_component = (rinv[:, None] * factor) @ coeff
+    counter_old = np.array([1.0, 0.0])
+    counter_new = np.array([0.0, 1.0])
+    counter_projection = counter_new * float(counter_new @ counter_old)
+    no_flush_residual = float(np.linalg.norm(counter_old - counter_projection))
+
+    material = material + old_lazy_component
+    coeff = np.zeros(0)
+    flushed_error = float(np.max(np.abs(material - mean_reference)))
+
+    em_dim, rank, width = 11, 3, 2
+    d0 = 1.2 + rng.random(em_dim)
+    l0 = rng.normal(scale=0.12, size=(em_dim, rank))
+    buff = np.zeros((em_dim, width))
+    buff[[0, 3, 8], 0] = [0.3, -0.2, 0.4]
+    buff[[1, 7, 10], 1] = [-0.25, 0.35, 0.15]
+    dcur = 1.1 + rng.random(em_dim)
+    lcur = rng.normal(scale=0.1, size=(em_dim, rank))
+    dense_d, dense_l, dense_phi = em_dense_once(d0, l0, buff, dcur, lcur)
+    block_d, block_l, block_phi = em_block_once(d0, l0, buff, dcur, lcur, block_rows=4)
+
+    result = {
+        "schema_version": 1,
+        "experiment": "url_fainv_sparse_lazy_equivalence_v1",
+        "scope": "Deterministic algebraic implementation-equivalence check; not a URL quality or runtime result.",
+        "thread_env": {name: os.environ.get(name) for name in ["OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"]},
+        "lazy_mean": {
+            "dimension": dim,
+            "updates": len(examples),
+            "basis_appends": len(examples),
+            "max_reconstruction_error": max(update_max_errors),
+            "score_absolute_error": abs(lazy_score - dense_score),
+            "post_flush_max_error": flushed_error,
+        },
+        "no_flush_counterexample": {
+            "old_basis": counter_old.tolist(),
+            "new_basis": counter_new.tolist(),
+            "least_squares_residual_l2": no_flush_residual,
+        },
+        "block_em_one_iteration": {
+            "dimension": em_dim,
+            "rank": rank,
+            "buffer_width": width,
+            "block_rows": 4,
+            "max_diagonal_error": float(np.max(np.abs(dense_d - block_d))),
+            "max_factor_error": float(np.max(np.abs(dense_l - block_l))),
+            "max_phi_error": float(np.max(np.abs(dense_phi - block_phi))),
+            "minimum_output_diagonal": float(np.min(block_d)),
+        },
+        "gates": {
+            "lazy_mean_within_1e_12": max(update_max_errors + [abs(lazy_score - dense_score), flushed_error]) <= 1e-12,
+            "no_flush_counterexample_residual_at_least_0_9": no_flush_residual >= 0.9,
+            "block_em_within_1e_12": max(float(np.max(np.abs(dense_d - block_d))), float(np.max(np.abs(dense_l - block_l))), float(np.max(np.abs(dense_phi - block_phi)))) <= 1e-12,
+        },
+        "wall_seconds": time.perf_counter() - started,
+        "peak_rss_bytes": int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024),
+    }
+    result["all_gates_pass"] = all(result["gates"].values())
+    out = Path("results/url_fainv_sparse_lazy_equivalence_v1.json")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(result, sort_keys=True))
+    if not result["all_gates_pass"]:
+        raise SystemExit(2)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,11 @@
+# B004 source-derived evaluator boundary diagnostic
+
+Written after pinned source inspection and before execution. This is a deterministic implementation counterexample, not an invented performance benchmark or paper replication.
+
+Observed hypotheses to check: AMS/AMSA CAIDA instances start at time=1 and include the current arrival, whereas calculate_estimates uses vals[time:], which would omit one item. Its CSV `stream.line_num == limit` condition counts the header and checks before processing. SS/SSA CAIDA probability-sweep cell21 uses vals[:-W] for reference truth; the intended last-W window should use vals[-W:].
+
+Run unchanged, fully inspected author AMS definition cells1,2,3,10, using tiny local CSV fixtures of4 constant arrivals and8 arrivals with a distribution shift. Supply every fixture category as a heavy hitter to make the augmented sketch exact and isolate boundary accounting from random sketch error. Set max instances20, r=3; no pruning will be triggered. Use limit=N+2 to process all N rows, and separately observed limit=N to count the mismatch. No CAIDA records or network calls are needed for fixtures. Author utils.py was read in full; it only imports numpy/matplotlib/random/hashlib and defines local functions. Use Agg, no display.
+
+For each stored start time compare unchanged estimator and native evaluator with an independent Python Counter norm for the actual represented suffix vals[time-1:]. Record every mismatch and warnings; do not edit source. Separately execute the exact AST of the ground-truth np.unique expression from SS/SSA cell21 on the shifted fixture at W=4 and compare against the independent last-W Counter. Also record distinct repetition seeds for r1=3,r2=5 as an assumption audit, not a proof of inference failure.
+
+The expected observation is an evaluator/window alignment bug, not an algorithmic improvement. A successful counterexample should motivate explicit source-preserving corrected evaluation and a native synthetic sliding-window pilot. No claims about the numerical impact on the full paper's reported data without those datasets. CPU guard4GiB/one thread, timeout60s, save complete JSON even on assertion failure.

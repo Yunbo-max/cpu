@@ -1,0 +1,7 @@
+# Block FA-EM calibration v1 analysis
+
+The guarded full-dimension task established a useful but limited resource fact: one row-block rank-16 EM iteration used 879,134,096 owned-array bytes, peaked at 916,684,800 RSS bytes, and took 3.0255 seconds excluding deterministic initialization.  Both memory gates passed.  Under the explicitly qualified 375-compression proxy, one iteration per compression would take 1,134.6 seconds and therefore passes the 1,800-second necessary gate.
+
+The construction does not qualify a convergence conclusion.  It initialized the mutable `(D,L)` iterate with a deterministic perturbation of target `(D0,L0)`, whereas released `FA.m` starts each compression with the current pre-buffer `(Psi0,Lam0)` itself.  The timing and liveness scale remain informative for an arbitrary legal EM iterate, but the observed normalized change `0.0058979`, output diagonal, and `retain_two_day_route` field cannot be used as source-matched convergence evidence.
+
+Preserve v1 without rewriting it.  A v2 source-matched calibration must set `Dcur=D0`, `Lcur=L0`, keep the sparse buffer fixed in the target, and run at most five released-equation EM iterations or stop at `1e-6`.  Report every iteration time/change.  This is a design correction, not a failed command or evidence that CW-fact is infeasible.

@@ -1,0 +1,35 @@
+# 50% sampling robustness analysis v1
+
+## Result
+
+The repeated full sparse reference reproduced macro-F1 0.675548 exactly; its
+median warm method wall was 2.52240 s.  Peak RSS for the complete follow-up was
+298,991,616 bytes.
+
+- Five new uniform-reservoir seeds had median macro-F1 loss 0.031535, loss
+  range 0.023025--0.036004, median wall ratio 0.5943, two quality passes, and
+  two joint passes.  All samples retained all 20 classes.
+- Five stratified-uniform seeds had median loss 0.029314, range
+  0.026502--0.031367, median wall ratio 0.5894, three quality passes, and two
+  joint passes.  All samples retained all 20 classes.  One otherwise
+  quality-passing seed had wall ratio 0.7692 and missed the time gate.
+
+Neither sampler met the prospective aggregate rule requiring median loss at
+most 0.03, at least four of five quality passes, median wall ratio at most
+0.75, and complete class coverage.  Stratification improved the median but did
+not make the tradeoff robust.
+
+## Decision
+
+Close batch example compression on this benchmark.  Together with the prior
+pilot, 25% sampling, 50% uniform sampling, 50% stratified sampling, and
+SVD-128/256 are all insufficient under their declared gates.  No learned
+coreset is justified from these data, and the isolated passing seeds must not
+be selected retrospectively.
+
+The next discriminative question is genuinely streaming: can a stateless
+hashed representation and one-pass bounded-state classifier approach the full
+sparse reference cheaply enough to expose a concrete gap for online moment or
+IDF estimation?  This shifts the constraint rather than relabeling batch
+subsampling as streaming.
+

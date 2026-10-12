@@ -1,0 +1,44 @@
+{
+  "response_id": "fid-rtd-dimension-scaling-interpret-v1",
+  "request_id": "decision-1b03143af4874c60b577d2ced8736691",
+  "idea": "generative-fid-rtd-native-reproduction-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The prospective dimension comparison is valid and shows growing plug-in bias but local domination of RTD by simpler released extrapolation baselines; a fresh sample-budget axis can determine whether that negative is specific to N=4096.",
+  "events": [
+    {
+      "event_id": "fid-rtd-dimension-scaling-cycle-v1",
+      "kind": "research_cycle",
+      "hypothesis": "At fixed N=4096, plug-in FID bias grows with dimension, while a released correction should improve the bias/RMSE frontier; RTD must beat strong OLS/VALE baselines to motivate modification.",
+      "prediction": "Plug-in signed bias is positive and strictly increasing over d=16,32,64,128; at d=128 at least one correction lowers both absolute bias and RMSE.",
+      "result": "All 1024 rows were finite/successful. Plug-in bias rose from 0.0161 to 0.6506. At d=128 VALE order1 reduced RMSE from 0.65192 to 0.04494. RTD RMSE was 0.11100 and RTD was dominated in absolute-bias/RMSE by an OLS or VALE arm at all four dimensions. Wall/process CPU were 7.923/7.923 seconds and peak RSS 50,696,192 bytes.",
+      "interpretation": "The finite-sample bias mechanism is observed, but adaptive RTD is not the bounded CPU frontier at this fixed budget. Memory is too small to motivate low-rank or coreset changes. The conclusion is local because sample-budget scaling is not yet tested.",
+      "next_action": "Run the prospectively frozen fresh-seed d=128 sample-budget scaling comparison and test whether RTD remains dominated across N=1024..8192.",
+      "reason": "The complete frozen plan, raw-derived summary, source identity, resource measurements, and analysis support a scoped negative decision and a discriminating next axis.",
+      "evidence": [
+        {"path": "plans/fid_rtd_isotropic_scaling_v1.md", "sha256": "5d7da4b1a4f81e39808a70e6f5f38324fb281612ba857a35f8a6edd5d1e9f016"},
+        {"path": "results/fid_rtd_isotropic_scaling_v1.json", "sha256": "2cd091eab22ec1b252c89e8cff71dca81165be02b3d849c45c91e8ffc55ee6b8"},
+        {"path": "notes/fid_rtd_isotropic_scaling_v1_analysis.md", "sha256": "f530df238052f40c2e64e482a21a157c77baf5a4c7eec87e15979d9681720533"}
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "fid-rtd-sample-scaling-v1",
+      "argv": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "scripts/cpu_guard.py", "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "scripts/run_fid_rtd_sample_scaling_v1.py"],
+      "phase": "experiment",
+      "purpose": "Test on fresh streams whether RTD's local domination persists across four sample budgets at d=128",
+      "timeout_seconds": 900,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "plans/fid_rtd_sample_scaling_v1.md", "sha256": "99cd7feec688c80416be1529fc0b62860cca10e0d9deb53c726d4b59128cb941"},
+        {"path": "configs/fid_rtd_sample_scaling_v1.yaml", "sha256": "5a4f67b64354d4082572f2550813201440cbe78d4ae3855570d0a779871fa33b"},
+        {"path": "scripts/run_fid_rtd_sample_scaling_v1.py", "sha256": "23f4244e6e9ee4892aeeb00b757b960c1f771a88f0bbdd2d4e711ac36ff99a59"},
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+        {"path": "sources/fid_rtd_source_manifest_v1.json", "sha256": "2a2794e5de63bb78008806e3c11d47995d7de2841dafbf7cf014608954031964"}
+      ],
+      "outputs": ["results/fid_rtd_sample_scaling_v1.json"]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# FID-RTD author-source acquisition v1
+
+## Question
+
+Does the source repository linked by Chen et al. contain a self-contained CPU path for the public FID estimators and the paper's controlled Gaussian experiment, with source identity and dependencies precise enough for a prospective bounded native reproduction?
+
+## Bounded action
+
+Resolve the current `main` commit through the GitHub REST endpoint, download only the corresponding immutable source tarball, verify that every archive member extracts below one private `.deps/fid_rtd` directory, and retain a complete file-size/SHA-256 manifest. Do not install dependencies, execute repository code, download ImageNet assets, or generate embeddings in this task.
+
+The archive is recoverable external material and stays below `.deps`, which is excluded from the checkpoint. Persist only the manifest. Record the exact commit, API metadata URL, archive URL/hash, inventory, top-level files, declared Python range, and whether the repository visibly contains the README-advertised estimator/Gaussian paths.
+
+## Predictions and gates
+
+- The resolved repository will contain `src/gaussian_w2/estimators`, `experiments/gaussian`, `configs/examples/gaussian.yaml`, `pyproject.toml`, and `requirements-report.txt`.
+- The acquisition should finish within 120 seconds and add far less than 500 MiB of recoverable material.
+- A later numerical run is authorized only if the audit finds a CPU-only Gaussian command and no mandatory CUDA import on that path.
+- If the repository is unavailable, unsafe, exceeds the cap, lacks the advertised paths, or has no sufficiently explicit CPU dependency path, retain the failure and do not reconstruct RTD from the paper in this window.
+
+## Interpretation boundary
+
+Successful acquisition establishes only source availability and identity. It does not reproduce an estimator, validate a theorem, or establish a new streaming method.

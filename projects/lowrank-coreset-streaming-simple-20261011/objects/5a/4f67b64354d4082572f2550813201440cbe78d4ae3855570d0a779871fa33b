@@ -1,0 +1,27 @@
+master_seed: 20261013
+backend: numpy
+gpu: {device: 0, sample_batch_size: 8192, synchronize_timing: true}
+experiment:
+  dimensions: [128]
+  sample_budgets: [1024, 2048, 4096, 8192]
+  known_zero_mean: true
+  nested_sample_prefixes: true
+  m0_fraction_numerator: 4
+  m0_fraction_denominator: 5
+  methods: [empirical_plugin, fid_infinity_ols_order1, fid_infinity_ols_order2, fid_infinity_ols_order3, fid_infinity_variance_aware_order1, fid_infinity_variance_aware_order2, fid_infinity_variance_aware_order3, general_adaptive]
+covariance_cases:
+  - suite: stress
+    family: isotropic
+    case_label: bounded_isotropic_b05_D5_sample_scaling
+    num_instances: 1
+    num_trials: 32
+    parameters: {target_w2_sq: 5.0, generated_scale: 0.5}
+fid_infinity:
+  minimum_samples: 512
+  num_points: 15
+  sample_schedule: uniform_n
+  regression_orders: [1, 2, 3]
+  regression_weightings: [ordinary_ols, variance_aware]
+general_order: {rho_design: 0.25, C_T: 1.0, degree_cap: null, compensated_sum: true}
+numerics: {eig_rtol: 1.0e-10, eig_atol: 1.0e-12}
+output: {directory: .deps/fid_rtd/sample_scaling_v1}

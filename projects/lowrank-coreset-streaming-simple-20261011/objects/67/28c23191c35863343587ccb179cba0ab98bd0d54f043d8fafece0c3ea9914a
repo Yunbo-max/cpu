@@ -1,0 +1,61 @@
+{
+  "response_id": "fid-rtd-sample-scaling-interpret-v1",
+  "request_id": "decision-d429abc452054d6a8079ae911b8f1a2f",
+  "idea": "generative-fid-rtd-native-reproduction-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Fresh sample-budget scaling confirms the bounded negative for RTD and identifies exact streamed sufficient statistics for the stronger FID-infinity/VALE baseline as the next falsifiable question.",
+  "events": [
+    {
+      "event_id": "fid-rtd-sample-scaling-cycle-v1",
+      "kind": "research_cycle",
+      "hypothesis": "The apparent domination of adaptive RTD at fixed N may disappear when sample budget varies at d=128.",
+      "prediction": "RTD weakens the prior negative if it is non-dominated in absolute bias/RMSE at any fresh N; otherwise a released OLS/VALE arm improves both objectives at every N.",
+      "result": "All 1024 fresh rows succeeded. Plug-in bias decreased from 2.6353 at N=1024 to 0.3224 at N=8192. RTD was strictly dominated by at least one OLS/VALE arm at all four budgets. Wall/process CPU were 17.901/17.880 seconds and peak RSS 66,510,848 bytes.",
+      "interpretation": "Across eight independent dimension/budget conditions, adaptive RTD is not the bounded isotropic absolute-bias/RMSE frontier. This is scoped local negative evidence; it does not refute high-dimensional theory or ImageNet results. Low measured memory also gives no basis for a low-rank/coreset approximation here.",
+      "next_action": "Retire this bounded RTD reproduction branch and test whether the stronger VALE/FID-infinity curve can be reproduced exactly from one-pass per-node sufficient statistics.",
+      "reason": "The fresh-seed prospective comparison resolves the only planned N-axis falsifier for this bounded branch.",
+      "evidence": [
+        {"path": "plans/fid_rtd_sample_scaling_v1.md", "sha256": "99cd7feec688c80416be1529fc0b62860cca10e0d9deb53c726d4b59128cb941"},
+        {"path": "results/fid_rtd_sample_scaling_v1.json", "sha256": "e15e560e5b094410e32d070e59483dc7584de274d0aecbf6e7c130f393689c42"},
+        {"path": "notes/fid_rtd_sample_scaling_v1_analysis.md", "sha256": "f1eb42a06861520069797bd8cf2fb442e273f51ff692340c7365d419787cb0a0"}
+      ]
+    },
+    {
+      "event_id": "fid-rtd-bounded-isotropic-retire-v1",
+      "kind": "retire_idea",
+      "reason": "RTD was dominated by released OLS/VALE baselines in all eight bounded isotropic dimension/budget conditions, and memory never approached a threshold that would motivate low-rank or coreset changes.",
+      "evidence": [
+        {"path": "notes/fid_rtd_isotropic_scaling_v1_analysis.md", "sha256": "f530df238052f40c2e64e482a21a157c77baf5a4c7eec87e15979d9681720533"},
+        {"path": "notes/fid_rtd_sample_scaling_v1_analysis.md", "sha256": "f1eb42a06861520069797bd8cf2fb442e273f51ff692340c7365d419787cb0a0"}
+      ]
+    },
+    {
+      "event_id": "streaming-fid-infinity-exact-moments-start-v1",
+      "kind": "replace_idea",
+      "idea": "streaming-fid-infinity-exact-moments-v1",
+      "reason": "The stronger baseline depends only on per-node first/second moments. Test exact one-pass equivalence under the author's actual fresh-permutation protocol before considering novelty or scale.",
+      "evidence": [
+        {"path": "plans/streaming_fid_infinity_exact_moments_v1.md", "sha256": "67bd757d67179f78ef9791073091860fa52a68b865eca8d4abc1e91f54a3efaf"}
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "streaming-fid-infinity-exact-moments-v1",
+      "argv": ["/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "scripts/cpu_guard.py", "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3", "scripts/verify_streaming_fid_infinity_exact_moments_v1.py"],
+      "phase": "diagnostic",
+      "purpose": "Test exact one-pass sufficient-statistics equivalence to author plugin_curve and all OLS/VALE intercepts",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "plans/streaming_fid_infinity_exact_moments_v1.md", "sha256": "67bd757d67179f78ef9791073091860fa52a68b865eca8d4abc1e91f54a3efaf"},
+        {"path": "scripts/verify_streaming_fid_infinity_exact_moments_v1.py", "sha256": "1bdd9d01d1f9265151ce23a4512581b2b0d139849aa51ea572acd653ceead9b0"},
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+        {"path": "sources/fid_rtd_source_manifest_v1.json", "sha256": "2a2794e5de63bb78008806e3c11d47995d7de2841dafbf7cf014608954031964"}
+      ],
+      "outputs": ["results/streaming_fid_infinity_exact_moments_v1.json"]
+    }
+  ]
+}

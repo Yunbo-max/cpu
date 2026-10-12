@@ -1,0 +1,9 @@
+# B014 v1 serialization failure
+
+The task completed its numerical loop but failed before writing the declared JSON.
+The preserved traceback is `TypeError: Object of type bool is not JSON serializable`
+at the final `json.dumps`: comparison expressions stored NumPy boolean scalars.
+No result artifact exists, so none of the in-memory numerical values are treated as
+evidence. The replacement changes only JSON conversion of NumPy scalar values and
+uses a new script, output, and task ID; the plan, data, masks, seeds, solvers,
+thresholds, and numerical operations are unchanged.

@@ -1,0 +1,69 @@
+# Discriminative compression pilot v1
+
+## Hypothesis
+
+On the native metadata-stripped 20 Newsgroups task, simple example compression
+(uniform one-pass reservoir subsets) or standard feature compression
+(`TruncatedSVD`) may provide a genuine end-to-end CPU time / macro-F1 tradeoff
+relative to a strong full sparse Ridge classifier.  A component is locally
+promising only if its quality loss is at most 0.03 absolute macro-F1 and its
+method-specific wall time is at most 75% of the full sparse baseline.
+
+This is a baseline gate, not a claim for a new coreset, streaming statistic, or
+low-rank algorithm.
+
+## Data and leakage controls
+
+- Native `subset="train"` and `subset="test"`, `shuffle=False`.
+- Remove `("headers", "footers", "quotes")` in both subsets.
+- All 20 native classes.
+- Loader cache: `.deps/sklearn_data`, excluded from checkpoints.
+- TF-IDF settings exactly as frozen by the source audit:
+  `sublinear_tf=True, max_df=0.5, min_df=5, stop_words="english"`.
+- Every vectorizer is fitted only on that method's retained training documents;
+  the native test text is transform-only.
+
+## Methods
+
+1. `full_sparse`: full training text, sparse TF-IDF, `RidgeClassifier(alpha=1,
+   solver="sparse_cg", tol=1e-2)`.
+2. `reservoir_25` and `reservoir_50`: a standard one-pass uniform reservoir of
+   25% or 50% of the native training sequence, seeds 19, 71, and 211.  Each
+   method refits its own TF-IDF and the same sparse Ridge objective.  Class
+   counts are retained to diagnose accidental coverage loss.
+3. `svd_128` and `svd_256`: full sparse TF-IDF, randomized `TruncatedSVD` with
+   five power iterations and seed 19, followed by the same Ridge objective with
+   a dense-compatible LSQR solver.  SVD fit and both transforms are counted.
+
+No hyperparameter is selected using test performance.  These fixed points test
+whether there is enough signal to justify a later method-specific study.
+
+## Metrics and costs
+
+- Primary quality: macro-F1; secondary: accuracy.
+- Record sample counts, class counts, sparse shape/nnz, package versions, and
+  every fixed parameter.
+- Record data load/download wall time separately.
+- Method wall includes reservoir selection where applicable, vectorizer fit and
+  both transforms, SVD construction/transforms where applicable, classifier
+  fit, and prediction.
+- Record process `ru_maxrss` after every method as a cumulative upper bound and
+  final peak RSS.  The outer `cpu_guard.py` enforces the 4 GiB address-space
+  limit and single-thread environment.
+
+## Predictions and decisions
+
+- Full sparse Ridge is expected to set the strongest quality/time reference.
+- A 50% reservoir may approach full macro-F1 while reducing vectorization and
+  fitting cost; 25% should be faster but may exceed the 0.03 loss gate.
+- SVD-128/256 may preserve much of the quality but is expected to lose the time
+  gate once decomposition cost is counted.
+- If no compressed method satisfies both gates, record a scoped negative and do
+  not build a new coreset/low-rank candidate on this benchmark.  The next model
+  application question should then isolate a genuine streaming constraint
+  (single-pass hashed features and bounded state) rather than relabel batch
+  subsampling as streaming.
+- Any leakage, missing class, memory failure, or inability to reproduce the
+  native split invalidates the corresponding result and triggers audit, not a
+  favorable claim.
+

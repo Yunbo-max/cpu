@@ -1,0 +1,9 @@
+# Centered streamed FID-infinity equivalence diagnostic v1
+
+Prospective extension of the passed known-zero-mean sufficient-statistics mechanism to the centered fixed-reference FID convention.
+
+For each author-defined node membership S, maintain count n, sum s, and Gram G in one pass, then compute mean `s/n` and covariance `(G - s s^T/n)/(n-1)`. Compare the resulting fixed-reference FID node values and OLS/VALE intercepts to the pinned author's ordinary centered estimator on exactly the same subsets.
+
+Frozen fixture: d=64,N=4096, 2048 independent reference rows, shifted/anistropic generated Gaussian rows, 15 node sizes 512..4096, fresh deterministic membership permutation per node, chunk size 37, orders 1--3 and both weightings. Gates: counts exact; max node error <=3e-10; max intercept error <=3e-9; all finite; peak RSS <1 GiB. This is a synthetic formula diagnostic, not ImageNet evidence or a speed claim.
+
+Passing would qualify the centered algebra only. The following action remains a closest-work audit of online/streaming FID and evaluation protocols before any novelty or scale decision.

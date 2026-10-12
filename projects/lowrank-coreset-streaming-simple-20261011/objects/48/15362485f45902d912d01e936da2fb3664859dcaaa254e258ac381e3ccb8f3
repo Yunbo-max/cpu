@@ -1,0 +1,39 @@
+# Discriminative compression pilot analysis v1
+
+## Validity
+
+The native loader returned 11,314 training and 7,532 test documents across all
+20 classes after the frozen metadata removal.  Train-only TF-IDF produced
+17,797 sparse features for the full baseline.  The task completed in 44.25 s
+including first acquisition/load, with a 467,021,824-byte peak RSS, well below
+the 4 GiB process limit.  The raw cache remains under `.deps`.
+
+## Results against the predeclared joint gate
+
+- Full sparse Ridge: macro-F1 0.675548, accuracy 0.687732, method wall 2.57494 s.
+- 25% uniform reservoir: macro-F1 0.599620--0.604034, losses
+  0.071513--0.075927, and wall ratios 0.351--0.443.  All three seeds fail the
+  quality gate despite substantial time savings.
+- 50% uniform reservoir: macro-F1 0.640805--0.648674, losses
+  0.026873--0.034743, and wall ratios 0.546--0.572.  One of three seeds passes
+  both gates; two fail quality.  The median loss is 0.032212, just outside the
+  0.03 threshold.  Selecting seed 211 after seeing test labels would be invalid.
+- SVD-128: macro-F1 loss 0.077935 and wall ratio 1.323.
+- SVD-256: macro-F1 loss 0.053282 and wall ratio 2.093.
+  Both standard low-rank points are worse in quality and time than full sparse.
+
+## Interpretation
+
+The standard low-rank feature-compression baseline is a scoped negative on this
+task.  A 25% example coreset is also clearly too aggressive.  The 50% uniform
+reservoir result is a boundary signal rather than a confirmed benefit: a single
+seed passes, but the component is not seed-robust under the observed three
+points.  This pilot does not estimate a nominal failure probability and does
+not validate a new coreset.
+
+The remaining important uncertainty is whether the boundary behavior is merely
+class-count variability and single-run timing noise.  One prospective follow-up
+will compare five new uniform seeds with a stronger label-stratified 50%
+sampling baseline and repeat the deterministic full baseline.  It will use a
+fixed aggregate rule and then close or retain only this sampling direction.
+

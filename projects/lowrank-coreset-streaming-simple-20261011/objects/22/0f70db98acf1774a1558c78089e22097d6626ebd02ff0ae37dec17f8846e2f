@@ -1,0 +1,23 @@
+# Next serial idea: downstream model application scope
+
+Question: after three scoped mechanism branches closed without a new general
+algorithm, can low-rank, coreset, or streaming-statistics components deliver a
+measurable resource/quality tradeoff for a model task within CPU and8GB, without
+weak baselines or novelty inflation?
+
+Begin with a discriminative task rather than a neural generative model: a labeled
+sparse/high-dimensional benchmark, convex predictive loss, calibration/error, wall
+and CPU time, and peak memory can all be checked on CPU. The initial work is a
+source/protocol audit only: choose one public dataset whose native train/test split,
+license, labels, and feature construction are reproducible; identify full-data,
+uniform/reservoir, sparse exact, and standard dimensionality-reduction baselines;
+state whether the candidate component changes training examples, features, or only
+evaluation. Do not download or train until this contract is fixed.
+
+Reject a benchmark if its native dimension is so small that exact training is the
+obvious dominant baseline, if labels must be synthesized from the same statistic
+being evaluated, or if preprocessing leakage cannot be excluded. Any later model
+experiment must use a held-out test split, count preprocessing/sketch construction,
+and preserve all negative outcomes. A generative application may follow only after
+the discriminative scope decision or if the source audit shows no legitimate
+discriminative benchmark under the resource constraints.

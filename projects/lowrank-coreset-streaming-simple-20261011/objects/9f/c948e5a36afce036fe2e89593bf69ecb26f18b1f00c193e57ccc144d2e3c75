@@ -1,0 +1,51 @@
+# 低秩、coreset 与流式统计：持续研究检查点
+
+用户要求：只用 rsi-simple，CPU，内存 8 GB 以内，后台长期运行。项目 ID：`lowrank-coreset-streaming-simple-20261011`。本项目没有总截止日期、总轮数或总计算时长预算；直到用户停止。研究执行采用有限、可恢复的窗口，窗口边界不代表研究完成。
+
+固定策略为 Research Autopilot Simple `0.3.0-simple.9`，源摘要 `e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8`，完整固定源码在 `runtime/`。使用前阅读其中 `SKILL.md` 及 simple 四份引用。不得混用其他 research-autopilot 版本或改写运行器以绕过约束。
+
+最新机器可读状态见 `CHECKPOINT.json`，累计窗口见 `execution_windows/ledger.json`，用户授权见 `authorization.json`。当前窗口 `execution_windows/w004`；`streaming-vale-nested-prefix-v1` 已按预注册反例退役，目前没有活跃 idea，下一步是选择一个真正受 CPU/8GB 约束、且不被强简单基线支配的新后继。项目 goal contract v2（窗口本地 contract v1）。原生监督器未配置外部 LLM 命令；本次 ChatGPT 主代理负责读取 inbox、作科研判断并提交下一步。监督器等待决策不算科研进展。
+
+已完成原生coreset校准（38行）、有限池比较（144行）、方差自适应对照（96行）、流式代码边界反例（20个后缀检查）、原生合成迁移流主路径（1000项、15后缀）、URL诊断、本窗口2048行FID缩放比较、两个充分统计量等价性诊断，以及两项各96对的嵌套前缀比较。累计已记录25个真实研究周期；来源获取/资源可行性仍只算里程碑。部分正结果和全部负结果仍保留。当前没有确认新算法。
+
+流式路径已确认CAIDA评估器的1起点错位、prefix/last-window混淆和CSV limit有效行数差异；合成SS路径从0起点，独立真值正确。不要跨文件盲目统一修正。见 `execution_windows/w001/notes/moment_source_boundary_audit_v1.md` 和 `moment_native_pilot_analysis_v1.md`。B006–B009完成后，原生moment分支因Algorithm2保证与notebook实现不一致而退役；512行Block Krylov分支随后完成强基线并因支持感知精确SVD更快而退役。不要重启这些方向或旧coreset候选来填充周期数。
+
+本轮授权范围为数学、算法与 CPU 原生验证。20 Newsgroups上的标准SVD、25%/50%批量采样、2^18平均哈希及两个状态匹配端点均未通过各自预注册门槛，该小数据集分支已关闭。随后选定官方UCSD恶意URL时间流：已固定245,011,835字节、123成员的官方包及Day0-Day1前缀，36,000条、4,151,738个非零项；作者对角CW在Day1错误率2.00%，平均PA为2.735%，仅证明数据/协议/简单基线链路健康。作者CW-FA包只有合成MATLAB示例，没有URL加载与评测脚本。
+
+直接稠密rank-16 FAinv复现已因资源反例退役：无缓冲核的观测峰值RSS约1.366GB，但两日诊断代理投影已需1854.1秒；源码全缓冲EM活跃数组估算4,705,735,216字节，超过4GiB进程限制。此结论不否定论文或稀疏/惰性实现。
+
+稀疏/惰性方向已有实质进展：`execution_windows/w003/notes/url_fainv_sparse_lazy_math_audit_v1.md` 推导了精确有界不变量 `mu=m+D^{-1}Gq`，在非嵌套压缩前把低秩分量刷新入一个物化均值即可，无需保留无限历史基底；小规模验证最大误差约 `5.55e-17`。FA-EM 也已改写成有界行块计算，完整维度实测峰值约917MB。它们是实现变换，且与既有工作高度重合，不是新算法或原创性结论。
+
+确定性源匹配夹具一次EM即到 `1e-6`，但真实Day0更新方向推翻了该迭代数代理。三次连续真实压缩发生在第35、51、70个样本，分别需要4、4、2轮EM；后两次触发间隔只有16和19个样本。全部数值与内存门槛通过，峰值约944MB，但结果满足预注册运行时退役条件，因此两日URL路线已经关闭，不做大规模盲跑。局部平稳外推约4.84小时不是全流下界，也不能宣称论文质量结论。
+
+生成式应用已启动但严格限定为强基线复现。主来源审查显示：Inception `d=2048` 的稠密协方差约32MiB，低秩FID并不解决本项目内存瓶颈且会改变目标；Streaming Sliced Optimal Transport 已覆盖流式量化近似，顺序kernel-MMD也已有betting/martingale工作。因此这些包装式方向未被当作新方法。已固定 Chen等 2026 FID-RTD/VALE 作者仓库 commit `1e90579840cf81284287583fcb607581704993ab`。
+
+本窗口完成两项前瞻缩放实验，各1024行、每条件32个独立trial。固定 `N=4096` 时 plug-in bias 从 `0.0161` 随维度增至 `0.6506`；固定 `d=128` 时 bias 从 `N=1024` 的 `2.6353` 降至 `N=8192` 的 `0.3224`。但RTD在四个维度和四个样本预算、共8个条件上都被某个OLS/VALE基线同时以更低绝对bias和更低RMSE支配，峰值RSS仅50.7/66.5MB。因此只退役本CPU各向同性RTD分支；不能外推否定 `d=5000,N=100000` 理论、随机协方差或ImageNet结果，也不因此设计低秩/coreset改法。
+
+随后验证了FID-infinity/VALE的充分统计量形式。对作者15个独立置换节点，known-zero-mean的单遍Gram状态把节点/截距误差压到 `1.42e-14/8.88e-15`；普通中心化 `1/(N-1)` 路径用count/sum/Gram得到 `5.95e-14/9.77e-15`。但TorchMetrics已经用sum/outer-product/count实现流式FID；逐节点复制该状态只是 `O(m d^2)` 工程组合，不是原创方法。嵌套前缀后继也已完成：已知零均值各向同性夹具上三阶OLS的嵌套/独立RMSE比为 `0.778`，但更强的中心化非各向同性 paper-VALE 测试比值为 `1.277`，配对MSE差区间完全高于0。虽然活动状态减少15倍，独立VALE已经很便宜且更准确，因此整个嵌套VALE路线退役；不能只选择有利的OLS夹具。低秩旧项目 B01–B15 的负结果见 `notes/prior_lra_B01_B15_review.md`。
+
+## 资源与后台执行
+
+- 仅 CPU；项目单个数值工作进程、数值线程为 1，所有数值命令通过窗口 `scripts/cpu_guard.py`，地址空间限制 4 GiB，为主代理与宿主留出空间。用户总上限按 8,000,000,000 字节处理。
+- 每次唤醒先运行固定源码 `simple_resources.py` 并检查宿主内存。若共用宿主剩余量不足，先做轻量数学/源码工作，记录资源阻塞并在下一次唤醒重试；不得启动 GPU、新的付费计算或未经授权的服务。
+- 后台自动化每小时唤醒，设置无结束日期。它负责真实研究和恢复；不是 24 小时不间断常驻 CPU 保证。不要创建递归自动化或自行 run-now 循环。
+- 一次唤醒不是只做一次命令：在可用会话内持续执行 rsi-simple 的证据—判断—下一步，直到必须保存检查点。没有“每天只做一次”或“固定 20/15 候选”等额外配额。
+- 每个执行窗口工程限制为 32 次命令、1,800 命令秒、2 小时日历期限。它们用于故障界定，用户未设置整体研究预算。窗口到界后保留历史，核实所有进程/收据后，在新编号目录中以现有长期授权续开窗口。不得修改或清零旧窗口的计数、截止日期、失败和负结果。累计使用量必须更新。
+
+## 恢复与续研
+
+1. 读取最新保存版本，与现存项目的 sequence / 时间 / 哈希比较。不要用旧存档覆盖新现场；若同时存在分歧，先保留两份并调和证据。
+2. 读取 active window 的 status、inbox、alerts、health 和新收据；对照 `notes/alert_resolution_ledger.json` 与已发送消息，保留原始告警但不重复报告已证实恢复的同一事件。旧宿主 PID 不是新宿主活动进程证据；遵守运行器的 PID、启动时间、boot ID 与所有权检查。未知任务先核实，不盲重跑或杀进程。不要把某个代理会话消失标成任务成功。
+3. 通过 `python3 runtime/scripts/simple_runner.py --root execution_windows/w004 ...` 使用固定运行器。若更换主机且原窗口绝对路径不再可用，完整保留原 DB/收据为历史，核实原任务都结束后建立新窗口；不要篡改历史 DB 路径或试图复用不明进程。当前下一科研动作以 runner sequence 10 后的最新 inbox 为准。
+4. 对当前科学问题做真实工作。计划应先于新增结果；强简单基线、全成本、原生指标以及证据链优先。独立审查可以委派有限的数学/源码任务，保留 assignment、ledger、root 接受意见；数值任务仍串行。
+5. 把可核验计划、代码、原始结果、分析、失败/负结果及明确下一步写入项目。利用 `research_cycle` 记录真实假设—预测—结果—解释，不能把 status 检查、下载、心跳或 CPU 存活计为科研周期。没有真实成果时明确报告阻塞。
+6. 更新 `CHECKPOINT.json` 与窗口 ledger，执行 `python3 scripts/build_checkpoint.py`。用 Library skill 将 ZIP 替换到 `persistence.json` 指向的同一 file ID，采用版本校验并应用返回的 xattrs。每个有成果的唤醒都保存。若保存失败保留现场并报告，不声称已持久化。
+7. 有实质结果、方向变化或真实阻塞时用中文简报；保留常规无变化记录，不反复打扰用户。不要把连续研究标为 complete_goal，也不要因为一个假设失败或窗口到界而停止后台任务。
+
+## 数据与可再现性
+
+已保存作者 commit、源码、下载地址及哈希；原生 Taxi 按作者 notebook 使用 float64 列、去除 RatecodeID、dropna，得到 10 维，与论文表中 11 维存在差异。本轮忠实保留源码协议，未擅自补第 11 维。
+
+ZIP 包含真实Taxi数据前100,000行`.npy`、完整结果与收据。49.96MB原始Parquet和所有可恢复`.deps`不打包。URL官方包精确地址为 `https://www.sysnet.ucsd.edu/projects/url/url_svmlight.tar.gz`，大小245,011,835字节，SHA-256 `a05cbbcba7235221fd4229ea7e54476e75b9bc7d45ff43c2cebaf538640831eb`；作者代码包地址和哈希见 `execution_windows/w003/sources/url_cw_fa_code_manifest_v1.json`。FID-RTD源码的固定commit、不可变tar哈希及118文件清单见 `execution_windows/w003/sources/fid_rtd_source_manifest_v1.json`；仓库字节同样只在`.deps`。恢复时按manifest重新获取并核验，不把原始URL数据或未定位许可证的作者源码写入持久化ZIP。不要仅重写manifest覆盖旧事实。
+
+持久化 ZIP 采用 SQLite online backup；不带运行锁和可再生依赖。`archive_manifest.json` 列出所有保存成员、字节数和 SHA-256。存档仅在所有数值任务有终态时制作，以免冻结未完成输出。

@@ -1,0 +1,11 @@
+# FID-RTD bounded sample scaling analysis v1
+
+The fresh-seed N-scaling comparison completed all 1024 rows without numerical failures. Whole-command wall/process CPU time was 17.901/17.880 seconds and peak RSS was 66,510,848 bytes.
+
+At d=128, plug-in signed bias was positive and strictly decreased with N: 2.6353, 1.3131, 0.6513, 0.3224 for N=1024,2048,4096,8192. At every budget at least one released extrapolation arm reduced both absolute bias and RMSE.
+
+Adaptive RTD was strictly dominated in absolute-bias/RMSE at all four budgets. Its values were (0.6144,0.9728), (0.0765,0.2404), (0.0122,0.1155), and (0.0204,0.0675). Examples of dominators include VALE order 1 at N=1024 (0.0713,0.1123), VALE order 1 at N=2048 (0.0277,0.0679), OLS order 2 at N=4096 (0.00827,0.0565), and VALE order 3 at N=8192 (0.00310,0.0387).
+
+Combined with the independent dimension-scaling task, RTD was dominated at all eight tested dimension/budget conditions. This is a valid local negative result for the bounded isotropic CPU regime, not a refutation of paper-scale d=5000,N=100000 theory, random covariance families, or ImageNet behavior.
+
+Memory never approached the project limit, so low-rank or coreset covariance approximations are not motivated here. The strong baseline for the next streaming question is FID-infinity/VALE. The relevant source fact is that `plugin_curve` uses a fresh deterministic permutation for each of 14 smaller sample nodes and the full pool at the endpoint. Each node depends only on count, feature sum (for centered FID), and Gram matrix. Hence an exact one-pass realization is algebraically possible when the final pool size and permutation seeds are known, using one sufficient-statistic accumulator per node. The next task will test output equivalence before treating this as anything beyond known sufficient-statistics engineering.

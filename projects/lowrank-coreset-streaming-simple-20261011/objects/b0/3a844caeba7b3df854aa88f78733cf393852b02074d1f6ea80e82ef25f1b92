@@ -1,0 +1,32 @@
+# FID-RTD author-source audit v1
+
+## Identity and scope
+
+- Repository: `https://github.com/zys996/sample-optimal-fid-estimation`
+- Resolved `main` commit: `1e90579840cf81284287583fcb607581704993ab`
+- Commit date reported by GitHub: `2026-10-07T03:48:48Z`
+- Immutable archive SHA-256: `e0279298e7f0ad746e56155b24d0ba8fe51100414d587be2099b5e4b0844275f`
+- Manifest SHA-256: `2a2794e5de63bb78008806e3c11d47995d7de2841dafbf7cf014608954031964`
+- 118 files, 11,808,962 extracted file bytes. All preregistered paths are present.
+
+The source is the repository linked from arXiv:2610.07114v1. Acquisition executed no repository code. No license file was found at repository depth two, so the archive remains checkpoint-excluded recoverable `.deps` material; only hashes and our audit persist.
+
+## Runnable CPU path
+
+`pyproject.toml` requires Python >=3.9, NumPy >=1.26,<3, SciPy >=1.11,<2, and PyYAML >=6,<7. CUDA/CuPy is an optional extra, not a base dependency. The bundled `configs/examples/gaussian.yaml` explicitly selects `backend: numpy`, dimension 4, budgets 160 and 200, three covariance families, one instance and two trials each. Its Gaussian runner imports CuPy only on the `backend == 'cupy'` branch.
+
+The current host has Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0, and PyYAML 6.0.3, all within the broad declared project ranges. They do not match the release's reporting pins (NumPy 1.26.4 and SciPy 1.13.1), so a smoke run here is a source/API reproduction under a compatible environment, not an exact paper-environment reproduction.
+
+## Native definitions retained
+
+- The reference covariance is exact and fixed; only the generated-side Gaussian is sampled.
+- The small Gaussian protocol uses known zero means and uncentered `1/N` covariance observations, which differs from centered ImageNet feature statistics.
+- Nested budgets share the same maximum-size sample pool.
+- Plug-in FID, OLS/FID-infinity orders 1--3, variance-aware orders 1--3, and adaptive RTD are evaluated together.
+- RTD uses `m0=floor(4N/5)` and fresh correction observations. The public CPU implementation streams raw rows for known-zero-mean experiments; it does not materialize a full contrast tensor.
+- The example caps Taylor degree at 3 for runtime; paper configurations use an uncapped adaptive rule and much larger GPU experiments.
+- Raw estimates may be negative and are deliberately not clipped.
+
+## Decision
+
+The source passes the acquisition and CPU-path gates. A single native smoke calibration is justified: run the unchanged author example through the fixed project CPU guard, retain all method statuses and raw estimates, and verify the expected 96 result rows. This calibration can establish that the released estimator pipeline executes with finite outputs under the project's memory envelope. It cannot reproduce ImageNet claims, validate sample-complexity theorems, or establish superiority from two trials.

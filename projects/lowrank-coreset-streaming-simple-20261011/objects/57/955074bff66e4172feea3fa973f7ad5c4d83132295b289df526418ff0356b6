@@ -1,0 +1,11 @@
+# B010: source and evaluator identity for the block-Krylov baseline
+
+Goal: prepare a source-pinned, auditable 512-row calibration without repeating B01-B15. This task only acquires and inventories primary sources; it does not count as a research cycle.
+
+Acquire `samsonzhou/consistent-LRA` from its public Git repository and require HEAD to begin with the previously recorded `d607c` prefix. Record the full commit, every regular-file SHA-256, and sizes. Retain `consistent-lra-landmark.py` and `landmark.mtx` exactly. Acquire the Musco & Musco randomized block-Krylov paper from arXiv 1504.05477v2 and hash it. No code from public pages is executed during acquisition.
+
+After acquisition, audit the author evaluator against B01-B15 notes and inspect the block-Krylov Algorithm2 definition: Gaussian block, Krylov concatenation `[A Pi,(AA^T)A Pi,...]`, orthonormalization, small projected eigensolve, and rank-k postprocessing. The later experiment will implement a versioned local reference rather than modify author files.
+
+The planned calibration is 512 rows, d=2704, k=25. Before numerical launch, define: (i) exact cached-Gram/SVD comparator, (ii) block-Krylov depths and Gaussian seeds fixed prospectively, (iii) matvec-equivalent work including A and A^T multiplies, QR and small eigensolve, (iv) stable projection/cost checks, and (v) early stopping based on accuracy rather than observed timing. B15's failed LOBPCG endpoint is retained only as adverse history, not rerun.
+
+Resources: one CPU and one thread via `cpu_guard.py`, 4GiB address-space cap, timeout180s. Current shared headroom2.69GB. Expected source acquisition below500MiB; abort if repository exceeds the user's project8,000,000,000-byte limit. Network failure is preserved and retried only after diagnosing access.

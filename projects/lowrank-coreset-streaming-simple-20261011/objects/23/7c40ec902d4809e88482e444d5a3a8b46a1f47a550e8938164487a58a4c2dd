@@ -1,0 +1,135 @@
+#!/usr/bin/env python3
+"""Prospective seed-robust 50% uniform versus stratified sampling screen."""
+
+from __future__ import annotations
+
+import json
+import hashlib
+import pathlib
+import resource
+import sys
+import time
+from datetime import datetime, timezone
+
+import numpy as np
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.model_selection import StratifiedShuffleSplit
+
+from run_discriminative_compression_pilot_v1 import (
+    DATA_HOME,
+    REMOVE,
+    reservoir_indices,
+    sparse_pipeline,
+)
+
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+OUTPUT = ROOT / "results" / "discriminative_reservoir_robustness_v1.json"
+PRIOR = ROOT / "results" / "discriminative_compression_pilot_v1.json"
+SEEDS = (307, 401, 503, 601, 701)
+QUALITY_GATE = 0.03
+TIME_GATE = 0.75
+
+
+def peak_rss_bytes() -> int:
+    value = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    return int(value * 1024 if sys.platform != "darwin" else value)
+
+
+def aggregate(rows: list[dict], full_f1: float, full_wall: float) -> dict:
+    losses = np.array([full_f1 - row["macro_f1"] for row in rows])
+    ratios = np.array([row["method_wall_seconds"] / full_wall for row in rows])
+    coverage = np.array([len(row["class_counts"]) == 20 for row in rows])
+    passes = (losses <= QUALITY_GATE) & (ratios <= TIME_GATE) & coverage
+    return {
+        "median_macro_f1": float(np.median([row["macro_f1"] for row in rows])),
+        "median_macro_f1_loss": float(np.median(losses)),
+        "loss_min": float(losses.min()),
+        "loss_max": float(losses.max()),
+        "quality_pass_count": int(np.sum(losses <= QUALITY_GATE)),
+        "median_wall_ratio": float(np.median(ratios)),
+        "joint_pass_count": int(np.sum(passes)),
+        "all_classes_every_seed": bool(np.all(coverage)),
+        "passes_aggregate_gate": bool(
+            np.median(losses) <= QUALITY_GATE
+            and np.sum(losses <= QUALITY_GATE) >= 4
+            and np.median(ratios) <= TIME_GATE
+            and np.all(coverage)
+        ),
+    }
+
+
+def main() -> None:
+    prior_sha256 = hashlib.sha256(PRIOR.read_bytes()).hexdigest()
+    expected_prior_sha256 = "7af645970a25b479debd8c34038404e99c2c7e8235864d82fa15847b8b9ed06f"
+    if prior_sha256 != expected_prior_sha256:
+        raise RuntimeError("prior pilot result hash changed")
+    prior = json.loads(PRIOR.read_text())
+    train = fetch_20newsgroups(
+        data_home=str(DATA_HOME), subset="train", shuffle=False, remove=REMOVE
+    )
+    test = fetch_20newsgroups(
+        data_home=str(DATA_HOME), subset="test", shuffle=False, remove=REMOVE
+    )
+    y_train = np.asarray(train.target)
+    y_test = np.asarray(test.target)
+    k = int(round(0.5 * len(train.data)))
+
+    full_rows = [
+        sparse_pipeline(train.data, y_train, test.data, y_test) for _ in range(3)
+    ]
+    full_f1_values = [row["macro_f1"] for row in full_rows]
+    if len(set(full_f1_values)) != 1:
+        raise RuntimeError("deterministic full baseline metrics changed")
+    full_f1 = full_f1_values[0]
+    full_wall = float(np.median([row["method_wall_seconds"] for row in full_rows]))
+
+    methods = {"uniform_reservoir": [], "stratified_uniform": []}
+    for seed in SEEDS:
+        t0 = time.perf_counter()
+        indices = reservoir_indices(len(train.data), k, seed)
+        selection_seconds = time.perf_counter() - t0
+        row = sparse_pipeline(train.data, y_train, test.data, y_test, indices)
+        row["selection_seconds"] += selection_seconds
+        row["method_wall_seconds"] += selection_seconds
+        row["seed"] = seed
+        methods["uniform_reservoir"].append(row)
+
+        t0 = time.perf_counter()
+        splitter = StratifiedShuffleSplit(n_splits=1, train_size=k, random_state=seed)
+        stratified, _ = next(splitter.split(np.zeros(len(y_train)), y_train))
+        stratified.sort()
+        selection_seconds = time.perf_counter() - t0
+        row = sparse_pipeline(train.data, y_train, test.data, y_test, stratified)
+        row["selection_seconds"] += selection_seconds
+        row["method_wall_seconds"] += selection_seconds
+        row["seed"] = seed
+        methods["stratified_uniform"].append(row)
+
+    result = {
+        "schema_version": 1,
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "prior_result_sha256": prior_sha256,
+        "n_train": len(train.data),
+        "n_test": len(test.data),
+        "sample_size": k,
+        "seeds": list(SEEDS),
+        "quality_gate": QUALITY_GATE,
+        "time_gate": TIME_GATE,
+        "full_repeats": full_rows,
+        "full_macro_f1": full_f1,
+        "full_median_wall_seconds": full_wall,
+        "methods": methods,
+        "aggregates": {
+            name: aggregate(rows, full_f1, full_wall) for name, rows in methods.items()
+        },
+        "prior_full_macro_f1": prior["methods"]["full_sparse"]["macro_f1"],
+        "final_peak_rss_bytes": peak_rss_bytes(),
+    }
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(result, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

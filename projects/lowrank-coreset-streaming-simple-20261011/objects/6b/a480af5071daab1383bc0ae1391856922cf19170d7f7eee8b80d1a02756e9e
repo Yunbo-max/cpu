@@ -1,0 +1,49 @@
+{
+  "request_id": "decision-d6795917768e4b1992cf052c92f1dd7c",
+  "idea": "lra-block-krylov-baseline-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "block-krylov-audit-interpretation-v1",
+  "reason": "Interpret the preregistered calibration only after the independent rank and metric audit, then recover the exact prior online protocol before integration.",
+  "events": [
+    {
+      "event_id": "block-krylov-calibration-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "Prospective hypothesis, exact-SVD comparison, independent metric reproduction, evaluator correction, and a bounded next decision are all available.",
+      "hypothesis": "Stabilized Block Krylov can provide a viable classical refresh endpoint on the pinned Landmark-512 prefix and should be no worse than matched-pass power.",
+      "prediction": "All three seeds should pass exact residual gates at one common q<=7, while any Block Krylov degradation beyond1e-8 versus matched power triggers audit.",
+      "result": "All15 paired residual comparisons passed and the smallest common ready depth was q=1. An independent audit reproduced every saved Frobenius and spectral ratio exactly. However, the prefix has65 nonzero columns and numerical rank65, exactly the q=1 Block Krylov basis size. The original non-gating projection metric incorrectly used the full exact row space; corrected q=0 distances are0.370758-1.011479.",
+      "interpretation": "q=1 is locally ready, but exactness is rank saturation rather than evidence of scalable Krylov convergence. The evaluator correction does not change the predeclared residual gate. This supports only an online trajectory test, not a speed or generalization claim.",
+      "next_action": "Recover the frozen B15 eta=.1 Landmark-512 trajectory source at its recorded commit, audit the exact71-refresh protocol, then prospectively compare q=1 Block Krylov and exact endpoints with isolated quality and total costs.",
+      "evidence": [
+        {"path": "plans/block_krylov_calibration_v1.md", "sha256": "eae61e5c7e3dc541b55b6b302f76d1d10ee8af278069412a40a52e7c3051ff0b"},
+        {"path": "results/block_krylov_calibration_v2.json", "sha256": "2200f8b30731cc119ffef35551ef0dc6aa0f87be1b6ec7d6376f7372d69feea8"},
+        {"path": "plans/block_krylov_result_audit_v1.md", "sha256": "4f0f1331ae276f50d845061704c7a5b16419a68b66b94b59cbed7c727d2be10c"},
+        {"path": "results/block_krylov_result_audit_v1.json", "sha256": "68eed97a3c34cbb5e17b98f7451b4a65db551051762c10eb9f1597ccdc85c571"},
+        {"path": "notes/block_krylov_calibration_analysis_v1.md", "sha256": "ef209e858377ec64a35d6f5b885fa72a68e4a0c1923000c537f0c08863ac7071"}
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "prior-b15-source-recovery-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/recover_prior_b15.py"
+      ],
+      "phase": "sources",
+      "purpose": "Recover and hash the exact frozen B15 online protocol source before constructing the q=1 trajectory experiment",
+      "timeout_seconds": 180,
+      "cwd": ".",
+      "depends_on": ["block-krylov-result-audit-v1"],
+      "input_refs": [
+        {"path": "plans/prior_b15_source_recovery_v1.md", "sha256": "d75324fcec1f1a822a62d5cda11ea67e05a076c96bfa1925e4bca2a0b03baa04"},
+        {"path": "scripts/recover_prior_b15.py", "sha256": "1b552d5e45fc265474d6910da38ec2d64d02bea746b5012bd936c0aa541ca362"},
+        {"path": "scripts/cpu_guard.py", "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"}
+      ],
+      "outputs": ["sources/prior_b15_manifest_v1.json"]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "submission_id": "native-pilot-v1",
+  "idea": "coreset-adaptive-comparison-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "native-pilot-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/native_pilot.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Audit native coreset scorer and strong exact-median costs on native Taxi data",
+      "timeout_seconds": 180,
+      "cwd": ".",
+      "depends_on": [
+        "native-sources-v1",
+        "pyarrow-isolated-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "plans/native_pilot_v1.md",
+          "sha256": "f72df51f71b8cc1599d32f0a5aa66ec5c3e6e7c4a95945e3fa19d63f4fa59913"
+        },
+        {
+          "path": "scripts/native_pilot.py",
+          "sha256": "325456b212f0b9bbc60e692963234e15b95f86c52c296000a4fca757d41b4875"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "sources/l1_coresets.py",
+          "sha256": "b25bb415b59d8d9d755e7c64f7b23a7a8696a629b1b519fac2a1e3baa4980080"
+        },
+        {
+          "path": "sources/experiment1_comparison.ipynb",
+          "sha256": "bdf316abafd49907b61820bfdb4dd49be485984e04ade373c2faeda06b477520"
+        },
+        {
+          "path": "sources/download_manifest.json",
+          "sha256": "0cc6444df3d182b3d34bc42a2794034292af503c38df0b74b726110ea82ccfed"
+        }
+      ],
+      "outputs": [
+        "results/native_pilot_v1.json",
+        "data/taxi_clean_first100000.npy"
+      ]
+    }
+  ]
+}

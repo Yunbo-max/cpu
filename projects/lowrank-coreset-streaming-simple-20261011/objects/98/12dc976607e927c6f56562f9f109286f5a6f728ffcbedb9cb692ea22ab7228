@@ -1,0 +1,52 @@
+{
+  "response_id": "moment-native-pilot-next-v1",
+  "request_id": "decision-410c9c24b8fb45a088bfced842e670f0",
+  "idea": "streaming-moment-native-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The deterministic CAIDA evaluator mismatch is established. Synthetic main-path indexing is zero-based and must be verified independently rather than applying the CAIDA correction indiscriminately.",
+  "tasks": [
+    {
+      "task_id": "moment-native-pilot-v1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/moment_native_pilot.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Run the reviewed native synthetic shift main path with independently aligned suffix scoring and exact resource measurement",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "moment-boundary-diagnostic-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "plans/moment_native_pilot_v1.md",
+          "sha256": "cc95c458b75df503c1098074d8939b271d3641e2fdf347d010e1b74e6e8d4410"
+        },
+        {
+          "path": "scripts/moment_native_pilot.py",
+          "sha256": "050a8e322fdc70a6cdee82015a0949cda598b0263c5d139b9e12e6f8b2fbb9b6"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "sources/moments/SS-SSA.ipynb",
+          "sha256": "aa5e1ac154ec7b728c8bc85909089a84715c7f7b2f2d897842e8219e9b726e8e"
+        },
+        {
+          "path": "sources/moments/utils.py",
+          "sha256": "5b89dfa2a9419e0f32d561eb25755264a848db0a015b27b658e675c758a190b8"
+        }
+      ],
+      "outputs": [
+        "results/moment_native_pilot_v1.json",
+        "data/moment_native_shift_1000.npy"
+      ]
+    }
+  ]
+}

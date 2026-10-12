@@ -1,0 +1,44 @@
+# FAinv sparse/lazy exactness audit v1
+
+## Decision question
+
+Can the released CW-FA/FAinv update be evaluated on sparse examples with bounded state and without materializing a dense `Sigma*x` on every accepted update, while preserving the released algorithm's predictions and mean updates across buffer growth and factor-analysis compression?
+
+This is an exactness and resource-structure audit. It does not establish an accuracy advantage, reproduce the published 20-day URL result, or claim a new algorithm.
+
+## Frozen source semantics
+
+Use the released `cw.m` and `FA.m` equations already pinned in `sources/url_cw_fa_code_manifest_v1.json`. At a fixed precision state,
+
+`P = Sigma^{-1} = D + G G'`, `R = D^{-1}`, and
+
+`Sigma*x = R*x - R*G*(I + G'*R*G)^{-1}*G'*R*x`.
+
+An accepted CW update changes the mean by `a*y*Sigma*x` and appends a scaled sparse example to the inverse-covariance factor/buffer. When the buffer fills, the released factor-analysis loop changes both the diagonal and low-rank basis.
+
+## Hypothesis and predictions
+
+Hypothesis: an exact bounded-state representation exists if the mean is split into a materialized vector plus coefficients in the current Woodbury basis, and those coefficients are flushed into the materialized vector before each non-nested factor/diagonal change. Sparse buffer columns and small Gram blocks can be retained without forming concatenated dense `G` or `R*G` arrays.
+
+Predictions:
+
+1. During intervals where `D` is fixed and the columns of `G` only grow, a representation `mu = m + R*G*q` is closed under every exact CW mean update. Predictions and margins can be computed from sparse rows plus small dense products.
+2. An arbitrary compression basis change does not, in general, preserve the old lazy component in the span of the new `R*G`; retaining only the new basis without a flush is therefore not exact. Flushing `R*G*q` into the bounded dense vector `m` before compression restores exactness without retaining historical bases.
+3. The factor-analysis EM update itself can be expressed as row-block passes plus small Gram matrices, so full `UpsT`, `S`, concatenated `G`, and scaled `R*G` temporaries are not algebraically required. This should reduce peak live storage below the previous 4 GiB source-liveness estimate, but it does not by itself establish runtime feasibility.
+
+## Falsifiers and scope decisions
+
+- Reject the exact lazy-mean route if the invariant fails on a symbolic derivation or a deterministic dense reference check that includes at least one compression/basis change.
+- Reject bounded factor-state feasibility if any released FA update requires a simultaneously live full-dimension temporary that cannot be generated and reduced row-blockwise without changing the mathematical update.
+- If the invariant survives, classify it as an implementation transformation of the released approximation unless a primary-source audit identifies a substantive unclaimed mechanism. Do not make an originality claim from absent search hits.
+- Even if exactness and memory survive, require a separate guarded calibration of compression runtime before any native URL quality experiment. Compare against the already validated diagonal-CW and PA paths and count flush/compression costs.
+
+## Evidence to produce
+
+1. A derivation note with the invariant, compression-boundary lemma, a small counterexample to no-flush basis replacement, row-block FA identities, memory order, and unresolved numerical-order caveats.
+2. A primary-source overlap table covering the original CW-fact paper and the closest sparse/diagonal confidence-weighted alternatives located in this audit.
+3. Only after (1), a small deterministic verifier comparing dense materialization with the lazy representation across buffer additions and a forced basis/diagonal change; it must run single-threaded through `cpu_guard.py` and stay far below the 4 GiB process limit.
+
+## Outcome rules
+
+Passing the algebraic audit permits only a bounded implementation-equivalence diagnostic. It does not support a low-rank advantage or URL application result. Failure retires the exact sparse/lazy URL branch. A merely approximate, support-capped or history-truncated successor would require its own explicit approximation, plan, strong baseline and prior-art boundary.

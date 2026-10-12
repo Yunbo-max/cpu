@@ -1,0 +1,32 @@
+# CW-FA author-code audit v1
+
+## Scope
+
+This audit inspects the exact archive pinned in `sources/url_cw_fa_code_manifest_v1.json`. It is a source-code audit only. It does not claim an author-code reproduction of the malicious-URL experiment.
+
+## What the archive actually contains
+
+- The archive contains nine small MATLAB files. Its README instructs the user to run `example`, which calls a synthetic benchmark and produces plots/tables.
+- There is no malicious-URL loader, no day-wise prequential driver, no parser for the published SVM-light files, and no script reproducing the URL results.
+- `cw.m` implements perceptron, passive-aggressive, diagonal and full confidence-weighted variants, plus `FA`, `FAinv`, and a finite buffer variant. Defaults include `eta=0.95`, `FAm=16`, `bufsize=FAm`, and the standard-deviation update.
+- In `FAinv`, the code caches the Woodbury-side quantities and sends each accepted standard-deviation update to `FA` as an inverse-covariance update. `FA.m` buffers update directions; once the buffer threshold is reached and the factor is full, it performs an EM-style compression loop capped at 50 iterations with a `1e-6` stopping threshold.
+- `run_synth.m` uses only a generated `1000 x 100` synthetic problem and sweeps ranks 2, 4, 8, 16, 32, and 64. It is not evidence for the native URL stream.
+
+## Reproduction semantics
+
+The next phase must be called a **source-guided, native-data reimplementation**, not an author-code reproduction. The author archive is useful for pinning equations, defaults, update order, and compression details, but the URL parser, day order, prequential accounting, and resource instrumentation must be implemented independently and disclosed as such.
+
+The archive contains no license file or explicit reuse grant. It remains recoverable material under `.deps` and is excluded from the persistent checkpoint. Only hashes, metadata, and this audit are persisted.
+
+## Two implementation hazards to test, not assume away
+
+1. `getparam.m` declares `function v = get_param(...)`, while `cw.m` calls `getparam(...)`. This filename/function-name mismatch can be an error or warning depending on the MATLAB/Octave environment. No MATLAB-compatible interpreter is installed on the present host, so this has not been executed.
+2. `my_dot.m` tests `issparse(a) && issparse(a)` rather than testing both operands. This is likely a typographical defect. Its practical effect depends on caller operand types and must be covered by a port-level unit test; it is not yet counted as an observed result error.
+
+## Resource consequence
+
+For the published URL dimensionality `d = 3,231,961`, one float64 vector is 25,855,688 bytes. A mean vector plus a diagonal term is 51,711,376 bytes; a rank-16 dense factor is 413,691,008 bytes. The principal model state is therefore about 465.4 MB before small matrices and temporary buffers, under the 4 GiB per-process limit. The more important risk is compute: a direct transcription of the repeated EM compression can touch the full `d x 16` factor many times per buffer flush.
+
+## Decision and next falsifiable step
+
+Retain `url-cw-fact-native-reproduction-v1`, but revise its interpretation to source-guided reproduction. First acquire and hash the official URL archive without redistributing it, inventory the tar safely, and extract only a bounded chronological prefix. Then validate a streaming parser and the exact predict-then-update protocol on that prefix before implementing FAinv. The first numerical calibration must compare simple online baselines and report both mistakes and full retained-state/runtime costs; no low-rank advantage is assumed.

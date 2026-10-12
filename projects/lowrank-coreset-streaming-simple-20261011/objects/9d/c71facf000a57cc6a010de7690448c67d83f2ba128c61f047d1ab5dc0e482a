@@ -1,0 +1,1029 @@
+{
+  "active_idea": "model-application-state-matched-streaming-v1",
+  "blocker": null,
+  "budget_exhausted": false,
+  "counters": {
+    "iterations": 26,
+    "repairs": 0,
+    "usage": {
+      "wall_seconds": 196.29562230601732
+    }
+  },
+  "current_question": "Inspect replacement idea model-application-state-matched-streaming-v1",
+  "goal": "\u6301\u7eed\u7814\u7a76\u4f4e\u79e9\u3001coreset\u4e0e\u6d41\u5f0f\u7edf\u8ba1\u7684CPU\u53ef\u884c\u6570\u5b66\u7b97\u6cd5\uff1b\u4fdd\u7559w001\u5168\u90e8\u5386\u53f2\uff0c\u4ece\u5df2\u8bb0\u5f55\u7684\u4f4e\u79e9B01-B15\u8d1f\u7ed3\u679c\u7ee7\u7eed\uff0c\u5148\u5efa\u7acbrandomized block-Krylov\u5f3a\u57fa\u7ebf\u5e76\u7528\u5339\u914dmatvec\u3001\u7cbe\u5ea6\u548c\u5168\u6210\u672c\u534f\u8bae\u68c0\u9a8c\uff0c\u4e4b\u540e\u6309\u8bc1\u636e\u7ee7\u7eed\uff0c\u76f4\u5230\u7528\u6237\u505c\u6b62\u3002",
+  "history": [
+    {
+      "created_at": "2026-10-12T02:22:56.991443+00:00",
+      "event": {
+        "goal": "\u6301\u7eed\u7814\u7a76\u4f4e\u79e9\u3001coreset\u4e0e\u6d41\u5f0f\u7edf\u8ba1\u7684CPU\u53ef\u884c\u6570\u5b66\u7b97\u6cd5\uff1b\u4fdd\u7559w001\u5168\u90e8\u5386\u53f2\uff0c\u4ece\u5df2\u8bb0\u5f55\u7684\u4f4e\u79e9B01-B15\u8d1f\u7ed3\u679c\u7ee7\u7eed\uff0c\u5148\u5efa\u7acbrandomized block-Krylov\u5f3a\u57fa\u7ebf\u5e76\u7528\u5339\u914dmatvec\u3001\u7cbe\u5ea6\u548c\u5168\u6210\u672c\u534f\u8bae\u68c0\u9a8c\uff0c\u4e4b\u540e\u6309\u8bc1\u636e\u7ee7\u7eed\uff0c\u76f4\u5230\u7528\u6237\u505c\u6b62\u3002",
+        "idea": "lra-block-krylov-baseline-v1",
+        "kind": "initialize",
+        "max_iterations": null,
+        "max_repairs": 3
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 0
+    },
+    {
+      "created_at": "2026-10-12T02:23:45.738352+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-bbcc1c784a804747802e61c94ee3a933",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-bbcc1c784a804747802e61c94ee3a933/receipt.json",
+            "sha256": "55172ea853f3b6d64d33b90fec2ec1c33a9a91b24717aec22d4880b59a4efd5d"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for lra-sources-v1: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 12.041754468998988
+        }
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 1
+    },
+    {
+      "created_at": "2026-10-12T02:25:46.824391+00:00",
+      "event": {
+        "event_id": "lra-source-audit-milestone-v1",
+        "evidence": [
+          {
+            "path": "sources/lra_source_manifest_v1.json",
+            "sha256": "e5f6edc3b134d9d52e279c9ae5cadb536765037c0e4f3823a10948fd79ac3271"
+          },
+          {
+            "path": "notes/lra_source_audit_v1.md",
+            "sha256": "74c1a74caefbad3e272b61fb50aebdfc9c315b98382643a49f6ab606510af7f6"
+          },
+          {
+            "path": "plans/block_krylov_calibration_v1.md",
+            "sha256": "eae61e5c7e3dc541b55b6b302f76d1d10ee8af278069412a40a52e7c3051ff0b"
+          }
+        ],
+        "kind": "milestone",
+        "label": "Pinned LRA and Block Krylov primary sources",
+        "next_phase": "experiment",
+        "reason": "Author commit d607c4f6467216c470d1e3b93989d44d5fcdec97 and54.08MB source inventory acquired; original true_cost reuses stale randomized V and is not exact current-prefix truth."
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 2
+    },
+    {
+      "created_at": "2026-10-12T02:25:50.720166+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-4d43141ec2694210918ec3f3ee2a556a",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-4d43141ec2694210918ec3f3ee2a556a/receipt.json",
+            "sha256": "8607a204e31ce506ccf7aa83e56cb6a2d6ce41299ddb93be5b7fdb349e0c977a"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "diagnostic",
+        "reason": "Execution observation for block-krylov-calibration-v1: failed; Command exited with status 1; Cannot safely read results/block_krylov_calibration_v1.json: [Errno 2] No such file or directory: 'results'",
+        "usage": {
+          "wall_seconds": 0.645505004998995
+        }
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 3
+    },
+    {
+      "created_at": "2026-10-12T02:28:37.427111+00:00",
+      "event": {
+        "event_id": "block-krylov-calibration-v1-failure",
+        "evidence": [
+          {
+            "path": "notes/block_krylov_calibration_failure_v1.md",
+            "sha256": "3548e1e1b39b1b7db589f0f86b8cdd62073c5ada602897e5d127f7915cb6f96a"
+          },
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-4d43141ec2694210918ec3f3ee2a556a/stderr.txt",
+            "sha256": "1e109ae7e76f9940595d780f8e5944bd2ac6f3bc5ad3d0a5c0440988200e0dd8"
+          }
+        ],
+        "kind": "milestone",
+        "label": "Calibration v1 failed before matrix computation",
+        "next_phase": "experiment",
+        "reason": "The traceback proves a COO slicing TypeError before the 512-row dense array or any randomized method was formed; this is an implementation failure, not scientific evidence."
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 4
+    },
+    {
+      "created_at": "2026-10-12T02:28:43.202993+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-c726d264415e462e969ab2ebef31ee58",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-c726d264415e462e969ab2ebef31ee58/receipt.json",
+            "sha256": "f5b89ecbb9660a741500b179b34262a68ff4f04513f0182493e99dceb28dfe65"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for block-krylov-calibration-v2: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 3.00402494201262
+        }
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 5
+    },
+    {
+      "created_at": "2026-10-12T02:31:19.242609+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-a863fc0f1ae94333ac29589a57a6a3e7",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-a863fc0f1ae94333ac29589a57a6a3e7/receipt.json",
+            "sha256": "85ce708ad6d4f84b8fe47ce6dd7f8a12e980b48736c12e27b3a4616662dc83df"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for block-krylov-result-audit-v1: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 2.77741654800775
+        }
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 6
+    },
+    {
+      "created_at": "2026-10-12T02:33:15.637581+00:00",
+      "event": {
+        "event_id": "block-krylov-calibration-cycle-v1",
+        "evidence": [
+          {
+            "path": "plans/block_krylov_calibration_v1.md",
+            "sha256": "eae61e5c7e3dc541b55b6b302f76d1d10ee8af278069412a40a52e7c3051ff0b"
+          },
+          {
+            "path": "results/block_krylov_calibration_v2.json",
+            "sha256": "2200f8b30731cc119ffef35551ef0dc6aa0f87be1b6ec7d6376f7372d69feea8"
+          },
+          {
+            "path": "plans/block_krylov_result_audit_v1.md",
+            "sha256": "4f0f1331ae276f50d845061704c7a5b16419a68b66b94b59cbed7c727d2be10c"
+          },
+          {
+            "path": "results/block_krylov_result_audit_v1.json",
+            "sha256": "68eed97a3c34cbb5e17b98f7451b4a65db551051762c10eb9f1597ccdc85c571"
+          },
+          {
+            "path": "notes/block_krylov_calibration_analysis_v1.md",
+            "sha256": "ef209e858377ec64a35d6f5b885fa72a68e4a0c1923000c537f0c08863ac7071"
+          }
+        ],
+        "goal_contract_version": 1,
+        "hypothesis": "Stabilized Block Krylov can provide a viable classical refresh endpoint on the pinned Landmark-512 prefix and should be no worse than matched-pass power.",
+        "interpretation": "q=1 is locally ready, but exactness is rank saturation rather than evidence of scalable Krylov convergence. The evaluator correction does not change the predeclared residual gate. This supports only an online trajectory test, not a speed or generalization claim.",
+        "kind": "research_cycle",
+        "next_action": "Recover the frozen B15 eta=.1 Landmark-512 trajectory source at its recorded commit, audit the exact71-refresh protocol, then prospectively compare q=1 Block Krylov and exact endpoints with isolated quality and total costs.",
+        "prediction": "All three seeds should pass exact residual gates at one common q<=7, while any Block Krylov degradation beyond1e-8 versus matched power triggers audit.",
+        "reason": "Prospective hypothesis, exact-SVD comparison, independent metric reproduction, evaluator correction, and a bounded next decision are all available.",
+        "result": "All15 paired residual comparisons passed and the smallest common ready depth was q=1. An independent audit reproduced every saved Frobenius and spectral ratio exactly. However, the prefix has65 nonzero columns and numerical rank65, exactly the q=1 Block Krylov basis size. The original non-gating projection metric incorrectly used the full exact row space; corrected q=0 distances are0.370758-1.011479."
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 7
+    },
+    {
+      "created_at": "2026-10-12T02:33:30.929836+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-b3a42d914ad64c94ad4a94cbbfb625d2",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-b3a42d914ad64c94ad4a94cbbfb625d2/receipt.json",
+            "sha256": "929e65432fa5016aadf8ba263685c34a25b7ccd884d33c4c8743553f4fa952dd"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for prior-b15-source-recovery-v1: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 12.967046844001743
+        }
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 8
+    },
+    {
+      "created_at": "2026-10-12T02:35:52.104854+00:00",
+      "event": {
+        "event_id": "prior-b15-source-recovered-v1",
+        "evidence": [
+          {
+            "path": "sources/prior_b15_manifest_v1.json",
+            "sha256": "a953497f1ba5c6bcfd0171c2ad67afeec1f30d41882cb427ea0e9282f2274a2b"
+          },
+          {
+            "path": "sources/prior-b15-repo/research/consistent-lra/b15-rsi-20261010T2240/B15_ROUND_CONTRACT.json",
+            "sha256": "806dd9bd7487d70e5c336a7fefb8418eb4f3205dddb10a5e603f1ee0de65a0e3"
+          },
+          {
+            "path": "sources/prior-b15-repo/research/consistent-lra/b15-rsi-20261010T2240/run_b15_policy.py",
+            "sha256": "0c8868cec74133896500dc0f49ffd03120f22d883836e8570105566fad30cbf5"
+          },
+          {
+            "path": "sources/prior-b15-repo/research/consistent-lra/b15-rsi-20261010T2240/B15_exact_svd_eta0p1_r0.npz",
+            "sha256": "d6363727be36927e33d2f534a5ed673aac1c6845dc8371a667786288775b9bf1"
+          }
+        ],
+        "kind": "milestone",
+        "label": "Recovered frozen B15 protocol and raw trajectory",
+        "next_phase": "experiment",
+        "reason": "Sparse checkout at commit b085f362dfec1127afa7e775c516796a2d252e0f recovered19 files and72596 bytes, including the exact eta=.1 NPZ and executable policy definition."
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 9
+    },
+    {
+      "created_at": "2026-10-12T02:36:20.944889+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-3ec2aa029a84423cb3235c1ce2efb61e",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-3ec2aa029a84423cb3235c1ce2efb61e/receipt.json",
+            "sha256": "195574219bc1b417e146bb564182f13bde045a3c46bbd6d9f1939293a25d308f"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "diagnostic",
+        "reason": "Execution observation for block-krylov-online-endpoint-v1: failed; Command exited with status 1; Cannot safely read results/block_krylov_online_endpoint_v1.json: [Errno 2] No such file or directory: 'block_krylov_online_endpoint_v1.json'",
+        "usage": {
+          "wall_seconds": 26.15716856200015
+        }
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 10
+    },
+    {
+      "created_at": "2026-10-12T02:37:39.576259+00:00",
+      "event": {
+        "event_id": "block-krylov-online-v1-serialization-failure",
+        "evidence": [
+          {
+            "path": "notes/block_krylov_online_serialization_failure_v1.md",
+            "sha256": "f6082cfffe617cf785e86088b7e743386eca8af8a927e879ea5d25e0fe38d18d"
+          },
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-3ec2aa029a84423cb3235c1ce2efb61e/stderr.txt",
+            "sha256": "02711e1bbad886b482ce278ce9ce00e5a19b5ea47f0140f248c561790d47af00"
+          }
+        ],
+        "kind": "milestone",
+        "label": "B014 v1 lost artifact at serialization",
+        "next_phase": "experiment",
+        "reason": "The final json.dumps rejected a NumPy bool after26.16s. No declared result file exists, so in-memory values are not evidence; all numerical settings remain frozen for v2."
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 11
+    },
+    {
+      "created_at": "2026-10-12T02:38:11.610886+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-62ebacda5aa04bf58cc48ee22868980d",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-62ebacda5aa04bf58cc48ee22868980d/receipt.json",
+            "sha256": "766ce41c0bbb795a90f40d0f6b1a061eb73fe63c864ebfd9057439a054da2b00"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for block-krylov-online-endpoint-v2: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 28.26251398101158
+        }
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 12
+    },
+    {
+      "created_at": "2026-10-12T02:40:22.337307+00:00",
+      "event": {
+        "event_id": "block-krylov-online-cycle-v1",
+        "evidence": [
+          {
+            "path": "plans/block_krylov_online_endpoint_v1.md",
+            "sha256": "2d649f18ff412f033b32fce2591e677acc3f78198003b28a8ebd4657c12c4a38"
+          },
+          {
+            "path": "results/block_krylov_online_endpoint_v2.json",
+            "sha256": "f5b4a0ca47211882f2dd7573431fe8e84a3b4f9650d915fbd87007344790c0ac"
+          },
+          {
+            "path": "notes/block_krylov_online_analysis_v1.md",
+            "sha256": "70862c49d2b818249ca29b1d061311f7fdf1ab4cdb9fa7c6459c4c168c4a26a3"
+          }
+        ],
+        "goal_contract_version": 1,
+        "hypothesis": "The locally selected q=1 Block Krylov endpoint can preserve the frozen eta=.1 Landmark trajectory quality while reducing refresh cost.",
+        "interpretation": "Block Krylov's apparent dense-SVD advantage is removed by the strong simple sparse-support baseline. Quality comes from52-65 active columns and rank saturation, not scalable convergence. The classical endpoint is valid but practically dominated on this native trajectory.",
+        "kind": "research_cycle",
+        "next_action": "Retire the Block Krylov endpoint direction without native5000 expansion. Scope one downstream model application under CPU/8GB, beginning with a reproducible labeled discriminative benchmark and explicit full-data, uniform/reservoir, sparse-exact, and standard dimensionality-reduction baselines before any training.",
+        "prediction": "It should reproduce the recovered71 late refreshes, pass all strict endpoint gates, beat dense exact SVD, and must also beat a support-aware exact SVD in every paired total to justify further integration.",
+        "reason": "Frozen-trajectory hypothesis, quality prediction, complete endpoint results, strong baseline interpretation, and predeclared stop decision are available.",
+        "result": "The exact policy had zero mask mismatches and exactly71 late refreshes. All213 Block Krylov endpoints passed quality. Block totals0.9340-1.0335s beat dense exact totals3.9334-4.5813s, but support-aware exact totals were only0.07716-0.08374s, making Block Krylov about11.5-12.6 times slower."
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 13
+    },
+    {
+      "created_at": "2026-10-12T02:40:22.338118+00:00",
+      "event": {
+        "event_id": "block-krylov-endpoint-retire-v1",
+        "evidence": [
+          {
+            "path": "results/block_krylov_online_endpoint_v2.json",
+            "sha256": "f5b4a0ca47211882f2dd7573431fe8e84a3b4f9650d915fbd87007344790c0ac"
+          },
+          {
+            "path": "notes/block_krylov_online_analysis_v1.md",
+            "sha256": "70862c49d2b818249ca29b1d061311f7fdf1ab4cdb9fa7c6459c4c168c4a26a3"
+          }
+        ],
+        "kind": "retire_idea",
+        "reason": "The fixed q=1 classical endpoint passes quality but is decisively dominated by support-aware exact SVD on the complete frozen native trajectory; the plan's stop rule forbids larger expansion under this hypothesis."
+      },
+      "idea": "lra-block-krylov-baseline-v1",
+      "revision": 1,
+      "version": 14
+    },
+    {
+      "created_at": "2026-10-12T02:40:22.338523+00:00",
+      "event": {
+        "event_id": "model-application-scope-replace-v1",
+        "evidence": [
+          {
+            "path": "plans/model_application_scope_v1.md",
+            "sha256": "220f70db98acf1774a1558c78089e22097d6626ebd02ff0ae37dec17f8846e2f"
+          },
+          {
+            "path": "notes/block_krylov_online_analysis_v1.md",
+            "sha256": "70862c49d2b818249ca29b1d061311f7fdf1ab4cdb9fa7c6459c4c168c4a26a3"
+          }
+        ],
+        "idea": "model-application-discriminative-scope-v1",
+        "kind": "replace_idea",
+        "reason": "The three original local mechanism gaps are now scoped negatives. Test whether any component yields a genuine downstream CPU resource-quality tradeoff, starting from a source-defined discriminative benchmark rather than assuming usefulness."
+      },
+      "idea": "model-application-discriminative-scope-v1",
+      "revision": 1,
+      "version": 15
+    },
+    {
+      "created_at": "2026-10-12T03:00:55.930841+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-f8a97219924a4469b1a3dc5ef696ee7b",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-f8a97219924a4469b1a3dc5ef696ee7b/receipt.json",
+            "sha256": "1a2033a298cb3992131d6ad0cb82ceb46793932fec9ee6482a5a0810622955c9"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for discriminative-source-audit-v1: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 22.462571037991438
+        }
+      },
+      "idea": "model-application-discriminative-scope-v1",
+      "revision": 1,
+      "version": 16
+    },
+    {
+      "created_at": "2026-10-12T03:02:37.817261+00:00",
+      "event": {
+        "event_id": "discriminative-source-audit-partial-v1",
+        "evidence": [
+          {
+            "path": "sources/20newsgroups_protocol_manifest_v1.json",
+            "sha256": "0b440f41e4952bc1066cf5cedb02ea0171a6bf1b3fe77d120f1dac2db1882c4c"
+          },
+          {
+            "path": "notes/discriminative_source_audit_partial_v1.md",
+            "sha256": "b580ffb61764fb9539ad6b9a47856c4549e62b107d3e80b8d01112a34695cd6b"
+          }
+        ],
+        "kind": "milestone",
+        "label": "20 Newsgroups protocol pages acquired with one source-access failure",
+        "next_phase": "sources",
+        "reason": "Three official scikit-learn pages were hashed and establish the native date split, metadata leakage controls, and train-only TF-IDF protocol. The original maintainer landing page returned HTTP 502, leaving dataset-use language unresolved."
+      },
+      "idea": "model-application-discriminative-scope-v1",
+      "revision": 1,
+      "version": 17
+    },
+    {
+      "created_at": "2026-10-12T03:02:43.266623+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-a8f3bc59d8444d22a68ab6a7a0165a53",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-a8f3bc59d8444d22a68ab6a7a0165a53/receipt.json",
+            "sha256": "6bdbda933841fc0a4d764956f296634b51eeaaf6df191fec3fbabbe255b73787"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for discriminative-original-source-v2: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 4.8218698809942
+        }
+      },
+      "idea": "model-application-discriminative-scope-v1",
+      "revision": 1,
+      "version": 18
+    },
+    {
+      "created_at": "2026-10-12T03:05:36.817846+00:00",
+      "event": {
+        "event_id": "discriminative-source-audit-complete-v1",
+        "evidence": [
+          {
+            "path": "sources/20newsgroups_protocol_manifest_v1.json",
+            "sha256": "0b440f41e4952bc1066cf5cedb02ea0171a6bf1b3fe77d120f1dac2db1882c4c"
+          },
+          {
+            "path": "sources/20newsgroups_original_source_manifest_v2.json",
+            "sha256": "41532e710d339043f381cce5aa05953c61911b89dbf5a89bd6428ca50febef05"
+          },
+          {
+            "path": "notes/discriminative_source_audit_final_v1.md",
+            "sha256": "0cece693b0fa6008b20f46faa984aade967421049c0a013d6a9b619de547554f"
+          }
+        ],
+        "kind": "milestone",
+        "label": "Accepted local 20 Newsgroups protocol with license limitation",
+        "next_phase": "experiment",
+        "reason": "The recovered maintainer page specifies 18,846 documents, 20 native groups, a chronological 60/40 by-date split, duplicate removal, and partial header removal. Official loader/example pages fix the remaining metadata filters and train-only TF-IDF protocol. No explicit corpus license was found, so raw text will remain local under an excluded cache."
+      },
+      "idea": "model-application-discriminative-scope-v1",
+      "revision": 1,
+      "version": 19
+    },
+    {
+      "created_at": "2026-10-12T03:06:21.452633+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-0afee31c1ed04f38b71e58e8519d4a8d",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-0afee31c1ed04f38b71e58e8519d4a8d/receipt.json",
+            "sha256": "522cd8b3550406fd0e9e791ff3bfe2da00f68aa513a1f6e83e06ee4a6174bc93"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for discriminative-compression-pilot-v1: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 44.250361919999705
+        }
+      },
+      "idea": "model-application-discriminative-scope-v1",
+      "revision": 1,
+      "version": 20
+    },
+    {
+      "created_at": "2026-10-12T03:08:43.033457+00:00",
+      "event": {
+        "event_id": "discriminative-compression-pilot-cycle-v1",
+        "evidence": [
+          {
+            "path": "plans/discriminative_compression_pilot_v1.md",
+            "sha256": "5dc868c0a250e7c3bc59cc01a415162404fd2a0c9d62d4d6d6ce1ddd57797f0b"
+          },
+          {
+            "path": "results/discriminative_compression_pilot_v1.json",
+            "sha256": "7af645970a25b479debd8c34038404e99c2c7e8235864d82fa15847b8b9ed06f"
+          },
+          {
+            "path": "notes/discriminative_compression_pilot_analysis_v1.md",
+            "sha256": "4815362485f45902d912d01e936da2fb3664859dcaaa254e258ac381e3ccb8f3"
+          }
+        ],
+        "goal_contract_version": 1,
+        "hypothesis": "Simple example compression or standard low-rank feature compression may yield a genuine end-to-end CPU time versus macro-F1 tradeoff relative to full sparse Ridge on metadata-stripped 20 Newsgroups.",
+        "interpretation": "Standard SVD and 25% sampling are scoped negatives. The 50% result is not a confirmed benefit because selecting the single passing seed after observing test labels is invalid; it warrants only one seed-robust screen against a stronger stratified sampling baseline.",
+        "kind": "research_cycle",
+        "next_action": "Run five new 50% uniform and stratified seeds with a fixed four-of-five aggregate rule and repeated full-baseline timing; then close or retain only the sampling direction.",
+        "prediction": "A compressed point is locally promising only with macro-F1 loss at most 0.03 and method wall at most 0.75 of full sparse; 50% reservoir may approach this gate, 25% may lose too much quality, and SVD may lose the time gate.",
+        "reason": "A source-defined native task, prospective joint gate, full sparse baseline, uniform sampling baselines, standard low-rank baselines, complete metrics/costs, and a bounded next decision are all available.",
+        "result": "Full sparse macro-F1 was 0.675548 in 2.57494s. All 25% reservoir seeds lost 0.071513-0.075927 macro-F1. SVD-128/256 lost 0.077935/0.053282 and took 1.323/2.093 times full. At 50%, one of three reservoir seeds passed both gates, two missed quality, and the median loss was 0.032212 with median wall ratio about0.547."
+      },
+      "idea": "model-application-discriminative-scope-v1",
+      "revision": 1,
+      "version": 21
+    },
+    {
+      "created_at": "2026-10-12T03:09:10.355244+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-85adde47563b43488d8425e1c3346e16",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-85adde47563b43488d8425e1c3346e16/receipt.json",
+            "sha256": "865d879b2d82ff002dc723513c03b611ec5c1f651b0c6dd496efa294f6cd37c7"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for discriminative-reservoir-robustness-v1: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 26.83689248400333
+        }
+      },
+      "idea": "model-application-discriminative-scope-v1",
+      "revision": 1,
+      "version": 22
+    },
+    {
+      "created_at": "2026-10-12T03:11:02.913884+00:00",
+      "event": {
+        "event_id": "discriminative-reservoir-robustness-cycle-v1",
+        "evidence": [
+          {
+            "path": "plans/discriminative_reservoir_robustness_v1.md",
+            "sha256": "843c9deeb0ac0437bb1fb5fcaf4797f59abfec58b518699608bcecd6e420e85d"
+          },
+          {
+            "path": "results/discriminative_reservoir_robustness_v1.json",
+            "sha256": "3e5a549a5deb564401970429b629c5a4d550640b48f1103a71d07126132beb2b"
+          },
+          {
+            "path": "notes/discriminative_reservoir_robustness_analysis_v1.md",
+            "sha256": "0a9329e57e9784e1b7710a32b1380b9a6a7df6678d21f629a1c5849982e3791e"
+          }
+        ],
+        "goal_contract_version": 1,
+        "hypothesis": "Class-composition and timing variation may explain the marginal 50% reservoir result, and stratified sampling may provide a seed-robust simple baseline.",
+        "interpretation": "Stratification modestly improves the median but does not make 50% batch sampling robust. Together with the prior SVD and25% negatives, no batch compression candidate is justified and isolated passing seeds cannot be selected retrospectively.",
+        "kind": "research_cycle",
+        "next_action": "Close batch low-rank/example compression on this benchmark and test one stateless hashed, one-pass bounded-state SGD endpoint before considering online moment or IDF estimation.",
+        "prediction": "A sampler is locally promising only if its median macro-F1 loss is at most0.03, at least four of five seeds pass quality, median wall ratio is at most0.75, and all classes are retained.",
+        "reason": "The boundary signal was tested with new seeds, repeated full timing, a stronger stratified baseline, and a fixed aggregate rule, yielding a complete close/continue decision.",
+        "result": "Uniform reservoir had median loss0.031535, two quality and two joint passes; stratified sampling had median loss0.029314, three quality and two joint passes. Median wall ratios were0.5943 and0.5894, all classes were retained, and neither met the four-of-five aggregate rule."
+      },
+      "idea": "model-application-discriminative-scope-v1",
+      "revision": 1,
+      "version": 23
+    },
+    {
+      "created_at": "2026-10-12T03:11:02.914792+00:00",
+      "event": {
+        "event_id": "discriminative-batch-compression-retire-v1",
+        "evidence": [
+          {
+            "path": "results/discriminative_compression_pilot_v1.json",
+            "sha256": "7af645970a25b479debd8c34038404e99c2c7e8235864d82fa15847b8b9ed06f"
+          },
+          {
+            "path": "results/discriminative_reservoir_robustness_v1.json",
+            "sha256": "3e5a549a5deb564401970429b629c5a4d550640b48f1103a71d07126132beb2b"
+          }
+        ],
+        "kind": "retire_idea",
+        "reason": "The source-defined batch task now has negatives for standard SVD,25% sampling,50% uniform sampling, and50% stratified sampling under prospective gates."
+      },
+      "idea": "model-application-discriminative-scope-v1",
+      "revision": 1,
+      "version": 24
+    },
+    {
+      "created_at": "2026-10-12T03:11:02.915375+00:00",
+      "event": {
+        "event_id": "discriminative-streaming-text-replace-v1",
+        "evidence": [
+          {
+            "path": "plans/discriminative_streaming_hash_pilot_v1.md",
+            "sha256": "91cc4012eebd14180067919b265c87bed37aa9bb47e45c80b6de4ba6afeb1f44"
+          },
+          {
+            "path": "notes/discriminative_reservoir_robustness_analysis_v1.md",
+            "sha256": "0a9329e57e9784e1b7710a32b1380b9a6a7df6678d21f629a1c5849982e3791e"
+          }
+        ],
+        "idea": "model-application-streaming-text-v1",
+        "kind": "replace_idea",
+        "reason": "Test a genuine single-pass bounded-state endpoint and quantify its quality/resource gap before designing any online moment or IDF estimator."
+      },
+      "idea": "model-application-streaming-text-v1",
+      "revision": 1,
+      "version": 25
+    },
+    {
+      "created_at": "2026-10-12T03:11:36.143731+00:00",
+      "event": {
+        "event_id": "runner-result:attempt-1d71125804c641eeb1eda11153b4728f",
+        "evidence": [
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-1d71125804c641eeb1eda11153b4728f/receipt.json",
+            "sha256": "96747231d6ea1177c5cf124eaf740eefadb9f0bc0d9f8d6095c39c88988ecf7b"
+          }
+        ],
+        "kind": "progress",
+        "next_phase": "verify",
+        "reason": "Execution observation for discriminative-streaming-hash-pilot-v1: succeeded; Command execution reported succeeded",
+        "usage": {
+          "wall_seconds": 12.068496631996823
+        }
+      },
+      "idea": "model-application-streaming-text-v1",
+      "revision": 1,
+      "version": 26
+    },
+    {
+      "created_at": "2026-10-12T03:13:35.786728+00:00",
+      "event": {
+        "event_id": "discriminative-streaming-hash-cycle-v1",
+        "evidence": [
+          {
+            "path": "plans/discriminative_streaming_hash_pilot_v1.md",
+            "sha256": "91cc4012eebd14180067919b265c87bed37aa9bb47e45c80b6de4ba6afeb1f44"
+          },
+          {
+            "path": "results/discriminative_streaming_hash_pilot_v1.json",
+            "sha256": "85bdf9f08c1158d62c13d85b9bedcad844612540718c1f3b56be3b598d2fbcc9"
+          },
+          {
+            "path": "notes/discriminative_streaming_hash_analysis_v1.md",
+            "sha256": "3e8ba8d6710353591733a860b53126d495f34e7b33762b874537050e74759399"
+          }
+        ],
+        "goal_contract_version": 1,
+        "hypothesis": "A stateless 2^18 hashed representation and one-pass averaged SGD can recover most full sparse quality while reducing wall time.",
+        "interpretation": "This exact hashed endpoint is slower, less accurate, and has much larger parameter state than the full sparse reference. The failure reflects an overlarge hash dimension as well as one-pass optimization, so it does not reject algebraically state-matched hashing.",
+        "kind": "research_cycle",
+        "next_action": "Test only the two state-crossover endpoints:2^14 without averaging and2^12 with averaging, preserving the original quality/time gates; if both fail, close streaming hashing on this benchmark.",
+        "prediction": "The endpoint is competitive only with median macro-F1 loss at most0.05 and median wall ratio at most0.75 across three fixed orders.",
+        "reason": "A prospective one-pass hypothesis, three fixed orders, explicit bounded state, full sparse reference, complete metrics/costs, and a mechanism-level state audit are available.",
+        "result": "Median macro-F1 was0.618128, loss0.057419, and wall ratio1.0453, so both gates failed. Internal NumPy arrays used125,829,920 bytes, versus about2,847,520 coefficient bytes for20 by17,797 full Ridge features."
+      },
+      "idea": "model-application-streaming-text-v1",
+      "revision": 1,
+      "version": 27
+    },
+    {
+      "created_at": "2026-10-12T03:13:35.787708+00:00",
+      "event": {
+        "event_id": "discriminative-streaming-hash-retire-v1",
+        "evidence": [
+          {
+            "path": "results/discriminative_streaming_hash_pilot_v1.json",
+            "sha256": "85bdf9f08c1158d62c13d85b9bedcad844612540718c1f3b56be3b598d2fbcc9"
+          }
+        ],
+        "kind": "retire_idea",
+        "reason": "The2^18 averaged one-pass endpoint fails both gates and uses more parameter state than full sparse Ridge."
+      },
+      "idea": "model-application-streaming-text-v1",
+      "revision": 1,
+      "version": 28
+    },
+    {
+      "created_at": "2026-10-12T03:13:35.788344+00:00",
+      "event": {
+        "event_id": "discriminative-state-matched-hash-replace-v1",
+        "evidence": [
+          {
+            "path": "plans/discriminative_state_matched_hash_scope_v1.md",
+            "sha256": "c5a935a4646af92d34fb7ba1d869772b7e4070ed49bf9d408cde3d1615bd1d35"
+          },
+          {
+            "path": "notes/discriminative_streaming_hash_analysis_v1.md",
+            "sha256": "3e8ba8d6710353591733a860b53126d495f34e7b33762b874537050e74759399"
+          }
+        ],
+        "idea": "model-application-state-matched-streaming-v1",
+        "kind": "replace_idea",
+        "reason": "Resolve only the two hash dimensions implied by the parameter-state crossover before closing streaming hashing on this benchmark."
+      },
+      "idea": "model-application-state-matched-streaming-v1",
+      "revision": 1,
+      "version": 29
+    }
+  ],
+  "idea_history": [
+    {
+      "idea": "lra-block-krylov-baseline-v1",
+      "reason": "The fixed q=1 classical endpoint passes quality but is decisively dominated by support-aware exact SVD on the complete frozen native trajectory; the plan's stop rule forbids larger expansion under this hypothesis.",
+      "reported_outcome": null,
+      "revision": 1,
+      "status": "retired",
+      "terminal_event": "block-krylov-endpoint-retire-v1"
+    },
+    {
+      "idea": "model-application-discriminative-scope-v1",
+      "reason": "The source-defined batch task now has negatives for standard SVD,25% sampling,50% uniform sampling, and50% stratified sampling under prospective gates.",
+      "reported_outcome": null,
+      "revision": 1,
+      "status": "retired",
+      "terminal_event": "discriminative-batch-compression-retire-v1"
+    },
+    {
+      "idea": "model-application-streaming-text-v1",
+      "reason": "The2^18 averaged one-pass endpoint fails both gates and uses more parameter state than full sparse Ridge.",
+      "reported_outcome": null,
+      "revision": 1,
+      "status": "retired",
+      "terminal_event": "discriminative-streaming-hash-retire-v1"
+    }
+  ],
+  "limits": {
+    "max_iterations": null,
+    "max_repairs": 3
+  },
+  "milestones": [
+    {
+      "event_id": "lra-source-audit-milestone-v1",
+      "evidence": [
+        {
+          "path": "sources/lra_source_manifest_v1.json",
+          "sha256": "e5f6edc3b134d9d52e279c9ae5cadb536765037c0e4f3823a10948fd79ac3271"
+        },
+        {
+          "path": "notes/lra_source_audit_v1.md",
+          "sha256": "74c1a74caefbad3e272b61fb50aebdfc9c315b98382643a49f6ab606510af7f6"
+        },
+        {
+          "path": "plans/block_krylov_calibration_v1.md",
+          "sha256": "eae61e5c7e3dc541b55b6b302f76d1d10ee8af278069412a40a52e7c3051ff0b"
+        }
+      ],
+      "idea": "lra-block-krylov-baseline-v1",
+      "label": "Pinned LRA and Block Krylov primary sources",
+      "reason": "Author commit d607c4f6467216c470d1e3b93989d44d5fcdec97 and54.08MB source inventory acquired; original true_cost reuses stale randomized V and is not exact current-prefix truth.",
+      "revision": 1
+    },
+    {
+      "event_id": "block-krylov-calibration-v1-failure",
+      "evidence": [
+        {
+          "path": "notes/block_krylov_calibration_failure_v1.md",
+          "sha256": "3548e1e1b39b1b7db589f0f86b8cdd62073c5ada602897e5d127f7915cb6f96a"
+        },
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-4d43141ec2694210918ec3f3ee2a556a/stderr.txt",
+          "sha256": "1e109ae7e76f9940595d780f8e5944bd2ac6f3bc5ad3d0a5c0440988200e0dd8"
+        }
+      ],
+      "idea": "lra-block-krylov-baseline-v1",
+      "label": "Calibration v1 failed before matrix computation",
+      "reason": "The traceback proves a COO slicing TypeError before the 512-row dense array or any randomized method was formed; this is an implementation failure, not scientific evidence.",
+      "revision": 1
+    },
+    {
+      "event_id": "prior-b15-source-recovered-v1",
+      "evidence": [
+        {
+          "path": "sources/prior_b15_manifest_v1.json",
+          "sha256": "a953497f1ba5c6bcfd0171c2ad67afeec1f30d41882cb427ea0e9282f2274a2b"
+        },
+        {
+          "path": "sources/prior-b15-repo/research/consistent-lra/b15-rsi-20261010T2240/B15_ROUND_CONTRACT.json",
+          "sha256": "806dd9bd7487d70e5c336a7fefb8418eb4f3205dddb10a5e603f1ee0de65a0e3"
+        },
+        {
+          "path": "sources/prior-b15-repo/research/consistent-lra/b15-rsi-20261010T2240/run_b15_policy.py",
+          "sha256": "0c8868cec74133896500dc0f49ffd03120f22d883836e8570105566fad30cbf5"
+        },
+        {
+          "path": "sources/prior-b15-repo/research/consistent-lra/b15-rsi-20261010T2240/B15_exact_svd_eta0p1_r0.npz",
+          "sha256": "d6363727be36927e33d2f534a5ed673aac1c6845dc8371a667786288775b9bf1"
+        }
+      ],
+      "idea": "lra-block-krylov-baseline-v1",
+      "label": "Recovered frozen B15 protocol and raw trajectory",
+      "reason": "Sparse checkout at commit b085f362dfec1127afa7e775c516796a2d252e0f recovered19 files and72596 bytes, including the exact eta=.1 NPZ and executable policy definition.",
+      "revision": 1
+    },
+    {
+      "event_id": "block-krylov-online-v1-serialization-failure",
+      "evidence": [
+        {
+          "path": "notes/block_krylov_online_serialization_failure_v1.md",
+          "sha256": "f6082cfffe617cf785e86088b7e743386eca8af8a927e879ea5d25e0fe38d18d"
+        },
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-3ec2aa029a84423cb3235c1ce2efb61e/stderr.txt",
+          "sha256": "02711e1bbad886b482ce278ce9ce00e5a19b5ea47f0140f248c561790d47af00"
+        }
+      ],
+      "idea": "lra-block-krylov-baseline-v1",
+      "label": "B014 v1 lost artifact at serialization",
+      "reason": "The final json.dumps rejected a NumPy bool after26.16s. No declared result file exists, so in-memory values are not evidence; all numerical settings remain frozen for v2.",
+      "revision": 1
+    },
+    {
+      "event_id": "discriminative-source-audit-partial-v1",
+      "evidence": [
+        {
+          "path": "sources/20newsgroups_protocol_manifest_v1.json",
+          "sha256": "0b440f41e4952bc1066cf5cedb02ea0171a6bf1b3fe77d120f1dac2db1882c4c"
+        },
+        {
+          "path": "notes/discriminative_source_audit_partial_v1.md",
+          "sha256": "b580ffb61764fb9539ad6b9a47856c4549e62b107d3e80b8d01112a34695cd6b"
+        }
+      ],
+      "idea": "model-application-discriminative-scope-v1",
+      "label": "20 Newsgroups protocol pages acquired with one source-access failure",
+      "reason": "Three official scikit-learn pages were hashed and establish the native date split, metadata leakage controls, and train-only TF-IDF protocol. The original maintainer landing page returned HTTP 502, leaving dataset-use language unresolved.",
+      "revision": 1
+    },
+    {
+      "event_id": "discriminative-source-audit-complete-v1",
+      "evidence": [
+        {
+          "path": "sources/20newsgroups_protocol_manifest_v1.json",
+          "sha256": "0b440f41e4952bc1066cf5cedb02ea0171a6bf1b3fe77d120f1dac2db1882c4c"
+        },
+        {
+          "path": "sources/20newsgroups_original_source_manifest_v2.json",
+          "sha256": "41532e710d339043f381cce5aa05953c61911b89dbf5a89bd6428ca50febef05"
+        },
+        {
+          "path": "notes/discriminative_source_audit_final_v1.md",
+          "sha256": "0cece693b0fa6008b20f46faa984aade967421049c0a013d6a9b619de547554f"
+        }
+      ],
+      "idea": "model-application-discriminative-scope-v1",
+      "label": "Accepted local 20 Newsgroups protocol with license limitation",
+      "reason": "The recovered maintainer page specifies 18,846 documents, 20 native groups, a chronological 60/40 by-date split, duplicate removal, and partial header removal. Official loader/example pages fix the remaining metadata filters and train-only TF-IDF protocol. No explicit corpus license was found, so raw text will remain local under an excluded cache.",
+      "revision": 1
+    }
+  ],
+  "next_action": "Inspect the replacement idea; preserve the previous negative evidence and cumulative budgets",
+  "pending_launch": null,
+  "phase": "inspect",
+  "reported_outcome": null,
+  "research_cycles": [
+    {
+      "event_id": "block-krylov-calibration-cycle-v1",
+      "evidence": [
+        {
+          "path": "plans/block_krylov_calibration_v1.md",
+          "sha256": "eae61e5c7e3dc541b55b6b302f76d1d10ee8af278069412a40a52e7c3051ff0b"
+        },
+        {
+          "path": "results/block_krylov_calibration_v2.json",
+          "sha256": "2200f8b30731cc119ffef35551ef0dc6aa0f87be1b6ec7d6376f7372d69feea8"
+        },
+        {
+          "path": "plans/block_krylov_result_audit_v1.md",
+          "sha256": "4f0f1331ae276f50d845061704c7a5b16419a68b66b94b59cbed7c727d2be10c"
+        },
+        {
+          "path": "results/block_krylov_result_audit_v1.json",
+          "sha256": "68eed97a3c34cbb5e17b98f7451b4a65db551051762c10eb9f1597ccdc85c571"
+        },
+        {
+          "path": "notes/block_krylov_calibration_analysis_v1.md",
+          "sha256": "ef209e858377ec64a35d6f5b885fa72a68e4a0c1923000c537f0c08863ac7071"
+        }
+      ],
+      "goal_contract_version": 1,
+      "hypothesis": "Stabilized Block Krylov can provide a viable classical refresh endpoint on the pinned Landmark-512 prefix and should be no worse than matched-pass power.",
+      "idea": "lra-block-krylov-baseline-v1",
+      "interpretation": "q=1 is locally ready, but exactness is rank saturation rather than evidence of scalable Krylov convergence. The evaluator correction does not change the predeclared residual gate. This supports only an online trajectory test, not a speed or generalization claim.",
+      "kind": "research_cycle",
+      "next_action": "Recover the frozen B15 eta=.1 Landmark-512 trajectory source at its recorded commit, audit the exact71-refresh protocol, then prospectively compare q=1 Block Krylov and exact endpoints with isolated quality and total costs.",
+      "prediction": "All three seeds should pass exact residual gates at one common q<=7, while any Block Krylov degradation beyond1e-8 versus matched power triggers audit.",
+      "reason": "Prospective hypothesis, exact-SVD comparison, independent metric reproduction, evaluator correction, and a bounded next decision are all available.",
+      "result": "All15 paired residual comparisons passed and the smallest common ready depth was q=1. An independent audit reproduced every saved Frobenius and spectral ratio exactly. However, the prefix has65 nonzero columns and numerical rank65, exactly the q=1 Block Krylov basis size. The original non-gating projection metric incorrectly used the full exact row space; corrected q=0 distances are0.370758-1.011479.",
+      "revision": 1
+    },
+    {
+      "event_id": "block-krylov-online-cycle-v1",
+      "evidence": [
+        {
+          "path": "plans/block_krylov_online_endpoint_v1.md",
+          "sha256": "2d649f18ff412f033b32fce2591e677acc3f78198003b28a8ebd4657c12c4a38"
+        },
+        {
+          "path": "results/block_krylov_online_endpoint_v2.json",
+          "sha256": "f5b4a0ca47211882f2dd7573431fe8e84a3b4f9650d915fbd87007344790c0ac"
+        },
+        {
+          "path": "notes/block_krylov_online_analysis_v1.md",
+          "sha256": "70862c49d2b818249ca29b1d061311f7fdf1ab4cdb9fa7c6459c4c168c4a26a3"
+        }
+      ],
+      "goal_contract_version": 1,
+      "hypothesis": "The locally selected q=1 Block Krylov endpoint can preserve the frozen eta=.1 Landmark trajectory quality while reducing refresh cost.",
+      "idea": "lra-block-krylov-baseline-v1",
+      "interpretation": "Block Krylov's apparent dense-SVD advantage is removed by the strong simple sparse-support baseline. Quality comes from52-65 active columns and rank saturation, not scalable convergence. The classical endpoint is valid but practically dominated on this native trajectory.",
+      "kind": "research_cycle",
+      "next_action": "Retire the Block Krylov endpoint direction without native5000 expansion. Scope one downstream model application under CPU/8GB, beginning with a reproducible labeled discriminative benchmark and explicit full-data, uniform/reservoir, sparse-exact, and standard dimensionality-reduction baselines before any training.",
+      "prediction": "It should reproduce the recovered71 late refreshes, pass all strict endpoint gates, beat dense exact SVD, and must also beat a support-aware exact SVD in every paired total to justify further integration.",
+      "reason": "Frozen-trajectory hypothesis, quality prediction, complete endpoint results, strong baseline interpretation, and predeclared stop decision are available.",
+      "result": "The exact policy had zero mask mismatches and exactly71 late refreshes. All213 Block Krylov endpoints passed quality. Block totals0.9340-1.0335s beat dense exact totals3.9334-4.5813s, but support-aware exact totals were only0.07716-0.08374s, making Block Krylov about11.5-12.6 times slower.",
+      "revision": 1
+    },
+    {
+      "event_id": "discriminative-compression-pilot-cycle-v1",
+      "evidence": [
+        {
+          "path": "plans/discriminative_compression_pilot_v1.md",
+          "sha256": "5dc868c0a250e7c3bc59cc01a415162404fd2a0c9d62d4d6d6ce1ddd57797f0b"
+        },
+        {
+          "path": "results/discriminative_compression_pilot_v1.json",
+          "sha256": "7af645970a25b479debd8c34038404e99c2c7e8235864d82fa15847b8b9ed06f"
+        },
+        {
+          "path": "notes/discriminative_compression_pilot_analysis_v1.md",
+          "sha256": "4815362485f45902d912d01e936da2fb3664859dcaaa254e258ac381e3ccb8f3"
+        }
+      ],
+      "goal_contract_version": 1,
+      "hypothesis": "Simple example compression or standard low-rank feature compression may yield a genuine end-to-end CPU time versus macro-F1 tradeoff relative to full sparse Ridge on metadata-stripped 20 Newsgroups.",
+      "idea": "model-application-discriminative-scope-v1",
+      "interpretation": "Standard SVD and 25% sampling are scoped negatives. The 50% result is not a confirmed benefit because selecting the single passing seed after observing test labels is invalid; it warrants only one seed-robust screen against a stronger stratified sampling baseline.",
+      "kind": "research_cycle",
+      "next_action": "Run five new 50% uniform and stratified seeds with a fixed four-of-five aggregate rule and repeated full-baseline timing; then close or retain only the sampling direction.",
+      "prediction": "A compressed point is locally promising only with macro-F1 loss at most 0.03 and method wall at most 0.75 of full sparse; 50% reservoir may approach this gate, 25% may lose too much quality, and SVD may lose the time gate.",
+      "reason": "A source-defined native task, prospective joint gate, full sparse baseline, uniform sampling baselines, standard low-rank baselines, complete metrics/costs, and a bounded next decision are all available.",
+      "result": "Full sparse macro-F1 was 0.675548 in 2.57494s. All 25% reservoir seeds lost 0.071513-0.075927 macro-F1. SVD-128/256 lost 0.077935/0.053282 and took 1.323/2.093 times full. At 50%, one of three reservoir seeds passed both gates, two missed quality, and the median loss was 0.032212 with median wall ratio about0.547.",
+      "revision": 1
+    },
+    {
+      "event_id": "discriminative-reservoir-robustness-cycle-v1",
+      "evidence": [
+        {
+          "path": "plans/discriminative_reservoir_robustness_v1.md",
+          "sha256": "843c9deeb0ac0437bb1fb5fcaf4797f59abfec58b518699608bcecd6e420e85d"
+        },
+        {
+          "path": "results/discriminative_reservoir_robustness_v1.json",
+          "sha256": "3e5a549a5deb564401970429b629c5a4d550640b48f1103a71d07126132beb2b"
+        },
+        {
+          "path": "notes/discriminative_reservoir_robustness_analysis_v1.md",
+          "sha256": "0a9329e57e9784e1b7710a32b1380b9a6a7df6678d21f629a1c5849982e3791e"
+        }
+      ],
+      "goal_contract_version": 1,
+      "hypothesis": "Class-composition and timing variation may explain the marginal 50% reservoir result, and stratified sampling may provide a seed-robust simple baseline.",
+      "idea": "model-application-discriminative-scope-v1",
+      "interpretation": "Stratification modestly improves the median but does not make 50% batch sampling robust. Together with the prior SVD and25% negatives, no batch compression candidate is justified and isolated passing seeds cannot be selected retrospectively.",
+      "kind": "research_cycle",
+      "next_action": "Close batch low-rank/example compression on this benchmark and test one stateless hashed, one-pass bounded-state SGD endpoint before considering online moment or IDF estimation.",
+      "prediction": "A sampler is locally promising only if its median macro-F1 loss is at most0.03, at least four of five seeds pass quality, median wall ratio is at most0.75, and all classes are retained.",
+      "reason": "The boundary signal was tested with new seeds, repeated full timing, a stronger stratified baseline, and a fixed aggregate rule, yielding a complete close/continue decision.",
+      "result": "Uniform reservoir had median loss0.031535, two quality and two joint passes; stratified sampling had median loss0.029314, three quality and two joint passes. Median wall ratios were0.5943 and0.5894, all classes were retained, and neither met the four-of-five aggregate rule.",
+      "revision": 1
+    },
+    {
+      "event_id": "discriminative-streaming-hash-cycle-v1",
+      "evidence": [
+        {
+          "path": "plans/discriminative_streaming_hash_pilot_v1.md",
+          "sha256": "91cc4012eebd14180067919b265c87bed37aa9bb47e45c80b6de4ba6afeb1f44"
+        },
+        {
+          "path": "results/discriminative_streaming_hash_pilot_v1.json",
+          "sha256": "85bdf9f08c1158d62c13d85b9bedcad844612540718c1f3b56be3b598d2fbcc9"
+        },
+        {
+          "path": "notes/discriminative_streaming_hash_analysis_v1.md",
+          "sha256": "3e8ba8d6710353591733a860b53126d495f34e7b33762b874537050e74759399"
+        }
+      ],
+      "goal_contract_version": 1,
+      "hypothesis": "A stateless 2^18 hashed representation and one-pass averaged SGD can recover most full sparse quality while reducing wall time.",
+      "idea": "model-application-streaming-text-v1",
+      "interpretation": "This exact hashed endpoint is slower, less accurate, and has much larger parameter state than the full sparse reference. The failure reflects an overlarge hash dimension as well as one-pass optimization, so it does not reject algebraically state-matched hashing.",
+      "kind": "research_cycle",
+      "next_action": "Test only the two state-crossover endpoints:2^14 without averaging and2^12 with averaging, preserving the original quality/time gates; if both fail, close streaming hashing on this benchmark.",
+      "prediction": "The endpoint is competitive only with median macro-F1 loss at most0.05 and median wall ratio at most0.75 across three fixed orders.",
+      "reason": "A prospective one-pass hypothesis, three fixed orders, explicit bounded state, full sparse reference, complete metrics/costs, and a mechanism-level state audit are available.",
+      "result": "Median macro-F1 was0.618128, loss0.057419, and wall ratio1.0453, so both gates failed. Internal NumPy arrays used125,829,920 bytes, versus about2,847,520 coefficient bytes for20 by17,797 full Ridge features.",
+      "revision": 1
+    }
+  ],
+  "revision": 1,
+  "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w002",
+  "schema_version": 1,
+  "scientific_certification": false,
+  "status": "active",
+  "version": 29,
+  "wait": null
+}

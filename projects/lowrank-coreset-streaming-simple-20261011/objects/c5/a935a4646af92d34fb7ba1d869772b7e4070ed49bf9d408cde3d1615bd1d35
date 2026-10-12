@@ -1,0 +1,31 @@
+# State-matched one-pass hashing scope v1
+
+## Question
+
+Can either of the two algebraically state-matched hash/SGD endpoints meet the
+original quality/time gate, or is full sparse Ridge already the stronger simple
+baseline on 20 Newsgroups?
+
+## Fixed endpoints
+
+1. `hash_16384_no_average`: `n_features=2**14`, `average=False`.
+2. `hash_4096_average`: `n_features=2**12`, `average=True`.
+
+All other vectorizer, SGD, batch, split, metadata, single-pass, and three-order
+settings remain identical to `discriminative_streaming_hash_pilot_v1`.
+Neither dimension was chosen from test performance: both are the largest nearby
+powers of two implied by the full Ridge coefficient-state crossover under the
+corresponding number of retained parameter arrays.
+
+## Unchanged decision gate
+
+An endpoint must have median macro-F1 loss at most 0.05, median wall ratio at
+most 0.75, and measured NumPy parameter arrays no larger than the full Ridge
+coefficient/intercept byte reference.  Do not relax these thresholds.
+
+If neither passes, retire streaming hashing on this benchmark.  A later
+streaming application must use a source-defined larger task where the full
+sparse baseline actually creates a resource constraint; it must not infer a
+benefit from 20 Newsgroups.  If one passes, it is only a strong simple baseline
+for a prospective online-IDF/moment comparison, not a new result.
+

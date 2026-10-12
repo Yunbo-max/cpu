@@ -1,0 +1,15 @@
+# B006: prefix advice, window semantics, and exact comparator
+
+Goal contract 2; idea streaming-moment-native-audit-v1 revision 1. Development diagnostic, not new algorithm or probability validation. Pinned author commit d2e49bb63f107ccd1f6af540cd97970d680937c9; native definitions CS cell1 and SS-SSA cells7,8,9,10,14 unchanged.
+
+Hypothesis: prefix-only advice can execute without future leakage, but nearest retained-start queries may conflate window selection error with estimator error. At this tiny alphabet, exact streaming counting is a credible resource comparator and may dominate native sketch overhead.
+
+Prediction: independent Counter must agree with incrementally maintained integer F3 at every arrival for every fixed W. A nearest-start query must explicitly disclose its represented W; on unrepresented W, even an exact oracle at that start can differ from requested truth. If gaps are negligible here, this is only a local diagnostic, not arbitrary-window correctness. Prefix advice may differ from hardcoded [1,2,3], and a more complete advice list can increase memory.
+
+Data: reuse hashed B005 native 1000-arrival shift. Train CS only on first500 (r5,b300,eps.1,n100), freeze advice, evaluate on last500 with local time0. No tuning on results. Compare native joint SS/SSA for CS advice and hardcoded advice, qSSA.01/qSS.1,r1=3,r2=5,p3,maxinstances20. SS shares SSA pruning and is therefore not an independent histogram baseline. Retain all outputs and source hashes.
+
+At final time query W in [1,2,3,8,16,32,64,128,256,500]. Apply the published code's nearest-start convention (absolute difference, first retained start breaks ties), and report earlier/later brackets. Decompose signed error exactly: estimate-requested = (estimate-represented truth)+(represented-requested truth). No new query guarantee is assumed. Also retain the full represented suffix tables.
+
+Strong comparator: independent deque+Counter fixed-W streams, maintaining F3 by subtracting old count cubes and adding new count cubes on insert/expiry; query O(1) from maintained moment. Check all500 arrivals against direct Counter recomputation, with checking time separately excluded from algorithm component time but included total process cost. One pass per W, summing all ten baseline passes (5000updates); not equating arbitrary-window data structures. Preserve exact algorithm state sizes, native SS/SSA state sizes, and CS1505 float64 counter allocation. Deep-size estimates are Python object accounting, not measured peak RSS or matched budget. Matching resources remains required for any superiority claim, and no tuning grid is authorized by this plan.
+
+Task moment-prefix-window-v1, depends moment-native-pilot-v1, timeout120s, one CPU via cpu_guard4GiB. Expected RSS<150MiB from prior55MiB pilot; current shared headroom2.57GB. Stop on truth inconsistency, preserve output on error. One fixed development case; no independent uncertainty intervals. Proceed next to an explicit query contract/theory or counterexample if mismatch matters; do not expand timing grid without a mechanism-level question.

@@ -1,0 +1,88 @@
+import ast
+from collections import Counter
+import hashlib
+import ipaddress
+import json
+import math
+import os
+from pathlib import Path
+import resource
+import sys
+import time
+import warnings
+
+os.environ['MPLBACKEND']='Agg'
+ROOT=Path(__file__).resolve().parents[1]
+SRC=ROOT/'sources/moments'
+sys.path.insert(0,str(SRC))
+import numpy as np
+
+def source_cell(path,index):
+    return ''.join(json.loads(path.read_text())['cells'][index]['source'])
+
+def exact_norm(values,order=2):
+    return sum(v**order for v in Counter(values).values())**(1/order)
+
+def run_fixture(name,labels,limit):
+    values=[int(ipaddress.ip_address(f'192.0.2.{x}')) for x in labels]
+    file=ROOT/'data'/f'moment_fixture_{name}.csv'
+    file.write_text('ip\n'+'\n'.join(str(ipaddress.ip_address(x)) for x in values)+'\n')
+    ns={'__name__':'native_author_definitions'}
+    for idx in [1,2,3,10]:
+        code=source_cell(SRC/'AMS-AMSA-CAIDA.ipynb',idx)
+        exec(compile(code,f'AMS-AMSA-CAIDA.ipynb:cell{idx}','exec'),ns)
+    heavy=list(dict.fromkeys(values))
+    ns.update(hist_ams={},hist_amsa={},threads_vec_amsa=[],num_threads_max=20,vals=[],hh_gemini=heavy)
+    ns['parallel_ams_amsa_from_file'](heavy,str(file),limit,3)
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter('always')
+        indices,estimates,_,truth,_,_=ns['calculate_estimates'](ns['hist_ams'],ns['hist_amsa'])
+    rows=[]
+    for start,estimate,reported in zip(indices,estimates,truth):
+        corrected=exact_norm(ns['vals'][start-1:])
+        rows.append({'start_1indexed':start,'estimator':float(estimate),'native_evaluator_truth':float(reported),
+                     'independent_correct_truth':corrected,'estimator_matches_correct':bool(np.isclose(estimate,corrected)),
+                     'native_truth_matches_correct':bool(np.isclose(reported,corrected))})
+    return {'fixture':name,'input_rows':len(values),'limit':limit,'processed_rows':len(ns['vals']),
+            'rows':rows,'warnings':[str(x.message) for x in caught]}
+
+def main():
+    start=time.perf_counter();cpu=time.process_time()
+    out={'scope':'deterministic evaluator counterexamples, not a new benchmark or full paper reproduction',
+         'author_commit':'d2e49bb63f107ccd1f6af540cd97970d680937c9','fixtures':[],'error':None}
+    try:
+        for name,labels in [('constant4',[1,1,1,1]),('shift8',[1,2,3,4,5,5,5,5])]:
+            out['fixtures'].append(run_fixture(name,labels,len(labels)+2))
+            out['fixtures'].append(run_fixture(name+'_limit_equals_n',labels,len(labels)))
+        code=source_cell(SRC/'SS-SSA-CAIDA.ipynb',21)
+        tree=ast.parse(code)
+        calls=[node for node in ast.walk(tree) if isinstance(node,ast.Call)
+               and isinstance(node.func,ast.Attribute) and node.func.attr=='unique'
+               and ast.get_source_segment(code,node).startswith('np.unique(vals[:-W]')]
+        if len(calls)!=1:
+            raise AssertionError('Expected exact inspected native prefix expression')
+        vals=[1,2,3,4,5,5,5,5];W=4;order=3
+        _,counts=eval(compile(ast.Expression(calls[0]),'SS-SSA-CAIDA.ipynb:cell21','eval'),{'np':np,'vals':vals,'W':W})
+        native=float(np.linalg.norm(counts,order))
+        out['prefix_vs_last_window']={'native_expression':ast.get_source_segment(code,calls[0]),'fixture':vals,'W':W,'order':order,
+                                     'native_truth':native,'correct_last_window_truth':exact_norm(vals[-W:],order),
+                                     'evaluates_same_window':bool(np.isclose(native,exact_norm(vals[-W:],order)))}
+        seeds=[(i+1)*(j+1) for i in range(3) for j in range(5)]
+        out['repetition_seed_audit']={'offsets_before_item':seeds,'slots':len(seeds),'distinct_offsets':len(set(seeds)),
+                                    'note':'Identical seed and item give identical selections; these15slots are not15independent hash replicates.'}
+        out['source_hashes']={name:hashlib.sha256((SRC/name).read_bytes()).hexdigest()
+                              for name in ['AMS-AMSA-CAIDA.ipynb','SS-SSA-CAIDA.ipynb','utils.py']}
+        assert all(r['estimator_matches_correct'] for f in out['fixtures'] for r in f['rows'])
+        assert any(not r['native_truth_matches_correct'] for f in out['fixtures'] for r in f['rows'])
+        assert not out['prefix_vs_last_window']['evaluates_same_window']
+    except Exception as exc:
+        out['error']=repr(exc)
+        raise
+    finally:
+        out.update(elapsed_seconds=time.perf_counter()-start,process_cpu_seconds=time.process_time()-cpu,
+                   peak_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+        (ROOT/'results/moment_boundary_diagnostic_v1.json').write_text(json.dumps(out,indent=2,allow_nan=False))
+        print(json.dumps({k:out[k] for k in ['elapsed_seconds','process_cpu_seconds','peak_rss_kib','error']}),flush=True)
+
+if __name__=='__main__':
+    main()

@@ -1,0 +1,65 @@
+{
+  "request_id": "decision-8a6ece80a8864b809798b3a6695b2e73",
+  "idea": "model-application-discriminative-scope-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "response_id": "discriminative-batch-compression-retire-v1",
+  "reason": "The prospective seed-robust screen rejects both 50% sampling baselines. Close batch compression on this benchmark and move to a genuinely one-pass bounded-state discriminative question.",
+  "events": [
+    {
+      "event_id": "discriminative-reservoir-robustness-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "The boundary signal was tested with new seeds, repeated full timing, a stronger stratified baseline, and a fixed aggregate rule, yielding a complete close/continue decision.",
+      "hypothesis": "Class-composition and timing variation may explain the marginal 50% reservoir result, and stratified sampling may provide a seed-robust simple baseline.",
+      "prediction": "A sampler is locally promising only if its median macro-F1 loss is at most0.03, at least four of five seeds pass quality, median wall ratio is at most0.75, and all classes are retained.",
+      "result": "Uniform reservoir had median loss0.031535, two quality and two joint passes; stratified sampling had median loss0.029314, three quality and two joint passes. Median wall ratios were0.5943 and0.5894, all classes were retained, and neither met the four-of-five aggregate rule.",
+      "interpretation": "Stratification modestly improves the median but does not make 50% batch sampling robust. Together with the prior SVD and25% negatives, no batch compression candidate is justified and isolated passing seeds cannot be selected retrospectively.",
+      "next_action": "Close batch low-rank/example compression on this benchmark and test one stateless hashed, one-pass bounded-state SGD endpoint before considering online moment or IDF estimation.",
+      "evidence": [
+        {
+          "path": "plans/discriminative_reservoir_robustness_v1.md",
+          "sha256": "843c9deeb0ac0437bb1fb5fcaf4797f59abfec58b518699608bcecd6e420e85d"
+        },
+        {
+          "path": "results/discriminative_reservoir_robustness_v1.json",
+          "sha256": "3e5a549a5deb564401970429b629c5a4d550640b48f1103a71d07126132beb2b"
+        },
+        {
+          "path": "notes/discriminative_reservoir_robustness_analysis_v1.md",
+          "sha256": "0a9329e57e9784e1b7710a32b1380b9a6a7df6678d21f629a1c5849982e3791e"
+        }
+      ]
+    },
+    {
+      "event_id": "discriminative-batch-compression-retire-v1",
+      "kind": "retire_idea",
+      "reason": "The source-defined batch task now has negatives for standard SVD,25% sampling,50% uniform sampling, and50% stratified sampling under prospective gates.",
+      "evidence": [
+        {
+          "path": "results/discriminative_compression_pilot_v1.json",
+          "sha256": "7af645970a25b479debd8c34038404e99c2c7e8235864d82fa15847b8b9ed06f"
+        },
+        {
+          "path": "results/discriminative_reservoir_robustness_v1.json",
+          "sha256": "3e5a549a5deb564401970429b629c5a4d550640b48f1103a71d07126132beb2b"
+        }
+      ]
+    },
+    {
+      "event_id": "discriminative-streaming-text-replace-v1",
+      "kind": "replace_idea",
+      "idea": "model-application-streaming-text-v1",
+      "reason": "Test a genuine single-pass bounded-state endpoint and quantify its quality/resource gap before designing any online moment or IDF estimator.",
+      "evidence": [
+        {
+          "path": "plans/discriminative_streaming_hash_pilot_v1.md",
+          "sha256": "91cc4012eebd14180067919b265c87bed37aa9bb47e45c80b6de4ba6afeb1f44"
+        },
+        {
+          "path": "notes/discriminative_reservoir_robustness_analysis_v1.md",
+          "sha256": "0a9329e57e9784e1b7710a32b1380b9a6a7df6678d21f629a1c5849982e3791e"
+        }
+      ]
+    }
+  ]
+}

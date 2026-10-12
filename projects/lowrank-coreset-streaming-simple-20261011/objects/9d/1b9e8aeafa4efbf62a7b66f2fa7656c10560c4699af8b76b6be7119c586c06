@@ -1,0 +1,51 @@
+# Generative-model streaming-statistics scope audit v1
+
+Date: 2026-10-12 UTC
+
+## Question
+
+After the discriminative URL branch was retired, is there a sufficiently specific CPU-bounded generative-model evaluation problem in which low-rank, coreset, or streaming statistics plausibly supplies a missing mechanism rather than renaming a known estimator?
+
+This is a protocol/prior-art audit, not an originality certificate and not an experiment.
+
+## Primary sources inspected
+
+1. Chen, Li, Tian, and Zhu, *Sample-Optimal Estimation of the Fréchet Inception Distance*, arXiv:2610.07114v1 (2026-10-05), https://arxiv.org/abs/2610.07114 . The paper proves plug-in FID bias/variance rates, introduces FID-VALE and Relative Taylor Debiasing (RTD), proves an optimal `O(d / epsilon^2)` sample complexity for RTD in its Gaussian model, reports ImageNet/Inception experiments, and links author code at https://github.com/zys996/sample-optimal-fid-estimation .
+2. Berthet et al., *MIND: Monge Inception Distance for Generative Models Evaluation*, arXiv:2605.06797v1 (2026-05-07), https://arxiv.org/abs/2605.06797 . MIND uses sliced one-dimensional optimal transport and reports useful evaluation at 1k--5k samples, plus lower metric-computation time and memory than FID/MMD in the authors' TPU measurements.
+3. Nguyen, *Streaming Sliced Optimal Transport*, arXiv:2505.06835 (2025-05-11), https://arxiv.org/abs/2505.06835 . It explicitly combines streaming quantile approximations with projected one-dimensional Wasserstein distances, gives approximation guarantees, and compares against random subsampling.
+4. Shekhar and Ramdas, *Nonparametric Two-Sample Testing by Betting*, arXiv:2112.09162, https://arxiv.org/abs/2112.09162 . It develops sequential two-sample tests with a kernel-MMD instantiation, stopping from accumulated betting wealth while retaining sequential type-I control.
+5. Chatterjee and Ramdas, *A Martingale Kernel Two-Sample Test*, ALT 2026, PMLR 313:1--44, https://proceedings.mlr.press/v313/chatterjee26a.html . It provides a martingale MMD statistic and reports computational savings over the standard MMD test at large sample sizes.
+6. Heusel et al., *GANs Trained by a Two Time-Scale Update Rule Converge to a Local Nash Equilibrium*, NeurIPS 2017, arXiv:1706.08500, which introduced FID; and Bińkowski et al., *Demystifying MMD GANs*, ICLR 2018, arXiv:1801.01401, which introduced KID as an unbiased MMD-based metric.
+
+## Candidate mechanisms and collision result
+
+### A. Low-rank or sketched FID covariance
+
+For standard Inception dimension `d=2048`, one dense float64 covariance is about 32 MiB. Streaming mean and covariance accumulation is already `O(d^2)` memory and therefore comfortably below this project's 8 GB ceiling. A low-rank covariance changes the Bures/FID target unless an explicit approximation-error budget is carried through. More importantly, the new RTD work directly attacks FID's finite-sample bottleneck and proves a sample-optimal rate in its stated model. Therefore memory-only low-rank FID is not a credible missing contribution under the current constraints.
+
+### B. Coreset or quantile sketch for MIND / sliced Wasserstein
+
+MIND makes projected one-dimensional transport a strong recent generative-evaluation baseline. Streaming Sliced Optimal Transport already uses streaming quantile approximations for exactly this computation and provides approximation guarantees. A generic "streaming MIND" or quantile-coreset proposal would have direct prior-art overlap. A new direction would need a genuinely different guarantee, such as model-ranking preservation with an end-to-end embedding-and-generation cost model; that guarantee is not presently derived.
+
+### C. Sequential KID/MMD early stopping
+
+The intuitive proposal to stop generator evaluation as soon as KID/MMD separates checkpoints is also not an empty niche. Betting-based sequential kernel-MMD tests already provide adaptive stopping with sequential error control, and the 2026 martingale-MMD paper supplies another recent computational baseline. A generator-checkpoint wrapper without a new paired-ranking guarantee or a stronger cost-quality frontier would be application packaging, not a new mechanism.
+
+## Decision
+
+The three direct application ideas are **not promoted as new methods**:
+
+- low-rank FID memory reduction is unnecessary at `d=2048` under 8 GB and changes the target;
+- streaming sliced-Wasserstein/MIND collides with Streaming Sliced Optimal Transport;
+- sequential KID/MMD stopping collides with existing sequential kernel testing.
+
+The defensible next step is a **native baseline reproduction**, not a new-algorithm claim: recover the author implementation of FID-RTD/VALE, pin source identity, and reproduce a bounded controlled Gaussian experiment on CPU. This tests whether the newest statistically strong generative-evaluation baseline is actually practical in this environment before inventing a low-rank or coreset modification. Use plug-in FID, FID-infinity/VALE2, and RTD as named baselines; retain total estimator cost and failure cases. Only after source-matched reproduction may a narrower streaming question be formulated.
+
+## Frozen scope for the successor
+
+- Successor idea: `generative-fid-rtd-native-reproduction-v1`.
+- Phase 1: source acquisition and equation/code audit only; hash every file and identify the smallest author-provided Gaussian command.
+- Phase 2, conditional on a runnable CPU path: one prospective calibration with small `d,N`, single thread, through `cpu_guard.py`, under 4 GiB process address space.
+- Do not claim the paper's theorems were re-proved or ImageNet results reproduced.
+- Do not download or generate a large image corpus before the Gaussian path and memory profile pass.
+- Retirement gate: if the released implementation requires unavailable paid/GPU infrastructure, cannot run within 4 GiB, or lacks enough detail to reproduce its controlled Gaussian estimator, retain the block and move on rather than reimplementing from the paper ad hoc.

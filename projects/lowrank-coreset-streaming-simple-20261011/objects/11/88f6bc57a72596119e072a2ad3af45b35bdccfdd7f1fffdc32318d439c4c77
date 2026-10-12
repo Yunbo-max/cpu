@@ -1,0 +1,9 @@
+# B007: optimistic exact-oracle query brackets
+
+Prospective diagnostic after B006. Hypothesis: endpoint monotonicity gives a valid interval for every fixed-W L3, but stored start coverage can make a10% relative certificate unavailable even with perfect suffix oracles. Prediction: all500 truth values per arm lie inside exact earlier/later-start intervals; some fail U/L <= (1.1/.9). An interval failure identifies representation uncertainty only, not true SSA error or an impossibility theorem for richer algorithms.
+
+Use the already observed retained starts in B006, and original test half. No new randomness or native reruns. Independently compute exact suffix F3 by backward incremental Counter; compare direct Counter truth for everyW. Include empty suffix at start500 with norm0. For target startt bracket a<=t<=b, L=norm(b),U=norm(a); insertion-only frequency monotonicity gives L<=norm(t)<=U. If L>0, relative-minimax point2LU/(L+U) has worst-case relative radius(U-L)/(U+L). This is deterministic interval algebra, not a new sketch. For exact retained targets collapse to exact truth. L=0<U cannot certify relative error below1.
+
+For hypothetical simultaneously valid endpoint estimates satisfying (1-eta)F<=estimate<=(1+eta)F, use L=estimate(b)/(1+eta), U=estimate(a)/(1-eta). The original sampled norms do not establish this simultaneous event, especially with correlated slots, so do not use them as certificates. No empirical seed count validates failure probability.
+
+Save everyW row and summary, task moment-query-bracket-v1 with timeout60s via cpu_guard4GiB, depends moment-prefix-window-v1. Expected<100MiBRSS. Decision: if interval gaps matter, next implementation must specify a query-quality contract and compare stronger exact/all-suffix baselines before claiming approximation. Do not infer new novelty, global optimality, or paper invalidity.

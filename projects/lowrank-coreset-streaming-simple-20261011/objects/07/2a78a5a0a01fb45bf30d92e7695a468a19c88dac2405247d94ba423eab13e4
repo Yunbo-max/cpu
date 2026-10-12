@@ -1,0 +1,100 @@
+{
+  "alerts": [
+    {
+      "attempt_id": "attempt-4d43141ec2694210918ec3f3ee2a556a",
+      "delivery_state": "local_pending_report",
+      "event_id": "result:attempt-4d43141ec2694210918ec3f3ee2a556a",
+      "evidence": [
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-4d43141ec2694210918ec3f3ee2a556a/receipt.json",
+          "sha256": "8607a204e31ce506ccf7aa83e56cb6a2d6ce41299ddb93be5b7fdb349e0c977a"
+        }
+      ],
+      "kind": "task_result",
+      "next_action": "Inspect the referenced receipt and logs; repair or reconcile this attempt before replacement",
+      "observed_at": "2026-10-12T02:25:50.727938+00:00",
+      "reason": "Command exited with status 1; Cannot safely read results/block_krylov_calibration_v1.json: [Errno 2] No such file or directory: 'results'",
+      "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w002",
+      "schema_version": 1,
+      "status": "failed",
+      "task_id": "block-krylov-calibration-v1",
+      "user_notified": false
+    },
+    {
+      "delivery_state": "local_pending_report",
+      "event_id": "cli:c991139cd35c4e6c9030ec46741f45fb",
+      "evidence": [],
+      "exception_type": "FileNotFoundError",
+      "kind": "cli_exception",
+      "next_action": "Inspect the requested operation and retained project state before retrying",
+      "observed_at": "2026-10-12T02:28:23.304608+00:00",
+      "reason": "FileNotFoundError: [Errno 2] No such file or directory: 'block_krylov_calibration_repair_response.json'",
+      "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w002",
+      "schema_version": 1,
+      "user_notified": false
+    },
+    {
+      "delivery_state": "local_pending_report",
+      "event_id": "cli:29f01258dead45d09a61906cd20b66fe",
+      "evidence": [],
+      "exception_type": "RunnerError",
+      "kind": "cli_exception",
+      "next_action": "Inspect the requested operation and retained project state before retrying",
+      "observed_at": "2026-10-12T02:28:27.021303+00:00",
+      "reason": "RunnerError: Unknown event kind",
+      "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w002",
+      "schema_version": 1,
+      "user_notified": false
+    },
+    {
+      "delivery_state": "local_pending_report",
+      "event_id": "cli:986eb598abcc472395b2b8ffd206e5bf",
+      "evidence": [],
+      "exception_type": "RunnerError",
+      "kind": "cli_exception",
+      "next_action": "Inspect the requested operation and retained project state before retrying",
+      "observed_at": "2026-10-12T02:30:55.282844+00:00",
+      "reason": "RunnerError: Unknown task phase",
+      "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w002",
+      "schema_version": 1,
+      "user_notified": false
+    },
+    {
+      "delivery_state": "local_pending_report",
+      "event_id": "cli:a584631f4c5a46a6a42b4724e5a029d2",
+      "evidence": [],
+      "exception_type": "RunnerError",
+      "kind": "cli_exception",
+      "next_action": "Inspect the requested operation and retained project state before retrying",
+      "observed_at": "2026-10-12T02:33:05.005508+00:00",
+      "reason": "RunnerError: Evidence path cannot be safely read: notes/prior_lra_B01_B15_review.md: [Errno 2] No such file or directory: 'prior_lra_B01_B15_review.md'",
+      "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w002",
+      "schema_version": 1,
+      "user_notified": false
+    },
+    {
+      "attempt_id": "attempt-3ec2aa029a84423cb3235c1ce2efb61e",
+      "delivery_state": "local_pending_report",
+      "event_id": "result:attempt-3ec2aa029a84423cb3235c1ce2efb61e",
+      "evidence": [
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-3ec2aa029a84423cb3235c1ce2efb61e/receipt.json",
+          "sha256": "195574219bc1b417e146bb564182f13bde045a3c46bbd6d9f1939293a25d308f"
+        }
+      ],
+      "kind": "task_result",
+      "next_action": "Inspect the referenced receipt and logs; repair or reconcile this attempt before replacement",
+      "observed_at": "2026-10-12T02:36:21.128719+00:00",
+      "reason": "Command exited with status 1; Cannot safely read results/block_krylov_online_endpoint_v1.json: [Errno 2] No such file or directory: 'block_krylov_online_endpoint_v1.json'",
+      "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w002",
+      "schema_version": 1,
+      "status": "failed",
+      "task_id": "block-krylov-online-endpoint-v1",
+      "user_notified": false
+    }
+  ],
+  "delivery_state": "local_pending_report",
+  "errors": [],
+  "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w002",
+  "user_notified": false
+}

@@ -1,0 +1,25 @@
+{
+  "study": "B15-revision-closure-input-check",
+  "checks": {
+    "scipy_version": true,
+    "scipy_git_revision": true,
+    "loaded_source_sha256": true,
+    "consumed_eta0p1_reference_sha256": true,
+    "unconsumed_eta0p01_reference_sha256": true,
+    "fixed_comparator_falsified": true,
+    "revision_wording_narrowed": true
+  },
+  "executed_solver": {
+    "version": "1.17.0",
+    "git_revision": "8c75ae75176236f233824e9a0483c26a69e6dfec",
+    "source_path": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/scipy/sparse/linalg/_eigen/lobpcg/lobpcg.py",
+    "source_sha256": "2789d5f25416abeb27e3515e0948d7413b64e241f445b0a19ae3abb856cb4c38"
+  },
+  "references": {
+    "consumed_eta0p1_sha256": "b7ab2139b4f38289085d5ee2a10737330d68938ffe28ad939ad183d7c276d083",
+    "unconsumed_eta0p01_sha256": "66c6d97fed7983abc55c8ccf5b571f2613281a627a9993584e243632a76355e6"
+  },
+  "decision": "RETIRE_FROZEN_ZERO_EXTENDED_SCIPY_LOBPCG_COMPARATOR",
+  "full_policy_rerun_required": false,
+  "scope": "versioned evidence identity and claim wording only; scientific negative outputs unchanged"
+}

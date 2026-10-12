@@ -1,0 +1,58 @@
+import hashlib
+import json
+from pathlib import Path
+import time
+import urllib.request
+
+ROOT=Path(__file__).resolve().parents[1]
+DEST=ROOT/'sources/moments'
+COMMIT='d2e49bb63f107ccd1f6af540cd97970d680937c9'
+REPO='ndsoham/learning-augmented-fp-time-decay'
+MAX_FILE=10*1024*1024
+MAX_TOTAL=30*1024*1024
+
+def get(url):
+    req=urllib.request.Request(url,headers={'User-Agent':'Research-native-source-audit','Accept':'application/vnd.github+json' if 'api.github.com' in url else '*/*'})
+    with urllib.request.urlopen(req,timeout=25) as response:
+        data=response.read(MAX_FILE+1)
+    if len(data)>MAX_FILE:
+        raise ValueError('Source exceeds declared per-file limit')
+    return data
+
+def main():
+    DEST.mkdir(parents=True,exist_ok=True)
+    manifest={'repo':REPO,'commit':COMMIT,'files':[],'error':None,'retrieved_at_epoch':time.time()}
+    total=0
+    try:
+        url=f'https://api.github.com/repos/{REPO}/git/trees/{COMMIT}?recursive=1'
+        data=get(url);tree=json.loads(data)
+        if tree.get('truncated'):
+            raise RuntimeError('Author repository tree is truncated')
+        (DEST/'tree.json').write_bytes(data)
+        manifest['files'].append({'path':'tree.json','url':url,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
+        paths=[r['path'] for r in tree['tree'] if r['type']=='blob' and (Path(r['path']).suffix.lower() in {'.py','.ipynb','.md','.txt'} or Path(r['path']).name.lower().startswith('readme'))]
+        for path in paths:
+            local=DEST/path
+            if not local.resolve().is_relative_to(DEST.resolve()):
+                raise ValueError('Unsafe repository source path')
+            url=f'https://raw.githubusercontent.com/{REPO}/{COMMIT}/{urllib.parse.quote(path)}'
+            data=get(url);total+=len(data)
+            if total>MAX_TOTAL:
+                raise ValueError('Source acquisition exceeds declared total limit')
+            local.parent.mkdir(parents=True,exist_ok=True);local.write_bytes(data)
+            manifest['files'].append({'path':path,'url':url,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
+        url='https://proceedings.iclr.cc/paper_files/paper/2026/file/1c64a54abd41035503c04119e06c28f9-Paper-Conference.pdf'
+        data=get(url);total+=len(data)
+        if total>MAX_TOTAL:
+            raise ValueError('Source acquisition exceeds declared total limit')
+        (DEST/'paper.pdf').write_bytes(data)
+        manifest['files'].append({'path':'paper.pdf','url':url,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
+    except Exception as exc:
+        manifest['error']=repr(exc)
+        raise
+    finally:
+        (DEST/'download_manifest.json').write_text(json.dumps(manifest,indent=2))
+        print(json.dumps({'files':len(manifest['files']),'bytes':total,'error':manifest['error']}),flush=True)
+
+if __name__=='__main__':
+    main()

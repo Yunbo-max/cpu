@@ -1,0 +1,21 @@
+# Native FID-RTD Gaussian smoke analysis v1
+
+## Result against the frozen gates
+
+All preregistered execution gates passed at author commit `1e90579840cf81284287583fcb607581704993ab`:
+
+- 3 author tasks and exactly 96 estimator rows were retained.
+- All 96 statuses were `ok`; all truth, raw estimate, signed error, absolute error, and runtime fields were finite.
+- The 12 adaptive RTD rows all used requested/actual Taylor degree 2 with correction counts 32 or 40, as predicted.
+- The run used the guarded NumPy CPU path, `CUDA_VISIBLE_DEVICES` was empty, peak RSS was 32,743,424 bytes, author computation wall time was 0.0605 seconds, and the runner attempt took 0.2991 seconds.
+- Isotropic, random full-rank, and randomized rank-deficient cases all completed, so the singular-support path did not create a pilot-rank failure in this smoke design.
+
+## What the tiny accuracy numbers do and do not say
+
+Across only 12 rows per method, descriptive mean absolute errors were 0.0400 for plug-in FID, 0.0338 for first-order variance-aware extrapolation, and 0.0628 for adaptive RTD. Higher-order OLS/VALE variants were worse in this tiny design. These numbers are not a method ranking: they pool three different covariance cases and two nested budgets with only two trials per case. In particular, the smoke protocol was designed to exercise paths, not to resolve bias or variance, and current NumPy/SciPy versions differ from the release's reporting pins.
+
+The valid conclusion is narrower: the released main estimator code, including RTD and VALE, runs natively on CPU with low memory and preserves raw finite estimates across the advertised small cases. This gives a strong, current generative-evaluation baseline that any future low-rank/coreset modification must beat. It does not validate the paper's sample-complexity theorem, ImageNet results, or any claim that RTD is best at small `d,N`.
+
+## Next falsifiable step
+
+Use the author isotropic family and fixed-reference definitions in a prospectively sized CPU comparison where dimension changes while sample budget is controlled. The design should estimate signed bias and RMSE separately for plug-in, FID-infinity, VALE, and RTD with enough independent trials to avoid interpreting the two-trial smoke. It must count total estimator cost and retain the compatible-environment caveat. A low-rank or coreset modification remains out of scope until this strong baseline's actual CPU accuracy/cost frontier is established.

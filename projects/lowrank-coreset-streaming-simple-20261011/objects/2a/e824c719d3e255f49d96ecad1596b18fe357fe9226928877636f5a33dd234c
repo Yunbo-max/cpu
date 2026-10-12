@@ -1,0 +1,7 @@
+# Centered streamed FID-infinity equivalence analysis v1
+
+The centered fixed-reference diagnostic passed all gates. On a shifted anisotropic d=64 fixture with 2048 reference rows and 4096 generated rows, the one-pass count/sum/Gram implementation matched the pinned author's 15 centered `1/(N-1)` node values to maximum absolute error 5.95e-14 and all six OLS/VALE intercepts to 9.77e-15. Peak RSS was 35,094,528 bytes.
+
+The sufficient-statistic state was 491,520 bytes of node Grams, 7,680 bytes of node sums, 120 bytes of counts, and 61,440 bytes of membership masks. Materialized reference/generated rows were only an identical-input synthetic fixture and are not required streaming state.
+
+Thus the algebraic mechanism extends from the Gaussian known-zero-mean path to the ordinary centered image-feature FID convention. This remains a formula/implementation result: no ImageNet features were evaluated, the diagnostic provides no speed claim, and stateful streaming FID itself is established software practice.

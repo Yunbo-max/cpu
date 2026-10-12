@@ -1,0 +1,263 @@
+{
+  "scope": "deterministic evaluator counterexamples, not a new benchmark or full paper reproduction",
+  "author_commit": "d2e49bb63f107ccd1f6af540cd97970d680937c9",
+  "fixtures": [
+    {
+      "fixture": "constant4",
+      "input_rows": 4,
+      "limit": 6,
+      "processed_rows": 4,
+      "rows": [
+        {
+          "start_1indexed": 1,
+          "estimator": 4.0,
+          "native_evaluator_truth": 3.0,
+          "independent_correct_truth": 4.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 2,
+          "estimator": 3.0,
+          "native_evaluator_truth": 2.0,
+          "independent_correct_truth": 3.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 3,
+          "estimator": 2.0,
+          "native_evaluator_truth": 1.0,
+          "independent_correct_truth": 2.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 4,
+          "estimator": 1.0,
+          "native_evaluator_truth": 0.0,
+          "independent_correct_truth": 1.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        }
+      ],
+      "warnings": [
+        "divide by zero encountered in scalar divide",
+        "divide by zero encountered in scalar divide"
+      ]
+    },
+    {
+      "fixture": "constant4_limit_equals_n",
+      "input_rows": 4,
+      "limit": 4,
+      "processed_rows": 2,
+      "rows": [
+        {
+          "start_1indexed": 1,
+          "estimator": 2.0,
+          "native_evaluator_truth": 1.0,
+          "independent_correct_truth": 2.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 2,
+          "estimator": 1.0,
+          "native_evaluator_truth": 0.0,
+          "independent_correct_truth": 1.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        }
+      ],
+      "warnings": [
+        "divide by zero encountered in scalar divide",
+        "divide by zero encountered in scalar divide"
+      ]
+    },
+    {
+      "fixture": "shift8",
+      "input_rows": 8,
+      "limit": 10,
+      "processed_rows": 8,
+      "rows": [
+        {
+          "start_1indexed": 1,
+          "estimator": 4.47213595499958,
+          "native_evaluator_truth": 4.358898943540674,
+          "independent_correct_truth": 4.47213595499958,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 2,
+          "estimator": 4.358898943540674,
+          "native_evaluator_truth": 4.242640687119285,
+          "independent_correct_truth": 4.358898943540674,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 3,
+          "estimator": 4.242640687119285,
+          "native_evaluator_truth": 4.123105625617661,
+          "independent_correct_truth": 4.242640687119285,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 4,
+          "estimator": 4.123105625617661,
+          "native_evaluator_truth": 4.0,
+          "independent_correct_truth": 4.123105625617661,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 5,
+          "estimator": 4.0,
+          "native_evaluator_truth": 3.0,
+          "independent_correct_truth": 4.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 6,
+          "estimator": 3.0,
+          "native_evaluator_truth": 2.0,
+          "independent_correct_truth": 3.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 7,
+          "estimator": 2.0,
+          "native_evaluator_truth": 1.0,
+          "independent_correct_truth": 2.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 8,
+          "estimator": 1.0,
+          "native_evaluator_truth": 0.0,
+          "independent_correct_truth": 1.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        }
+      ],
+      "warnings": [
+        "divide by zero encountered in scalar divide",
+        "divide by zero encountered in scalar divide"
+      ]
+    },
+    {
+      "fixture": "shift8_limit_equals_n",
+      "input_rows": 8,
+      "limit": 8,
+      "processed_rows": 6,
+      "rows": [
+        {
+          "start_1indexed": 1,
+          "estimator": 2.8284271247461903,
+          "native_evaluator_truth": 2.6457513110645907,
+          "independent_correct_truth": 2.8284271247461903,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 2,
+          "estimator": 2.6457513110645907,
+          "native_evaluator_truth": 2.449489742783178,
+          "independent_correct_truth": 2.6457513110645907,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 3,
+          "estimator": 2.449489742783178,
+          "native_evaluator_truth": 2.23606797749979,
+          "independent_correct_truth": 2.449489742783178,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 4,
+          "estimator": 2.23606797749979,
+          "native_evaluator_truth": 2.0,
+          "independent_correct_truth": 2.23606797749979,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 5,
+          "estimator": 2.0,
+          "native_evaluator_truth": 1.0,
+          "independent_correct_truth": 2.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        },
+        {
+          "start_1indexed": 6,
+          "estimator": 1.0,
+          "native_evaluator_truth": 0.0,
+          "independent_correct_truth": 1.0,
+          "estimator_matches_correct": true,
+          "native_truth_matches_correct": false
+        }
+      ],
+      "warnings": [
+        "divide by zero encountered in scalar divide",
+        "divide by zero encountered in scalar divide"
+      ]
+    }
+  ],
+  "error": null,
+  "prefix_vs_last_window": {
+    "native_expression": "np.unique(vals[:-W], return_counts=True)",
+    "fixture": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      5,
+      5,
+      5
+    ],
+    "W": 4,
+    "order": 3,
+    "native_truth": 1.5874010519681994,
+    "correct_last_window_truth": 3.9999999999999996,
+    "evaluates_same_window": false
+  },
+  "repetition_seed_audit": {
+    "offsets_before_item": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      2,
+      4,
+      6,
+      8,
+      10,
+      3,
+      6,
+      9,
+      12,
+      15
+    ],
+    "slots": 15,
+    "distinct_offsets": 11,
+    "note": "Identical seed and item give identical selections; these15slots are not15independent hash replicates."
+  },
+  "source_hashes": {
+    "AMS-AMSA-CAIDA.ipynb": "2a15b98cc4cce7f8c115c9c8d81cd16c245bf4275f52e242b16a731ee0bf700b",
+    "SS-SSA-CAIDA.ipynb": "595fe594508d8068d03ff999f3661fb35b70b9f547e81dff3fbe4ffe70a16d20",
+    "utils.py": "5b89dfa2a9419e0f32d561eb25755264a848db0a015b27b658e675c758a190b8"
+  },
+  "elapsed_seconds": 0.356688170999405,
+  "process_cpu_seconds": 0.356672691,
+  "peak_rss_kib": 53772
+}

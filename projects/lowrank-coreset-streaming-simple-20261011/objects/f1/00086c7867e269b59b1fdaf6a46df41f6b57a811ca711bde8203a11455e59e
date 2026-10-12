@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+"""Acquire and inventory the source-linked CW factor-analysis code archive."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import pathlib
+import tarfile
+import urllib.request
+from datetime import datetime, timezone
+
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+DEPS = ROOT / ".deps" / "url_cw_fa"
+ARCHIVE = DEPS / "cw_fa_code.tar.gz"
+EXTRACTED = DEPS / "extracted"
+OUTPUT = ROOT / "sources" / "url_cw_fa_code_manifest_v1.json"
+URL = "https://www.sysnet.ucsd.edu/projects/url/cw_fa_code.tar.gz"
+
+
+def sha256(path: pathlib.Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def safe_destination(base: pathlib.Path, member_name: str) -> pathlib.Path:
+    destination = (base / member_name).resolve()
+    if base.resolve() not in destination.parents and destination != base.resolve():
+        raise RuntimeError(f"unsafe archive member: {member_name}")
+    return destination
+
+
+def main() -> None:
+    DEPS.mkdir(parents=True, exist_ok=True)
+    request = urllib.request.Request(URL, headers={"User-Agent": "research-audit/1.0"})
+    with urllib.request.urlopen(request, timeout=60) as response, ARCHIVE.open("wb") as handle:
+        while True:
+            chunk = response.read(1024 * 1024)
+            if not chunk:
+                break
+            handle.write(chunk)
+
+    EXTRACTED.mkdir(parents=True, exist_ok=True)
+    with tarfile.open(ARCHIVE, "r:gz") as archive:
+        members = archive.getmembers()
+        for member in members:
+            safe_destination(EXTRACTED, member.name)
+            if member.issym() or member.islnk() or member.isdev():
+                raise RuntimeError(f"unsupported archive member type: {member.name}")
+        archive.extractall(EXTRACTED, members=members, filter="data")
+
+    files = []
+    for path in sorted(p for p in EXTRACTED.rglob("*") if p.is_file()):
+        files.append(
+            {
+                "path": str(path.relative_to(EXTRACTED)),
+                "size_bytes": path.stat().st_size,
+                "sha256": sha256(path),
+            }
+        )
+    result = {
+        "schema_version": 1,
+        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "url": URL,
+        "archive_size_bytes": ARCHIVE.stat().st_size,
+        "archive_sha256": sha256(ARCHIVE),
+        "member_count": len(files),
+        "files": files,
+        "archive_local_path": str(ARCHIVE),
+        "extracted_local_path": str(EXTRACTED),
+        "redistribution": "not_authorized; .deps excluded from checkpoint",
+        "executed_archive_code": False,
+    }
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(result, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

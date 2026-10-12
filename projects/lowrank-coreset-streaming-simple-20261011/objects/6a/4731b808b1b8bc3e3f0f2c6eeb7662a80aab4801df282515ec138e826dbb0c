@@ -1,0 +1,35 @@
+# Nested-prefix OLS diagnostic v1: analysis
+
+## Decision
+
+The prospectively frozen development diagnostic passes its bounded non-inferiority gate. On the `d=64`, `N=4096`, known-zero-mean isotropic Gaussian fixture, a single shared permutation with nested prefixes did not increase OLS RMSE by more than 10% for any tested polynomial order. The order-3 arm produced the strongest observed improvement. This is sufficient to keep `streaming-vale-nested-prefix-v1` active and to justify restoring the pinned native VALE weighting before the next experiment. It is not confirmation of a new estimator.
+
+## Frozen prediction and observed result
+
+The plan predicted that unchanged uniform-subset marginals preserve each node's expectation, while changed cross-node covariance can alter extrapolation variance. The pre-registered continuation gate required at least one nested arm to have RMSE no more than `1.10` times its fresh-permutation counterpart.
+
+Across 96 paired fresh pools:
+
+| OLS order | fresh RMSE | nested RMSE | nested/fresh | paired MSE difference, nested-fresh | bootstrap 95% interval |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 0.0471124 | 0.0460307 | 0.9770 | -0.0001007 | [-0.0007399, 0.0005143] |
+| 2 | 0.0577428 | 0.0492183 | 0.8524 | -0.0009118 | [-0.0020210, 0.0001443] |
+| 3 | 0.0952272 | 0.0741100 | 0.7782 | -0.0035759 | [-0.0068273, -0.0005654] |
+
+All three arms pass the 10% non-inferiority gate. Only order 3 has the developmental paired-bootstrap interval entirely below zero. The scalar influence covariance proxy predicted nested/fresh variance ratios of `1.0805`, `0.9689`, and `0.7705` for orders 1--3. It correctly predicted the direction for orders 2 and 3, but not the small empirical order-1 improvement; the mismatch is expected to be possible because FID is nonlinear and the proxy is first order.
+
+The plug-in endpoint had RMSE `0.177706`, materially worse than all six OLS arms in this fixture. Nested processing requires one active `d x d` Gram state (`32,768` bytes at float64 and d=64) rather than 15 simultaneously active Gram states (`491,520` bytes), a factor-15 reduction in active Gram storage for this diagnostic.
+
+The task used 2.1196 wall seconds, 2.1187 process-CPU seconds, and 38,416,384 bytes peak RSS. All numerical and resource checks passed.
+
+## Interpretation and limits
+
+The result supports the mechanism claim that common nested membership can improve the variance of mixed-sign extrapolation weights while retaining the node-wise marginal expectation. It does not establish that nested membership is always favorable: the exact quadratic form depends on the extrapolation weights, and the first-order order-1 proxy predicted a small penalty.
+
+The experiment is a development-only isotropic OLS diagnostic with known zero mean. It does not use the pinned native VALE weighting, ordinary centered feature FID, random covariance families, ImageNet features, or unseen confirmation. The original public FID-infinity implementation inspected in the protocol audit uses a fresh random shuffle for each node, so this diagnostic changes its cross-node dependence. No global novelty claim follows: nested samples and common random numbers are broad prior art, and the closest-protocol audit is not an exhaustive literature proof.
+
+## Next action
+
+Restore and hash-pin the native 2026 VALE/FID-infinity weighting implementation described by the existing source manifest. Audit whether its weights are deterministic conditional on sample sizes. Only then freeze a centered, fresh-stream comparison of independent-node versus nested-prefix memberships using the native weighting and an OLS baseline. If native VALE uses data-dependent weights that invalidate the unchanged-expectation reasoning, revise or retire this route before running it.
+
+Primary evidence: `plans/nested_prefix_ols_diagnostic_v1.md`; `results/nested_prefix_ols_diagnostic_v1.json`; `notes/nested_prefix_protocol_math_audit_v1.md`; runner receipt `attempt-f454a0f8a5cf4aa9b3f437e0f78652c0`.

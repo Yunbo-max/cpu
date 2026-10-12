@@ -1,0 +1,13 @@
+# FAinv sparse/lazy equivalence analysis v1
+
+The guarded deterministic diagnostic passed all prospective algebraic gates in 0.1425 runner seconds with a 24,727,552-byte process peak RSS.
+
+- Three sparse mean updates and three nested basis appends matched direct dense Woodbury materialization to a maximum absolute error of `5.551115123125783e-17`.
+- A sparse prediction score differed from the materialized score by `2.7755575615628914e-17`.
+- Flushing the old lazy component into the materialized mean before a forced basis change preserved the mean to `5.551115123125783e-17`.
+- The explicit no-flush basis-rotation counterexample had least-squares residual `1.0`.
+- One row-block FA-EM iteration matched the direct dense formula with maximum diagonal error `0`, factor error `2.7755575615628914e-17`, and `Phi` error `3.469446951953614e-18`.
+
+This validates the exact invariant and block decomposition on a small deterministic construction.  It does not establish equivalence over a complete CW trajectory, full-dimension numerical stability, compression convergence, URL accuracy, or useful speed.  The branch remains an implementation transformation of CW-fact; the primary-work audit found strong overlap with the original method, sparse CW, limited-memory recursive FA-EM, and diagonal-plus-low-rank online filtering.
+
+The next decision-changing check is a single full-dimension rank-16 row-block compression iteration with a sparse rank-16 buffer.  Measure only the compression phases, convergence statistic, peak RSS, and an explicitly qualified one-iteration-per-compression lower-bound proxy.  If even one EM iteration at each proxy compression exceeds the finite 1,800-second window, the full two-day route is not viable regardless of later EM convergence.

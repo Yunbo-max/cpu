@@ -1,0 +1,89 @@
+import hashlib,json,resource,time
+from pathlib import Path
+import numpy as np
+from scipy.io import mmread
+from scipy.linalg import eigh
+
+ROOT=Path(__file__).resolve().parents[1]
+B15=ROOT/'sources/prior-b15-repo/research/consistent-lra/b15-rsi-20261010T2240'
+
+def orth(x):
+    q,r=np.linalg.qr(x,mode='reduced')
+    if r.size==0:return q
+    tol=np.finfo(x.dtype).eps*max(x.shape)*abs(np.diag(r)).max(initial=0.)
+    return q[:,:int(np.sum(abs(np.diag(r))>tol))]
+
+def block_endpoint(a,omega):
+    y0=a@omega;z=orth(a.T@y0);y1=orth(a@z);basis=orth(np.hstack([y0,y1]))
+    _,_,vt=np.linalg.svd(basis.T@a,full_matrices=False)
+    return vt[:25],basis.shape[1]
+
+def exact_opt(g,t,k,energy):
+    if t<=k:return 0.0
+    vals=eigh(g[:t,:t],eigvals_only=True,subset_by_index=(t-k,t-1),driver='evr',check_finite=False)
+    return max(0.,float(energy-np.maximum(vals,0.).sum()))
+
+def reconstruct(a,energy):
+    n=len(a);k=25;eta=.1;tol=1e-10*np.maximum(1.,energy);g=np.zeros((n,n));q=None;cached=0.
+    query=np.zeros(n,bool);update=np.zeros(n,bool);start=time.process_time()
+    for i,x in enumerate(a):
+        t=i+1;gx=a[:t]@x;g[i,:t]=gx;g[:t,i]=gx
+        residual=0. if q is None else float(np.linalg.norm(a[:t]-(a[:t]@q)@q.T)**2)
+        qflag=q is None or t<=k or residual>(1+eta)*cached+tol[i];uflag=q is None or t<=k
+        if qflag:
+            opt=exact_opt(g,t,k,energy[i]);cached=max(cached,opt-tol[i],0.)
+            if residual>(1+eta)*opt+tol[i]:uflag=True
+            if uflag:
+                _,_,vt=np.linalg.svd(a[:t],full_matrices=False);q=vt[:min(k,t)].T.copy()
+        query[i]=qflag;update[i]=uflag
+    return query,update,time.process_time()-start
+
+def json_default(value):
+    if isinstance(value,np.generic):return value.item()
+    raise TypeError(f'unsupported JSON type: {type(value)!r}')
+
+def main():
+    wall=time.perf_counter();src=ROOT/'sources/consistent-LRA/landmark.mtx'
+    a=np.asarray(mmread(src).tocsr()[:512].toarray(),dtype=np.float64);energy=np.cumsum(np.sum(a*a,axis=1))
+    ref_path=B15/'B15_exact_svd_eta0p1_r0.npz'
+    with np.load(ref_path,allow_pickle=False) as z:ref_query=z['query'].copy();ref_update=z['update'].copy()
+    query,update,reconstruction_cpu=reconstruct(a,energy);late=np.flatnonzero(ref_update & ((np.arange(512)+1)>=125))
+    checks={'query_mismatches':int(np.sum(query!=ref_query)),'update_mismatches':int(np.sum(update!=ref_update)),
+            'reference_queries_after_growth':int(ref_query[25:].sum()),'reference_refreshes_after_growth':int(ref_update[25:].sum()),
+            'late_refresh_count':len(late)}
+    out={'scope':'frozen B15 eta=.1 late-refresh endpoint comparison; development only',
+         'source_hashes':{'landmark_mtx':hashlib.sha256(src.read_bytes()).hexdigest(),'b15_exact_npz':hashlib.sha256(ref_path.read_bytes()).hexdigest()},
+         'checks':checks,'policy_reconstruction_cpu_seconds':reconstruction_cpu,'rows':[],'timing_totals':{},'error':None}
+    try:
+        if checks['query_mismatches'] or checks['update_mismatches'] or len(late)!=71:raise RuntimeError(f'frozen trajectory mismatch: {checks}')
+        omegas={seed:np.random.default_rng(seed).normal(size=(a.shape[1],35))/np.sqrt(35) for seed in [101,102,103]}
+        totals={name:{seed:0. for seed in [101,102,103]} for name in ['full_exact','active_exact','block_krylov']}
+        for i in late:
+            t=int(i+1);p=a[:t];active=np.flatnonzero(np.any(p!=0.,axis=0));tol=1e-10*max(1.,energy[i]);s=None
+            for seed in [101,102,103]:
+                c=time.process_time();_,ss,vt=np.linalg.svd(p,full_matrices=False);dt=time.process_time()-c;totals['full_exact'][seed]+=dt
+                if s is None:s=ss;opt_f=float(np.sum(ss[25:]**2));opt_s=float(ss[25])
+                c=time.process_time();pa=p[:,active];np.linalg.svd(pa,full_matrices=False);adt=time.process_time()-c;totals['active_exact'][seed]+=adt
+                c=time.process_time();v,bcols=block_endpoint(p,omegas[seed]);bdt=time.process_time()-c;totals['block_krylov'][seed]+=bdt
+                proj=p@v.T;res=p-proj@v;cost=float(np.sum(res*res));fr=cost/opt_f
+                gram=res@res.T;lam=float(eigh((gram+gram.T)/2,subset_by_index=[t-1,t-1],check_finite=False,eigvals_only=True)[0]);sr=np.sqrt(max(lam,0.))/opt_s
+                excess=max(0.,cost-opt_f)
+                out['rows'].append({'t':t,'seed':seed,'active_columns':len(active),'block_basis_columns':bcols,
+                    'full_exact_cpu_seconds':dt,'active_exact_cpu_seconds':adt,'block_krylov_cpu_seconds':bdt,
+                    'frob_ratio':fr,'spectral_ratio':sr,'objective_excess':excess,'strict_tolerance':tol,
+                    'strict_pass':excess<=tol,'frob_pass':fr<=1+1e-8,'spectral_pass':sr<=1+1e-6})
+        out['timing_totals']={name:{str(seed):value for seed,value in vals.items()} for name,vals in totals.items()}
+        out['decisions']={'all_quality_pass':all(r['strict_pass'] and r['frob_pass'] and r['spectral_pass'] for r in out['rows']),
+            'block_faster_than_full_each_pair':all(totals['block_krylov'][s]<totals['full_exact'][s] for s in totals['block_krylov']),
+            'block_faster_than_active_each_pair':all(totals['block_krylov'][s]<totals['active_exact'][s] for s in totals['block_krylov']),
+            'max_frob_ratio':max(r['frob_ratio'] for r in out['rows']),'max_spectral_ratio':max(r['spectral_ratio'] for r in out['rows']),
+            'max_objective_excess_over_tolerance':max(r['objective_excess']/r['strict_tolerance'] for r in out['rows'])}
+    except Exception as exc:
+        out['error']=repr(exc);raise
+    finally:
+        out['elapsed_seconds']=time.perf_counter()-wall;out['peak_rss_kib']=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        (ROOT/'results/block_krylov_online_endpoint_v2.json').write_text(json.dumps(out,indent=2,allow_nan=False,default=json_default))
+        print(json.dumps({'checks':out['checks'],'rows':len(out['rows']),'timing_totals':out.get('timing_totals'),'decisions':out.get('decisions'),
+                          'elapsed_seconds':out['elapsed_seconds'],'peak_rss_kib':out['peak_rss_kib'],'error':out['error']},default=json_default))
+
+if __name__=='__main__':main()

@@ -1,0 +1,32 @@
+# Prospective plan: nested-prefix paper-VALE on centered non-isotropic FID
+
+## Question
+
+Does the single-permutation nested-prefix construction remain non-inferior when moving from the development-only known-zero-mean isotropic OLS fixture to ordinary centered FID and the paper-defined deterministic VALE weights?
+
+## Source-defined method
+
+Use arXiv:2610.07114v2 Section 4.3 equation (44): for sample fractions `c`, polynomial design `X=[1,c^-1,...,c^-k]`, and `C=diag(c)`, VALE weights are `C X (X^T C X)^-1 e1`. Ordinary OLS uses `X (X^T X)^-1 e1`. This is a paper-formula diagnostic, not yet a native-code-equivalence claim. Appendix B.1 already derives overlap-count covariance for independently reshuffled common-pool subsets; this plan tests the distinct nested overlap pattern.
+
+## Frozen setup
+
+- Dimension `d=48`, pool size `N=3072`, 15 integer sample sizes from 384 through 3072.
+- 96 paired independent Gaussian pools, master seed `20261016`.
+- Fixed generated covariance with eigenvalues geometrically spaced from 0.25 to 1.50 and a fixed random orthogonal eigenbasis; fixed nonzero mean with squared norm 0.25. Reference is `N(0,I)`.
+- Every node uses the ordinary sample mean and unbiased centered covariance `1/(n-1)`.
+- Membership arms: fresh independent permutation per node versus one shared permutation and nested prefixes. The full-pool endpoint is common.
+- Estimators: order-2 OLS and order-2 paper-VALE. Retain the plug-in endpoint baseline.
+- Metrics: bias, RMSE, sample SD, median absolute error, paired MSE difference with 5000 paired bootstrap resamples, and analytic first-order overlap quadratic for both weight systems.
+- Count full covariance eigendecompositions and active Gram-state bytes. Report wall/process CPU and peak RSS.
+
+## Predictions and decision gate
+
+The paper-defined weights are deterministic, so node-wise marginal expectations remain unchanged. Nested membership changes only joint dependence. Primary prediction: nested paper-VALE RMSE is at most 1.10 times fresh paper-VALE RMSE. Passing keeps the route active for pinned native-code restoration and a second covariance family; failing retires the nested-VALE route under the current bounded setting. A bootstrap interval fully below zero is treated only as a strong development signal, not confirmation. OLS is a strong simple baseline and must be reported even if VALE passes.
+
+## Resource contract
+
+CPU only, one process/thread through `cpu_guard.py`, 4 GiB address-space ceiling, 300-second task timeout. No GPU or external compute.
+
+## Limitations fixed in advance
+
+One synthetic non-isotropic condition, formula-level VALE rather than restored native source, no image features, no held-out confirmation, no novelty claim, and bootstrap uncertainty is developmental.

@@ -1,0 +1,47 @@
+{
+  "round_id": "B15-RSI-native512-warm-lobpcg-comparator-20261010T2240",
+  "workflow": "autonomous-rsi@7af53173bbd69726877ca04fb77b9466ef1b839d",
+  "question": "Can an attributed warm-start SciPy LOBPCG endpoint comparator reduce native Landmark-512 refresh cost while preserving the exact cached-Gram policy trajectory and endpoint objective tolerance?",
+  "classification": "strong existing-method comparator; not a new-method candidate",
+  "hypothesis": "A deterministic hybrid that uses exact SVD for t<125 and warm-start LOBPCG thereafter will exactly match the B09 V2 query/update masks and keep every refreshed endpoint within 1e-10*max(1,energy) of exact rank-25 loss, while reducing total algorithm CPU relative to the exact-SVD endpoint policy for both eta values in every paired repeat.",
+  "falsifier": "Any query/update mask mismatch, endpoint excess above the frozen tolerance, nonfinite output, residual-triggered fallback after t>=125, or comparator CPU not lower in every paired repeat for either eta falsifies the scoped hypothesis.",
+  "native_input": {
+    "dataset": "SuiteSparse Pereyra/landmark, author-protocol raw first 512 rows",
+    "shape": [512, 2704],
+    "rank": 25,
+    "input_file": "LANDMARK512_FD_RAW.npz",
+    "input_sha256": "d0de6bb598161e85557321a309e9d720cb1c398b722140725e47d8365e3ec68a",
+    "reference_files": ["B09V2_baseline_eta0p01_r0.npz", "B09V2_baseline_eta0p1_r0.npz"]
+  },
+  "solver": {
+    "implementation": "scipy.sparse.linalg.lobpcg",
+    "installed_scipy": "1.17.0",
+    "source_commit": "95e01a4004e2781c91a26d9836d82c103dd8513c",
+    "source_blob": "500db09374082fd24944fbcf936ffc492c28004c",
+    "largest": true,
+    "tol": 1e-8,
+    "maxiter": 40,
+    "restartControl": 20,
+    "initial_block": "previous row-Gram endpoint eigenvectors, zero-extended to the current prefix",
+    "deterministic_fallback": "exact SVD for t<5k; for t>=5k only nonfinite output or reported final residual>1e-8 triggers exact SVD",
+    "matvec_accounting": "number of block columns passed through row-Gram matvec/matmat"
+  },
+  "fairness": {
+    "shared": "same input bytes, cached Gram update, exact Gram OPT query, gate arithmetic, thread=1 and process",
+    "treatment_difference": "endpoint refresh routine only",
+    "paired_repeats": 3,
+    "eta": [0.01, 0.1],
+    "audit_excluded_from_algorithm_time": "post-endpoint exact objective reconstruction and artifact writing"
+  },
+  "claim_limit": "dependent native512 development comparison only; not a new method, unseen confirmation, native5000 result, recourse improvement, originality or paper gate",
+  "budget": {
+    "max_attempts": 32,
+    "max_command_wall_seconds": 600,
+    "max_single_command_seconds": 120,
+    "cpu_quota": 8,
+    "memory_bytes": 8589934592,
+    "numeric_threads": 1,
+    "no_gpu": true,
+    "no_dependency_install": true
+  }
+}

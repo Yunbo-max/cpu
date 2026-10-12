@@ -1,0 +1,21 @@
+续研状态规则：每次以最新 CHECKPOINT.json、runner journal/inbox 和原始证据为准。以下“首轮”“当前 hypothesis”“明确下一步”描述的是创建任务时的历史，不得覆盖后续已记录的退役、转向或新下一步。已有分支完成其局部诊断后继续最新活跃问题，不重新启动已退役的候选。
+
+继续我授权的「低秩、coreset 与流式统计」长期科研任务，只使用 rsi-simple，CPU，项目内存始终不超过 8,000,000,000 字节，直到我明确停止。请实际推进研究，不要只发提醒或重复查询状态。
+
+项目 ID lowrank-coreset-streaming-simple-20261011。持久化检查点：Library file ID libfile_d0c64b9b3a98819197c0ffcf4641cc50，文件名 LowRank_Coreset_Streaming_Simple_Checkpoint.zip。原项目路径 /workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple。通过 Library skill 读取最新版本；若本地现场还在，先比较时间、sequence 和证据哈希，保留更新的现场，不得用旧 ZIP 覆盖。若现场不在，安全解压恢复；阅读 START_HERE.md、CHECKPOINT.json、authorization.json、execution_windows/ledger.json 和 persistence.json。
+
+唯一科研工作流是固定的 Research Autopilot Simple 0.3.0-simple.9，源摘要 e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8。项目 runtime/ 保存完整固定源码。阅读其中 SKILL.md 以及 rsi-simple、simple-runner、simple-experiment-design、simple-collaboration 引用并核验源码身份；不要误用其他 research-autopilot 版本、20-to-15 候选配额或更改固定运行器。
+
+用户没有总轮数、总时长或结束日期限制。每次会话在可用执行条件内持续进行证据驱动的科学判断、必要文献和数学审查、代码与真实原生实验，及时保存检查点。一个唤醒不是只做一个命令。执行窗口有有限的故障控制边界：32 次命令、1800 命令秒、2 小时期限；这不是整体科研预算。窗口到界、宿主迁移或路径不可复用时，先调和所有运行中/身份不明任务及收据，完整保留旧窗口，再按现有长期授权建立新编号窗口续研并累计所有使用量。不得改旧限额、清零计数、删除失败记录或用 complete_goal 关闭 continuous_research。
+
+每次先检查 simple_resources.py、当前可用 CPU/内存、status/inbox/alerts/health 及新收据。只允许本地 CPU；单个数值任务、单线程串行，全部通过 cpu_guard.py，单进程地址空间上限 4 GiB，为宿主和代理留余量。禁止 GPU、新付费计算或付费 API。宿主空间不足时做轻量数学/源码审查，记录实际阻塞，下次恢复；不要忙轮询或把等待包装成科研进展。不要杀死或重启身份未确认的其他项目进程。监督器没有外部 LLM command，你就是科学决策者，须读取真实 inbox、解释结果并通过固定 simple_runner respond/submit 推进。
+
+首轮已完成作者源码/原始 Taxi 获取、38 行原生校准及144行有限候选池比较，完整计划、代码、原始结果、收据已保存。峰值 RSS 931.43 MiB。当前 hypothesis coreset-adaptive-comparison-v1，当前窗口 w001，goal contract v1。自适应比较24次中12次精确回退，无已观察有限池证书违反；小规模精确解更快，固定512均匀抽样远便宜。不能宣称已确认新方法、全局近似或原论文所有中心排序稳定性，也不能把12个种子当成名义失败概率验证。先读 paired_validator_analysis_v1.md 和已完成的 delegations/coreset-audit-v1 审查，不重复盲跑。
+
+明确下一步：推导近似平局时 Hoeffding 比较界的瓶颈，审查方差自适应比较与 Meddit/相关序贯筛选的关系，明确要保持的保证后才设计下一轮可证伪实验。若只是已知机制或被简单基线支配，记录负结果并转到 learning-augmented moment estimation 的原生主算法复现；原有 SS/SSA 辅助 notebook 不代表主算法成功。低秩方向先读取 prior_lra_B01_B15_review.md 的负结果，后续补强 block-Krylov 基线，不重复B01-B15，不擅自恢复原来暂停的旧低秩自动化。三个方向按证据串行推进，后续生成式/判别式模型应用尚未启动。
+
+新增实验要先写相应计划，使用原生定义与数据，比较强简单基线并计入所有计算成本，保留全部异常/负结果。必要时可按 simple-collaboration 委派有界的数学/源码审查并由主代理验收，数值任务仍串行。只有真实假设—预测—结果—解释链才记录 research_cycle；下载、心跳、调度成功不能算科研发现。论文原创性要核验，不作保证。不要做无证据的大规模泛扫，也不要只为增加周期数而重复实验。
+
+每次结束前保存代码、原始结果、解释和明确下一步，更新 CHECKPOINT.json 及累计窗口 ledger；在数值任务安静边界运行 scripts/build_checkpoint.py，校验 ZIP 所有成员哈希，然后通过 Library skill 用 optimistic version check 替换同一 Library file ID libfile_d0c64b9b3a98819197c0ffcf4641cc50，应用返回的 xattrs。不要重建同名重复文件，不用旧版本覆盖并发新结果，不把 Library ID 当本地路径。原始49.96MB Parquet和.deps为可恢复材料不在ZIP；需要时按已记录精确地址和原始哈希获取，保留旧 manifest。源数据前100000行.npy已经在ZIP。
+
+出现实质进展、反例、方向变化或真实阻塞时向我发简洁中文更新，注明证据与下一步；常规无变化检查不要反复通知。不要触发递归 run-now、创建重复自动化、修改其他科研任务、擅自发布到外部仓库或把消息发给其他人。后台是周期唤醒与恢复，不能声称CPU一直常驻运行。

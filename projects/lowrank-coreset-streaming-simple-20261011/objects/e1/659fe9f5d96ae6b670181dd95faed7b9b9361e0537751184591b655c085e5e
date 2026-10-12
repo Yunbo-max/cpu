@@ -1,0 +1,32 @@
+# Prospective nested-prefix OLS diagnostic v1
+
+## Question and hypothesis
+
+Can one shared random permutation reduce the active FID-infinity node state from `O(m d^2)` to `O(d^2)` without materially worsening extrapolation RMSE?
+
+The exact prediction is that deterministic-weight OLS intercept bias is unchanged in expectation because every node keeps the same uniform-subset marginal.  The scalar influence-function covariance calculation predicts the direction of the variance change for each fitted order.  The empirical prediction is that, on the frozen isotropic fixture below, nested-prefix RMSE will be no more than 10% above the fresh-node baseline for at least one of orders 1--3.  Failure for all orders retires this bounded nested-prefix route; a pass only motivates restoring and testing the native VALE weights.
+
+## Frozen design
+
+- Development scope: known-zero-mean Gaussian fixed-reference squared FID; this is a mechanism diagnostic, not ImageNet or paper confirmation.
+- Reference covariance: identity; generated covariance: `0.5 I`; dimension `d=64`.
+- Maximum generated pool: `N=4096`; 15 integer sample sizes from 512 through 4096, uniform in sample count.
+- Independent units: 96 fresh Gaussian pools from master seed `20261015`.
+- Arms, paired within each pool:
+  1. fresh independent uniform permutation for every node (closest author-protocol baseline),
+  2. one uniform permutation with nested prefixes,
+  3. full-pool plug-in endpoint as a simple reference.
+- Extrapolation: ordinary least squares polynomial orders 1, 2 and 3 in inverse sample size.  Design columns use the numerically equivalent scaled coordinate `N/n`; the intercept is still evaluated at zero.
+- Primary outcomes: signed bias and RMSE of the intercept against analytic population FID; nested/fresh RMSE ratio by order.
+- Uncertainty: paired nonparametric bootstrap over the 96 pools for the mean squared-error difference, 5,000 deterministic resamples.  This interval is developmental and does not replace independent confirmation.
+- Mechanism control: compute `a^T Sigma a` under exact scalar sample-mean covariance for fresh and nested memberships using the fitted intercept weights.
+- Cost: wall time, process CPU time, peak RSS, and theoretical active Gram-state bytes (`m*d*d*8` versus `d*d*8`).
+
+## Decisions and limitations
+
+- If every nested RMSE ratio exceeds 1.10, retire this bounded route.
+- If any order is at most 1.10 and all numerical/resource checks pass, retain only that as evidence to restore and test the pinned native VALE weighting; do not claim general superiority.
+- A lower scalar proxy variance is a mechanism prediction, not proof for nonlinear FID.
+- This run does not use centered image features, random/singular covariances, ImageNet, or unseen confirmation.
+- Source archive bytes were checkpoint-excluded and are not currently restored; the independent-node protocol is supported by the retained exact-match diagnostic and the original FID-infinity primary code audit.
+

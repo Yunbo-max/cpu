@@ -1,0 +1,49 @@
+# 20 Newsgroups discriminative benchmark source audit v1
+
+## Decision
+
+Accept 20 Newsgroups for a local, non-redistributed CPU pilot.  The native
+by-date split, native labels, sparse high-dimensional representation, and
+metadata-leakage controls are sufficiently specified.  The original landing
+page does not state an explicit corpus license; this is a publication and
+redistribution limitation, not evidence of permission.  Raw posts and loader
+caches therefore stay under `.deps/` and are excluded from checkpoints.
+
+## Source findings
+
+- The recovered maintainer page describes approximately 20,000 documents in
+  20 native newsgroups.  Its recommended `20news-bydate` version contains
+  18,846 documents, removes cross-post duplicates and several
+  newsgroup-identifying headers, and uses a chronological 60% training / 40%
+  test split.  The page explicitly recommends the split for deterministic
+  cross-experiment comparison and temporal realism.
+- The stable scikit-learn loader independently reports 20 classes and 18,846
+  samples and exposes separate `train` and `test` subsets.
+- Official documentation warns that headers, signatures, and quoted material
+  can reveal the newsgroup.  The pilot therefore removes `headers`, `footers`,
+  and `quotes` from both subsets.  Footers and quotes are heuristic filters and
+  may be imperfect; this limitation survives any result.
+- The official sparse example fits
+  `TfidfVectorizer(sublinear_tf=True, max_df=0.5, min_df=5,
+  stop_words="english")` on training text only and transforms test text with
+  the fitted object.  The pilot freezes that feature construction.
+- BSD markers on scikit-learn pages apply to documentation/example code.  No
+  explicit license, permission, or copyright grant for the message corpus was
+  located on the recovered maintainer page.  No dataset license is inferred.
+
+## Leakage and evaluation contract
+
+The native test labels are used only for final accuracy and macro-F1.  No test
+document participates in vocabulary, IDF, SVD, subset selection, classifier
+fit, hyperparameter selection, or stopping.  The metadata-removal policy is
+fixed before download.  Dataset acquisition time is recorded separately; all
+method-specific vectorization, subset/SVD construction, fitting, and prediction
+times are counted.  Raw data are not checkpoint evidence; hashes, package
+versions, dimensions, timings, metrics, and runner receipts are.
+
+## Scope
+
+This audit establishes benchmark admissibility only.  It does not establish
+that a low-rank or coreset method helps a discriminative model and is not a
+research cycle by itself.
+

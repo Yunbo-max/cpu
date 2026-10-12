@@ -1,0 +1,49 @@
+# One-pass hashed text classification pilot v1
+
+## Hypothesis
+
+A stateless hashed representation plus a one-pass bounded-state linear
+classifier can recover most of the full sparse Ridge quality while reducing
+method wall time.  It is locally competitive only if macro-F1 loss is at most
+0.05 and median method wall is at most 75% of the repeated full sparse
+reference.
+
+If it is fast but loses more than 0.05 macro-F1, the measured gap may justify a
+later online document-frequency / IDF statistic study.  This pilot itself does
+not test a new streaming-statistics method.
+
+## Fixed protocol
+
+- Same native train/test membership and metadata removal as prior experiments.
+- Training order is a fixed random permutation of the native training members,
+  with seeds 19, 71, and 211.  This is an order-robustness check, not a claim to
+  reconstruct chronological arrival order.
+- `HashingVectorizer(n_features=2**18, alternate_sign=False, norm="l2",
+  stop_words="english")`; the mapping is stateless and test-independent.
+- `SGDClassifier(loss="log_loss", alpha=1e-4, penalty="l2",
+  learning_rate="optimal", average=True, random_state=seed, tol=None)`.
+- Exactly one `partial_fit` pass in batches of 256; all 20 classes are declared
+  on the first batch.  No validation or test-based tuning.
+- Hash and update one training batch at a time.  Transform the complete native
+  test set once after training.
+
+## Metrics and caveats
+
+- Primary macro-F1, secondary accuracy.
+- Count permutation, all batch transforms/updates, test transform, and
+  prediction in method wall.
+- Record classifier coefficient/intercept bytes as the explicit learned state,
+  hashed dimension, batch count, per-seed metrics/times, and cumulative peak
+  RSS.
+- The scikit-learn loader materializes raw text before the algorithmic stream;
+  process RSS therefore bounds this implementation but does not demonstrate a
+  streaming input loader.  Claims are limited to bounded feature/model state.
+
+## Decision
+
+Use the median across the three fixed orders.  The baseline passes only if
+median macro-F1 loss is at most 0.05 and median wall ratio at most 0.75.  A
+failure closes this exact hash/SGD endpoint but may motivate one prospectively
+specified online-IDF comparison if speed is favorable and the quality gap is
+large enough to measure.  Do not revive batch SVD or batch sampling.
+

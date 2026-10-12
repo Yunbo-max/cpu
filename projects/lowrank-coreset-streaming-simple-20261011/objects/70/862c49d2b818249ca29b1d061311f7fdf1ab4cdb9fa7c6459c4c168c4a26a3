@@ -1,0 +1,36 @@
+# B014 frozen-trajectory Block Krylov endpoint analysis
+
+The current author Landmark bytes reproduce the recovered B15 exact eta=.1 policy
+exactly: zero query-mask and zero update-mask mismatches,205 post-growth queries,
+100 post-growth refreshes, and71 late refreshes at t>=125. This closes the source
+identity concern for the frozen trajectory, although it does not restore the old
+standalone input NPZ.
+
+Across all71 late prefixes and seeds101-103 (213 endpoints), q=1 Block Krylov
+passed every predeclared quality gate. Maximum Frobenius and spectral ratios were
+1.0000000000000042 and1.0000000000000033; maximum strict objective excess was
+7.6645e-8 of the frozen tolerance. Active columns ranged52-65 and Block Krylov
+basis columns52-66, confirming that quality is driven by support/rank saturation.
+
+Block Krylov endpoint CPU totals were0.9340,0.9389,1.0335s, versus historical-style
+full dense exact SVD totals4.2355,3.9334,4.5813s. Thus it is faster than the weak
+dense exact implementation in all three pairs. The strong simple baseline changes
+the conclusion: exact SVD restricted to incrementally known active columns took
+only0.07716,0.08194,0.08374s. Block Krylov is about11.5-12.6 times slower in total
+than this exact baseline. The support slice/copy was included in that timer.
+
+This is a dependent shared-host development comparison, not a general speed claim.
+It establishes no new method: Block Krylov is classical, and active-support exact
+SVD is a straightforward sparse-data baseline. The predeclared decision therefore
+rejects the practical endpoint-speed route and forbids native5000 expansion under
+this hypothesis. Both serialization failures remain in the record; v1 produced no
+artifact and was not used as evidence.
+
+Decision: retire `lra-block-krylov-baseline-v1` as the pending low-rank endpoint
+gap. Together with the already retired coreset adaptive-comparison and native
+streaming-moment reproduction branches, the three original local mechanism gaps
+are now closed as scoped negatives/diagnostics. No originality, global lower bound,
+or paper-level result is claimed. The next serial idea should scope a downstream
+model application under the same CPU/memory limits, with a labeled discriminative
+benchmark first because it permits exact predictive metrics and strong simple
+baselines; it must not rebrand these negative mechanisms as improvements.
