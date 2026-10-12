@@ -1,32 +1,9 @@
-# 3D Autopilot Simple — 可恢复研究档案
+# 3D Autopilot Simple research archive
 
-完整历史已迁入本目录，未改动其他项目。
+Read `latest.json` on current main first. It identifies the immutable base and additive overlays; older base history is retained. Only this directory belongs to this research project.
 
-- 基线档案：**2,281 个文件，176,459,115 字节**，包括代码、来源固定版本、实验设计、原始结果、失败/取消收据和完整数据库历史。
-- 已从 GitHub 下载全部247个分片，逐文件及整包SHA-256校验通过。数据库与停止前本地状态逻辑一致。
-- 当前：`teso-coordinate-timescale-generalization`，revision1；累计67次命令尝试、3190.582秒。研究未完成，两个新序列上的质量比较尚未执行。
-- 固定流程仍为 Simple0.3.0-simple.9。过去已退役方向和负面结果全部保留。
-- 可再生成的依赖安装与Python缓存不进入档案；精确依赖版本、文件哈希及恢复脚本均保留。
+Restore `restore_checkpoint.py` from the same current commit; verify its blob SHA and SHA256 from latest. Run `python3 restore_checkpoint.py --commit CURRENT_MAIN_COMMIT --destination NEW_EMPTY_DIRECTORY --include START_HERE.md --include runtime --include notes --include plans --include scripts` and add required data/results/state paths. The helper resolves the latest file versions across base and overlays before extraction, verifies part/file hashes, and refuses differing existing files. Do not restore the base alone over a newer run. Use the current-main commit here, not merely archive_commit.
 
-## 恢复
+Local state may be partial because host file deletion has reappeared in later calls. Restore to a fresh staging directory, compare actual state, copy only missing files. SQLite reconciliation uses logical contents, receipts and timestamps, not file-layout hash alone. Preserve cumulative attempts. Never clean another project or global /dev/shm/page cache.
 
-先读 [latest.json](latest.json)；以其中不可变commit和manifest为准，绝不覆盖更新的本地运行。脚本支持完整恢复，也支持多个`--include 项目内路径`，按需下载涉及的分片。
-
-```bash
-python3 restore_checkpoint.py --commit 8e01f9a1e26529d710c43a5e6f9577a2f0ef2d3a --destination /path/to/empty/3d_autopilot_simple --include START_HERE.md --include runtime --include notes
-```
-
-按需读取`notes/handoff-wake16.md`的实测测试仅下载3个分片（1,559,915字节），而非整包。无`--include`时完整恢复；`--allow-identical`仅补缺失文件，拒绝覆盖任何不同文件。运行器恢复需原绝对根目录及SQLite历史；先核对旧进程已退出，不能把档案内旧心跳当成活跃进程。
-
-## 每轮存取规则
-
-1. 读最新远端指针及现有本地更新，恢复本轮所需状态、代码和输入。
-2. 按已授权CPU/内存限制执行有限任务，保留科学负结果及全部失败。
-3. 上传新代码/结果与一致的状态快照；使用预期HEAD保护其他项目的并发提交。优先增量/内容寻址保存，不反复提交整份历史或重装依赖目录。
-4. 校验远端版本、字节哈希和可恢复性，停止本项目空闲进程，才清理本项目已备份工作文件。上传失败时保留本地，不清理、不谎报。
-
-文件删除释放磁盘及相关文件缓存，不等于清空容器RAM。禁止清理全局`/dev/shm`、全局页缓存或其他项目。监督进程已经通过原会话停止；没有设置用户停止研究标记。后续研究由原有任务按上述规则恢复。
-
-## 本地清理异常（必须保留）
-
-迁移与远端恢复已经通过；但本地清理**未完全生效**。清理程序返回4,751个文件已删除，后续独立调用却仍观察到约935MiB，且一个已确认删除的日志在下一次调用中以不同inode再次出现。`unlink`和文件补丁删除均出现此现象；宿主具体重建机制未核实。不得声称本地已清空，也不得反复强制删除或碰其他项目。当前本地执行树可能不完整，下一轮先恢复缺失的所需文件、保留较新的数据库状态。详见[cleanup-wake16.json](cleanup-wake16.json)。
+See `LATEST_REPORT.md`, `verification-wake17.json` when available, and the latest cleanup receipt. Archive upload is not scientific progress and a supervisor waiting for decisions is not an experiment. No user-imposed lifetime research budget; each command remains finite, CPU-only,4core/6GiBAS,1concurrent.
