@@ -1,0 +1,70 @@
+"""Package a quiet project with consistent SQLite backups and member hashes."""
+from pathlib import Path
+import datetime, hashlib, json, sqlite3, subprocess, tempfile, zipfile
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT.parent / 'LowRank_Coreset_Streaming_Simple_Checkpoint.zip'
+TERMINAL = {'succeeded', 'failed', 'timed_out', 'cancelled', 'rejected', 'blocked', 'obsolete', 'superseded'}
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+def main():
+    windows = []
+    for window in sorted((ROOT / 'execution_windows').glob('w[0-9]*')):
+        cli = ['python3', str(ROOT / 'runtime/scripts/simple_runner.py'), '--root', str(window)]
+        status = json.loads(subprocess.check_output(cli + ['status'], text=True))
+        active = [t['task_id'] for t in status['tasks'] if t['state'] not in TERMINAL]
+        if active:
+            raise RuntimeError(f'Checkpoint requires settled numerical tasks: {active}')
+        (window / 'notes/status_at_checkpoint.json').write_text(json.dumps(status, indent=2, ensure_ascii=False))
+        windows.append({'window': str(window.relative_to(ROOT)), 'status': status['status'],
+                        'sequence': status['sequence'], 'research_cycle_count': status['research_cycle_count'],
+                        'budget': status['budget'], 'task_states': {t['task_id']: t['state'] for t in status['tasks']}})
+    now = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    ledger = {'updated_at': now, 'overall_end_date': None, 'overall_attempt_limit': None,
+              'overall_time_limit': None, 'windows': windows,
+              'cumulative_attempts': sum(w['budget']['attempts_used'] for w in windows),
+              'cumulative_command_seconds': sum(w['budget']['elapsed_seconds'] for w in windows)}
+    (ROOT / 'execution_windows/ledger.json').write_text(json.dumps(ledger, indent=2, ensure_ascii=False))
+    checkpoint = json.loads((ROOT / 'CHECKPOINT.json').read_text())
+    checkpoint.update(updated_at=now, execution=ledger)
+    (ROOT / 'CHECKPOINT.json').write_text(json.dumps(checkpoint, indent=2, ensure_ascii=False))
+    manifest = {'created_at': now, 'project_id': checkpoint['project_id'], 'members': [],
+                'excluded_reproducible': ['**/.deps/**', '**/__pycache__/**', '**/*.parquet', '**/*.lock', 'SQLite WAL/SHM/journal files']}
+    with tempfile.TemporaryDirectory(prefix='lowrank_checkpoint_') as temp:
+        tmp = Path(temp)
+        with zipfile.ZipFile(OUT, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=6) as z:
+            for file in sorted(ROOT.rglob('*')):
+                rel = file.relative_to(ROOT)
+                if not file.is_file() or file.is_symlink():
+                    continue
+                if any(part in {'.deps', '__pycache__'} for part in rel.parts):
+                    continue
+                if file.suffix in {'.parquet', '.lock', '.pyc'} or file.name.endswith(('-wal', '-shm', '-journal')):
+                    continue
+                if file.suffix == '.sqlite3':
+                    backup = tmp / (digest(str(rel).encode()) + '.sqlite3')
+                    source = sqlite3.connect(f'file:{file}?mode=ro', uri=True)
+                    dest = sqlite3.connect(backup)
+                    source.backup(dest)
+                    dest.close(); source.close()
+                    data = backup.read_bytes()
+                else:
+                    data = file.read_bytes()
+                name = str(Path(ROOT.name) / rel)
+                z.writestr(name, data)
+                manifest['members'].append({'path': name, 'bytes': len(data), 'sha256': digest(data)})
+            z.writestr(str(Path(ROOT.name) / 'archive_manifest.json'), json.dumps(manifest, indent=2))
+    with zipfile.ZipFile(OUT) as z:
+        if z.testzip() is not None:
+            raise RuntimeError('ZIP CRC verification failed')
+        for member in manifest['members']:
+            data = z.read(member['path'])
+            if len(data) != member['bytes'] or digest(data) != member['sha256']:
+                raise RuntimeError('ZIP member hash mismatch: ' + member['path'])
+    print(json.dumps({'archive': str(OUT), 'bytes': OUT.stat().st_size, 'sha256': digest(OUT.read_bytes()),
+                      'members': len(manifest['members']), 'windows': len(windows), 'verified': True}))
+
+if __name__ == '__main__':
+    main()
