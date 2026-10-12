@@ -1,8 +1,13 @@
-# RL / Bandit continuous CPU research
+# RL / Bandit：CPU 持续研究归档
 
-This directory owns only project `rl-bandit-simple-20261011`.
-Scientific policy: pinned rsi-simple 0.3.0-simple.9. CPU only, one numerical thread, 4 GiB process address limit, shared host limit 8 GiB.
+本目录保存项目 `rl-bandit-simple-20261011` 的原始数据、模型、全部轨迹、失败回执、科研账本、固定运行库、源码、计划、审查和恢复材料。科研流程仅采用 rsi-simple 0.3.0-simple.9；CPU only，单计算线程，进程地址上限 4 GiB，共享宿主上限 8 GiB。
 
-Research history and recovery material will be published here with a verified manifest. An upload alone is not a recovery check. Do not delete live project data until a fresh remote checkout has passed complete byte verification and no project process or uncertain attempt remains.
+- [恢复与上传操作说明](GITHUB_STORAGE.md)
+- [完整快照清单](LATEST.json)
+- [恢复脚本](github_coldstore_v1.py)
+- [研究入口](START_HERE.md)
+- [具体下一步](NEXT_ACTION.txt)
 
-Current scientific idea: DA-AC CPU protocol. Earlier Bandit investigations and negative results are retained. Software qualification and fixed-policy calculations do not establish superior online performance or a full paper reproduction.
+归档采用压缩增量快照：首次保存完整历史，此后只追加改变的文件，并保留全部历史版本。Python 依赖环境按冻结清单重建。每轮先下载恢复，在约定资源内运行，上传结果并从远端重新下载验证后，清理本项目本地副本。上传或验证失败时保留本地数据。
+
+当前边界：Bandit 的 371 条 T3000 轨迹支持窄范围机制诊断；DA-AC 已完成兼容环境/API检查和固定策略条件支持偏差计算，T512/T13001 学习前缀尚待执行。这些证据不构成完整论文复现、在线性能优越性或新颖性证明。
