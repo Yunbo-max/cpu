@@ -6,7 +6,7 @@
 
 1. 只用原有 PA-BPE 调度。先获取 GitHub 最新 `main`，记录其完整 commit SHA；查看本目录的 `CURRENT.json`、本协议、研究检查点、manifest、累计用量、alerts/health 和未完成作业身份。不得从过时本地副本启动。
 2. 使用新的、带本轮身份的短期目录；先检查是否已有本项目 writer 或科学作业。只有核实失活后才能接管旧锁。共享宿主上的其他项目锁和进程不可修改。
-3. 使用 `git clone --filter=blob:none --no-checkout --depth=1` 与 sparse checkout，仅检出本目录的元数据、脚本及本次必要的 state 子路径。小规模启动时也可完整检出本项目的 state，但不默认拉取 archives 或其他项目。保留 history/manifest 中所有条目，稀疏缺失不等于删除。
+3. 使用 `git clone --filter=blob:none --no-checkout --depth=1` 与 sparse checkout，仅检出本目录的元数据、脚本及本次必要的 state 子路径。小规模启动时也可完整检出本项目的 state，总是检出小型元数据 `archives/index.json`（发布器也需要该索引）；其余 archives/objects 与其他项目不默认下载。保留 history/manifest 中所有条目，稀疏缺失不等于删除。
 4. 在已取得的本项目目录运行 `python3 cache_io.py verify-state --allow-partial`，只接受其报告为已验证的文件。首次完整恢复或完整归档核验使用 `verify-state`，不带 partial。所有实验输入都必须实际存在且其哈希通过；仅有目录不算恢复。
 5. 仅需历史或 raw 数据时检出 `archives/index.json` 与索引指定的块，执行 `python3 cache_io.py restore-archive ARCHIVE_SHA256 --output /absolute/new/path.zip`。输出文件必须原先不存在；逐块和整包校验失败即停止。`incomplete-transfer-forensic-only` 是失败下载证据，不能用于恢复实验。当前下一研究动作只需要盲哈希索引，不需要打开 raw 确认文本。
 6. 旧日志中的绝对路径是历史证据。新执行窗口须绑定当前实际路径与新身份，不直接复用旧 PID、旧 deadline 或旧 command cwd，不修改历史日志伪造连续驻留。
@@ -23,7 +23,7 @@
 ## 清理
 
 11. 先确认科学作业全部终态、reservation 已结算或如实记录，writer 已释放；把远端 commit、核验时间、范围、哈希以及用量写入持久回执。
-12. 只有实际远端字节通过核验，且本地文件自核验后未变化，才删除该轮明确登记的 PA-BPE 临时目录、数据、虚拟环境、克隆与验证副本。不能删除 workspace 根、其他项目、仍有活进程使用的目录或未上传失败证据。
+12. 只有实际远端字节通过核验，且本地文件自核验后未变化，才删除该轮明确登记的 PA-BPE 临时目录、数据、虚拟环境、克隆与验证副本。不能删除 workspace 根、其他项目、仍有活进程使用的目录或未上传失败证据。 清理后另起一次 exec，核实目录、文件数与字节数；不能只凭删除命令 exit 0 宣称完成。如果观察到残留，只在原已验证范围内有限重试，保持任务暂停直至交接一致，仍失败则保留并报告。
 13. 上传失败、版本冲突、核验失败或作业身份未知时，保留本地唯一证据并立即报告，不执行清理；可以按既有身份保存到原 Library 回退检查点，但不能让两份规范状态静默分叉。
 14. 删除磁盘文件可释放临时存储及部分相关页缓存，并不等于释放全部进程 RAM，也不扩大宿主内存上限。禁止全局 drop_caches 或终止其他项目以腾空间。
 
