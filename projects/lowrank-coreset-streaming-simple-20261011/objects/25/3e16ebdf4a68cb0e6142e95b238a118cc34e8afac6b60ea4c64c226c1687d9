@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+"""Trace the released RFF feature, permutation-stream and decision conventions."""
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+import os
+import resource
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+
+
+ROOT = Path(__file__).resolve().parents[1]
+DEPS = ROOT / ".deps" / "nystrom_read"
+sys.path.insert(0, str(ROOT / "compat"))
+sys.path.insert(0, str(DEPS))
+
+from samplers import generate_correlated_gaussians  # noqa: E402
+from tests import rMMDtest  # noqa: E402
+from utils import decide, independent_permutation, median_pairwise, standardize_data  # noqa: E402
+
+
+N = 2500
+D = 3
+B = 199
+ALPHA = 0.05
+TEST_SEED = 3830751664
+TUNE_SEED = 1010093618
+R_VALUES = [14, 500]
+
+
+def digest(array: np.ndarray) -> str:
+    return hashlib.sha256(np.ascontiguousarray(array).tobytes()).hexdigest()
+
+
+def threshold_summary(scores: np.ndarray) -> dict[str, object]:
+    obs = float(scores[0])
+    idx = int(math.ceil((B + 1) * (1 - ALPHA))) - 1
+    thr = float(np.sort(scores)[idx])
+    return {
+        "observed": obs,
+        "threshold": thr,
+        "threshold_index": idx,
+        "strict_reject": int(obs > thr),
+        "threshold_tie": bool(obs == thr),
+    }
+
+
+def main() -> None:
+    started = time.perf_counter()
+    tune = standardize_data(generate_correlated_gaussians(500, D, 0.5, 0.60, TUNE_SEED))
+    sigma = float(median_pairwise(tune))
+    bandwidth_arg = float(np.sqrt(2.0) * sigma)
+    z = standardize_data(generate_correlated_gaussians(N, D, 0.5, 0.60, TEST_SEED))
+    indicator = np.concatenate((np.ones(N), np.zeros(N)))
+    tiled = np.tile(indicator, (B + 1, 1))
+
+    shared_rng = np.random.default_rng(TEST_SEED)
+    shared_ix = independent_permutation(tiled, shared_rng, axis=1)
+    shared_ix[0] = indicator
+    shared_weights = (2.0 * shared_ix - 1.0) / N
+
+    rows = []
+    native_permutations: dict[int, np.ndarray] = {}
+    for r in R_VALUES:
+        rng = np.random.default_rng(TEST_SEED)
+        omegas = np.sqrt(2.0) / bandwidth_arg * rng.normal(size=(r, D))
+        phases = z @ omegas.T
+        psi = np.concatenate((np.cos(phases), np.sin(phases)), axis=1) / np.sqrt(r)
+
+        ix = independent_permutation(tiled, rng, axis=1)
+        ix[0] = indicator
+        native_permutations[r] = ix.copy()
+        weights = (2.0 * ix - 1.0) / N
+        diffs = weights @ psi
+        scores = np.einsum("ij,ij->i", diffs, diffs)
+        traced_decision, traced_threshold = decide(scores, float(scores[0]), B, ALPHA, rng=rng)
+
+        shared_diffs = shared_weights @ psi
+        shared_scores = np.einsum("ij,ij->i", shared_diffs, shared_diffs)
+        shared_summary = threshold_summary(shared_scores)
+
+        z64 = z[:64]
+        psi64 = psi[:64]
+        gram_features = psi64 @ psi64.T
+        delta = z64[:, None, :] - z64[None, :, :]
+        cosine_terms = np.cos(np.einsum("ijd,rd->ijr", delta, omegas)).mean(axis=2)
+        kernel_max_abs_error = float(np.max(np.abs(gram_features - cosine_terms)))
+
+        native_decision, native_seconds, native_r = rMMDtest(
+            z, N, N, seed=TEST_SEED, bandwidth=bandwidth_arg,
+            alpha=ALPHA, R=r, B=B
+        )
+        strict = threshold_summary(scores)
+        rows.append(
+            {
+                "R_argument": r,
+                "frequency_count": r,
+                "stored_feature_dimension": int(psi.shape[1]),
+                "feature_bytes": int(psi.nbytes),
+                "omega_sha256": digest(omegas),
+                "native_permutation_sha256": digest(ix),
+                "shared_permutation_sha256": digest(shared_ix),
+                "kernel_identity_max_abs_error": kernel_max_abs_error,
+                "traced_decision": int(traced_decision),
+                "traced_decide_threshold": float(traced_threshold),
+                "strict_threshold_summary": strict,
+                "native_direct_decision": int(native_decision),
+                "native_direct_seconds": float(native_seconds),
+                "native_returned_R": int(native_r),
+                "native_trace_matches_direct": int(traced_decision) == int(native_decision),
+                "scores": [float(v) for v in scores],
+                "shared_permutation_control": {
+                    **shared_summary,
+                    "scores": [float(v) for v in shared_scores],
+                },
+            }
+        )
+
+    p14, p500 = native_permutations[14], native_permutations[500]
+    row_equal = np.all(p14 == p500, axis=1)
+    randomized_diff = p14[1:] != p500[1:]
+    cross = {
+        "total_rows": int(row_equal.size),
+        "equal_rows_including_observed": int(np.count_nonzero(row_equal)),
+        "equal_randomized_rows": int(np.count_nonzero(row_equal[1:])),
+        "randomized_entry_hamming_fraction": float(np.mean(randomized_diff)),
+        "observed_row_equal": bool(row_equal[0]),
+        "shared_control_same_for_both_R": True,
+    }
+    summary = {
+        "schema_version": 1,
+        "source_commit": "ddb9b2cacc092841518c3d4e18b745f266d8f517",
+        "native_protocol": {
+            "n_per_group": N, "d": D, "rho1": 0.5, "rho2": 0.60,
+            "test_seed": TEST_SEED, "tune_seed": TUNE_SEED,
+            "sigma": sigma, "rMMDtest_bandwidth_argument": bandwidth_arg,
+            "B": B, "alpha": ALPHA,
+        },
+        "rows": len(rows),
+        "all_stored_dimensions_equal_2R": all(row["stored_feature_dimension"] == 2 * row["R_argument"] for row in rows),
+        "maximum_kernel_identity_abs_error": max(row["kernel_identity_max_abs_error"] for row in rows),
+        "all_native_decisions_reproduced": all(row["native_trace_matches_direct"] for row in rows),
+        "same_seed_native_permutations_match_across_R": bool(np.all(row_equal)),
+        "cross_R_permutation_comparison": cross,
+        "shared_control_decision_changes_vs_native": sum(
+            int(row["shared_permutation_control"]["strict_reject"] != row["strict_threshold_summary"]["strict_reject"])
+            for row in rows
+        ),
+        "elapsed_seconds": time.perf_counter() - started,
+        "peak_rss_bytes": int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss) * 1024,
+        "thread_environment": {
+            key: os.environ.get(key)
+            for key in ["OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS", "BLIS_NUM_THREADS", "CUDA_VISIBLE_DEVICES"]
+        },
+        "scope_limit": "Single selected native data set and two R values; semantics audit only, not null-size or power evidence.",
+    }
+    out = ROOT / "results"
+    (out / "rff_feature_decision_semantics_v1_rows.json").write_text(
+        json.dumps(rows, indent=2, sort_keys=True) + "\n"
+    )
+    (out / "rff_feature_decision_semantics_v1.json").write_text(
+        json.dumps(summary, indent=2, sort_keys=True) + "\n"
+    )
+    print(json.dumps(summary, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

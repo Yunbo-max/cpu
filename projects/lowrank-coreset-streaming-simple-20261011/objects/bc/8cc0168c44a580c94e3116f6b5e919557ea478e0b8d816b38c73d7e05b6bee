@@ -1,0 +1,69 @@
+# Native correlated-Gaussian Nyström spectrum audit v1
+
+Prospective plan, written before numerical output inspection. The active idea remains
+`nystrom-permutation-validity-v1`; this is a bounded mechanism diagnostic, not a
+calibration, power, or paper-validity experiment.
+
+## Question and frozen prediction
+
+The released implementation floors every singular value of the landmark-center
+kernel at `1e-12`. A synthetic near-singular fixture in w007 changed 7.43% of the
+strict permutation-score pair orderings, but occurrence in the paper workload was
+unknown. The question here is whether unchanged native correlated-Gaussian workload
+geometry places any center-kernel singular values below that absolute floor.
+
+Primary prediction: across the frozen bounded sample below, at least one native
+uniform-landmark center kernel will contain a singular value below `1e-12`.
+
+- If none do, the w007 boundary remains unobserved in this native sample; do not
+  develop a corrected mapping from that synthetic result alone, and proceed to the
+  predeclared RFF feature/decision-semantics audit.
+- If any do, the native workload touches the released floor. Preserve spectra and
+  next compare released versus mathematically explicit inverse policies on those
+  exact retained cases before any null-size, power, or correction claim.
+
+## Native protocol and bounded deviation
+
+Use author commit `ddb9b2cacc092841518c3d4e18b745f266d8f517`, specifically
+`experiments_cg.py`, `samplers.py`, `utils.py`, `kernels.py`, and `nystrom.py` as
+pinned in w007 `sources/nystrom_source_manifest_v2.json`. Preserve the released
+defaults `n_x=n_y=2500`, `d=3`, `rho1=.5`, rho2 in
+`.51,.54,.57,.60,.63,.66,.69`, and uniform landmark counts
+`14,28,42,56,70,140,350,500`. Generate and pooled-standardize data with the native
+functions; select each landmark set with the native `nys_inds` call and construct
+the center kernel with native `RBFkernel`.
+
+The original script draws the external 500-per-group bandwidth pilot with
+`seed=None` and generates/saves a nondeterministic test-seed list. For exact
+reproducibility this diagnostic freezes eight test seeds from NumPy PCG64 root
+seed `20261012` and one independent tuning seed per rho2 from root seed `20261013`.
+This is a prospective sample from the same generator, not recovery of the paper's
+actual seeds or its 400/1000 trial ensemble.
+
+## Measurements and controls
+
+For every rho2 × test seed × k row, retain the complete SciPy SVD spectrum of the
+native center kernel, the independent symmetric eigenvalue spectrum, counts below
+the released `1e-12` floor and NumPy's default relative pseudo-inverse tolerance,
+minimum/maximum singular values, condition ratio, minimum landmark distance, and
+all seed/bandwidth identities. The SVD/eigenvalue cross-check is a numerical
+measurement control; it does not independently reimplement the statistical test.
+
+The analysis unit is one generated data set and landmark setting. This finite
+diagnostic reports occurrence and descriptive counts only; it does not estimate a
+population frequency or treat correlated k values as independent replications.
+
+## Resource admission
+
+Run serially, one numerical thread, CPU only, through `scripts/cpu_guard.py` with
+4 GiB `RLIMIT_AS`. The largest persistent arrays per row are a `500×500` float64
+center kernel and its decompositions; data are `5000×3`. Based on the w007 native
+diagnostic peak (143,732,736 bytes), expected peak is below 250 MB. The preflight
+cgroup snapshot showed 419,762,176 bytes instantaneous headroom, 191,705,088 bytes
+anonymous memory and 7,429,595,136 bytes file cache. Admission relies only on the
+measured headroom exceeding the expected peak plus about 160 MB residual margin;
+it does not assume the full file cache is reclaimable. Abort and preserve the task
+if the guarded process cannot fit; do not reduce this frozen comparison after data.
+
+Outputs: `results/nystrom_native_spectrum_v1.json` and
+`results/nystrom_native_spectrum_v1_rows.json`.

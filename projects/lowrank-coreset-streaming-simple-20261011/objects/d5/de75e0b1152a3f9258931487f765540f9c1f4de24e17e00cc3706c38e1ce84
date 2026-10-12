@@ -1,0 +1,225 @@
+#!/usr/bin/env python3
+"""Compare released and explicit spectral Nyström mappings on frozen native cases."""
+from __future__ import annotations
+
+import json
+import math
+import os
+import resource
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+
+
+ROOT = Path(__file__).resolve().parents[1]
+DEPS = ROOT / ".deps" / "nystrom_read"
+sys.path.insert(0, str(ROOT / "compat"))
+sys.path.insert(0, str(DEPS))
+
+from kernels import RBFkernel  # noqa: E402
+from nystrom import nys_inds, nystrom_features  # noqa: E402
+from samplers import generate_correlated_gaussians  # noqa: E402
+from tests import NysMMDtest  # noqa: E402
+from utils import independent_permutation, median_pairwise, standardize_data  # noqa: E402
+
+
+FLOOR = 1e-12
+B = 199
+ALPHA = 0.05
+N = 2500
+D = 3
+CASES = [
+    {"case_id": "matched-control-k70", "rho2": 0.60, "test_seed": 3830751664, "tune_seed": 1010093618, "k": 70},
+    {"case_id": "selected-worst-k140", "rho2": 0.69, "test_seed": 3877278219, "tune_seed": 3793404972, "k": 140},
+    {"case_id": "selected-worst-k350", "rho2": 0.51, "test_seed": 1771758794, "tune_seed": 1831670289, "k": 350},
+    {"case_id": "selected-worst-k500", "rho2": 0.60, "test_seed": 3830751664, "tune_seed": 1010093618, "k": 500},
+]
+
+
+def peak_rss_bytes() -> int:
+    return int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss) * 1024
+
+
+def score_features(psi: np.ndarray, weights: np.ndarray) -> np.ndarray:
+    diff = weights @ psi
+    return np.einsum("ij,ij->i", diff, diff)
+
+
+def strict_decision(scores: np.ndarray) -> dict[str, object]:
+    observed = float(scores[0])
+    threshold_index = int(math.ceil((B + 1) * (1 - ALPHA))) - 1
+    threshold = float(np.sort(scores)[threshold_index])
+    return {
+        "observed": observed,
+        "threshold": threshold,
+        "threshold_index": threshold_index,
+        "strict_reject": int(observed > threshold),
+        "threshold_tie": bool(observed == threshold),
+    }
+
+
+def pair_reversals(a: np.ndarray, b: np.ndarray) -> dict[str, int | float]:
+    ia, ja = np.triu_indices(a.size, k=1)
+    da = a[ia] - a[ja]
+    db = b[ia] - b[ja]
+    strict = (da != 0.0) & (db != 0.0)
+    reversals = int(np.count_nonzero((da[strict] * db[strict]) < 0.0))
+    denominator = int(np.count_nonzero(strict))
+    return {
+        "strict_comparable_pairs": denominator,
+        "strict_pair_reversals": reversals,
+        "strict_pair_reversal_fraction": reversals / denominator if denominator else 0.0,
+        "ties_released": int(np.count_nonzero(da == 0.0)),
+        "ties_alternative": int(np.count_nonzero(db == 0.0)),
+    }
+
+
+def relative_l2(a: np.ndarray, b: np.ndarray) -> float:
+    denom = float(np.linalg.norm(b))
+    return float(np.linalg.norm(a - b) / denom) if denom else float(np.linalg.norm(a - b))
+
+
+def main() -> None:
+    started = time.perf_counter()
+    rows: list[dict[str, object]] = []
+    for case in CASES:
+        rho2 = float(case["rho2"])
+        test_seed = int(case["test_seed"])
+        tune_seed = int(case["tune_seed"])
+        k = int(case["k"])
+        tune = standardize_data(generate_correlated_gaussians(500, D, 0.5, rho2, tune_seed))
+        bandwidth = float(median_pairwise(tune))
+        z = standardize_data(generate_correlated_gaussians(N, D, 0.5, rho2, test_seed))
+        inds, count = nys_inds(z, k, "uniform", bandwidth, test_seed)
+
+        rng = np.random.default_rng(test_seed)
+        indicator = np.concatenate((np.ones(N), np.zeros(N)))
+        tiled = np.tile(indicator, (B + 1, 1))
+        ix = independent_permutation(tiled, rng, axis=1)
+        ix[0] = indicator
+        weights = (2.0 * ix - 1.0) / N
+
+        psi_released = nystrom_features(z, inds, bandwidth)
+        released_scores = score_features(psi_released, weights)
+        del psi_released
+
+        landmarks = z[inds]
+        knm = RBFkernel(z, landmarks, bandwidth)
+        km = knm[inds, :]
+        evals, evecs = np.linalg.eigh(km)
+        lambda_max = float(evals[-1])
+        relative_cutoff = float(np.finfo(np.float64).eps * k * lambda_max)
+
+        policy_scores: dict[str, np.ndarray] = {"released_floor": released_scores}
+        policy_meta: dict[str, dict[str, object]] = {
+            "released_floor": {
+                "cutoff": FLOOR,
+                "kept_rank": k,
+                "floored_count": int(np.count_nonzero(np.abs(evals) < FLOOR)),
+            }
+        }
+        for name, cutoff in [
+            ("absolute_truncate", FLOOR),
+            ("relative_truncate", relative_cutoff),
+        ]:
+            keep = evals > cutoff
+            psi = (knm @ evecs[:, keep]) / np.sqrt(evals[keep])[None, :]
+            policy_scores[name] = score_features(psi, weights)
+            policy_meta[name] = {"cutoff": cutoff, "kept_rank": int(np.count_nonzero(keep))}
+            del psi
+
+        native_decision, native_seconds, native_k = NysMMDtest(
+            z, N, N, seed=test_seed, bandwidth=bandwidth, alpha=ALPHA,
+            method="uniform", k=k, B=B
+        )
+
+        policies = {}
+        for name, scores in policy_scores.items():
+            policies[name] = {
+                **policy_meta[name],
+                **strict_decision(scores),
+                "scores": [float(v) for v in scores],
+            }
+            if name != "released_floor":
+                policies[name]["relative_l2_vs_released"] = relative_l2(scores, released_scores)
+                policies[name]["ordering_vs_released"] = pair_reversals(released_scores, scores)
+
+        reconstructed = int(policies["released_floor"]["strict_reject"])
+        tied = bool(policies["released_floor"]["threshold_tie"])
+        rows.append(
+            {
+                **case,
+                "bandwidth": bandwidth,
+                "landmark_count": int(count),
+                "minimum_eigenvalue": float(evals[0]),
+                "maximum_eigenvalue": lambda_max,
+                "negative_eigenvalue_count": int(np.count_nonzero(evals < 0.0)),
+                "below_absolute_floor_count": int(np.count_nonzero(np.abs(evals) < FLOOR)),
+                "relative_cutoff": relative_cutoff,
+                "native_direct_decision": int(native_decision),
+                "native_direct_seconds": float(native_seconds),
+                "native_direct_k": int(native_k),
+                "released_reconstruction_matches_native_decision": tied or reconstructed == int(native_decision),
+                "policies": policies,
+            }
+        )
+
+    comparisons = []
+    for row in rows:
+        for name in ["absolute_truncate", "relative_truncate"]:
+            comp = row["policies"][name]
+            comparisons.append(
+                {
+                    "case_id": row["case_id"],
+                    "k": row["k"],
+                    "policy": name,
+                    "relative_l2_vs_released": comp["relative_l2_vs_released"],
+                    "strict_pair_reversals": comp["ordering_vs_released"]["strict_pair_reversals"],
+                    "strict_pair_reversal_fraction": comp["ordering_vs_released"]["strict_pair_reversal_fraction"],
+                    "decision_changed": int(comp["strict_reject"]) != int(row["policies"]["released_floor"]["strict_reject"]),
+                }
+            )
+
+    summary = {
+        "schema_version": 1,
+        "source_commit": "ddb9b2cacc092841518c3d4e18b745f266d8f517",
+        "case_count": len(rows),
+        "comparison_count": len(comparisons),
+        "noncrossing_control_clean": all(
+            c["strict_pair_reversals"] == 0 and c["relative_l2_vs_released"] < 1e-10
+            for c in comparisons if c["case_id"] == "matched-control-k70"
+        ),
+        "crossing_case_with_reversal": any(
+            c["strict_pair_reversals"] > 0 for c in comparisons if c["case_id"] != "matched-control-k70"
+        ),
+        "decision_change_count": sum(int(c["decision_changed"]) for c in comparisons),
+        "native_reconstruction_all_match": all(
+            bool(row["released_reconstruction_matches_native_decision"]) for row in rows
+        ),
+        "maximum_reversal_fraction": max(float(c["strict_pair_reversal_fraction"]) for c in comparisons),
+        "maximum_relative_l2": max(float(c["relative_l2_vs_released"]) for c in comparisons),
+        "comparisons": comparisons,
+        "elapsed_seconds": time.perf_counter() - started,
+        "peak_rss_bytes": peak_rss_bytes(),
+        "thread_environment": {
+            key: os.environ.get(key)
+            for key in ["OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS", "BLIS_NUM_THREADS", "CUDA_VISIBLE_DEVICES"]
+        },
+        "scope_limit": "Outcome-informed four-case native diagnostic; no null-size, power, population frequency, runtime superiority, or paper-validity claim.",
+    }
+    if not summary["native_reconstruction_all_match"]:
+        raise RuntimeError("released score reconstruction disagrees with direct native decision")
+    out = ROOT / "results"
+    (out / "nystrom_native_mapping_sensitivity_v1_rows.json").write_text(
+        json.dumps(rows, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    (out / "nystrom_native_mapping_sensitivity_v1.json").write_text(
+        json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    print(json.dumps(summary, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

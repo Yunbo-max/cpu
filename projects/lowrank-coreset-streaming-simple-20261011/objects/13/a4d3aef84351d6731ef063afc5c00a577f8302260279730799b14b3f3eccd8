@@ -1,0 +1,24 @@
+# Nyström–RFF state-matched successor scope v1
+
+## Status
+
+Prospective scope only. No new numerical result is claimed here.
+
+## Evidence inherited from w008
+
+- The released Nyström `1e-12` singular-value floor was entered in 135/448 frozen native spectrum rows, concentrated at `k >= 140`.
+- In the four outcome-informed native cases tested, released versus alternative spectral mappings produced no strict permutation-score pair reversal and no binary decision change; the largest score-vector relative L2 difference was `6.382908e-6`.
+- The released RFF implementation draws `R` frequencies but materializes `2R` cosine/sine coordinates. Reusing one integer seed across different `R` values does not pair permutation rows because feature sampling advances the same RNG first.
+
+## Next bounded question
+
+Before any power expansion, audit the paper/source claim being compared and define a state-matched native comparison in which:
+
+1. retained feature-state dimension is counted as `2R` for RFF and as the actual retained Nyström state for the landmark method;
+2. feature/landmark randomness uses explicit independent substreams;
+3. permutation rows are shared through a separate explicit substream;
+4. a full-rank native reference is included;
+5. construction, storage, tuning, and permutation costs are all counted;
+6. finite-trial uncertainty is reported and no global approximation or calibration claim is made from a small trial set.
+
+The first successor action is a source/claim and cost-semantics review followed by a frozen small calibration design. The completed synthetic and native mapping diagnostics must not be rerun merely to add cycles.

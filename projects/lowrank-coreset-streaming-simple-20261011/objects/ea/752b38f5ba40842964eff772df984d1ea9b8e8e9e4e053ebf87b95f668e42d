@@ -1,0 +1,10 @@
+"""Fail-closed compatibility stub for an unused optional author-code import.
+
+The native correlated-Gaussian generator is pure NumPy, but samplers.py imports
+h5py at module load for separate HIGGS/SUSY loaders.  Those loaders are outside
+this task.  Any accidental attempt to use them must fail rather than emulate I/O.
+"""
+
+
+def File(*args, **kwargs):  # noqa: N802 - match h5py's public API name
+    raise RuntimeError("h5py is unavailable; HDF5 loaders are not authorized in this task")

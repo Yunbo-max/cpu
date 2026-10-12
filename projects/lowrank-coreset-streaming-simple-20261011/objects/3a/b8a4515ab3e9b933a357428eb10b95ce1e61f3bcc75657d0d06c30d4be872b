@@ -1,0 +1,49 @@
+{
+  "response_id": "nystrom-h5py-import-repair-response-v2",
+  "request_id": "decision-8babc21dbaae43aaaebf2d373f9af9e9",
+  "idea": "nystrom-permutation-validity-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The retained traceback shows samplers.py failed at its unused top-level h5py import before any numerical work. A fail-closed compatibility module now permits only the pure-NumPy correlated-Gaussian generator and raises if an HDF5 loader is called.",
+  "events": [
+    {
+      "event_id": "nystrom-native-spectrum-h5py-import-error-v1",
+      "kind": "implementation_error",
+      "issue": "unused-author-h5py-import",
+      "reason": "The first spectrum task exited before computation because the author sampler module imports unavailable h5py for unrelated HIGGS/SUSY loaders; the changed cause is a pinned fail-closed stub for that unused interface.",
+      "change_evidence": [
+        {"path": "compat/h5py.py", "sha256": "ea752b38f5ba40842964eff772df984d1ea9b8e8e9e4e053ebf87b95f668e42d"}
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "nystrom-native-spectrum-v2",
+      "supersedes": "nystrom-native-spectrum-v1",
+      "argv": ["python3", "scripts/cpu_guard.py", "python3", "scripts/nystrom_native_spectrum_v1.py"],
+      "phase": "diagnostic",
+      "purpose": "Measure whether the released 1e-12 Nyström singular-value floor is entered by a frozen sample of the native correlated-Gaussian workload after repairing only the unused h5py import",
+      "timeout_seconds": 600,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+        {"path": "scripts/nystrom_native_spectrum_v1.py", "sha256": "3244187b5179f03b8d0cea781c1f9de0b9f5e1a7591bc0a9c4569fe2055b8032"},
+        {"path": "plans/nystrom_native_spectrum_v1.md", "sha256": "bc8cc0168c44a580c94e3116f6b5e919557ea478e0b8d816b38c73d7e05b6bee"},
+        {"path": "sources/nystrom_source_manifest_v2.json", "sha256": "41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"},
+        {"path": "notes/resources_pre_v1.json", "sha256": "d213f3ed9c088bff6154e81ea38bd8e43089590bfb193da6464fc9ed9469a6cf"},
+        {"path": ".deps/nystrom_read/kernels.py", "sha256": "3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"},
+        {"path": ".deps/nystrom_read/nystrom.py", "sha256": "5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"},
+        {"path": ".deps/nystrom_read/samplers.py", "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"},
+        {"path": ".deps/nystrom_read/utils.py", "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"},
+        {"path": ".deps/nystrom_read/recursive_nystrom.py", "sha256": "4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"},
+        {"path": "compat/tqdm.py", "sha256": "875df2efb6f4ceaa3bb42f4bb3f1819322da38ee8fbc9cb035b71cbe936651f8"},
+        {"path": "compat/h5py.py", "sha256": "ea752b38f5ba40842964eff772df984d1ea9b8e8e9e4e053ebf87b95f668e42d"}
+      ],
+      "outputs": [
+        "results/nystrom_native_spectrum_v1.json",
+        "results/nystrom_native_spectrum_v1_rows.json"
+      ]
+    }
+  ]
+}

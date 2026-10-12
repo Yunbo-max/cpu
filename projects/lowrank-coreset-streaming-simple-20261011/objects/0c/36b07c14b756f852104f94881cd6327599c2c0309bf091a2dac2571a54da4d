@@ -1,0 +1,66 @@
+# Native Nyström mapping sensitivity v1
+
+Prospective development plan written after the accepted spectrum audit and before
+mapping-sensitivity outputs. The raw spectrum was inspected to choose difficult
+cases, so this is an outcome-informed worst-case diagnostic, not independent
+confirmation and not a null-size or power estimate.
+
+## Question and selected native cases
+
+The native spectrum audit found `1e-12` floor crossings in 135/448 rows, including
+all k=350 and k=500 rows. Does that floor materially change the *actual retained
+permutation-score ordering or binary decision* relative to two explicit spectral
+inverse policies on exact native cases?
+
+Freeze four cases from the audited table:
+
+1. Same-data noncrossing control: rho2=.60, test seed 3830751664, tuning seed
+   1010093618, k=70 (`s_min/floor=1073.29`).
+2. Worst observed k=140: rho2=.69, test seed 3877278219, tuning seed 3793404972,
+   k=140 (`s_min/floor=.01486`, 2 values below the floor).
+3. Worst observed k=350: rho2=.51, test seed 1771758794, tuning seed 1831670289,
+   k=350 (`s_min/floor=4.29e-7`, 87 values below the floor).
+4. Worst observed k=500: rho2=.60, test seed 3830751664, tuning seed 1010093618,
+   k=500 (`s_min/floor=2.07e-8`, 201 values below the floor).
+
+All use native `n_x=n_y=2500`, d=3, rho1=.5, pooled standardization, external
+500-per-group bandwidth pilot, native uniform landmark selection, B=199 and the
+same native permutation stream. The k=70/k=500 pair shares data and bandwidth but
+not landmark membership because the source calls `choice` separately for each k.
+
+## Policies and measurements
+
+- `released_floor`: unchanged author `nystrom_features`, which replaces every SVD
+  singular value by `max(S,1e-12)`.
+- `absolute_truncate`: symmetric eigendecomposition, retaining only positive
+  eigenvalues strictly above `1e-12`.
+- `relative_truncate`: symmetric eigendecomposition, retaining only eigenvalues
+  above `eps * k * lambda_max`, matching the scale of NumPy's default relative
+  pseudo-inverse cutoff.
+
+For each policy retain all 200 permutation scores, observed score, strict threshold
+decision, kept rank, and cutoff. Compare each alternative with the released score
+vector by relative L2 error and strict pair-order reversals. Also call the unchanged
+native `NysMMDtest` and require its binary decision to match the reconstructed
+released path unless the observed statistic is exactly tied at threshold.
+
+Prediction: the k=70 control has negligible score difference/no reversals, while at
+least one crossing case has nonzero pair-order reversals between the released floor
+and a truncation policy. A binary-decision change is stronger adverse evidence but
+is not required for this mechanism prediction. If no crossing case changes score
+ordering, the spectrum occurrence alone is not operationally material in these
+cases and the next action is the RFF/decision-semantics audit. If ordering changes,
+derive the appropriate target inverse and plan fresh null/power evaluation before
+calling any policy a correction.
+
+## Resources and scope
+
+Run serial CPU/one thread through `cpu_guard.py`. Largest feature matrix is
+5000×500 float64 (20 MB), with a 200×5000 weight matrix (8 MB) and 500×500 kernel
+workspaces. Expected peak is below 300 MB, within the 4 GiB process limit and the
+preflight instantaneous cgroup headroom; abort rather than alter the frozen cases
+if the host cannot fit. This bounded selected-case diagnostic does not estimate
+error rate, power, runtime superiority, or paper invalidity.
+
+Outputs: `results/nystrom_native_mapping_sensitivity_v1.json` and
+`results/nystrom_native_mapping_sensitivity_v1_rows.json`.

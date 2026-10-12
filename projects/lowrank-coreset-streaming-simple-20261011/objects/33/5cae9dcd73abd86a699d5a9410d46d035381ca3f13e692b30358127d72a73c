@@ -1,0 +1,30 @@
+# Native RFF feature and decision semantics: interpretation
+
+The independent audit regenerated the R-dependent random stream and passed all
+score, threshold, dimension, byte-count and summary checks.
+
+- The argument `R` is the number of sampled frequencies, while concatenated
+  cosine/sine storage has exactly `2R` coordinates: 28 for R=14 and 1000 for
+  R=500. On a 64-row exact identity check, feature Grams matched the R-term cosine
+  kernel estimate within `1.22e-15`. Reporting `R` is coherent as a frequency
+  count, but future memory/state comparisons must count `2R` float coordinates.
+- With the same integer seed, the source consumes `R*d` normal draws before label
+  permutations. Therefore R=14 and R=500 shared only the overwritten observed row;
+  none of their 199 randomized rows matched, and 49.9216% of randomized label
+  entries differed. Same integer seed does not mean paired permutations across R.
+- Both direct native decisions were exactly reproduced. At R=14 the native and
+  explicit shared-permutation control both rejected (add-one p=.01). At R=500 the
+  native stream did not reject (p=.065), while the shared control rejected (p=.035).
+  The observed feature statistic is unchanged; only the finite randomization set
+  differs. This is a selected near-threshold illustration of Monte Carlo decision
+  variability, not evidence that either valid randomization set is calibrated
+  incorrectly.
+
+Peak RSS was 401,305,600 bytes, below the project and process limits. Together
+with the negative native mapping-sensitivity result, this closes the scoped
+Nyström/RFF implementation-validity audit without confirming a paper defect or a
+new method. A natural successor is a prospectively designed state-matched
+Nyström-versus-RFF comparison that uses explicit independent feature and shared
+permutation substreams, counts the actual `2R` state, includes a full-rank/simple
+reference, and reports finite-trial uncertainty. That is a new idea/design, not a
+retroactive reinterpretation of these selected diagnostics.

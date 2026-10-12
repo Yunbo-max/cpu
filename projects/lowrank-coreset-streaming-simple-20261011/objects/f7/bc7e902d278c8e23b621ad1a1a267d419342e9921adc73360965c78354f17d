@@ -1,0 +1,28 @@
+# Native Nyström spectrum audit: interpretation
+
+The repaired producer task completed under the 4 GiB CPU guard. Its independent
+raw-table audit passed every inventory, identity, spectrum-order and summary
+check. The first attempt remains failed because author `samplers.py` imported
+unavailable `h5py` for unrelated loaders; the accepted v2 used a pinned fail-closed
+stub and never called HDF5 functionality.
+
+Across the frozen native correlated-Gaussian sample there were 448 rows. The
+released `1e-12` singular-value floor was crossed in 135 rows (30.13%). It was
+never crossed for k=14,28,42,56,70; it was crossed for 23/56 k=140 rows and every
+k=350 and k=500 row. The k=350 rows had 5,145 singular values below the floor in
+aggregate, and k=500 rows had 11,231. The smallest observed singular value was
+`2.07e-20`, or `2.07e-8` times the floor. SVD versus symmetric-eigenvalue spectra
+agreed to a maximum relative discrepancy of `1.62e-15`, supporting the measurement.
+
+This converts the w007 concern from a deliberately synthetic boundary into an
+observed numerical condition within a finite sample of the released native data
+generator and default landmark grid. It does not show that decisions, null size,
+or power are wrong, and the fixed reproducibility seeds are not the paper's saved
+400/1000-trial seeds. The next discriminating step is an outcome-labeled selected-
+case comparison of the released floor with explicit absolute and relative spectral
+truncation policies, including the exact permutation-score order and direct native
+decision. No mapping is called a correction before its mathematical target and
+statistical behavior are established.
+
+Peak producer RSS was 136,339,456 bytes; the verifier used 18,350,080 bytes. The
+task was not memory-blocked.

@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+"""Independently audit the retained native-spectrum raw table."""
+from __future__ import annotations
+
+import json
+import math
+import resource
+from collections import defaultdict
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SUMMARY_PATH = ROOT / "results" / "nystrom_native_spectrum_v1.json"
+ROWS_PATH = ROOT / "results" / "nystrom_native_spectrum_v1_rows.json"
+OUT_PATH = ROOT / "results" / "nystrom_native_spectrum_v1_audit.json"
+
+
+def main() -> None:
+    summary = json.loads(SUMMARY_PATH.read_text(encoding="utf-8"))
+    rows = json.loads(ROWS_PATH.read_text(encoding="utf-8"))
+    errors: list[str] = []
+    keys: set[tuple[float, int, int]] = set()
+    by_k: dict[int, dict[str, int | float]] = defaultdict(
+        lambda: {"rows": 0, "crossing_rows": 0, "below_count": 0, "numpy_zero_count": 0, "min_ratio": math.inf}
+    )
+    by_rho: dict[str, dict[str, int | float]] = defaultdict(
+        lambda: {"rows": 0, "crossing_rows": 0, "below_count": 0, "min_ratio": math.inf}
+    )
+
+    for i, row in enumerate(rows):
+        key = (float(row["rho2"]), int(row["test_seed"]), int(row["k"]))
+        if key in keys:
+            errors.append(f"duplicate row key at {i}: {key}")
+        keys.add(key)
+        k = int(row["k"])
+        spectrum = [float(v) for v in row["singular_values_descending"]]
+        inds = [int(v) for v in row["landmark_indices"]]
+        if len(spectrum) != k or len(inds) != k:
+            errors.append(f"length mismatch at {key}")
+        if len(set(inds)) != k or any(v < 0 or v >= 5000 for v in inds):
+            errors.append(f"invalid landmark indices at {key}")
+        if any(not math.isfinite(v) or v < 0 for v in spectrum):
+            errors.append(f"invalid singular value at {key}")
+        if any(spectrum[j] < spectrum[j + 1] for j in range(len(spectrum) - 1)):
+            errors.append(f"spectrum not descending at {key}")
+
+        below = sum(v < 1e-12 for v in spectrum)
+        numpy_below = sum(v <= float(row["numpy_default_cutoff"]) for v in spectrum)
+        ratio = min(spectrum) / 1e-12
+        if below != int(row["count_below_released_floor"]):
+            errors.append(f"released floor count mismatch at {key}")
+        if numpy_below != int(row["count_at_or_below_numpy_default_cutoff"]):
+            errors.append(f"NumPy cutoff count mismatch at {key}")
+        if not math.isclose(ratio, float(row["s_min_over_floor"]), rel_tol=1e-13, abs_tol=0.0):
+            errors.append(f"minimum ratio mismatch at {key}")
+
+        kg = by_k[k]
+        kg["rows"] += 1
+        kg["crossing_rows"] += int(below > 0)
+        kg["below_count"] += below
+        kg["numpy_zero_count"] += numpy_below
+        kg["min_ratio"] = min(float(kg["min_ratio"]), ratio)
+        rg = by_rho[f"{float(row['rho2']):.2f}"]
+        rg["rows"] += 1
+        rg["crossing_rows"] += int(below > 0)
+        rg["below_count"] += below
+        rg["min_ratio"] = min(float(rg["min_ratio"]), ratio)
+
+    expected_rows = 7 * 8 * 8
+    below_rows = sum(int(row["count_below_released_floor"]) > 0 for row in rows)
+    maximum_below = max(int(row["count_below_released_floor"]) for row in rows)
+    minimum_ratio = min(float(row["s_min_over_floor"]) for row in rows)
+    checks = {
+        "row_count": len(rows) == expected_rows == int(summary["rows"]),
+        "unique_keys": len(keys) == expected_rows,
+        "summary_crossing_rows": below_rows == int(summary["rows_below_released_floor"]),
+        "summary_fraction": math.isclose(
+            below_rows / len(rows), float(summary["fraction_rows_below_released_floor"]), rel_tol=0, abs_tol=1e-15
+        ),
+        "summary_maximum_below_count": maximum_below == int(summary["maximum_count_below_released_floor"]),
+        "summary_minimum_ratio": math.isclose(
+            minimum_ratio, float(summary["minimum_s_min_over_floor"]), rel_tol=1e-15, abs_tol=0.0
+        ),
+        "summary_floor_crossed": bool(below_rows) is bool(summary["floor_crossed"]),
+        "row_checks": not errors,
+    }
+    audit = {
+        "schema_version": 1,
+        "checks": checks,
+        "all_checks_pass": all(checks.values()),
+        "errors": errors,
+        "expected_rows": expected_rows,
+        "observed_rows": len(rows),
+        "by_k": {str(k): by_k[k] for k in sorted(by_k)},
+        "by_rho2": {k: by_rho[k] for k in sorted(by_rho)},
+        "peak_rss_bytes": int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss) * 1024,
+        "scope_limit": "Raw-table and summary verification only; native kernels and statistical validity are not independently recomputed.",
+    }
+    if not audit["all_checks_pass"]:
+        raise RuntimeError(json.dumps(audit, sort_keys=True))
+    OUT_PATH.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(audit, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

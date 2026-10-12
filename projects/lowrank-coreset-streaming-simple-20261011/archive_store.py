@@ -16,7 +16,11 @@ import zipfile
 ROOT = Path(__file__).resolve().parent
 PROJECT = 'lowrank-coreset-streaming-simple-20261011'
 SOURCE_ROOT = 'lowrank_coreset_streaming_rsi_simple'
-CHUNK = 4 * 1024 * 1024
+# Keep transport objects comfortably below the connected GitHub blob channel's
+# per-call payload ceiling. Existing snapshots with larger chunks remain fully
+# readable because object_parts() validates ordered names and concatenated
+# identity rather than assuming a physical chunk size.
+CHUNK = 256 * 1024
 
 
 def sha_file(path):
@@ -49,6 +53,22 @@ def object_parts(digest):
     if not parts or [p.name for p in parts] != [f'{i:06d}' for i in range(len(parts))]:
         raise ValueError('Missing or noncontiguous object chunks')
     return parts
+
+
+def chunk_identity(folder):
+    parts = sorted(folder.glob('*'))
+    if not parts or [p.name for p in parts] != [f'{i:06d}' for i in range(len(parts))]:
+        raise ValueError('Missing or noncontiguous object chunks')
+    h = hashlib.sha256()
+    size = 0
+    for path in parts:
+        if path.is_symlink() or not path.is_file():
+            raise ValueError('Unsafe object chunk')
+        with path.open('rb') as f:
+            for block in iter(lambda: f.read(1024 * 1024), b''):
+                h.update(block)
+                size += len(block)
+    return h.hexdigest(), size
 
 
 def object_identity(digest):
@@ -92,30 +112,38 @@ def pack(archive):
                 temp.unlink()
                 raise ValueError('Archive hash mismatch: ' + name)
             dest = object_path(digest)
+            folder = ROOT / 'chunked' / digest
             dest.parent.mkdir(parents=True, exist_ok=True)
             if dest.exists():
                 if sha_file(dest) != digest:
                     temp.unlink()
                     raise ValueError('Corrupted existing object')
                 temp.unlink()
+            elif folder.exists():
+                if chunk_identity(folder) != (digest, size):
+                    temp.unlink()
+                    raise ValueError('Corrupted existing chunked object')
+                temp.unlink()
             else:
                 os.replace(temp, dest)
             if size > 2 * CHUNK:
-                folder = ROOT / 'chunked' / digest
-                folder.mkdir(parents=True, exist_ok=True)
-                with dest.open('rb') as src:
-                    index = 0
-                    while True:
-                        block = src.read(CHUNK)
-                        if not block:
-                            break
-                        part = folder / f'{index:06d}'
-                        if part.exists() and part.read_bytes() != block:
-                            raise ValueError('Conflicting chunk')
-                        part.write_bytes(block)
-                        index += 1
-                # The original checkpoint and working source remain untouched.
-                dest.unlink()
+                if folder.exists():
+                    if chunk_identity(folder) != (digest, size):
+                        raise ValueError('Conflicting chunked object')
+                    if dest.exists():
+                        dest.unlink()
+                else:
+                    folder.mkdir(parents=True, exist_ok=True)
+                    with dest.open('rb') as src:
+                        index = 0
+                        while True:
+                            block = src.read(CHUNK)
+                            if not block:
+                                break
+                            (folder / f'{index:06d}').write_bytes(block)
+                            index += 1
+                    # The original checkpoint and working source remain untouched.
+                    dest.unlink()
                 if object_identity(digest) != (digest, size):
                     raise ValueError('Chunked-object mismatch')
             entries.append({'path': rel, 'sha256': digest, 'bytes': size})

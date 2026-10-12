@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+"""Audit retained native mapping-sensitivity score vectors and summary."""
+from __future__ import annotations
+
+import json
+import math
+import resource
+from pathlib import Path
+
+import numpy as np
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SUMMARY_PATH = ROOT / "results" / "nystrom_native_mapping_sensitivity_v1.json"
+ROWS_PATH = ROOT / "results" / "nystrom_native_mapping_sensitivity_v1_rows.json"
+OUT_PATH = ROOT / "results" / "nystrom_native_mapping_sensitivity_v1_audit.json"
+
+
+def decision(scores: np.ndarray) -> tuple[float, float, int, bool]:
+    obs = float(scores[0])
+    thr = float(np.sort(scores)[189])
+    return obs, thr, int(obs > thr), bool(obs == thr)
+
+
+def compare(a: np.ndarray, b: np.ndarray) -> tuple[float, int, int, float]:
+    rel = float(np.linalg.norm(a - b) / np.linalg.norm(b))
+    i, j = np.triu_indices(a.size, 1)
+    da, db = a[i] - a[j], b[i] - b[j]
+    valid = (da != 0.0) & (db != 0.0)
+    rev = int(np.count_nonzero(da[valid] * db[valid] < 0.0))
+    den = int(np.count_nonzero(valid))
+    return rel, rev, den, rev / den if den else 0.0
+
+
+def main() -> None:
+    summary = json.loads(SUMMARY_PATH.read_text())
+    rows = json.loads(ROWS_PATH.read_text())
+    errors: list[str] = []
+    expected_ids = {
+        "matched-control-k70", "selected-worst-k140",
+        "selected-worst-k350", "selected-worst-k500",
+    }
+    if {r["case_id"] for r in rows} != expected_ids or len(rows) != 4:
+        errors.append("case inventory mismatch")
+    recomputed = []
+    direct_matches = []
+    for row in rows:
+        policies = row["policies"]
+        if set(policies) != {"released_floor", "absolute_truncate", "relative_truncate"}:
+            errors.append(f"policy inventory mismatch: {row['case_id']}")
+            continue
+        arrays = {}
+        for name, policy in policies.items():
+            arr = np.asarray(policy["scores"], dtype=float)
+            arrays[name] = arr
+            if arr.shape != (200,) or not np.all(np.isfinite(arr)):
+                errors.append(f"invalid scores: {row['case_id']} {name}")
+                continue
+            obs, thr, reject, tied = decision(arr)
+            for key, actual in [("observed", obs), ("threshold", thr)]:
+                if not math.isclose(float(policy[key]), actual, rel_tol=0, abs_tol=0):
+                    errors.append(f"{key} mismatch: {row['case_id']} {name}")
+            if int(policy["strict_reject"]) != reject or bool(policy["threshold_tie"]) != tied:
+                errors.append(f"decision mismatch: {row['case_id']} {name}")
+        if "released_floor" not in arrays:
+            continue
+        released = arrays["released_floor"]
+        direct_ok = bool(policies["released_floor"]["threshold_tie"]) or int(
+            policies["released_floor"]["strict_reject"]
+        ) == int(row["native_direct_decision"])
+        direct_matches.append(direct_ok)
+        for name in ["absolute_truncate", "relative_truncate"]:
+            rel, rev, den, frac = compare(arrays[name], released)
+            stored = policies[name]
+            order = stored["ordering_vs_released"]
+            if not math.isclose(rel, float(stored["relative_l2_vs_released"]), rel_tol=1e-15, abs_tol=0):
+                errors.append(f"relative L2 mismatch: {row['case_id']} {name}")
+            if (rev, den) != (int(order["strict_pair_reversals"]), int(order["strict_comparable_pairs"])):
+                errors.append(f"ordering count mismatch: {row['case_id']} {name}")
+            if not math.isclose(frac, float(order["strict_pair_reversal_fraction"]), rel_tol=0, abs_tol=0):
+                errors.append(f"ordering fraction mismatch: {row['case_id']} {name}")
+            recomputed.append({
+                "case_id": row["case_id"], "k": row["k"], "policy": name,
+                "relative_l2_vs_released": rel, "strict_pair_reversals": rev,
+                "strict_pair_reversal_fraction": frac,
+                "decision_changed": int(stored["strict_reject"]) != int(policies["released_floor"]["strict_reject"]),
+            })
+    max_rel = max(x["relative_l2_vs_released"] for x in recomputed)
+    max_frac = max(x["strict_pair_reversal_fraction"] for x in recomputed)
+    if not math.isclose(max_rel, float(summary["maximum_relative_l2"]), rel_tol=1e-15, abs_tol=0):
+        errors.append("maximum relative L2 mismatch")
+    if not math.isclose(max_frac, float(summary["maximum_reversal_fraction"]), rel_tol=0, abs_tol=0):
+        errors.append("maximum reversal fraction mismatch")
+    if sum(int(x["decision_changed"]) for x in recomputed) != int(summary["decision_change_count"]):
+        errors.append("decision change count mismatch")
+    if all(direct_matches) != bool(summary["native_reconstruction_all_match"]):
+        errors.append("native reconstruction summary mismatch")
+    audit = {
+        "schema_version": 1,
+        "all_checks_pass": not errors,
+        "errors": errors,
+        "case_count": len(rows),
+        "comparison_count": len(recomputed),
+        "maximum_relative_l2": max_rel,
+        "maximum_reversal_fraction": max_frac,
+        "decision_change_count": sum(int(x["decision_changed"]) for x in recomputed),
+        "native_reconstruction_all_match": all(direct_matches),
+        "peak_rss_bytes": int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss) * 1024,
+    }
+    if errors:
+        raise RuntimeError(json.dumps(audit, sort_keys=True))
+    OUT_PATH.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(audit, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

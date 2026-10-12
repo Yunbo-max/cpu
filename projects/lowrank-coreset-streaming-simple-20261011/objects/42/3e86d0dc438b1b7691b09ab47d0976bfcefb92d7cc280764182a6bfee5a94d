@@ -1,0 +1,97 @@
+#!/usr/bin/env python3
+"""Audit native RFF feature and permutation-stream semantics outputs."""
+from __future__ import annotations
+
+import json
+import math
+import resource
+import sys
+from pathlib import Path
+
+import numpy as np
+
+
+ROOT = Path(__file__).resolve().parents[1]
+DEPS = ROOT / ".deps" / "nystrom_read"
+sys.path.insert(0, str(ROOT / "compat"))
+sys.path.insert(0, str(DEPS))
+from utils import independent_permutation  # noqa: E402
+
+SUMMARY_PATH = ROOT / "results" / "rff_feature_decision_semantics_v1.json"
+ROWS_PATH = ROOT / "results" / "rff_feature_decision_semantics_v1_rows.json"
+OUT_PATH = ROOT / "results" / "rff_feature_decision_semantics_v1_audit.json"
+
+
+def score_checks(row: dict, key: str) -> tuple[list[str], dict[str, object]]:
+    source = row if key == "native" else row["shared_permutation_control"]
+    scores = np.asarray(row["scores"] if key == "native" else source["scores"], dtype=float)
+    errors = []
+    if scores.shape != (200,) or not np.all(np.isfinite(scores)):
+        errors.append(f"invalid {key} scores for R={row['R_argument']}")
+        return errors, {}
+    summary = row["strict_threshold_summary"] if key == "native" else source
+    obs = float(scores[0]); thr = float(np.sort(scores)[189])
+    reject = int(obs > thr); tied = bool(obs == thr)
+    if not math.isclose(obs, float(summary["observed"]), rel_tol=0, abs_tol=0): errors.append(f"observed mismatch {key}")
+    if not math.isclose(thr, float(summary["threshold"]), rel_tol=0, abs_tol=0): errors.append(f"threshold mismatch {key}")
+    if reject != int(summary["strict_reject"]) or tied != bool(summary["threshold_tie"]): errors.append(f"decision mismatch {key}")
+    randomized_ge = int(np.count_nonzero(scores[1:] >= obs))
+    return errors, {
+        "R": row["R_argument"], "stream": key, "observed": obs, "threshold": thr,
+        "strict_reject": reject, "threshold_tie": tied,
+        "randomized_scores_at_or_above_observed": randomized_ge,
+        "add_one_permutation_pvalue": (1 + randomized_ge) / 200,
+    }
+
+
+def main() -> None:
+    summary = json.loads(SUMMARY_PATH.read_text())
+    rows = json.loads(ROWS_PATH.read_text())
+    errors: list[str] = []
+    if [int(r["R_argument"]) for r in rows] != [14, 500]: errors.append("R inventory mismatch")
+    score_summaries = []
+    regenerated = {}
+    indicator = np.concatenate((np.ones(2500), np.zeros(2500)))
+    tiled = np.tile(indicator, (200, 1))
+    for row in rows:
+        r = int(row["R_argument"])
+        if int(row["stored_feature_dimension"]) != 2 * r: errors.append(f"2R mismatch R={r}")
+        if int(row["feature_bytes"]) != 5000 * 2 * r * 8: errors.append(f"feature byte mismatch R={r}")
+        if int(row["native_returned_R"]) != r: errors.append(f"returned R mismatch R={r}")
+        if int(row["native_direct_decision"]) != int(row["traced_decision"]): errors.append(f"native trace mismatch R={r}")
+        for key in ["native", "shared"]:
+            e, s = score_checks(row, key); errors.extend(e); score_summaries.append(s)
+        rng = np.random.default_rng(3830751664)
+        rng.normal(size=(r, 3))
+        ix = independent_permutation(tiled, rng, axis=1); ix[0] = indicator
+        regenerated[r] = ix
+    equal_rows = np.all(regenerated[14] == regenerated[500], axis=1)
+    cross = {
+        "total_rows": 200,
+        "equal_rows_including_observed": int(np.count_nonzero(equal_rows)),
+        "equal_randomized_rows": int(np.count_nonzero(equal_rows[1:])),
+        "randomized_entry_hamming_fraction": float(np.mean(regenerated[14][1:] != regenerated[500][1:])),
+        "observed_row_equal": bool(equal_rows[0]),
+        "shared_control_same_for_both_R": True,
+    }
+    if cross != summary["cross_R_permutation_comparison"]: errors.append("cross-R permutation summary mismatch")
+    if bool(np.all(equal_rows)) != bool(summary["same_seed_native_permutations_match_across_R"]): errors.append("same-seed summary mismatch")
+    if max(float(r["kernel_identity_max_abs_error"]) for r in rows) != float(summary["maximum_kernel_identity_abs_error"]): errors.append("kernel identity summary mismatch")
+    changes = sum(int(r["strict_threshold_summary"]["strict_reject"] != r["shared_permutation_control"]["strict_reject"]) for r in rows)
+    if changes != int(summary["shared_control_decision_changes_vs_native"]): errors.append("shared decision change mismatch")
+    audit = {
+        "schema_version": 1,
+        "all_checks_pass": not errors,
+        "errors": errors,
+        "cross_R_permutation_comparison": cross,
+        "score_summaries": score_summaries,
+        "shared_control_decision_changes_vs_native": changes,
+        "peak_rss_bytes": int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss) * 1024,
+    }
+    if errors: raise RuntimeError(json.dumps(audit, sort_keys=True))
+    OUT_PATH.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(audit, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

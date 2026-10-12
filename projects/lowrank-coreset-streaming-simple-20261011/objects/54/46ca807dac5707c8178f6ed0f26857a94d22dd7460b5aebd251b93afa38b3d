@@ -1,0 +1,57 @@
+{
+  "response_id": "nystrom-native-spectrum-interpret-v1",
+  "request_id": "decision-70cb50b0b5054043b487811e50e08a52",
+  "idea": "nystrom-permutation-validity-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The independent raw-table audit passed. The released floor is entered by 135/448 native-generator settings, concentrated at k>=140, so test its operational score/decision effect on frozen selected native cases before proposing a correction.",
+  "events": [
+    {
+      "event_id": "nystrom-native-spectrum-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "A prospective native-workload spectrum audit tested whether the synthetic w007 floor boundary occurs in the released correlated-Gaussian protocol.",
+      "hypothesis": "At least one setting in the frozen native correlated-Gaussian sample enters the released absolute 1e-12 singular-value floor.",
+      "prediction": "The independent raw table will contain at least one center-kernel singular value below 1e-12; if none do, do not develop a mapping change from the synthetic boundary alone.",
+      "result": "The verified 448-row audit found 135 crossing rows: 23/56 at k=140 and 56/56 at each of k=350 and k=500; none at k<=70. Minimum singular value was 2.07e-20 (2.07e-8 times the floor). Peak producer RSS was 136,339,456 bytes.",
+      "interpretation": "The numerical condition occurs in a finite prospective sample of the released native generator/default landmark grid, not only in the synthetic fixture. This does not establish score impact, null calibration, power, trial frequency, or paper invalidity.",
+      "next_action": "Compare released versus explicit absolute/relative spectral truncation on frozen native cases, retaining complete permutation-score ordering and direct decisions.",
+      "evidence": [
+        {"path": "plans/nystrom_native_spectrum_v1.md", "sha256": "bc8cc0168c44a580c94e3116f6b5e919557ea478e0b8d816b38c73d7e05b6bee"},
+        {"path": "results/nystrom_native_spectrum_v1.json", "sha256": "63ba294aa1442aece1b8d4e08c450df2ba2ab9a384a512a4fc2c14ede65020eb"},
+        {"path": "results/nystrom_native_spectrum_v1_rows.json", "sha256": "7129c43c639fa907dc78566ce7f28590e2998d8aa12c9209f83040b388187716"},
+        {"path": "results/nystrom_native_spectrum_v1_audit.json", "sha256": "b8ea282ad38e93c674c2237ceb9b7b7338fa179a22f597caab1fb2f0cc6161c7"},
+        {"path": "notes/nystrom_native_spectrum_v1_analysis.md", "sha256": "f7bc7e902d278c8e23b621ad1a1a267d419342e9921adc73360965c78354f17d"}
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "nystrom-native-mapping-sensitivity-v1",
+      "argv": ["python3", "scripts/cpu_guard.py", "python3", "scripts/nystrom_native_mapping_sensitivity_v1.py"],
+      "phase": "diagnostic",
+      "purpose": "Measure permutation-score and decision sensitivity to released floor versus explicit spectral truncation on selected native cases",
+      "timeout_seconds": 300,
+      "cwd": ".",
+      "depends_on": ["nystrom-native-spectrum-audit-v1"],
+      "input_refs": [
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+        {"path": "scripts/nystrom_native_mapping_sensitivity_v1.py", "sha256": "d5de75e0b1152a3f9258931487f765540f9c1f4de24e17e00cc3706c38e1ce84"},
+        {"path": "plans/nystrom_native_mapping_sensitivity_v1.md", "sha256": "0c36b07c14b756f852104f94881cd6327599c2c0309bf091a2dac2571a54da4d"},
+        {"path": "results/nystrom_native_spectrum_v1_rows.json", "sha256": "7129c43c639fa907dc78566ce7f28590e2998d8aa12c9209f83040b388187716"},
+        {"path": "results/nystrom_native_spectrum_v1_audit.json", "sha256": "b8ea282ad38e93c674c2237ceb9b7b7338fa179a22f597caab1fb2f0cc6161c7"},
+        {"path": ".deps/nystrom_read/kernels.py", "sha256": "3754b1fe425d1e4b8a5bac253b36b0a9cccaeb30fb62b5fda6e5f52870a794d9"},
+        {"path": ".deps/nystrom_read/nystrom.py", "sha256": "5ff586ecefb2d04a21143c84400900c2ea2c7a392c64686d14087232b8ab75d4"},
+        {"path": ".deps/nystrom_read/samplers.py", "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"},
+        {"path": ".deps/nystrom_read/tests.py", "sha256": "d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"},
+        {"path": ".deps/nystrom_read/utils.py", "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"},
+        {"path": ".deps/nystrom_read/recursive_nystrom.py", "sha256": "4ec62beabbd941ea6aa35f8c5e5ca1e10fe72917d959b704cd96d3a2bfa06ec6"},
+        {"path": "compat/tqdm.py", "sha256": "875df2efb6f4ceaa3bb42f4bb3f1819322da38ee8fbc9cb035b71cbe936651f8"},
+        {"path": "compat/h5py.py", "sha256": "ea752b38f5ba40842964eff772df984d1ea9b8e8e9e4e053ebf87b95f668e42d"}
+      ],
+      "outputs": [
+        "results/nystrom_native_mapping_sensitivity_v1.json",
+        "results/nystrom_native_mapping_sensitivity_v1_rows.json"
+      ]
+    }
+  ]
+}

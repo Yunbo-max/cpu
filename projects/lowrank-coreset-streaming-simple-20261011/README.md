@@ -4,13 +4,13 @@
 
 可直接阅读 [当前检查点](current/CHECKPOINT.json)、[研究历史与恢复说明](current/START_HERE.md)、[累计窗口账本](current/execution_windows/ledger.json)。当前最新研究结论与下一步以这些文件和已保存 runner inbox 为准。保留全部正负结果、失败记录、原始结果、代码、固定运行器和收据。没有已确认的新算法。
 
-`LATEST.json` 指向一个 SHA-256 校验的快照清单；`objects/` 按内容哈希保存文件，超过8MiB的单个对象放入 `chunked/` 的4MiB分块，`snapshots/` 保留每次完整文件映射。相同文件不重复上传，不删除旧快照对象。对象的原始路径（包括运行账本和嵌套作者仓库历史）均在清单内，恢复后字节不变。可重新获取的依赖、原始 Parquet 和未授予再分发许可的临时材料仍按原项目规则排除，精确来源和哈希保留。
+`LATEST.json` 指向一个 SHA-256 校验的快照清单；`objects/` 按内容哈希保存文件，新写入且超过512KiB的单个对象放入 `chunked/` 的256KiB分块，旧快照的4MiB分块仍可原样读取，`snapshots/` 保留每次完整文件映射。相同文件不重复上传，不删除旧快照对象。对象的原始路径（包括运行账本和嵌套作者仓库历史）均在清单内，恢复后字节不变。可重新获取的依赖、原始 Parquet 和未授予再分发许可的临时材料仍按原项目规则排除，精确来源和哈希保留。
 
 ## 恢复—运行—保存—清理
 
 1. 读取远端最新 main 和本目录 LATEST；若本地已有工作，先比较检查点时间、sequence、证据哈希，禁止覆盖更新现场。
 2. 在独立临时 checkout 中只恢复本项目。可使用 `git clone --depth 1 --filter=blob:none --sparse https://github.com/Yunbo-max/cpu.git checkout` 后，在 checkout 中执行 `git sparse-checkout set projects/lowrank-coreset-streaming-simple-20261011`。克隆记录实际 commit。
-3. 执行 `python3 projects/lowrank-coreset-streaming-simple-20261011/archive_store.py restore /absolute/path/lowrank_coreset_streaming_rsi_simple`。目标必须不存在；脚本校验每个对象及恢复后的每个文件。随后阅读 START_HERE 和固定 runtime 技能，重新检查资源/身份/收据。归档停止的 w001–w007 全部保留，下一可用窗口从 w008 接续，不修改旧预算。
+3. 执行 `python3 projects/lowrank-coreset-streaming-simple-20261011/archive_store.py restore /absolute/path/lowrank_coreset_streaming_rsi_simple`。目标必须不存在；脚本校验每个对象及恢复后的每个文件。随后阅读 START_HERE 和固定 runtime 技能，重新检查资源/身份/收据。归档停止的 w001–w008 全部保留，下一可用窗口从 w009 接续，不修改旧预算。
 4. 数值任务通过固定 runner 和 cpu_guard；代码和真实结果先在工作目录保存。结束前调和所有任务/收据，监督器退出或处于已证实安静边界，运行项目 `scripts/build_checkpoint.py`。
 5. 执行 `python3 projects/lowrank-coreset-streaming-simple-20261011/archive_store.py pack /absolute/path/LowRank_Coreset_Streaming_Simple_Checkpoint.zip`；它验证 ZIP 成员，新增变更对象与完整快照。更新本项目摘要。
 6. 基于最新 main 提交本项目目录，普通非强推。冲突时重新获取最新 main 并只调和本项目变化，不覆盖其他项目。不得 force/reset 远端。失败时保留唯一现场。
@@ -20,8 +20,8 @@
 
 ## 本次新结果
 
-w007 已完成原生 Nyström 投影、随机流与高精度数值边界诊断，累计30个研究周期。普通情形中，源码特征核与独立投影的相对 Frobenius 误差为 `4.38e-15`，19,900对置换分数排序无反转；原生和跟踪决策一致。4096个固定种子的同种子地标/保留置换平均交集未偏离超几何期望，但这不证明独立。
+w008 已完成原生 Nyström 谱、映射敏感性和 RFF 特征/决策语义诊断，累计33个研究周期。原生谱审计覆盖448行；源码 `1e-12` 奇异值下限在135行触发，集中于 `k>=140`，说明w007合成反例中的截断机制确实会进入冻结的原生生成器样本。
 
-合成近重合地标提供了一个高精度确认的数值反例：当地标间距为 `1e-6`、中心核最小特征值约 `2.43e-13` 时，源码的 `1e-12` 奇异值下限相对100位十进制精确逆投影产生 `0.10399` 相对误差，并改变 `1478/19900=7.43%` 的置换分数对排序。80/100/120位参考在转为float64后完全收敛，120位逆矩阵残差低于 `1.1e-103`。这排除了双精度参考伪逆假象，但仍只是刻意构造的边界，不表示论文工作负载会遇到，也没有零假设校准、功效或论文失效结论。
+但在按谱极值选出的 `k=140/350/500` 病例和 `k=70` 对照中，源码映射与两种替代截断的8项比较均无严格置换分数对次序反转、无二元决策改变；最大分数向量相对L2差仅 `6.382908e-6`。因此原生截断发生不等于已观察到统计决策缺陷，当前不启动修正映射的大规模零假设/功效实验。
 
-下一步：在 unchanged native paper workload 中记录地标中心核奇异值相对 `1e-12` 下限的位置；只有真实工作负载触及边界后才比较修正映射。随后完成2R RFF特征约定和实际决策语义审查。w007 数值峰值RSS为143,732,736字节；两项执行/格式故障及其修复都完整保留。详细状态、原始结果与收据见 `current/CHECKPOINT.json` 和最新快照。
+RFF审计确认参数 `R` 实际存储 `2R` 个cos/sin坐标；跨R复用同一整数种子不能得到配对置换，因为特征采样先消耗不同数量的随机数。下一步先审查比较主张与成本口径，再冻结一个按实际保留状态匹配、显式分离特征/地标与共享置换子流、并含全秩参考的小型原生校准。w008数值峰值RSS为401,305,600字节；首次因作者可选h5py导入失败的记录及修复均保留。详细状态、原始结果与收据见 `current/CHECKPOINT.json` 和最新快照。

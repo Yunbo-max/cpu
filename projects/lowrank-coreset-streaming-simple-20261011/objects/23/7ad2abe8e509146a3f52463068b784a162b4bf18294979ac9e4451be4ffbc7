@@ -1,0 +1,16 @@
+# Native spectrum raw-table audit v1
+
+Written after the spectrum task produced outputs and before consuming its summary
+as a research-cycle conclusion. This is a verification pass, not a new scientific
+hypothesis or an additional research cycle.
+
+Independently load the retained raw rows and verify the complete frozen Cartesian
+inventory (7 rho2 values × 8 test seeds × 8 landmark counts), unique row keys,
+finite/nonincreasing spectra of length k, unique in-range landmark indices, and
+all summary counts/minima/maxima. Recompute floor-crossing counts grouped by k and
+rho2, plus the counts under NumPy's stated default relative cutoff. The audit must
+fail on any inconsistency and emit only a valid JSON report. It does not recompute
+the native kernels or establish calibration/power.
+
+Run CPU-only, one thread, through `cpu_guard.py`; expected memory is below the
+136,339,456-byte producer peak because it only parses the retained table.

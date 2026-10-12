@@ -1,0 +1,38 @@
+{
+  "response_id": "rff-semantics-interpret-complete-v1",
+  "request_id": "decision-5736830b0599474895aa0f0d8a09939f",
+  "idea": "nystrom-permutation-validity-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The independent RFF audit passed. It resolves the remaining implementation semantics without demonstrating invalid calibration, paper failure, or a new method, so close this scoped idea inconclusively and select a separately versioned successor for any state-matched comparison.",
+  "events": [
+    {
+      "event_id": "rff-feature-decision-semantics-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "A frozen native trace tested the source's feature-width, permutation-stream, and decision semantics at two R values.",
+      "hypothesis": "The source stores 2R cosine/sine coordinates and the same integer seed yields different randomized label rows across R because feature draws consume an R-dependent prefix, while the traced decisions still reproduce native outputs.",
+      "prediction": "Stored dimensions equal 2R; no randomized permutation rows match between R=14 and R=500; feature-kernel identity and both direct decisions reproduce numerically.",
+      "result": "All predictions held. Stored widths were 28 and 1000; kernel identity error was at most 1.22e-15; 0/199 randomized rows matched and randomized label Hamming fraction was 0.499216. Both direct decisions reproduced. For R=500, an explicit shared-permutation control changed the selected decision from add-one p=.065 to p=.035.",
+      "interpretation": "R is a frequency count, not stored coordinate count, and same integer seeds do not pair permutation draws across R. The selected decision change illustrates finite-permutation Monte Carlo variability; it does not establish that either marginal test is invalid. Future matched-state comparisons must count 2R storage and use explicit substreams.",
+      "next_action": "Close this scoped validity idea and separately design a prospective state-matched Nyström-versus-RFF comparison with explicit substreams and uncertainty, if source/claim review shows it changes interpretation.",
+      "evidence": [
+        {"path": "plans/rff_feature_decision_semantics_v1.md", "sha256": "38dbe1d1c1d14999630c20db375e9bb164cb0710e71577957490dd61bf7b8df1"},
+        {"path": "results/rff_feature_decision_semantics_v1.json", "sha256": "6963764f16fcd52bfe3b3ff0f64a532f330d3832269c08099c1db063156aac0a"},
+        {"path": "results/rff_feature_decision_semantics_v1_rows.json", "sha256": "c59c414dd0af94b357d39b9b3fd6d7acffb2a3085807747aabe8d259575ea762"},
+        {"path": "results/rff_feature_decision_semantics_v1_audit.json", "sha256": "3446391fa8139902079f29e35684560475ec7c89db1dea4418e54dbaf2ca3e47"},
+        {"path": "notes/rff_feature_decision_semantics_v1_analysis.md", "sha256": "335cae9dcd73abd86a699d5a9410d46d035381ca3f13e692b30358127d72a73c"}
+      ]
+    },
+    {
+      "event_id": "nystrom-permutation-validity-completion-v1",
+      "kind": "completion",
+      "outcome": "inconclusive",
+      "reason": "The released floor is entered in native generated workloads, but selected native cases showed no ordering or decision effect; RFF implementation conventions are now explicit and reproduced. No null-size/power defect or new method is established.",
+      "evidence": [
+        {"path": "notes/nystrom_native_spectrum_v1_analysis.md", "sha256": "f7bc7e902d278c8e23b621ad1a1a267d419342e9921adc73360965c78354f17d"},
+        {"path": "notes/nystrom_native_mapping_sensitivity_v1_analysis.md", "sha256": "ece32bc9c450f3685e73c1fa9a6dd04a2996bd2e99aa3d217f2959a630809896"},
+        {"path": "notes/rff_feature_decision_semantics_v1_analysis.md", "sha256": "335cae9dcd73abd86a699d5a9410d46d035381ca3f13e692b30358127d72a73c"}
+      ]
+    }
+  ]
+}

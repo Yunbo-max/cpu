@@ -1,0 +1,51 @@
+# Native RFF feature and decision semantics audit v1
+
+Prospective plan written after the verified negative native Nyström mapping result.
+This completes the remaining source-semantic question for the same active idea; it
+does not estimate test power or claim a new algorithm.
+
+## Questions and predictions
+
+On one frozen native correlated-Gaussian data set (`n_x=n_y=2500`, d=3,
+rho1=.5, rho2=.60, test seed 3830751664, external tuning seed 1010093618), trace
+the released `rMMDtest` at R=14 and R=500 with B=199 and alpha=.05.
+
+1. Feature convention: the source draws R frequencies but concatenates cosine and
+   sine coordinates, so the stored representation has dimension `2R`. Prediction:
+   its feature Gram equals the R-term cosine kernel estimate on a 64-row check to
+   numerical precision; `R` is a frequency count, not literal stored width.
+2. Random stream: one RNG first draws `R*d` normals, then draws permutations.
+   Prediction: the same integer seed does not produce the same 199 randomized
+   label rows at R=14 and R=500. This limits paired-comparison semantics but does
+   not by itself invalidate either marginal permutation test.
+3. Decision trace: the source includes one observed row plus 199 randomized rows,
+   uses index `ceil(200*(1-alpha))-1=189`, and randomizes exact threshold ties.
+   Prediction: an independent trace reproduces each direct native decision.
+
+Also generate a diagnostic shared-permutation substream that is independent of R
+to show the concrete pairing control available for future comparisons. This control
+is not substituted into the native verdict and is not called a correction.
+
+## Measurements and decisions
+
+Retain R, stored width, feature bytes, frequency/permutation hashes, all 200 scores,
+kernel-identity error, direct/traced decision, threshold/tie information, cross-R
+permutation row equality and Hamming difference, and decisions under the explicit
+shared-permutation control.
+
+If dimensions/kernel identity or direct decisions do not reproduce, treat that as
+an evaluator/implementation issue. If predictions hold, document the conventions:
+future state comparisons count `2R` coordinates, and paired method/R comparisons
+must not assume the native same-seed permutation rows match. Do not infer null-size
+or power from this one selected data set.
+
+## Resources
+
+CPU only, one thread, `cpu_guard.py`, 4 GiB address-space limit. The largest R=500
+feature matrix is 5000×1000 float64 (40 MB); indicator/weight matrices are about
+24 MB plus temporary products. Expected peak is below 400 MB. A fresh resource
+snapshot recorded 2,666,287,104 bytes instantaneous cgroup headroom, so this fits
+without relying on all file cache being reclaimable.
+
+Outputs: `results/rff_feature_decision_semantics_v1.json` and
+`results/rff_feature_decision_semantics_v1_rows.json`.

@@ -1,0 +1,25 @@
+# Native mapping sensitivity: verified negative result
+
+The independent score-table audit passed all checks for four selected native
+cases and eight released-versus-truncation comparisons. The k=70 noncrossing
+control behaved as expected. More importantly, the outcome-selected worst k=140,
+k=350 and k=500 floor-crossing cases did **not** reproduce the synthetic w007
+score-order instability.
+
+Across both absolute-`1e-12` and NumPy-scale relative truncation policies, maximum
+score-vector relative L2 difference from the released floor was `6.3829e-6`.
+Every comparison had 0 strict pair-order reversals and 0 binary-decision changes.
+The reconstructed released decisions matched direct `NysMMDtest` in all four
+cases. Peak RSS was 273,145,856 bytes.
+
+Thus the native spectrum frequently entering the floor is real in this bounded
+sample, but the operational prediction that a selected native crossing case would
+change permutation-score ordering is contradicted. The synthetic counterexample
+remains valid as a numerical boundary, while an immediate corrected-mapping/null-
+power campaign is not justified by these native selected cases. This is not proof
+of invariance over all paper trials or inverse policies.
+
+The active Nyström validity branch now moves to its remaining predeclared semantic
+check: the RFF argument `R` creates `2R` stored coordinates, and the same integer
+seed consumes R-dependent normal draws before generating permutation rows. Audit
+the exact source trace and decision semantics before closing or revising the branch.

@@ -4,12 +4,12 @@
   "policy_version": "0.3.0-simple.9",
   "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
   "goal_mode": "continuous_research",
-  "active_window": "execution_windows/w007",
-  "idea": "nystrom-permutation-validity-v1",
+  "active_window": "execution_windows/w008",
+  "idea": "nystrom-rff-state-matched-comparison-v1",
   "revision": 1,
   "goal_contract_version": 2,
-  "scientific_status": "Native Nyström ordinary projection matches an independent reference, but a precision-converged synthetic near-singular counterexample shows the released1e-12 singular-value floor changes7.43percent of permutation-score pair orderings at landmark separation1e-6. Same-seed overlap means did not flag and traced/native decisions matched. This is not yet evidence of occurrence, calibration, power, or paper invalidity in native workloads; all earlier retirements remain preserved.",
-  "next_action": "Restore latest GitHub snapshot, reconcile terminal stopped w007 and create w008 with unchanged32/1800/7200 bounds. Instrument unchanged native paper workloads and record landmark-center-kernel singular spectra relative to the1e-12 floor before proposing or evaluating any corrected mapping. Then finish the predeclared2R RFF feature-convention and actual decision-semantics audit; do not repeat completed CTT or synthetic Nyström diagnostics.",
+  "scientific_status": "The released Nyström 1e-12 singular-value floor was entered in135/448 frozen native spectrum rows, concentrated at k>=140, but four outcome-informed native mapping comparisons produced zero strict permutation-score pair reversals and zero binary decision changes; the maximum score-vector relative L2 difference was6.382908e-6. The released RFF path materializes2R cosine/sine coordinates and same integer seeds across R do not pair permutation rows because feature sampling advances the shared RNG. These results delimit reproducibility and comparison semantics; they do not establish a calibration or power defect, paper invalidity, or a new method. All earlier retirements remain preserved.",
+  "next_action": "Restore the latest GitHub snapshot, reconcile terminal stopped w008, and create w009 with unchanged32/1800/7200 bounds. Audit the source and claim semantics for a uniform-Nyström versus RFF comparison, then freeze a small native calibration that matches actual retained state, uses independent feature/landmark substreams and an explicit shared permutation substream, includes a full-rank reference, and counts construction/storage/tuning/permutation cost. Do not rerun the completed synthetic or native mapping diagnostics merely to add cycles.",
   "automation_status": "enabled; hourly recurring schedule without end date",
   "resource_limit_bytes": 8000000000,
   "worker_address_space_limit_bytes": 4294967296,
@@ -131,7 +131,23 @@
     "execution_windows/w007/results/nystrom_high_precision_floor_v1.json",
     "execution_windows/w007/results/nystrom_high_precision_floor_v1_rows.json",
     "execution_windows/w007/results/nystrom_high_precision_audit_v1.json",
-    "execution_windows/w007/notes/nystrom_high_precision_floor_analysis_v1.md"
+    "execution_windows/w007/notes/nystrom_high_precision_floor_analysis_v1.md",
+    "execution_windows/w008/plans/nystrom_native_spectrum_v1.md",
+    "execution_windows/w008/results/nystrom_native_spectrum_v1.json",
+    "execution_windows/w008/results/nystrom_native_spectrum_v1_rows.json",
+    "execution_windows/w008/results/nystrom_native_spectrum_v1_audit.json",
+    "execution_windows/w008/notes/nystrom_native_spectrum_v1_analysis.md",
+    "execution_windows/w008/plans/nystrom_native_mapping_sensitivity_v1.md",
+    "execution_windows/w008/results/nystrom_native_mapping_sensitivity_v1.json",
+    "execution_windows/w008/results/nystrom_native_mapping_sensitivity_v1_rows.json",
+    "execution_windows/w008/results/nystrom_native_mapping_sensitivity_v1_audit.json",
+    "execution_windows/w008/notes/nystrom_native_mapping_sensitivity_v1_analysis.md",
+    "execution_windows/w008/plans/rff_feature_decision_semantics_v1.md",
+    "execution_windows/w008/results/rff_feature_decision_semantics_v1.json",
+    "execution_windows/w008/results/rff_feature_decision_semantics_v1_rows.json",
+    "execution_windows/w008/results/rff_feature_decision_semantics_v1_audit.json",
+    "execution_windows/w008/notes/rff_feature_decision_semantics_v1_analysis.md",
+    "execution_windows/w008/plans/nystrom_rff_state_matched_scope_v1.md"
   ],
   "limitations": [
     "finite-pool guarantee only",
@@ -179,11 +195,15 @@
     "The Nyström projection finding is a synthetic numerical counterexample around a deliberately near-singular landmark matrix; occurrence in published native workloads is untested",
     "The4096-seed same-seed overlap diagnostic found no retained mean shift, but this does not prove landmark/permutation independence or exclude effects on other joint statistics",
     "The selected native and reference binary decisions agreed in seven fixtures even when score ordering changed; no null-size, power, or paper-validity claim follows",
-    "The first Nyström attempt failed because the pinned source imported unavailable tqdm, and successful v2 outputs had invalid literal-backslash-n suffixes; both failures are retained and only valid audited v3 evidence is consumed"
+    "The first Nyström attempt failed because the pinned source imported unavailable tqdm, and successful v2 outputs had invalid literal-backslash-n suffixes; both failures are retained and only valid audited v3 evidence is consumed",
+    "The native spectrum audit is a frozen sample of448 rows, not an exhaustive characterization of the paper workload or all landmark seeds",
+    "The four native mapping cases were selected from spectrum extremes and observed no score-order or decision change; this negative result does not prove stability over all native trials",
+    "RFF R=14 versus R=500 decision differences under native and explicitly shared permutation streams are finite-B near-threshold Monte Carlo observations, not evidence that either marginal test is invalid",
+    "The first w008 spectrum attempt failed only because the author sampler imported unavailable h5py; the fail-closed compatibility shim was used solely on a generator path that never invokes HDF5, and the failed receipt is retained"
   ],
-  "updated_at": "2026-10-12T12:35:11.315187+00:00",
+  "updated_at": "2026-10-12T13:16:42.673593+00:00",
   "execution": {
-    "updated_at": "2026-10-12T12:35:11.315187+00:00",
+    "updated_at": "2026-10-12T13:16:42.673593+00:00",
     "overall_end_date": null,
     "overall_attempt_limit": null,
     "overall_time_limit": null,
@@ -331,7 +351,7 @@
           "elapsed_seconds": 87.4436857169967,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 1111.9869272708893,
+          "remaining_deadline_seconds": 0.0,
           "remaining_seconds": 1712.5563142830033,
           "reserved_seconds": 0
         },
@@ -354,7 +374,7 @@
           "elapsed_seconds": 7.080347406004876,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 5962.091626882553,
+          "remaining_deadline_seconds": 3470.8296780586243,
           "remaining_seconds": 1792.9196525939951,
           "reserved_seconds": 0
         },
@@ -366,18 +386,43 @@
           "nystrom-native-diagnostic-v3": "succeeded",
           "nystrom-native-diagnostic-v3-audit": "succeeded"
         }
+      },
+      {
+        "window": "execution_windows/w008",
+        "status": "stopped",
+        "sequence": 9,
+        "research_cycle_count": 3,
+        "budget": {
+          "attempts_used": 7,
+          "deadline_epoch": 1791816717.1150925,
+          "elapsed_seconds": 11.352494206006668,
+          "max_attempts": 32,
+          "max_command_seconds": 1800,
+          "remaining_deadline_seconds": 5714.4822771549225,
+          "remaining_seconds": 1788.6475057939933,
+          "reserved_seconds": 0
+        },
+        "task_states": {
+          "nystrom-native-mapping-audit-v1": "succeeded",
+          "nystrom-native-mapping-sensitivity-v1": "succeeded",
+          "nystrom-native-spectrum-audit-v1": "succeeded",
+          "nystrom-native-spectrum-v1": "failed",
+          "nystrom-native-spectrum-v2": "succeeded",
+          "rff-feature-decision-semantics-audit-v1": "succeeded",
+          "rff-feature-decision-semantics-v1": "succeeded"
+        }
       }
     ],
-    "cumulative_attempts": 53,
-    "cumulative_command_seconds": 537.8711799620651
+    "cumulative_attempts": 60,
+    "cumulative_command_seconds": 549.2236741680717
   },
   "automation_id": "6acc15a522f08191a1bbf19f58f033a1",
   "library_file_id": "libfile_d0c64b9b3a98819197c0ffcf4641cc50",
-  "current_research_cycle_count": 30,
+  "current_research_cycle_count": 33,
   "additional_bernstein_rows": 96,
   "moment_boundary_checked_suffixes": 20,
   "moment_native_pilot_suffixes": 15,
-  "latest_numerical_peak_rss_kib": 656592,
+  "latest_numerical_peak_rss_kib": 391900,
   "moment_prefix_advice_labels": 49,
   "moment_exact_baseline_checks": 5000,
   "moment_smooth_online_checks": 4000,
@@ -443,5 +488,14 @@
   "nystrom_high_precision_peak_rss_bytes": 120602624,
   "nystrom_eps_1e6_native_relative_error_vs_high_precision": 0.10398730001587717,
   "nystrom_eps_1e6_pair_reversals": 1478,
-  "nystrom_eps_1e6_pair_denominator": 19900
+  "nystrom_eps_1e6_pair_denominator": 19900,
+  "nystrom_native_spectrum_rows": 448,
+  "nystrom_native_spectrum_floor_crossings": 135,
+  "nystrom_native_mapping_comparisons": 8,
+  "nystrom_native_mapping_pair_reversals": 0,
+  "nystrom_native_mapping_decision_changes": 0,
+  "nystrom_native_mapping_max_score_relative_l2": 6.382908e-06,
+  "nystrom_native_spectrum_peak_rss_bytes": 136339456,
+  "nystrom_native_mapping_peak_rss_bytes": 273145856,
+  "rff_feature_decision_semantics_peak_rss_bytes": 401305600
 }

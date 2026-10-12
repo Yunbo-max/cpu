@@ -1,0 +1,54 @@
+{
+  "response_id": "nystrom-mapping-interpret-rff-submit-v1",
+  "request_id": "decision-0253c30581af4dac902e7479b358a93a",
+  "idea": "nystrom-permutation-validity-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The independent mapping audit passed and contradicts the predicted native score-order effect. Preserve that negative result and move to the remaining predeclared RFF feature/random-stream/decision semantics audit.",
+  "events": [
+    {
+      "event_id": "nystrom-native-mapping-sensitivity-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "Selected native floor-crossing cases tested whether the released floor materially changes permutation-score ordering relative to two explicit truncation policies.",
+      "hypothesis": "At least one selected native floor-crossing case will show a strict permutation-score pair-order reversal versus absolute or relative spectral truncation, while a k=70 noncrossing control remains stable.",
+      "prediction": "The k=70 control has no reversals and negligible error; at least one outcome-selected k=140/350/500 crossing case has a nonzero strict reversal count.",
+      "result": "All eight released-versus-truncation comparisons had zero strict pair-order reversals and zero decision changes. Maximum score relative L2 difference was 6.3829e-6; direct native decisions matched the reconstructed released path in all four cases. Peak RSS was 273,145,856 bytes.",
+      "interpretation": "The operational prediction is contradicted on these selected native cases. Frequent spectrum-floor entry is real, but it did not produce the synthetic ranking instability here; do not launch a corrected-mapping/null-power campaign from this evidence. This does not prove invariance over all paper trials.",
+      "next_action": "Complete the frozen native RFF 2R feature convention and R-dependent permutation-stream/decision semantics audit.",
+      "evidence": [
+        {"path": "plans/nystrom_native_mapping_sensitivity_v1.md", "sha256": "0c36b07c14b756f852104f94881cd6327599c2c0309bf091a2dac2571a54da4d"},
+        {"path": "results/nystrom_native_mapping_sensitivity_v1.json", "sha256": "30d77a68630e0bca4faad7142e1bbf66508a3ff667517751225e2655044d0caf"},
+        {"path": "results/nystrom_native_mapping_sensitivity_v1_rows.json", "sha256": "761704e9a34efd69dd0383c3bb8cb118b9e3374982cdc8d4d5f84e0508363d9d"},
+        {"path": "results/nystrom_native_mapping_sensitivity_v1_audit.json", "sha256": "1e295617cdca5e86b2427edca40866d99f1beb9e10c3fa629e4c156f36f2e48f"},
+        {"path": "notes/nystrom_native_mapping_sensitivity_v1_analysis.md", "sha256": "ece32bc9c450f3685e73c1fa9a6dd04a2996bd2e99aa3d217f2959a630809896"}
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "rff-feature-decision-semantics-v1",
+      "argv": ["python3", "scripts/cpu_guard.py", "python3", "scripts/rff_feature_decision_semantics_v1.py"],
+      "phase": "diagnostic",
+      "purpose": "Verify the native RFF 2R storage convention, R-dependent permutation streams, and exact decision trace",
+      "timeout_seconds": 180,
+      "cwd": ".",
+      "depends_on": ["nystrom-native-mapping-audit-v1"],
+      "input_refs": [
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+        {"path": "scripts/rff_feature_decision_semantics_v1.py", "sha256": "253e16ebdf4a68cb0e6142e95b238a118cc34e8afac6b60ea4c64c226c1687d9"},
+        {"path": "plans/rff_feature_decision_semantics_v1.md", "sha256": "38dbe1d1c1d14999630c20db375e9bb164cb0710e71577957490dd61bf7b8df1"},
+        {"path": "notes/resources_pre_rff_v1.json", "sha256": "ee2b79ef1f2769ea716ae45e84f1fba62cbd259567bcdc49c81e276fd1cefec0"},
+        {"path": "sources/nystrom_source_manifest_v2.json", "sha256": "41d3d2ce3383f6b6e52462c6d4227eabf9484c0730218ae54e7af74562beb1b0"},
+        {"path": ".deps/nystrom_read/samplers.py", "sha256": "73e1ee47d9b7a317a6a330323394aedb74db6da583930db4e6f8ec76be630faa"},
+        {"path": ".deps/nystrom_read/tests.py", "sha256": "d394abc050e2f5a634f8daa34758e1b0fa98ef50937e56faaeab14440c5c91d9"},
+        {"path": ".deps/nystrom_read/utils.py", "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"},
+        {"path": "compat/tqdm.py", "sha256": "875df2efb6f4ceaa3bb42f4bb3f1819322da38ee8fbc9cb035b71cbe936651f8"},
+        {"path": "compat/h5py.py", "sha256": "ea752b38f5ba40842964eff772df984d1ea9b8e8e9e4e053ebf87b95f668e42d"}
+      ],
+      "outputs": [
+        "results/rff_feature_decision_semantics_v1.json",
+        "results/rff_feature_decision_semantics_v1_rows.json"
+      ]
+    }
+  ]
+}

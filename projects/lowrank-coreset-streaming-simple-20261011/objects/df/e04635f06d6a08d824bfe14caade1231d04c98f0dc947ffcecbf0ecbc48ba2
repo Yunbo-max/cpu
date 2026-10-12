@@ -1,0 +1,28 @@
+{
+  "response_id": "rff-semantics-audit-response-v1",
+  "request_id": "decision-b24bbcedb45e4c4aafa4115b43c577a4",
+  "idea": "nystrom-permutation-validity-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The RFF semantics task confirms 2R stored coordinates and R-dependent same-seed permutation rows, with one selected near-threshold decision changing under an explicit shared-permutation control. Audit the retained scores and regenerate the RNG comparison before interpretation.",
+  "tasks": [
+    {
+      "task_id": "rff-feature-decision-semantics-audit-v1",
+      "argv": ["python3", "scripts/cpu_guard.py", "python3", "scripts/audit_rff_feature_decision_semantics_v1.py"],
+      "phase": "verify",
+      "purpose": "Audit RFF 2R feature dimensions, exact score decisions, and regenerated cross-R permutation streams",
+      "timeout_seconds": 60,
+      "cwd": ".",
+      "depends_on": ["rff-feature-decision-semantics-v1"],
+      "input_refs": [
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+        {"path": "scripts/audit_rff_feature_decision_semantics_v1.py", "sha256": "423e86d0dc438b1b7691b09ab47d0976bfcefb92d7cc280764182a6bfee5a94d"},
+        {"path": "plans/rff_feature_decision_semantics_audit_v1.md", "sha256": "51d8649249da8acdc4dae6c88aa3629d7031d9a9da7036b38aac105509c2f8d2"},
+        {"path": "results/rff_feature_decision_semantics_v1.json", "sha256": "6963764f16fcd52bfe3b3ff0f64a532f330d3832269c08099c1db063156aac0a"},
+        {"path": "results/rff_feature_decision_semantics_v1_rows.json", "sha256": "c59c414dd0af94b357d39b9b3fd6d7acffb2a3085807747aabe8d259575ea762"},
+        {"path": ".deps/nystrom_read/utils.py", "sha256": "9e2ce3492969402e86f3ba126c4e68ac1595730f5947653fb6534868ab01986e"}
+      ],
+      "outputs": ["results/rff_feature_decision_semantics_v1_audit.json"]
+    }
+  ]
+}

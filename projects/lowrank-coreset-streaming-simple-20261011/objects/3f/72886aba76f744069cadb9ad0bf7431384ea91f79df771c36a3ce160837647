@@ -1,0 +1,27 @@
+{
+  "response_id": "nystrom-native-mapping-audit-response-v1",
+  "request_id": "decision-5a45b0eefe094c79a39546a9e62a73cd",
+  "idea": "nystrom-permutation-validity-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The selected native cases show no score-order or decision changes despite floor crossings. Independently verify all retained score vectors and summaries before recording that negative result and changing direction.",
+  "tasks": [
+    {
+      "task_id": "nystrom-native-mapping-audit-v1",
+      "argv": ["python3", "scripts/cpu_guard.py", "python3", "scripts/audit_nystrom_native_mapping_v1.py"],
+      "phase": "verify",
+      "purpose": "Audit selected-case Nyström mapping score vectors, thresholds, order comparisons, and summaries",
+      "timeout_seconds": 60,
+      "cwd": ".",
+      "depends_on": ["nystrom-native-mapping-sensitivity-v1"],
+      "input_refs": [
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+        {"path": "scripts/audit_nystrom_native_mapping_v1.py", "sha256": "c52c438385c2b3de13e24d0f882e96e2388219972dac2fdacc13be81cbc8b50e"},
+        {"path": "plans/nystrom_native_mapping_audit_v1.md", "sha256": "73206e3970c25f9ec1e4280ab4b32ba585be740166fa54364d98ca4f645e8a37"},
+        {"path": "results/nystrom_native_mapping_sensitivity_v1.json", "sha256": "30d77a68630e0bca4faad7142e1bbf66508a3ff667517751225e2655044d0caf"},
+        {"path": "results/nystrom_native_mapping_sensitivity_v1_rows.json", "sha256": "761704e9a34efd69dd0383c3bb8cb118b9e3374982cdc8d4d5f84e0508363d9d"}
+      ],
+      "outputs": ["results/nystrom_native_mapping_sensitivity_v1_audit.json"]
+    }
+  ]
+}
