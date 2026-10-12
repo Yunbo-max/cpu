@@ -11,18 +11,18 @@
   "active_idea": "teso-soft-translation-prior-calibration",
   "revision": 1,
   "goal_contract": 1,
-  "attempts_used": 79,
-  "command_seconds": 3546.441525776031,
+  "attempts_used": 82,
+  "command_seconds": 3614.3195147820306,
   "supervisor_running": false,
   "unknown_attempts": 0,
   "cleanup_preflight": {
-    "files": 4751,
-    "bytes": 1861117915
+    "files": 2405,
+    "checkpoint_bytes": 267608535
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "wake20_targets_absent_on_three_separate_rechecks",
-  "local_workspace_state": "Wake20 verified changed files were removed and absent on three separate rechecks; local root remains a partial historical/rematerialized tree. Persistent deletion is not guaranteed.",
+  "cleanup_status": "wake21_remote_verification_pending",
+  "local_workspace_state": "Wake21 overlay uploaded; changed-file restore verification and scoped cleanup are pending.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -43,18 +43,23 @@
       "commit": "a932429f3e0445dcfe1f6c49a670f4bd370c9e4c",
       "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-12-wake20/manifest.json",
       "archive_sha256": "ec512bdb1adabe90fcabbc249c15df0f2995299ade5d598c74e7272bdf19bfbf"
+    },
+    {
+      "commit": "d885f869aee4b136ca3144fe2aa9350811e00f4d",
+      "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-12-wake21/manifest.json",
+      "archive_sha256": "d9167fdce1d653bfdd143cd65bf832f521142b3cdbb0821700882da432dd94ac"
     }
   ],
   "restore_usage": "Fetch helper from this latest.json commit; --commit must be that current main commit, not only archive_commit. Helper resolves immutable base+overlays before extracting selected paths into a new empty staging directory.",
-  "journal_version": 130,
+  "journal_version": 134,
   "empirical_research_cycles": 30,
-  "latest_handoff": "notes/handoff-wake20.md",
-  "verified_at_utc": "2026-10-12T15:05:34.347Z",
-  "verification_path": "projects/3d-autopilot-simple/verification-wake20.json",
+  "latest_handoff": "notes/handoff-wake21.md",
+  "verified_at_utc": null,
+  "verification_path": "projects/3d-autopilot-simple/verification-wake21.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
-  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake20.json",
-  "cleanup_observed_at_utc": "2026-10-12T15:08:24.103045+00:00",
-  "restore_verification_commit": "8048d0eb045e55202f8b6f195c056374dc222932",
-  "total_index_files": 2874,
-  "build_receipt_path": "projects/3d-autopilot-simple/build-wake20.json"
+  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake21.json",
+  "cleanup_observed_at_utc": null,
+  "restore_verification_commit": null,
+  "total_index_files": 2940,
+  "build_receipt_path": "projects/3d-autopilot-simple/build-wake21.json"
 }
