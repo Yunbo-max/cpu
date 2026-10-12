@@ -1,0 +1,598 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-12T14:28:56.889072+00:00",
+  "scope": "Fixed-code mechanism audit on exposed TICO development data; no fresh confirmation or tuning claim.",
+  "languages": [
+    "en",
+    "fr",
+    "es"
+  ],
+  "rows": 970,
+  "hybrid_classical_common_prefix_merges": 500,
+  "inputs": {
+    "base.codes": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f",
+    "classical.codes": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2",
+    "dev.json": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b",
+    "en.dict": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2",
+    "es.dict": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28",
+    "fr.dict": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391",
+    "hybrid.codes": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8",
+    "wake16b_evaluation.json": "e43cc324115e862387b34a8d279e599e75269942d2d1299ea54001011f0ffb4f"
+  },
+  "pretokenization_validation": {
+    "classical": {
+      "expected": {
+        "en": 57.56082474226804,
+        "fr": 70.12886597938144,
+        "es": 67.09381443298969
+      },
+      "replayed": {
+        "en": 57.56082474226804,
+        "fr": 70.12886597938144,
+        "es": 67.09381443298969
+      },
+      "differences": {
+        "en": 0.0,
+        "fr": 0.0,
+        "es": 0.0
+      }
+    },
+    "hybrid": {
+      "expected": {
+        "en": 62.54639175257732,
+        "fr": 67.75257731958763,
+        "es": 67.74639175257732
+      },
+      "replayed": {
+        "en": 62.54639175257732,
+        "fr": 67.75257731958763,
+        "es": 67.74639175257732
+      },
+      "differences": {
+        "en": 0.0,
+        "fr": 0.0,
+        "es": 0.0
+      }
+    },
+    "base": {
+      "expected": {
+        "en": 66.98762886597937,
+        "fr": 67.35773195876288,
+        "es": 67.37938144329897
+      },
+      "replayed": {
+        "en": 66.98762886597937,
+        "fr": 67.35773195876288,
+        "es": 67.37938144329897
+      },
+      "differences": {
+        "en": 0.0,
+        "fr": 0.0,
+        "es": 0.0
+      }
+    }
+  },
+  "arms": {
+    "classical": {
+      "codes_sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2",
+      "initial_train_lengths": {
+        "en": 506499,
+        "fr": 536419,
+        "es": 548313
+      },
+      "checkpoints": {
+        "0": {
+          "rank": 0,
+          "dev_total_tokens": {
+            "en": 142226,
+            "fr": 179579,
+            "es": 167661
+          },
+          "dev_mean_tokens": {
+            "en": 146.62474226804125,
+            "fr": 185.13298969072164,
+            "es": 172.84639175257732
+          },
+          "gini": 0.05087585245961924,
+          "total_mean_cost": 504.6041237113402,
+          "worst_language": "fr",
+          "worst_mean_cost": 185.13298969072164
+        },
+        "500": {
+          "rank": 500,
+          "dev_total_tokens": {
+            "en": 63951,
+            "fr": 76402,
+            "es": 74345
+          },
+          "dev_mean_tokens": {
+            "en": 65.92886597938144,
+            "fr": 78.76494845360824,
+            "es": 76.64432989690722
+          },
+          "gini": 0.03866205864361412,
+          "total_mean_cost": 221.33814432989692,
+          "worst_language": "fr",
+          "worst_mean_cost": 78.76494845360824
+        },
+        "1000": {
+          "rank": 1000,
+          "dev_total_tokens": {
+            "en": 55834,
+            "fr": 68025,
+            "es": 65081
+          },
+          "dev_mean_tokens": {
+            "en": 57.56082474226804,
+            "fr": 70.12886597938144,
+            "es": 67.09381443298969
+          },
+          "gini": 0.043015419357115156,
+          "total_mean_cost": 194.78350515463916,
+          "worst_language": "fr",
+          "worst_mean_cost": 70.12886597938144
+        }
+      },
+      "phases": {
+        "prefix_1_500": {
+          "ranks": [
+            1,
+            500
+          ],
+          "merges": 500,
+          "train_reduction": {
+            "en": 275218,
+            "fr": 304365,
+            "es": 301434
+          },
+          "dev_reduction": {
+            "en": 78275,
+            "fr": 103177,
+            "es": 93316
+          },
+          "selected_target_counts": {},
+          "train_effect_owner_counts": {
+            "fr": 169,
+            "en": 173,
+            "es": 158
+          },
+          "dev_effect_owner_counts": {
+            "fr": 175,
+            "en": 174,
+            "es": 151
+          },
+          "selected_target_is_dev_effect_owner": 0,
+          "selected_target_has_positive_dev_effect": 0,
+          "targeted_merges": 0,
+          "target_switches": 0,
+          "max_consecutive_target_run": 0,
+          "gini_worsening_steps": 295,
+          "pairwise_gap_sign_crossings": 0
+        },
+        "tail_501_1000": {
+          "ranks": [
+            501,
+            1000
+          ],
+          "merges": 500,
+          "train_reduction": {
+            "en": 27588,
+            "fr": 26606,
+            "es": 31146
+          },
+          "dev_reduction": {
+            "en": 8117,
+            "fr": 8377,
+            "es": 9264
+          },
+          "selected_target_counts": {},
+          "train_effect_owner_counts": {
+            "es": 188,
+            "en": 161,
+            "fr": 151
+          },
+          "dev_effect_owner_counts": {
+            "es": 178,
+            "en": 173,
+            "fr": 149
+          },
+          "selected_target_is_dev_effect_owner": 0,
+          "selected_target_has_positive_dev_effect": 0,
+          "targeted_merges": 0,
+          "target_switches": 0,
+          "max_consecutive_target_run": 0,
+          "gini_worsening_steps": 324,
+          "pairwise_gap_sign_crossings": 0
+        },
+        "all_1_1000": {
+          "ranks": [
+            1,
+            1000
+          ],
+          "merges": 1000,
+          "train_reduction": {
+            "en": 302806,
+            "fr": 330971,
+            "es": 332580
+          },
+          "dev_reduction": {
+            "en": 86392,
+            "fr": 111554,
+            "es": 102580
+          },
+          "selected_target_counts": {},
+          "train_effect_owner_counts": {
+            "fr": 320,
+            "en": 334,
+            "es": 346
+          },
+          "dev_effect_owner_counts": {
+            "fr": 324,
+            "en": 347,
+            "es": 329
+          },
+          "selected_target_is_dev_effect_owner": 0,
+          "selected_target_has_positive_dev_effect": 0,
+          "targeted_merges": 0,
+          "target_switches": 0,
+          "max_consecutive_target_run": 0,
+          "gini_worsening_steps": 619,
+          "pairwise_gap_sign_crossings": 0
+        }
+      }
+    },
+    "hybrid": {
+      "codes_sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8",
+      "initial_train_lengths": {
+        "en": 506499,
+        "fr": 536419,
+        "es": 548313
+      },
+      "checkpoints": {
+        "0": {
+          "rank": 0,
+          "dev_total_tokens": {
+            "en": 142226,
+            "fr": 179579,
+            "es": 167661
+          },
+          "dev_mean_tokens": {
+            "en": 146.62474226804125,
+            "fr": 185.13298969072164,
+            "es": 172.84639175257732
+          },
+          "gini": 0.05087585245961924,
+          "total_mean_cost": 504.6041237113402,
+          "worst_language": "fr",
+          "worst_mean_cost": 185.13298969072164
+        },
+        "500": {
+          "rank": 500,
+          "dev_total_tokens": {
+            "en": 63951,
+            "fr": 76402,
+            "es": 74345
+          },
+          "dev_mean_tokens": {
+            "en": 65.92886597938144,
+            "fr": 78.76494845360824,
+            "es": 76.64432989690722
+          },
+          "gini": 0.03866205864361412,
+          "total_mean_cost": 221.33814432989692,
+          "worst_language": "fr",
+          "worst_mean_cost": 78.76494845360824
+        },
+        "1000": {
+          "rank": 1000,
+          "dev_total_tokens": {
+            "en": 60670,
+            "fr": 65720,
+            "es": 65714
+          },
+          "dev_mean_tokens": {
+            "en": 62.54639175257732,
+            "fr": 67.75257731958763,
+            "es": 67.74639175257732
+          },
+          "gini": 0.017525229389636167,
+          "total_mean_cost": 198.04536082474226,
+          "worst_language": "fr",
+          "worst_mean_cost": 67.75257731958763
+        }
+      },
+      "phases": {
+        "prefix_1_500": {
+          "ranks": [
+            1,
+            500
+          ],
+          "merges": 500,
+          "train_reduction": {
+            "en": 275218,
+            "fr": 304365,
+            "es": 301434
+          },
+          "dev_reduction": {
+            "en": 78275,
+            "fr": 103177,
+            "es": 93316
+          },
+          "selected_target_counts": {},
+          "train_effect_owner_counts": {
+            "fr": 169,
+            "en": 173,
+            "es": 158
+          },
+          "dev_effect_owner_counts": {
+            "fr": 175,
+            "en": 174,
+            "es": 151
+          },
+          "selected_target_is_dev_effect_owner": 0,
+          "selected_target_has_positive_dev_effect": 0,
+          "targeted_merges": 0,
+          "target_switches": 0,
+          "max_consecutive_target_run": 0,
+          "gini_worsening_steps": 295,
+          "pairwise_gap_sign_crossings": 0
+        },
+        "tail_501_1000": {
+          "ranks": [
+            501,
+            1000
+          ],
+          "merges": 500,
+          "train_reduction": {
+            "en": 8427,
+            "fr": 33340,
+            "es": 30559
+          },
+          "dev_reduction": {
+            "en": 3281,
+            "fr": 10682,
+            "es": 8631
+          },
+          "selected_target_counts": {
+            "fr": 323,
+            "es": 177
+          },
+          "train_effect_owner_counts": {
+            "fr": 293,
+            "es": 192,
+            "en": 15
+          },
+          "dev_effect_owner_counts": {
+            "fr": 264,
+            "es": 188,
+            "en": 48
+          },
+          "selected_target_is_dev_effect_owner": 428,
+          "selected_target_has_positive_dev_effect": 487,
+          "targeted_merges": 500,
+          "target_switches": 222,
+          "max_consecutive_target_run": 28,
+          "gini_worsening_steps": 90,
+          "pairwise_gap_sign_crossings": 208
+        },
+        "all_1_1000": {
+          "ranks": [
+            1,
+            1000
+          ],
+          "merges": 1000,
+          "train_reduction": {
+            "en": 283645,
+            "fr": 337705,
+            "es": 331993
+          },
+          "dev_reduction": {
+            "en": 81556,
+            "fr": 113859,
+            "es": 101947
+          },
+          "selected_target_counts": {
+            "fr": 323,
+            "es": 177
+          },
+          "train_effect_owner_counts": {
+            "fr": 462,
+            "en": 188,
+            "es": 350
+          },
+          "dev_effect_owner_counts": {
+            "fr": 439,
+            "en": 222,
+            "es": 339
+          },
+          "selected_target_is_dev_effect_owner": 428,
+          "selected_target_has_positive_dev_effect": 487,
+          "targeted_merges": 500,
+          "target_switches": 222,
+          "max_consecutive_target_run": 28,
+          "gini_worsening_steps": 385,
+          "pairwise_gap_sign_crossings": 208
+        }
+      }
+    },
+    "base": {
+      "codes_sha256": "7e66fdd777005503c69b44f27ed58a591a9772309864f53f33a8333e1b4f5c7f",
+      "initial_train_lengths": {
+        "en": 506499,
+        "fr": 536419,
+        "es": 548313
+      },
+      "checkpoints": {
+        "0": {
+          "rank": 0,
+          "dev_total_tokens": {
+            "en": 142226,
+            "fr": 179579,
+            "es": 167661
+          },
+          "dev_mean_tokens": {
+            "en": 146.62474226804125,
+            "fr": 185.13298969072164,
+            "es": 172.84639175257732
+          },
+          "gini": 0.05087585245961924,
+          "total_mean_cost": 504.6041237113402,
+          "worst_language": "fr",
+          "worst_mean_cost": 185.13298969072164
+        },
+        "500": {
+          "rank": 500,
+          "dev_total_tokens": {
+            "en": 72188,
+            "fr": 74189,
+            "es": 74225
+          },
+          "dev_mean_tokens": {
+            "en": 74.42061855670103,
+            "fr": 76.48350515463918,
+            "es": 76.52061855670104
+          },
+          "gini": 0.00615588253959622,
+          "total_mean_cost": 227.42474226804126,
+          "worst_language": "es",
+          "worst_mean_cost": 76.52061855670104
+        },
+        "1000": {
+          "rank": 1000,
+          "dev_total_tokens": {
+            "en": 64978,
+            "fr": 65337,
+            "es": 65358
+          },
+          "dev_mean_tokens": {
+            "en": 66.98762886597937,
+            "fr": 67.35773195876288,
+            "es": 67.37938144329897
+          },
+          "gini": 0.0012946770036404462,
+          "total_mean_cost": 201.7247422680412,
+          "worst_language": "es",
+          "worst_mean_cost": 67.37938144329897
+        }
+      },
+      "phases": {
+        "prefix_1_500": {
+          "ranks": [
+            1,
+            500
+          ],
+          "merges": 500,
+          "train_reduction": {
+            "en": 242611,
+            "fr": 310465,
+            "es": 302753
+          },
+          "dev_reduction": {
+            "en": 70038,
+            "fr": 105390,
+            "es": 93436
+          },
+          "selected_target_counts": {
+            "fr": 366,
+            "es": 134
+          },
+          "train_effect_owner_counts": {
+            "fr": 243,
+            "es": 175,
+            "en": 82
+          },
+          "dev_effect_owner_counts": {
+            "fr": 236,
+            "es": 167,
+            "en": 97
+          },
+          "selected_target_is_dev_effect_owner": 350,
+          "selected_target_has_positive_dev_effect": 493,
+          "targeted_merges": 500,
+          "target_switches": 202,
+          "max_consecutive_target_run": 34,
+          "gini_worsening_steps": 147,
+          "pairwise_gap_sign_crossings": 201
+        },
+        "tail_501_1000": {
+          "ranks": [
+            501,
+            1000
+          ],
+          "merges": 500,
+          "train_reduction": {
+            "en": 23330,
+            "fr": 27782,
+            "es": 30945
+          },
+          "dev_reduction": {
+            "en": 7210,
+            "fr": 8852,
+            "es": 8867
+          },
+          "selected_target_counts": {
+            "es": 186,
+            "fr": 312,
+            "en": 2
+          },
+          "train_effect_owner_counts": {
+            "es": 194,
+            "en": 63,
+            "fr": 243
+          },
+          "dev_effect_owner_counts": {
+            "es": 190,
+            "en": 87,
+            "fr": 223
+          },
+          "selected_target_is_dev_effect_owner": 383,
+          "selected_target_has_positive_dev_effect": 486,
+          "targeted_merges": 500,
+          "target_switches": 215,
+          "max_consecutive_target_run": 15,
+          "gini_worsening_steps": 124,
+          "pairwise_gap_sign_crossings": 208
+        },
+        "all_1_1000": {
+          "ranks": [
+            1,
+            1000
+          ],
+          "merges": 1000,
+          "train_reduction": {
+            "en": 265941,
+            "fr": 338247,
+            "es": 333698
+          },
+          "dev_reduction": {
+            "en": 77248,
+            "fr": 114242,
+            "es": 102303
+          },
+          "selected_target_counts": {
+            "fr": 678,
+            "es": 320,
+            "en": 2
+          },
+          "train_effect_owner_counts": {
+            "fr": 486,
+            "es": 369,
+            "en": 145
+          },
+          "dev_effect_owner_counts": {
+            "fr": 459,
+            "es": 357,
+            "en": 184
+          },
+          "selected_target_is_dev_effect_owner": 733,
+          "selected_target_has_positive_dev_effect": 979,
+          "targeted_merges": 1000,
+          "target_switches": 418,
+          "max_consecutive_target_run": 34,
+          "gini_worsening_steps": 271,
+          "pairwise_gap_sign_crossings": 409
+        }
+      }
+    }
+  }
+}

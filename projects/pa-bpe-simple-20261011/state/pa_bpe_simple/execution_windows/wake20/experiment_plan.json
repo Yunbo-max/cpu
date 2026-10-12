@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "plan_id": "wake20-hybrid-window-dev-v1",
+  "status": "frozen_before_outcome",
+  "active_idea": "pa-bpe-domain-robustness",
+  "question": "Can the existing moving-window controller after the same 500-global prefix reduce hybrid tail chattering without losing its positive development fairness gain or increasing total cost beyond fixed hybrid?",
+  "hypothesis": "The fixed window=100, alpha=2 cap will reduce both exact pair-gap crossings and target switches relative to fixed hybrid while retaining lower Gini than Classical and total mean token cost no greater than hybrid.",
+  "falsifier": "Failure of any one of the four frozen promotion conditions prevents opening a fresh confirmation domain for this candidate.",
+  "data": {
+    "split": "TICO development, 970 fixed aligned en/fr/es rows",
+    "exposure": "development; already exposed and allowed for this candidate",
+    "confirmation": "not accessed in this plan"
+  },
+  "arms": {
+    "candidate": "author moving-window PA-BPE, global_merges=500, window_size=100, alpha=2, 1000 merges",
+    "comparators": ["fixed Classical", "fixed hybrid with 500 global then base controller"]
+  },
+  "primary_mechanism_metrics": ["tail exact pair-gap sign crossings", "tail target switches"],
+  "quality_metrics": ["Gini of per-language mean token costs", "total mean token cost", "worst-language mean token cost"],
+  "promotion_conditions": {
+    "crossings": "candidate < hybrid (208)",
+    "switches": "candidate < hybrid (222)",
+    "fairness": "candidate Gini < Classical Gini",
+    "cost": "candidate total mean token cost <= hybrid total mean token cost"
+  },
+  "resource_authorization": {
+    "device": "current shared CPU host only",
+    "scientific_concurrency": 1,
+    "threads": 1,
+    "single_command_timeout_seconds": 120,
+    "batch_max_attempts": 12,
+    "batch_max_scientific_wall_seconds": 600,
+    "memory_basis": "prior comparable author run peak <115 MiB; require 512 MiB measured cgroup headroom at launch"
+  },
+  "interpretation": {
+    "all_conditions_pass": "Candidate may be frozen for a genuinely fresh confirmation domain.",
+    "otherwise": "Retain as a development negative or partial mechanism result; do not inspect a new confirmation domain."
+  }
+}
+

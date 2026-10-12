@@ -1,0 +1,38 @@
+{
+  "response_id": "wake20-hybrid-window-development-cycle-v1",
+  "request_id": "decision-661df4a584844a449b0b8b3d7f9c7bd5",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The pre-specified hybrid-window development candidate completed and passed all four frozen promotion rules with independent verification. A separate public Tatoeba protocol was then frozen before downloading its text or scoring any tokenizer.",
+  "events": [
+    {
+      "event_id": "wake20-hybrid-window-development-cycle",
+      "kind": "research_cycle",
+      "hypothesis": "Keeping the empirically supported 500-merge global prefix while replacing the reactive base tail with the already fixed moving-window controller (window 100, alpha 2) will reduce local French-Spanish chattering without losing the hybrid fairness-cost compromise.",
+      "prediction": "On TICO development, tail exact pairwise crossings and target switches will both be strictly lower than hybrid, aggregate Gini will remain below Classical, and total mean cost will not exceed hybrid.",
+      "result": "All frozen conditions passed. Hybrid-window had 28 tail crossings versus hybrid 208 and 149 target switches versus 222. Its aggregate Gini was 0.0207802405 versus Classical 0.0430154194 and hybrid 0.0175252294. Total mean cost was 197.8154639, 0.116083 percent below hybrid but 1.556579 percent above Classical. Independent verification passed 1014 of 1014 checks and exactly reconstructed integer totals, crossings and switches.",
+      "interpretation": "The existing moving-window controller substantially suppresses development-domain chattering after a global prefix, but its Gini is modestly worse than the original hybrid. This is a supported development mechanism/candidate-selection result, not cross-domain confirmation.",
+      "next_action": "Use the prospectively frozen Tatoeba weekly-export protocol to acquire and hash six small source files, construct a result-blind 1024-row closed English-French-Spanish triangle manifest with contamination exclusions, and then score the fixed Classical, hybrid and hybrid-window tokenizers exactly once with independent verification.",
+      "reason": "The development gate passed, so the decisive remaining question is transfer to a fresh, legally reusable and content-aligned domain without further tuning.",
+      "evidence": [
+        {
+          "path": "output/hybrid_window_summary.json",
+          "sha256": "9da62ebe4f6994152269489befa2a0dc550b34ab89f3e50b18e9a44fee5bc2a5"
+        },
+        {
+          "path": "output/hybrid_window_verification.json",
+          "sha256": "2f48676aac45a1977371d4e705a5d5a47bf435b9ced88ab9cd330736892efb4b"
+        },
+        {
+          "path": "tatoeba_confirmation_protocol.json",
+          "sha256": "275c2dae7285fb0baa2a54ae2acbdf960382a9b6b1b54207d6fcfc61f6832aeb"
+        },
+        {
+          "path": "evidence/tatoeba_source_qualification.json",
+          "sha256": "8bcbd228686288aacdea9aa90bc56dd8f80294c04fb1264893f329ede7e89b16"
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,19 @@
+# 最新规范状态：generation 21，2026-10-12
+
+本轮按generation20预注册计划，仅在已暴露TICO开发集上训练固定`hybrid-window`候选：前500次合并与Classical相同，后500次采用作者已有moving-window控制器，参数保持`window=100, alpha=2`。候选代码SHA256为`bd0873aee83722433edf82141fc65d0d07fe23590326c163e6ece68c084bd696`。
+
+四条冻结提升门全部通过：尾部精确pair-gap符号翻转从原hybrid的208降到28，目标语言切换从222降到149；开发Gini为0.02078024，低于Classical的0.04301542；总均值成本197.81546，较hybrid的198.04536低0.11608%。但候选Gini仍比原hybrid的0.01752523高0.00325501，最差语言成本也更高，因此不能称全面胜出。独立直接编码与trace重算通过1014/1014项，精确复原三语整数总量60760/66741/64380、28次翻转和149次切换。
+
+本轮随后只检查官方元数据并前瞻冻结一个新的Tatoeba确认协议，未下载其文本、未评分任何tokenizer。官方每周导出为CC BY 2.0 FR，英/法/西句子具有数字ID和直接翻译边；协议要求三条pair边同时闭合、句ID与规范文本不复用、结果盲哈希排序、训练及所有已暴露域污染排除后固定1024组三语单元。Tatoeba明确警告翻译没有专业准确性保证，因此未来结果只能解释为噪声较高的群众短句域，不是普遍多语言结论。
+
+四个runner attempt全部exit0，新增计费wall 84.920957978秒，累计1837.794759111秒；reservation0，最高RSS 103,473,152字节。启动训练前实测8GiB cgroup上限与约1.28GiB余量，按既有<115MiB峰值证据保留512MiB门槛后执行；没有OOM、timeout或内存等待。supervisor受控停止，全部attempt终态，无活动或未知科学作业。
+
+下一步严格按`execution_windows/wake20/tatoeba_confirmation_protocol.json`：只下载并哈希冻结的6个小型Tatoeba文件，构造并独立核验1024组三边闭合、去污染的英法西确认manifest；manifest冻结后才一次性评分Classical、hybrid与hybrid-window，不在该域调参。若不足1024组则失败关闭，不降低样本数或放宽规则。
+
+恢复必读：本文件、`resources_initial.json`、`manifest.json`、`phase_budget.json`、`PA_BPE_Wake20_Report.md`、`evidence/wake20_handoff.json`、`evidence/incidents_wake20.json`、`execution_windows/wake20/experiment_plan.json`、`output/hybrid_window_summary.json`、`output/hybrid_window_verification.json`、`tatoeba_confirmation_protocol.json`及`evidence/tatoeba_source_qualification.json`。
+
+# generation 20 历史状态（原字节段落保留）
+
 # 最新规范状态：generation 20，2026-10-12
 
 本轮对固定Classical、hybrid（前500次global）和base的1000个merge逐步做了精确重放，输入是既有每语100000预分词训练字典与已暴露TICO开发集；独立Python预分词重建在rank1000逐语言均值上与旧tokenizers评测精确一致。hybrid与Classical前500个merge逐字节相同，rank500开发Gini均为0.0386621。

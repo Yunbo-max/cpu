@@ -1,0 +1,87 @@
+{
+  "submission_id": "wake20-hybrid-window-v1",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake20-setup-tokenizers",
+      "argv": ["python3", "scripts/measure_command.py", "output/setup.resources.json", "scripts/setup_deps.py"],
+      "phase": "diagnostic",
+      "purpose": "Install tokenizers==0.22.1 into the isolated wake20 dependency directory and retain the exact install report",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "experiment_plan.json", "sha256": "aa63cc70fcb6289e20c9f1645b568b6a26781539de365f3893b084c634c398d4"},
+        {"path": "scripts/setup_deps.py", "sha256": "f360bbe04b04a2b1747c7abe98c53dbe8144e90590eabd0f1c8825a35f804054"},
+        {"path": "scripts/measure_command.py", "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"}
+      ],
+      "outputs": ["output/setup.json", "output/setup.resources.json", "output/install_report.json", "output/install.stdout", "output/install.stderr"]
+    },
+    {
+      "task_id": "wake20-train-hybrid-window",
+      "argv": ["python3", "scripts/measure_command.py", "output/hybrid_window.resources.json", "scripts/train_hybrid_window.py"],
+      "phase": "experiment",
+      "purpose": "Train the frozen TICO-development hybrid-window candidate with 500 global merges, window=100 and alpha=2",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": ["wake20-setup-tokenizers"],
+      "input_refs": [
+        {"path": "experiment_plan.json", "sha256": "aa63cc70fcb6289e20c9f1645b568b6a26781539de365f3893b084c634c398d4"},
+        {"path": "resources-before-science.json", "sha256": "4dcd5b2e017594eb345cb9373c68e1c44466993662bf021843b4e139b4bfdbd4"},
+        {"path": "scripts/train_hybrid_window.py", "sha256": "4ae1381371b494d104900f0b312477e94ded31af04c9b8c92f2a43dcc988522a"},
+        {"path": "scripts/measure_command.py", "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"},
+        {"path": "inputs/parity_aware_learn_bpe.py", "sha256": "5ee04ceaeba0c9958f313e9303398fbcc0c962a0323b80a96d87637e200c0ab5"},
+        {"path": "inputs/en.dict", "sha256": "746c6474bdd71c14e252e8f412a7c764f19e4818bcd38d3b54b3343f1ab3d5a2"},
+        {"path": "inputs/fr.dict", "sha256": "38fd1c05825e267d9a94ce782bf1375bd642f1355d0fd49b79ded10a3e9e1391"},
+        {"path": "inputs/es.dict", "sha256": "f456af1c3f5436ff6b688bb9b45311ed30a1545bd6e6639e311f231c456bce28"},
+        {"path": "inputs/dev.en.dict", "sha256": "48c9ef80b9d8598150252d78a957af5226f08f5a3dfc68f715ae870e3504d539"},
+        {"path": "inputs/dev.fr.dict", "sha256": "7b551796adbbb89fbfb654da59a575c83e007bdd518e9dcff0612ca49cce109d"},
+        {"path": "inputs/dev.es.dict", "sha256": "4bf4dff19387f90c91cb3e9ea921aa4117a15a892851de82d245476aed70109e"},
+        {"path": "inputs/classical.codes", "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"},
+        {"path": "inputs/hybrid.codes", "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"}
+      ],
+      "outputs": ["output/hybrid_window.codes", "output/hybrid_window_training.json", "output/hybrid_window_capacity.json", "output/hybrid_window.resources.json"]
+    },
+    {
+      "task_id": "wake20-evaluate-hybrid-window",
+      "argv": ["python3", "scripts/measure_command.py", "output/hybrid_window_evaluation.resources.json", "scripts/evaluate_hybrid_window.py"],
+      "phase": "analysis",
+      "purpose": "Evaluate the frozen candidate's exact development Gini, cost, pair-gap crossings and target switching against fixed Classical and hybrid",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": ["wake20-train-hybrid-window"],
+      "input_refs": [
+        {"path": "experiment_plan.json", "sha256": "aa63cc70fcb6289e20c9f1645b568b6a26781539de365f3893b084c634c398d4"},
+        {"path": "scripts/evaluate_hybrid_window.py", "sha256": "bafa16b444dc32e3c223759cbf871687bd1c304904ec18979b0a6060f93d15af"},
+        {"path": "scripts/measure_command.py", "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"},
+        {"path": "inputs/dev.en.dict", "sha256": "48c9ef80b9d8598150252d78a957af5226f08f5a3dfc68f715ae870e3504d539"},
+        {"path": "inputs/dev.fr.dict", "sha256": "7b551796adbbb89fbfb654da59a575c83e007bdd518e9dcff0612ca49cce109d"},
+        {"path": "inputs/dev.es.dict", "sha256": "4bf4dff19387f90c91cb3e9ea921aa4117a15a892851de82d245476aed70109e"},
+        {"path": "inputs/classical.codes", "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"},
+        {"path": "inputs/hybrid.codes", "sha256": "682c21b7ba516834c682a66113eac163da85d3407087f19e80aba193f4ee81a8"},
+        {"path": "inputs/wake19_mechanism_summary.json", "sha256": "7ff7f95cb53fba0db7a04d06a9a4c687641d8bbe98c7b0de56cad224714c2748"}
+      ],
+      "outputs": ["output/hybrid_window_trace.json", "output/hybrid_window_summary.json", "output/hybrid_window_evaluation.resources.json"]
+    },
+    {
+      "task_id": "wake20-verify-hybrid-window",
+      "argv": ["python3", "scripts/measure_command.py", "output/hybrid_window_verification.resources.json", "scripts/verify_hybrid_window.py"],
+      "phase": "verify",
+      "purpose": "Independently verify final token totals by direct encoding and recompute the moving-window target trace and frozen promotion decision",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": ["wake20-evaluate-hybrid-window"],
+      "input_refs": [
+        {"path": "experiment_plan.json", "sha256": "aa63cc70fcb6289e20c9f1645b568b6a26781539de365f3893b084c634c398d4"},
+        {"path": "scripts/verify_hybrid_window.py", "sha256": "3adbbeead36817afe5db32cdd27d38d99da28f30ac5aaeda6504ca17484408d7"},
+        {"path": "scripts/measure_command.py", "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"},
+        {"path": "inputs/dev.en.dict", "sha256": "48c9ef80b9d8598150252d78a957af5226f08f5a3dfc68f715ae870e3504d539"},
+        {"path": "inputs/dev.fr.dict", "sha256": "7b551796adbbb89fbfb654da59a575c83e007bdd518e9dcff0612ca49cce109d"},
+        {"path": "inputs/dev.es.dict", "sha256": "4bf4dff19387f90c91cb3e9ea921aa4117a15a892851de82d245476aed70109e"},
+        {"path": "inputs/classical.codes", "sha256": "cc0a8b1e68d0116eddeb7c3617a1e5793c875708e684484bb8da6a67eca749d2"}
+      ],
+      "outputs": ["output/hybrid_window_verification.json", "output/hybrid_window_verification.resources.json"]
+    }
+  ]
+}

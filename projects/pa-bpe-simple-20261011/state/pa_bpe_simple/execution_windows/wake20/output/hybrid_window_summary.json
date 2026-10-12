@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-12T15:42:59.728911+00:00",
+  "scope": "TICO development-only mechanism and selection check; no new confirmation data accessed.",
+  "rows": 970,
+  "languages": [
+    "en",
+    "fr",
+    "es"
+  ],
+  "candidate": {
+    "code_sha256": "bd0873aee83722433edf82141fc65d0d07fe23590326c163e6ece68c084bd696",
+    "global_prefix_merges": 500,
+    "window_size": 100,
+    "alpha": 2,
+    "final_total_tokens": {
+      "en": 60760,
+      "fr": 66741,
+      "es": 64380
+    },
+    "final_mean_tokens": {
+      "en": 62.63917525773196,
+      "fr": 68.80515463917526,
+      "es": 66.37113402061856
+    },
+    "gini": 0.020780240531023574,
+    "total_mean_cost": 197.81546391752576,
+    "worst_language": "fr",
+    "worst_mean_cost": 68.80515463917526,
+    "tail_pairwise_gap_sign_crossings": 28,
+    "tail_target_switches": 149,
+    "tail_target_counts": {
+      "fr": 335,
+      "es": 165
+    },
+    "tail_gini_worsening_steps": 222
+  },
+  "comparators": {
+    "classical": {
+      "rank": 1000,
+      "dev_total_tokens": {
+        "en": 55834,
+        "fr": 68025,
+        "es": 65081
+      },
+      "dev_mean_tokens": {
+        "en": 57.56082474226804,
+        "fr": 70.12886597938144,
+        "es": 67.09381443298969
+      },
+      "gini": 0.043015419357115156,
+      "total_mean_cost": 194.78350515463916,
+      "worst_language": "fr",
+      "worst_mean_cost": 70.12886597938144
+    },
+    "hybrid": {
+      "rank": 1000,
+      "dev_total_tokens": {
+        "en": 60670,
+        "fr": 65720,
+        "es": 65714
+      },
+      "dev_mean_tokens": {
+        "en": 62.54639175257732,
+        "fr": 67.75257731958763,
+        "es": 67.74639175257732
+      },
+      "gini": 0.017525229389636167,
+      "total_mean_cost": 198.04536082474226,
+      "worst_language": "fr",
+      "worst_mean_cost": 67.75257731958763
+    },
+    "hybrid_tail_crossings": 208,
+    "hybrid_tail_target_switches": 222
+  },
+  "contrasts": {
+    "gini_change_vs_classical": -0.022235178826091582,
+    "gini_change_vs_hybrid": 0.0032550111413874074,
+    "total_cost_pct_vs_classical": 1.5565788080872167,
+    "total_cost_pct_vs_hybrid": -0.1160829550660103,
+    "crossing_change_vs_hybrid": -180,
+    "switch_change_vs_hybrid": -73
+  },
+  "frozen_decision_rules": {
+    "crossings_strictly_lower_than_hybrid": true,
+    "switches_strictly_lower_than_hybrid": true,
+    "positive_fairness_gain_vs_classical": true,
+    "total_cost_no_higher_than_hybrid": true,
+    "promote_to_fresh_confirmation": true
+  }
+}

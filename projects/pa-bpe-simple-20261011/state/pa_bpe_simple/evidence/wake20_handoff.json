@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-12T15:56:00Z",
+  "generation": 21,
+  "active_idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "scientific_status": "hybrid_window_passed_development_promotion_fresh_confirmation_pending",
+  "runner": {
+    "window": "wake20",
+    "attempts": 4,
+    "all_terminal": true,
+    "all_succeeded": true,
+    "charged_wall_seconds": 84.9209579779963,
+    "reserved_seconds": 0,
+    "active_science_processes": 0,
+    "status": "stopped_after_milestone"
+  },
+  "result": {
+    "code_sha256": "bd0873aee83722433edf82141fc65d0d07fe23590326c163e6ece68c084bd696",
+    "gini": 0.020780240531023574,
+    "total_mean_cost": 197.81546391752576,
+    "worst_language": "fr",
+    "worst_mean_cost": 68.80515463917526,
+    "tail_crossings": 28,
+    "tail_target_switches": 149,
+    "promotion_rules_passed": 4,
+    "promotion_rules_total": 4,
+    "independent_checks_passed": 1014,
+    "independent_checks_total": 1014
+  },
+  "limits": [
+    "This is TICO development evidence, not a fresh confirmation.",
+    "Hybrid-window Gini and worst-language cost are both worse than the original hybrid on TICO.",
+    "No Tatoeba text has been downloaded and no tokenizer has been scored on it.",
+    "Tatoeba translation quality is crowd-supplied and not professionally guaranteed."
+  ],
+  "next_action": "Follow execution_windows/wake20/tatoeba_confirmation_protocol.json exactly: acquire/hash six files, build the result-blind 1024-row closed-triangle manifest, run contamination and independent manifest verification, then score three frozen models once.",
+  "must_not": [
+    "Do not tune any tokenizer or selection threshold on Tatoeba.",
+    "Do not reduce the 1024-row target or relax triangle closure after seeing outcomes.",
+    "Do not rerun wake20 training or TICO evaluation.",
+    "Do not call this an original-paper reproduction or general multilingual fairness result."
+  ],
+  "restore_first": [
+    "PA_BPE_Simple_Checkpoint.md",
+    "resources_initial.json",
+    "manifest.json",
+    "phase_budget.json",
+    "PA_BPE_Wake20_Report.md",
+    "execution_windows/wake20/tatoeba_confirmation_protocol.json",
+    "execution_windows/wake20/evidence/tatoeba_source_qualification.json",
+    "execution_windows/wake20/output/hybrid_window_summary.json",
+    "execution_windows/wake20/output/hybrid_window_verification.json"
+  ]
+}

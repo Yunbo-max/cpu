@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-12T15:56:00Z",
+  "incidents": [
+    {
+      "id": "wake20-host-ps-loader",
+      "kind": "host_management_probe_error",
+      "symptom": "One process-list probe emitted 'fatal library error, lookup self'.",
+      "impact": "No scientific command, input, result or runner identity was affected; Python and runner status remained usable.",
+      "repair": "Used runner receipts/health and Python filesystem/proc checks; did not retry science or alter another process."
+    },
+    {
+      "id": "wake20-stop-cli-contract",
+      "kind": "management_command_rejected_before_action",
+      "symptom": "The first stop invocation omitted the required reason argument and exited with argparse error.",
+      "impact": "No task started, stopped or changed; scientific attempts were already terminal.",
+      "repair": "Repeated the management command with reason=milestone_checkpoint; supervisor then exited normally."
+    },
+    {
+      "id": "wake20-binary-source-preview-unsupported",
+      "kind": "source_metadata_tool_limit",
+      "symptom": "The web reader would not open Tatoeba binary tar.bz2 payloads because application/octet-stream preview is unsupported.",
+      "impact": "No source text was downloaded, which preserves the prospective information boundary. Official HTML directory metadata, license and schema remained readable.",
+      "repair": "Frozen exact URLs, expected sizes and fail-closed post-download hashes for the next bounded acquisition step."
+    }
+  ]
+}

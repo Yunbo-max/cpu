@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "observed_utc": "2026-10-12T15:50:00Z",
+  "outcome": "conditional_go_for_prospective_confirmation",
+  "text_downloaded": false,
+  "tokenizer_scored": false,
+  "official_evidence": [
+    {
+      "url": "https://tatoeba.org/en/downloads",
+      "observation": "Official downloads page states export files are CC BY 2.0 FR, defines sentence fields as sentence ID, language code and text, and defines reciprocal translation-link fields."
+    },
+    {
+      "url": "https://tatoeba.org/en/terms_of_use",
+      "observation": "Official terms describe Tatoeba as a non-profit open sentence/translation collection and warn that translation validity and accuracy are not guaranteed by professional review."
+    },
+    {
+      "url": "https://downloads.tatoeba.org/exports/",
+      "observation": "Official export index observed 2026-10-12; the listed weekly snapshot was dated 2026-10-10."
+    },
+    {
+      "url": "https://downloads.tatoeba.org/exports/per_language/eng/",
+      "observation": "Official index exposes English sentence data plus English-French and English-Spanish direct-link files."
+    },
+    {
+      "url": "https://downloads.tatoeba.org/exports/per_language/fra/",
+      "observation": "Official index exposes French sentence data and a French-Spanish direct-link file."
+    },
+    {
+      "url": "https://downloads.tatoeba.org/exports/per_language/spa/",
+      "observation": "Official index exposes Spanish sentence data."
+    }
+  ],
+  "decision_basis": "The source is publicly downloadable, has an explicit reuse license, stable numeric sentence IDs and direct pairwise links sufficient to construct closed English-French-Spanish triangles. It is distinct in collection style from the already exposed news, encyclopedic and medical-development domains.",
+  "limits": [
+    "Weekly URLs are mutable; exact byte hashes remain pending until download.",
+    "Crowd translations are noisy and not professionally guaranteed.",
+    "Direct triangle closure is an alignment claim supplied by Tatoeba contributors, not an independent semantic-quality judgment.",
+    "No broad benchmark or legal conclusion is claimed."
+  ],
+  "next_action": "Acquire and hash only the six frozen files, construct the result-blind 1024-row closed-triangle manifest, run contamination checks, freeze its hashes, and only then score Classical, hybrid and hybrid-window once."
+}

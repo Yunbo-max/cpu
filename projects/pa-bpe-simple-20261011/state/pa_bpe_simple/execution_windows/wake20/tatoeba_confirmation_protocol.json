@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "frozen_utc": "2026-10-12T15:51:00Z",
+  "status": "prospective_protocol_frozen_before_text_download_or_tokenizer_scoring",
+  "research_scope": "Fresh cross-domain confirmation for the already selected hybrid-window candidate; no parameter tuning is permitted on this source.",
+  "source": {
+    "name": "Tatoeba weekly exports",
+    "domain_label": "crowd-contributed short sentences",
+    "publisher": "Tatoeba Association",
+    "license": "CC BY 2.0 FR",
+    "license_url": "https://tatoeba.org/en/downloads",
+    "quality_limit": "Tatoeba states that translation validity and accuracy are not professionally guaranteed; the result must therefore be reported as one noisy crowd-sentence domain, not a broad multilingual benchmark.",
+    "observed_export_timestamp_utc": "2026-10-10",
+    "observed_utc": "2026-10-12T15:50:00Z",
+    "files": [
+      {
+        "role": "english_sentences",
+        "url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2",
+        "directory_size_bytes": 24904358
+      },
+      {
+        "role": "french_sentences",
+        "url": "https://downloads.tatoeba.org/exports/per_language/fra/fra_sentences.tsv.bz2",
+        "directory_size_bytes": 9765138
+      },
+      {
+        "role": "spanish_sentences",
+        "url": "https://downloads.tatoeba.org/exports/per_language/spa/spa_sentences.tsv.bz2",
+        "directory_size_bytes": 6361569
+      },
+      {
+        "role": "english_french_links",
+        "url": "https://downloads.tatoeba.org/exports/per_language/eng/eng-fra_links.tsv.bz2",
+        "directory_size_bytes": 2668020
+      },
+      {
+        "role": "english_spanish_links",
+        "url": "https://downloads.tatoeba.org/exports/per_language/eng/eng-spa_links.tsv.bz2",
+        "directory_size_bytes": 1760236
+      },
+      {
+        "role": "french_spanish_links",
+        "url": "https://downloads.tatoeba.org/exports/per_language/fra/fra-spa_links.tsv.bz2",
+        "directory_size_bytes": 391702
+      }
+    ],
+    "download_rule": "Download only these six files. Before parsing, record byte length and SHA256 for every blob; fail closed on any directory-size mismatch. The mutable weekly URLs become an experimental input only after the downloaded hashes are fixed in a source manifest."
+  },
+  "alignment_rule": {
+    "languages": ["eng", "fra", "spa"],
+    "unit": "a fully closed triangle of three sentence IDs with direct eng-fra, eng-spa and fra-spa links",
+    "requirements": [
+      "Every sentence ID exists exactly once in its language file and has the expected ISO 639-3 code.",
+      "Every selected triple has all three direct pairwise links; transitive-only triples are ineligible.",
+      "All texts are non-empty UTF-8 after stripping only terminal CR/LF; text is otherwise preserved.",
+      "No sentence ID may occur in more than one selected triple.",
+      "Exact duplicate normalized text within a language is represented only once, using the lowest candidate hash."
+    ],
+    "normalization_for_duplicate_and_contamination_only": "Unicode NFKC, casefold, collapse Unicode whitespace, strip",
+    "ordering_key": "SHA256(UTF8('pa-bpe-tatoeba-confirm-v1\\0' + eng_id + '\\0' + fra_id + '\\0' + spa_id))",
+    "selection": "Sort eligible triples by the ordering key, then greedily accept while enforcing sentence-ID and normalized-text uniqueness until 1024 triples are obtained.",
+    "target_rows": 1024,
+    "failure_rule": "If fewer than 1024 triples remain after all frozen exclusions, stop and report source insufficiency; do not reduce the target or relax the rule after viewing tokenizer outcomes."
+  },
+  "independence_and_contamination": {
+    "prior_exposed_domains": ["TICO development", "OPUS GlobalVoices v2018q4", "FLORES-200 devtest", "OPUS Books diagnostics"],
+    "training_source": "The fixed 100000-pretoken-per-language convenience training payload already used to train all candidate tokenizers.",
+    "rule": "Before scoring, exclude any candidate sentence whose same-language normalized exact hash matches training or any prior exposed domain, or whose full 5-token normalized shingle multiset containment against one prior item is at least 0.80. Record every exclusion count and hash-only provenance. No tokenizer-derived value participates in this filter.",
+    "semantic_limit": "This exact/shingle screen cannot prove semantic independence or absence from upstream web training; retain that limitation."
+  },
+  "tokenizer_freeze": {
+    "pretokenizer": "Whitespace() then ByteLevel(use_regex=False), identical to prior evaluations",
+    "models": {
+      "classical": "existing frozen 1000-merge Classical codes",
+      "hybrid": "existing frozen 500-global-plus-base-tail 1000-merge codes",
+      "hybrid_window": "wake20 code SHA256 bd0873aee83722433edf82141fc65d0d07fe23590326c163e6ece68c084bd696"
+    },
+    "forbidden": "No retraining, parameter change, row replacement, source change or threshold change after any Tatoeba token cost is computed."
+  },
+  "metrics": {
+    "primary": [
+      "aggregate Gini across the three per-language mean token costs",
+      "total mean token cost summed across languages"
+    ],
+    "secondary": [
+      "worst-language mean token cost and identity",
+      "per-language mean and integer total token counts",
+      "paired-row macro Gini",
+      "paired bootstrap 95 percent interval for Gini contrasts using a fixed seed recorded before scoring"
+    ],
+    "independent_verification": "A separate evaluator must reconstruct integer costs directly from codes and raw selected text, then recompute all metrics and selection-manifest hashes."
+  },
+  "confirmation_decision_rule": {
+    "candidate_is_supported_if_all": [
+      "hybrid_window aggregate Gini is strictly below Classical aggregate Gini",
+      "hybrid_window total mean cost is no higher than hybrid total mean cost"
+    ],
+    "otherwise": "Preserve as a negative or mixed confirmation; do not retune on Tatoeba.",
+    "interpretation_limit": "Passing supports transfer to this one noisy crowd-sentence domain only. It does not establish universal multilingual fairness, downstream quality, or an original-paper reproduction."
+  },
+  "information_boundary": "The protocol was frozen after TICO candidate selection and before any Tatoeba text blob was downloaded or any tokenizer was scored on Tatoeba. Official directory metadata and licensing/quality statements were inspected only to qualify the source."
+}
