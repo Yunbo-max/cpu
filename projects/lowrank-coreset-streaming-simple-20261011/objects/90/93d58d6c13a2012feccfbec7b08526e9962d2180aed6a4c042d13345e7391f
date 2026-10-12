@@ -1,0 +1,200 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+import os
+import resource
+import sys
+import time
+from math import sqrt
+from pathlib import Path
+
+import numpy as np
+from scipy.spatial.distance import pdist
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE = ROOT / ".deps" / "nystrom-mmd-paper"
+sys.path.insert(0, str(ROOT / "compat"))
+sys.path.insert(0, str(SOURCE))
+from kernels import RBFkernel  # noqa: E402
+from nystrom import nystrom_features  # noqa: E402
+
+N = 2500
+D = 3
+RHO1 = 0.5
+RHO2S = (0.54, 0.57, 0.60)
+B = 199
+WIDTHS = (28, 56, 140)
+TRIALS_PER_RHO = 24
+MASTER_SEED = 2026101210
+BOOTSTRAP_REPS = 5000
+
+def correlated_gaussians(n: int, rho2: float, seed: int) -> np.ndarray:
+    rng = np.random.default_rng(seed)
+    cov1 = (1.0 - RHO1) * np.eye(D) + RHO1 * np.ones((D, D))
+    cov2 = (1.0 - rho2) * np.eye(D) + rho2 * np.ones((D, D))
+    return np.vstack((rng.multivariate_normal(np.zeros(D), cov1, size=n),
+                      rng.multivariate_normal(np.zeros(D), cov2, size=n)))
+
+def standardize(x: np.ndarray) -> np.ndarray:
+    return (x - x.mean(axis=0)) / x.std(axis=0)
+
+def shared_weights(seed: int) -> np.ndarray:
+    rng = np.random.default_rng(seed)
+    labels = np.r_[np.ones(N), np.zeros(N)]
+    out = np.empty((B + 1, 2 * N), dtype=np.float64)
+    for j in range(B + 1):
+        row = labels if j == 0 else rng.permutation(labels)
+        out[j] = row / N - (1.0 - row) / N
+    return out
+
+def score_features(weights: np.ndarray, psi: np.ndarray) -> tuple[np.ndarray, float]:
+    t = time.perf_counter()
+    means = weights @ psi
+    scores = np.einsum("ij,ij->i", means, means)
+    return scores, time.perf_counter() - t
+
+def exact_scores(x: np.ndarray, weights: np.ndarray, sigma: float) -> tuple[np.ndarray, float, float]:
+    t = time.perf_counter()
+    kernel = RBFkernel(x, x, sigma)
+    construct = time.perf_counter() - t
+    t = time.perf_counter()
+    wk = weights @ kernel
+    scores = np.einsum("ij,ij->i", wk, weights)
+    perm = time.perf_counter() - t
+    return scores, construct, perm
+
+def reject(scores: np.ndarray) -> bool:
+    return bool((1 + np.count_nonzero(scores[1:] >= scores[0])) / (B + 1) <= 0.05)
+
+def wilson(successes: int, total: int) -> list[float]:
+    z = 1.959963984540054
+    p = successes / total
+    den = 1 + z * z / total
+    center = (p + z * z / (2 * total)) / den
+    half = z * sqrt((p * (1 - p) + z * z / (4 * total)) / total) / den
+    return [max(0.0, center - half), min(1.0, center + half)]
+
+def paired_bootstrap(diff: np.ndarray, seed: int) -> list[float]:
+    rng = np.random.default_rng(seed)
+    means = np.empty(BOOTSTRAP_REPS)
+    for i in range(BOOTSTRAP_REPS):
+        means[i] = np.mean(diff[rng.integers(0, len(diff), len(diff))])
+    return [float(np.quantile(means, 0.025)), float(np.quantile(means, 0.975))]
+
+def method_record(trial: int, rho2: float, ell: int, method: str, parameter: int,
+                  seed: int, scores: np.ndarray, exact: np.ndarray, exact_decision: bool,
+                  construct: float, perm: float) -> dict:
+    realized = parameter if method == "nystrom_coordinate" else 2 * parameter
+    transform = 8 * (parameter * D + parameter * parameter) if method == "nystrom_coordinate" else 8 * parameter * D
+    return {
+        "trial": trial, "rho2": rho2, "ell": ell, "method": method,
+        "native_parameter": parameter, "realized_width": realized, "feature_seed": seed,
+        "scores": scores.tolist(), "exact_scores": exact.tolist(),
+        "reject": reject(scores), "exact_reject": exact_decision,
+        "decision_disagreement": reject(scores) != exact_decision,
+        "original_abs_error": float(abs(scores[0] - exact[0])),
+        "construct_seconds": construct, "permutation_seconds": perm,
+        "transform_state_bytes": transform, "feature_matrix_bytes": 8 * (2 * N) * realized,
+    }
+
+def summarize(rows: list[dict]) -> dict:
+    groups = {}
+    for ell in WIDTHS:
+        groups[str(ell)] = {}
+        for method in ("nystrom_coordinate", "rff_coordinate", "rff_released_axis"):
+            ss = [r for r in rows if r["ell"] == ell and r["method"] == method]
+            rejects = sum(r["reject"] for r in ss)
+            disagreements = sum(r["decision_disagreement"] for r in ss)
+            groups[str(ell)][method] = {
+                "n": len(ss), "rejections": rejects, "rejection_rate": rejects / len(ss),
+                "rejection_rate_wilson95": wilson(rejects, len(ss)),
+                "decision_disagreements": disagreements,
+                "decision_disagreement_rate": disagreements / len(ss),
+                "decision_disagreement_wilson95": wilson(disagreements, len(ss)),
+                "median_original_abs_error": float(np.median([r["original_abs_error"] for r in ss])),
+                "median_construct_seconds": float(np.median([r["construct_seconds"] for r in ss])),
+                "median_permutation_seconds": float(np.median([r["permutation_seconds"] for r in ss])),
+                "transform_state_bytes": ss[0]["transform_state_bytes"],
+                "feature_matrix_bytes": ss[0]["feature_matrix_bytes"],
+            }
+        keyed = {(r["rho2"], r["trial"], r["ell"], r["method"]): r for r in rows if r["ell"] == ell}
+        diffs_rc_rr, diffs_ny_rc = [], []
+        for rho2 in RHO2S:
+            for trial in range(TRIALS_PER_RHO):
+                rc = keyed[(rho2, trial, ell, "rff_coordinate")]["decision_disagreement"]
+                rr = keyed[(rho2, trial, ell, "rff_released_axis")]["decision_disagreement"]
+                ny = keyed[(rho2, trial, ell, "nystrom_coordinate")]["decision_disagreement"]
+                diffs_rc_rr.append(int(rc) - int(rr))
+                diffs_ny_rc.append(int(ny) - int(rc))
+        a, b = np.asarray(diffs_rc_rr), np.asarray(diffs_ny_rc)
+        groups[str(ell)]["paired_contrasts"] = {
+            "rff_coordinate_minus_released_disagreement": float(a.mean()),
+            "rff_coordinate_minus_released_bootstrap95": paired_bootstrap(a, MASTER_SEED + ell),
+            "nystrom_minus_rff_coordinate_disagreement": float(b.mean()),
+            "nystrom_minus_rff_coordinate_bootstrap95": paired_bootstrap(b, MASTER_SEED + 1000 + ell),
+        }
+    exact = {}
+    for rho2 in RHO2S:
+        by_trial = {}
+        for r in rows:
+            if r["rho2"] == rho2:
+                by_trial[r["trial"]] = r["exact_reject"]
+        s = sum(by_trial.values())
+        exact[str(rho2)] = {"n": len(by_trial), "rejections": s, "rejection_rate": s / len(by_trial), "wilson95": wilson(s, len(by_trial))}
+    return {"groups": groups, "exact_by_rho": exact}
+
+def main() -> None:
+    started = time.perf_counter()
+    root_ss = np.random.SeedSequence(MASTER_SEED)
+    rho_children = root_ss.spawn(len(RHO2S))
+    rows = []
+    exact_costs = []
+    for rho2, rho_ss in zip(RHO2S, rho_children):
+        tune_ss, trials_ss = rho_ss.spawn(2)
+        tune_seed = int(tune_ss.generate_state(1, dtype=np.uint32)[0])
+        tune = standardize(correlated_gaussians(500, rho2, tune_seed))
+        sigma = float(np.median(pdist(tune)))
+        for trial, trial_ss in enumerate(trials_ss.spawn(TRIALS_PER_RHO)):
+            data_ss, perm_ss, nys_root, rff_ss = trial_ss.spawn(4)
+            data_seed = int(data_ss.generate_state(1, dtype=np.uint32)[0])
+            perm_seed = int(perm_ss.generate_state(1, dtype=np.uint32)[0])
+            rff_seed = int(rff_ss.generate_state(1, dtype=np.uint32)[0])
+            nys_seeds = [int(s.generate_state(1, dtype=np.uint32)[0]) for s in nys_root.spawn(len(WIDTHS))]
+            x = standardize(correlated_gaussians(N, rho2, data_seed))
+            weights = shared_weights(perm_seed)
+            exact, exact_construct, exact_perm = exact_scores(x, weights, sigma)
+            exact_decision = reject(exact)
+            exact_costs.append({"rho2": rho2, "trial": trial, "construct_seconds": exact_construct, "permutation_seconds": exact_perm})
+            rng_rff = np.random.default_rng(rff_seed)
+            omega_all = rng_rff.normal(size=(max(WIDTHS), D)) / sigma
+            for ell, nys_seed in zip(WIDTHS, nys_seeds):
+                rng_nys = np.random.default_rng(nys_seed)
+                inds = rng_nys.choice(len(x), ell, replace=False)
+                t = time.perf_counter(); psi_ny = nystrom_features(x, inds, sigma); ct = time.perf_counter() - t
+                scores, pt = score_features(weights, psi_ny)
+                rows.append(method_record(trial, rho2, ell, "nystrom_coordinate", ell, nys_seed, scores, exact, exact_decision, ct, pt))
+                for method, r in (("rff_coordinate", ell // 2), ("rff_released_axis", ell)):
+                    t = time.perf_counter(); proj = x @ omega_all[:r].T
+                    psi = np.concatenate((np.cos(proj), np.sin(proj)), axis=1) / np.sqrt(r)
+                    ct = time.perf_counter() - t
+                    scores, pt = score_features(weights, psi)
+                    rows.append(method_record(trial, rho2, ell, method, r, rff_seed, scores, exact, exact_decision, ct, pt))
+    summary = {
+        "schema": "paper-scale-decision-v1", "rows": len(rows),
+        "frozen": {"n_per_group": N, "dimension": D, "rho1": RHO1, "rho2s": RHO2S, "B": B,
+                   "widths": WIDTHS, "trials_per_rho": TRIALS_PER_RHO, "master_seed": MASTER_SEED,
+                   "bootstrap_reps": BOOTSTRAP_REPS},
+        **summarize(rows),
+        "exact_costs": exact_costs, "wall_seconds": time.perf_counter() - started,
+        "ru_maxrss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "thread_environment": {k: os.environ.get(k) for k in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS")},
+        "interpretation_boundary": "72 finite prospective trials; not the paper's 400-trial power study or a global superiority claim.",
+    }
+    out = ROOT / "results"; out.mkdir(exist_ok=True)
+    (out / "paper_scale_decision_v1_rows.json").write_text(json.dumps(rows, indent=2, sort_keys=True) + "\n")
+    (out / "paper_scale_decision_v1.json").write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n")
+    print(json.dumps({"rows": len(rows), "wall_seconds": summary["wall_seconds"], "ru_maxrss_kib": summary["ru_maxrss_kib"], "groups": summary["groups"], "exact_by_rho": summary["exact_by_rho"]}, sort_keys=True))
+
+if __name__ == "__main__":
+    main()

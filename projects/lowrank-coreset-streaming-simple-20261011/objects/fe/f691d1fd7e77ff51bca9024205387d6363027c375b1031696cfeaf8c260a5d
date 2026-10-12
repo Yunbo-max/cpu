@@ -1,0 +1,4 @@
+def tqdm(iterable=None, *args, **kwargs):
+    if iterable is None:
+        raise RuntimeError("tqdm compatibility adapter only supports wrapping an iterable")
+    return iterable

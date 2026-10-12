@@ -1,0 +1,37 @@
+{
+  "response_id": "w010-paper-scale-interpret-v1",
+  "request_id": "decision-a27d739de809408a87cb4eb92c50a0ac",
+  "idea": "nystrom-rff-state-matched-comparison-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The prospective 72-trial paper-scale experiment and independent 648-row audit are complete. The coordinate-versus-released RFF decision-disagreement contrast is not distinguished from zero, while Nyström has a local fidelity advantage at width 56 but much larger transform state.",
+  "events": [
+    {
+      "event_id": "w010-paper-scale-decision-cycle-v1",
+      "kind": "research_cycle",
+      "hypothesis": "At paper scale, coordinate matching will increase RFF exact-decision disagreement at width 28 or 56, while uniform Nyström will not have higher disagreement than coordinate-matched RFF.",
+      "prediction": "The paired coordinate-minus-released RFF disagreement contrast will be positive at a small width; Nyström-minus-coordinate-RFF will be nonpositive.",
+      "result": "Across 72 independent trials, coordinate-minus-released contrasts were 0.0417, 0.0139 and -0.0139 at widths 28,56,140, and all paired bootstrap 95% intervals included zero. Nyström-minus-coordinate-RFF was -0.0556, -0.0556 and -0.0278; only width 56 excluded zero. The independent audit passed all 648 rows.",
+      "interpretation": "The released-axis score-allocation advantage did not yield a supported decision-level advantage in this finite study. Nyström has a local fidelity advantage but pays 20.7x to 95.3x larger transform state, so no universal same-memory winner or paper-validity claim follows.",
+      "next_action": "Derive and audit the transform-state-matched frontier before any further numerics; if it is only a known trade-off, retire this comparison family and select a different low-rank/streaming question.",
+      "reason": "This connects the frozen hypothesis, native experiment, independent audit, adverse evidence, scoped conclusion and next decision.",
+      "evidence": [
+        {"path": "plans/paper_scale_decision_v1.md", "sha256": "b138136cf15383ef61c8e3c6f4a64b97246710e79520128bba64b5a2834285c4"},
+        {"path": "results/paper_scale_decision_v1.json", "sha256": "ac746e3d87333aec3fe7c52b53be4e028705b0ac6baf4cec1438f9f3ea9cee58"},
+        {"path": "results/paper_scale_decision_v1_rows.json", "sha256": "f5eebc08bf0b441e70ddf17cf47ee718ca646870883dc235468c9108990d1d68"},
+        {"path": "results/paper_scale_decision_v1_audit.json", "sha256": "9f39cc9c59b28e0a25bbe46ac7b8e9ac1c9244737052191a99f964acbb8cd381"},
+        {"path": "notes/paper_scale_decision_v1_analysis.md", "sha256": "4839f5c95b987e26f546dc4ac4553fb1faced5f0862a63ee98fb746a7d707d58"}
+      ]
+    },
+    {
+      "event_id": "w010-state-matched-comparison-complete-v1",
+      "kind": "completion",
+      "outcome": "inconclusive",
+      "reason": "The semantic mismatch and score-level effects are established, but the prospective decision study did not support a decision-level coordinate-allocation effect and no new method was identified.",
+      "evidence": [
+        {"path": "results/paper_scale_decision_v1_audit.json", "sha256": "9f39cc9c59b28e0a25bbe46ac7b8e9ac1c9244737052191a99f964acbb8cd381"},
+        {"path": "notes/paper_scale_decision_v1_analysis.md", "sha256": "4839f5c95b987e26f546dc4ac4553fb1faced5f0862a63ee98fb746a7d707d58"}
+      ]
+    }
+  ]
+}

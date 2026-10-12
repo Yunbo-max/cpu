@@ -1,0 +1,21 @@
+{
+  "state": "recovered_before_submission",
+  "first_observed_at_utc": "2026-10-12T15:48:22.613320Z",
+  "latest_observed_at_utc": "2026-10-12T15:49:14.027509Z",
+  "recheck_count": 2,
+  "runner_request_id": "decision-62baa6f525ab42fe909c90ba8fe01e32",
+  "task_not_submitted": false,
+  "plan": {"path": "plans/paper_scale_decision_v1.md", "sha256": "b138136cf15383ef61c8e3c6f4a64b97246710e79520128bba64b5a2834285c4"},
+  "script": {"path": "scripts/paper_scale_decision_v1.py", "sha256": "9093d58d6c13a2012feccfbec7b08526e9962d2180aed6a4c042d13345e7391f"},
+  "workload_peak_estimate_bytes": 650000000,
+  "estimate_basis": "A 5000-by-5000 float64 exact kernel is 200,000,000 bytes; allowance covers the kernel, pairwise-kernel temporaries, 200-by-5000 permutation weights/products, feature matrices and interpreter/native-library overhead.",
+  "required_safety_margin_bytes": 400000000,
+  "resume_headroom_bytes": 1050000000,
+  "cgroup_limit_bytes": 8589934592,
+  "cgroup_current_bytes": 7361449984,
+  "observed_headroom_bytes": 1228484608,
+  "host_mem_available_bytes": 9454989312,
+  "reason": "The first check was below the launch threshold; after a 30-second wait, the second real measurement exceeded the frozen estimate plus safety margin, with zero cgroup OOM events.",
+  "recovery_condition": "Recheck actual cgroup current/limit and anon/file/shmem; submit exactly one runner task only when headroom is at least 1,050,000,000 bytes and no duplicate or unknown project attempt exists.",
+  "reported_event_id": "w010-memory-wait-recovered-v1"
+}

@@ -1,0 +1,29 @@
+# Paper-scale decision experiment: audited interpretation
+
+The prospective `n=2500` experiment completed 72 independent trials (24 at each source-grid correlation 0.54, 0.57 and 0.60), 199 shared permutations and 648 approximation rows. The independent retained-row audit passed all inventory, exact-score sharing, decision, state-byte, Wilson interval and paired-bootstrap checks. Peak RSS was 375,812 KiB and the cgroup reported no OOM event.
+
+## Exact decision boundary
+
+The exact Gaussian-MMD reference rejected 2/24, 6/24 and 12/24 trials at correlations 0.54, 0.57 and 0.60. Thus the prospectively selected consecutive source-grid values span a low-to-moderate decision region without using w009 outcomes to choose a favorable condition. Their Wilson intervals remain wide because this is 24 rather than the paper's 400 trials per correlation.
+
+## Decision disagreements
+
+Across all 72 independent trials, exact-decision disagreements at realized widths 28/56/140 were:
+
+- uniform Nyström: 3, 0, 0;
+- coordinate-matched RFF: 7, 4, 2;
+- released-axis double-width RFF: 4, 3, 3.
+
+The paired coordinate-minus-released RFF disagreement differences were 0.0417, 0.0139 and -0.0139. Their fixed-seed bootstrap 95% intervals were `[-0.0417, 0.125]`, `[-0.0278, 0.0694]` and `[-0.0417, 0]`. Every interval includes zero, so the score-error advantage of the released double-width allocation did not become a supported decision-disagreement advantage in this finite study. The frozen prediction is therefore not supported at the decision level.
+
+Nyström-minus-coordinate-RFF disagreement differences were -0.0556, -0.0556 and -0.0278, with intervals `[-0.1389, 0.0139]`, `[-0.1111, -0.0139]` and `[-0.0694, 0]`. Only width 56 excludes zero. This is evidence of better local decision fidelity at that width, not global dominance. Errors were almost entirely false negatives relative to exact decisions: Nyström had 3/0/0 false negatives; coordinate RFF 6/4/2 plus one width-28 false positive; released RFF 4/3/3 false negatives.
+
+## Cost axes
+
+Equal output width kept feature-matrix bytes equal, while Nyström/RFF transform-state ratios remained about 20.7x, 39.3x and 95.3x. Median construction-plus-permutation times were approximately 3.31/3.52 ms, 5.26/5.61 ms and 17.15/14.04 ms for Nyström/RFF at widths 28/56/140. Nyström was slightly faster at the two smaller widths and about 1.22x slower at 140 on this shared host. The exact reference's median kernel construction and permutation times were 0.115 and 0.193 seconds per trial.
+
+## Decision
+
+The released feature-axis semantic discrepancy is real, but the present prospective evidence does not justify a decision-level criticism, power claim or paper-invalidity claim. Equal-coordinate Nyström has a local fidelity advantage while retaining a much larger quadratic transform state; neither method is a universal same-memory winner. Close this comparison idea as scoped and inconclusive for a decision-level coordinate-allocation effect.
+
+Before any new numerical comparison, derive the transform-state-matched frontier and audit whether it is merely the known Nyström-versus-RFF accuracy/state trade-off. Only if that review identifies a distinct, falsifiable gap should a fresh experiment be frozen; otherwise retire the comparison family and move to a different low-rank/streaming question.

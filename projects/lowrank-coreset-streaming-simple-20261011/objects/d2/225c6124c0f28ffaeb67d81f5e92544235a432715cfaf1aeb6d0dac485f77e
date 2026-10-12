@@ -1,0 +1,59 @@
+# Transform-state frontier audit (v1)
+
+## Question
+
+Can the completed Nyström/RFF comparison be continued under a unique, method-independent "equal memory" contract, or is that contract itself protocol-dependent?
+
+## Frozen accounting model
+
+Use float64 persistent transform parameters only, matching the accounting already reported in the paper-scale decision experiment:
+
+- Nyström with output width `k` and input dimension `d`: `8 k(d+k)` bytes (landmarks plus whitening matrix).
+- RFF with `r` frequencies and output width `2r`: `8 r d` bytes (frequency matrix only).
+
+No batch feature matrix, permutation accumulator, input storage, interpreter overhead, or allocator workspace is included in this first contract.
+
+## Derivation
+
+Equating persistent transform bytes gives
+
+`r = k(d+k)/d`, hence RFF output width `2k(d+k)/d`.
+
+For the native experiment's `d=3`:
+
+| Nyström width k | state-matched r (real) | nearest feasible RFF output widths |
+|---:|---:|---:|
+| 28 | 289.333... | 578 or 580 |
+| 56 | 1101.333... | 2202 or 2204 |
+| 140 | 6673.333... | 13346 or 13348 |
+
+Coordinate matching and persistent-state matching cannot both hold for positive `k`. Coordinate matching requires `r=k/2`; combining it with state equality gives `k(d+k)=kd/2`, or `k=-d/2`, which has no positive solution.
+
+If a streaming protocol adds `A` float64 accumulator scalars per output coordinate, total state becomes
+
+- Nyström: `8[k(d+k)+Ak]` bytes.
+- RFF: `8[rd+2Ar]` bytes.
+
+The state-matched relation is then
+
+`r = k(d+k+A)/(d+2A)`.
+
+It depends explicitly on `A`: as accumulator state dominates (`A` grows), the relation tends to coordinate matching, `r -> k/2`; when transform state dominates (`A=0`), it returns the much larger RFF widths above. Batch feature retention, blocked processing, shared permutation storage, and reuse across datasets each induce another accounting contract.
+
+## Falsifiable prediction and result
+
+Hypothesis: a unique transform-state-matched successor protocol can be specified from the existing method definitions alone and would isolate a new algorithmic comparison.
+
+Prediction: equating state will produce one invariant RFF width for each Nyström width, unaffected by legitimate streaming/batch accumulator choices.
+
+Result: the prediction is false. The equality depends on which persistent and working states the protocol retains. Even the minimal transform-only contract requires RFF widths 578--13348 for the three existing Nyström widths, while adding per-output accumulator state moves the match continuously toward the original coordinate contract. Equal persistent transform state also makes the leading dense multiply counts comparable (`rd = k(d+k)`), but does not equate trigonometric versus kernel-evaluation costs, temporary feature storage, or reuse amortization.
+
+## Interpretation and decision
+
+"Equal memory" is not a method-intrinsic scalar here. It is a workload and implementation contract. A new numerical sweep chosen after seeing the decision results would therefore answer an accounting-specific engineering question, not establish a universal Nyström/RFF frontier or a new method. The proposed transform-frontier successor is retired as not supported without spending more numerical budget.
+
+This does not negate the completed finite experiment: under its frozen coordinate-matched protocol, Nyström had a local decision-fidelity advantage at width 56 while using much more persistent transform state. It only prevents that scoped result from being generalized into a universal same-memory ordering.
+
+## Next action
+
+Leave the Nyström/RFF comparison family closed at its scoped negative/inconclusive endpoint. On the next window, select a different low-rank or streaming-statistics question whose resource contract is intrinsic enough to state prospectively; do not reopen the retired coordinate-allocation or transform-state candidates without new external evidence.

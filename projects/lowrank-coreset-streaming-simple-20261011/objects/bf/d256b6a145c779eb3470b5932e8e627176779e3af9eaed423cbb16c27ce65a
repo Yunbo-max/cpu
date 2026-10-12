@@ -1,0 +1,27 @@
+{
+  "response_id": "w010-paper-scale-audit-submit-v1",
+  "request_id": "decision-aec222f439d24aac9230e28aa239f755",
+  "idea": "nystrom-rff-state-matched-comparison-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The guarded paper-scale experiment succeeded, but scientific interpretation requires an independent retained-row and aggregate audit before recording a research cycle.",
+  "tasks": [
+    {
+      "task_id": "audit-paper-scale-decision-v1",
+      "argv": ["python3", "scripts/cpu_guard.py", "python3", "scripts/audit_paper_scale_decision_v1.py"],
+      "phase": "verify",
+      "purpose": "Independently recompute row inventory, decisions, state formulas, Wilson intervals, paired contrasts and bootstrap intervals from the retained raw result rows.",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": ["paper-scale-decision-v1"],
+      "input_refs": [
+        {"path": "plans/paper_scale_decision_v1.md", "sha256": "b138136cf15383ef61c8e3c6f4a64b97246710e79520128bba64b5a2834285c4"},
+        {"path": "results/paper_scale_decision_v1.json", "sha256": "ac746e3d87333aec3fe7c52b53be4e028705b0ac6baf4cec1438f9f3ea9cee58"},
+        {"path": "results/paper_scale_decision_v1_rows.json", "sha256": "f5eebc08bf0b441e70ddf17cf47ee718ca646870883dc235468c9108990d1d68"},
+        {"path": "scripts/audit_paper_scale_decision_v1.py", "sha256": "ed3541df9996fe25f15a44be23f480609607ebf3473777b07772efd74e261aa8"},
+        {"path": "scripts/cpu_guard.py", "sha256": "7e5cbf751bcf22a7c374c2c7bcfed7425d155552e1f9fcd6f6b98acf76d95fc8"}
+      ],
+      "outputs": ["results/paper_scale_decision_v1_audit.json"]
+    }
+  ]
+}

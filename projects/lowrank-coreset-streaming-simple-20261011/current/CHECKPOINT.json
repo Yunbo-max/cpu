@@ -4,12 +4,12 @@
   "policy_version": "0.3.0-simple.9",
   "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
   "goal_mode": "continuous_research",
-  "active_window": "execution_windows/w009",
-  "idea": "nystrom-rff-state-matched-comparison-v1",
+  "active_window": "execution_windows/w010",
+  "idea": "nystrom-rff-transform-frontier-audit-v1",
   "revision": 1,
   "goal_contract_version": 2,
-  "scientific_status": "The paper describes Figure 5's x-axis as a number of real features, while the released comparison passes the same integer to Nyström k and RFF R even though the released RFF routine materializes 2R cosine/sine coordinates. A frozen paired calibration with an exact Gaussian-kernel reference and an independent 288-row/96-cell audit found that matching RFF by output coordinates increased median original-score absolute error by factors 1.592, 1.809 and 1.083 at ell=28,56,140 relative to the released double-width allocation: the preregistered 1.25 threshold passed only at the first two widths. At equal output width, Nyström median error was 0.103, 0.0281 and 0.00367 times coordinate-matched RFF, but its transform state was 20.7x, 39.3x and 95.3x larger and median runtime was about 1.65x, 1.48x and 2.08x higher. No accepted arm changed the exact-reference binary decision. This is a local multi-axis accuracy/state trade-off and source-axis semantic discrepancy, not a power, Type-I-error, paper-invalidity, global-superiority or new-method claim. All earlier retirements remain preserved.",
-  "next_action": "Restore the latest GitHub snapshot, reconcile terminal stopped w009, and create w010 with unchanged 32/1800/7200 bounds. Before new numerics, freeze a paper-scale n=2500 decision-focused experiment on correlations selected independently of the w009 calibration outcomes, with an exact MMD reference, shared permutation substreams, paired nested RFF prefixes, independent Nyström landmarks, finite-trial uncertainty intervals, and separate output-coordinate, transform-state, construction-time and permutation-time axes. Do not use the calibration data to choose a favorable reported direction and do not promote the source-axis discrepancy to a statistical-validity claim.",
+  "scientific_status": "w010 completed a prospective paper-scale n=2500-per-group decision comparison with 72 independent trials, B=199 shared permutations, exact Gaussian-MMD reference, nested RFF prefixes and independent Nyström landmarks. Exact rejection counts were 2/24, 6/24 and 12/24 at rho=0.54,0.57,0.60. Across widths 28,56,140, Nyström/exact decision disagreements were 3,0,0; coordinate-matched RFF disagreements were 7,4,2; released-axis double-width RFF disagreements were 4,3,3. All paired bootstrap intervals for coordinate-minus-released RFF disagreement included zero, so the preregistered decision-level coordinate-allocation prediction was not supported. Nyström-minus-coordinate RFF excluded zero only at width 56, a local result, while Nyström retained 20.7x to 95.3x more transform state. An independent 648-row audit passed. A follow-up algebraic audit falsified the proposed invariant equal-memory contract: transform-only equality gives r=k(d+k)/d, while adding per-output accumulator state changes the match to r=k(d+k+A)/(d+2A). The Nyström/RFF comparison family is therefore closed at a scoped negative/inconclusive endpoint; there is no global superiority, power, Type-I-error, paper-invalidity or new-method claim. All earlier retirements remain preserved.",
+  "next_action": "Restore the latest GitHub snapshot, reconcile terminal stopped w010, and create w011 with unchanged 32/1800/7200 bounds. Select a different low-rank or streaming-statistics question whose resource contract can be stated prospectively and intrinsically. Do not reopen the retired Nyström/RFF coordinate-allocation or transform-state candidates without new external evidence, and do not convert the finite w010 decision study into a global power or validity claim.",
   "automation_status": "enabled; hourly recurring schedule without end date",
   "resource_limit_bytes": 8000000000,
   "worker_address_space_limit_bytes": 4294967296,
@@ -155,7 +155,14 @@
     "execution_windows/w009/results/state_matched_native_calibration_v2.json",
     "execution_windows/w009/results/state_matched_native_calibration_v2_rows.json",
     "execution_windows/w009/results/state_matched_native_calibration_v2_audit.json",
-    "execution_windows/w009/notes/state_matched_native_calibration_v2_analysis.md"
+    "execution_windows/w009/notes/state_matched_native_calibration_v2_analysis.md",
+    "execution_windows/w010/plans/paper_scale_decision_v1.md",
+    "execution_windows/w010/results/paper_scale_decision_v1.json",
+    "execution_windows/w010/results/paper_scale_decision_v1_rows.json",
+    "execution_windows/w010/results/paper_scale_decision_v1_audit.json",
+    "execution_windows/w010/notes/paper_scale_decision_v1_analysis.md",
+    "execution_windows/w010/notes/transform_state_frontier_math_audit_v1.md",
+    "execution_windows/w010/notes/supervisor_stop_reconciliation_v1.md"
   ],
   "limitations": [
     "finite-pool guarantee only",
@@ -212,11 +219,17 @@
     "The w009 calibration has only 8 data seeds, 4 feature or landmark draws, n=512 per group and B=39 shared permutations; it is an exact-score approximation diagnostic, not a power, level or paper-scale decision study",
     "The coordinate-matched RFF error-ratio prediction failed its 1.25 threshold at ell=140, and zero accepted binary decisions differed from the exact reference; selective promotion of only the favorable small-width results is prohibited",
     "Equal output-coordinate width and equal transform state are different resource contracts: Nyström stores an additional quadratic k-by-k transform while RFF transform state is linear in R, so no single universal same-memory scalar is established",
-    "The first w009 numerical attempt failed on an unavailable tqdm import from an unused recursive branch; a fail-closed adapter repaired only that import. The first successful calibration used independent RFF feature seeds across widths and was rejected before acceptance; the retained paired-prefix rerun and independent audit are the only accepted w009 numerical evidence"
+    "The first w009 numerical attempt failed on an unavailable tqdm import from an unused recursive branch; a fail-closed adapter repaired only that import. The first successful calibration used independent RFF feature seeds across widths and was rejected before acceptance; the retained paired-prefix rerun and independent audit are the only accepted w009 numerical evidence",
+    "The w010 decision study has 24 independent trials per correlation and 72 trials total; its Wilson and paired-bootstrap intervals are finite-study uncertainty summaries, not nominal failure-probability validation or a power curve",
+    "The coordinate-minus-released RFF disagreement contrasts at widths 28,56,140 all had paired bootstrap intervals containing zero; selective promotion of the positive small-width point estimates is prohibited",
+    "Nyström had fewer disagreements than coordinate-matched RFF at all three widths, but only the width-56 paired interval excluded zero and its persistent transform state was 20.7x to 95.3x larger; this is not global dominance",
+    "Equal memory is workload- and implementation-dependent: transform-only, streaming-accumulator and batch-retention contracts produce different matched widths, so the transform-frontier successor was retired without a post-hoc numerical sweep",
+    "The independent w010 audit recomputed row inventory, decisions, state formulas, Wilson intervals and paired bootstrap aggregates, but is not a separate feature-map implementation",
+    "The w010 supervisor was interrupted at an awaiting-decision boundary after all tasks were terminal; its identity was no longer alive, but no orderly exit receipt was written, so the retained health record is lost rather than exited"
   ],
-  "updated_at": "2026-10-12T14:46:21.673512+00:00",
+  "updated_at": "2026-10-12T15:56:04.524722+00:00",
   "execution": {
-    "updated_at": "2026-10-12T14:46:21.673512+00:00",
+    "updated_at": "2026-10-12T15:56:04.524722+00:00",
     "overall_end_date": null,
     "overall_attempt_limit": null,
     "overall_time_limit": null,
@@ -411,7 +424,7 @@
           "elapsed_seconds": 11.352494206006668,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 335.5858573913574,
+          "remaining_deadline_seconds": 0.0,
           "remaining_seconds": 1788.6475057939933,
           "reserved_seconds": 0
         },
@@ -436,7 +449,7 @@
           "elapsed_seconds": 4.633952084997873,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 6348.933636188507,
+          "remaining_deadline_seconds": 2166.142496585846,
           "remaining_seconds": 1795.3660479150021,
           "reserved_seconds": 0
         },
@@ -446,18 +459,38 @@
           "state-matched-native-calibration-v1": "failed",
           "state-matched-native-calibration-v2": "succeeded"
         }
+      },
+      {
+        "window": "execution_windows/w010",
+        "status": "awaiting_decision",
+        "sequence": 5,
+        "research_cycle_count": 2,
+        "budget": {
+          "attempts_used": 2,
+          "deadline_epoch": 1791827291.3011672,
+          "elapsed_seconds": 32.62549869600116,
+          "max_attempts": 32,
+          "max_command_seconds": 1800,
+          "remaining_deadline_seconds": 6726.792855262756,
+          "remaining_seconds": 1767.3745013039988,
+          "reserved_seconds": 0
+        },
+        "task_states": {
+          "audit-paper-scale-decision-v1": "succeeded",
+          "paper-scale-decision-v1": "succeeded"
+        }
       }
     ],
-    "cumulative_attempts": 64,
-    "cumulative_command_seconds": 553.8576262530696
+    "cumulative_attempts": 66,
+    "cumulative_command_seconds": 586.4831249490708
   },
   "automation_id": "6acc15a522f08191a1bbf19f58f033a1",
   "library_file_id": "libfile_d0c64b9b3a98819197c0ffcf4641cc50",
-  "current_research_cycle_count": 33,
+  "current_research_cycle_count": 36,
   "additional_bernstein_rows": 96,
   "moment_boundary_checked_suffixes": 20,
   "moment_native_pilot_suffixes": 15,
-  "latest_numerical_peak_rss_kib": 391900,
+  "latest_numerical_peak_rss_kib": 375812,
   "moment_prefix_advice_labels": 49,
   "moment_exact_baseline_checks": 5000,
   "moment_smooth_online_checks": 4000,
@@ -532,5 +565,30 @@
   "nystrom_native_mapping_max_score_relative_l2": 6.382908e-06,
   "nystrom_native_spectrum_peak_rss_bytes": 136339456,
   "nystrom_native_mapping_peak_rss_bytes": 273145856,
-  "rff_feature_decision_semantics_peak_rss_bytes": 401305600
+  "rff_feature_decision_semantics_peak_rss_bytes": 401305600,
+  "paper_scale_decision_rows": 648,
+  "paper_scale_decision_independent_trials": 72,
+  "paper_scale_decision_peak_rss_kib": 375812,
+  "paper_scale_decision_exact_rejections": {
+    "rho_0.54": 2,
+    "rho_0.57": 6,
+    "rho_0.60": 12
+  },
+  "paper_scale_decision_disagreements": {
+    "nystrom_width_28_56_140": [
+      3,
+      0,
+      0
+    ],
+    "coordinate_rff_width_28_56_140": [
+      7,
+      4,
+      2
+    ],
+    "released_rff_width_28_56_140": [
+      4,
+      3,
+      3
+    ]
+  }
 }

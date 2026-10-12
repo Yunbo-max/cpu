@@ -1,0 +1,42 @@
+{
+  "response_id": "w010-transform-frontier-math-v1",
+  "request_id": "decision-df9bb2f2477c4d6cb8e97b367e9f4c2e",
+  "idea": "nystrom-rff-transform-frontier-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "A prospective algebraic audit shows that equal-memory matching is not an invariant method-level contract: the matched RFF width changes with legitimate choices of persistent and working state. Further post-hoc numerical sweeping would answer only an accounting-specific engineering question.",
+  "events": [
+    {
+      "event_id": "w010-transform-frontier-math-cycle-v1",
+      "kind": "research_cycle",
+      "hypothesis": "A unique transform-state-matched successor protocol can be specified from the existing Nyström and RFF definitions and will isolate a method-level comparison.",
+      "prediction": "Equating memory will produce one invariant RFF width for each Nyström width, unaffected by legitimate accumulator and execution-protocol choices.",
+      "result": "For transform-only float64 state, equality gives r=k(d+k)/d and RFF output widths 578/580, 2202/2204 and 13346/13348 at d=3 and k=28,56,140. Adding A accumulator scalars per output changes the relation to r=k(d+k+A)/(d+2A), which continuously approaches coordinate matching as A grows. Coordinate matching and transform-only state matching have no common positive k.",
+      "interpretation": "The prediction is false: equal memory is workload- and implementation-dependent, not a method-intrinsic scalar. The completed finite comparison remains valid under its frozen coordinate contract, but cannot support a universal same-memory ordering.",
+      "next_action": "Retire the Nyström/RFF transform-frontier successor and, in the next window, select a different low-rank or streaming-statistics question with a prospectively intrinsic resource contract.",
+      "reason": "The derivation falsifies the proposed invariant contract without spending further numerical budget and preserves the earlier negative evidence.",
+      "evidence": [
+        {
+          "path": "notes/transform_state_frontier_math_audit_v1.md",
+          "sha256": "d2225c6124c0f28ffaeb67d81f5e92544235a432715cfaf1aeb6d0dac485f77e"
+        },
+        {
+          "path": "notes/paper_scale_decision_v1_analysis.md",
+          "sha256": "4839f5c95b987e26f546dc4ac4553fb1faced5f0862a63ee98fb746a7d707d58"
+        }
+      ]
+    },
+    {
+      "event_id": "w010-transform-frontier-complete-v1",
+      "kind": "completion",
+      "outcome": "not_supported",
+      "reason": "The proposed successor lacks a unique method-level memory contract; a numerical sweep would be protocol-specific and does not justify reopening this comparison family.",
+      "evidence": [
+        {
+          "path": "notes/transform_state_frontier_math_audit_v1.md",
+          "sha256": "d2225c6124c0f28ffaeb67d81f5e92544235a432715cfaf1aeb6d0dac485f77e"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "checks": [
+    "row/key inventory",
+    "shared exact scores",
+    "decision recomputation",
+    "state-byte formulas",
+    "RFF shared seed",
+    "Wilson intervals",
+    "paired bootstrap intervals",
+    "aggregate counts"
+  ],
+  "independent_trials": 72,
+  "limitation": "This audit independently recomputes retained rows and aggregates; it inspects but does not independently reimplement the native feature maps.",
+  "passed": true,
+  "recomputed_counts": {
+    "140": {
+      "nystrom_coordinate": {
+        "decision_disagreements": 0,
+        "rejections": 20
+      },
+      "rff_coordinate": {
+        "decision_disagreements": 2,
+        "rejections": 18
+      },
+      "rff_released_axis": {
+        "decision_disagreements": 3,
+        "rejections": 17
+      }
+    },
+    "28": {
+      "nystrom_coordinate": {
+        "decision_disagreements": 3,
+        "rejections": 17
+      },
+      "rff_coordinate": {
+        "decision_disagreements": 7,
+        "rejections": 15
+      },
+      "rff_released_axis": {
+        "decision_disagreements": 4,
+        "rejections": 16
+      }
+    },
+    "56": {
+      "nystrom_coordinate": {
+        "decision_disagreements": 0,
+        "rejections": 20
+      },
+      "rff_coordinate": {
+        "decision_disagreements": 4,
+        "rejections": 16
+      },
+      "rff_released_axis": {
+        "decision_disagreements": 3,
+        "rejections": 17
+      }
+    }
+  },
+  "rows_checked": 648,
+  "schema": "paper-scale-decision-v1-independent-row-audit"
+}

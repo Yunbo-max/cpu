@@ -1,0 +1,23 @@
+# Paper-scale Nyström/RFF decision experiment v1
+
+Frozen prospectively on 2026-10-12 before any w010 numerical outcome was generated. The design inherits the released correlated-Gaussian experiment's `n=2500`, `d=3`, `rho1=0.5`, `B=199`, bandwidth convention and default correlation grid. Correlations `{0.54, 0.57, 0.60}` were selected as three consecutive interior source-grid values before results, not from w009 outcomes.
+
+## Question and prediction
+
+Does the w009 score-accuracy/state trade-off produce observable permutation-test decision differences at paper scale? The primary estimand is each approximation's disagreement probability with an exact Gaussian-kernel MMD decision under the same 199 permutation rows. The paired contrast is disagreement of coordinate-matched RFF (`R=ell/2`) minus released-axis RFF (`R=ell`) at realized widths `ell in {28,56,140}`. A second contrast is Nyström minus coordinate-matched RFF.
+
+Prediction: coordinate matching may increase RFF decision disagreement at `ell=28` or `56`; uniform Nyström should not have higher disagreement than coordinate-matched RFF. A valid zero-disagreement or interval-overlapping-zero result falsifies promotion of the score-error contrast to a decision claim. No directional claim may be selected after inspecting which correlation is favorable.
+
+## Frozen protocol
+
+- 24 independent data/feature trials per correlation, one feature/landmark draw per data set: 72 independent trials total.
+- One separate deterministic bandwidth-tuning data set per correlation; no w009 data or result selects a setting.
+- Original labels plus 199 explicit permutations shared by exact, Nyström and both RFF allocations.
+- RFF samples one maximum frequency array per trial; every width and coordinate/released allocation uses a literal nested prefix. Nyström landmark seeds are separate from RFF and from each other across widths.
+- Exact biased Gaussian MMD squared is computed with the released `RBFkernel`. Nyström uses released `nystrom_features`; RFF uses the released frequency/bandwidth convention.
+- Retain all 200 score values, decisions, transform bytes, realized feature bytes, construction time, permutation-score time and peak RSS. Report Wilson 95% intervals for rejection and exact-decision disagreement rates and a fixed-seed paired bootstrap 95% interval for disagreement-rate contrasts over the 72 independent trials.
+- CPU only, one process/thread, 4 GiB address-space limit, project cap 8,000,000,000 bytes. Required shared-host launch condition: current cgroup headroom must exceed a 650,000,000-byte workload estimate plus 400,000,000 bytes safety margin, with no duplicate/unknown project attempt.
+
+## Interpretation boundary
+
+This is a finite 72-trial prospective decision study, not a complete reproduction of the paper's 400 trials per correlation. It can detect an observed decision-level consequence or bound it coarsely; it cannot prove equality, global power dominance, nominal level, paper invalidity or a new method. Timings are shared-host measurements and must be separated into construction and permutation components.
