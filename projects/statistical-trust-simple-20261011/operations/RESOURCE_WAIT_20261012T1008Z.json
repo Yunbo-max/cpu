@@ -1,0 +1,448 @@
+{
+  "schema_version": 1,
+  "project_id": "statistical-trust-simple-20261011",
+  "observed_at_utc": "2026-10-12T10:08:37.191952+00:00",
+  "restored_commit": "0d5ebe2c07672040e166ca318a431b6947792907",
+  "archive_sha256": "434775fac8f12b980faff4049f35e44d831e39c5b0063f48609e27b05e65ce76",
+  "restore_verified": {
+    "parts": 117,
+    "manifest_files": 968,
+    "sqlite_integrity": "ok",
+    "original_root": true
+  },
+  "state": {
+    "all_attempts_terminal": 45,
+    "command_seconds": 642.4580039849707,
+    "recorded_cycles": 24,
+    "source_error": null,
+    "new_scientific_attempts": 0,
+    "supervisor_started": false
+  },
+  "resource_probes": [
+    {
+      "collected_at_utc": "2026-10-12T10:07:29.224745Z",
+      "cpu": {
+        "affinity": {
+          "count": 9,
+          "ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "source": "os.sched_getaffinity(0)",
+          "status": "observed"
+        },
+        "capacity_upper_bound": 8.0,
+        "cgroup": {
+          "cpu_quota_count_upper_bound": 8.0,
+          "cpuset_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "hierarchy_complete": true,
+          "observations": [
+            {
+              "cpuset_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+              ],
+              "path": "/sys/fs/cgroup",
+              "period_us": 100000,
+              "quota_count": 8.0,
+              "quota_state": "observed",
+              "quota_us": 800000,
+              "sources": [
+                "/sys/fs/cgroup/cpu.max",
+                "/sys/fs/cgroup/cpuset.cpus.effective"
+              ],
+              "version": 2
+            }
+          ],
+          "scope": "Mapped membership through visible mount roots; hidden ancestors may impose tighter limits"
+        },
+        "logical_count": 9,
+        "note": "An observed upper bound, not dedicated cores, current idle capacity or authorization; unknown constraints may lower it",
+        "sources": {
+          "capacity_upper_bound": "Minimum of known logical count, affinity, intersected cpusets and ancestor quota/period",
+          "logical_count": "os.cpu_count()"
+        }
+      },
+      "diagnostics": [],
+      "host": {
+        "hostname": "61267ced6f5a",
+        "machine": "x86_64",
+        "system": "Linux"
+      },
+      "memory": {
+        "cgroup_headroom_bytes": 507699200,
+        "cgroup_limit_bytes": 8589934592,
+        "cgroup_observations": [
+          {
+            "current_bytes": 8082235392,
+            "headroom_bytes": 507699200,
+            "limit_bytes": 8589934592,
+            "limit_state": "observed",
+            "path": "/sys/fs/cgroup",
+            "raw_limit": "8589934592",
+            "sources": [
+              "/sys/fs/cgroup/memory.max",
+              "/sys/fs/cgroup/memory.current"
+            ],
+            "version": 2
+          }
+        ],
+        "effective_total_bytes_upper_bound": 8589934592,
+        "mem_available_bytes": 8710311936,
+        "mem_total_bytes": 10451464192,
+        "note": "MemTotal may describe host RAM; cgroup headroom is instantaneous and shared, excludes future reclaim, and is not reserved memory",
+        "observed_headroom_bytes": 507699200,
+        "sources": {
+          "cgroup_headroom_bytes": "Minimum max(0, limit-current) in cgroup_observations",
+          "cgroup_limit_bytes": "Minimum known limit in cgroup_observations",
+          "effective_total_bytes_upper_bound": "Minimum known MemTotal and cgroup limit",
+          "mem_available_bytes": "/proc/meminfo:MemAvailable",
+          "mem_total_bytes": "/proc/meminfo:MemTotal",
+          "observed_headroom_bytes": "Minimum known MemAvailable and current cgroup headroom"
+        }
+      },
+      "nvidia_gpus": {
+        "devices": null,
+        "diagnostics": [
+          {
+            "component": "nvidia_gpus",
+            "kind": "missing_tool",
+            "message": "nvidia-smi was not found; GPU inventory remains unknown and CPU work can continue"
+          }
+        ],
+        "source": {
+          "query": "index,uuid,name,memory.total,memory.free,utilization.gpu",
+          "timeout_seconds": 3.0,
+          "tool": "nvidia-smi"
+        },
+        "status": "unknown",
+        "visibility": {
+          "cuda_visible_devices_raw": null,
+          "mapping_status": "unknown",
+          "reason": "CUDA_VISIBLE_DEVICES expresses visibility, not authorization; nvidia-smi indices are not confirmed CUDA ordinals. CUDA/MIG runtime mapping is not probed"
+        }
+      },
+      "schema_version": 1,
+      "scope": {
+        "authorizes_execution": false,
+        "local_only": true,
+        "note": "Observation only; declare the user's allocation separately and measure an authorized workload pilot. No research task is launched",
+        "reserves_resources": false,
+        "resource_lease": false
+      }
+    },
+    {
+      "collected_at_utc": "2026-10-12T10:07:52.874178Z",
+      "cpu": {
+        "affinity": {
+          "count": 9,
+          "ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "source": "os.sched_getaffinity(0)",
+          "status": "observed"
+        },
+        "capacity_upper_bound": 8.0,
+        "cgroup": {
+          "cpu_quota_count_upper_bound": 8.0,
+          "cpuset_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "hierarchy_complete": true,
+          "observations": [
+            {
+              "cpuset_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+              ],
+              "path": "/sys/fs/cgroup",
+              "period_us": 100000,
+              "quota_count": 8.0,
+              "quota_state": "observed",
+              "quota_us": 800000,
+              "sources": [
+                "/sys/fs/cgroup/cpu.max",
+                "/sys/fs/cgroup/cpuset.cpus.effective"
+              ],
+              "version": 2
+            }
+          ],
+          "scope": "Mapped membership through visible mount roots; hidden ancestors may impose tighter limits"
+        },
+        "logical_count": 9,
+        "note": "An observed upper bound, not dedicated cores, current idle capacity or authorization; unknown constraints may lower it",
+        "sources": {
+          "capacity_upper_bound": "Minimum of known logical count, affinity, intersected cpusets and ancestor quota/period",
+          "logical_count": "os.cpu_count()"
+        }
+      },
+      "diagnostics": [],
+      "host": {
+        "hostname": "61267ced6f5a",
+        "machine": "x86_64",
+        "system": "Linux"
+      },
+      "memory": {
+        "cgroup_headroom_bytes": 497532928,
+        "cgroup_limit_bytes": 8589934592,
+        "cgroup_observations": [
+          {
+            "current_bytes": 8092401664,
+            "headroom_bytes": 497532928,
+            "limit_bytes": 8589934592,
+            "limit_state": "observed",
+            "path": "/sys/fs/cgroup",
+            "raw_limit": "8589934592",
+            "sources": [
+              "/sys/fs/cgroup/memory.max",
+              "/sys/fs/cgroup/memory.current"
+            ],
+            "version": 2
+          }
+        ],
+        "effective_total_bytes_upper_bound": 8589934592,
+        "mem_available_bytes": 8374538240,
+        "mem_total_bytes": 10451464192,
+        "note": "MemTotal may describe host RAM; cgroup headroom is instantaneous and shared, excludes future reclaim, and is not reserved memory",
+        "observed_headroom_bytes": 497532928,
+        "sources": {
+          "cgroup_headroom_bytes": "Minimum max(0, limit-current) in cgroup_observations",
+          "cgroup_limit_bytes": "Minimum known limit in cgroup_observations",
+          "effective_total_bytes_upper_bound": "Minimum known MemTotal and cgroup limit",
+          "mem_available_bytes": "/proc/meminfo:MemAvailable",
+          "mem_total_bytes": "/proc/meminfo:MemTotal",
+          "observed_headroom_bytes": "Minimum known MemAvailable and current cgroup headroom"
+        }
+      },
+      "nvidia_gpus": {
+        "devices": null,
+        "diagnostics": [
+          {
+            "component": "nvidia_gpus",
+            "kind": "missing_tool",
+            "message": "nvidia-smi was not found; GPU inventory remains unknown and CPU work can continue"
+          }
+        ],
+        "source": {
+          "query": "index,uuid,name,memory.total,memory.free,utilization.gpu",
+          "timeout_seconds": 3.0,
+          "tool": "nvidia-smi"
+        },
+        "status": "unknown",
+        "visibility": {
+          "cuda_visible_devices_raw": null,
+          "mapping_status": "unknown",
+          "reason": "CUDA_VISIBLE_DEVICES expresses visibility, not authorization; nvidia-smi indices are not confirmed CUDA ordinals. CUDA/MIG runtime mapping is not probed"
+        }
+      },
+      "schema_version": 1,
+      "scope": {
+        "authorizes_execution": false,
+        "local_only": true,
+        "note": "Observation only; declare the user's allocation separately and measure an authorized workload pilot. No research task is launched",
+        "reserves_resources": false,
+        "resource_lease": false
+      }
+    },
+    {
+      "collected_at_utc": "2026-10-12T10:08:36.904309Z",
+      "cpu": {
+        "affinity": {
+          "count": 9,
+          "ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "source": "os.sched_getaffinity(0)",
+          "status": "observed"
+        },
+        "capacity_upper_bound": 8.0,
+        "cgroup": {
+          "cpu_quota_count_upper_bound": 8.0,
+          "cpuset_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "hierarchy_complete": true,
+          "observations": [
+            {
+              "cpuset_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+              ],
+              "path": "/sys/fs/cgroup",
+              "period_us": 100000,
+              "quota_count": 8.0,
+              "quota_state": "observed",
+              "quota_us": 800000,
+              "sources": [
+                "/sys/fs/cgroup/cpu.max",
+                "/sys/fs/cgroup/cpuset.cpus.effective"
+              ],
+              "version": 2
+            }
+          ],
+          "scope": "Mapped membership through visible mount roots; hidden ancestors may impose tighter limits"
+        },
+        "logical_count": 9,
+        "note": "An observed upper bound, not dedicated cores, current idle capacity or authorization; unknown constraints may lower it",
+        "sources": {
+          "capacity_upper_bound": "Minimum of known logical count, affinity, intersected cpusets and ancestor quota/period",
+          "logical_count": "os.cpu_count()"
+        }
+      },
+      "diagnostics": [],
+      "host": {
+        "hostname": "61267ced6f5a",
+        "machine": "x86_64",
+        "system": "Linux"
+      },
+      "memory": {
+        "cgroup_headroom_bytes": 614199296,
+        "cgroup_limit_bytes": 8589934592,
+        "cgroup_observations": [
+          {
+            "current_bytes": 7975735296,
+            "headroom_bytes": 614199296,
+            "limit_bytes": 8589934592,
+            "limit_state": "observed",
+            "path": "/sys/fs/cgroup",
+            "raw_limit": "8589934592",
+            "sources": [
+              "/sys/fs/cgroup/memory.max",
+              "/sys/fs/cgroup/memory.current"
+            ],
+            "version": 2
+          }
+        ],
+        "effective_total_bytes_upper_bound": 8589934592,
+        "mem_available_bytes": 8708255744,
+        "mem_total_bytes": 10451464192,
+        "note": "MemTotal may describe host RAM; cgroup headroom is instantaneous and shared, excludes future reclaim, and is not reserved memory",
+        "observed_headroom_bytes": 614199296,
+        "sources": {
+          "cgroup_headroom_bytes": "Minimum max(0, limit-current) in cgroup_observations",
+          "cgroup_limit_bytes": "Minimum known limit in cgroup_observations",
+          "effective_total_bytes_upper_bound": "Minimum known MemTotal and cgroup limit",
+          "mem_available_bytes": "/proc/meminfo:MemAvailable",
+          "mem_total_bytes": "/proc/meminfo:MemTotal",
+          "observed_headroom_bytes": "Minimum known MemAvailable and current cgroup headroom"
+        }
+      },
+      "nvidia_gpus": {
+        "devices": null,
+        "diagnostics": [
+          {
+            "component": "nvidia_gpus",
+            "kind": "missing_tool",
+            "message": "nvidia-smi was not found; GPU inventory remains unknown and CPU work can continue"
+          }
+        ],
+        "source": {
+          "query": "index,uuid,name,memory.total,memory.free,utilization.gpu",
+          "timeout_seconds": 3.0,
+          "tool": "nvidia-smi"
+        },
+        "status": "unknown",
+        "visibility": {
+          "cuda_visible_devices_raw": null,
+          "mapping_status": "unknown",
+          "reason": "CUDA_VISIBLE_DEVICES expresses visibility, not authorization; nvidia-smi indices are not confirmed CUDA ordinals. CUDA/MIG runtime mapping is not probed"
+        }
+      },
+      "schema_version": 1,
+      "scope": {
+        "authorizes_execution": false,
+        "local_only": true,
+        "note": "Observation only; declare the user's allocation separately and measure an authorized workload pilot. No research task is launched",
+        "reserves_resources": false,
+        "resource_lease": false
+      }
+    }
+  ],
+  "memory_events_at_final": {
+    "low": 0,
+    "high": 0,
+    "max": 127361,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "resource_wait": {
+    "identity": "b047-memory-gate",
+    "threshold_bytes": 7500000000,
+    "event_created": false,
+    "B047v2_submitted": false,
+    "seeds_and_rule_unchanged": true
+  },
+  "user_instruction": "2026-10-12: if insufficient memory, wait and retry; report if persistently unable. Do not treat transient shortage as failure or disable continuous research.",
+  "decision": "Retain the existing memory wait; no experimental outcome or research cycle added. Exact local parity cleanup precheck passed. Archive remains unchanged; this is a separate operational receipt."
+}
