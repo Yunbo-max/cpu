@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "project_id": "planning-search-constraints-simple-20261011",
+  "recorded_utc": "2026-10-12T15:08:36.993937+00:00",
+  "data_commit": "ab0befb368e39a6509a7fcd174d72b4db5cc2014",
+  "parent_commit": "58e685e8d44f55e6237d92a157ad2a3814d8c441",
+  "manifest": "snapshots/wake0019-memory-wait.json",
+  "manifest_sha256": "1bcecf2664226e57fec1ea72cf7a745e8c99f2470d996343de8b7d03a7be5511",
+  "files": 7585,
+  "raw_bytes": 1337498784,
+  "new_pack_bytes": 28193,
+  "published_paths": 4,
+  "remote_tree_identity_verified": true,
+  "remote_blob_identities": {
+    "LATEST.json": "0772c1bf39aa4e29524d851c06a2ee1f3ef5b508",
+    "snapshots/wake0019-memory-wait.json": "e63e052a2a61ccba54921d3371264424b520a019",
+    "packs/wake0019-memory-wait/index.json": "75e8015c9a6cf5c790e82dee86fbadb61b15f40e",
+    "packs/wake0019-memory-wait/part-00000.bin": "845c38a65f207d86d167e254a546eefc66be899c"
+  },
+  "independent_selective_restore": {
+    "status": "passed",
+    "changed_files_verified": 5,
+    "paths": [
+      "CHECKPOINT.json",
+      "RESUME.md",
+      "windows/W0001/evidence/waiting_for_memory_v2.json",
+      "windows/W0001/evidence/wake0019_memory_recheck_v1.json",
+      "windows/W0001/notes/R005_rewire_relation_invariants_v1.md"
+    ],
+    "restored_hashes": {
+      "CHECKPOINT.json": "b8442968578464e6f76b8552cd8376106af76030d43390382f0235424893ac97",
+      "RESUME.md": "8b5e32b322477483ec197301f1879021e1b319ba00c0fd27469536a83ed63a0a",
+      "windows/W0001/evidence/waiting_for_memory_v2.json": "8a4f53ecaa3fca5fbfdf2f656864ba123921291dc372361a1071842ab489dc8a",
+      "windows/W0001/evidence/wake0019_memory_recheck_v1.json": "582ca41623a360bc7a99f8e621a0ce317798048ed0ce2f9658f40953a6671f3d",
+      "windows/W0001/notes/R005_rewire_relation_invariants_v1.md": "f44cfe43638f6d4b6d313cde21b920e46f5fedf9f0e8fd483d0fcab7d53293f7"
+    }
+  },
+  "full_archive_restore_status": "pending_memory_headroom",
+  "full_archive_note": "The five wake0019 changed members were independently restored from the immutable remote commit. A full 1.337GB archive restore, including old packs and the active SQLite database, remains deferred under the shared-memory waiting policy.",
+  "cleanup_policy": "Retain the older wake0018 local pack and malformed-database quarantine until a later low-memory full restore verifies all inherited members and database integrity. Do not claim disk cleanup as RAM release.",
+  "latest_scientific_status": "No native experiment ran; source-derived multiset/count invariants were recorded while waiting."
+}
