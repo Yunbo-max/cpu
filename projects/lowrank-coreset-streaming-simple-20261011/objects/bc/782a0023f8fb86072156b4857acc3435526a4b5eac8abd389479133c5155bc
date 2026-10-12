@@ -1,0 +1,46 @@
+{
+  "response_id": "w009-rff-pairing-repair-v3",
+  "request_id": "decision-5ee1af9a3f8247de9645ce30e721be29",
+  "idea": "nystrom-rff-state-matched-comparison-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Execution v2 succeeded, but pre-acceptance protocol inspection found that its coordinate and double-width RFF arms used different feature seeds. That marginal comparison cannot isolate the frozen allocation effect. Preserve v1 outputs as preliminary, pair both arms by one frequency-prefix seed, and rerun all frozen cells before interpretation.",
+  "events": [
+    {
+      "event_id": "w009-rff-control-pairing-error-v1",
+      "kind": "implementation_error",
+      "issue": "unpaired-rff-width-control",
+      "reason": "The successful preliminary batch used independent RFF feature seeds across the two width allocations, confounding the intended within-draw allocation contrast. The amendment changes only that pairing and writes new outputs; preliminary outputs and receipt remain retained.",
+      "change_evidence": [
+        {"path": "plans/state_matched_native_calibration_v2_amendment.md", "sha256": "c5206ed0b22d8ab4c845a25df22a02cc38fb65bd65fe5e0346efb3dca45e2e33"},
+        {"path": "scripts/state_matched_native_calibration_v1.py", "sha256": "a8dd61c5ceef957aa17657130305d6a41ac68c619f6403a0243e5586fb4af8ec"},
+        {"path": "results/state_matched_native_calibration_v1.json", "sha256": "2ecc9516759e6a5ab2c29c98e3bf9b676494387c206741718e86e3b81d3cf843"},
+        {"path": "results/state_matched_native_calibration_v1_rows.json", "sha256": "d2fb6036b75398bc31df0167831683199ea2ae1101f8f4bc18ee24782c3ccb7a"}
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "state-matched-native-calibration-paired-v3",
+      "argv": ["python3", "scripts/cpu_guard.py", "python3", "scripts/state_matched_native_calibration_v1.py"],
+      "phase": "verify",
+      "purpose": "Rerun the frozen calibration with coordinate and double-width RFF arms paired by one frequency-prefix seed",
+      "timeout_seconds": 420,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+        {"path": "scripts/state_matched_native_calibration_v1.py", "sha256": "a8dd61c5ceef957aa17657130305d6a41ac68c619f6403a0243e5586fb4af8ec"},
+        {"path": "compat/tqdm.py", "sha256": "7352e3a8450124e337b77ff54063351993e34cf4245c0e1df59ce77fbbba9a46"},
+        {"path": "plans/state_matched_native_calibration_v1.md", "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"},
+        {"path": "plans/state_matched_native_calibration_v2_amendment.md", "sha256": "c5206ed0b22d8ab4c845a25df22a02cc38fb65bd65fe5e0346efb3dca45e2e33"},
+        {"path": "notes/resources_pre_repair_v2.json", "sha256": "0c5e1d35c0e54ca6cfb5d0930e825c90fe0975eb417ee953c74ad3001def9f64"},
+        {"path": "sources/nystrom_source_manifest_v3.json", "sha256": "8792c00eb1d891c8da6da6e10e86c1a9e91513ccf9f2d7033b66abee2a2c61a7"}
+      ],
+      "outputs": [
+        "results/state_matched_native_calibration_v2.json",
+        "results/state_matched_native_calibration_v2_rows.json"
+      ]
+    }
+  ]
+}

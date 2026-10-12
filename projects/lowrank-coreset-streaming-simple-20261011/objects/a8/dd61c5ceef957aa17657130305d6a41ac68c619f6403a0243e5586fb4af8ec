@@ -1,0 +1,259 @@
+#!/usr/bin/env python3
+"""Coordinate-matched native Nyström/RFF calibration with explicit RNG streams."""
+
+from __future__ import annotations
+
+import json
+import os
+import resource
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+from scipy.spatial.distance import pdist
+from scipy.stats import rankdata
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE = ROOT / ".deps" / "nystrom-mmd-paper"
+sys.path.insert(0, str(ROOT / "compat"))
+sys.path.insert(0, str(SOURCE))
+
+from kernels import RBFkernel  # noqa: E402
+from nystrom import nystrom_features  # noqa: E402
+
+
+N = 512
+D = 3
+RHO1 = 0.5
+RHO2 = 0.60
+B = 39
+WIDTHS = (28, 56, 140)
+N_DATA = 8
+N_DRAWS = 4
+MASTER_SEED = 2026101209
+
+
+def correlated_gaussians(n: int, d: int, rho1: float, rho2: float, seed: int) -> np.ndarray:
+    """Exact numerical definition used by released samplers.py without h5py import."""
+    rng = np.random.default_rng(seed)
+    cov1 = (1.0 - rho1) * np.eye(d) + rho1 * np.ones((d, d))
+    cov2 = (1.0 - rho2) * np.eye(d) + rho2 * np.ones((d, d))
+    x = np.zeros((2 * n, d), dtype=np.float64)
+    x[:n] = rng.multivariate_normal(np.zeros(d), cov1, size=n)
+    x[n:] = rng.multivariate_normal(np.zeros(d), cov2, size=n)
+    return x
+
+
+def standardize(x: np.ndarray) -> np.ndarray:
+    return (x - x.mean(axis=0)) / x.std(axis=0)
+
+
+def shared_weights(ntot: int, n: int, seed: int) -> np.ndarray:
+    rng = np.random.default_rng(seed)
+    weights = np.empty((B + 1, ntot), dtype=np.float64)
+    labels = np.concatenate((np.ones(n), np.zeros(n)))
+    for j in range(B + 1):
+        row = labels if j == 0 else rng.permutation(labels)
+        weights[j] = row / n - (1.0 - row) / n
+    return weights
+
+
+def exact_scores(x: np.ndarray, weights: np.ndarray, sigma: float) -> np.ndarray:
+    kernel = RBFkernel(x, x, sigma)
+    wk = weights @ kernel
+    return np.einsum("ij,ij->i", wk, weights)
+
+
+def nystrom_scores(x: np.ndarray, weights: np.ndarray, sigma: float, k: int, seed: int) -> np.ndarray:
+    rng = np.random.default_rng(seed)
+    inds = rng.choice(len(x), k, replace=False)
+    psi = nystrom_features(x, inds, sigma)
+    means = weights @ psi
+    return np.einsum("ij,ij->i", means, means)
+
+
+def rff_scores(x: np.ndarray, weights: np.ndarray, sigma: float, r: int, seed: int) -> np.ndarray:
+    rng = np.random.default_rng(seed)
+    # Released rMMDtest receives bandwidth=sqrt(2)*sigma, hence this is its
+    # sqrt(2)/bandwidth frequency scale.
+    omegas = rng.normal(size=(r, x.shape[1])) / sigma
+    projected = x @ omegas.T
+    psi = np.concatenate((np.cos(projected), np.sin(projected)), axis=1) / np.sqrt(r)
+    means = weights @ psi
+    return np.einsum("ij,ij->i", means, means)
+
+
+def empirical_reject(scores: np.ndarray) -> bool:
+    return bool((1 + np.count_nonzero(scores[1:] >= scores[0])) / (B + 1) <= 0.05)
+
+
+def strict_reversals(reference: np.ndarray, estimate: np.ndarray) -> int:
+    i, j = np.triu_indices(len(reference), 1)
+    ref = np.sign(reference[i] - reference[j])
+    est = np.sign(estimate[i] - estimate[j])
+    keep = (ref != 0) & (est != 0)
+    return int(np.count_nonzero(ref[keep] != est[keep]))
+
+
+def summarize_scores(reference: np.ndarray, estimate: np.ndarray) -> dict:
+    abs_error = np.abs(estimate - reference)
+    rel_error = abs_error / np.maximum(np.abs(reference), 1e-15)
+    rr = rankdata(reference)
+    re = rankdata(estimate)
+    spearman = float(np.corrcoef(rr, re)[0, 1]) if np.std(rr) and np.std(re) else None
+    return {
+        "scores": estimate.tolist(),
+        "original_abs_error": float(abs_error[0]),
+        "original_rel_error": float(rel_error[0]),
+        "permutation_median_abs_error": float(np.median(abs_error[1:])),
+        "permutation_median_rel_error": float(np.median(rel_error[1:])),
+        "spearman": spearman,
+        "strict_pair_reversals": strict_reversals(reference, estimate),
+        "reject_trace": empirical_reject(estimate),
+    }
+
+
+def main() -> None:
+    started = time.perf_counter()
+    root_ss = np.random.SeedSequence(MASTER_SEED)
+    data_children = root_ss.spawn(N_DATA)
+    rows = []
+
+    for data_index, data_ss in enumerate(data_children):
+        data_seed, tune_seed, perm_seed = [
+            int(s.generate_state(1, dtype=np.uint32)[0]) for s in data_ss.spawn(3)
+        ]
+        x = standardize(correlated_gaussians(N, D, RHO1, RHO2, data_seed))
+        tune = standardize(correlated_gaussians(500, D, RHO1, RHO2, tune_seed))
+        sigma = float(np.median(pdist(tune)))
+        weights = shared_weights(len(x), N, perm_seed)
+
+        t0 = time.perf_counter()
+        reference = exact_scores(x, weights, sigma)
+        exact_seconds = time.perf_counter() - t0
+        draw_children = data_ss.spawn(N_DRAWS)
+
+        for draw_index, draw_ss in enumerate(draw_children):
+            nys_ss, rff_ss = draw_ss.spawn(2)
+            nys_seed = int(nys_ss.generate_state(1, dtype=np.uint32)[0])
+            rff_seed = int(rff_ss.generate_state(1, dtype=np.uint32)[0])
+
+            for ell in WIDTHS:
+                method_specs = (
+                    ("nystrom_coordinate", ell, nys_seed),
+                    ("rff_coordinate", ell // 2, rff_seed),
+                    ("rff_released_axis", ell, rff_seed),
+                )
+                for method, parameter, seed in method_specs:
+                    t1 = time.perf_counter()
+                    if method == "nystrom_coordinate":
+                        estimate = nystrom_scores(x, weights, sigma, parameter, seed)
+                        realized_width = parameter
+                        transform_state_bytes = 8 * (parameter * D + parameter * parameter)
+                    else:
+                        estimate = rff_scores(x, weights, sigma, parameter, seed)
+                        realized_width = 2 * parameter
+                        transform_state_bytes = 8 * parameter * D
+                    seconds = time.perf_counter() - t1
+                    feature_matrix_bytes = 8 * len(x) * realized_width
+                    released_common_bytes = 8 * 3 * (B + 1) * len(x)
+                    released_accumulator_bytes = 8 * 3 * (B + 1) * realized_width
+                    row = {
+                        "data_index": data_index,
+                        "draw_index": draw_index,
+                        "ell_label": ell,
+                        "method": method,
+                        "native_parameter": parameter,
+                        "realized_width": realized_width,
+                        "data_seed": data_seed,
+                        "tune_seed": tune_seed,
+                        "permutation_seed": perm_seed,
+                        "feature_seed": seed,
+                        "sigma": sigma,
+                        "exact_scores": reference.tolist(),
+                        "exact_seconds": exact_seconds,
+                        "method_seconds": seconds,
+                        "transform_state_bytes": transform_state_bytes,
+                        "feature_matrix_bytes": feature_matrix_bytes,
+                        "released_common_indicator_bytes": released_common_bytes,
+                        "released_accumulator_bytes": released_accumulator_bytes,
+                        "exact_reject_trace": empirical_reject(reference),
+                    }
+                    row.update(summarize_scores(reference, estimate))
+                    rows.append(row)
+
+    groups = {}
+    for ell in WIDTHS:
+        groups[str(ell)] = {}
+        for method in ("nystrom_coordinate", "rff_coordinate", "rff_released_axis"):
+            selected = [r for r in rows if r["ell_label"] == ell and r["method"] == method]
+            groups[str(ell)][method] = {
+                "n": len(selected),
+                "median_original_abs_error": float(np.median([r["original_abs_error"] for r in selected])),
+                "median_permutation_abs_error": float(np.median([r["permutation_median_abs_error"] for r in selected])),
+                "median_spearman": float(np.median([r["spearman"] for r in selected])),
+                "total_strict_pair_reversals": int(sum(r["strict_pair_reversals"] for r in selected)),
+                "decision_disagreements_vs_exact": int(sum(r["reject_trace"] != r["exact_reject_trace"] for r in selected)),
+                "median_method_seconds": float(np.median([r["method_seconds"] for r in selected])),
+                "transform_state_bytes": selected[0]["transform_state_bytes"],
+                "feature_matrix_bytes": selected[0]["feature_matrix_bytes"],
+                "released_accumulator_bytes": selected[0]["released_accumulator_bytes"],
+            }
+        rc = groups[str(ell)]["rff_coordinate"]["median_original_abs_error"]
+        rr = groups[str(ell)]["rff_released_axis"]["median_original_abs_error"]
+        ny = groups[str(ell)]["nystrom_coordinate"]["median_original_abs_error"]
+        paired_ratios = []
+        for data_index in range(N_DATA):
+            for draw_index in range(N_DRAWS):
+                coord = next(r for r in rows if r["ell_label"] == ell and r["method"] == "rff_coordinate" and r["data_index"] == data_index and r["draw_index"] == draw_index)
+                double = next(r for r in rows if r["ell_label"] == ell and r["method"] == "rff_released_axis" and r["data_index"] == data_index and r["draw_index"] == draw_index)
+                if coord["feature_seed"] != double["feature_seed"]:
+                    raise AssertionError("RFF allocation arms must share a feature seed")
+                paired_ratios.append(coord["original_abs_error"] / max(double["original_abs_error"], 1e-300))
+        groups[str(ell)]["contrasts"] = {
+            "rff_coordinate_to_double_width_error_ratio": rc / max(rr, 1e-300),
+            "median_within_pair_error_ratio": float(np.median(paired_ratios)),
+            "fraction_pairs_ratio_at_least_1_25": float(np.mean(np.asarray(paired_ratios) >= 1.25)),
+            "nystrom_to_rff_coordinate_error_ratio": ny / max(rc, 1e-300),
+            "rff_material_threshold_met": bool(rc / max(rr, 1e-300) >= 1.25),
+            "nystrom_at_least_as_accurate": bool(ny <= rc),
+        }
+
+    summary = {
+        "schema": "state-matched-native-calibration-v2-paired-rff-prefix",
+        "frozen_constants": {
+            "n_per_group": N,
+            "dimension": D,
+            "rho1": RHO1,
+            "rho2": RHO2,
+            "B": B,
+            "widths": WIDTHS,
+            "data_seeds": N_DATA,
+            "draws_per_data": N_DRAWS,
+            "master_seed": MASTER_SEED,
+        },
+        "rows": len(rows),
+        "groups": groups,
+        "wall_seconds": time.perf_counter() - started,
+        "ru_maxrss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "thread_environment": {k: os.environ.get(k) for k in (
+            "OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS"
+        )},
+        "interpretation_boundary": "Calibration only; not a population power or Type-I-error estimate.",
+    }
+
+    out_dir = ROOT / "results"
+    out_dir.mkdir(exist_ok=True)
+    (out_dir / "state_matched_native_calibration_v2_rows.json").write_text(
+        json.dumps(rows, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    (out_dir / "state_matched_native_calibration_v2.json").write_text(
+        json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    print(json.dumps(summary, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

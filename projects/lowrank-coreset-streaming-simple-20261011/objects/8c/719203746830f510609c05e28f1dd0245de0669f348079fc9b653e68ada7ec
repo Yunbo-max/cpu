@@ -1,0 +1,832 @@
+{
+  "agent_error": null,
+  "agent_version": 0,
+  "attempts": [
+    {
+      "attempt_dir": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w009/.research-autopilot/runner/attempts/attempt-d9c307c502d649b284b20dff76ae744e",
+      "attempt_id": "attempt-d9c307c502d649b284b20dff76ae744e",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/cpu_guard.py",
+          "python3",
+          "scripts/state_matched_native_calibration_v1.py"
+        ],
+        "attempt_id": "attempt-d9c307c502d649b284b20dff76ae744e",
+        "cwd": ".",
+        "deadline_epoch": 1791822730.572728,
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/state_matched_native_calibration_v1.py",
+            "sha256": "0c09838782077b2c70a80760d4dfb04177afa62cf90260b479932b5df9948ca3"
+          },
+          {
+            "path": "compat/tqdm.py",
+            "sha256": "7352e3a8450124e337b77ff54063351993e34cf4245c0e1df59ce77fbbba9a46"
+          },
+          {
+            "path": "plans/state_matched_native_calibration_v1.md",
+            "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"
+          },
+          {
+            "path": "notes/paper_source_feature_state_audit_v1.md",
+            "sha256": "18a44a6db1b61e8cb4d703e0a7c7870b513e1422867e17e0f7cbf8921ff411b3"
+          },
+          {
+            "path": "notes/resources_pre_calibration_recheck_v1.json",
+            "sha256": "0bab376d5b25c20b3d95601728c3ef1826feec9e9c8fcd1d44c8b790bcee2177"
+          },
+          {
+            "path": "sources/nystrom_source_manifest_v3.json",
+            "sha256": "8792c00eb1d891c8da6da6e10e86c1a9e91513ccf9f2d7033b66abee2a2c61a7"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "results/state_matched_native_calibration_v1.json",
+          "results/state_matched_native_calibration_v1_rows.json"
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w009",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "state-matched-native-calibration-v2",
+        "timeout_seconds": 420
+      },
+      "contract_sha256": "823ab0e21c8b02411541baa13a2ed17792158ee664542ac8f0ababba77317b6c",
+      "elapsed_seconds": 1.7521788389967696,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-d9c307c502d649b284b20dff76ae744e",
+        "command_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 189987,
+          "start_ticks": 2624236
+        },
+        "contract_sha256": "823ab0e21c8b02411541baa13a2ed17792158ee664542ac8f0ababba77317b6c",
+        "elapsed_seconds": 1.7521788389967696,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-12T14:39:35.814156+00:00",
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/state_matched_native_calibration_v1.py",
+            "sha256": "0c09838782077b2c70a80760d4dfb04177afa62cf90260b479932b5df9948ca3"
+          },
+          {
+            "path": "compat/tqdm.py",
+            "sha256": "7352e3a8450124e337b77ff54063351993e34cf4245c0e1df59ce77fbbba9a46"
+          },
+          {
+            "path": "plans/state_matched_native_calibration_v1.md",
+            "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"
+          },
+          {
+            "path": "notes/paper_source_feature_state_audit_v1.md",
+            "sha256": "18a44a6db1b61e8cb4d703e0a7c7870b513e1422867e17e0f7cbf8921ff411b3"
+          },
+          {
+            "path": "notes/resources_pre_calibration_recheck_v1.json",
+            "sha256": "0bab376d5b25c20b3d95601728c3ef1826feec9e9c8fcd1d44c8b790bcee2177"
+          },
+          {
+            "path": "sources/nystrom_source_manifest_v3.json",
+            "sha256": "8792c00eb1d891c8da6da6e10e86c1a9e91513ccf9f2d7033b66abee2a2c61a7"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "results/state_matched_native_calibration_v1.json",
+            "sha256": "2ecc9516759e6a5ab2c29c98e3bf9b676494387c206741718e86e3b81d3cf843"
+          },
+          {
+            "path": "results/state_matched_native_calibration_v1_rows.json",
+            "sha256": "d2fb6036b75398bc31df0167831683199ea2ae1101f8f4bc18ee24782c3ccb7a"
+          }
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w009",
+        "schema_version": 1,
+        "started_at": "2026-10-12T14:39:34.061982+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-d9c307c502d649b284b20dff76ae744e/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-d9c307c502d649b284b20dff76ae744e/stdout.txt",
+          "sha256": "e6e1e3d10ec2fe97dd5c9f731a4e284ca21410476c2d5383bf12eb1af1344190"
+        },
+        "task_id": "state-matched-native-calibration-v2",
+        "worker_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 189986,
+          "start_ticks": 2624233
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-d9c307c502d649b284b20dff76ae744e/receipt.json",
+        "sha256": "10c6b2c10e0176ed1ad95555c3a79290adc77914d93882da3a60dacfb5d1aad4"
+      },
+      "reservation_seconds": 423.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "state-matched-native-calibration-v2"
+    },
+    {
+      "attempt_dir": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w009/.research-autopilot/runner/attempts/attempt-de9af018ac61467ba3f0006ace59bbd0",
+      "attempt_id": "attempt-de9af018ac61467ba3f0006ace59bbd0",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/cpu_guard.py",
+          "python3",
+          "scripts/state_matched_native_calibration_v1.py"
+        ],
+        "attempt_id": "attempt-de9af018ac61467ba3f0006ace59bbd0",
+        "cwd": ".",
+        "deadline_epoch": 1791822730.572728,
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/state_matched_native_calibration_v1.py",
+            "sha256": "4977140bae8a99baecc34e2d8ba6c99dc7032172d6bcc6f8babee59738d8bdea"
+          },
+          {
+            "path": "plans/state_matched_native_calibration_v1.md",
+            "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"
+          },
+          {
+            "path": "notes/paper_source_feature_state_audit_v1.md",
+            "sha256": "18a44a6db1b61e8cb4d703e0a7c7870b513e1422867e17e0f7cbf8921ff411b3"
+          },
+          {
+            "path": "notes/resources_pre_calibration_recheck_v1.json",
+            "sha256": "0bab376d5b25c20b3d95601728c3ef1826feec9e9c8fcd1d44c8b790bcee2177"
+          },
+          {
+            "path": "sources/nystrom_source_manifest_v3.json",
+            "sha256": "8792c00eb1d891c8da6da6e10e86c1a9e91513ccf9f2d7033b66abee2a2c61a7"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "results/state_matched_native_calibration_v1.json",
+          "results/state_matched_native_calibration_v1_rows.json"
+        ],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w009",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "state-matched-native-calibration-v1",
+        "timeout_seconds": 420
+      },
+      "contract_sha256": "f008fab3b39bc53930b0b6712bd606c74708fbf158b6f31273705d99f91beea7",
+      "elapsed_seconds": 1.054154698002094,
+      "kind": "task",
+      "reason": "Command exited with status 1; Cannot safely read results/state_matched_native_calibration_v1.json: [Errno 2] No such file or directory: 'state_matched_native_calibration_v1.json'; Cannot safely read results/state_matched_native_calibration_v1_rows.json: [Errno 2] No such file or directory: 'state_matched_native_calibration_v1_rows.json'",
+      "receipt": {
+        "attempt_id": "attempt-de9af018ac61467ba3f0006ace59bbd0",
+        "command_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 189706,
+          "start_ticks": 2618487
+        },
+        "contract_sha256": "f008fab3b39bc53930b0b6712bd606c74708fbf158b6f31273705d99f91beea7",
+        "elapsed_seconds": 1.054154698002094,
+        "error": "Command exited with status 1; Cannot safely read results/state_matched_native_calibration_v1.json: [Errno 2] No such file or directory: 'state_matched_native_calibration_v1.json'; Cannot safely read results/state_matched_native_calibration_v1_rows.json: [Errno 2] No such file or directory: 'state_matched_native_calibration_v1_rows.json'",
+        "exit_code": 1,
+        "finished_at": "2026-10-12T14:38:37.621194+00:00",
+        "input_refs": [
+          {
+            "path": "scripts/cpu_guard.py",
+            "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+          },
+          {
+            "path": "scripts/state_matched_native_calibration_v1.py",
+            "sha256": "4977140bae8a99baecc34e2d8ba6c99dc7032172d6bcc6f8babee59738d8bdea"
+          },
+          {
+            "path": "plans/state_matched_native_calibration_v1.md",
+            "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"
+          },
+          {
+            "path": "notes/paper_source_feature_state_audit_v1.md",
+            "sha256": "18a44a6db1b61e8cb4d703e0a7c7870b513e1422867e17e0f7cbf8921ff411b3"
+          },
+          {
+            "path": "notes/resources_pre_calibration_recheck_v1.json",
+            "sha256": "0bab376d5b25c20b3d95601728c3ef1826feec9e9c8fcd1d44c8b790bcee2177"
+          },
+          {
+            "path": "sources/nystrom_source_manifest_v3.json",
+            "sha256": "8792c00eb1d891c8da6da6e10e86c1a9e91513ccf9f2d7033b66abee2a2c61a7"
+          }
+        ],
+        "output_refs": [],
+        "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w009",
+        "schema_version": 1,
+        "started_at": "2026-10-12T14:38:36.567038+00:00",
+        "status": "failed",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-de9af018ac61467ba3f0006ace59bbd0/stderr.txt",
+          "sha256": "b0fec3492848dbd1e079d45a9988d87bc39d55198d8e95cbbe36f3fb1753bfc9"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-de9af018ac61467ba3f0006ace59bbd0/stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "task_id": "state-matched-native-calibration-v1",
+        "worker_identity": {
+          "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+          "pid": 189705,
+          "start_ticks": 2618483
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-de9af018ac61467ba3f0006ace59bbd0/receipt.json",
+        "sha256": "eec2ce6f0464af4cb32fcce503e7fb0358c2a2af1aa5c3a3cfcdc3c6802205f4"
+      },
+      "reservation_seconds": 423.0,
+      "response_handled": true,
+      "result": "failed",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "state-matched-native-calibration-v1"
+    }
+  ],
+  "budget": {
+    "attempts_used": 2,
+    "deadline_epoch": 1791822730.572728,
+    "elapsed_seconds": 2.8063335369988636,
+    "max_attempts": 32,
+    "max_command_seconds": 1800,
+    "remaining_deadline_seconds": 6754.66237449646,
+    "remaining_seconds": 1797.1936664630011,
+    "reserved_seconds": 0
+  },
+  "continuation": null,
+  "current_question": "Continue verify: Execution observation for state-matched-native-calibration-v2: succeeded; Command execution reported succeeded",
+  "goal": "\u6301\u7eed\u4f4e\u79e9\u3001coreset\u4e0e\u6d41\u5f0f\u7edf\u8ba1\u7814\u7a76\uff1b\u4fdd\u7559w001-w008\u5168\u90e8\u8bc1\u636e\u4e0e\u9000\u5f79\u7ed3\u8bba\uff0c\u5ba1\u67e5\u5e76\u524d\u77bb\u68c0\u9a8cNystr\u00f6m\u4e0eRFF\u5728\u5b9e\u9645\u4fdd\u7559\u72b6\u6001\u5339\u914d\u3001\u663e\u5f0f\u968f\u673a\u5b50\u6d41\u548c\u5b8c\u6574\u6210\u672c\u53e3\u5f84\u4e0b\u7684\u539f\u751f\u6bd4\u8f83\u3002",
+  "goal_contract": {
+    "completion_criteria": [
+      {
+        "description": "\u6838\u9a8c\u539f\u751f\u5b9a\u4e49\u3001\u6bd4\u8f83\u53e3\u5f84\u3001\u968f\u673a\u6027\u3001\u6307\u6807\u4e0eCPU\u8d44\u6e90\u8303\u56f4",
+        "id": "validity"
+      },
+      {
+        "description": "\u63d0\u51fa\u5e76\u5b9e\u9645\u68c0\u9a8c\u53ef\u8bc1\u4f2a\u5047\u8bbe\uff0c\u89e3\u91ca\u8bc1\u636e\u540e\u7ee7\u7eed\u5fc5\u8981\u7814\u7a76",
+        "id": "research"
+      }
+    ],
+    "mode": "continuous_research"
+  },
+  "goal_contract_version": 1,
+  "idea": "nystrom-rff-state-matched-comparison-v1",
+  "idea_status": "active",
+  "journal_version": 4,
+  "milestones": [
+    {
+      "event_id": "paper-source-feature-state-audit-v1",
+      "evidence": [
+        {
+          "path": "notes/paper_source_feature_state_audit_v1.md",
+          "sha256": "18a44a6db1b61e8cb4d703e0a7c7870b513e1422867e17e0f7cbf8921ff411b3"
+        },
+        {
+          "path": "plans/state_matched_native_calibration_v1.md",
+          "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"
+        },
+        {
+          "path": "sources/nystrom_source_manifest_v3.json",
+          "sha256": "8792c00eb1d891c8da6da6e10e86c1a9e91513ccf9f2d7033b66abee2a2c61a7"
+        }
+      ],
+      "idea": "nystrom-rff-state-matched-comparison-v1",
+      "label": "Paper/source feature-axis semantics and state costs audited",
+      "reason": "Paper Figure 5 defines ell as real features, while the released correlated-Gaussian script passes the same K as Nystr\u00f6m k and RFF R; released RFF materializes 2R real coordinates, returns R, and the plot labels that returned value as ell. This is a comparison-axis semantic discrepancy, not evidence that stored power values or test calibration are wrong. Coordinate width and transform-state bytes are distinct matching axes.",
+      "revision": 1
+    }
+  ],
+  "next_action": "Continue verify: Execution observation for state-matched-native-calibration-v2: succeeded; Command execution reported succeeded",
+  "observations": [
+    {
+      "event_id": "result:attempt-d9c307c502d649b284b20dff76ae744e",
+      "kind": "task_result",
+      "payload": {
+        "attempt_id": "attempt-d9c307c502d649b284b20dff76ae744e",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-d9c307c502d649b284b20dff76ae744e",
+          "command_identity": {
+            "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+            "pid": 189987,
+            "start_ticks": 2624236
+          },
+          "contract_sha256": "823ab0e21c8b02411541baa13a2ed17792158ee664542ac8f0ababba77317b6c",
+          "elapsed_seconds": 1.7521788389967696,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-12T14:39:35.814156+00:00",
+          "input_refs": [
+            {
+              "path": "scripts/cpu_guard.py",
+              "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+            },
+            {
+              "path": "scripts/state_matched_native_calibration_v1.py",
+              "sha256": "0c09838782077b2c70a80760d4dfb04177afa62cf90260b479932b5df9948ca3"
+            },
+            {
+              "path": "compat/tqdm.py",
+              "sha256": "7352e3a8450124e337b77ff54063351993e34cf4245c0e1df59ce77fbbba9a46"
+            },
+            {
+              "path": "plans/state_matched_native_calibration_v1.md",
+              "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"
+            },
+            {
+              "path": "notes/paper_source_feature_state_audit_v1.md",
+              "sha256": "18a44a6db1b61e8cb4d703e0a7c7870b513e1422867e17e0f7cbf8921ff411b3"
+            },
+            {
+              "path": "notes/resources_pre_calibration_recheck_v1.json",
+              "sha256": "0bab376d5b25c20b3d95601728c3ef1826feec9e9c8fcd1d44c8b790bcee2177"
+            },
+            {
+              "path": "sources/nystrom_source_manifest_v3.json",
+              "sha256": "8792c00eb1d891c8da6da6e10e86c1a9e91513ccf9f2d7033b66abee2a2c61a7"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "results/state_matched_native_calibration_v1.json",
+              "sha256": "2ecc9516759e6a5ab2c29c98e3bf9b676494387c206741718e86e3b81d3cf843"
+            },
+            {
+              "path": "results/state_matched_native_calibration_v1_rows.json",
+              "sha256": "d2fb6036b75398bc31df0167831683199ea2ae1101f8f4bc18ee24782c3ccb7a"
+            }
+          ],
+          "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w009",
+          "schema_version": 1,
+          "started_at": "2026-10-12T14:39:34.061982+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-d9c307c502d649b284b20dff76ae744e/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-d9c307c502d649b284b20dff76ae744e/stdout.txt",
+            "sha256": "e6e1e3d10ec2fe97dd5c9f731a4e284ca21410476c2d5383bf12eb1af1344190"
+          },
+          "task_id": "state-matched-native-calibration-v2",
+          "worker_identity": {
+            "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+            "pid": 189986,
+            "start_ticks": 2624233
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-d9c307c502d649b284b20dff76ae744e/receipt.json",
+          "sha256": "10c6b2c10e0176ed1ad95555c3a79290adc77914d93882da3a60dacfb5d1aad4"
+        },
+        "status": "succeeded",
+        "task_id": "state-matched-native-calibration-v2"
+      },
+      "request_id": null,
+      "sequence": 2
+    }
+  ],
+  "request_id": "decision-5ee1af9a3f8247de9645ce30e721be29",
+  "research_cycles": [],
+  "revision": 1,
+  "root": "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w009",
+  "source": {
+    "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+      },
+      {
+        "path": "references/rsi-simple.md",
+        "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+      },
+      {
+        "path": "references/simple-runner.md",
+        "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+      },
+      {
+        "path": "scripts/_simple_process.py",
+        "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+      },
+      {
+        "path": "scripts/_simple_source.py",
+        "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+      },
+      {
+        "path": "scripts/simple_loop.py",
+        "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+      },
+      {
+        "path": "scripts/simple_runner.py",
+        "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+      },
+      {
+        "path": "references/simple-experiment-design.md",
+        "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+      },
+      {
+        "path": "scripts/simple_design.py",
+        "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+      },
+      {
+        "path": "scripts/simple_resources.py",
+        "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+      },
+      {
+        "path": "assets/templates/simple-experiment-plan.json",
+        "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+      },
+      {
+        "path": "assets/templates/simple-experiment-results.json",
+        "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+      },
+      {
+        "path": "references/simple-collaboration.md",
+        "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+      },
+      {
+        "path": "assets/templates/simple-delegation.json",
+        "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+      }
+    ],
+    "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "tasks": [
+    {
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/state_matched_native_calibration_v1.py"
+      ],
+      "attempt_id": "attempt-de9af018ac61467ba3f0006ace59bbd0",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "nystrom-rff-state-matched-comparison-v1",
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        },
+        {
+          "path": "scripts/state_matched_native_calibration_v1.py",
+          "sha256": "4977140bae8a99baecc34e2d8ba6c99dc7032172d6bcc6f8babee59738d8bdea"
+        },
+        {
+          "path": "plans/state_matched_native_calibration_v1.md",
+          "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"
+        },
+        {
+          "path": "notes/paper_source_feature_state_audit_v1.md",
+          "sha256": "18a44a6db1b61e8cb4d703e0a7c7870b513e1422867e17e0f7cbf8921ff411b3"
+        },
+        {
+          "path": "notes/resources_pre_calibration_recheck_v1.json",
+          "sha256": "0bab376d5b25c20b3d95601728c3ef1826feec9e9c8fcd1d44c8b790bcee2177"
+        },
+        {
+          "path": "sources/nystrom_source_manifest_v3.json",
+          "sha256": "8792c00eb1d891c8da6da6e10e86c1a9e91513ccf9f2d7033b66abee2a2c61a7"
+        }
+      ],
+      "outputs": [
+        "results/state_matched_native_calibration_v1.json",
+        "results/state_matched_native_calibration_v1_rows.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Measure exact-score approximation and complete state/cost accounting for k=2R coordinate matching versus the released k=R axis convention",
+      "reason": "Command exited with status 1; Cannot safely read results/state_matched_native_calibration_v1.json: [Errno 2] No such file or directory: 'state_matched_native_calibration_v1.json'; Cannot safely read results/state_matched_native_calibration_v1_rows.json: [Errno 2] No such file or directory: 'state_matched_native_calibration_v1_rows.json'",
+      "replaced_by": "state-matched-native-calibration-v2",
+      "revision": 1,
+      "state": "failed",
+      "supersedes": null,
+      "task_id": "state-matched-native-calibration-v1",
+      "timeout_seconds": 420
+    },
+    {
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/state_matched_native_calibration_v1.py"
+      ],
+      "attempt_id": "attempt-d9c307c502d649b284b20dff76ae744e",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "nystrom-rff-state-matched-comparison-v1",
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        },
+        {
+          "path": "scripts/state_matched_native_calibration_v1.py",
+          "sha256": "0c09838782077b2c70a80760d4dfb04177afa62cf90260b479932b5df9948ca3"
+        },
+        {
+          "path": "compat/tqdm.py",
+          "sha256": "7352e3a8450124e337b77ff54063351993e34cf4245c0e1df59ce77fbbba9a46"
+        },
+        {
+          "path": "plans/state_matched_native_calibration_v1.md",
+          "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"
+        },
+        {
+          "path": "notes/paper_source_feature_state_audit_v1.md",
+          "sha256": "18a44a6db1b61e8cb4d703e0a7c7870b513e1422867e17e0f7cbf8921ff411b3"
+        },
+        {
+          "path": "notes/resources_pre_calibration_recheck_v1.json",
+          "sha256": "0bab376d5b25c20b3d95601728c3ef1826feec9e9c8fcd1d44c8b790bcee2177"
+        },
+        {
+          "path": "sources/nystrom_source_manifest_v3.json",
+          "sha256": "8792c00eb1d891c8da6da6e10e86c1a9e91513ccf9f2d7033b66abee2a2c61a7"
+        }
+      ],
+      "outputs": [
+        "results/state_matched_native_calibration_v1.json",
+        "results/state_matched_native_calibration_v1_rows.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Run the unchanged frozen k=2R coordinate-matched calibration after repairing only the unused tqdm import",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": "state-matched-native-calibration-v1",
+      "task_id": "state-matched-native-calibration-v2",
+      "timeout_seconds": 420
+    }
+  ]
+}

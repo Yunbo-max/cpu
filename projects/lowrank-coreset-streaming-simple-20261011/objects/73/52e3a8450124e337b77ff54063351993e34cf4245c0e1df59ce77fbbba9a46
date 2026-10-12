@@ -1,0 +1,10 @@
+"""Fail-closed adapter for an unused author-code dependency.
+
+This calibration exercises only uniform Nyström selection, so recursive
+Nyström's progress wrapper is outside scope.  Any accidental call fails rather
+than silently emulating the package.
+"""
+
+
+def tqdm(*args, **kwargs):
+    raise RuntimeError("tqdm adapter called; recursive Nyström is outside this task")

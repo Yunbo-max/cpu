@@ -1,0 +1,67 @@
+# Paper/source feature-state audit v1
+
+Prospective audit completed 2026-10-12 before any w009 numerical result was
+inspected.  Primary paper: arXiv:2502.13570v4 (revised 2026-04-20; PDF dated
+2026-04-21).  Released repository was checked out at
+`ddb9b2cacc092841518c3d4e18b745f266d8f517`; the six files previously pinned in
+w006 reproduce their recorded SHA-256 digests exactly.
+
+## Confirmed semantic mismatch
+
+The paper describes the Figure 5 horizontal axis as the number of *real
+features* `ell`, and says that for RFF this is the number of real features.  In
+the released correlated-Gaussian experiment, one common list `K` is sent as
+`k=K[i]` to Nyström and as `R=K[i]` to `rMMDtest`.  The RFF implementation draws
+`R` Gaussian frequencies and concatenates `R` cosine and `R` sine columns, so
+its realized feature vector has `2R` real coordinates.  It returns `R`, the
+loader copies that returned value into the third result coordinate, and
+`plot_powervsnfeat` plots that value on an axis labelled `ell`.
+
+Therefore the released path labels a Nyström point with `k=ell` landmarks and
+`ell` output coordinates, but labels an RFF point with `R=ell` frequencies and
+`2ell` output coordinates at the same x value.  This is a paper/source axis
+semantic discrepancy, not evidence that the saved power values themselves are
+wrong.  It also does not by itself establish a level or decision error.  A
+coordinate-matched comparison against this exact RFF construction must use
+`k=2R` (or label RFF by `2R`).
+
+Exact released-code evidence:
+
+- `experiments_cg.py:28,52-53,119-132`: the same `K` values feed Nyström `k`
+  and RFF `R`.
+- `tests.py:135-145`: `R` frequencies produce `R` cosine plus `R` sine columns.
+- `tests.py:162-163`: the RFF routine returns `R`, not the realized `2R`
+  coordinate count.
+- `loaders.py:38-48`: that returned third coordinate is retained.
+- `plotters.py:155-203`: it is plotted directly on the `ell` axis.
+
+## Why “same actual state” is not one scalar constraint
+
+Matching output coordinates (`k=2R`) matches the feature means and permutation
+accumulator width.  It does not match the learned transform state:
+
+- RFF transform parameters: `R*d` floating-point frequencies; output width
+  `2R`.
+- uniform Nyström transform parameters, if the map is retained independently
+  of the input array: `k*d` landmark values plus a `k*k` inverse-root map;
+  output width `k`.
+- the released batch implementations additionally materialize `n*k` Nyström
+  or `n*(2R)` RFF features, and both materialize three `(B+1)*n` indicator
+  arrays plus three permutation-mean/difference arrays of the output width.
+
+Thus coordinate matching controls the dominant permutation-feature width, but
+Nyström retains quadratic transform state.  Byte-matching only the transform
+would give RFF many more output coordinates when `d` is small.  The next
+experiment must report both axes separately rather than calling either one a
+universal “same memory” comparison.
+
+## Scientific decision
+
+Proceed with a bounded coordinate-matched calibration, because it directly
+tests the released Figure 5 feature-axis interpretation.  Keep transform-state
+bytes, released-path working arrays, wall time and peak RSS as separate cost
+outcomes.  Use independent data/landmark/RFF substreams and an explicitly shared
+permutation stream.  Include exact-kernel scores as a reference.  Do not reuse
+the released single integer seed coupling and do not estimate population power
+from this calibration.
+

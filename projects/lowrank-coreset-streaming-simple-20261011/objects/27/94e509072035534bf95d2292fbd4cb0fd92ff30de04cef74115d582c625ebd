@@ -1,0 +1,59 @@
+# Paired coordinate-matched calibration: interpretation
+
+The accepted evidence is the paired-prefix v2 output, not the retained v1
+preliminary output with an unpaired RFF control.  Independent verification
+passed all 288 rows and 96 data/draw/width cells, including shared exact scores,
+shared permutation streams, independent Nyström/RFF substreams, paired RFF
+frequency seeds, raw error recomputation and every aggregate.
+
+## Prediction outcome
+
+The frozen prediction is mixed rather than globally confirmed.  Reducing the
+released-axis RFF allocation from `2ell` realized coordinates to the same
+`ell` output width as Nyström increased the ratio-of-median original-score
+absolute error by 1.592 at `ell=28` and 1.809 at `ell=56`, exceeding the frozen
+1.25 threshold.  At `ell=140` the ratio was only 1.083 and did not meet it.
+Within-pair median ratios were 1.767, 1.807 and 1.369 respectively, but only half
+the `ell=140` pairs individually exceeded 1.25.  The released axis therefore
+provides a material RFF allocation advantage at the two smaller widths on this
+fixture, not uniformly over all three widths.
+
+Uniform Nyström was more accurate than coordinate-matched RFF at every tested
+width: its median original-score absolute error divided by RFF's was 0.103,
+0.0281 and 0.00367 for `ell=28,56,140`.  Aggregate strict score-pair reversals
+versus the exact reference were Nyström 140/27/4 and coordinate-matched RFF
+3112/2397/1540 out of 24,960 potential score pairs per width.  These are local
+approximation/order diagnostics, not independent permutation trials.
+
+## Cost and decision boundary
+
+Coordinate matching equalized the realized feature-matrix and accumulator
+widths.  It did not equalize transform state.  Nyström versus RFF transform
+state was 6,944 versus 336 bytes, 26,432 versus 672 bytes, and 160,160 versus
+1,680 bytes: about 20.7x, 39.3x and 95.3x larger.  Median mapping/score time was
+about 1.65x, 1.48x and 2.08x larger for Nyström in this small process, while
+both methods' absolute times were below four milliseconds.  The released-axis
+RFF control doubled feature-matrix and accumulator bytes relative to the
+coordinate-matched arm.
+
+No accepted arm disagreed with the exact reference's traced binary decision in
+any of the 32 data/draw cells per width.  This prevents turning the large score
+accuracy contrast into a power claim.  The batch used only eight data sets and
+four feature draws, with 39 permutations at n=512 per group; it does not
+estimate population power, Type-I error or a nominal failure probability.
+Peak RSS was 128,400 KiB and wall time 0.719 seconds under the one-thread CPU
+guard.
+
+## Decision and next uncertainty
+
+The paper/source feature-axis discrepancy is operationally relevant to score
+accuracy at small widths, but a single “same memory” winner is ill-defined:
+Nyström wins output-coordinate accuracy here while paying quadratic transform
+state.  Continue with a separately frozen decision-focused experiment at the
+paper's n=2500 scale.  It should use a small set of preselected correlations
+near the empirical decision boundary, shared permutation rows, paired RFF
+prefixes, independent Nyström landmarks, explicit confidence intervals, and
+both coordinate- and transform-state cost axes.  It must compare exact MMD and
+must not reuse these eight calibration data sets for selecting the reported
+power direction.
+

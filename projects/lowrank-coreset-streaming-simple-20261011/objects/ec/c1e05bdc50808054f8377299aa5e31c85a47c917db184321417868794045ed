@@ -1,0 +1,62 @@
+# Coordinate-matched Nyström/RFF native calibration v1
+
+Frozen prospectively on 2026-10-12 after the source/claim audit and before any
+outcome was generated.  This is a bounded mechanism/cost calibration, not a
+power or Type-I-error study and not a new method claim.
+
+## Question and hypothesis
+
+On correlated Gaussian data, does the apparent Nyström-versus-RFF score
+approximation contrast persist when the released RFF is matched by realized
+real-coordinate width (`k=2R`) rather than by its returned frequency count
+(`k=R`)?
+
+Hypothesis: the released `k=R` comparison gives RFF twice the permutation
+feature width.  Correcting to `k=2R` will materially increase RFF exact-score
+error relative to that released-axis allocation, while uniform Nyström at the
+same realized width remains at least as accurate on the selected low-dimensional
+correlated-Gaussian fixture.  “Material” is frozen as median original-score
+absolute error at least 25% larger for coordinate-matched RFF than its
+double-width control.  A falsifier is a ratio below 1.25 or Nyström having
+higher median error than coordinate-matched RFF.  Either outcome is local to
+this fixture.
+
+## Frozen design
+
+- Data: 8 independent seeds, two balanced groups of 512 points, dimension 3,
+  `rho1=0.5`, `rho2=0.60`, pooled standardization; bandwidth fixed per dataset
+  by the native median-pairwise convention on a separate deterministic tuning
+  stream.
+- Permutations: original labeling plus 39 shared permutations per dataset.
+  One explicit permutation seed is used by all feature methods for that
+  dataset; permutations are generated before any feature/landmark draw.
+- Feature randomness: four independent feature/landmark pairs per dataset,
+  derived from named SeedSequence children.  RFF frequencies and Nyström
+  landmarks never share a generator.
+- Widths: realized real-coordinate widths `ell in {28, 56, 140}`.  Uniform
+  Nyström uses `k=ell`; coordinate-matched RFF uses `R=ell/2`; a released-axis
+  RFF control uses `R=ell` and therefore `2ell` output coordinates.
+- Reference: exact biased Gaussian-kernel MMD squared for the same original and
+  permutation weight rows.  Feature-score errors are evaluated against the
+  corresponding exact score.  Gaussian-kernel and RFF bandwidth conventions
+  follow the author code (`rMMDtest` receives `sqrt(2)*sigma`).
+- Retained outcomes: every seed/width/draw score vector, decisions only as a
+  trace (not a calibrated rejection-rate estimate), original and permutation
+  absolute/relative errors, Spearman order association, strict pair-order
+  reversals versus exact scores, wall time, `ru_maxrss`, transform-state bytes,
+  realized feature-matrix bytes, and released-path analytic working-state
+  counts.
+- Computation: local CPU only, one process and one numerical thread, executed
+  through the unchanged project `cpu_guard.py`; address-space limit 4 GiB and
+  project cap 8,000,000,000 bytes.  No GPU.
+
+## Interpretation boundaries
+
+The 8 data seeds and 4 feature draws quantify calibration variability only.
+They cannot validate a nominal failure probability, population power, global
+dominance, or the paper’s entire Figure 5.  If the coordinate correction changes
+the local ranking, record a released-axis comparability issue and design a
+larger prospective study later.  If it does not, retire this semantic mismatch
+as operationally small on this fixture.  In both cases report the multi-axis
+state trade-off rather than collapsing it to one memory number.
+

@@ -1,0 +1,363 @@
+   "sha256": "4f09ebecdfa78bfb6292fb4bf059d70a18afd3fd3cbe2c4a9827e20150041c95"
+        }
+      ],
+      "outputs": [
+        "sources/moments/download_manifest.json",
+        "sources/moments/tree.json",
+        "sources/moments/paper.pdf"
+      ],
+      "phase": "sources",
+      "purpose": "Acquire pinned main moment-estimation author source and published protocol for inspection, without executing downloaded notebooks",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "moment-native-sources-v1",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/moment_prefix_window.py"
+      ],
+      "attempt_id": "attempt-9ccedbd8f8214262a00e8932c63a7039",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "moment-native-pilot-v1"
+      ],
+      "idea": "streaming-moment-native-audit-v1",
+      "input_refs": [
+        {
+          "path": "plans/moment_prefix_window_v1.md",
+          "sha256": "ea404643bb09a3ff297ad605f404da976f73223600f741ef76f3355d15db2430"
+        },
+        {
+          "path": "scripts/moment_prefix_window.py",
+          "sha256": "c60568ef841a0f35070b315ae530d05fb43ce211661e4b332a9a3afaca549a5f"
+        },
+        {
+          "path": "scripts/moment_native_pilot.py",
+          "sha256": "050a8e322fdc70a6cdee82015a0949cda598b0263c5d139b9e12e6f8b2fbb9b6"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "data/moment_native_shift_1000.npy",
+          "sha256": "3dbac94d8f07a64a5584229523a6f80b80d9d08d9acbb998a36d4c52cb1c49e6"
+        },
+        {
+          "path": "sources/moments/CS.ipynb",
+          "sha256": "2ff73eaf529f8e2b1291f735509702a82618658bd4d6365cf9a3f02696a5a082"
+        },
+        {
+          "path": "sources/moments/SS-SSA.ipynb",
+          "sha256": "aa5e1ac154ec7b728c8bc85909089a84715c7f7b2f2d897842e8219e9b726e8e"
+        },
+        {
+          "path": "sources/moments/utils.py",
+          "sha256": "5b89dfa2a9419e0f32d561eb25755264a848db0a015b27b658e675c758a190b8"
+        }
+      ],
+      "outputs": [
+        "results/moment_prefix_window_v1.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Disentangle advice, query-window error and exact baseline cost on native synthetic data",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "moment-prefix-window-v1",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/moment_query_bracket.py"
+      ],
+      "attempt_id": "attempt-5c970d2703e9412c9b22ecc66650c36f",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "moment-prefix-window-v1"
+      ],
+      "idea": "streaming-moment-native-audit-v1",
+      "input_refs": [
+        {
+          "path": "plans/moment_query_bracket_v1.md",
+          "sha256": "1188f6bc57a72596119e072a2ad3af45b35bdccfdd7f1fffdc32318d439c4c77"
+        },
+        {
+          "path": "scripts/moment_query_bracket.py",
+          "sha256": "5a33318a5c989abdc680e6dc7d135cdc5df06a0e4c70dcbc524826c18e946312"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "data/moment_native_shift_1000.npy",
+          "sha256": "3dbac94d8f07a64a5584229523a6f80b80d9d08d9acbb998a36d4c52cb1c49e6"
+        },
+        {
+          "path": "results/moment_prefix_window_v1.json",
+          "sha256": "74444d4f3deb13fc0370a30774dabe917a04577fc047f158b3d0152fde00c58c"
+        }
+      ],
+      "outputs": [
+        "results/moment_query_bracket_v1.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Measure fixed-W interval uncertainty with optimistic exact suffix oracles",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "moment-query-bracket-v1",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/moment_smooth_reference.py"
+      ],
+      "attempt_id": null,
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "moment-query-bracket-v1"
+      ],
+      "idea": "streaming-moment-native-audit-v1",
+      "input_refs": [
+        {
+          "path": "plans/moment_smooth_reference_v1.md",
+          "sha256": "d4208daaafa394189b44a78897a3a9fd4cd54a830daf06012b0146f24148095e"
+        },
+        {
+          "path": "scripts/moment_smooth_reference.py",
+          "sha256": "b95e0ad08e0a26682a299503573cd923f16bbf6eee9a73b37782e1bd2d1adc44"
+        },
+        {
+          "path": "scripts/moment_prefix_window.py",
+          "sha256": "c60568ef841a0f35070b315ae530d05fb43ce211661e4b332a9a3afaca549a5f"
+        },
+        {
+          "path": "scripts/moment_native_pilot.py",
+          "sha256": "050a8e322fdc70a6cdee82015a0949cda598b0263c5d139b9e12e6f8b2fbb9b6"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "data/moment_native_shift_1000.npy",
+          "sha256": "3dbac94d8f07a64a5584229523a6f80b80d9d08d9acbb998a36d4c52cb1c49e6"
+        },
+        {
+          "path": "sources/moments/paper.pdf",
+          "sha256": "58cdba20e5ac40e27225b6d29b08f432b0d8643dd98dd8731c61d6b04ad17b61"
+        }
+      ],
+      "outputs": [
+        "results/moment_smooth_reference_v1.json"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Test accuracy-linked Algorithm1 predecessor query and measured retention cost",
+      "reason": "Awaiting its dependencies and finite execution budget",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "queued",
+      "supersedes": null,
+      "task_id": "moment-smooth-reference-v1",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/native_pilot.py"
+      ],
+      "attempt_id": "attempt-f24bf31af0d34d34b645aff5f4a1afc7",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "native-sources-v1",
+        "pyarrow-isolated-v1"
+      ],
+      "idea": "coreset-adaptive-comparison-v1",
+      "input_refs": [
+        {
+          "path": "plans/native_pilot_v1.md",
+          "sha256": "f72df51f71b8cc1599d32f0a5aa66ec5c3e6e7c4a95945e3fa19d63f4fa59913"
+        },
+        {
+          "path": "scripts/native_pilot.py",
+          "sha256": "325456b212f0b9bbc60e692963234e15b95f86c52c296000a4fca757d41b4875"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "sources/l1_coresets.py",
+          "sha256": "b25bb415b59d8d9d755e7c64f7b23a7a8696a629b1b519fac2a1e3baa4980080"
+        },
+        {
+          "path": "sources/experiment1_comparison.ipynb",
+          "sha256": "bdf316abafd49907b61820bfdb4dd49be485984e04ade373c2faeda06b477520"
+        },
+        {
+          "path": "sources/download_manifest.json",
+          "sha256": "0cc6444df3d182b3d34bc42a2794034292af503c38df0b74b726110ea82ccfed"
+        }
+      ],
+      "outputs": [
+        "results/native_pilot_v1.json",
+        "data/taxi_clean_first100000.npy"
+      ],
+      "phase": "experiment",
+      "purpose": "Audit native coreset scorer and strong exact-median costs on native Taxi data",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "native-pilot-v1",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/fetch_native.py"
+      ],
+      "attempt_id": "attempt-d3d14225b0e54613932a30f52fca08c9",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "coreset-adaptive-comparison-v1",
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "scripts/fetch_native.py",
+          "sha256": "8322ff61f930bbf03f43caf0c48c09ffdacb74e9dfbb3b24efdfb012c2280698"
+        }
+      ],
+      "outputs": [
+        "sources/download_manifest.json",
+        "sources/experiment1_comparison.ipynb",
+        "sources/l1_coresets.py",
+        "data/yellow_tripdata_2024-01.parquet"
+      ],
+      "phase": "sources",
+      "purpose": "Acquire pinned author code and real native Taxi file with hashes",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "native-sources-v1",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/paired_validator.py"
+      ],
+      "attempt_id": "attempt-5ac6373f9ccb42348a62f7b33f65c388",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "native-pilot-v1"
+      ],
+      "idea": "coreset-adaptive-comparison-v1",
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        },
+        {
+          "path": "scripts/paired_validator.py",
+          "sha256": "dceddca9cccdb6972f240ac47bbbba914b8678151a47b796c1911041c39769b5"
+        },
+        {
+          "path": "plans/paired_validator_v1.md",
+          "sha256": "9c910b4a70f1398818e2552ab647461971aace07db397d1f931210702c845a24"
+        },
+        {
+          "path": "data/taxi_clean_first100000.npy",
+          "sha256": "a607235bd70f74a33b60426472d38cbc01978e71e8baa7736394769ea71d07ac"
+        }
+      ],
+      "outputs": [
+        "results/paired_validator_v1.json"
+      ],
+      "phase": "experiment",
+      "purpose": "Determine whether pairwise adaptive validation saves useful work against fixed final look and strong exact baseline",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "paired-validator-v1",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/cpu_guard.py",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "pip",
+        "install",
+        "--only-binary=:all:",
+        "--no-deps",
+        "--target",
+        ".deps",
+        "pyarrow==21.0.0"
+      ],
+      "attempt_id": "attempt-589d32a509cd4a028e6586aa02fa0af4",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [
+        "native-sources-v1"
+      ],
+      "idea": "coreset-adaptive-comparison-v1",
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "88056fe46b4d0bc055de1f06731abad2311ff048da94342735489cb7b1a93945"
+        }
+      ],
+      "outputs": [],
+      "phase": "code",
+      "purpose": "Enable original Parquet data loading in project-local dependencies only",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "pyarrow-isolated-v1",
+      "timeout_seconds": 120
+    }
+  ]
+}

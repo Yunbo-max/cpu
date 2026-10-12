@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""Independent structural and aggregate audit of paired calibration outputs."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import numpy as np
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SUMMARY_PATH = ROOT / "results" / "state_matched_native_calibration_v2.json"
+ROWS_PATH = ROOT / "results" / "state_matched_native_calibration_v2_rows.json"
+OUT_PATH = ROOT / "results" / "state_matched_native_calibration_v2_audit.json"
+
+
+def close(a: float, b: float, atol: float = 1e-15, rtol: float = 1e-12) -> bool:
+    return bool(np.isclose(a, b, atol=atol, rtol=rtol))
+
+
+def main() -> None:
+    summary = json.loads(SUMMARY_PATH.read_text(encoding="utf-8"))
+    rows = json.loads(ROWS_PATH.read_text(encoding="utf-8"))
+    errors = []
+
+    expected_methods = {"nystrom_coordinate", "rff_coordinate", "rff_released_axis"}
+    if len(rows) != 8 * 4 * 3 * 3 or summary["rows"] != len(rows):
+        errors.append("row count mismatch")
+
+    by_key = {}
+    by_data = {}
+    for row in rows:
+        key = (row["data_index"], row["draw_index"], row["ell_label"])
+        by_key.setdefault(key, {})[row["method"]] = row
+        by_data.setdefault(row["data_index"], []).append(row)
+        scores = np.asarray(row["scores"], dtype=float)
+        exact = np.asarray(row["exact_scores"], dtype=float)
+        if len(scores) != 40 or len(exact) != 40 or not np.all(np.isfinite(scores)) or not np.all(np.isfinite(exact)):
+            errors.append(f"invalid scores {key} {row['method']}")
+        if np.min(scores) < -1e-12 or np.min(exact) < -1e-12:
+            errors.append(f"negative squared score {key} {row['method']}")
+        abs_error = np.abs(scores - exact)
+        if not close(float(abs_error[0]), row["original_abs_error"]):
+            errors.append(f"original error mismatch {key} {row['method']}")
+        if not close(float(np.median(abs_error[1:])), row["permutation_median_abs_error"]):
+            errors.append(f"permutation error mismatch {key} {row['method']}")
+
+    for data_index, data_rows in by_data.items():
+        first_exact = data_rows[0]["exact_scores"]
+        first_perm = data_rows[0]["permutation_seed"]
+        if any(r["exact_scores"] != first_exact for r in data_rows):
+            errors.append(f"exact reference changed within data {data_index}")
+        if any(r["permutation_seed"] != first_perm for r in data_rows):
+            errors.append(f"permutation seed changed within data {data_index}")
+
+    for key, methods in by_key.items():
+        if set(methods) != expected_methods:
+            errors.append(f"method set mismatch {key}")
+            continue
+        ell = key[2]
+        ny = methods["nystrom_coordinate"]
+        rc = methods["rff_coordinate"]
+        rr = methods["rff_released_axis"]
+        if not (ny["native_parameter"] == ell and ny["realized_width"] == ell):
+            errors.append(f"Nyström width mismatch {key}")
+        if not (rc["native_parameter"] == ell // 2 and rc["realized_width"] == ell):
+            errors.append(f"coordinate RFF width mismatch {key}")
+        if not (rr["native_parameter"] == ell and rr["realized_width"] == 2 * ell):
+            errors.append(f"released-axis RFF width mismatch {key}")
+        if rc["feature_seed"] != rr["feature_seed"]:
+            errors.append(f"RFF seed pairing mismatch {key}")
+        if ny["feature_seed"] == rc["feature_seed"]:
+            errors.append(f"Nyström/RFF substreams not independent {key}")
+
+    recomputed = {}
+    for ell_text, group in summary["groups"].items():
+        ell = int(ell_text)
+        recomputed[ell_text] = {}
+        method_rows = {}
+        for method in expected_methods:
+            selected = [r for r in rows if r["ell_label"] == ell and r["method"] == method]
+            method_rows[method] = selected
+            recomputed[ell_text][method] = {
+                "median_original_abs_error": float(np.median([r["original_abs_error"] for r in selected])),
+                "median_permutation_abs_error": float(np.median([r["permutation_median_abs_error"] for r in selected])),
+                "total_strict_pair_reversals": int(sum(r["strict_pair_reversals"] for r in selected)),
+                "decision_disagreements_vs_exact": int(sum(r["reject_trace"] != r["exact_reject_trace"] for r in selected)),
+            }
+            for field, value in recomputed[ell_text][method].items():
+                if not close(value, group[method][field], atol=0.0 if isinstance(value, int) else 1e-15):
+                    errors.append(f"aggregate mismatch ell={ell} method={method} field={field}")
+        rc = recomputed[ell_text]["rff_coordinate"]["median_original_abs_error"]
+        rr = recomputed[ell_text]["rff_released_axis"]["median_original_abs_error"]
+        ny = recomputed[ell_text]["nystrom_coordinate"]["median_original_abs_error"]
+        pair_ratios = []
+        for key, methods in by_key.items():
+            if key[2] == ell:
+                pair_ratios.append(methods["rff_coordinate"]["original_abs_error"] / max(methods["rff_released_axis"]["original_abs_error"], 1e-300))
+        contrasts = {
+            "rff_coordinate_to_double_width_error_ratio": rc / max(rr, 1e-300),
+            "median_within_pair_error_ratio": float(np.median(pair_ratios)),
+            "fraction_pairs_ratio_at_least_1_25": float(np.mean(np.asarray(pair_ratios) >= 1.25)),
+            "nystrom_to_rff_coordinate_error_ratio": ny / max(rc, 1e-300),
+        }
+        recomputed[ell_text]["contrasts"] = contrasts
+        for field, value in contrasts.items():
+            if not close(value, group["contrasts"][field]):
+                errors.append(f"contrast mismatch ell={ell} field={field}")
+
+    audit = {
+        "schema": "state-matched-native-calibration-v2-audit",
+        "passed": not errors,
+        "errors": errors,
+        "row_count": len(rows),
+        "cell_count": len(by_key),
+        "rff_prefix_seed_pairing_cells": sum(
+            m.get("rff_coordinate", {}).get("feature_seed") == m.get("rff_released_axis", {}).get("feature_seed")
+            for m in by_key.values()
+        ),
+        "recomputed": recomputed,
+    }
+    OUT_PATH.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(audit, sort_keys=True))
+    if errors:
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

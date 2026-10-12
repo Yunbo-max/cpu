@@ -1,0 +1,28 @@
+{
+  "response_id": "w009-paired-calibration-interpret-v1",
+  "request_id": "decision-07316c0ac5ef416196acdb8e10d0f8a9",
+  "idea": "nystrom-rff-state-matched-comparison-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The paired-prefix calibration and independent audit passed. Record the mixed prediction outcome and retain the multi-axis accuracy/state trade-off without promoting it to a power, level or global method claim.",
+  "events": [
+    {
+      "event_id": "state-matched-native-calibration-v2-cycle",
+      "kind": "research_cycle",
+      "reason": "The released paper/code feature-axis mismatch creates a falsifiable question about exact-score approximation when Nyström and RFF are matched by realized output coordinates rather than by the released R frequency count.",
+      "hypothesis": "Changing RFF from the released k=R axis allocation to k=2R coordinate matching will raise median original-score absolute error by at least 25%, while uniform Nyström remains at least as accurate on the frozen correlated-Gaussian fixture.",
+      "prediction": "The coordinate-matched RFF to double-width RFF ratio of median original-score absolute errors is at least 1.25 at each ell in {28,56,140}; Nyström's median error is no larger than coordinate-matched RFF's at each width.",
+      "result": "Independent audit passed 288 rows and 96 paired cells. RFF ratios were 1.592, 1.809 and 1.083 at ell 28,56,140, so the threshold passed at the first two but failed at 140. Nyström/RFF coordinate-matched median-error ratios were 0.103, 0.0281 and 0.00367. There were no binary-decision disagreements versus the exact reference in any accepted arm. Nyström transform state was 20.7x, 39.3x and 95.3x larger; peak RSS was 128400 KiB.",
+      "interpretation": "The prediction is partially supported: the released axis gives RFF a material score-accuracy allocation advantage at smaller widths, but not uniformly at ell=140. Nyström has much better local score/order fidelity at equal output width while paying quadratic transform state and modestly higher runtime. The absence of decision changes and limited calibration design rule out a power, Type-I-error or global dominance claim.",
+      "next_action": "Freeze a paper-scale n=2500 decision-focused experiment on preselected near-boundary correlations, with exact MMD, shared permutations, paired RFF prefixes, independent landmarks, finite-trial intervals, and separate coordinate versus transform-state cost axes; do not reuse calibration data to choose the reported direction.",
+      "evidence": [
+        {"path": "plans/state_matched_native_calibration_v1.md", "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"},
+        {"path": "plans/state_matched_native_calibration_v2_amendment.md", "sha256": "c5206ed0b22d8ab4c845a25df22a02cc38fb65bd65fe5e0346efb3dca45e2e33"},
+        {"path": "results/state_matched_native_calibration_v2.json", "sha256": "a82912c1be7209e05782bd647131d26fd0729b5afced221ea9fc13100d5972de"},
+        {"path": "results/state_matched_native_calibration_v2_rows.json", "sha256": "3973b3d94a3cf36529e34fe83a6fd6fbbb612a6173286d3547de14a11a67fcb3"},
+        {"path": "results/state_matched_native_calibration_v2_audit.json", "sha256": "107e6c489b0ac71eaf5c88c65437b7aa862d4f52e7b51ad255c8990ee84c965d"},
+        {"path": "notes/state_matched_native_calibration_v2_analysis.md", "sha256": "2794e509072035534bf95d2292fbd4cb0fd92ff30de04cef74115d582c625ebd"}
+      ]
+    }
+  ]
+}

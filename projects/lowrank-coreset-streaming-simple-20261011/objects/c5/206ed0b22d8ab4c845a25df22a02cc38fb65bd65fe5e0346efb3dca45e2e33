@@ -1,0 +1,18 @@
+# Coordinate-matched calibration v2 amendment
+
+Added after v1 execution but before accepting or recording a research cycle.
+The v1 rows used independent RFF seeds for the coordinate-matched and
+double-width arms.  That is valid for marginal method comparisons but confounds
+the frozen prediction about the effect of changing RFF allocation.  The v1
+files and successful receipt remain retained as preliminary/unaccepted
+evidence.
+
+V2 changes only this point: within each data/draw/`ell`, both RFF arms use the
+same frequency seed, so the `R=ell/2` frequencies are the prefix of the
+`R=ell` draw.  Data, tuning, permutation and Nyström seeds, widths, sample
+sizes, exact reference, costs, thresholds and all interpretation boundaries
+remain unchanged.  V2 writes distinct result files and additionally reports
+the median within-pair error ratio and the fraction of pairs meeting the 1.25
+materiality threshold.  This repair was selected from code/protocol inspection,
+not from a preferred numerical direction.
+

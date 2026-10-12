@@ -1,0 +1,44 @@
+{
+  "response_id": "w009-source-audit-submit-v1",
+  "request_id": "decision-b3d588b58cf146a7b15bebd7bd2744b1",
+  "idea": "nystrom-rff-state-matched-comparison-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The primary paper and pinned released source show that the published real-feature axis and the released RFF return/plot path use different counts. Preserve this source-level finding and run the prospectively frozen bounded coordinate-matched calibration before any power expansion.",
+  "events": [
+    {
+      "event_id": "paper-source-feature-state-audit-v1",
+      "kind": "milestone",
+      "label": "Paper/source feature-axis semantics and state costs audited",
+      "reason": "Paper Figure 5 defines ell as real features, while the released correlated-Gaussian script passes the same K as Nyström k and RFF R; released RFF materializes 2R real coordinates, returns R, and the plot labels that returned value as ell. This is a comparison-axis semantic discrepancy, not evidence that stored power values or test calibration are wrong. Coordinate width and transform-state bytes are distinct matching axes.",
+      "evidence": [
+        {"path": "notes/paper_source_feature_state_audit_v1.md", "sha256": "18a44a6db1b61e8cb4d703e0a7c7870b513e1422867e17e0f7cbf8921ff411b3"},
+        {"path": "plans/state_matched_native_calibration_v1.md", "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"},
+        {"path": "sources/nystrom_source_manifest_v3.json", "sha256": "8792c00eb1d891c8da6da6e10e86c1a9e91513ccf9f2d7033b66abee2a2c61a7"}
+      ],
+      "next_phase": "diagnostic"
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "state-matched-native-calibration-v1",
+      "argv": ["python3", "scripts/cpu_guard.py", "python3", "scripts/state_matched_native_calibration_v1.py"],
+      "phase": "diagnostic",
+      "purpose": "Measure exact-score approximation and complete state/cost accounting for k=2R coordinate matching versus the released k=R axis convention",
+      "timeout_seconds": 420,
+      "cwd": ".",
+      "input_refs": [
+        {"path": "scripts/cpu_guard.py", "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"},
+        {"path": "scripts/state_matched_native_calibration_v1.py", "sha256": "4977140bae8a99baecc34e2d8ba6c99dc7032172d6bcc6f8babee59738d8bdea"},
+        {"path": "plans/state_matched_native_calibration_v1.md", "sha256": "ecc1e05bdc50808054f8377299aa5e31c85a47c917db184321417868794045ed"},
+        {"path": "notes/paper_source_feature_state_audit_v1.md", "sha256": "18a44a6db1b61e8cb4d703e0a7c7870b513e1422867e17e0f7cbf8921ff411b3"},
+        {"path": "notes/resources_pre_calibration_recheck_v1.json", "sha256": "0bab376d5b25c20b3d95601728c3ef1826feec9e9c8fcd1d44c8b790bcee2177"},
+        {"path": "sources/nystrom_source_manifest_v3.json", "sha256": "8792c00eb1d891c8da6da6e10e86c1a9e91513ccf9f2d7033b66abee2a2c61a7"}
+      ],
+      "outputs": [
+        "results/state_matched_native_calibration_v1.json",
+        "results/state_matched_native_calibration_v1_rows.json"
+      ]
+    }
+  ]
+}
