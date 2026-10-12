@@ -33,6 +33,19 @@ def digest(path):
     return h.hexdigest()
 
 
+def sqlite_backup_digest(path):
+    # Packaging uses SQLite backup, not a raw copy. Repeat that same operation
+    # so benign file-change counters do not masquerade as new records; pending
+    # committed WAL content is included. Do not normalize or ignore any bytes.
+    with tempfile.TemporaryDirectory(prefix="sts-db-parity-") as temp:
+        snapshot = Path(temp) / "simple-loop.sqlite3"
+        with sqlite3.connect(path.as_uri() + "?mode=ro", uri=True) as src, sqlite3.connect(snapshot) as dst:
+            src.backup(dst)
+            if dst.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
+                raise ValueError("Local SQLite integrity failure")
+        return snapshot.stat().st_size, digest(snapshot)
+
+
 def relative(name):
     p = PurePosixPath(name)
     if not name or p.is_absolute() or "\\" in name or any(x in ("", ".", "..") for x in name.split("/")):
@@ -147,7 +160,9 @@ def main():
                         raise ValueError("Unexpected local symlink")
                     if rel in expected:
                         r = expected[rel]
-                        if f.stat().st_size != r["bytes"] or digest(f) != r["sha256"]:
+                        size, actual = (sqlite_backup_digest(f) if rel == ".research-autopilot/simple-loop.sqlite3"
+                                        else (f.stat().st_size, digest(f)))
+                        if size != r["bytes"] or actual != r["sha256"]:
                             raise ValueError("Local file is newer/different; keep it: " + rel)
                     elif not (rel == "MANIFEST.json" or "__pycache__" in f.parts or
                               rel == ".research-autopilot/runner/supervisor.lock" or

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "project_id": "statistical-trust-simple-20261011",
+  "archive_commit": "97a99d69cf1e5fc874f88d128f8f0e6f0af3dc4f",
+  "archive_sha256": "434775fac8f12b980faff4049f35e44d831e39c5b0063f48609e27b05e65ce76",
+  "remote_fresh_download_verification": {
+    "parts": 117,
+    "payload_files": 968,
+    "sqlite_integrity": "ok",
+    "completed": true
+  },
+  "local_cleanup": {
+    "state": "dry_run_passed_not_yet_deleted",
+    "files_checked": 979,
+    "bytes": 242066680
+  },
+  "supervisor": {
+    "session": 64750,
+    "interrupt_exit_code": 130,
+    "all_attempts_terminal": 45,
+    "exclusive_lock_free": true,
+    "user_stop": false
+  },
+  "failures_retained": [
+    {
+      "operation": "CLI git push --dry-run",
+      "result": "no configured username; no credentials extracted; authorized connector used"
+    },
+    {
+      "operation": "GitHub create_tree with inline content",
+      "result": "ReadTimeout; immutable blobs precreated and same scoped tree publication succeeded"
+    },
+    {
+      "operation": "first cleanup dry run",
+      "result": "refused SQLite raw-file hash difference; no deletion"
+    },
+    {
+      "operation": "helper commit branch update",
+      "result": "GraphQL error; readback confirmed concurrent main divergence; unpublished a834c14a4e2d55c6ce5236101105c7b273fc414b retained; rebase only scoped files onto latest main without force"
+    }
+  ],
+  "repair": {
+    "observed_sqlite_differences_only_at_offsets": [
+      27,
+      95
+    ],
+    "reference": "https://www.sqlite.org/fileformat2.html",
+    "solution": "Repeat the same SQLite backup operation used in packaging, including any committed WAL, then require exact byte size and SHA-256 equality; do not normalize any bytes.",
+    "tests": "2 unittest cases pass; path rejection, repeatable SQLite backup, newly committed WAL record changes hash.",
+    "post_repair_cleanup_dry_run": "passed"
+  },
+  "science": {
+    "new_attempts": 0,
+    "new_native_fits": 0,
+    "new_research_cycles": 0,
+    "current_idea": "praxis-near-optimal-tree-sets-v1",
+    "b047v2": "not_started"
+  }
+}
