@@ -8,7 +8,7 @@ The archive contains all durable project history: raw inputs, prepared models, t
 
 1. Inspect the original absolute root `/workspace/scratch/41d88df23405/rl_bandit_simple` and any actual process identities. Prefer newer live state. Do not overwrite an existing root, reset accounting, initialize a new runner, or infer no execution from a missing receipt.
 2. If the root is cold/absent, clone the canonical repository's latest `main` into a temporary directory. Use `--depth 1`; for a shared multi-project repo, use `--filter=blob:none --sparse` and sparse-checkout this namespace only. Do not clone old history or other project data unnecessarily.
-3. Read `LATEST.json` and this guide. Run the downloaded `github_coldstore_v1.py verify --checkout CLONE --receipt OUTSIDE_PROJECT.json`, then `restore --checkout CLONE`. Both require a clean checkout of the current remote head. Verify checks every compressed part and every reconstructed file. Restore refuses an existing project root.
+3. Read `LATEST.json` and this guide. Run the downloaded `github_coldstore_v1.py verify --checkout CLONE --receipt OUTSIDE_PROJECT.json`, then `restore --checkout CLONE`. Both require a clean checkout with the same project subtree as current remote main; concurrent changes to other project directories are preserved. Verify checks every compressed part and every reconstructed file. Restore refuses an existing project root.
 4. Read restored START_HERE.md, authorization records, next action, current Simple status/inbox/health/alerts and actual receipts. Reconcile prior process and unknown-attempt identities before restarting the same runner. An archived lost supervisor is not a new active process.
 5. Install only the environment needed for the chosen experiment, through `scripts/bounded_exec.py`, using the retained scripts and freeze. Keep CPU only, one numerical thread, 4GiB process address limit, shared cgroup 8GiB, defer experiment launches above 7GiB total cgroup usage. A cgroup reading includes page cache, anonymous memory and kernel memory; it is not synonymous with shared-memory segments.
 6. Continue useful, discriminating work through pinned rsi-simple 0.3.0-simple.9. This storage helper is not a second research decision workflow.
@@ -25,7 +25,7 @@ The archive contains all durable project history: raw inputs, prepared models, t
 
 ## Snapshot format
 
-LATEST.json contains project identity, original root, complete final file hashes/sizes, cumulative runner state and an ordered immutable snapshot chain. Each snapshot has a SHA256 for its delta ZIP and every <=4MiB part. Deltas overwrite only paths declared by the full final manifest. Previous Git commits and snapshot chains retain historical versions. Never rewrite history. Dependency environments are intentionally reconstructed rather than uploaded.
+LATEST.json contains project identity, original root, complete final file hashes/sizes, cumulative runner state and an ordered immutable snapshot chain. Each snapshot has a SHA256 for its delta ZIP and every <=4MiB part. Deltas overwrite only paths declared by the full final manifest. File modes are preserved separately so the pinned author Git working tree recovers without artificial executable-bit changes. Previous Git commits and snapshot chains retain historical versions. Never rewrite history. Dependency environments are intentionally reconstructed rather than uploaded.
 
 ## Current scientific boundary
 

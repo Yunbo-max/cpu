@@ -156,7 +156,9 @@ def pack(args):
     latest = {'schema_version': 1, 'project_id': PROJECT, 'original_root': str(ROOT),
               'created_at_utc': manifest['created_at_utc'], 'state': state,
               'excluded_reproducible_directories': list(EXCLUDED),
-              'chain': (old['chain'] if old else []) + [snap], 'files': manifest['files']}
+              'chain': (old['chain'] if old else []) + [snap], 'files': manifest['files'],
+              'file_modes': {name: (root / name).stat().st_mode & 0o777
+                             for name in manifest['files']}}
     latest_path = out / 'LATEST.json'
     dump(latest_path, latest)
     uploads.append({'path': PREFIX + '/LATEST.json', 'local': str(latest_path),
@@ -211,6 +213,10 @@ def materialize(checkout, destination):
     if actual != latest['files']:
         raise RuntimeError('Latest manifest differs from reconstructed manifest')
     verify_inventory(destination, latest['files'], database_backup=False)
+    for name, mode in latest.get('file_modes', {}).items():
+        if name not in latest['files'] or not isinstance(mode, int) or mode & ~0o777:
+            raise ValueError('Invalid file mode metadata')
+        (destination / name).chmod(mode)
     return latest
 
 
@@ -243,8 +249,12 @@ def check_remote_checkout(checkout):
     commit = git('rev-parse', 'HEAD')
     current = subprocess.check_output(['git', 'ls-remote', REPO, 'refs/heads/main'], text=True).split()[0]
     if commit != current:
-        # A concurrent commit may preserve this namespace. Fetch before checking.
-        raise RuntimeError('Remote main moved; refresh checkout and reverify')
+        # Other projects share main. A newer unrelated commit must not force
+        # repeated data downloads; require the exact same project subtree.
+        subprocess.run(['git', '-C', str(checkout), 'fetch', '--depth=1',
+                        'origin', 'main'], check=True, stdout=subprocess.DEVNULL)
+        if git('rev-parse', 'HEAD:' + PREFIX) != git('rev-parse', 'FETCH_HEAD:' + PREFIX):
+            raise RuntimeError('Remote project changed; refresh checkout and reverify')
     return commit
 
 
