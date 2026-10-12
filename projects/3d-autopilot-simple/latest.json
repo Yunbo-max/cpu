@@ -21,8 +21,8 @@
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "wake17_remote_verified_cleanup_pending; previous host reappearance unresolved",
-  "local_workspace_state": "partial; restore missing paths before execution",
+  "cleanup_status": "partial_cleanup_not_durable",
+  "local_workspace_state": "partial/host-rematerialized; do not assume empty or complete. New1149 verified deleted files reappeared next tool call. Preserve newer local files; restore missing required paths into fresh staging.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -36,5 +36,9 @@
   "latest_handoff": "notes/handoff-wake17.md",
   "verified_at_utc": "2026-10-12T10:26:52.298988+00:00",
   "verification_path": "projects/3d-autopilot-simple/verification-wake17.json",
-  "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS."
+  "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
+  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake17.json",
+  "cleanup_observed_at_utc": "2026-10-12T10:31:20.157816+00:00",
+  "total_index_files": 2748,
+  "restore_verification_commit": "f06736da060ac4d7e8cb7f1b90396bb004399043"
 }
