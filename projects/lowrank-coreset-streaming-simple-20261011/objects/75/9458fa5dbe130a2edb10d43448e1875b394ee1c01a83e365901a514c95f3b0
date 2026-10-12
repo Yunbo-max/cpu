@@ -1,0 +1,25 @@
+import os, sys, subprocess, pathlib, json, hashlib, time, resource
+root=pathlib.Path.cwd(); deps=root/'.deps'; deps.mkdir(exist_ok=True)
+start=time.time()
+env=os.environ.copy()
+def run(argv,cwd=None):
+    subprocess.run(argv,cwd=cwd,env=env,check=True)
+run([sys.executable,'-m','pip','install','--no-deps','--target',str(deps/'python'),'Cython==3.0.12'])
+env['PYTHONPATH']=str(deps/'python')
+repos=[('goodpoints','microsoft/goodpoints','181b12ade5dd02a61b65ed5cb9444c916fa3135f'),('cheap','microsoft/cheap-permutations','8c775da7dc317cbdb84ed768ce93fda55a9e2f2f')]
+manifest={'sources':[],'python':sys.version,'started_at_epoch':start,'scope':'native source acquisition/build, not scientific result'}
+for name,repo,commit in repos:
+    p=deps/name;p.mkdir()
+    run(['git','init','-q'],p);run(['git','remote','add','origin','https://github.com/'+repo+'.git'],p)
+    run(['git','-c','pack.threads=1','fetch','--depth','1','origin',commit],p)
+    run(['git','checkout','--detach','FETCH_HEAD'],p)
+    files=[]
+    for f in sorted(p.rglob('*')):
+        if f.is_file() and '.git' not in f.relative_to(p).parts:
+            data=f.read_bytes();files.append({'path':str(f.relative_to(p)),'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
+    manifest['sources'].append({'name':name,'repo':repo,'commit':commit,'files':files})
+    (root/'sources/native_build_manifest_v1.json').write_text(json.dumps(manifest,indent=2))
+    run([sys.executable,'setup.py','build_ext','--inplace','--parallel','1'],p)
+manifest.update(wall_seconds=time.time()-start,peak_child_rss_kib=resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss)
+(root/'sources/native_build_manifest_v1.json').write_text(json.dumps(manifest,indent=2))
+print(json.dumps({k:v for k,v in manifest.items() if k!='sources'}))

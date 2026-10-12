@@ -1,0 +1,43 @@
+# Bounded native bandwidth and baseline source review
+
+Status: complete source contribution; no numerical experiments. Parent binding: ctt-streaming-calibration-audit-v1, revision 1, goal-contract version 1, source digest e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8. Assignment and all inspected local inputs are hashed in result.json. Scoped to fixed rsi-simple. Prior exposure: read the supplied w005 audit; this is a separate source review, not an independent implementation or unseen-data validation.
+
+## What the author code actually fits
+
+**Known from code.** Goodpoints `examples/mmd_test/test.py:545-549` draws a complete pair of sample arrays with `default_rng(10)`, takes the first `min(args.n,512)` rows of each, and fits lambda once before entering the tests. `util_sqMMD_estimators.py:16-28` concatenates those subsets, forms the entire pooled pairwise Euclidean-distance matrix, and returns `sqrt(2)*median(distances)`. This includes diagonal zeros and both ordered directions; it is not a median of squared distances or a cross-group-only median. Target kernel is `exp(-||x-y||²/lam²)` (`goodpoints/ctt.py:46-48`).
+
+Test replicates use fresh spawned data streams (`test.py:368-382`), and the same fitted lambda is passed into their test methods. The Gaussian sampler generates n rows **per group**, covariance I, means ±mean_diff/2 on the final coordinate (`util_sampling.py:191-207`). In particular the pilot is drawn with the same configured distribution/alternative, not a separately specified null model.
+
+The successor does the same: Cheap `tests/test_cheap.py:766-774` for single-bandwidth homogeneity, `710-713` for aggregated homogeneity; `tests/util_sqMMD_estimators.py:37-49` for the pooled helper; `test_cheap.py:490-504` for fresh test data. There is no per-permutation bandwidth refit in these paths. The author Gaussian script uses n=8192 **per group**, d=10, mean_diff=.06, B=1279 (`tests/gaussians_s_test.slurm:15`); this is not the smaller CTT README configuration.
+
+## Guarantee scope: inference, not a measured level result
+
+For the synthetic iid null, treating the seed-10 pilot as external calibration and conditioning on its fitted positive lambda preserves iid, exchangeable test observations. Thus bandwidth fitting here supplies no evidence of level inflation. A shared RFF map drawn independently of test observations can also be conditioned upon: equal-size bin feature means remain exchangeable. This reasoning concerns the ideal sampling/randomization model; fixed PRNG seeds are reproducibility devices, not a proof of literal probabilistic independence.
+
+For CTT, conditional validity additionally requires equal raw-bin sizes and the same compression transition law for each bin (and appropriate exchangeable compression randomization). Do not condition on arbitrary unequal bin-specific transformations and then assert exchangeability. This review does not re-prove the complete CTT theorem.
+
+If changing the protocol to fit from the tested data, a function of the entire pooled unlabeled sample is permutation-invariant and can preserve conditional rank validity. But taking a fixed count of rows from each *observed labeled group*, fitting lambda, then reassigning arbitrary test bins while holding that label-selected subset fixed is not automatically permutation-invariant. One must prove invariance for the actual group action, use external/disjoint pilot data, or include selection/refitting in a valid randomization procedure. Conditioning on a label-dependent selection alone does not create exchangeability. These distinctions are not a counterexample against the author external-pilot protocol.
+
+Rejection semantics also differ. Goodpoints `CttResult` (`ctt.py:642-670`) returns a **rejection probability**, potentially fractional at ties, rather than always a Boolean. Cheap author `tests/util_classes.py:48-78` perturbs all ranks with iid uniform noise of scale 1e-10 and uses randomized rank-boundary rejection, calling global NumPy RNG and Python `random` outside the explicit null/statistic seed arguments. Preserve native outputs and seed/record those global RNGs if reproducibility of decisions is needed. Noise can reorder near ties, so this is not only exact tie-breaking. Neither routine should silently be replaced with `statistic > threshold` when reproducing native decisions.
+
+## Strong native baseline and exact API
+
+The relevant successor is **`tests/util_sqMMD_estimators_cheap.cheap_rff`**, lines 362-449:
+
+`cheap_rff(X1,X2,r,s,B,lam,group_results_dict,kernel="gauss",null_seed=None,statistic_seed=None)`.
+
+It writes scores and total_times into `group_results_dict['cheap_rff'].group_tests[f'{r}_{s}']`; it does not return a `TestResults`. Author wrapper `tests/test_cheap.py:270-310` then applies native statistic/rank/rejection handling. The similarly named `cheaper.ctt.rff` is ordinary pointwise RFF, not Cheap RFF.
+
+For balanced n1=n2=n and s dividing n, there are 2s bins of n/s rows. Cheap RFF computes averaged bin features directly with `cheaper.ctt.kernel_features` (`ctt.py:26-67`) and Cython `cttc.rff` (`cttc.pyx:155-216`). It allocates bin features, not a full n-by-r feature table; the native loops already accumulate cosines into bins. It uses frequencies N(0,2/lam² I), uniform phase, and sqrt(2/r) normalization. If r>=2s, it forms a 2s-by-2s linear Gram matrix and uses signed matrix sums; otherwise it uses signed feature-vector squared norms (`util_sqMMD_estimators_cheap.py:409-441`). Any proposed streaming RFF bin-mean method must therefore compare with this native implementation; that mechanism alone is already present.
+
+Exact-kernel comparison is `cheap_perm(X1,X2,B,s,lam,group_results_dict,kernel="gauss",null_seed=None,save_complete=False)` (`56-142`). It computes all raw-data Gaussian bin-pair sums before cheap permutations, so reducing permutation bins does not remove quadratic initial kernel work. The actual author complete-test wrapper calls this same function with s=n and save_complete=True (`test_cheap.py:11-30`). Ordinary RFF comparator is the helper's `rff` (`277-360`) at the same r and feature seed. The documented rank grid includes 8,32,128,512,2048; Cheap RFF s grid includes 8,16,32,128,512,2048,8192 (`util_tests_cheap.py:70-84`).
+
+Source-only corroboration requested by parent: balanced CTT divides compressed bin kernel sums by **raw** bin_size² (`goodpoints/ctt.py:99-105`), while the Cython sum kernel derives its bin size from supplied compressed arrays (`gaussianc.pyx:271-348`). With common compressed size m and raw size q this multiplies every balanced empirical-coreset MMD score by (m/q)²; it cannot change permutation ordering. No normalization experiments were consumed or repeated here.
+
+## Smallest consequential next calibration (proposal, not run)
+
+Freeze one balanced Gaussian cost-only fixture n=1024 per group, d=10, B=39, alpha=.05, s=16, r=128, external author-style pilot; one n is enough for the initial cost decision. It has equal 64-row raw bins, avoiding remainder/truncation ambiguity. Call unchanged native CTT g=0, Cheap RFF, ordinary RFF at the same rank/feature seed, exact cheap_perm, and complete cheap_perm(s=n) under a common single-thread CPU guard. Add only one Cheap RFF r=8 call if the direct-feature branch cost is decision-relevant. This is a setup/calibration fixture, not replication of the paper's B=1279 experiment and not power evidence.
+
+Measure external wall time and peak RSS for bandwidth fitting, each full native call, and decision handling, with one warmup and three isolated alternating-order timed repetitions. Retain native internal times separately: bandwidth fitting, test decision logic, setup/import and caller overhead lie outside some timers. The median helper materializes two (1024,1024,d) tiled arrays plus subtraction/norm intermediates; bandwidth memory/time is not negligible and must be recorded once as setup and included in a one-test total or explicitly amortized. Stop at this calibration unless its cost envelope justifies a separately frozen larger batch. Use no model selection or power conclusion from these timings.
+
+Limitations: source inspection only; exact finite-sample theorem assumptions beyond the conditioning argument not re-audited; no real-data pilot independence audit; no timing, RSS, power, or level measurements; no claim of strongest baseline across all Nyström competitors. Parent must integrate and persist the scoped outputs.

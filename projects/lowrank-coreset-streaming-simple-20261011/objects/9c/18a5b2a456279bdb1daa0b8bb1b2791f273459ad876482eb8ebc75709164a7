@@ -1,0 +1,20 @@
+import json,pathlib,math,hashlib
+p=pathlib.Path.cwd();rows=json.loads((p/'results/native_ctt_normalization_v1_rows.json').read_text());s=json.loads((p/'results/native_ctt_normalization_v1.json').read_text())
+alloc=[r for r in rows if r['case']=='enumerated_allocation']; reversals=[]
+for i,a in enumerate(alloc):
+    for j,b in enumerate(alloc[:i]):
+        u=a['statistic']-b['statistic'];v=a['true_coreset_mmd2']-b['true_coreset_mmd2']
+        if abs(u)>1e-10 and abs(v)>1e-10 and u*v<0:reversals.append([j,i])
+assert sorted(reversals)==sorted(s['ranking_discordances'])
+raw=json.loads((p/'results/native_cost_calibration_v1_rows.json').read_text());tab=json.loads((p/'results/native_cost_calibration_v1.json').read_text())
+assert len(raw['rows'])==42
+for arm in tab['arms']:
+    rr=[r for r in raw['rows'] if r['role']=='measured' and r['arm']==arm['arm'] and r['n_per_group']==arm['n']]
+    assert len(rr)==3 and len(set(r['seed'] for r in rr))==3
+    mean=math.fsum(r['wall_seconds'] for r in rr)/3
+    fraction=math.fsum(r['components'].get('permutation_arithmetic',0.) for r in rr)/(mean*3)
+    assert abs(mean-arm['mean_wall_seconds'])<1e-12 and abs(fraction-arm['permutation_arithmetic_fraction'])<1e-12
+for st in raw['setup']:
+    assert (p/st['artifact']).is_file()
+report={'rank_reversals':len(reversals),'pair_denominator':len(alloc)*(len(alloc)-1)//2,'measured_rows':36,'warmups':6,'all_12_arm_aggregates_match':True,'scope':'Independent stdlib reaggregation from raw values; not numerical scorer replication or new research cycle','inputs':[{'path':f,'sha256':hashlib.sha256((p/f).read_bytes()).hexdigest()} for f in ['results/native_ctt_normalization_v1_rows.json','results/native_ctt_normalization_v1.json','results/native_cost_calibration_v1_rows.json','results/native_cost_calibration_v1.json']]}
+(p/'results/raw_table_audit_v1.json').write_text(json.dumps(report,indent=2));print(json.dumps(report))

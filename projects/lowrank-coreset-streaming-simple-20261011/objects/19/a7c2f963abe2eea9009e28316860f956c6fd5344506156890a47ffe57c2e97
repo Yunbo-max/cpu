@@ -1,0 +1,67 @@
+"""Execute unchanged author APIs; transparent wrappers only retain intermediates."""
+import sys,pathlib,json,time,resource,itertools,hashlib
+root=pathlib.Path.cwd()
+sys.path[:0]=[str(root/'.deps/goodpoints'),str(root/'.deps/cheap')]
+import numpy as np
+import goodpoints.ctt as gp
+import cheaper.ctt as cheap
+
+started=time.perf_counter();cpu=time.process_time(); rows=[]
+def plain(v):
+    if isinstance(v,np.ndarray): return v.tolist()
+    if isinstance(v,np.generic): return v.item()
+    raise TypeError(type(v).__name__)
+def kernel(x):
+    return np.exp(-((x[:,None,:]-x[None,:,:])**2).sum(axis=2))
+def ref(K,a,b):
+    return K[:a,:a].mean()+K[a:,a:].mean()-2*K[:a,a:].mean()
+def ctt_case(name,x,y,g,s):
+    saved=[]; original=gp.compress.compress_kt; cls=gp.CttResult; raw=[]
+    def capture(X,*args,**kwargs):
+        idx=original(X,*args,**kwargs)
+        saved.append({'input':X.copy(),'indices':idx.copy(),'bins':kwargs['num_bins']})
+        return idx
+    def capture_result(name,values,*args,**kwargs):
+        raw.append(values.copy());return cls(name,values,*args,**kwargs)
+    gp.compress.compress_kt=capture;gp.CttResult=capture_result
+    try: out=gp.ctt(x,y,g=g,s=s,lam=1.,B=19,null_seed=210,statistic_seed=810)
+    finally:gp.compress.compress_kt=original;gp.CttResult=cls
+    a,b=[z['bins'] for z in saved]
+    cx,cy=[z['input'][z['indices']] for z in saved]
+    r=len(saved[0]['input'])//a; m=len(cx)//a
+    K=kernel(np.concatenate([cx,cy])); M=ref(K,len(cx),len(cy))
+    signs=np.r_[np.ones(len(cx)), -np.ones(len(cy))]
+    predicted=float(signs@K@signs/(r*r*a*b))
+    actual=float(out.statistic_values)
+    assert abs(actual-predicted)<1e-10
+    if a==b: assert abs(actual-(m/r)**2*M)<1e-10
+    rows.append({'method':'native_ctt','case':name,'n1':len(x),'n2':len(y),'g':g,'s':s,'bin_counts':[a,b],'raw_bin_size':r,'compressed_bin_size':m,'selected_indices':[z['indices'] for z in saved],'selected_points':[cx,cy],'statistic':actual,'true_coreset_mmd2':M,'signed_formula':predicted,'compression_scale':(m/r)**2,'native_raw_permutation_scores':raw[0],'rejects':out.rejects,'wall_seconds':out.total_times})
+    return actual,M
+for n1,n2,s in [(4,4,2),(4,12,2),(16,16,4),(16,48,4)]:
+    for identical in [True,False]:
+        x=np.zeros((n1,1)) if identical else np.linspace(-1.,.5,n1)[:,None]
+        y=np.zeros((n2,1)) if identical else np.linspace(0.1,2.,n2)[:,None]
+        for g in [0,2]:
+            ctt_case('identical' if identical else 'distinct',x,y,g,s)
+        for module,label in [(gp,'goodpoints_rff'),(cheap,'cheap_rff')]:
+            z=module.kernel_features(x,y,r=32,lam=1.,seed=810,bin_size=1)
+            o=module.rff(x,y,r=32,lam=1.,B=19,null_seed=210,statistic_seed=810)
+            true=float(np.sum((z[:n1].mean(0)-z[n1:].mean(0))**2))
+            predicted=float(np.sum((z[:n1].sum(0)-z[n1:].sum(0))**2)/(n1*n2))
+            assert abs(o.statistic_values-predicted)<1e-10
+            if n1==n2: assert abs(o.statistic_values-true)<1e-10
+            rows.append({'method':label,'case':'identical' if identical else 'distinct','n1':n1,'n2':n2,'rank':32,'statistic':o.statistic_values,'true_feature_mmd2':true,'signed_formula':predicted,'feature_sha256':hashlib.sha256(z.tobytes()).hexdigest(),'native_partitioned_permutation_scores':o.estimator_values,'rejects':o.rejects,'wall_seconds':o.total_times})
+
+z=np.array([0,.1,.2,1,3,4.],dtype=float)[:,None];rank_rows=[]
+for selected in itertools.combinations(range(6),2):
+    rest=[i for i in range(6) if i not in selected]
+    actual,mmd=ctt_case('enumerated_allocation',z[list(selected)],z[rest],g=0,s=3)
+    rank_rows.append({'selected':selected,'statistic':actual,'true_mmd2':mmd})
+discord=[]
+for i,j in itertools.combinations(range(len(rank_rows)),2):
+    di=rank_rows[i]['statistic']-rank_rows[j]['statistic'];dt=rank_rows[i]['true_mmd2']-rank_rows[j]['true_mmd2']
+    if abs(di)>1e-10 and abs(dt)>1e-10 and di*dt<0:discord.append([i,j])
+summary={'plan':'plans/native_ctt_normalization_v1.md','scope':'native unchanged author API diagnostic, not power/null-size estimate','rows':len(rows),'allocation_rows':rank_rows,'ranking_discordances':discord,'wall_seconds':time.perf_counter()-started,'cpu_seconds':time.process_time()-cpu,'peak_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,'numpy':np.__version__,'python':sys.version,'all_formula_checks_pass':True}
+(root/'results/native_ctt_normalization_v1_rows.json').write_text(json.dumps(rows,default=plain,indent=2))
+(root/'results/native_ctt_normalization_v1.json').write_text(json.dumps(summary,default=plain,indent=2))
+print(json.dumps(summary,default=plain))

@@ -1,0 +1,223 @@
+{
+  "plan": "plans/native_cost_calibration_v1.md",
+  "measured_rows": 36,
+  "warmup_rows": 6,
+  "scope": "development cost decomposition only; no power or null-rate inference",
+  "paired_statistic_equivalence_pass": true,
+  "wall_seconds": 12.807090554000752,
+  "cpu_seconds": 12.79880314,
+  "peak_rss_bytes": 672350208,
+  "numpy": "2.3.5",
+  "arms": [
+    {
+      "n": 1024,
+      "arm": "ctt_g0",
+      "mean_wall_seconds": 0.0020702769991961154,
+      "wall_range": [
+        0.002020799998717848,
+        0.0021466669986693887
+      ],
+      "permutation_arithmetic_fraction": 0.02099010512835273,
+      "optimistic_arithmetic_removal_speedup": 1.0214401358334633,
+      "mean_components": {
+        "compression": 0.001102081000378045,
+        "gaussian_kernel": 0.00046051833366315503,
+        "remaining": 0.0004642223332969782,
+        "permutation_arithmetic": 4.3455331857937075e-05
+      },
+      "stored_statistic_array_bytes": 8192
+    },
+    {
+      "n": 1024,
+      "arm": "ctt_g1",
+      "mean_wall_seconds": 0.004513839667197317,
+      "wall_range": [
+        0.0043865510015166365,
+        0.004649030001019128
+      ],
+      "permutation_arithmetic_fraction": 0.009774975549829291,
+      "optimistic_arithmetic_removal_speedup": 1.0098714689171353,
+      "mean_components": {
+        "compression": 0.0022908436664389833,
+        "gaussian_kernel": 0.0016543646664407181,
+        "remaining": 0.0005245086619349119,
+        "permutation_arithmetic": 4.4122672382703364e-05
+      },
+      "stored_statistic_array_bytes": 8192
+    },
+    {
+      "n": 1024,
+      "arm": "complete",
+      "mean_wall_seconds": 0.17887763399994583,
+      "wall_range": [
+        0.17308919499919284,
+        0.18736084400006803
+      ],
+      "permutation_arithmetic_fraction": 0.4352994050972147,
+      "optimistic_arithmetic_removal_speedup": 1.770849914142826,
+      "mean_components": {
+        "gaussian_kernel": 0.09713641433336306,
+        "remaining": 0.0038758920012090434,
+        "permutation_arithmetic": 0.07786532766537373
+      },
+      "stored_statistic_array_bytes": 33554432
+    },
+    {
+      "n": 1024,
+      "arm": "cheap_perm",
+      "mean_wall_seconds": 0.026671481666805146,
+      "wall_range": [
+        0.026264785999956075,
+        0.02704883700062055
+      ],
+      "permutation_arithmetic_fraction": 0.0017018425362261272,
+      "optimistic_arithmetic_removal_speedup": 1.0017047437416389,
+      "mean_components": {
+        "gaussian_kernel": 0.025886730333392432,
+        "remaining": 0.00073936067140797,
+        "permutation_arithmetic": 4.539066200474432e-05
+      },
+      "stored_statistic_array_bytes": 8192
+    },
+    {
+      "n": 1024,
+      "arm": "rff",
+      "mean_wall_seconds": 0.022328688000319136,
+      "wall_range": [
+        0.02207466500112787,
+        0.02281665400005295
+      ],
+      "permutation_arithmetic_fraction": 0.5913017220008541,
+      "optimistic_arithmetic_removal_speedup": 2.4467927902600306,
+      "mean_components": {
+        "features": 0.007616066666741972,
+        "remaining": 0.0015096296689686521,
+        "permutation_arithmetic": 0.013202991664608513
+      },
+      "stored_statistic_array_bytes": 2097152
+    },
+    {
+      "n": 1024,
+      "arm": "cheap_rff",
+      "mean_wall_seconds": 0.00806868000048174,
+      "wall_range": [
+        0.00789675600026385,
+        0.008401293000133592
+      ],
+      "permutation_arithmetic_fraction": 0.004734314206496083,
+      "optimistic_arithmetic_removal_speedup": 1.0047568345559121,
+      "mean_components": {
+        "features": 0.007496369666720663,
+        "remaining": 0.00048572900050203316,
+        "feature_gram": 4.838166690509146e-05,
+        "permutation_arithmetic": 3.819966635395152e-05
+      },
+      "stored_statistic_array_bytes": 40960
+    },
+    {
+      "n": 4096,
+      "arm": "ctt_g0",
+      "mean_wall_seconds": 0.00753727733354026,
+      "wall_range": [
+        0.007159947001127875,
+        0.007954491000418784
+      ],
+      "permutation_arithmetic_fraction": 0.005885104156827468,
+      "optimistic_arithmetic_removal_speedup": 1.0059199436417616,
+      "mean_components": {
+        "compression": 0.005286753333469581,
+        "gaussian_kernel": 0.0016875269993761322,
+        "remaining": 0.0005186393385277673,
+        "permutation_arithmetic": 4.435766216677924e-05
+      },
+      "stored_statistic_array_bytes": 8192
+    },
+    {
+      "n": 4096,
+      "arm": "ctt_g1",
+      "mean_wall_seconds": 0.02085602000018601,
+      "wall_range": [
+        0.019560750000891858,
+        0.02330948199960403
+      ],
+      "permutation_arithmetic_fraction": 0.0021350668837554093,
+      "optimistic_arithmetic_removal_speedup": 1.002139635147903,
+      "mean_components": {
+        "compression": 0.01367536733414454,
+        "gaussian_kernel": 0.006562925333128078,
+        "remaining": 0.0005731983352840567,
+        "permutation_arithmetic": 4.452899762933763e-05
+      },
+      "stored_statistic_array_bytes": 8192
+    },
+    {
+      "n": 4096,
+      "arm": "complete",
+      "mean_wall_seconds": 2.8918435936666356,
+      "wall_range": [
+        2.8229218080014107,
+        2.9545638909985428
+      ],
+      "permutation_arithmetic_fraction": 0.4486844392896265,
+      "optimistic_arithmetic_removal_speedup": 1.8138432347374593,
+      "mean_components": {
+        "gaussian_kernel": 1.5622273713336956,
+        "remaining": 0.0320910009953271,
+        "permutation_arithmetic": 1.2975252213376127
+      },
+      "stored_statistic_array_bytes": 536870912
+    },
+    {
+      "n": 4096,
+      "arm": "cheap_perm",
+      "mean_wall_seconds": 0.42995822166631115,
+      "wall_range": [
+        0.4155153939991578,
+        0.4568015879995073
+      ],
+      "permutation_arithmetic_fraction": 0.00010766162325404521,
+      "optimistic_arithmetic_removal_speedup": 1.0001076732155272,
+      "mean_components": {
+        "gaussian_kernel": 0.4290804826669046,
+        "remaining": 0.0008314489993305566,
+        "permutation_arithmetic": 4.6290000076017655e-05
+      },
+      "stored_statistic_array_bytes": 8192
+    },
+    {
+      "n": 4096,
+      "arm": "rff",
+      "mean_wall_seconds": 0.10024403933251354,
+      "wall_range": [
+        0.0988701440001023,
+        0.10265721099858638
+      ],
+      "permutation_arithmetic_fraction": 0.6588432300121265,
+      "optimistic_arithmetic_removal_speedup": 2.9312037396635726,
+      "mean_components": {
+        "features": 0.030331509666211787,
+        "remaining": 0.003867423003005873,
+        "permutation_arithmetic": 0.06604510666329588
+      },
+      "stored_statistic_array_bytes": 8388608
+    },
+    {
+      "n": 4096,
+      "arm": "cheap_rff",
+      "mean_wall_seconds": 0.02956516566640251,
+      "wall_range": [
+        0.02919034200021997,
+        0.030019642999832286
+      ],
+      "permutation_arithmetic_fraction": 0.001683445151406445,
+      "optimistic_arithmetic_removal_speedup": 1.001686283917892,
+      "mean_components": {
+        "features": 0.02897671133299203,
+        "remaining": 0.00048252333181153517,
+        "feature_gram": 5.615966680731314e-05,
+        "permutation_arithmetic": 4.977133479163361e-05
+      },
+      "stored_statistic_array_bytes": 40960
+    }
+  ]
+}

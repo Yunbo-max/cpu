@@ -1,0 +1,363 @@
+In function ‘__pyx_f_10goodpoints_9compressc_compress’,
+    inlined from ‘__pyx_pf_10goodpoints_9compressc_2compress’ at goodpoints/compressc.c:22482:15,
+    inlined from ‘__pyx_pw_10goodpoints_9compressc_3compress’ at goodpoints/compressc.c:22457:13:
+goodpoints/compressc.c:22131:1: warning: ‘__pyx_v_k’ may be used uninitialized [-Wmaybe-uninitialized]
+22131 | __pyx_f_10goodpoints_9compressc__compress(__pyx_v_X, __pyx_v_input_indices, __pyx_v_base_size, __pyx_v_k, __pyx_v_kdiag, __pyx_v_k_params, __pyx_v_halve_prob, __pyx_v_skip_swap, __pyx_v_halve_rng, __pyx_v_K, __pyx_v_aux_double_mem, __pyx_v_aux_long_mem, __pyx_v_intermediate_indices, __pyx_t_12);
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+goodpoints/compressc.c: In function ‘__pyx_pw_10goodpoints_9compressc_3compress’:
+goodpoints/compressc.c:21446:42: note: ‘__pyx_v_k’ was declared here
+21446 |   __pyx_t_10goodpoints_9compressc_kernel __pyx_v_k;
+      |                                          ^~~~~~~~~
+In function ‘__pyx_f_10goodpoints_9compressc_compress’,
+    inlined from ‘__pyx_pf_10goodpoints_9compressc_2compress’ at goodpoints/compressc.c:22482:15,
+    inlined from ‘__pyx_pw_10goodpoints_9compressc_3compress’ at goodpoints/compressc.c:22457:13:
+goodpoints/compressc.c:22131:1: warning: ‘__pyx_v_kdiag’ may be used uninitialized [-Wmaybe-uninitialized]
+22131 | __pyx_f_10goodpoints_9compressc__compress(__pyx_v_X, __pyx_v_input_indices, __pyx_v_base_size, __pyx_v_k, __pyx_v_kdiag, __pyx_v_k_params, __pyx_v_halve_prob, __pyx_v_skip_swap, __pyx_v_halve_rng, __pyx_v_K, __pyx_v_aux_double_mem, __pyx_v_aux_long_mem, __pyx_v_intermediate_indices, __pyx_t_12);
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+goodpoints/compressc.c: In function ‘__pyx_pw_10goodpoints_9compressc_3compress’:
+goodpoints/compressc.c:21447:47: note: ‘__pyx_v_kdiag’ was declared here
+21447 |   __pyx_t_10goodpoints_9compressc_kernel_diag __pyx_v_kdiag;
+      |                                               ^~~~~~~~~~~~~
+In function ‘__pyx_f_10goodpoints_9compressc_compute_K’,
+    inlined from ‘__pyx_pf_10goodpoints_9compressc_compute_K’ at goodpoints/compressc.c:20614:15,
+    inlined from ‘__pyx_pw_10goodpoints_9compressc_1compute_K’ at goodpoints/compressc.c:20588:13:
+goodpoints/compressc.c:20427:3: warning: ‘__pyx_v_k’ may be used uninitialized [-Wmaybe-uninitialized]
+20427 |   __pyx_f_10goodpoints_9compressc__compute_K(__pyx_v_X, __pyx_v_input_indices, __pyx_v_k, __pyx_v_kdiag, __pyx_v_k_params, __pyx_v_K);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+goodpoints/compressc.c: In function ‘__pyx_pw_10goodpoints_9compressc_1compute_K’:
+goodpoints/compressc.c:20340:42: note: ‘__pyx_v_k’ was declared here
+20340 |   __pyx_t_10goodpoints_9compressc_kernel __pyx_v_k;
+      |                                          ^~~~~~~~~
+In function ‘__pyx_f_10goodpoints_9compressc_compute_K’,
+    inlined from ‘__pyx_pf_10goodpoints_9compressc_compute_K’ at goodpoints/compressc.c:20614:15,
+    inlined from ‘__pyx_pw_10goodpoints_9compressc_1compute_K’ at goodpoints/compressc.c:20588:13:
+goodpoints/compressc.c:20427:3: warning: ‘__pyx_v_kdiag’ may be used uninitialized [-Wmaybe-uninitialized]
+20427 |   __pyx_f_10goodpoints_9compressc__compute_K(__pyx_v_X, __pyx_v_input_indices, __pyx_v_k, __pyx_v_kdiag, __pyx_v_k_params, __pyx_v_K);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+goodpoints/compressc.c: In function ‘__pyx_pw_10goodpoints_9compressc_1compute_K’:
+goodpoints/compressc.c:20341:47: note: ‘__pyx_v_kdiag’ was declared here
+20341 |   __pyx_t_10goodpoints_9compressc_kernel_diag __pyx_v_kdiag;
+      |                                               ^~~~~~~~~~~~~
+goodpoints/gaussianc.c: In function ‘__pyx_f_10goodpoints_9gaussianc_block_sqMMD_gaussian_reordered’:
+goodpoints/gaussianc.c:26454:44: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+26454 |   (void)(printf(((char const *)"n_splits: %u, results[0]: %.15f, results[1]: %.15f, results[2]: %.15f, results[3]: %.15f\n"), __pyx_v_n_splits, (*((double *) ( /* dim=0 */ (__pyx_v_results.data + __pyx_t_16 * __pyx_v_results.strides[0]) ))), (*((double *) ( /* dim=0 */ (__pyx_v_results.data + __pyx_t_7 * __pyx_v_results.strides[0]) ))), (*((double *) ( /* dim=0 */ (__pyx_v_results.data + __pyx_t_17 * __pyx_v_results.strides[0]) ))), (*((double *) ( /* dim=0 */ (__pyx_v_results.data + __pyx_t_18 * __pyx_v_results.strides[0]) )))));
+      |                                           ~^                                                                                  ~~~~~~~~~~~~~~~~
+      |                                            |                                                                                  |
+      |                                            unsigned int                                                                       long int
+      |                                           %lu
+goodpoints/gaussianc.c: In function ‘__pyx_f_10goodpoints_9gaussianc_block_sqMMD_gaussian_Rademacher’:
+goodpoints/gaussianc.c:27077:80: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long int’ [-Wformat=]
+27077 |   (void)(printf(((char const *)"Test statistic value %f in time %f. n_splits: %u, block_size: %u\n"), (*((double *) ( /* dim=0 */ (__pyx_v_sqMMD_values.data + __pyx_t_23 * __pyx_v_sqMMD_values.strides[0]) ))), __pyx_v_time, __pyx_v_n_splits, __pyx_v_block_size));
+      |                                                                               ~^                                                                                                                                                ~~~~~~~~~~~~~~~~
+      |                                                                                |                                                                                                                                                |
+      |                                                                                unsigned int                                                                                                                                     long int
+      |                                                                               %lu
+goodpoints/gaussianc.c:27077:96: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 5 has type ‘long int’ [-Wformat=]
+27077 |   (void)(printf(((char const *)"Test statistic value %f in time %f. n_splits: %u, block_size: %u\n"), (*((double *) ( /* dim=0 */ (__pyx_v_sqMMD_values.data + __pyx_t_23 * __pyx_v_sqMMD_values.strides[0]) ))), __pyx_v_time, __pyx_v_n_splits, __pyx_v_block_size));
+      |                                                                                               ~^                                                                                                                                                  ~~~~~~~~~~~~~~~~~~
+      |                                                                                                |                                                                                                                                                  |
+      |                                                                                                unsigned int                                                                                                                                       long int
+      |                                                                                               %lu
+goodpoints/gaussianc.c: In function ‘__pyx_f_10goodpoints_9gaussianc_incomplete_sqMMD_gaussian_Rademacher_subdiagonals’:
+goodpoints/gaussianc.c:28739:68: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+28739 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                   ~^                                         ~~~~~~~~~
+      |                                                                    |                                         |
+      |                                                                    unsigned int                              long int
+      |                                                                   %lu
+goodpoints/gaussianc.c:28739:84: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long int’ [-Wformat=]
+28739 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                   ~^                                    ~~~~~~~~~~~~~~~~~
+      |                                                                                    |                                    |
+      |                                                                                    unsigned int                         long int
+      |                                                                                   %lu
+goodpoints/gaussianc.c:28739:93: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long int’ [-Wformat=]
+28739 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                            ~^                                              ~~~~~~~~~~
+      |                                                                                             |                                              |
+      |                                                                                             unsigned int                                   long int
+      |                                                                                            %lu
+goodpoints/gaussianc.c:28739:102: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 5 has type ‘long int’ [-Wformat=]
+28739 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                                     ~^                                                 ~~~~~~~~~~
+      |                                                                                                      |                                                 |
+      |                                                                                                      unsigned int                                      long int
+      |                                                                                                     %lu
+goodpoints/gaussianc.c:28876:55: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+28876 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_17, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_15 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                      ~^                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                       |                                          |
+      |                                                       unsigned int                               long int
+      |                                                      %lu
+goodpoints/gaussianc.c:28876:61: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘Py_ssize_t’ {aka ‘long int’} [-Wformat=]
+28876 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_17, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_15 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                            ~^                                          ~~~~~~~~~~
+      |                                                             |                                          |
+      |                                                             unsigned int                               Py_ssize_t {aka long int}
+      |                                                            %lu
+goodpoints/gaussianc.c:28876:65: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long long int’ [-Wformat=]
+28876 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_17, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_15 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                                ~^                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                 |                                                   |
+      |                                                                 unsigned int                                        long long int
+      |                                                                %llu
+goodpoints/gaussianc.c:29074:58: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+29074 |   (void)(printf(((char const *)"final incomplete_index: %u. len(incomplete_list): %u.\n"), __pyx_v_incomplete_index, __pyx_t_17));
+      |                                                         ~^                                 ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                          |                                 |
+      |                                                          unsigned int                      long int
+      |                                                         %lu
+goodpoints/gaussianc.c:29074:84: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘Py_ssize_t’ {aka ‘long int’} [-Wformat=]
+29074 |   (void)(printf(((char const *)"final incomplete_index: %u. len(incomplete_list): %u.\n"), __pyx_v_incomplete_index, __pyx_t_17));
+      |                                                                                   ~^                                 ~~~~~~~~~~
+      |                                                                                    |                                 |
+      |                                                                                    unsigned int                      Py_ssize_t {aka long int}
+      |                                                                                   %lu
+goodpoints/gaussianc.c: In function ‘__pyx_f_10goodpoints_9gaussianc_incomplete_sqMMD_gaussian_Rademacher_aggregated’:
+goodpoints/gaussianc.c:29511:68: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+29511 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                   ~^                                         ~~~~~~~~~
+      |                                                                    |                                         |
+      |                                                                    unsigned int                              long int
+      |                                                                   %lu
+goodpoints/gaussianc.c:29511:84: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long int’ [-Wformat=]
+29511 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                   ~^                                    ~~~~~~~~~~~~~~~~~
+      |                                                                                    |                                    |
+      |                                                                                    unsigned int                         long int
+      |                                                                                   %lu
+goodpoints/gaussianc.c:29511:93: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long int’ [-Wformat=]
+29511 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                            ~^                                              ~~~~~~~~~~
+      |                                                                                             |                                              |
+      |                                                                                             unsigned int                                   long int
+      |                                                                                            %lu
+goodpoints/gaussianc.c:29511:102: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 5 has type ‘long int’ [-Wformat=]
+29511 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                                     ~^                                                 ~~~~~~~~~~
+      |                                                                                                      |                                                 |
+      |                                                                                                      unsigned int                                      long int
+      |                                                                                                     %lu
+goodpoints/gaussianc.c:29665:55: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+29665 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_9, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_19 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                      ~^                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                       |                                          |
+      |                                                       unsigned int                               long int
+      |                                                      %lu
+goodpoints/gaussianc.c:29665:61: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘Py_ssize_t’ {aka ‘long int’} [-Wformat=]
+29665 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_9, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_19 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                            ~^                                          ~~~~~~~~~
+      |                                                             |                                          |
+      |                                                             unsigned int                               Py_ssize_t {aka long int}
+      |                                                            %lu
+goodpoints/gaussianc.c:29665:65: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long long int’ [-Wformat=]
+29665 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_9, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_19 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                                ~^                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                 |                                                  |
+      |                                                                 unsigned int                                       long long int
+      |                                                                %llu
+goodpoints/gaussianc.c:29921:58: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+29921 |   (void)(printf(((char const *)"final incomplete_index: %u. len(incomplete_list): %u.\n"), __pyx_v_incomplete_index, __pyx_t_9));
+      |                                                         ~^                                 ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                          |                                 |
+      |                                                          unsigned int                      long int
+      |                                                         %lu
+goodpoints/gaussianc.c:29921:84: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘Py_ssize_t’ {aka ‘long int’} [-Wformat=]
+29921 |   (void)(printf(((char const *)"final incomplete_index: %u. len(incomplete_list): %u.\n"), __pyx_v_incomplete_index, __pyx_t_9));
+      |                                                                                   ~^                                 ~~~~~~~~~
+      |                                                                                    |                                 |
+      |                                                                                    unsigned int                      Py_ssize_t {aka long int}
+      |                                                                                   %lu
+In function ‘__pyx_f_10goodpoints_9gaussianc_incomplete_sqMMD_gaussian_Rademacher_aggregated’,
+    inlined from ‘__pyx_pf_10goodpoints_9gaussianc_38incomplete_sqMMD_gaussian_Rademacher_aggregated’ at goodpoints/gaussianc.c:30208:15,
+    inlined from ‘__pyx_pw_10goodpoints_9gaussianc_39incomplete_sqMMD_gaussian_Rademacher_aggregated’ at goodpoints/gaussianc.c:30177:13:
+goodpoints/gaussianc.c:29910:122: warning: ‘__pyx_v_end’ may be used uninitialized [-Wmaybe-uninitialized]
+29910 |     *((double *) ( /* dim=0 */ (__pyx_v_sqMMD_times.data + __pyx_t_2 * __pyx_v_sqMMD_times.strides[0]) )) = (__pyx_v_end - __pyx_v_start);
+      |                                                                                                             ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+goodpoints/gaussianc.c: In function ‘__pyx_pw_10goodpoints_9gaussianc_39incomplete_sqMMD_gaussian_Rademacher_aggregated’:
+goodpoints/gaussianc.c:29385:10: note: ‘__pyx_v_end’ was declared here
+29385 |   double __pyx_v_end;
+      |          ^~~~~~~~~~~
+In function ‘__pyx_f_10goodpoints_9gaussianc_incomplete_sqMMD_gaussian_Rademacher_subdiagonals’,
+    inlined from ‘__pyx_pf_10goodpoints_9gaussianc_36incomplete_sqMMD_gaussian_Rademacher_subdiagonals’ at goodpoints/gaussianc.c:29342:15,
+    inlined from ‘__pyx_pw_10goodpoints_9gaussianc_37incomplete_sqMMD_gaussian_Rademacher_subdiagonals’ at goodpoints/gaussianc.c:29313:13:
+goodpoints/gaussianc.c:29063:122: warning: ‘__pyx_v_end’ may be used uninitialized [-Wmaybe-uninitialized]
+29063 |     *((double *) ( /* dim=0 */ (__pyx_v_sqMMD_times.data + __pyx_t_2 * __pyx_v_sqMMD_times.strides[0]) )) = (__pyx_v_end - __pyx_v_start);
+      |                                                                                                             ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+goodpoints/gaussianc.c: In function ‘__pyx_pw_10goodpoints_9gaussianc_37incomplete_sqMMD_gaussian_Rademacher_subdiagonals’:
+goodpoints/gaussianc.c:28618:10: note: ‘__pyx_v_end’ was declared here
+28618 |   double __pyx_v_end;
+      |          ^~~~~~~~~~~
+From https://github.com/microsoft/cheap-permutations
+ * branch            8c775da7dc317cbdb84ed768ce93fda55a9e2f2f -> FETCH_HEAD
+HEAD is now at 8c775da Updating Python versions
+performance hint: cheaper/cttc.pyx:87:6: Exception check on 'signed_tensor_sum' will always require the GIL to be acquired.
+Possible solutions:
+	1. Declare 'signed_tensor_sum' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+	2. Use an 'int' return type on 'signed_tensor_sum' to allow an error code to be returned.
+performance hint: cheaper/cttc.pyx:124:6: Exception check on 'linear_kernel_same' will always require the GIL to be acquired.
+Possible solutions:
+	1. Declare 'linear_kernel_same' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+	2. Use an 'int' return type on 'linear_kernel_same' to allow an error code to be returned.
+performance hint: cheaper/cttc.pyx:155:6: Exception check on 'rff' will always require the GIL to be acquired.
+Possible solutions:
+	1. Declare 'rff' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+	2. Use an 'int' return type on 'rff' to allow an error code to be returned.
+cheaper/gaussianc.c: In function ‘__pyx_f_7cheaper_9gaussianc_block_sqMMD_gaussian_reordered’:
+cheaper/gaussianc.c:28768:44: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+28768 |   (void)(printf(((char const *)"n_splits: %u, results[0]: %.15f, results[1]: %.15f, results[2]: %.15f, results[3]: %.15f\n"), __pyx_v_n_splits, (*((double *) ( /* dim=0 */ (__pyx_v_results.data + __pyx_t_16 * __pyx_v_results.strides[0]) ))), (*((double *) ( /* dim=0 */ (__pyx_v_results.data + __pyx_t_7 * __pyx_v_results.strides[0]) ))), (*((double *) ( /* dim=0 */ (__pyx_v_results.data + __pyx_t_17 * __pyx_v_results.strides[0]) ))), (*((double *) ( /* dim=0 */ (__pyx_v_results.data + __pyx_t_18 * __pyx_v_results.strides[0]) )))));
+      |                                           ~^                                                                                  ~~~~~~~~~~~~~~~~
+      |                                            |                                                                                  |
+      |                                            unsigned int                                                                       long int
+      |                                           %lu
+cheaper/gaussianc.c: In function ‘__pyx_f_7cheaper_9gaussianc_block_sqMMD_gaussian_Rademacher’:
+cheaper/gaussianc.c:29391:80: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long int’ [-Wformat=]
+29391 |   (void)(printf(((char const *)"Test statistic value %f in time %f. n_splits: %u, block_size: %u\n"), (*((double *) ( /* dim=0 */ (__pyx_v_sqMMD_values.data + __pyx_t_23 * __pyx_v_sqMMD_values.strides[0]) ))), __pyx_v_time, __pyx_v_n_splits, __pyx_v_block_size));
+      |                                                                               ~^                                                                                                                                                ~~~~~~~~~~~~~~~~
+      |                                                                                |                                                                                                                                                |
+      |                                                                                unsigned int                                                                                                                                     long int
+      |                                                                               %lu
+cheaper/gaussianc.c:29391:96: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 5 has type ‘long int’ [-Wformat=]
+29391 |   (void)(printf(((char const *)"Test statistic value %f in time %f. n_splits: %u, block_size: %u\n"), (*((double *) ( /* dim=0 */ (__pyx_v_sqMMD_values.data + __pyx_t_23 * __pyx_v_sqMMD_values.strides[0]) ))), __pyx_v_time, __pyx_v_n_splits, __pyx_v_block_size));
+      |                                                                                               ~^                                                                                                                                                  ~~~~~~~~~~~~~~~~~~
+      |                                                                                                |                                                                                                                                                  |
+      |                                                                                                unsigned int                                                                                                                                       long int
+      |                                                                                               %lu
+cheaper/gaussianc.c: In function ‘__pyx_f_7cheaper_9gaussianc_incomplete_sqMMD_gaussian_Rademacher_subdiagonals’:
+cheaper/gaussianc.c:31053:68: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+31053 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                   ~^                                         ~~~~~~~~~
+      |                                                                    |                                         |
+      |                                                                    unsigned int                              long int
+      |                                                                   %lu
+cheaper/gaussianc.c:31053:84: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long int’ [-Wformat=]
+31053 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                   ~^                                    ~~~~~~~~~~~~~~~~~
+      |                                                                                    |                                    |
+      |                                                                                    unsigned int                         long int
+      |                                                                                   %lu
+cheaper/gaussianc.c:31053:93: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long int’ [-Wformat=]
+31053 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                            ~^                                              ~~~~~~~~~~
+      |                                                                                             |                                              |
+      |                                                                                             unsigned int                                   long int
+      |                                                                                            %lu
+cheaper/gaussianc.c:31053:102: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 5 has type ‘long int’ [-Wformat=]
+31053 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                                     ~^                                                 ~~~~~~~~~~
+      |                                                                                                      |                                                 |
+      |                                                                                                      unsigned int                                      long int
+      |                                                                                                     %lu
+cheaper/gaussianc.c:31190:55: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+31190 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_17, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_15 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                      ~^                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                       |                                          |
+      |                                                       unsigned int                               long int
+      |                                                      %lu
+cheaper/gaussianc.c:31190:61: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘Py_ssize_t’ {aka ‘long int’} [-Wformat=]
+31190 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_17, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_15 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                            ~^                                          ~~~~~~~~~~
+      |                                                             |                                          |
+      |                                                             unsigned int                               Py_ssize_t {aka long int}
+      |                                                            %lu
+cheaper/gaussianc.c:31190:65: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long long int’ [-Wformat=]
+31190 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_17, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_15 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                                ~^                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                 |                                                   |
+      |                                                                 unsigned int                                        long long int
+      |                                                                %llu
+cheaper/gaussianc.c:31388:58: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+31388 |   (void)(printf(((char const *)"final incomplete_index: %u. len(incomplete_list): %u.\n"), __pyx_v_incomplete_index, __pyx_t_17));
+      |                                                         ~^                                 ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                          |                                 |
+      |                                                          unsigned int                      long int
+      |                                                         %lu
+cheaper/gaussianc.c:31388:84: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘Py_ssize_t’ {aka ‘long int’} [-Wformat=]
+31388 |   (void)(printf(((char const *)"final incomplete_index: %u. len(incomplete_list): %u.\n"), __pyx_v_incomplete_index, __pyx_t_17));
+      |                                                                                   ~^                                 ~~~~~~~~~~
+      |                                                                                    |                                 |
+      |                                                                                    unsigned int                      Py_ssize_t {aka long int}
+      |                                                                                   %lu
+cheaper/gaussianc.c: In function ‘__pyx_f_7cheaper_9gaussianc_incomplete_sqMMD_gaussian_Rademacher_aggregated’:
+cheaper/gaussianc.c:31825:68: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+31825 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                   ~^                                         ~~~~~~~~~
+      |                                                                    |                                         |
+      |                                                                    unsigned int                              long int
+      |                                                                   %lu
+cheaper/gaussianc.c:31825:84: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘long int’ [-Wformat=]
+31825 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                   ~^                                    ~~~~~~~~~~~~~~~~~
+      |                                                                                    |                                    |
+      |                                                                                    unsigned int                         long int
+      |                                                                                   %lu
+cheaper/gaussianc.c:31825:93: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long int’ [-Wformat=]
+31825 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                            ~^                                              ~~~~~~~~~~
+      |                                                                                             |                                              |
+      |                                                                                             unsigned int                                   long int
+      |                                                                                            %lu
+cheaper/gaussianc.c:31825:102: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 5 has type ‘long int’ [-Wformat=]
+31825 |       (void)(printf(((char const *)"Error: r > n_samples - 1: r = %u, n_samples = %u, D0 = %u, D1 = %u \n"), __pyx_v_r, __pyx_v_n_samples, __pyx_v_D0, __pyx_v_D1));
+      |                                                                                                     ~^                                                 ~~~~~~~~~~
+      |                                                                                                      |                                                 |
+      |                                                                                                      unsigned int                                      long int
+      |                                                                                                     %lu
+cheaper/gaussianc.c:31979:55: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+31979 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_9, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_19 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                      ~^                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                       |                                          |
+      |                                                       unsigned int                               long int
+      |                                                      %lu
+cheaper/gaussianc.c:31979:61: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘Py_ssize_t’ {aka ‘long int’} [-Wformat=]
+31979 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_9, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_19 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                            ~^                                          ~~~~~~~~~
+      |                                                             |                                          |
+      |                                                             unsigned int                               Py_ssize_t {aka long int}
+      |                                                            %lu
+cheaper/gaussianc.c:31979:65: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘long long int’ [-Wformat=]
+31979 |       (void)(printf(((char const *)"incomplete_index %u of %u: %u\n"), (__pyx_v_incomplete_index + 1), __pyx_t_9, (*((PY_LONG_LONG const  *) ( /* dim=0 */ (__pyx_v_incomplete_list.data + __pyx_t_19 * __pyx_v_incomplete_list.strides[0]) )))));
+      |                                                                ~^                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                 |                                                  |
+      |                                                                 unsigned int                                       long long int
+      |                                                                %llu
+cheaper/gaussianc.c:32235:58: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+32235 |   (void)(printf(((char const *)"final incomplete_index: %u. len(incomplete_list): %u.\n"), __pyx_v_incomplete_index, __pyx_t_9));
+      |                                                         ~^                                 ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                          |                                 |
+      |                                                          unsigned int                      long int
+      |                                                         %lu
+cheaper/gaussianc.c:32235:84: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 3 has type ‘Py_ssize_t’ {aka ‘long int’} [-Wformat=]
+32235 |   (void)(printf(((char const *)"final incomplete_index: %u. len(incomplete_list): %u.\n"), __pyx_v_incomplete_index, __pyx_t_9));
+      |                                                                                   ~^                                 ~~~~~~~~~
+      |                                                                                    |                                 |
+      |                                                                                    unsigned int                      Py_ssize_t {aka long int}
+      |                                                                                   %lu
+cheaper/gaussianc.c: In function ‘__pyx_f_7cheaper_9gaussianc_cross_independence_test’:
+cheaper/gaussianc.c:37532:44: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘long int’ [-Wformat=]
+37532 |   (void)(printf(((char const *)"n_over_2: %u \n"), __pyx_v_n_over_2));
+      |                                           ~^       ~~~~~~~~~~~~~~~~
+      |                                            |       |
+      |                                            |       long int
+      |                                            unsigned int
+      |                                           %lu
+In function ‘__pyx_f_7cheaper_9gaussianc_incomplete_sqMMD_gaussian_Rademacher_subdiagonals’,
+    inlined from ‘__pyx_pf_7cheaper_9gaussianc_46incomplete_sqMMD_gaussian_Rademacher_subdiagonals’ at cheaper/gaussianc.c:31656:15,
+    inlined from ‘__pyx_pw_7cheaper_9gaussianc_47incomplete_sqMMD_gaussian_Rademacher_subdiagonals’ at cheaper/gaussianc.c:31627:13:
+cheaper/gaussianc.c:31377:122: warning: ‘__pyx_v_end’ may be used uninitialized [-Wmaybe-uninitialized]
+31377 |     *((double *) ( /* dim=0 */ (__pyx_v_sqMMD_times.data + __pyx_t_2 * __pyx_v_sqMMD_times.strides[0]) )) = (__pyx_v_end - __pyx_v_start);
+      |                                                                                                             ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+cheaper/gaussianc.c: In function ‘__pyx_pw_7cheaper_9gaussianc_47incomplete_sqMMD_gaussian_Rademacher_subdiagonals’:
+cheaper/gaussianc.c:30932:10: note: ‘__pyx_v_end’ was declared here
+30932 |   double __pyx_v_end;
+      |          ^~~~~~~~~~~
+In function ‘__pyx_f_7cheaper_9gaussianc_incomplete_sqMMD_gaussian_Rademacher_aggregated’,
+    inlined from ‘__pyx_pf_7cheaper_9gaussianc_48incomplete_sqMMD_gaussian_Rademacher_aggregated’ at cheaper/gaussianc.c:32522:15,
+    inlined from ‘__pyx_pw_7cheaper_9gaussianc_49incomplete_sqMMD_gaussian_Rademacher_aggregated’ at cheaper/gaussianc.c:32491:13:
+cheaper/gaussianc.c:32224:122: warning: ‘__pyx_v_end’ may be used uninitialized [-Wmaybe-uninitialized]
+32224 |     *((double *) ( /* dim=0 */ (__pyx_v_sqMMD_times.data + __pyx_t_2 * __pyx_v_sqMMD_times.strides[0]) )) = (__pyx_v_end - __pyx_v_start);
+      |                                                                                                             ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+cheaper/gaussianc.c: In function ‘__pyx_pw_7cheaper_9gaussianc_49incomplete_sqMMD_gaussian_Rademacher_aggregated’:
+cheaper/gaussianc.c:31699:10: note: ‘__pyx_v_end’ was declared here
+31699 |   double __pyx_v_end;
+      |          ^~~~~~~~~~~

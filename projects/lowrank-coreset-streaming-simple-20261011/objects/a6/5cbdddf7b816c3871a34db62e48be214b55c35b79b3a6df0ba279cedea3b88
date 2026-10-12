@@ -1,0 +1,72 @@
+import sys,pathlib,json,time,resource,hashlib,types,gc
+root=pathlib.Path.cwd();sys.path[:0]=[str(root/'.deps/goodpoints'),str(root/'.deps/cheap'),str(root/'.deps/cheap/tests')]
+import numpy as np
+import goodpoints.ctt as gp
+import cheaper.ctt as cf
+import util_sqMMD_estimators_cheap as ce
+import util_sqMMD_estimators as metric
+import util_sampling as sampling
+
+start=time.perf_counter();cpu=time.process_time();rows=[];setup=[];arms=['ctt_g0','ctt_g1','complete','cheap_perm','rff','cheap_rff']
+def save():
+    (root/'results/native_cost_calibration_v1_rows.json').write_text(json.dumps({'rows':rows,'setup':setup},indent=2))
+def run_arm(arm,x,y,lam,seed):
+    n=len(x);totals={};patches=[]
+    def wrap(obj,name,label):
+        fn=getattr(obj,name)
+        def wrapped(*args,**kwargs):
+            t=time.perf_counter()
+            try:return fn(*args,**kwargs)
+            finally:totals[label]=totals.get(label,0.)+time.perf_counter()-t
+        patches.append((obj,name,fn));setattr(obj,name,wrapped)
+    for obj,name,label in [(gp.compress,'compress_kt','compression'),(gp.gaussianc,'sum_gaussian_kernel_by_bin','gaussian_kernel'),(gp,'signed_matrix_sum','permutation_arithmetic'),(cf,'kernel_features','features'),(ce.gaussianc,'sum_gaussian_kernel_by_bin','gaussian_kernel'),(ce,'signed_matrix_sum','permutation_arithmetic'),(cf.cttc,'signed_matrix_sum','permutation_arithmetic'),(cf.cttc,'signed_vector_sqd_norm','permutation_arithmetic'),(cf.cttc,'linear_kernel_same','feature_gram')]:wrap(obj,name,label)
+    gc.collect();t=time.perf_counter();c=time.process_time()
+    try:
+        if arm.startswith('ctt'):
+            out=gp.ctt(x,y,g=int(arm[-1]),s=16,B=39,lam=lam,null_seed=seed,statistic_seed=seed+10000)
+        elif arm=='rff':out=cf.rff(x,y,r=128,B=39,lam=lam,null_seed=seed,statistic_seed=seed+10000)
+        else:
+            slot=types.SimpleNamespace(estimator_values=np.empty(40),total_times=None)
+            if arm=='cheap_rff':
+                group={'cheap_rff':types.SimpleNamespace(group_tests={'128_16':slot})}
+                ce.cheap_rff(x,y,128,16,39,lam,group,null_seed=seed,statistic_seed=seed+10000)
+            else:
+                s=n if arm=='complete' else 16
+                group={arm:types.SimpleNamespace(group_tests={str(s):slot})}
+                ce.cheap_perm(x,y,39,s,lam,group,null_seed=seed,save_complete=arm=='complete')
+            out=cf.TestResults(arm,slot.estimator_values,slot.total_times,alpha=.05)
+        wall=time.perf_counter()-t;cp=time.process_time()-c
+    finally:
+        for obj,name,fn in reversed(patches):setattr(obj,name,fn)
+    totals['remaining']=wall-sum(totals.values())
+    return {'arm':arm,'n_per_group':n,'wall_seconds':wall,'cpu_seconds':cp,'native_seconds':float(out.total_times),'components':totals,'statistic':float(out.statistic_values),'reject_probability':float(out.rejects),'scores_partitioned':out.estimator_values.tolist(),'rss_high_water_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,'stored_statistic_array_bytes':(2*n)**2*8 if arm=='complete' else (2*n*128*8 if arm=='rff' else (32*128+32*32)*8 if arm=='cheap_rff' else 32*32*8)}
+
+args=types.SimpleNamespace(d=10,n=64,mean_diff=.06)
+x,y=sampling.generate_samples_gaussians(args,np.random.default_rng(77))
+for arm in arms:
+    row=run_arm(arm,x,y,6.,77);row.update(role='warmup',seed=77);rows.append(row)
+save()
+for n in [1024,4096]:
+    args.n=n;t=time.perf_counter();c=time.process_time()
+    bx,by=sampling.generate_samples_gaussians(args,np.random.default_rng(10))
+    lam=float(metric.median_criterion(bx[:512],by[:512]))
+    bandwidth_wall=time.perf_counter()-t;bandwidth_cpu=time.process_time()-c
+    for seed in [930,931,932]:
+        t=time.perf_counter();c=time.process_time()
+        x,y=sampling.generate_samples_gaussians(args,np.random.default_rng(seed))
+        data_wall=time.perf_counter()-t;data_cpu=time.process_time()-c
+        path=root/f'results/native_gaussian_n{n}_seed{seed}.npz';np.savez(path,x=x,y=y)
+        setup.append({'n':n,'seed':seed,'lam':lam,'bandwidth_wall_seconds':bandwidth_wall,'bandwidth_cpu_seconds':bandwidth_cpu,'bandwidth_fit_reused_across_three_trials':True,'data_wall_seconds':data_wall,'data_cpu_seconds':data_cpu,'array_sha256':hashlib.sha256(x.tobytes()+y.tobytes()).hexdigest(),'artifact':str(path.relative_to(root))})
+        order=list(np.random.default_rng(1212+n+seed).permutation(arms));unit=[]
+        for arm in order:
+            row=run_arm(str(arm),x,y,lam,seed);row.update(role='measured',seed=seed,lam=lam,run_order=order,arm_plus_shared_setup_seconds=row['wall_seconds']+data_wall+bandwidth_wall);rows.append(row);unit.append(row);save()
+        byarm={r['arm']:r for r in unit}
+        assert abs(byarm['complete']['statistic']-byarm['cheap_perm']['statistic'])<1e-10
+        assert abs(byarm['rff']['statistic']-byarm['cheap_rff']['statistic'])<1e-10
+summary={'plan':'plans/native_cost_calibration_v1.md','measured_rows':36,'warmup_rows':6,'scope':'development cost decomposition only; no power or null-rate inference','paired_statistic_equivalence_pass':True,'wall_seconds':time.perf_counter()-start,'cpu_seconds':time.process_time()-cpu,'peak_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,'numpy':np.__version__,'arms':[]}
+for n in [1024,4096]:
+    for arm in arms:
+        rr=[r for r in rows if r['role']=='measured' and r['n_per_group']==n and r['arm']==arm]
+        total=sum(r['wall_seconds'] for r in rr);p=sum(r['components'].get('permutation_arithmetic',0.) for r in rr)/total
+        summary['arms'].append({'n':n,'arm':arm,'mean_wall_seconds':total/3,'wall_range':[min(r['wall_seconds'] for r in rr),max(r['wall_seconds'] for r in rr)],'permutation_arithmetic_fraction':p,'optimistic_arithmetic_removal_speedup':1/(1-p),'mean_components':{k:sum(r['components'].get(k,0.) for r in rr)/3 for k in set().union(*(r['components'] for r in rr))},'stored_statistic_array_bytes':rr[0]['stored_statistic_array_bytes']})
+(root/'results/native_cost_calibration_v1.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary))

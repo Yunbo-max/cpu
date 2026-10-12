@@ -1,0 +1,35 @@
+running build_ext
+building 'goodpoints.ktc' extension
+gcc -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c goodpoints/ktc.c -o build/temp.linux-x86_64-cpython-312/goodpoints/ktc.o -O3
+gcc -shared build/temp.linux-x86_64-cpython-312/goodpoints/ktc.o -L/install/lib -lm -o build/lib.linux-x86_64-cpython-312/goodpoints/ktc.cpython-312-x86_64-linux-gnu.so
+building 'goodpoints.compressc' extension
+gcc -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c goodpoints/compressc.c -o build/temp.linux-x86_64-cpython-312/goodpoints/compressc.o -O3
+gcc -shared build/temp.linux-x86_64-cpython-312/goodpoints/compressc.o -L/install/lib -lm -o build/lib.linux-x86_64-cpython-312/goodpoints/compressc.cpython-312-x86_64-linux-gnu.so
+building 'goodpoints.cttc' extension
+gcc -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c goodpoints/cttc.c -o build/temp.linux-x86_64-cpython-312/goodpoints/cttc.o -O3
+gcc -shared build/temp.linux-x86_64-cpython-312/goodpoints/cttc.o -L/install/lib -lm -o build/lib.linux-x86_64-cpython-312/goodpoints/cttc.cpython-312-x86_64-linux-gnu.so
+building 'goodpoints.gaussianc' extension
+gcc -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c goodpoints/gaussianc.c -o build/temp.linux-x86_64-cpython-312/goodpoints/gaussianc.o -O3
+gcc -shared build/temp.linux-x86_64-cpython-312/goodpoints/gaussianc.o -L/install/lib -lm -o build/lib.linux-x86_64-cpython-312/goodpoints/gaussianc.cpython-312-x86_64-linux-gnu.so
+building 'goodpoints.sobolevc' extension
+gcc -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c goodpoints/sobolevc.c -o build/temp.linux-x86_64-cpython-312/goodpoints/sobolevc.o -O3
+gcc -shared build/temp.linux-x86_64-cpython-312/goodpoints/sobolevc.o -L/install/lib -lm -o build/lib.linux-x86_64-cpython-312/goodpoints/sobolevc.cpython-312-x86_64-linux-gnu.so
+copying build/lib.linux-x86_64-cpython-312/goodpoints/ktc.cpython-312-x86_64-linux-gnu.so -> goodpoints
+copying build/lib.linux-x86_64-cpython-312/goodpoints/compressc.cpython-312-x86_64-linux-gnu.so -> goodpoints
+copying build/lib.linux-x86_64-cpython-312/goodpoints/cttc.cpython-312-x86_64-linux-gnu.so -> goodpoints
+copying build/lib.linux-x86_64-cpython-312/goodpoints/gaussianc.cpython-312-x86_64-linux-gnu.so -> goodpoints
+copying build/lib.linux-x86_64-cpython-312/goodpoints/sobolevc.cpython-312-x86_64-linux-gnu.so -> goodpoints
+Compiling cheaper/cttc.pyx because it changed.
+Compiling cheaper/gaussianc.pyx because it changed.
+[1/2] Cythonizing cheaper/cttc.pyx
+[2/2] Cythonizing cheaper/gaussianc.pyx
+running build_ext
+building 'cheaper.cttc' extension
+gcc -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c cheaper/cttc.c -o build/temp.linux-x86_64-cpython-312/cheaper/cttc.o -O3
+gcc -shared build/temp.linux-x86_64-cpython-312/cheaper/cttc.o -L/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include/../../random/lib -L/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include/../lib -L/install/lib -lnpyrandom -lnpymath -lm -o build/lib.linux-x86_64-cpython-312/cheaper/cttc.cpython-312-x86_64-linux-gnu.so
+building 'cheaper.gaussianc' extension
+gcc -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c cheaper/gaussianc.c -o build/temp.linux-x86_64-cpython-312/cheaper/gaussianc.o -O3
+gcc -shared build/temp.linux-x86_64-cpython-312/cheaper/gaussianc.o -L/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include/../../random/lib -L/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include/../lib -L/install/lib -lnpyrandom -lnpymath -lm -o build/lib.linux-x86_64-cpython-312/cheaper/gaussianc.cpython-312-x86_64-linux-gnu.so
+copying build/lib.linux-x86_64-cpython-312/cheaper/cttc.cpython-312-x86_64-linux-gnu.so -> cheaper
+copying build/lib.linux-x86_64-cpython-312/cheaper/gaussianc.cpython-312-x86_64-linux-gnu.so -> cheaper
+{"python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]", "started_at_epoch": 1791802559.8432384, "scope": "native source acquisition/build, not scientific result", "wall_seconds": 53.29712224006653, "peak_child_rss_kib": 319768}

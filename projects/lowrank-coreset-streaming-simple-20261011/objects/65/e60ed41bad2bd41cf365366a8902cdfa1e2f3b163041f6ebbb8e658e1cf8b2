@@ -1,0 +1,27 @@
+Collecting Cython==3.0.12
+  Downloading Cython-3.0.12-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.3 kB)
+Downloading Cython-3.0.12-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 23.2 MB/s  0:00:00
+Installing collected packages: Cython
+Successfully installed Cython-3.0.12
+Compiling goodpoints/ktc.pyx because it changed.
+Compiling goodpoints/compressc.pyx because it changed.
+Compiling goodpoints/cttc.pyx because it changed.
+Compiling goodpoints/gaussianc.pyx because it changed.
+Compiling goodpoints/sobolevc.pyx because it changed.
+[1/5] Cythonizing goodpoints/compressc.pyx
+[2/5] Cythonizing goodpoints/cttc.pyx
+[3/5] Cythonizing goodpoints/gaussianc.pyx
+[4/5] Cythonizing goodpoints/ktc.pyx
+[5/5] Cythonizing goodpoints/sobolevc.pyx
+running build_ext
+building 'goodpoints.ktc' extension
+clang -pthread -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c goodpoints/ktc.c -o build/temp.linux-x86_64-cpython-312/goodpoints/ktc.o -O3
+building 'goodpoints.compressc' extension
+clang -pthread -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c goodpoints/compressc.c -o build/temp.linux-x86_64-cpython-312/goodpoints/compressc.o -O3
+building 'goodpoints.cttc' extension
+clang -pthread -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c goodpoints/cttc.c -o build/temp.linux-x86_64-cpython-312/goodpoints/cttc.o -O3
+building 'goodpoints.gaussianc' extension
+clang -pthread -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c goodpoints/gaussianc.c -o build/temp.linux-x86_64-cpython-312/goodpoints/gaussianc.o -O3
+building 'goodpoints.sobolevc' extension
+clang -pthread -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/_core/include -I/opt/codex/runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c goodpoints/sobolevc.c -o build/temp.linux-x86_64-cpython-312/goodpoints/sobolevc.o -O3

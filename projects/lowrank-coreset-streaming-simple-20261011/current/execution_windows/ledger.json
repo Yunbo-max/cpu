@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T09:26:51.547725+00:00",
+  "updated_at": "2026-10-12T11:08:13.810121+00:00",
   "overall_end_date": null,
   "overall_attempt_limit": null,
   "overall_time_limit": null,
@@ -128,15 +128,38 @@
         "elapsed_seconds": 0.11217186999965634,
         "max_attempts": 32,
         "max_command_seconds": 1800,
-        "remaining_deadline_seconds": 6403.065473794937,
+        "remaining_deadline_seconds": 320.88484263420105,
         "remaining_seconds": 1799.8878281300003,
         "reserved_seconds": 0
       },
       "task_states": {
         "compression-exchangeability-exact-v1": "succeeded"
       }
+    },
+    {
+      "window": "execution_windows/w006",
+      "status": "stopped",
+      "sequence": 6,
+      "research_cycle_count": 2,
+      "budget": {
+        "attempts_used": 5,
+        "deadline_epoch": 1791809623.1811647,
+        "elapsed_seconds": 87.4436857169967,
+        "max_attempts": 32,
+        "max_command_seconds": 1800,
+        "remaining_deadline_seconds": 6329.394956111908,
+        "remaining_seconds": 1712.5563142830033,
+        "reserved_seconds": 0
+      },
+      "task_states": {
+        "native-build-v1": "failed",
+        "native-build-v2": "succeeded",
+        "native-cost-calibration-v1": "succeeded",
+        "native-normalization-v1": "succeeded",
+        "raw-table-audit-v1": "succeeded"
+      }
     }
   ],
-  "cumulative_attempts": 42,
-  "cumulative_command_seconds": 443.3471468390635
+  "cumulative_attempts": 47,
+  "cumulative_command_seconds": 530.7908325560602
 }

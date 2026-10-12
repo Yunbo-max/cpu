@@ -4,12 +4,12 @@
   "policy_version": "0.3.0-simple.9",
   "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
   "goal_mode": "continuous_research",
-  "active_window": "execution_windows/w005",
+  "active_window": "execution_windows/w006",
   "idea": "ctt-streaming-calibration-audit-v1",
   "revision": 1,
   "goal_contract_version": 2,
-  "scientific_status": "CTT successor calibration/bottleneck audit active. Exact 512-state diagnostic refutes unbiasedness-alone validity for unequal label-dependent compression: size25/64 at nominal1/4, both symmetric controls1/4. Independent hand derivation accepted. Not native KT-Compress, a refutation of CTT, a new method, or a performance result. All earlier retirements remain.",
-  "next_action": "Restore latest verified GitHub snapshot after archival; reconcile stopped w005 and open w006 with unchanged fixed runner and cumulative ledger. Continue unequal-bin count-normalization and strong Cheap Permutation/RFF baseline audit, then prospectively freeze a bounded native comparison only after actual resource admission. Do not re-run completed exact diagnostic or retired hypotheses.",
+  "scientific_status": "Native CTT unequal-count estimand mismatch verified (47 rows,31/105 strict rank reversals); balanced six-arm cost diagnostic36 rows shows CTT permutation arithmetic only0.21–2.10percent. No new method or statistical superiority. Native Nyström source audit active; all earlier retirements preserved.",
+  "next_action": "Restore latest GitHub snapshot, reconcile terminal stopped w006 and create w007 with unchanged32/1800/7200 bounds. Prospectively design native Nyström projected-MMD/landmark/permutation diagnostic from ddb9b2cacc092841518c3d4e18b745f266d8f517; check pseudoinverse floor, RNG dependency, 2R RFF feature convention and actual decision semantics before quality comparison. Do not repeat completed CTT normalization/cost or retired candidates.",
   "automation_status": "enabled; hourly recurring schedule without end date",
   "resource_limit_bytes": 8000000000,
   "worker_address_space_limit_bytes": 4294967296,
@@ -112,7 +112,17 @@
     "execution_windows/w005/notes/ctt_primary_source_audit_v1.md",
     "execution_windows/w005/sources/native_code_manifest_v1.json",
     "execution_windows/w005/delegations/calibration_math_v1/acceptance.json",
-    "notes/vale_variance_rmse_correction_v1.md"
+    "notes/vale_variance_rmse_correction_v1.md",
+    "execution_windows/w006/results/native_ctt_normalization_v1.json",
+    "execution_windows/w006/results/native_ctt_normalization_v1_rows.json",
+    "execution_windows/w006/notes/native_ctt_normalization_analysis_v1.md",
+    "execution_windows/w006/results/native_cost_calibration_v1.json",
+    "execution_windows/w006/results/native_cost_calibration_v1_rows.json",
+    "execution_windows/w006/notes/native_cost_analysis_v1.md",
+    "execution_windows/w006/results/raw_table_audit_v1.json",
+    "execution_windows/w006/delegations/ctt_source_review_v1/acceptance.json",
+    "execution_windows/w006/notes/nystrom_successor_source_audit_v1.md",
+    "execution_windows/w006/sources/nystrom_source_manifest_v1.json"
   ],
   "limitations": [
     "finite-pool guarantee only",
@@ -158,9 +168,9 @@
     "Nested prefixes reduced active count/sum/Gram state by 15 times, but centered non-isotropic paper-VALE RMSE worsened by 27.7% with a paired MSE interval above zero; the route is retired under this bounded condition",
     "The favorable known-zero-mean isotropic order-3 OLS result is retained as development evidence but is not treated as confirmation because it failed to transfer to the stronger centered paper-VALE fixture"
   ],
-  "updated_at": "2026-10-12T09:26:51.547725+00:00",
+  "updated_at": "2026-10-12T11:08:13.810121+00:00",
   "execution": {
-    "updated_at": "2026-10-12T09:26:51.547725+00:00",
+    "updated_at": "2026-10-12T11:08:13.810121+00:00",
     "overall_end_date": null,
     "overall_attempt_limit": null,
     "overall_time_limit": null,
@@ -289,25 +299,48 @@
           "elapsed_seconds": 0.11217186999965634,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 6403.065473794937,
+          "remaining_deadline_seconds": 320.88484263420105,
           "remaining_seconds": 1799.8878281300003,
           "reserved_seconds": 0
         },
         "task_states": {
           "compression-exchangeability-exact-v1": "succeeded"
         }
+      },
+      {
+        "window": "execution_windows/w006",
+        "status": "stopped",
+        "sequence": 6,
+        "research_cycle_count": 2,
+        "budget": {
+          "attempts_used": 5,
+          "deadline_epoch": 1791809623.1811647,
+          "elapsed_seconds": 87.4436857169967,
+          "max_attempts": 32,
+          "max_command_seconds": 1800,
+          "remaining_deadline_seconds": 6329.394956111908,
+          "remaining_seconds": 1712.5563142830033,
+          "reserved_seconds": 0
+        },
+        "task_states": {
+          "native-build-v1": "failed",
+          "native-build-v2": "succeeded",
+          "native-cost-calibration-v1": "succeeded",
+          "native-normalization-v1": "succeeded",
+          "raw-table-audit-v1": "succeeded"
+        }
       }
     ],
-    "cumulative_attempts": 42,
-    "cumulative_command_seconds": 443.3471468390635
+    "cumulative_attempts": 47,
+    "cumulative_command_seconds": 530.7908325560602
   },
   "automation_id": "6acc15a522f08191a1bbf19f58f033a1",
   "library_file_id": "libfile_d0c64b9b3a98819197c0ffcf4641cc50",
-  "current_research_cycle_count": 26,
+  "current_research_cycle_count": 28,
   "additional_bernstein_rows": 96,
   "moment_boundary_checked_suffixes": 20,
   "moment_native_pilot_suffixes": 15,
-  "latest_numerical_peak_rss_kib": 11904,
+  "latest_numerical_peak_rss_kib": 656592,
   "moment_prefix_advice_labels": 49,
   "moment_exact_baseline_checks": 5000,
   "moment_smooth_online_checks": 4000,
@@ -361,5 +394,12 @@
   "streaming_fid_centered_max_intercept_error": 9.769962616701378e-15,
   "github_repository": "https://github.com/Yunbo-max/cpu",
   "github_project_path": "projects/lowrank-coreset-streaming-simple-20261011",
-  "local_cleanup_policy": "Verify committed content and complete recovery before removing project-local files; retain a small locator. No other projects or unknown processes may be deleted."
+  "local_cleanup_policy": "Verify committed content and complete recovery before removing project-local files; retain a small locator. No other projects or unknown processes may be deleted.",
+  "ctt_native_normalization_rows": 47,
+  "ctt_native_rank_reversals": 31,
+  "ctt_native_rank_pair_denominator": 105,
+  "native_cost_measured_rows": 36,
+  "native_cost_warmup_rows": 6,
+  "native_cost_peak_rss_bytes": 672350208,
+  "nystrom_source_commit": "ddb9b2cacc092841518c3d4e18b745f266d8f517"
 }

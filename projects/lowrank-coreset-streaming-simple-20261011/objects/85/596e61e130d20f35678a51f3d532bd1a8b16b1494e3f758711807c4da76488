@@ -1,0 +1,13 @@
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+From https://github.com/microsoft/goodpoints
+ * branch            181b12ade5dd02a61b65ed5cb9444c916fa3135f -> FETCH_HEAD
+HEAD is now at 181b12a Merge pull request #24 from danfiedler-msft/danfiedler/pin-actions
+error: [Errno 2] No such file or directory: 'clang'
+Traceback (most recent call last):
+  File "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w006/scripts/prepare_native_v1.py", line 22, in <module>
+    run([sys.executable,'setup.py','build_ext','--inplace','--parallel','1'],p)
+  File "/workspace/scratch/aeb2386dc938/lowrank_coreset_streaming_rsi_simple/execution_windows/w006/scripts/prepare_native_v1.py", line 6, in run
+    subprocess.run(argv,cwd=cwd,env=env,check=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', 'setup.py', 'build_ext', '--inplace', '--parallel', '1']' returned non-zero exit status 1.

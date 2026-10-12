@@ -4,9 +4,9 @@
 
 固定策略为 Research Autopilot Simple `0.3.0-simple.9`，源摘要 `e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8`，完整固定源码在 `runtime/`。使用前阅读其中 `SKILL.md` 及 simple 四份引用。不得混用其他 research-autopilot 版本或改写运行器以绕过约束。
 
-最新机器可读状态见 `CHECKPOINT.json`，累计窗口见 `execution_windows/ledger.json`，用户授权见 `authorization.json`。当前窗口 `execution_windows/w005` 已在数值任务结束后为归档正常停止；活跃问题是 `ctt-streaming-calibration-audit-v1`。恢复后调和旧窗口，再建立 w006。已完成不等压缩的512状态精确反例，下一步是原生CTT归一化与强Cheap Permutation基线审查。项目 goal contract v2（窗口本地 contract v1）。原生监督器未配置外部 LLM 命令；本次 ChatGPT 主代理负责读取 inbox、作科研判断并提交下一步。监督器等待决策不算科研进展。
+最新机器可读状态见 `CHECKPOINT.json`，累计窗口见 `execution_windows/ledger.json`，用户授权见 `authorization.json`。当前窗口 `execution_windows/w006` 已在数值任务结束后为归档正常停止；活跃问题是 `ctt-streaming-calibration-audit-v1`。恢复后调和旧窗口，再建立 w007。已完成不等压缩的512状态精确反例，下一步是原生CTT归一化与强Cheap Permutation基线审查。项目 goal contract v2（窗口本地 contract v1）。原生监督器未配置外部 LLM 命令；本次 ChatGPT 主代理负责读取 inbox、作科研判断并提交下一步。监督器等待决策不算科研进展。
 
-已完成原生coreset校准（38行）、有限池比较（144行）、方差自适应对照（96行）、流式代码边界反例（20个后缀检查）、原生合成迁移流主路径（1000项、15后缀）、URL诊断、本窗口2048行FID缩放比较、两个充分统计量等价性诊断，以及两项各96对的嵌套前缀比较。累计已记录26个真实研究周期；来源获取/资源可行性仍只算里程碑。部分正结果和全部负结果仍保留。当前没有确认新算法。
+已完成原生coreset校准（38行）、有限池比较（144行）、方差自适应对照（96行）、流式代码边界反例（20个后缀检查）、原生合成迁移流主路径（1000项、15后缀）、URL诊断、本窗口2048行FID缩放比较、两个充分统计量等价性诊断，以及两项各96对的嵌套前缀比较。累计已记录28个真实研究周期；来源获取/资源可行性仍只算里程碑。部分正结果和全部负结果仍保留。当前没有确认新算法。
 
 流式路径已确认CAIDA评估器的1起点错位、prefix/last-window混淆和CSV limit有效行数差异；合成SS路径从0起点，独立真值正确。不要跨文件盲目统一修正。见 `execution_windows/w001/notes/moment_source_boundary_audit_v1.md` 和 `moment_native_pilot_analysis_v1.md`。B006–B009完成后，原生moment分支因Algorithm2保证与notebook实现不一致而退役；512行Block Krylov分支随后完成强基线并因支持感知精确SVD更快而退役。不要重启这些方向或旧coreset候选来填充周期数。
 
@@ -55,3 +55,10 @@ ZIP 包含真实Taxi数据前100,000行`.npy`、完整结果与收据。49.96MB�
 用户已授权本项目历史迁移到 https://github.com/Yunbo-max/cpu 。入口为 projects/lowrank-coreset-streaming-simple-20261011/LATEST.json；按该目录 README 的内容寻址恢复流程操作。只删除远端已验证可恢复的本项目文件，禁止清理其他项目。当前停止的是归档边界上的监督器，不是长期科研任务。
 
 最新精确反例：名义25%时，不等且依赖原始组别的无偏压缩造成39.0625%误报；两个共同压缩预算对照仍为25%。这说明无偏性不能替代可交换性，不否定原生CTT。RSS12,189,696字节。旧VALE分析的方差/RMSE单位混淆已追加更正，负面结论不变。
+
+
+## 2026-10-12 w006 已完成，下一步以此为准
+
+原生CTT/RFF归一化47行诊断：不等计数的标准MMD估计量不等价；固定6点15种分组中31/105对次序反转。均衡压缩只有共同正比例缩放，不能据此声称误报超标。36行六方法成本比较+6次热身，数值峰值RSS672,350,208字节，CTT置换求和仅占0.21%–2.10%；不再追求此局部算术优化，也不把已有Cheap RFF分箱累积包装成新算法。两份分析和原始数据在w006。独立源码审查确认作者带宽来自外部pilot；Cheap测试完整决策还依赖全局NumPy/Python随机数，当前成本脚本不是完整统计功效复现。
+
+Nyström主论文和已迁址paper-code已读：来源与可恢复字节哈希见w006/sources/nystrom_source_manifest_v1.json。下一步先冻结原生投影/伪逆截断、地标/置换随机性、RFF实际2R特征数和决策语义诊断，再谈质量比较。w006已安静结束，连续科研仍授权，恢复后用w007，不重跑旧CTT诊断。临时内存不足先等待后续唤醒恢复；连续3次相同内存阻塞报告一次，不停长期任务。

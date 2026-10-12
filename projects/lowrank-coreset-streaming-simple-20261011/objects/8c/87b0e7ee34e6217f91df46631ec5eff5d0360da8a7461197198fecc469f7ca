@@ -1,0 +1,66 @@
+{
+  "response_id": "native-normalization-execute-v1",
+  "request_id": "decision-d585d5202cae4cf9aac08dbc0cc9ca6c",
+  "idea": "ctt-streaming-calibration-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "GCC native build succeeded, same source identities; proceed prespecified unchanged API diagnostic. Setup is milestone only.",
+  "events": [
+    {
+      "event_id": "native-build-recovered-v1",
+      "kind": "milestone",
+      "label": "native CPU build recovered using installed GCC",
+      "reason": "Missing clang resolved by compiler selection, preserved failed attempt; both author repos built unchanged.",
+      "next_phase": "diagnostic",
+      "evidence": [
+        {
+          "path": "sources/native_build_manifest_v2.json",
+          "sha256": "2eb99393544722541fd98dcadb97fa91e4e7df04ada0cd9984016e2b131acdea"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "native-normalization-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/native_ctt_normalization_v1.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Test standard MMD equivalence for unequal counts and compression scaling using native CTT/RFF",
+      "timeout_seconds": 60,
+      "depends_on": [
+        "native-build-v2"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        },
+        {
+          "path": "scripts/native_ctt_normalization_v1.py",
+          "sha256": "19a7c2f963abe2eea9009e28316860f956c6fd5344506156890a47ffe57c2e97"
+        },
+        {
+          "path": "plans/native_ctt_normalization_v1.md",
+          "sha256": "6ed9b1d1ed3acc7667ba831ae6153ccaf3731251b907e02aa32b02a1b37c8744"
+        },
+        {
+          "path": "sources/native_build_manifest_v2.json",
+          "sha256": "2eb99393544722541fd98dcadb97fa91e4e7df04ada0cd9984016e2b131acdea"
+        },
+        {
+          "path": "notes/normalization_resources_v1.json",
+          "sha256": "8987be2a4d53e917367acdf8d55e65f55bc7ba64b8eded62af7bffbcd1a94647"
+        }
+      ],
+      "outputs": [
+        "results/native_ctt_normalization_v1.json",
+        "results/native_ctt_normalization_v1_rows.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "submission_id": "native-build-v1",
+  "idea": "ctt-streaming-calibration-audit-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "native-build-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/prepare_native_v1.py"
+      ],
+      "phase": "sources",
+      "purpose": "Acquire and compile pinned unchanged CTT and Cheap Permutation author CPU sources for normalization and strong baseline audit",
+      "timeout_seconds": 600,
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        },
+        {
+          "path": "scripts/prepare_native_v1.py",
+          "sha256": "759458fa5dbe130a2edb10d43448e1875b394ee1c01a83e365901a514c95f3b0"
+        },
+        {
+          "path": "plans/native_ctt_normalization_v1.md",
+          "sha256": "6ed9b1d1ed3acc7667ba831ae6153ccaf3731251b907e02aa32b02a1b37c8744"
+        }
+      ],
+      "outputs": [
+        "sources/native_build_manifest_v1.json"
+      ]
+    }
+  ]
+}

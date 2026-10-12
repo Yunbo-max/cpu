@@ -1,0 +1,51 @@
+{
+  "response_id": "native-cost-execute-v1",
+  "request_id": "decision-d8e368386bf14ccea61a03dcc5f57cff",
+  "idea": "ctt-streaming-calibration-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Native normalization diagnostic finished, all formula checks agree. Balanced use isolates known scale-only issue; execute planned strong-baseline cost decomposition, interpretation in parallel.",
+  "tasks": [
+    {
+      "task_id": "native-cost-calibration-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/native_cost_calibration_v1.py"
+      ],
+      "timeout_seconds": 180,
+      "phase": "diagnostic",
+      "purpose": "Native balanced strong baseline and compression/permutation bottleneck calibration, not statistical superiority",
+      "input_refs": [
+        {
+          "path": "plans/native_cost_calibration_v1.md",
+          "sha256": "200c528ed790fcf3f0a19a692d300e74f4b22a7eae45cd01f736cbb0213f4bed"
+        },
+        {
+          "path": "scripts/native_cost_calibration_v1.py",
+          "sha256": "a65cbdddf7b816c3871a34db62e48be214b55c35b79b3a6df0ba279cedea3b88"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        },
+        {
+          "path": "sources/native_build_manifest_v2.json",
+          "sha256": "2eb99393544722541fd98dcadb97fa91e4e7df04ada0cd9984016e2b131acdea"
+        },
+        {
+          "path": "notes/cost_admission_v1.json",
+          "sha256": "2d36e67b02651d3ac7f8a5d8b4d6fcffba80eb2a9643ad3189c03be263cd81d4"
+        }
+      ],
+      "depends_on": [
+        "native-normalization-v1"
+      ],
+      "outputs": [
+        "results/native_cost_calibration_v1.json",
+        "results/native_cost_calibration_v1_rows.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Native CTT/RFF normalization result
+
+47 retained rows execute the pinned, unchanged compiled author functions. Formula predictions all agree within1e-10; elapsed .013113s, numerical process peak RSS28,229,632bytes (excludes build/compiler). Independent source review corroborates the call path and compression scale, not an independent numerical replication.
+
+Let a,b be group bin counts, q raw rows per bin and m retained rows per bin. Write h_i for each retained bin mean embedding and K_ij=<h_i,h_j>. Author CTT computes
+
+    T_native = (m/q)^2 ||sum_A h_i - sum_B h_i||^2/(ab),
+
+whereas standard empirical-coreset biased MMD is
+
+    T_MMD = ||sum_A h_i/a - sum_B h_i/b||^2.
+
+The native Gaussian kernel sum is formed on selected coresets, but ctt.py divides by q². If a=b, T_native=(m/q)^2 T_MMD; this common positive factor cannot change a fixed configuration's permutation ranking. The native RFF code has analogous unequal-count signed-sum/(n1*n2) normalization without the compression factor. Tests used each method's exact native feature map for a mean-difference reference; goodpoints and Cheap ordinary RFF give the same diagnosed formula.
+
+For identical scalar inputs with n1=4,n2=12,s=2,g=2 (identity compression), native CTT returns4/3 versus correct MMD0. g=0 retains two of four points per bin and returns1/3, the predicted1/4-scaled value. Balanced identical controls return0. Such a constant nonzero score alone would not change a permutation decision.
+
+More consequentially, all15 choices of2 out of the preregistered6 points[0,.1,.2,1,3,4] were tested without compression.31 of105 pairs reverse strict ranking relative to standard Gaussian MMD. Example: allocation[0,1] has native .5350329429 and MMD .6682947616; allocation[0,4] has native .5642294304 and MMD .3189697182. Therefore the unequal-count mismatch is not only a harmless common rescaling. No extra fixture search was performed. Raw inputs, selected indices, all native scores, references and reversals are retained.
+
+Scope: API/estimand mismatch for unequal groups, not a measured false-positive excess or power loss. Under valid exchangeability a permutation test may calibrate a different statistic. Published balanced comparisons are not refuted. Do not silently apply a scalar correction to unequal counts, nor claim a new algorithm from repairing a standard weighted mean. Native cttc.signed_matrix_sum assumes +/-1 and adds K_ii directly; passing arbitrary 1/a,-1/b weights to that Cython function would not implement the corrected quadratic form. A future corrected implementation must compute fully weighted diagonals/cross terms or an independently verified equivalent.
+
+Decision: retain the native sources as diagnostic baselines; use balanced counts for the next cost-only comparison. Do not compare raw CTT statistic amplitudes across compression levels. Unequal-count extensions require explicit estimand normalization plus independent calibration/power assessment before scientific comparison. Separate external-pilot bandwidth source review resolves the previous suspicion for the author's synthetic iid benchmark: pilot is separate, so no observed bandwidth validity defect is established.

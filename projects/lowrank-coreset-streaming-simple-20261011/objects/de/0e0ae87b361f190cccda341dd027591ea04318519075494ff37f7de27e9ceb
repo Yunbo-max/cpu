@@ -1,0 +1,46 @@
+{
+  "response_id": "raw-table-audit-execute-v1",
+  "request_id": "decision-efcb1893e7f842feb1ba8e450d61a42e",
+  "idea": "ctt-streaming-calibration-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Validate consequential raw-to-claim counts and cost fractions independently with stdlib before committing interpretations.",
+  "tasks": [
+    {
+      "task_id": "raw-table-audit-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/audit_raw_tables_v1.py"
+      ],
+      "timeout_seconds": 20,
+      "phase": "verify",
+      "purpose": "Independent raw reaggregation of47 normalization rows and36 timed rows",
+      "input_refs": [
+        {
+          "path": "scripts/audit_raw_tables_v1.py",
+          "sha256": "9c18a5b2a456279bdb1daa0b8bb1b2791f273459ad876482eb8ebc75709164a7"
+        },
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "b58c200a761095d654d6089aad4058de4bd20326b43794022c012f95c8793728"
+        },
+        {
+          "path": "results/native_ctt_normalization_v1_rows.json",
+          "sha256": "123af9ee4307f6d459042459bdbe29974963409e6d2f4a7e2b29aa3b0195e24f"
+        },
+        {
+          "path": "results/native_cost_calibration_v1_rows.json",
+          "sha256": "419b2995fe5f46e269779cf45467698cd237563cce1fcc031a8b942b3f9c376b"
+        }
+      ],
+      "depends_on": [
+        "native-cost-calibration-v1"
+      ],
+      "outputs": [
+        "results/raw_table_audit_v1.json"
+      ]
+    }
+  ]
+}
