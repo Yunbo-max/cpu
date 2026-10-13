@@ -1,39 +1,39 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-13T22:03:07.185548+00:00",
+  "updated_utc": "2026-10-13T22:46:12.978883+00:00",
   "window": "W0004",
   "execution_root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
   "status_observed": "ready",
   "active_or_unknown_attempts": 0,
   "current_accepted_decision": {
-    "path": "plans/W4_R007_longer_window_pilot_decision_v4_001r1.json",
-    "sha256": "cb493d42cbbed2321658f69df803b832bc3defb93d8cbd87909567e9f69fd7cc"
+    "path": "plans/decision-R007-cpu-overhead-r1-fine-host-v1-hostv7.json",
+    "sha256": "c0a6374ee56374772d9b6150d461951881984f28245059b6982f29fb580f6fcd"
   },
   "window_budget": {
-    "attempts_used": 52,
+    "attempts_used": 62,
     "deadline_epoch": 1791999247.845339,
-    "elapsed_seconds": 801.2934207180151,
+    "elapsed_seconds": 840.8286897550206,
     "max_attempts": 500,
     "max_command_seconds": 80000,
-    "remaining_deadline_seconds": 70264.94722914696,
-    "remaining_seconds": 79198.70657928198,
+    "remaining_deadline_seconds": 67673.69401741028,
+    "remaining_seconds": 79159.17131024497,
     "reserved_seconds": 0
   },
   "project_ledger": {
     "prior_attempt_floor": 214,
     "prior_command_seconds_floor": 14447.537480669998,
-    "window_attempts": 52,
-    "window_command_seconds": 801.2934207180151,
-    "combined_attempt_floor": 266,
-    "combined_command_seconds_floor": 15248.830901388013,
-    "scope": "Command wall accounting includes 1823s conservative failed settlement and earlier reported missing-host tail; not exact CPU time or scientific cycles",
-    "native_model_usage": "unknown",
-    "actual_scoped_research_cycles": 3
+    "window_attempts": 62,
+    "window_command_seconds": 840.8286897550206,
+    "combined_attempt_floor": 276,
+    "combined_command_seconds_floor": 15288.366170425019,
+    "scope": "Command accounting includes historical conservative/reported entries, not precise CPU or science cycles",
+    "actual_scoped_research_cycles": 3,
+    "native_model_usage": "unknown"
   },
   "actual_health": {
-    "activity_age_seconds": 41.88854432106018,
+    "activity_age_seconds": 398.61786818504333,
     "errors": [],
     "identity_observed_alive": false,
     "max_age_seconds": 30,
@@ -43,17 +43,17 @@
       "exited_at": null,
       "identity": {
         "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
-        "pid": 136931,
-        "start_ticks": 4905625
+        "pid": 197736,
+        "start_ticks": 6712705
       },
-      "last_activity_at": "2026-10-13T18:15:55.410698+00:00",
-      "last_activity_epoch": 1791915355.4106932,
+      "last_activity_at": "2026-10-13T22:39:41.688063+00:00",
+      "last_activity_epoch": 1791931181.688057,
       "mode": "run",
       "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
       "schema_version": 1,
-      "session_id": "242152077c134b6f89730c658127423a",
-      "stage": "awaiting_decision",
-      "started_at": "2026-10-13T17:34:31.763215+00:00"
+      "session_id": "3868832a382d4c829e876fd90cfaea61",
+      "stage": "tick",
+      "started_at": "2026-10-13T22:35:42.573988+00:00"
     },
     "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
     "scope": "Local process observation only; no external watcher or user delivery is activated",
@@ -69,47 +69,23 @@
     "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
     "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
   },
-  "next_task": "R007-max10000-counts-native-pilot-v1 prepared unsubmitted until quiet durable archive",
+  "next_task": "Resume only unexecuted frozen R007 rotations2/3 after actual disk repair",
   "active_coordinator": {
-    "owned_supervisor_session": 12936,
-    "quiet_archive_exit_status": 130,
-    "health_after_exit": {
-      "activity_age_seconds": 35.05861711502075,
-      "errors": [],
-      "identity_observed_alive": false,
-      "max_age_seconds": 30,
-      "reason": "Retained process identity is unverified: it may have exited, changed identity, or become unavailable to local observation; no restart or reconciliation is implied",
-      "record": {
-        "exit_status": null,
-        "exited_at": null,
-        "identity": {
-          "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
-          "pid": 189117,
-          "start_ticks": 6414475
-        },
-        "last_activity_at": "2026-10-13T22:03:16.010286+00:00",
-        "last_activity_epoch": 1791928996.0102787,
-        "mode": "run",
-        "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
-        "schema_version": 1,
-        "session_id": "b051f75a0b6043369c97f93c998dd6ca",
-        "stage": "tick",
-        "started_at": "2026-10-13T21:46:00.266881+00:00"
-      },
-      "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
-      "scope": "Local process observation only; no external watcher or user delivery is activated",
-      "status": "lost"
-    },
+    "owned_supervisor_session": 28129,
+    "actual_quiet_exit_status": 130,
     "native_active_or_unknown": 0,
     "goal_stop_issued": false,
-    "sameW4_continuation": "R007preparedunsubmitted; restartofficialrun onlyafterarchive/readback oractualstate warrants"
+    "state": "No live coordinator; actual disk failure after six timing successes"
   },
   "guards": {
     "cpu_only": true,
     "threads": 1,
     "max_concurrency": 1,
-    "project_memory_limit_bytes": 8000000000,
-    "shared_abort_bytes": 7800000000
+    "project_memory_limit_bytes": null,
+    "shared_abort_bytes": null,
+    "prelaunch_headroom_gate": false,
+    "actual_kernel_memory_max_bytes": 8589934592,
+    "native_frozen_comparison": "120CPU/2500M_AS,145wall/2.8GBprocessRSS/3.5GBouterAS"
   },
   "preserved_anomalies": [
     "W4 initial649s link failure, two invalid ELF objects",
@@ -272,7 +248,8 @@
     "verification_receipt": "execution/r006-memory-wait-20261013/remote-verification.json",
     "restore_scope": "Base full34 snapshot+72member supplemental37 control/plans/scripts/evidence/CPU-refusal records. Retain all old packs/members. Latest root metadata in main overrides older root documents in ZIP. Never overwrite live/unknown worker control/SQLite. Verify SHA before restoration. Not a full37window overlay.",
     "full37_window_overlay": "pending original archive headroom, preserve full LATEST unchanged",
-    "current_native_state": "All37attempts terminal/reservation0; no observed live supervisor/nativeworker; no nativeCPU qualification result; v4 prepared/unsubmitted waiting_for_memory"
+    "current_native_state": "Historical37 state, superseded by current62; user removed old memory gates; do not use as current worker state",
+    "historical_only": true
   },
   "current_memory_policy": {
     "updated_utc": "2026-10-13T21:46:44.524486+00:00",
@@ -377,5 +354,36 @@
     "native_guard_monotonic_wall_seconds_sum": 10.005934679000347,
     "scope": "One exposed Blocksworld p05 exact1000 development condition. Rotations are repeated timing observations, not independent cases/cycles. Matched integerthreadCPU andwall construction windows; sharedhost remains uncontrolled. No memorywait gap inserted in this new fixedprotocol, no superiority or individualpredicate intrinsiccost inference. Every successful cost24 plan independently VAL valid. Exact final graphs qualified per mode, not every timing step. Zero counts durations mean disabled measurement. Conditional branch and common audit-hook argument cost retained.",
     "interpretation": "Report complete CPU andwall ranges including any reversals; CPU does not remove CPUfrequency/cache/contention or observer/bookkeeping overhead. Do not subtract aggregate clock overhead from individual predicate times or infer a new algorithm. One scored rotation is insufficient alone; all3 retained; Do not subtract aggregate CPUcontrast from wall individualcomponent timers. Evaluate remaining uncertainty and fullplanner/development scope before any optimization investment."
+  },
+  "waiting_for_storage": {
+    "utc": "2026-10-13T22:46:12.978883+00:00",
+    "error": "OSError28 No space left on device while writing next decision",
+    "native_attempts": 62,
+    "all_terminal": true,
+    "reserved_seconds": 0,
+    "native_solver_for_r2_counts_started": false,
+    "completed_R007_timing_tasks": [
+      "R007-cpu-overhead-r0-coarse-host-v1",
+      "R007-cpu-overhead-r1-counts-host-v1",
+      "R007-cpu-overhead-r1-fine-host-v1",
+      "R007-cpu-overhead-r1-coarse-host-v1",
+      "R007-cpu-overhead-r0-counts-host-v1",
+      "R007-cpu-overhead-r0-fine-host-v1"
+    ],
+    "finite_batch_complete": false,
+    "original_error_coordinator_session": 65103,
+    "supervisor_owned_session": 28129,
+    "supervisor_actual_exit_status": 130,
+    "goal_stop_issued": false,
+    "canonical_control_not_modified": true,
+    "retained_source_objects": "Current control, all orphan raw files, response files, raw outputs remain; remote proof before removing only hash-unchanged idle duplicate objects",
+    "memory_policy": "Latest user host-only kernel limit; disk failure is not CPU unavailability or prelaunch memory refusal"
+  },
+  "R007_native_results": {
+    "pilot": "10000 reached, cost24/VAL, feasibility only",
+    "qualification": "coarse independently audited; counts/fine genuinely compared to coarse; all graphSHA7c141bddef4d6f14ba5449c5922e43263ccb2a2111aab36217a3890fff841c12, cost24/VAL",
+    "timing_successes": 6,
+    "timing_target": 12,
+    "full_comparison": "incomplete; no R007 overhead conclusion yet"
   }
 }

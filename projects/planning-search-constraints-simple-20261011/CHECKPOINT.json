@@ -1,6 +1,6 @@
 {
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-13T22:03:07.185548+00:00",
+  "updated_utc": "2026-10-13T22:46:12.978883+00:00",
   "goal_contract_version": 1,
   "goal_contract": {
     "completion_criteria": [
@@ -18,37 +18,37 @@
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
   "current_window": "windows/W0004",
   "accepted_decision": {
-    "path": "plans/W4_R007_longer_window_pilot_decision_v4_001r1.json",
-    "sha256": "cb493d42cbbed2321658f69df803b832bc3defb93d8cbd87909567e9f69fd7cc"
+    "path": "plans/decision-R007-cpu-overhead-r1-fine-host-v1-hostv7.json",
+    "sha256": "c0a6374ee56374772d9b6150d461951881984f28245059b6982f29fb580f6fcd"
   },
   "historical_stops_preserved": true,
   "authorization": "RESUME_AUTHORIZATION_20261013T162554Z.json",
   "ledger": {
     "prior_attempt_floor": 214,
     "prior_command_seconds_floor": 14447.537480669998,
-    "window_attempts": 52,
-    "window_command_seconds": 801.2934207180151,
-    "combined_attempt_floor": 266,
-    "combined_command_seconds_floor": 15248.830901388013,
-    "scope": "Command wall accounting includes 1823s conservative failed settlement and earlier reported missing-host tail; not exact CPU time or scientific cycles",
-    "native_model_usage": "unknown",
-    "actual_scoped_research_cycles": 3
+    "window_attempts": 62,
+    "window_command_seconds": 840.8286897550206,
+    "combined_attempt_floor": 276,
+    "combined_command_seconds_floor": 15288.366170425019,
+    "scope": "Command accounting includes historical conservative/reported entries, not precise CPU or science cycles",
+    "actual_scoped_research_cycles": 3,
+    "native_model_usage": "unknown"
   },
-  "stage": "Actual3CPUclock modes qualified and12newCPUwall controls complete; host-only memory authorization; R007largerworkpilot next",
-  "next_task_id": "R007-max10000-counts-native-pilot-v1",
-  "next_submission": "windows/W0004/plans/submit-R007-max10000-counts-native-pilot-v1.json",
-  "next_dispatch": "Prepared but NOT submitted. After quiet full overlay archive/immutable remote verification, sameW4 officialsubmit/run. No artificial totalmemory/prelaunch gate; kernelactualhost memory.max applies.",
+  "stage": "R007 modes qualified; six of twelve frozen timings succeeded; actual disk failure before next solver",
+  "next_task_id": "R007-cpu-overhead-r2-counts-host-v1",
+  "next_submission": null,
+  "next_dispatch": "After remote-verified forensic/bookkeeping offload, sameW4 official run and resume frozen inventory, preserve original six successes. No artificial memory gate.",
   "unfinished": [
-    "New C++ CPU clocks/graph/VAL need real native qualification counts/fine/coarse before paired CPU/wall comparison",
-    "Shared-host wall ratios reverse; no intrinsic residual/clock causal amount or speedup determined",
-    "Per-split graph proof, more public cases, full native end-to-end efficiency and novelty remain unmeasured",
-    "Depots L2 draft remains unadmitted/unexecuted",
-    "Object/binary corruption cause unresolved; immutable failures and source snapshots retained"
+    "R007 remaining six timing executions and complete analysis",
+    "Per-split witness and transformed operator oracle",
+    "Full native efficiency/more public conditions/novelty evidence",
+    "Depots L2 remains draft",
+    "Orphan SQLite/source/binary corruption cause unresolved"
   ],
   "no_goal_completion": true,
   "active_or_unknown_attempts": 0,
   "waiting_for_memory": null,
-  "full_window_snapshot": "7104 full34 verified; d3f93e7 supplemental37 controls/72members independently verified; full37 overlay pending original archive headroom",
+  "full_window_snapshot": "f2f16f6 core at52 verified, explicitly deferred23 orphan raw images; latest R007/control62 supplemental disk-recovery package preparing",
   "published_supplement": {
     "schema_version": 1,
     "project_id": "planning-search-constraints-simple-20261011",
@@ -64,58 +64,8 @@
     "verification_receipt": "execution/r006-memory-wait-20261013/remote-verification.json",
     "restore_scope": "Base full34 snapshot+72member supplemental37 control/plans/scripts/evidence/CPU-refusal records. Retain all old packs/members. Latest root metadata in main overrides older root documents in ZIP. Never overwrite live/unknown worker control/SQLite. Verify SHA before restoration. Not a full37window overlay.",
     "full37_window_overlay": "pending original archive headroom, preserve full LATEST unchanged",
-    "current_native_state": "All37attempts terminal/reservation0; no observed live supervisor/nativeworker; no nativeCPU qualification result; v4 prepared/unsubmitted waiting_for_memory"
-  },
-  "lowRAM_progress": {
-    "updated_utc": "2026-10-13T21:40:30.215727+00:00",
-    "state": "waiting_for_memory unchanged",
-    "native_attempts": 37,
-    "nativeCPU_qualified": false,
-    "native_graph_or_VAL_new_results": false,
-    "source_math_refs": [
-      {
-        "path": "windows/W0004/scripts/check_r006_changed_coordinate_lemma_v1.py",
-        "sha256": "22ae367675ee36382adc0fea7f9d5a11b48c81eab556696c6ed0779ec64f3c7d"
-      },
-      {
-        "path": "windows/W0004/results/R006-changed-coordinate-lemma-diagnostic-v1.json",
-        "sha256": "7673ac8a6c194ffdf3535c7003fa8bfa71a5afaadd47a7401777d3a7cebffbb2"
-      },
-      {
-        "path": "windows/W0004/plans/audit/R006_changed_coordinate_lemma_v1.md",
-        "sha256": "b5db2f6258b128f7fb501bd220f309a7c78f83d4606f1885de3876815eeb9591"
-      },
-      {
-        "path": "windows/W0004/plans/audit/R006_per_split_witness_design_v1.md",
-        "sha256": "232fec44dc6e2897554b9616365d445e3df3fc8d6c4cb0f179dab91239d1c643"
-      }
-    ],
-    "actual_lowRAM_work": "conditional changed-coordinate lemma +157376 finite predicate comparisons/no mismatches/two necessity counterexamples; per-split stable-boundary audit protocol, unimplemented",
-    "no_goalstop_or_sourceupgrade": true,
-    "scientific_cycle_increment": 0,
-    "priority": "R006 CPU-clock qualification remains first; do not submit a new optimization before current dependencies/decision/resource conditions",
-    "direct_archive_mapping": [
-      {
-        "local_path": "windows/W0004/scripts/check_r006_changed_coordinate_lemma_v1.py",
-        "archive_path": "execution/r006-lowram-source-math-20261013/check_r006_changed_coordinate_lemma_v1.py",
-        "sha256": "22ae367675ee36382adc0fea7f9d5a11b48c81eab556696c6ed0779ec64f3c7d"
-      },
-      {
-        "local_path": "windows/W0004/results/R006-changed-coordinate-lemma-diagnostic-v1.json",
-        "archive_path": "execution/r006-lowram-source-math-20261013/R006-changed-coordinate-lemma-diagnostic-v1.json",
-        "sha256": "7673ac8a6c194ffdf3535c7003fa8bfa71a5afaadd47a7401777d3a7cebffbb2"
-      },
-      {
-        "local_path": "windows/W0004/plans/audit/R006_changed_coordinate_lemma_v1.md",
-        "archive_path": "execution/r006-lowram-source-math-20261013/R006_changed_coordinate_lemma_v1.md",
-        "sha256": "b5db2f6258b128f7fb501bd220f309a7c78f83d4606f1885de3876815eeb9591"
-      },
-      {
-        "local_path": "windows/W0004/plans/audit/R006_per_split_witness_design_v1.md",
-        "archive_path": "execution/r006-lowram-source-math-20261013/R006_per_split_witness_design_v1.md",
-        "sha256": "232fec44dc6e2897554b9616365d445e3df3fc8d6c4cb0f179dab91239d1c643"
-      }
-    ]
+    "current_native_state": "Historical37 state, superseded by current62; user removed old memory gates; do not use as current worker state",
+    "historical_only": true
   },
   "current_memory_policy": {
     "updated_utc": "2026-10-13T21:46:44.524486+00:00",
@@ -132,5 +82,29 @@
     "native_frozen_comparison_caps_retained": "native120CPU/2500M_AS, outer145wall/2.8e9processgroupRSS/3.5e9AS/thread1/affinity0 unchanged for exact1000 comparison fairness. User removed artificial total/shared memory launch wait, not original benchmark configuration. Host actual hard limit remains enforced by kernel.",
     "failure_policy": "Execute one actual task, retain any real failure receipt/exit/logs/memory_events, then diagnose/repair/wait; no blind duplicates or restarting completed tasks. No bought resources, no other project resumed, no guard against arbitrary shared cache threshold.",
     "same_window_no_budget_reset": true
+  },
+  "waiting_for_storage": {
+    "utc": "2026-10-13T22:46:12.978883+00:00",
+    "error": "OSError28 No space left on device while writing next decision",
+    "native_attempts": 62,
+    "all_terminal": true,
+    "reserved_seconds": 0,
+    "native_solver_for_r2_counts_started": false,
+    "completed_R007_timing_tasks": [
+      "R007-cpu-overhead-r0-coarse-host-v1",
+      "R007-cpu-overhead-r1-counts-host-v1",
+      "R007-cpu-overhead-r1-fine-host-v1",
+      "R007-cpu-overhead-r1-coarse-host-v1",
+      "R007-cpu-overhead-r0-counts-host-v1",
+      "R007-cpu-overhead-r0-fine-host-v1"
+    ],
+    "finite_batch_complete": false,
+    "original_error_coordinator_session": 65103,
+    "supervisor_owned_session": 28129,
+    "supervisor_actual_exit_status": 130,
+    "goal_stop_issued": false,
+    "canonical_control_not_modified": true,
+    "retained_source_objects": "Current control, all orphan raw files, response files, raw outputs remain; remote proof before removing only hash-unchanged idle duplicate objects",
+    "memory_policy": "Latest user host-only kernel limit; disk failure is not CPU unavailability or prelaunch memory refusal"
   }
 }
