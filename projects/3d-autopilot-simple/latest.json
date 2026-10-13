@@ -11,8 +11,8 @@
   "active_idea": "gravity-pose-public-rgbd-validation",
   "revision": 1,
   "goal_contract": 1,
-  "attempts_used": 91,
-  "command_seconds": 3691.1559064700295,
+  "attempts_used": 95,
+  "command_seconds": 3759.1021510600285,
   "supervisor_running": false,
   "unknown_attempts": 0,
   "cleanup_preflight": {
@@ -26,8 +26,8 @@
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "wake23_remote_verified_local_eviction_rematerialized",
-  "local_workspace_state": "Remote wake23 restore verified exactly. Explicit local deletion completed once, but the next observation found the project tree rematerialized with 1018 files/1678136461 bytes and the 60018447-byte checkpoint ZIP present again. Persistent local eviction is not confirmed; no repeated forced cleanup and no other project or global cache was touched.",
+  "cleanup_status": "wake24_overlay_committed_verification_pending",
+  "local_workspace_state": "Wake24 scientific state and raw results are in an immutable overlay; sparse restore verification and local cleanup receipts are pending.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -63,20 +63,24 @@
       "commit": "6d842a40769ca6ab3af5990d92db1ed06b07f3ca",
       "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-13-wake23/manifest.json",
       "archive_sha256": "aac89c228fbd15813bcda42c3b53f408ae5af90516bb41ae8cb98b3554a474c4"
+    },
+    {
+      "commit": "ca20639f3a44118d6807c471b2c6b9a2e73a6c22",
+      "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-13-wake24/manifest.json",
+      "archive_sha256": "398cd9192adca24140179c1f361bebe35b9881c37c595bc3fffea398be8999ad"
     }
   ],
   "restore_usage": "Fetch helper from this latest.json commit; --commit must be that current main commit, not only archive_commit. Helper resolves immutable base+overlays before extracting selected paths into a new empty staging directory.",
-  "journal_version": 151,
-  "empirical_research_cycles": 32,
-  "latest_handoff": "notes/handoff-wake23.md",
-  "verified_at_utc": "2026-10-13T08:07:18Z",
-  "verification_path": "projects/3d-autopilot-simple/verification-wake23.json",
+  "journal_version": 156,
+  "empirical_research_cycles": 33,
+  "latest_handoff": "notes/handoff-wake24.md",
+  "verified_at_utc": null,
+  "verification_path": "projects/3d-autopilot-simple/verification-wake24.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
-  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake23.json",
-  "cleanup_observed_at_utc": "2026-10-13T08:09:36Z",
-  "restore_verification_commit": "71a5d71da05b1f9469242061938db61d6a017c1e",
-  "cleanup_receipt_commit": "0e00c203886fb5c3e78d0e0fbb131b7da412db7b",
-  "verification_readback_blob_sha": "3671ad647b53547a72b6322734479515b738993c",
-  "total_index_files": 3125,
-  "build_receipt_path": "projects/3d-autopilot-simple/build-wake23.json"
+  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake24.json",
+  "cleanup_observed_at_utc": null,
+  "restore_verification_commit": null,
+  "cleanup_receipt_commit": null,
+  "verification_readback_blob_sha": null,
+  "build_receipt_path": "projects/3d-autopilot-simple/build-wake24.json"
 }
