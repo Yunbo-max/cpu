@@ -1,3 +1,11 @@
+# 当前恢复授权 — 2026-10-13
+
+用户已于英国时间 2026-10-13 15:05 明确要求恢复本项目的后台研究。先阅读 [CURRENT_RESEARCH.md](CURRENT_RESEARCH.md) 与 [RESUME_AUTHORIZATION_20261013.json](RESUME_AUTHORIZATION_20261013.json)，按原有 R005 冻结实验接续，后续科研策略采用 Simple 0.3.0-simple.13。
+
+旧停止快照、W0001/W0002、全部正负结果和累计消耗保留。执行器移交须在实际恢复后核验；恢复授权与定时启动不是实验已经执行的证据。以下正文是停止时的原始归档说明，后续恢复权限以新授权为准。
+
+---
+
 # Planning, search and constraint solving
 
 Project `planning-search-constraints-simple-20261011`, using the pinned
