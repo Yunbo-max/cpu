@@ -1,33 +1,66 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-13T16:18:56.039682+00:00",
-  "window": "W0003",
-  "execution_root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0003",
-  "R005L1": "both600s rows terminal withnative memoryexit22; raw logs published separately",
-  "active_execution_observed": "R006-build-profile-v4-retry1",
-  "attempt_id": "attempt-11a52899022b4f149ddab57925371fb7",
+  "updated_utc": "2026-10-13T17:41:36.989472+00:00",
+  "window": "W0004",
+  "predecessor": "W0003",
+  "execution_root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
-  "observed_supervisor_health": {
-    "exit_status": null,
-    "exited_at": null,
-    "identity": {
-      "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
-      "pid": 132357,
-      "start_ticks": 4401122
+  "status": "running",
+  "active_execution_observed": [
+    {
+      "task_id": "R006-build-profile-v4-w4-recovery1",
+      "attempt_id": "attempt-716c3f13e05741b28ca008bdc0f8f3ed",
+      "state": "running"
+    }
+  ],
+  "health": {
+    "activity_age_seconds": 0.02562856674194336,
+    "errors": [],
+    "identity_observed_alive": true,
+    "max_age_seconds": 30,
+    "record": {
+      "exit_status": null,
+      "exited_at": null,
+      "identity": {
+        "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+        "pid": 136931,
+        "start_ticks": 4905625
+      },
+      "last_activity_at": "2026-10-13T17:41:36.954495+00:00",
+      "last_activity_epoch": 1791913296.9544926,
+      "mode": "run",
+      "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
+      "schema_version": 1,
+      "session_id": "242152077c134b6f89730c658127423a",
+      "stage": "running",
+      "started_at": "2026-10-13T17:34:31.763215+00:00"
     },
-    "last_activity_at": "2026-10-13T16:18:55.762808+00:00",
-    "last_activity_epoch": 1791908335.7628024,
-    "mode": "run",
-    "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0003",
-    "schema_version": 1,
-    "session_id": "f1e4d61593ab4363be0caeb9ba89a39a",
-    "stage": "tick",
-    "started_at": "2026-10-13T16:10:26.728797+00:00"
+    "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
+    "scope": "Local process observation only; no external watcher or user delivery is activated",
+    "status": "active"
   },
-  "native_larger_memory_probe": "prepared, not admitted/executed; stale proposalmustextend currentreview before anylaterdispatch",
-  "coordination": "Foreground extension complete. Existingbackground coordinator has resumedR006 and ownscontinuingqueue; foregroundwillnotinterruptthelivebuildorrelaunchanyjob.",
-  "interruption": "FirstR006buildinterruptedafterforegusedstaleidleview; retainedfailure and conservative1823scharge preservedbyactualbackgroundreconciliation.",
-  "recovery_rule": "Observeactual lateststatus/inbox/health/receipts first. No time-basedexpiry or missingreceipt inference; no duplicatejob onanotherhost.",
-  "scientific_claim": "L1 CPUbudgetonly supplementresolveda native-memorycensoringboundary. R006nativegraph/generationchecks not yet verified."
+  "authorization": "RESUME_AUTHORIZATION_20261013T162554Z.json",
+  "historical_stop": "W0003 explicitly stopped2026-10-13T16:21:25Z; retry1 cancelled16:21:31Z with real receipt; oldSQLite/deadline/stop unchanged",
+  "prior_attempt_floor": 214,
+  "prior_command_seconds_floor": 14447.537480669998,
+  "window_budget": {
+    "attempts_used": 1,
+    "deadline_epoch": 1791999247.845339,
+    "elapsed_seconds": 0.0,
+    "max_attempts": 500,
+    "max_command_seconds": 80000,
+    "remaining_deadline_seconds": 85950.9523601532,
+    "remaining_seconds": 78177.0,
+    "reserved_seconds": 1823.0
+  },
+  "scientific_state": "R005 and R005L1 complete retained; R006 frozen build recovery underway, no R006 native or graph result yet",
+  "guards": {
+    "cpu_only": true,
+    "compile_threads": 1,
+    "max_concurrency": 1,
+    "project_memory_limit_bytes": 8000000000,
+    "shared_abort_bytes": 7800000000
+  },
+  "recovery_rule": "Use new linked W4 only; do not clear old stop, rerun completed rows, or trust stale b63 W3-running observation"
 }
