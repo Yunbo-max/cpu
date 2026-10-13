@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "project_id": "autopilot-3d-20261011",
+  "runner_sequence": 191,
+  "active_idea": "gravity-pose-root-reconstruction-localization-v1",
+  "classification": "waiting_for_memory",
+  "scientific_experiment_executed": false,
+  "compiler_executed": false,
+  "observed_utc": "2026-10-13T09:11:53.664313+00:00/2026-10-13T09:12:23.664839+00:00",
+  "memory_gate": {
+    "required_raw_headroom_mib": 1536,
+    "cache_credit_mib": 0,
+    "initial_raw_headroom_bytes": 639541248,
+    "initial_raw_headroom_mib": 609.9140625,
+    "recheck_after_seconds": 30,
+    "recheck_raw_headroom_bytes": 342581248,
+    "recheck_raw_headroom_mib": 326.7109375,
+    "deficit_mib": 1209.2890625,
+    "memory_max_bytes": 8589934592,
+    "memory_current_bytes": 8247353344,
+    "anon_bytes": 1277149184,
+    "file_bytes": 6546173952,
+    "shmem_bytes": 0,
+    "inactive_file_bytes": 3996479488,
+    "file_dirty_bytes": 460820480,
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 225555,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    }
+  },
+  "identity_checks": {
+    "matching_project_processes": [],
+    "project_lock": "available",
+    "runner_health": "exited",
+    "runner_session_id": "95390b72ad674463b509ddac3a289c5f",
+    "sqlite_integrity_check": "ok"
+  },
+  "prepared_unsubmitted_response": {
+    "path": "plans/R019_safe_build_response_v5_20261013.json",
+    "sha256": "7ad4f8d9ff9c8081ab7ff55feb97454587aa4f85b5b1d86c6afc7c6d05566f45",
+    "request_id": "decision-0f745954576e4a68b5ef9d2c4d0bbe99",
+    "task_id": "gravity-R019-safe-build-v5"
+  },
+  "remote_baseline": {
+    "main_commit_observed": "bce0d5261f72d120dfb70d72790496ca2f6b62a0",
+    "latest_project_subtree_commit_observed": "51c502e10862ad916cfe04dd11e592a38780c3ef",
+    "active_archive_commit": "38b7ae0df38ce4ac55cdbaa4f0a5a0b218b11c59",
+    "active_archive_sha256": "297d99edadf8969b322280003a804f4a60b8f04023e03261ce872b79152a480d"
+  },
+  "resume_condition": "On a later distinct wake, submit build-v5 exactly once only after a fresh stable raw-headroom pass at or above1536MiB, no active or unknown project attempt, and the project lock is available."
+}
