@@ -1,0 +1,47 @@
+{
+  "project_id": "autopilot-3d-20261011",
+  "status": "waiting_for_memory",
+  "incident_first_wait_utc": "2026-10-13T05:19:30+00:00",
+  "blocked_activation_count_this_incident": 2,
+  "experiment_executed": false,
+  "runner_sequence": 190,
+  "journal_version": 216,
+  "runner_attempts": 146,
+  "runner_attempts_terminal": 146,
+  "runner_command_seconds": 13211.193054299029,
+  "active_or_unknown_attempts": 0,
+  "project_lock": "available",
+  "task": "gravity-R019-safe-build-v4-pending",
+  "required_raw_headroom_mib": 1536,
+  "cache_credit_mib": 0,
+  "measurements": [
+    {
+      "utc": "2026-10-13T06:20:37.057925+00:00",
+      "raw_headroom_mib": 1497.4140625
+    },
+    {
+      "utc": "2026-10-13T06:21:59.421234+00:00",
+      "raw_headroom_mib": 1497.73046875
+    },
+    {
+      "utc": "2026-10-13T06:23:57.317922+00:00",
+      "raw_headroom_mib": 848.984375,
+      "anon_bytes": 789475328,
+      "file_bytes": 6564249600,
+      "shmem_bytes": 0,
+      "inactive_file_bytes": 1461354496,
+      "file_dirty_bytes": 127868928,
+      "file_writeback_bytes": 0
+    }
+  ],
+  "memory_events": {
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "decision": "Do not submit or start the prepared build; recheck on the next existing wake.",
+  "resume_condition": "Fresh raw headroom at or above 1536MiB with no active or unknown attempt; then submit the prepared response once through the pinned simple_runner.",
+  "active_archive_commit": "8c1c91eff867743bc4a7d8f55f5f26300c1d94f9",
+  "database_recovery_verification_commit": "e4e330870513bfe29c03acad5fe6f205a1045edd",
+  "cleanup_status": "unresolved reappearing paths; no deletion or memory release claimed"
+}
