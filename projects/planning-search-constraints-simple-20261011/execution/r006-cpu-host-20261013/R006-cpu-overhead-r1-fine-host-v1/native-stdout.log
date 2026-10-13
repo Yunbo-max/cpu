@@ -1,0 +1,168 @@
+[t=0.000000s, 12288 KB] reading input...
+[t=0.001693s, 12420 KB] done reading input!
+[t=0.001693s, 12816 KB] Initializing additive Cartesian heuristic...
+[t=0.008028s, 524952 KB] Build abstractions for 1 subtasks in 30s
+
+[t=0.008028s, 525348 KB] Subtask has zero-cost operators: false
+[t=0.008028s, 525348 KB] Start building abstraction.
+[t=0.008028s, 525348 KB] Maximum number of states: 1000
+[t=0.008028s, 525348 KB] Maximum number of transitions: 1000000
+[t=0.008028s, 525348 KB] Maximum time: 30s
+[t=0.008028s, 525348 KB] Abstract solution cost: 0
+[t=0.008028s, 525348 KB] Abstract solution cost: 1
+[t=0.008028s, 525348 KB] Abstract solution cost: 2
+[t=0.008028s, 525348 KB] Abstract solution cost: 3
+[t=0.008028s, 525348 KB] Abstract solution cost: 4
+[t=0.008028s, 525348 KB] Abstract solution cost: 5
+[t=0.012000s, 525472 KB] Abstract solution cost: 6
+[t=0.016035s, 525612 KB] Abstract solution cost: 7
+[t=0.035979s, 525876 KB] Abstract solution cost: 8
+[t=0.047987s, 526144 KB] Abstract solution cost: 9
+[t=0.067978s, 526528 KB] Reached the half of maximum number of states.
+[t=0.119494s, 527068 KB] Abstract solution cost: 10
+[t=0.135489s, 527980 KB] Reached maximum number of states.
+[t=0.135489s, 527980 KB] Time for finding abstract traces: 0.000000s
+[t=0.135489s, 527980 KB] Time for finding flaws and computing splits: 0.011602s
+[t=0.135489s, 527980 KB] Time for splitting states: 0.107898s
+[t=0.135489s, 527980 KB] Time for updating goal distances: 0.000000s
+[t=0.135489s, 527980 KB] Number of refinements: 999
+[t=0.135489s, 527980 KB] Forward refinements: 0
+[t=0.135489s, 527980 KB] Backward refinements: 999
+[t=0.135489s, 527980 KB] Total forward flawed states found: 0
+[t=0.135489s, 527980 KB] Total backward flawed states found: 999
+[t=0.135489s, 527980 KB] Average percentage of forward flawed states found in the last stats iter respect to plan length: 0.100000
+[t=0.139497s, 527980 KB] Average percentage of backward flawed states found in the last stats iter respect to plan length: 12.428214
+[t=0.139497s, 527980 KB] Average position of refined forward flawed states in the last stats iter respect to plan length: 0.000000
+[t=0.139497s, 527980 KB] Average position of refined backward flawed states in the last stats iter respect to plan length: 0.304367
+[t=0.139497s, 527980 KB] Total number of times the cost of the optimal plan has been increased: 10
+[t=0.139497s, 527980 KB] Optimal abstract plan transitions removed: 0
+[t=0.139497s, 527980 KB] Done building abstraction.
+[t=0.139497s, 527980 KB] Time for building abstraction: 0.131469s
+[t=0.139497s, 527980 KB] States: 1000
+[t=0.139497s, 527980 KB] Goal states: 1
+[t=0.139497s, 527980 KB] Looping transitions: 7186
+[t=0.139497s, 527980 KB] Non-looping transitions: 16422
+[t=0.139497s, 527980 KB] Redundant operators: 0
+[t=0.139497s, 527980 KB] Nodes in refinement hierarchy: 16632
+[t=0.139497s, 527980 KB] Disambiguated states: 806
+[t=0.139497s, 527980 KB] Removed states: 0
+[t=0.139497s, 527980 KB] Flaw searches: 0
+[t=0.139497s, 527980 KB] Expanded concrete states: 0
+[t=0.139497s, 527980 KB] Maximum expanded concrete states in single flaw search: 0
+[t=0.139497s, 527980 KB] Flaw search time: 0.000000s
+[t=0.139497s, 527980 KB] Time for computing splits: 0.007591s
+[t=0.139497s, 527980 KB] Time for selecting splits: 0.000000s
+[t=0.139497s, 527980 KB] Unsolvable Cartesian states: 0
+[t=0.139497s, 527980 KB] Initial h value: 10
+
+[t=0.139497s, 527980 KB] Done initializing additive Cartesian heuristic
+[t=0.139497s, 527980 KB] Time for initializing additive Cartesian heuristic: 0.131469s
+[t=0.139497s, 527980 KB] Cartesian abstractions: 1
+[t=0.139497s, 527980 KB] Total number of Cartesian states: 1000
+[t=0.139497s, 527980 KB] Total number of non-looping transitions: 16422
+
+CONSTRUCTION_CPU_PROFILE schema=1 phase_id=1 phase=additive_cartesian_init_complete clock=thread_cpu unit=ns phase_started=true thread_cpu_elapsed_ns=137428462 paired_steady_wall_elapsed_ns=137930361 cpu_interval=outer_bracket boundary_reads=2
+AC3_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=optional_full scope=construction_phase cumulative=1 clock=steady_wall unit=ns phase_started=true construction_elapsed_ns=137930361 calls=163 completed=163 empty_inputs=0 changed_calls=153 queue_copies=163 seed_arcs=41076 precheck_ns=16879 queue_setup_ns=254297 propagation_ns=3290312 queue_teardown_ns=27664 total_ns=3589152
+AC3_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=optional_single scope=construction_phase cumulative=1 clock=steady_wall unit=ns phase_started=true construction_elapsed_ns=137930361 calls=1998 completed=1998 empty_inputs=0 changed_calls=806 queue_copies=1998 seed_arcs=35082 precheck_ns=333306 queue_setup_ns=1659936 propagation_ns=5152703 queue_teardown_ns=691174 total_ns=7837119
+AC3_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=modified_vars scope=construction_phase cumulative=1 clock=steady_wall unit=ns phase_started=true construction_elapsed_ns=137930361 calls=0 completed=0 empty_inputs=0 changed_calls=0 queue_copies=0 seed_arcs=0 precheck_ns=0 queue_setup_ns=0 propagation_ns=0 queue_teardown_ns=0 total_ns=0
+AC3_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=test_disambiguate scope=construction_phase cumulative=1 clock=steady_wall unit=ns phase_started=true construction_elapsed_ns=137930361 calls=0 completed=0 positive=0 total_ns=0
+REFINEMENT_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete scope=committed_refine cumulative=1 clock=steady_wall unit=ns components=exclusive total=inclusive valid=true construction_elapsed_ns=137930361 calls=999 closed=999 unwound=0 checkpoints=8991 split_state_copy_ns=2227997 hierarchy_goal_ns=1787645 child_disambiguation_ns=7956994 rewiring_ns=94765756 residual_ns=437131 component_sum_ns=107175523 total_ns=107175523 active_refine=0 active_rewire=0 attribution_errors=0
+REWIRE_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=inside_refine scope=construction_phase cumulative=1 clock=steady_wall unit=ns aggregation=inclusive overlap=refine_rewiring valid=true construction_elapsed_ns=137930361 calls=999 closed=999 unwound=0 total_ns=94661506
+REWIRE_DETAIL_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=inside_refine scope=rewire_calls cumulative=1 clock=steady_wall unit=ns aggregation=exclusive_partition overlap=rewire_profile valid=true construction_elapsed_ns=137930361 calls=999 closed=999 unwound=0 checkpoints=5994 vector_setup_ns=147554 incoming_remove_ns=1942768 incoming_generate_ns=38178237 outgoing_remove_ns=1556319 outgoing_generate_ns=42625023 loops_ns=9854514 residual_ns=255712 component_sum_ns=94560127 total_ns=94560127 old_incoming=23178 old_outgoing=23178 old_loops=13328 incoming_neighbors=12828 incoming_adjacency_scanned=654072 incoming_child_candidates=46356 incoming_reachable=31062 incoming_emitted=31062 incoming_reachability_calls=46356 incoming_policy_calls=31062 incoming_emission_calls=31062 incoming_reachability_ns=9181068 incoming_policy_ns=1030419 incoming_emission_ns=1643323 incoming_generation_residual_ns=26323427 outgoing_neighbors=12828 outgoing_adjacency_scanned=654072 outgoing_child_candidates=46356 outgoing_eligible=31062 outgoing_emitted=31062 outgoing_occurrences=23178 outgoing_distinct_operator_sum=7528 zero_outgoing_rewires=1 outgoing_applicability_calls=46356 outgoing_applicable=39885 outgoing_reachability_calls=39885 outgoing_reachable=31062 outgoing_policy_calls=31062 outgoing_emission_calls=31062 outgoing_applicability_ns=3944463 outgoing_reachability_ns=9138752 outgoing_policy_ns=1003903 outgoing_emission_ns=2022998 outgoing_generation_residual_ns=26514907 loop_self_emitted=20352 loop_cross_emitted=654
+REWIRE_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=outside_simulated scope=construction_phase cumulative=1 clock=steady_wall unit=ns aggregation=inclusive overlap=outside_refine valid=true construction_elapsed_ns=137930361 calls=0 closed=0 unwound=0 total_ns=0
+REWIRE_DETAIL_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=outside_simulated scope=rewire_calls cumulative=1 clock=steady_wall unit=ns aggregation=exclusive_partition overlap=rewire_profile valid=true construction_elapsed_ns=137930361 calls=0 closed=0 unwound=0 checkpoints=0 vector_setup_ns=0 incoming_remove_ns=0 incoming_generate_ns=0 outgoing_remove_ns=0 outgoing_generate_ns=0 loops_ns=0 residual_ns=0 component_sum_ns=0 total_ns=0 old_incoming=0 old_outgoing=0 old_loops=0 incoming_neighbors=0 incoming_adjacency_scanned=0 incoming_child_candidates=0 incoming_reachable=0 incoming_emitted=0 incoming_reachability_calls=0 incoming_policy_calls=0 incoming_emission_calls=0 incoming_reachability_ns=0 incoming_policy_ns=0 incoming_emission_ns=0 incoming_generation_residual_ns=0 outgoing_neighbors=0 outgoing_adjacency_scanned=0 outgoing_child_candidates=0 outgoing_eligible=0 outgoing_emitted=0 outgoing_occurrences=0 outgoing_distinct_operator_sum=0 zero_outgoing_rewires=0 outgoing_applicability_calls=0 outgoing_applicable=0 outgoing_reachability_calls=0 outgoing_reachable=0 outgoing_policy_calls=0 outgoing_emission_calls=0 outgoing_applicability_ns=0 outgoing_reachability_ns=0 outgoing_policy_ns=0 outgoing_emission_ns=0 outgoing_generation_residual_ns=0 loop_self_emitted=0 loop_cross_emitted=0
+REWIRE_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=outside_actual scope=construction_phase cumulative=1 clock=steady_wall unit=ns aggregation=inclusive overlap=outside_refine valid=true construction_elapsed_ns=137930361 calls=0 closed=0 unwound=0 total_ns=0
+REWIRE_DETAIL_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=outside_actual scope=rewire_calls cumulative=1 clock=steady_wall unit=ns aggregation=exclusive_partition overlap=rewire_profile valid=true construction_elapsed_ns=137930361 calls=0 closed=0 unwound=0 checkpoints=0 vector_setup_ns=0 incoming_remove_ns=0 incoming_generate_ns=0 outgoing_remove_ns=0 outgoing_generate_ns=0 loops_ns=0 residual_ns=0 component_sum_ns=0 total_ns=0 old_incoming=0 old_outgoing=0 old_loops=0 incoming_neighbors=0 incoming_adjacency_scanned=0 incoming_child_candidates=0 incoming_reachable=0 incoming_emitted=0 incoming_reachability_calls=0 incoming_policy_calls=0 incoming_emission_calls=0 incoming_reachability_ns=0 incoming_policy_ns=0 incoming_emission_ns=0 incoming_generation_residual_ns=0 outgoing_neighbors=0 outgoing_adjacency_scanned=0 outgoing_child_candidates=0 outgoing_eligible=0 outgoing_emitted=0 outgoing_occurrences=0 outgoing_distinct_operator_sum=0 zero_outgoing_rewires=0 outgoing_applicability_calls=0 outgoing_applicable=0 outgoing_reachability_calls=0 outgoing_reachable=0 outgoing_policy_calls=0 outgoing_emission_calls=0 outgoing_applicability_ns=0 outgoing_reachability_ns=0 outgoing_policy_ns=0 outgoing_emission_ns=0 outgoing_generation_residual_ns=0 loop_self_emitted=0 loop_cross_emitted=0
+CONSTRUCTION_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete scope=construction_phase cumulative=1 clock=steady_wall unit=ns aggregation=exclusive_partition valid=true construction_elapsed_ns=137930361 split_state_copy_ns=2227997 hierarchy_goal_ns=1787645 child_disambiguation_ns=7956994 rewiring_ns=94765756 refinement_residual_ns=437131 other_construction_ns=30754838
+[t=0.141531s, 527980 KB] Building successor generator...done!
+[t=0.141531s, 527980 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.141531s, 527980 KB] time for successor generation creation: 0.000000s
+[t=0.141531s, 527980 KB] Variables: 19
+[t=0.141531s, 527980 KB] FactPairs: 110
+[t=0.141531s, 527980 KB] Bytes per state: 8
+[t=0.141531s, 527980 KB] Conducting best first search with reopening closed nodes, (real) bound = 2147483647
+[t=0.141531s, 527980 KB] New best heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 10
+[t=0.141531s, 527980 KB] g=0, 1 evaluated, 0 expanded
+[t=0.141531s, 527980 KB] f = 10, 1 evaluated, 0 expanded
+[t=0.141531s, 527980 KB] Initial heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 10
+[t=0.141531s, 527980 KB] New best heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 9
+[t=0.141531s, 527980 KB] g=1, 2 evaluated, 1 expanded
+[t=0.141531s, 527980 KB] f = 11, 6 evaluated, 2 expanded
+[t=0.141531s, 527980 KB] f = 12, 11 evaluated, 4 expanded
+[t=0.141531s, 527980 KB] New best heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 8
+[t=0.141531s, 527980 KB] g=4, 18 evaluated, 9 expanded
+[t=0.141531s, 527980 KB] f = 13, 30 evaluated, 16 expanded
+[t=0.141531s, 527980 KB] f = 14, 59 evaluated, 29 expanded
+[t=0.141531s, 527980 KB] f = 15, 164 evaluated, 77 expanded
+[t=0.141531s, 527980 KB] f = 16, 318 evaluated, 153 expanded
+[t=0.141531s, 527980 KB] f = 17, 787 evaluated, 364 expanded
+[t=0.143488s, 527980 KB] f = 18, 1574 evaluated, 751 expanded
+[t=0.147489s, 527980 KB] f = 19, 3788 evaluated, 1662 expanded
+[t=0.151523s, 527980 KB] f = 20, 8016 evaluated, 3716 expanded
+[t=0.171490s, 527980 KB] f = 21, 20480 evaluated, 8474 expanded
+[t=0.215490s, 527980 KB] f = 22, 45959 evaluated, 20027 expanded
+[t=0.343485s, 527980 KB] f = 23, 117114 evaluated, 48078 expanded
+[t=0.623478s, 527980 KB] f = 24, 243190 evaluated, 111485 expanded
+[t=0.815468s, 527980 KB] New best heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 7
+[t=0.819468s, 527980 KB] g=17, 336825 evaluated, 161432 expanded
+[t=0.819468s, 527980 KB] New best heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 6
+[t=0.819468s, 527980 KB] g=18, 336829 evaluated, 161433 expanded
+[t=0.819468s, 527980 KB] New best heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 5
+[t=0.819468s, 527980 KB] g=19, 336835 evaluated, 161434 expanded
+[t=0.819468s, 527980 KB] New best heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 4
+[t=0.819468s, 527980 KB] g=20, 336840 evaluated, 161435 expanded
+[t=0.819468s, 527980 KB] New best heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 3
+[t=0.819468s, 527980 KB] g=21, 336844 evaluated, 161436 expanded
+[t=0.819468s, 527980 KB] New best heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 2
+[t=0.819468s, 527980 KB] g=22, 336848 evaluated, 161437 expanded
+[t=0.819468s, 527980 KB] New best heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 1
+[t=0.819468s, 527980 KB] g=23, 336852 evaluated, 161438 expanded
+[t=0.819468s, 527980 KB] New best heuristic value for cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 0
+[t=0.819468s, 527980 KB] g=24, 336855 evaluated, 161439 expanded
+[t=0.819468s, 527980 KB] Solution found!
+[t=0.819468s, 527980 KB] Actual search time: 0.677937s
+unstack b3 b4 (1)
+stack b3 b1 (1)
+unstack b4 b5 (1)
+putdown b4 (1)
+unstack b5 b7 (1)
+stack b5 b4 (1)
+unstack b7 b9 (1)
+putdown b7 (1)
+unstack b9 b6 (1)
+putdown b9 (1)
+unstack b6 b2 (1)
+putdown b6 (1)
+unstack b5 b4 (1)
+stack b5 b2 (1)
+unstack b3 b1 (1)
+stack b3 b5 (1)
+pickup b8 (1)
+stack b8 b3 (1)
+pickup b7 (1)
+stack b7 b8 (1)
+pickup b1 (1)
+stack b1 b7 (1)
+pickup b9 (1)
+stack b9 b1 (1)
+[t=0.819468s, 527980 KB] Plan length: 24 step(s).
+[t=0.819468s, 527980 KB] Plan cost: 24
+[t=0.819468s, 527980 KB] Expanded 161440 state(s).
+[t=0.819468s, 527980 KB] Reopened 0 state(s).
+[t=0.819468s, 527980 KB] Evaluated 336855 state(s).
+[t=0.819468s, 527980 KB] Evaluations: 336855
+[t=0.819468s, 527980 KB] Generated 723447 state(s).
+[t=0.819468s, 527980 KB] Dead ends: 0 state(s).
+[t=0.819468s, 527980 KB] Expanded until last jump: 111485 state(s).
+[t=0.819468s, 527980 KB] Reopened until last jump: 0 state(s).
+[t=0.819468s, 527980 KB] Evaluated until last jump: 243190 state(s).
+[t=0.819468s, 527980 KB] Generated until last jump: 512161 state(s).
+[t=0.819468s, 527980 KB] Number of registered states: 336855
+[t=0.819468s, 527980 KB] Closed list load factor: 336855/524287 = 0.642501
+[t=0.819468s, 527980 KB] total successors before pruning: 723447
+[t=0.819468s, 527980 KB] total successors after pruning: 723447
+[t=0.819468s, 527980 KB] Pruning ratio: 0.000000
+[t=0.819468s, 527980 KB] Search time: 0.677937s
+[t=0.819468s, 527980 KB] Total time: 0.819468s
+Solution found.
+Peak memory: 527980 KB
