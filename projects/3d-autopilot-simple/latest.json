@@ -21,8 +21,8 @@
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "wake21_remote_verification_pending",
-  "local_workspace_state": "Wake21 overlay uploaded; changed-file restore verification and scoped cleanup are pending.",
+  "cleanup_status": "wake21_verified_restore_removed_helper_rematerialized",
+  "local_workspace_state": "The execution environment pruned the prior project root before verification. A fresh 70-file sparse restore was fully verified and then removed; the fetched helper reappeared after deletion, so persistent full cleanup is not claimed.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -54,12 +54,14 @@
   "journal_version": 134,
   "empirical_research_cycles": 30,
   "latest_handoff": "notes/handoff-wake21.md",
-  "verified_at_utc": null,
+  "verified_at_utc": "2026-10-13T05:22:10Z",
   "verification_path": "projects/3d-autopilot-simple/verification-wake21.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
   "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake21.json",
-  "cleanup_observed_at_utc": null,
-  "restore_verification_commit": null,
+  "cleanup_observed_at_utc": "2026-10-13T05:23:43Z",
+  "restore_verification_commit": "643d75cb528fed183626e890abeadebdcc725008",
+  "cleanup_receipt_commit": "8938fa34adbed88834b5c749664b27765ce95a18",
+  "verification_readback_blob_sha": "534149c4e91257e80cd93655ae31cb339761046d",
   "total_index_files": 2940,
   "build_receipt_path": "projects/3d-autopilot-simple/build-wake21.json"
 }
