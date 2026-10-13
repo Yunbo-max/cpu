@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "project_id": "autopilot-3d-20261011",
+  "observed_at_utc": "2026-10-13T08:18:14.978476+00:00",
+  "state_saved_at_utc": "2026-10-13T08:24:00+00:00",
+  "active_idea": "gravity-pose-root-reconstruction-localization-v1",
+  "idea_revision": 1,
+  "classification": "waiting_for_memory",
+  "scientific_experiment_executed": false,
+  "runner": {
+    "sequence": 191,
+    "journal_version": 216,
+    "attempts_used": 147,
+    "command_seconds": 13211.25004875403,
+    "task_id": "gravity-R019-safe-build-v4",
+    "attempt_id": "attempt-8a91a5d92555449d8221b5855237af69",
+    "attempt_result": "failed",
+    "exit_code": 75,
+    "elapsed_seconds": 0.05699445500067668,
+    "receipt_sha256": "739ea74e2bbfc7e2ffafc1420c0bf45e4733a4536c5ba83123c5ccbb7cba55db",
+    "supervisor_exit": "intentionally stopped after terminal attempt at an awaiting-decision boundary"
+  },
+  "memory_admission": {
+    "required_raw_headroom_mib": 1536,
+    "cache_credit_mib": 0,
+    "address_space_mib": 1536,
+    "worker_memory_current_bytes": 7670112256,
+    "worker_memory_max_bytes": 8589934592,
+    "worker_raw_headroom_bytes": 919822336,
+    "worker_raw_headroom_mib": 877.2109375,
+    "command_executed": false,
+    "oom": 0,
+    "oom_kill": 0,
+    "resource_output": "results/R019-safe-build-resource-v4.json",
+    "resource_output_sha256": "0641c062b9080ac94f6f80b4289cc57093667a208a7d1cd8189f3501cf5633da"
+  },
+  "interpretation": {
+    "resource_gate": "supported",
+    "build_or_science_result": "inconclusive_not_run",
+    "notes": "Coordinator-side observations briefly passed the gate, but shared memory changed before worker admission. The guard correctly rejected the task before compilation. No binary or build manifest exists; this is not evidence against the scientific hypothesis."
+  },
+  "next_action": {
+    "prepared_response": "plans/R019_safe_build_response_v5_20261013.json",
+    "prepared_response_sha256": "7ad4f8d9ff9c8081ab7ff55feb97454587aa4f85b5b1d86c6afc7c6d05566f45",
+    "task_id": "gravity-R019-safe-build-v5",
+    "supersedes": "gravity-R019-safe-build-v4",
+    "resume_condition": "A later distinct wake with a fresh stable raw-headroom check of at least1536MiB, no active or unknown attempt, and the project lock available. Do not retry build-v4 or weaken the gate."
+  },
+  "checkpoint": {
+    "path": "CHECKPOINT.json",
+    "sha256": "5f2e3a625df5501d753c28827148230234a075269bcbbac60f2fb68ee33b87c4"
+  },
+  "active_archive_verification": {
+    "repository": "Yunbo-max/cpu",
+    "commit": "38b7ae0df38ce4ac55cdbaa4f0a5a0b218b11c59",
+    "archive": "active-seq191-297d99edadf8.zip",
+    "bytes": 113026688,
+    "sha256": "297d99edadf8969b322280003a804f4a60b8f04023e03261ce872b79152a480d",
+    "parts_verified": 27,
+    "files_verified": 2147,
+    "zip_crc": "passed",
+    "inventory": "ARCHIVE_INVENTORY.json",
+    "verification_mode": "restore.py --kind active --verify-only against the immutable remote commit"
+  },
+  "cleanup": {
+    "performed": false,
+    "reason": "Prior cross-context file reappearance anomaly remains unresolved; no new deletion or memory-release claim. Local evidence retained."
+  }
+}
