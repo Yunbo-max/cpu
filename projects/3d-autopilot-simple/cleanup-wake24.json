@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "project": "3d_autopilot_simple",
+  "observed_at_utc": "2026-10-13T09:56:43Z",
+  "scope": [
+    "/workspace/scratch/faa0880830cd/3d_autopilot_simple",
+    "/workspace/scratch/faa0880830cd/wake24-delta",
+    "/workspace/scratch/faa0880830cd/wake24-verify",
+    "/workspace/scratch/faa0880830cd/3D_Autopilot_Simple_Checkpoint.zip"
+  ],
+  "preconditions": {
+    "overlay_commit": "ca20639f3a44118d6807c471b2c6b9a2e73a6c22",
+    "latest_commit_restored": "0ce9767a30de15e9c18d5808ab774cebd0da4edd",
+    "remote_objects_read_back": 49,
+    "remote_objects_matching": 49,
+    "selected_restore_hashes_verified": true,
+    "sqlite_integrity": "ok",
+    "nonterminal_attempts": 0,
+    "supervisor_identity_alive": false
+  },
+  "actions": {
+    "project_contents_deleted_once": true,
+    "temporary_delta_deleted": true,
+    "temporary_restore_deleted": true,
+    "checkpoint_zip_deleted": true,
+    "other_projects_touched": false,
+    "global_cache_or_dev_shm_touched": false
+  },
+  "subsequent_observation": {
+    "project_root_exists": true,
+    "project_files": 0,
+    "project_bytes": 0,
+    "temporary_restore_exists": false,
+    "checkpoint_zip_exists": false,
+    "persistent_local_eviction_confirmed_for_observation": true
+  },
+  "note": "Deletion concerns disk files and related reclaimable cache only; it is not claimed to release an equal amount of RAM. A prior broad restore hit ENOSPC, not OOM, and was replaced by successful exact sparse restore verification."
+}
