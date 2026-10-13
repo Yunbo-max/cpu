@@ -1,5 +1,7 @@
 # 低秩、Coreset 与流式统计：完整科研历史
 
+> **2026-10-13：用户要求更新 GitHub 后停止。对应续研定时任务已停用，w014 已退出，无需自动创建 w015。以下持续授权和恢复步骤仅为历史记录；恢复本任务需要用户新的明确授权。**
+
 固定工作流：Research Autopilot Simple 0.3.0-simple.9；源摘要 `e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8`。CPU 单线程串行，项目内存上限 8,000,000,000 字节，数值进程地址空间上限 4 GiB。长期授权继续有效，归档边界不是科研结束。
 
 可直接阅读 [当前检查点](current/CHECKPOINT.json)、[研究历史与恢复说明](current/START_HERE.md)、[累计窗口账本](current/execution_windows/ledger.json)。当前最新研究结论与下一步以这些文件和已保存 runner inbox 为准。保留全部正负结果、失败记录、原始结果、代码、固定运行器和收据。没有已确认的新算法。

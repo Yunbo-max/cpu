@@ -9,8 +9,8 @@
   "revision": 1,
   "goal_contract_version": 2,
   "scientific_status": "w014 completed a deterministic float64 offset-stability audit for scalar variance and d=8 covariance states. Scalar raw uncentered moments first failed at exponent21, left-deep Welford at exponent53 versus11 under alternating versus blocked order, while balanced Chan and first-value shifting were exact through exponent53. In d=8, raw sum/Gram first failed at exponent23 and centered two-pass at exponent46, contradicting the preregistered exact thresholds; at exponent53 centered two-pass had 1024 diagonal and off-diagonal errors, while balanced Chan and first-row shifting remained exact. The frozen covariance audit intentionally failed on the boundary mismatch after independently recomputing all550 rows. This supports only a synthetic implementation-stability warning, not a FID-score, realistic-feature, general covariance, or originality claim.",
-  "next_action": "Restore and reconcile stopped w014, then establish w015 under the existing continuous authorization. Treat the synthetic offset-stability idea as complete; do not expand the exponent grid merely to refine fixture-specific thresholds. First inspect realistic feature offset and conditioning evidence or select a different unresolved streaming-statistics question, then freeze a decision-changing low-memory experiment only if the review identifies a consequential open claim. Continue CPU-only execution under the existing shared-memory rules.",
-  "automation_status": "enabled; hourly recurring schedule without end date",
+  "next_action": "Do not resume research or create w015 without explicit user authorization. Preserve all completed evidence.",
+  "automation_status": "disabled by explicit user request",
   "resource_limit_bytes": 8000000000,
   "worker_address_space_limit_bytes": 4294967296,
   "numerical_concurrency": 1,
@@ -285,9 +285,9 @@
     "The frozen covariance audit exited nonzero because centered two-pass first failed at exponent46 rather than53; this valid preregistered contradiction is not an implementation crash and cannot be rewritten as an audit pass",
     "Balanced Chan and explicit shifting were exact through exponent53 only on the tested dyadic fixtures; this is not a universal numerical-stability theorem or originality claim"
   ],
-  "updated_at": "2026-10-13T09:28:37.395836+00:00",
+  "updated_at": "2026-10-13T09:39:34.295734+00:00",
   "execution": {
-    "updated_at": "2026-10-13T09:28:37.395836+00:00",
+    "updated_at": "2026-10-13T09:39:34.295734+00:00",
     "overall_end_date": null,
     "overall_attempt_limit": null,
     "overall_time_limit": null,
@@ -590,7 +590,7 @@
           "elapsed_seconds": 0.5236433880018012,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 2695.640475511551,
+          "remaining_deadline_seconds": 2038.7461743354797,
           "remaining_seconds": 1799.4763566119982,
           "reserved_seconds": 0
         },
@@ -610,7 +610,7 @@
           "elapsed_seconds": 6.283977038998273,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 5801.636988401413,
+          "remaining_deadline_seconds": 5144.736939430237,
           "remaining_seconds": 1793.7160229610017,
           "reserved_seconds": 0
         },
@@ -743,5 +743,10 @@
       3,
       3
     ]
+  },
+  "user_stop": {
+    "requested_at": "2026-10-13T09:39:28.805965+00:00",
+    "request": "你更新github然后停止",
+    "status": "stopped_by_user"
   }
 }
