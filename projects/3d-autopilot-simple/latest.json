@@ -8,7 +8,7 @@
   "restore_script_blob_sha": "3e9d21397836f41f8bdf1e8de977c08e89c55e9e",
   "restore_script_sha256": "c3518fb010072bc1ff15773fab9353506816447e46cc3191fa55fae987f60165",
   "original_root": "/workspace/scratch/faa0880830cd/3d_autopilot_simple",
-  "active_idea": "teso-soft-translation-prior-calibration",
+  "active_idea": "linear-fundamental-public-data-validation",
   "revision": 1,
   "goal_contract": 1,
   "attempts_used": 82,
@@ -21,8 +21,8 @@
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "wake21_verified_restore_removed_helper_rematerialized",
-  "local_workspace_state": "The execution environment pruned the prior project root before verification. A fresh 70-file sparse restore was fully verified and then removed; the fetched helper reappeared after deletion, so persistent full cleanup is not claimed.",
+  "cleanup_status": "wake22_overlay_uploaded_pending_remote_restore_verification",
+  "local_workspace_state": "Wake22 sparse working state remains local pending exact remote restore verification; do not evict until verification succeeds.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -48,12 +48,17 @@
       "commit": "d885f869aee4b136ca3144fe2aa9350811e00f4d",
       "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-12-wake21/manifest.json",
       "archive_sha256": "d9167fdce1d653bfdd143cd65bf832f521142b3cdbb0821700882da432dd94ac"
+    },
+    {
+      "commit": "092ba8834e1032938a5acb7c0194a19be7cffe5e",
+      "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-13-wake22/manifest.json",
+      "archive_sha256": "ba9afb5ba8fecb49e45d6ea0248219a9e4061b118bb06beb4ccf0f6d1c5f4362"
     }
   ],
   "restore_usage": "Fetch helper from this latest.json commit; --commit must be that current main commit, not only archive_commit. Helper resolves immutable base+overlays before extracting selected paths into a new empty staging directory.",
-  "journal_version": 134,
-  "empirical_research_cycles": 30,
-  "latest_handoff": "notes/handoff-wake21.md",
+  "journal_version": 138,
+  "empirical_research_cycles": 31,
+  "latest_handoff": "notes/handoff-wake22.md",
   "verified_at_utc": "2026-10-13T05:22:10Z",
   "verification_path": "projects/3d-autopilot-simple/verification-wake21.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
@@ -63,5 +68,7 @@
   "cleanup_receipt_commit": "8938fa34adbed88834b5c749664b27765ce95a18",
   "verification_readback_blob_sha": "534149c4e91257e80cd93655ae31cb339761046d",
   "total_index_files": 2940,
-  "build_receipt_path": "projects/3d-autopilot-simple/build-wake21.json"
+  "build_receipt_path": "projects/3d-autopilot-simple/build-wake22.json",
+  "pending_overlay_commit": "092ba8834e1032938a5acb7c0194a19be7cffe5e",
+  "pending_verification": true
 }
