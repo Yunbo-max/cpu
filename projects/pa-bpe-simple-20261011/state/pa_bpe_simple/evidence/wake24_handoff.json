@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-13T07:39:38Z",
+  "generation_from": 24,
+  "generation_to": 25,
+  "active_idea": "frozen-contamination-source-recovery",
+  "status": "source_gap_globalvoices_raw_required",
+  "verified_output": {
+    "path": "execution_windows/wake24/output/contamination_source_recovery_audit_v2.json",
+    "sha256": "5aa5eeb5bf1e5d5be291afd8f622c5dfd7906e64770da748bc30ef971a5caac4"
+  },
+  "attempts": [
+    {
+      "task_id": "wake24-contamination-source-audit-v1",
+      "attempt_id": "attempt-7cd6c81205644d3d8c84b7a7c2a3eb4f",
+      "status": "invalid_inputs",
+      "exit_code": 0,
+      "wall_seconds": 0.34313734600073076,
+      "reason": "SQLite WAL read updated pinned selection.sqlite3-shm; output is not accepted scientific evidence",
+      "receipt_sha256": "3188b78a5ffc45e3bff95658842de1ebcf5796614bd60c358629a624fcc54ab7"
+    },
+    {
+      "task_id": "wake24-contamination-source-audit-v2",
+      "attempt_id": "attempt-13dab8e356c044f889655629e5ff6346",
+      "status": "succeeded",
+      "exit_code": 0,
+      "wall_seconds": 0.3847614730002533,
+      "receipt_sha256": "84bf4aa21249aedb06857ffcd88759b08d0a49bc84192dfae630d9076923ea51"
+    }
+  ],
+  "recoverable_inventory": {
+    "training_documents": {"en": 209, "fr": 155, "es": 151, "total": 515},
+    "tico_aligned_rows": 970,
+    "tico_items": 2910,
+    "globalvoices_fingerprint_items": 1536,
+    "globalvoices_stored_shingle_rows": 27225,
+    "flores_expected_rows_per_language": 1012,
+    "books_sampled_alignment_units": 5120
+  },
+  "blocker": {
+    "kind": "protocol_incompatible_persisted_fingerprints",
+    "stored_builder": "Unicode regex word tokens joined with NUL",
+    "frozen_rule": "whitespace-separated normalized tokens",
+    "raw_text_persisted": false,
+    "raw_archives_in_github_index": false,
+    "required_archive_sha256": {
+      "en": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f",
+      "fr": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587",
+      "es": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+    }
+  },
+  "science_hold": [
+    "Tatoeba contamination decisions",
+    "production development selection",
+    "tokenizer training",
+    "fairness scoring"
+  ],
+  "resource_accounting": {
+    "attempts": 2,
+    "wall_seconds": 0.7278988190009841,
+    "cpu_seconds": null,
+    "max_rss_bytes": null,
+    "measurement_note": "Runner recorded wall time but this task was not wrapped by a per-process CPU/RSS meter; null is unknown, not zero.",
+    "reserved_seconds": 0,
+    "oom": 0,
+    "oom_kill": 0
+  },
+  "next_action": "Recover and hash-verify the three frozen OPUS GlobalVoices raw archives, reconstruct the exact 512x3 units from the frozen source manifest, rebuild addendum-compatible whitespace-token fingerprints, then apply the full contamination inventory to the 38091 eligible triangles and independently verify deterministic selection."
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-13T07:39:38Z",
+  "events": [
+    {
+      "event_id": "wake24-memory-transient-low",
+      "kind": "waiting_for_memory_resolved",
+      "first_observed_headroom_bytes": 1048576,
+      "launch_headroom_bytes": 574222336,
+      "launch_condition_bytes": 536870912,
+      "action": "Did not start a high-memory task; waited and remeasured. Launched only a low-memory source audit after recovery.",
+      "oom": 0,
+      "oom_kill": 0
+    },
+    {
+      "event_id": "wake24-sqlite-shm-input-mutation",
+      "kind": "invalid_inputs",
+      "attempt_id": "attempt-7cd6c81205644d3d8c84b7a7c2a3eb4f",
+      "symptom": "A mode=ro SQLite WAL query changed selection.sqlite3-shm after command exit 0.",
+      "impact": "Runner rejected the output; it is retained but not accepted as scientific evidence.",
+      "repair": "Restored the pinned shared-memory file, copied DB/WAL/SHM to an isolated temporary directory inside the command, and ran explicit replacement task wake24-contamination-source-audit-v2.",
+      "repair_status": "verified"
+    },
+    {
+      "event_id": "wake24-resource-measurement-gap",
+      "kind": "measurement_gap",
+      "symptom": "The bounded runner recorded command wall time but no per-process CPU or peak RSS fields.",
+      "impact": "CPU and RSS are reported as unknown rather than inferred or zero.",
+      "next_action": "Wrap subsequent consequential commands with the existing measure_command helper while preserving runner supervision."
+    }
+  ]
+}

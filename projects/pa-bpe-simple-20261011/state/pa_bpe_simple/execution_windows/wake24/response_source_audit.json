@@ -1,0 +1,33 @@
+{
+  "response_id": "wake24-contamination-source-audit-reviewed",
+  "request_id": "decision-fbbb6dd99cc2494d84e252a28b87c18a",
+  "idea": "frozen-contamination-source-recovery",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The first audit attempt was invalidated because a read-only SQLite query updated its pinned WAL shared-memory file. The explicit replacement queried an isolated copy, preserved every pinned input hash, and completed successfully. The result establishes a real source-compatibility blocker: the stored GlobalVoices shingles cannot implement the frozen Tatoeba whitespace-token rule and the raw archives needed to rebuild them are absent from the persistent archive index.",
+  "events": [
+    {
+      "event_id": "wake24-frozen-contamination-source-gap-verified",
+      "kind": "research_cycle",
+      "goal_contract_version": 1,
+      "hypothesis": "The frozen contamination inventories already persisted in the project are sufficient and algorithmically compatible with the Tatoeba implementation addendum.",
+      "prediction": "All canonical hashes will verify, every exposed-text inventory will be reconstructable, and the stored five-token GlobalVoices shingles will use the addendum's whitespace-token definition.",
+      "result": "Canonical hashes and recoverable inventories verified: 515 selected training documents, 2,910 TICO items, 1,536 GlobalVoices items represented only by fingerprints, 1,012 expected FLORES devtest rows per language, and 5,120 sampled book alignment units. The stored GlobalVoices builder instead used Unicode-regex word tokens joined with NUL, while the frozen addendum requires whitespace-separated normalized tokens. Raw GlobalVoices text was not persisted and its three frozen archive hashes are absent from archives/index.json.",
+      "interpretation": "The sufficiency hypothesis is rejected. Existing GlobalVoices exact and shingle hashes cannot reconstruct the raw normalized text or the required whitespace-token shingles, so using them would silently change the frozen contamination protocol. No Tatoeba row may be selected and no tokenizer/fairness score may be produced from this branch yet.",
+      "next_action": "Recover the three frozen OPUS GlobalVoices archives by their recorded SHA256 values, reconstruct the exact 512x3 units from the frozen source manifest, rebuild addendum-compatible fingerprints, then apply the complete inventory to the 38,091 eligible triangles and independently verify deterministic selection.",
+      "reason": "The replacement task completed with all 24 pinned inputs unchanged and produced a hash-bound source audit.",
+      "evidence": [
+        {"path": "output/contamination_source_recovery_audit_v2.json", "sha256": "5aa5eeb5bf1e5d5be291afd8f622c5dfd7906e64770da748bc30ef971a5caac4"},
+        {"path": ".research-autopilot/runner/attempts/attempt-13dab8e356c044f889655629e5ff6346/receipt.json", "sha256": "84bf4aa21249aedb06857ffcd88759b08d0a49bc84192dfae630d9076923ea51"},
+        {"path": ".research-autopilot/runner/attempts/attempt-7cd6c81205644d3d8c84b7a7c2a3eb4f/receipt.json", "sha256": "3188b78a5ffc45e3bff95658842de1ebcf5796614bd60c358629a624fcc54ab7"}
+      ]
+    }
+  ],
+  "continuation": {
+    "reason": "partial",
+    "checkpoint_refs": [
+      {"path": "output/contamination_source_recovery_audit_v2.json", "sha256": "5aa5eeb5bf1e5d5be291afd8f622c5dfd7906e64770da748bc30ef971a5caac4"}
+    ],
+    "next_action": "Recover and hash-verify the three frozen OPUS GlobalVoices raw archives, rebuild whitespace-token fingerprints without reading development outcomes, and only then resume contamination filtering and deterministic Tatoeba selection. Keep tokenizer training and fairness scoring on hold."
+  }
+}
