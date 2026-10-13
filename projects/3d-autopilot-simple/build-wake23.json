@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "project": "3d_autopilot_simple",
+  "snapshot": "2026-10-13-wake23",
+  "built_at_utc": "2026-10-13T07:51:01.641Z",
+  "parent_main_at_delta_build": "9688ab6b5791bcaec019e902e59b51bcca23e4eb",
+  "checkpoint": {
+    "bytes": 60018447,
+    "files": 1113,
+    "sha256": "9d8db5a418ea4801d7d7aaeb322dc8981ec9d93b22fc634fe63a8cba62a2b5ff"
+  },
+  "overlay": {
+    "changed_files": 179,
+    "parts": 66,
+    "archive_bytes": 46757420,
+    "archive_sha256": "aac89c228fbd15813bcda42c3b53f408ae5af90516bb41ae8cb98b3554a474c4",
+    "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-13-wake23/manifest.json"
+  },
+  "state": {
+    "active_idea": "gravity-pose-public-rgbd-validation",
+    "revision": 1,
+    "goal_contract": 1,
+    "attempts_used": 91,
+    "command_seconds": 3691.1559064700295,
+    "journal_version": 151,
+    "empirical_research_cycles": 32,
+    "supervisor_running": false,
+    "unknown_attempts": 0
+  },
+  "exclusions": [
+    {
+      "path": "data/tum/rgbd_dataset_freiburg1_xyz.tgz",
+      "reason": "official re-downloadable source; exact URL,size,ETag,Last-Modified and SHA-256 retained"
+    },
+    {
+      "pattern": "data/tum/*.part*",
+      "reason": "incomplete/reconstructable acquisition temporaries"
+    },
+    {
+      "pattern": ".research-autopilot/.simple-loop.sqlite3.*",
+      "reason": "non-authoritative SQLite temporary copies; coherent online backup retained"
+    }
+  ]
+}
