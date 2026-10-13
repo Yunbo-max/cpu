@@ -1,3 +1,5 @@
+> **STOPPED BY USER — 2026-10-13.** The 3D research automation is disabled. Read [STOP.json](STOP.json) and [CHECKPOINT.json](CHECKPOINT.json) before restoring any archive. Prior continuation instructions are historical; explicit new user authorization is required to resume. Existing results and archives are preserved.
+
 # autopilot-3d-20261011 — 2026-10-13 recovery handoff
 
 Latest state remains runner sequence190; no new scientific command executed. See [CHECKPOINT.json](CHECKPOINT.json), [PROGRESS-20261013.md](PROGRESS-20261013.md), [archive-manifest.json](archive-manifest.json) and [STORAGE_POLICY.json](STORAGE_POLICY.json).
