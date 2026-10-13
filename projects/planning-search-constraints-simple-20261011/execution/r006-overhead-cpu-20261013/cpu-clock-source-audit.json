@@ -1,0 +1,179 @@
+{
+  "valid_read_only_boundary_audit": true,
+  "source_manifest_sha256": "cc7fc2ed35785e94f6829bbd7c0fe7b1bfdea0928f352ce4cfd470e8856f4fff",
+  "source_files": [
+    {
+      "path": "vendor/scorpion_clock_control_r006_v2/src/search/task_utils/ac3_disambiguation.cc",
+      "sha256": "a92e510cf7a7a77d483723ef48d83966430d490f10c0822565d7c04af2a1ffaa",
+      "boundary_lines": [
+        {
+          "line": 15,
+          "text": "using ProfileClock = std::chrono::steady_clock;"
+        },
+        {
+          "line": 47,
+          "text": "bool profile_phase_started = false;"
+        },
+        {
+          "line": 48,
+          "text": "ProfileTimePoint profile_phase_start;"
+        },
+        {
+          "line": 87,
+          "text": "    return elapsed_ns(profile_phase_start, ProfileClock::now());"
+        },
+        {
+          "line": 137,
+          "text": "                              std::uint64_t construction_elapsed_ns) {"
+        },
+        {
+          "line": 185,
+          "text": "    const bool valid = profile_phase_started && attribution_errors == 0 && detail_valid &&"
+        },
+        {
+          "line": 191,
+          "text": "        covered_ns <= construction_elapsed_ns &&"
+        },
+        {
+          "line": 200,
+          "text": "        << \" construction_elapsed_ns=\" << construction_elapsed_ns"
+        },
+        {
+          "line": 219,
+          "text": "            << \" valid=\" << valid << \" construction_elapsed_ns=\" << construction_elapsed_ns"
+        },
+        {
+          "line": 240,
+          "text": "            << \" construction_elapsed_ns=\" << construction_elapsed_ns"
+        },
+        {
+          "line": 296,
+          "text": "        << \" construction_elapsed_ns=\" << construction_elapsed_ns"
+        },
+        {
+          "line": 302,
+          "text": "        << \" other_construction_ns=\" << (covered_ns <= construction_elapsed_ns"
+        },
+        {
+          "line": 303,
+          "text": "            ? construction_elapsed_ns - covered_ns : 0)"
+        },
+        {
+          "line": 332,
+          "text": "                        const AC3CallProfile &profile, std::uint64_t construction_elapsed_ns) {"
+        },
+        {
+          "line": 336,
+          "text": "        << \" phase_started=\" << profile_phase_started"
+        },
+        {
+          "line": 337,
+          "text": "        << \" construction_elapsed_ns=\" << construction_elapsed_ns"
+        },
+        {
+          "line": 358,
+          "text": "    if (!profile_phase_started || refinement_depth || rewire_depth)"
+        },
+        {
+          "line": 401,
+          "text": "    if (!profile_phase_started || rewire_depth ||"
+        },
+        {
+          "line": 429,
+          "text": "    if (!profile_phase_started || rewire_depth != 1 || rewire_detail_depth)"
+        },
+        {
+          "line": 519,
+          "text": "void begin_ac3_profile_phase() {"
+        },
+        {
+          "line": 533,
+          "text": "    profile_phase_started = true;"
+        },
+        {
+          "line": 534,
+          "text": "    profile_phase_start = ProfileClock::now();"
+        },
+        {
+          "line": 537,
+          "text": "void print_ac3_profile(std::ostream &out, const char *phase) {"
+        },
+        {
+          "line": 538,
+          "text": "    const auto construction_elapsed_ns = profile_phase_started"
+        },
+        {
+          "line": 539,
+          "text": "        ? elapsed_ns(profile_phase_start, ProfileClock::now()) : 0;"
+        },
+        {
+          "line": 541,
+          "text": "    print_call_profile(out, phase, \"optional_full\", optional_full_profile, construction_elapsed_ns);"
+        },
+        {
+          "line": 542,
+          "text": "    print_call_profile(out, phase, \"optional_single\", optional_single_profile, construction_elapsed_ns);"
+        },
+        {
+          "line": 543,
+          "text": "    print_call_profile(out, phase, \"modified_vars\", modified_vars_profile, construction_elapsed_ns);"
+        },
+        {
+          "line": 547,
+          "text": "        << \" phase_started=\" << profile_phase_started"
+        },
+        {
+          "line": 548,
+          "text": "        << \" construction_elapsed_ns=\" << construction_elapsed_ns"
+        },
+        {
+          "line": 552,
+          "text": "    print_refinement_profile(out, phase, construction_elapsed_ns);"
+        }
+      ]
+    },
+    {
+      "path": "vendor/scorpion_clock_control_r006_v2/src/search/task_utils/ac3_disambiguation.h",
+      "sha256": "8adc8bedb2c6031738384d9d6db82d748a69efce46081881ec1a24434be2cb23",
+      "boundary_lines": [
+        {
+          "line": 15,
+          "text": "void begin_ac3_profile_phase();"
+        },
+        {
+          "line": 17,
+          "text": "void print_ac3_profile(std::ostream &out, const char *phase);"
+        }
+      ]
+    },
+    {
+      "path": "vendor/scorpion_clock_control_r006_v2/src/search/cartesian_abstractions/cost_saturation.cc",
+      "sha256": "a16ecf8f900fce68b04bfeae843a2afb7489e2726913cd1f50179690b4904fc5",
+      "boundary_lines": [
+        {
+          "line": 119,
+          "text": "    disambiguation::begin_ac3_profile_phase();"
+        },
+        {
+          "line": 171,
+          "text": "    disambiguation::print_ac3_profile(cout, \"additive_cartesian_init_complete\");"
+        }
+      ]
+    }
+  ],
+  "observed_linux_python_thread_clock": {
+    "available": true,
+    "resolution_seconds": 1e-09,
+    "positive_cpu_delta_ns": 1247856,
+    "scope": "Real host/Python API availability only; C++ clock path not compiled or qualified yet. Resolution is not accuracy."
+  },
+  "next_measurement_contract": {
+    "native_phase": "Single original cost_saturation construction interval; exact same begin/print boundary. Original steady_wall construction/partition retained untouched.",
+    "proposed_read_order": "ThreadCPU start immediately before wall start; wall end immediately before ThreadCPU end. Separately labelled integer thread_cpu_elapsed_ns and steady_wall construction_elapsed_ns. CPU interval includes boundary-read overhead; record and bound it rather than directly subtract unaligned intervals.",
+    "single_thread": "Compiler/solver one thread, inherited affinity0; check actual native runtime",
+    "controls": "Separate frozen coarse-parent-plus-CPU and original control fine/counts-plus-CPU builds, no algorithm/order/count/policy change. Qualify final1000 native graph+all plan VAL, clock unit/success/positive deltas and full source/binary/config identity before paired timing.",
+    "predictions": "If wall noise is material, per-run wall/CPU divergence or CPU ratios clarify which contrast is unstable. Equal CPU-work does not establish per-split graph identity; CPU clock does not automatically remove frequency/cache effects.",
+    "next_task": "Prepare two source-isolated CPU-boundary builds; reuse retained original controls and graphs, new task IDs/pins, fresh capacity, bounded compile/source verification, preserve all prior timings/failures."
+  },
+  "scope": "Engineering dependency audit after inconclusive native overhead contrast; no new independent benchmark/sample, intrinsic predicate attribution, speedup or algorithm claim."
+}

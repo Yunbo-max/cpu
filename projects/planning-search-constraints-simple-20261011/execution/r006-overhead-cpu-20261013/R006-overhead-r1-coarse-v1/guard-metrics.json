@@ -1,0 +1,31 @@
+{
+  "status": "completed",
+  "exit_code": 0,
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004/scripts/r006_native_stdin_v1.py",
+    "--sas",
+    "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004/results/R005-profile-blocksworld-p05-states_ops-v1/output.sas",
+    "--binary",
+    "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004/results/R006-audit-coarse-relink-v3/downward-audit-no-advice",
+    "--search",
+    "astar(cegar(max_states=1000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())"
+  ],
+  "cwd": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004/results/R006-overhead-r1-coarse-v1",
+  "started_utc": "2026-10-13T18:47:52.937449+00:00",
+  "finished_utc": "2026-10-13T18:47:53.748864+00:00",
+  "wall_seconds": 0.811418502999004,
+  "peak_process_group_rss_bytes_sampled": 30101504,
+  "rss_samples": 8,
+  "cgroup_memory_before_bytes": 6269837312,
+  "cgroup_memory_peak_bytes_sampled": 6270492672,
+  "host_process_group": 156946,
+  "cpu_affinity": [
+    0
+  ],
+  "threads": 1,
+  "address_space_limit_bytes_per_process": 3500000000,
+  "process_group_rss_abort_bytes": 2800000000,
+  "shared_cgroup_abort_bytes": 7800000000,
+  "timing_scope": "shared host, contention uncontrolled; diagnostic timing only"
+}

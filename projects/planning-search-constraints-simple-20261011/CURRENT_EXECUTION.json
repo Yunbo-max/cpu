@@ -1,36 +1,36 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-13T18:16:37.308040+00:00",
+  "updated_utc": "2026-10-13T19:11:41.575235+00:00",
   "window": "W0004",
   "execution_root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
   "status_observed": "awaiting_decision",
   "active_or_unknown_attempts": 0,
   "current_accepted_decision": {
-    "path": "plans/W4_R006_clock_control_decision_v4_001.json",
-    "sha256": "ea7ab46a54506902a4cfa645fab527b3897bb46520e7efc330d93e4b2ab160a0"
+    "path": "plans/W4_R006_cpu_native_qualification_decision_v4_001.json",
+    "sha256": "56c40d415c8bf809b4ac9b4cc37611cb98b8d12291ca214458a70fe864cd4852"
   },
   "window_budget": {
-    "attempts_used": 14,
+    "attempts_used": 34,
     "deadline_epoch": 1791999247.845339,
-    "elapsed_seconds": 712.7839457820155,
+    "elapsed_seconds": 768.7501078230198,
     "max_attempts": 500,
     "max_command_seconds": 80000,
-    "remaining_deadline_seconds": 83902.27470564842,
-    "remaining_seconds": 79287.21605421798,
+    "remaining_deadline_seconds": 80548.09915351868,
+    "remaining_seconds": 79231.24989217697,
     "reserved_seconds": 0
   },
   "project_ledger": {
     "prior_attempt_floor": 214,
     "prior_command_seconds_floor": 14447.537480669998,
-    "window_attempts": 14,
-    "window_command_seconds": 712.7839457820155,
-    "combined_attempt_floor": 228,
-    "combined_command_seconds_floor": 15160.321426452014,
+    "window_attempts": 34,
+    "window_command_seconds": 768.7501078230198,
+    "combined_attempt_floor": 248,
+    "combined_command_seconds_floor": 15216.287588493018,
     "scope": "Command wall accounting includes 1823s conservative failed settlement and earlier reported missing-host tail; not exact CPU time or scientific cycles",
     "native_model_usage": "unknown",
-    "cumulative_scientific_cycles": "Do not infer from attempts; actual journal cycle records retained"
+    "cumulative_scientific_cycles": "Read actual journal cycle records; attempts and timing repetitions are not scientific cycles"
   },
   "actual_health": {
     "activity_age_seconds": 41.88854432106018,
@@ -69,8 +69,8 @@
     "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
     "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
   },
-  "next_task": "R006-clock-control-build-v1 planned, not yet dispatched",
-  "active_coordinator": "Current Work conversation, single writer and single native queue",
+  "next_task": "R006-cpu-clock-counts-qualification-v1 ready but not submitted",
+  "active_coordinator": "Current Work conversation, one writer; sameW4 supervisor owned82646 deliberately SIGINT at quiet34terminal archive boundary, exit130; not a user goal stop; no native worker running",
   "guards": {
     "cpu_only": true,
     "threads": 1,
@@ -84,5 +84,73 @@
     "Coarse audit link failed after new CEGAR object became empty",
     "Coarse repaired binary later read as invalid zeros/SHA mismatch; fresh re-link without cache advice succeeded, independent readback and native export qualified; cause unresolved"
   ],
-  "quiet_archive_boundary": "Owned supervisor session63161 exited130 after immediate fresh check of0active/unknown/reservations. This is engineering quiet boundary, not user stop or research completion."
+  "quiet_archive_boundary": "Owned supervisor session63161 exited130 after immediate fresh check of0active/unknown/reservations. This is engineering quiet boundary, not user stop or research completion.",
+  "overhead_native_results": {
+    "successful_native": 12,
+    "warmups": 3,
+    "scored": 9,
+    "independent_cases": 1,
+    "all_cost24_independent_VAL": true,
+    "common_counts_and_search_work_and_plan_exact": true,
+    "construction_ratios": {
+      "fine_over_counts": {
+        "observed": [
+          0.814768520704972,
+          0.9989623743843993,
+          1.0398463597717227
+        ],
+        "range": [
+          0.814768520704972,
+          1.0398463597717227
+        ],
+        "median": 0.9989623743843993
+      },
+      "counts_over_coarse": {
+        "observed": [
+          1.30275596259676,
+          1.0597654000270293,
+          1.3549696590255982
+        ],
+        "range": [
+          1.0597654000270293,
+          1.3549696590255982
+        ],
+        "median": 1.30275596259676
+      },
+      "fine_over_coarse": {
+        "observed": [
+          1.061444548484544,
+          1.0586657603014338,
+          1.4089602675389006
+        ],
+        "range": [
+          1.0586657603014338,
+          1.4089602675389006
+        ],
+        "median": 1.061444548484544
+      }
+    },
+    "original_refused_attempt": "R006-overhead-r2-counts-v1 native guard resource_wait at6685921280B before solver launch; new-IDv2 succeeded; old refused receipt retained",
+    "scope": "One exposed Blocksworld p05 exact1000 development condition. Rotations are repeated timing observations, not independent cases/cycles. Shared-host noise and a memory-wait gap prevent superiority or intrinsic predicate-cost inference. Every successful cost24 plan independently VAL valid. Exact final graphs qualified per mode, not every timing step. Zero counts durations mean disabled measurement. Conditional branch and common audit-hook argument cost retained."
+  },
+  "cpu_clock_control": {
+    "build_task": "R006-cpu-clock-control-build-v1",
+    "receipt_status": "succeeded",
+    "builds": {
+      "coarse": {
+        "binary": "results/R006-cpu-clock-control-build-v1/coarse/downward-cpu-clock",
+        "binary_sha256": "e6b21554b4f7c08288236c54f56f4fb3b5ca928400e267bec4ac6000a0cf51be",
+        "source_manifest": "results/R006-cpu-clock-control-build-v1/coarse/source-manifest.json",
+        "source_manifest_sha256": "fa0adcae4b644c27986f4eaea80486cbf70d3b449b7c81eac67e4cff42c7683b"
+      },
+      "fine_counts": {
+        "binary": "results/R006-cpu-clock-control-build-v1/fine_counts/downward-cpu-clock",
+        "binary_sha256": "30d810ab1b5cbb642eb486a3ad4a8ce8963333aa4e52154ef80a34bf7f7eaa10",
+        "source_manifest": "results/R006-cpu-clock-control-build-v1/fine_counts/source-manifest.json",
+        "source_manifest_sha256": "73c5538de796fff908dd689b4bfa5b990f2fc45d1d51a7d3b86ed9797b64da75"
+      }
+    },
+    "native_clock_qualified": false,
+    "native_CPU_timing_results": null
+  }
 }

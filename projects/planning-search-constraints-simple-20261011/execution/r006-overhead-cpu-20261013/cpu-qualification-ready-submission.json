@@ -1,0 +1,89 @@
+{
+  "submission_id": "submit-R006-cpu-clock-counts-qualification-v1",
+  "idea": "constraint-propagation-cost-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "R006-cpu-clock-counts-qualification-v1",
+      "argv": [
+        "python3",
+        "scripts/run_r006_cpu_clock_qualification_v1.py",
+        "--mode",
+        "counts",
+        "--task-id",
+        "R006-cpu-clock-counts-qualification-v1"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Qualify actual C++ counts CPU clock labelled positive fields at original wall boundaries, exact final1000 graph and independently VAL-valid cost24 plan before new CPU/wall comparison",
+      "research_scope": "diagnostic",
+      "timeout_seconds": 210,
+      "cwd": ".",
+      "depends_on": [
+        "R006-cpu-clock-control-build-v1",
+        "R006-final-frontier-exact-graph-audit-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/run_r006_cpu_clock_qualification_v1.py",
+          "sha256": "a93e86f70a812257f4480dd6ccddf682759d0d974907ae7611ac8ef2f31c0160"
+        },
+        {
+          "path": "scripts/audit_r006_graph_v1.py",
+          "sha256": "c694f06a32bf877ae151e094a918c066050823f17238a70fc9261801b100279e"
+        },
+        {
+          "path": "scripts/bounded_command.py",
+          "sha256": "47d3de6874904d055a7152967319ac02b64784f042037e8c11c872d50644baaf"
+        },
+        {
+          "path": "scripts/r006_native_stdin_v1.py",
+          "sha256": "23836e9befbd81ebc8e8e7a57a48e901aaa148453624febdf5be037ad9d6bf31"
+        },
+        {
+          "path": "results/R006-cpu-clock-control-build-v1/fine_counts/build_identity.json",
+          "sha256": "eac8d93c9571ba764c285b936e2c5cdfaced3a3ae7b8dcc68069c35aeb645b3a"
+        },
+        {
+          "path": "results/R006-cpu-clock-control-build-v1/fine_counts/source-manifest.json",
+          "sha256": "73c5538de796fff908dd689b4bfa5b990f2fc45d1d51a7d3b86ed9797b64da75"
+        },
+        {
+          "path": "results/R006-graph-export-coarse-v2/graph.tsv",
+          "sha256": "6d8625157b472ac3c372bfda6afc6124f1468c70a8e6cf8a0e6df2926bb39d3a"
+        },
+        {
+          "path": "plans/configs/R006-fixed1000-blocksworld-p05-states_ops-v1.json",
+          "sha256": "57a7e9a592702dc5649e5395e7feaf60fdcfd7cf18799cb85fb6bc00639264b7"
+        },
+        {
+          "path": "results/R006-cpu-clock-source-audit-v1.json",
+          "sha256": "d1dd9bb70e8f44d35374363e5155b75cc52c3d06d8ed99c8417535a14f885e63"
+        },
+        {
+          "path": "results/R006-overhead-analysis-v1.json",
+          "sha256": "5c0ef9fa4c6fe545b21640cef39af8ea6cef999d8936ec796ba078f55e49b586"
+        },
+        {
+          "path": "vendor/val/builds/release/bin/Validate",
+          "sha256": "f930ece7eae862eca84bd03eeee22ca6fbcdd83ff8b0945f1f006b95f160b705"
+        },
+        {
+          "path": "vendor/val/builds/release/bin/libVAL.so",
+          "sha256": "fc81bf2976ed8e29141247d6230503612be3be4046eed88bd7a987db88de3533"
+        },
+        {
+          "path": "plans/W4_R006_cpu_native_qualification_decision_v4_001.json",
+          "sha256": "56c40d415c8bf809b4ac9b4cc37611cb98b8d12291ca214458a70fe864cd4852"
+        }
+      ],
+      "outputs": [
+        "results/R006-cpu-clock-counts-qualification-v1/result.json",
+        "results/R006-cpu-clock-counts-qualification-v1/graph-audit.json"
+      ],
+      "reasoning_ref": {
+        "path": "plans/W4_R006_cpu_native_qualification_decision_v4_001.json",
+        "sha256": "56c40d415c8bf809b4ac9b4cc37611cb98b8d12291ca214458a70fe864cd4852"
+      }
+    }
+  ]
+}

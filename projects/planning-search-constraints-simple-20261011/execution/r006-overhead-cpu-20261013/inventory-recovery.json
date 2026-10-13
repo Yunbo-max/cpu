@@ -1,0 +1,50 @@
+{
+  "runs": [
+    {
+      "task_id": "R006-overhead-r2-counts-v2",
+      "task_plan": "plans/task-R006-overhead-r2-counts-v2.json",
+      "arm": "counts",
+      "rotation": 2,
+      "warmup": false,
+      "supersedes": "R006-overhead-r2-counts-v1"
+    },
+    {
+      "task_id": "R006-overhead-r2-fine-v1",
+      "task_plan": "plans/task-R006-overhead-r2-fine-v1.json",
+      "arm": "fine",
+      "rotation": 2,
+      "warmup": false
+    },
+    {
+      "task_id": "R006-overhead-r2-coarse-v1",
+      "task_plan": "plans/task-R006-overhead-r2-coarse-v1.json",
+      "arm": "coarse",
+      "rotation": 2,
+      "warmup": false
+    },
+    {
+      "task_id": "R006-overhead-r3-fine-v1",
+      "task_plan": "plans/task-R006-overhead-r3-fine-v1.json",
+      "arm": "fine",
+      "rotation": 3,
+      "warmup": false
+    },
+    {
+      "task_id": "R006-overhead-r3-coarse-v1",
+      "task_plan": "plans/task-R006-overhead-r3-coarse-v1.json",
+      "arm": "coarse",
+      "rotation": 3,
+      "warmup": false
+    },
+    {
+      "task_id": "R006-overhead-r3-counts-v1",
+      "task_plan": "plans/task-R006-overhead-r3-counts-v1.json",
+      "arm": "counts",
+      "rotation": 3,
+      "warmup": false
+    }
+  ],
+  "original_inventory_sha256": "6368e74dce2a384c34b8073dea4c6a8f46f1b338e4c7628cbcad2f7d2bc77734",
+  "retained_failure": "R006-overhead-r2-counts-v1 refused before native launch; no valid timing. Remaining original IDs unsubmitted, retain first6successes. Gap/order deviation disclosed.",
+  "observer_repair": "Release full status object immediately; poll original exact receipts, no repeated multi-megabyte status snapshots during native timing."
+}
