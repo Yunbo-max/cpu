@@ -1,45 +1,33 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-13T15:37:32.197538+00:00",
-  "execution_state_observed": "native_solver_running",
+  "updated_utc": "2026-10-13T16:18:56.039682+00:00",
   "window": "W0003",
-  "user_steering_time": "2026-10-13T16:27:45+01:00",
-  "coordinator": "current Work chat",
   "execution_root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0003",
-  "supervisor_session_id_unified_exec": 94542,
-  "supervisor_health": {
+  "R005L1": "both600s rows terminal withnative memoryexit22; raw logs published separately",
+  "active_execution_observed": "R006-build-profile-v4-retry1",
+  "attempt_id": "attempt-11a52899022b4f149ddab57925371fb7",
+  "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
+  "observed_supervisor_health": {
     "exit_status": null,
     "exited_at": null,
     "identity": {
       "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
-      "pid": 124936,
-      "start_ticks": 4195610
+      "pid": 132357,
+      "start_ticks": 4401122
     },
-    "last_activity_at": "2026-10-13T15:37:32.153802+00:00",
-    "last_activity_epoch": 1791905852.1537962,
+    "last_activity_at": "2026-10-13T16:18:55.762808+00:00",
+    "last_activity_epoch": 1791908335.7628024,
     "mode": "run",
     "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0003",
     "schema_version": 1,
-    "session_id": "8d996cb2ef8f42af9dfa30013f99ec91",
+    "session_id": "f1e4d61593ab4363be0caeb9ba89a39a",
     "stage": "tick",
-    "started_at": "2026-10-13T15:36:11.621171+00:00"
+    "started_at": "2026-10-13T16:10:26.728797+00:00"
   },
-  "task_id": "R005L1-depots-p05-states_ops-600s-v1",
-  "attempt_id": "attempt-a788e322883c4f17935edb1099a5438b",
-  "native_observed_process": {
-    "pid": 124944,
-    "start_ticks": 4195688,
-    "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3"
-  },
-  "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
-  "native_cpu_limit_seconds": 600,
-  "outer_wall_guard_seconds": 650,
-  "runner_timeout_seconds": 675,
-  "max_concurrency": 1,
-  "second_arm_status": "planned, not dispatched; inspect first terminal receipt before submission",
-  "old_r005_rows": "preserved unchanged; both Depots still censored at120CPU seconds",
-  "resume_rule": "Inspect actual same W0003 status/inbox/health/receipt and process boot/PID/start_ticks first. This observation is not an expiring lease. Unknown process or missing receipt is not proof the job never ran; do not start a duplicate on another host.",
-  "protocol": "windows/W0003/plans/Depots_extended_budget_protocol_v1.md",
-  "scientific_claim": "New longer-budget diagnostic in progress; no new outcome or speedup yet."
+  "native_larger_memory_probe": "prepared, not admitted/executed; stale proposalmustextend currentreview before anylaterdispatch",
+  "coordination": "Foreground extension complete. Existingbackground coordinator has resumedR006 and ownscontinuingqueue; foregroundwillnotinterruptthelivebuildorrelaunchanyjob.",
+  "interruption": "FirstR006buildinterruptedafterforegusedstaleidleview; retainedfailure and conservative1823scharge preservedbyactualbackgroundreconciliation.",
+  "recovery_rule": "Observeactual lateststatus/inbox/health/receipts first. No time-basedexpiry or missingreceipt inference; no duplicatejob onanotherhost.",
+  "scientific_claim": "L1 CPUbudgetonly supplementresolveda native-memorycensoringboundary. R006nativegraph/generationchecks not yet verified."
 }

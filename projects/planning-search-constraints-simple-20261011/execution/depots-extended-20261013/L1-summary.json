@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-13T15:56:57.621638+00:00",
+  "matrix": "Prospective R005-L1 two-arm600CPU-second supplement, separate from frozen R005",
+  "attempted_rows": 2,
+  "solved_rows": 0,
+  "native_memory_censored_rows": 2,
+  "rows": [
+    {
+      "run_id": "R005L1-depots-p05-states_ops-600s-v1",
+      "arm": "states_ops",
+      "native_exit": 22,
+      "native_outcome": "memory_censored",
+      "native_cpu_limit_seconds": 600,
+      "native_memory_limit_argument": "2500M",
+      "native_address_space_cap_bytes": 2621440000,
+      "guard_wall_seconds": 339.01146493399574,
+      "child_user_cpu_seconds": 333.477332,
+      "child_system_cpu_seconds": 8.891558,
+      "peak_sampled_group_RSS_bytes": 2364342272,
+      "peak_cgroup_memory_bytes": 7165403136,
+      "last_logged_search_progress": {
+        "f": 25,
+        "evaluated": 58657880,
+        "expanded": 30999581
+      },
+      "final_expanded": null,
+      "final_evaluated": null,
+      "plan_cost": null,
+      "VAL_status": "no_plan",
+      "SAS_matches_original": true,
+      "SAS_sha256": "164b71eede20d07dc1ee0a412f8d4197a8acbb63292ee76d6db5e824339b39bd",
+      "profile_accounting_status": "usable_accounting_diagnostic",
+      "profile_accounting_errors": [],
+      "closed_construction_phases": 1,
+      "raw_refs": [
+        {
+          "path": "results/R005L1-depots-p05-states_ops-600s-v1/command/metrics.json",
+          "sha256": "e3d997db7b42824c6fbe8f41c9a58d19c7ec6e60349654bc7fb05352741b8854"
+        },
+        {
+          "path": "results/R005L1-depots-p05-states_ops-600s-v1/command/stdout.log",
+          "sha256": "afbd0fed051191824a208800057407c3e042818ded88374efda905f0138d0a8d"
+        },
+        {
+          "path": "results/R005L1-depots-p05-states_ops-600s-v1/command/stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "results/R005L1-depots-p05-states_ops-600s-v1/outer_usage.json",
+          "sha256": "04f53bfa45e9b6566dbf4e0c16b2874d98fe40aeef887f95feb9891afd3ad5af"
+        }
+      ],
+      "scope": "Deliberate native memory censoring under unchanged original search; last-progress counters are lower bounds, not full outcome statistics."
+    },
+    {
+      "run_id": "R005L1-depots-p05-none-600s-v1",
+      "arm": "none",
+      "native_exit": 22,
+      "native_outcome": "memory_censored",
+      "native_cpu_limit_seconds": 600,
+      "native_memory_limit_argument": "2500M",
+      "native_address_space_cap_bytes": 2621440000,
+      "guard_wall_seconds": 300.16005947899976,
+      "child_user_cpu_seconds": 300.265281,
+      "child_system_cpu_seconds": 2.507006,
+      "peak_sampled_group_RSS_bytes": 2353389568,
+      "peak_cgroup_memory_bytes": 7220162560,
+      "last_logged_search_progress": {
+        "f": 23,
+        "evaluated": 46402620,
+        "expanded": 25262658
+      },
+      "final_expanded": null,
+      "final_evaluated": null,
+      "plan_cost": null,
+      "VAL_status": "no_plan",
+      "SAS_matches_original": true,
+      "SAS_sha256": "164b71eede20d07dc1ee0a412f8d4197a8acbb63292ee76d6db5e824339b39bd",
+      "profile_accounting_status": "usable_accounting_diagnostic",
+      "profile_accounting_errors": [],
+      "closed_construction_phases": 1,
+      "raw_refs": [
+        {
+          "path": "results/R005L1-depots-p05-none-600s-v1/command/metrics.json",
+          "sha256": "339c35dc3d545f5cf57ea350652208c4a13589ea31ae32bdb9dd44cb92b5669f"
+        },
+        {
+          "path": "results/R005L1-depots-p05-none-600s-v1/command/stdout.log",
+          "sha256": "9a58791425797e5f346dd66bbd242f68f006137fea7431d210f393545bf21848"
+        },
+        {
+          "path": "results/R005L1-depots-p05-none-600s-v1/command/stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "results/R005L1-depots-p05-none-600s-v1/outer_usage.json",
+          "sha256": "c52d47e4a2b29bdf4757c84aa5889ce10a9343fab64557c5330703c4d9886773"
+        }
+      ],
+      "scope": "Deliberate native memory censoring under unchanged original search; last-progress counters are lower bounds, not full outcome statistics."
+    }
+  ],
+  "kernel_memory_events_at_analysis": {
+    "low": 0,
+    "high": 0,
+    "max": 287362,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "original_R005_denominator": 4,
+  "original_R005_120s_rows_modified": false,
+  "source_and_method": "Same v3r2 instrumented binary and original searches; no optimization or new algorithm",
+  "interpretation": "Current CPU has headroom. Raising time120->600 alone reveals the separately configured native2621440000B address-space cap; it does not establish exhaustion of the8GB host or impossibility of solving.",
+  "unit_correction": "Native2500M means2500*1024^2 bytes (2.62144decimalGB,2.44140625GiB). Earlier loose2.5GiB wording was approximate; use this byte identity.",
+  "remaining": [
+    "Native complete Depots plans absent",
+    "No larger-memory native result yet",
+    "R006 exact graph and generation subdivision unexecuted"
+  ],
+  "next_action": "Measure conservative host headroom and project-owned cache; version any larger single-task cap within8e9B and retain these outcomes. Continue R006 source/graph/cost work."
+}

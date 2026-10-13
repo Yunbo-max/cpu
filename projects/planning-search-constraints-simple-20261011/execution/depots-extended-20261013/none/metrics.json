@@ -1,0 +1,41 @@
+{
+  "status": "command_failed",
+  "exit_code": 22,
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "/workspace/scratch/1389522c4edd/planning_simple/windows/W0003/vendor/scorpion_profile_v3r2/fast-downward.py",
+    "--build",
+    "release_no_lp",
+    "--overall-time-limit",
+    "600",
+    "--overall-memory-limit",
+    "2500M",
+    "--sas-file",
+    "/workspace/scratch/1389522c4edd/planning_simple/windows/W0003/results/R005L1-depots-p05-none-600s-v1/output.sas",
+    "--plan-file",
+    "/workspace/scratch/1389522c4edd/planning_simple/windows/W0003/results/R005L1-depots-p05-none-600s-v1/sas_plan",
+    "--transform-task",
+    "preprocess-h2",
+    "/workspace/scratch/1389522c4edd/planning_simple/windows/W0003/data/autoscale21.11/depots/domain.pddl",
+    "/workspace/scratch/1389522c4edd/planning_simple/windows/W0003/data/autoscale21.11/depots/p05.pddl",
+    "--search",
+    "astar(cegar(max_states=10000,max_transitions=1000000,max_time=30,subtasks=[original(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())"
+  ],
+  "cwd": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0003/results/R005L1-depots-p05-none-600s-v1",
+  "started_utc": "2026-10-13T15:45:27.087415+00:00",
+  "finished_utc": "2026-10-13T15:50:27.247471+00:00",
+  "wall_seconds": 300.16005947899976,
+  "peak_process_group_rss_bytes_sampled": 2353389568,
+  "rss_samples": 2972,
+  "cgroup_memory_before_bytes": 4825391104,
+  "cgroup_memory_peak_bytes_sampled": 7220162560,
+  "host_process_group": 126514,
+  "cpu_affinity": [
+    0
+  ],
+  "threads": 1,
+  "address_space_limit_bytes_per_process": 3500000000,
+  "process_group_rss_abort_bytes": 2800000000,
+  "shared_cgroup_abort_bytes": 7800000000,
+  "timing_scope": "shared host, contention uncontrolled; diagnostic timing only"
+}

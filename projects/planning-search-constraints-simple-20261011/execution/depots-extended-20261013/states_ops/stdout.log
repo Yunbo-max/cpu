@@ -1,0 +1,350 @@
+INFO     planner time limit: 600s
+INFO     planner memory limit: 2500 MB
+
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: 599s
+INFO     translator memory limit: 2500 MB
+INFO     translator command line string: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python /workspace/scratch/1389522c4edd/planning_simple/windows/W0003/vendor/scorpion_profile_v3r2/builds/release_no_lp/bin/translate/translate.py /workspace/scratch/1389522c4edd/planning_simple/windows/W0003/data/autoscale21.11/depots/domain.pddl /workspace/scratch/1389522c4edd/planning_simple/windows/W0003/data/autoscale21.11/depots/p05.pddl --sas-file /workspace/scratch/1389522c4edd/planning_simple/windows/W0003/results/R005L1-depots-p05-states_ops-600s-v1/output.sas
+Parsing...
+Parsing: [0.000s CPU, 0.002s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.010s CPU, 0.002s wall-clock]
+Generated 43 rules.
+Computing model... [0.010s CPU, 0.011s wall-clock]
+1566 relevant atoms
+1155 auxiliary atoms
+2721 final queue length
+5626 total queue pushes
+Completing instantiation... [0.020s CPU, 0.027s wall-clock]
+Instantiating: [0.050s CPU, 0.043s wall-clock]
+Computing fact groups...
+Finding invariants...
+16 initial candidates
+Finding invariants: [0.000s CPU, 0.003s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.002s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+31 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.006s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.002s wall-clock]
+Translating task: [0.030s CPU, 0.033s wall-clock]
+1519 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+40 propositions removed
+Detecting unreachable propositions: [0.030s CPU, 0.028s wall-clock]
+Reordering and filtering variables...
+35 of 35 variables necessary.
+26 of 35 mutex groups necessary.
+1118 of 1118 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.010s CPU, 0.009s wall-clock]
+Translator variables: 35
+Translator derived variables: 0
+Translator facts: 230
+Translator goal facts: 5
+Translator mutex groups: 26
+Translator total mutex groups size: 306
+Translator operators: 1118
+Translator axioms: 0
+Translator task size: 10202
+Translator peak memory: 59368 KB
+Writing output... [0.000s CPU, 0.007s wall-clock]
+Done! [0.130s CPU, 0.133s wall-clock]
+
+INFO     Run task transformation (preprocess-h2).
+INFO     transform-task stdin: /workspace/scratch/1389522c4edd/planning_simple/windows/W0003/results/R005L1-depots-p05-states_ops-600s-v1/output.sas
+INFO     transform-task time limit: 599s
+INFO     transform-task memory limit: 2500 MB
+INFO     transform-task command line string: /workspace/scratch/1389522c4edd/planning_simple/windows/W0003/vendor/scorpion_profile_v3r2/builds/release_no_lp/bin/preprocess-h2 < /workspace/scratch/1389522c4edd/planning_simple/windows/W0003/results/R005L1-depots-p05-states_ops-600s-v1/output.sas
+Building causal graph...
+The causal graph is not acyclic.
+35 variables of 35 necessary
+26 of 26 mutex groups necessary.
+1118 of 1118 operators necessary.
+0 of 0 axiom rules necessary.
+Initializing mutex computation...
+Mutex computation initialized with 230 fluents.
+iteration for mutex detection and operator pruning
+Initialize m_index fw
+Initialized mvalues forward: reached=1225, notReached=46249, spurious=5426
+Initialize m_ops fw
+Computing mutexes...
+Mutex computation finished with reached=46900, notReached=574, spurious=5426
+196 operators are spurious because were not triggered
+H^2 mutexes added fw: 574, unreachable: 0
+0 of 922 operators detected as spurious
+iteration for mutex detection and operator pruning
+Initialize m_index bw
+Init values regression
+Initialized mvalues backward: reached=9627, notReached=37273, spurious=6000
+Initialize m_ops bw
+Computing mutexes...
+Mutex computation finished with reached=46900, notReached=0, spurious=6000
+0 operators are spurious because were not triggered
+H^2 mutexes added bw: 0, unreachable: 0
+0 of 922 operators detected as spurious
+Total mutex and disambiguation time: 0.047907 iterations: 2
+Total mutexes found forward: 574
+Total mutexes found backward: 0
+313 of 313 mutex groups necessary.
+922 of 1118 operators necessary.
+0 of 0 axiom rules necessary.
+Change id of operators: 922
+Change id of mutexes
+Change id of goals
+Change id of initial state
+Remove unreachable facts from variables: 35
+313 of 313 mutex groups necessary.
+922 of 922 operators necessary.
+0 of 0 axiom rules necessary.
+Updating causal graph and pruning unnecessary facts
+35 variables of 35 of 35 necessary
+The causal graph is not acyclic.
+35 variables of 35 necessary
+313 of 313 mutex groups necessary.
+922 of 922 operators necessary.
+0 of 0 axiom rules necessary.
+Preprocessor variables: 35
+Preprocessor facts: 230
+Preprocessor derived variables: 0
+Preprocessor operators: 922
+Preprocessor mutex groups: 313
+Preprocessor task size: 8816
+Writing output...
+done
+translate exit code: 0
+
+INFO     Running search (release_no_lp).
+INFO     search stdin: /workspace/scratch/1389522c4edd/planning_simple/windows/W0003/results/R005L1-depots-p05-states_ops-600s-v1/output.sas
+INFO     search time limit: 599s
+INFO     search memory limit: 2500 MB
+INFO     search command line string: /workspace/scratch/1389522c4edd/planning_simple/windows/W0003/vendor/scorpion_profile_v3r2/builds/release_no_lp/bin/downward --search 'astar(cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())' --internal-plan-file /workspace/scratch/1389522c4edd/planning_simple/windows/W0003/results/R005L1-depots-p05-states_ops-600s-v1/sas_plan < /workspace/scratch/1389522c4edd/planning_simple/windows/W0003/results/R005L1-depots-p05-states_ops-600s-v1/output.sas
+[t=0.000000s, 12196 KB] reading input...
+[t=0.003920s, 12856 KB] done reading input!
+[t=0.003920s, 13252 KB] Initializing additive Cartesian heuristic...
+[t=0.059920s, 527632 KB] Build abstractions for 1 subtasks in 30s
+
+[t=0.063920s, 530276 KB] Subtask has zero-cost operators: false
+[t=0.063920s, 530276 KB] Start building abstraction.
+[t=0.063920s, 530276 KB] Maximum number of states: 10000
+[t=0.063920s, 530276 KB] Maximum number of transitions: 1000000
+[t=0.063920s, 530276 KB] Maximum time: 29.996s
+[t=0.063920s, 530276 KB] Abstract solution cost: 0
+[t=0.063920s, 530276 KB] Abstract solution cost: 1
+[t=0.071919s, 530276 KB] Abstract solution cost: 2
+[t=0.075924s, 530428 KB] Abstract solution cost: 3
+[t=0.095921s, 530564 KB] Abstract solution cost: 4
+[t=0.115920s, 530820 KB] Abstract solution cost: 5
+[t=0.335881s, 532520 KB] Abstract solution cost: 6
+[t=0.695861s, 535660 KB] Abstract solution cost: 7
+[t=0.707862s, 535660 KB] Number of refinements: 1000
+[t=0.707862s, 535660 KB] Forward refinements: 0
+[t=0.707862s, 535660 KB] Backward refinements: 1000
+[t=0.707862s, 535660 KB] Total forward flawed states found: 0
+[t=0.707862s, 535660 KB] Total backward flawed states found: 1000
+[t=0.707862s, 535660 KB] Average percentage of forward flawed states found in the last stats iter respect to plan length: 0.1
+[t=0.707862s, 535660 KB] Average percentage of backward flawed states found in the last stats iter respect to plan length: 19.135
+[t=0.707862s, 535660 KB] Average position of refined forward flawed states in the last stats iter respect to plan length: 0
+[t=0.707862s, 535660 KB] Average position of refined backward flawed states in the last stats iter respect to plan length: 0.494967
+[t=0.707862s, 535660 KB] Total number of times the cost of the optimal plan has been increased: 7
+[t=1.147807s, 539116 KB] Number of refinements: 2000
+[t=1.147807s, 539116 KB] Forward refinements: 0
+[t=1.147807s, 539116 KB] Backward refinements: 2000
+[t=1.147807s, 539116 KB] Total forward flawed states found: 0
+[t=1.147807s, 539116 KB] Total backward flawed states found: 2000
+[t=1.147807s, 539116 KB] Average percentage of forward flawed states found in the last stats iter respect to plan length: 0
+[t=1.147807s, 539116 KB] Average percentage of backward flawed states found in the last stats iter respect to plan length: 14.2857
+[t=1.147807s, 539116 KB] Average position of refined forward flawed states in the last stats iter respect to plan length: 0
+[t=1.147807s, 539116 KB] Average position of refined backward flawed states in the last stats iter respect to plan length: 0.536429
+[t=1.147807s, 539116 KB] Total number of times the cost of the optimal plan has been increased: 7
+[t=1.651769s, 543608 KB] Number of refinements: 3000
+[t=1.651769s, 543608 KB] Forward refinements: 0
+[t=1.651769s, 543608 KB] Backward refinements: 3000
+[t=1.651769s, 543608 KB] Total forward flawed states found: 0
+[t=1.651769s, 543608 KB] Total backward flawed states found: 3000
+[t=1.651769s, 543608 KB] Average percentage of forward flawed states found in the last stats iter respect to plan length: 0
+[t=1.651769s, 543608 KB] Average percentage of backward flawed states found in the last stats iter respect to plan length: 14.2857
+[t=1.651769s, 543608 KB] Average position of refined forward flawed states in the last stats iter respect to plan length: 0
+[t=1.651769s, 543608 KB] Average position of refined backward flawed states in the last stats iter respect to plan length: 0.42
+[t=1.651769s, 543608 KB] Total number of times the cost of the optimal plan has been increased: 7
+[t=1.763635s, 544268 KB] Abstract solution cost: 8
+[t=2.015605s, 546912 KB] Number of refinements: 4000
+[t=2.015605s, 546912 KB] Forward refinements: 0
+[t=2.015605s, 546912 KB] Backward refinements: 4000
+[t=2.015605s, 546912 KB] Total forward flawed states found: 0
+[t=2.015605s, 546912 KB] Total backward flawed states found: 4000
+[t=2.015605s, 546912 KB] Average percentage of forward flawed states found in the last stats iter respect to plan length: 0
+[t=2.015605s, 546912 KB] Average percentage of backward flawed states found in the last stats iter respect to plan length: 12.8607
+[t=2.015605s, 546912 KB] Average position of refined forward flawed states in the last stats iter respect to plan length: 0
+[t=2.015605s, 546912 KB] Average position of refined backward flawed states in the last stats iter respect to plan length: 0.640321
+[t=2.015605s, 546912 KB] Total number of times the cost of the optimal plan has been increased: 8
+[t=2.411583s, 550572 KB] Reached the half of maximum number of states.
+[t=2.411583s, 550572 KB] Number of refinements: 5000
+[t=2.411583s, 550572 KB] Forward refinements: 0
+[t=2.411583s, 550572 KB] Backward refinements: 5000
+[t=2.411583s, 550572 KB] Total forward flawed states found: 0
+[t=2.411583s, 550572 KB] Total backward flawed states found: 5000
+[t=2.411583s, 550572 KB] Average percentage of forward flawed states found in the last stats iter respect to plan length: 0
+[t=2.411583s, 550572 KB] Average percentage of backward flawed states found in the last stats iter respect to plan length: 12.5
+[t=2.411583s, 550572 KB] Average position of refined forward flawed states in the last stats iter respect to plan length: 0
+[t=2.411583s, 550572 KB] Average position of refined backward flawed states in the last stats iter respect to plan length: 0.656875
+[t=2.411583s, 550572 KB] Total number of times the cost of the optimal plan has been increased: 8
+[t=2.791556s, 553740 KB] Number of refinements: 6000
+[t=2.791556s, 553740 KB] Forward refinements: 0
+[t=2.791556s, 553740 KB] Backward refinements: 6000
+[t=2.791556s, 553740 KB] Total forward flawed states found: 0
+[t=2.791556s, 553740 KB] Total backward flawed states found: 6000
+[t=2.791556s, 553740 KB] Average percentage of forward flawed states found in the last stats iter respect to plan length: 0
+[t=2.791556s, 553740 KB] Average percentage of backward flawed states found in the last stats iter respect to plan length: 12.5
+[t=2.791556s, 553740 KB] Average position of refined forward flawed states in the last stats iter respect to plan length: 0
+[t=2.791556s, 553740 KB] Average position of refined backward flawed states in the last stats iter respect to plan length: 0.689625
+[t=2.791556s, 553740 KB] Total number of times the cost of the optimal plan has been increased: 8
+[t=3.211520s, 557044 KB] Number of refinements: 7000
+[t=3.211520s, 557044 KB] Forward refinements: 0
+[t=3.211520s, 557044 KB] Backward refinements: 7000
+[t=3.211520s, 557044 KB] Total forward flawed states found: 0
+[t=3.211520s, 557044 KB] Total backward flawed states found: 7000
+[t=3.211520s, 557044 KB] Average percentage of forward flawed states found in the last stats iter respect to plan length: 0
+[t=3.211520s, 557044 KB] Average percentage of backward flawed states found in the last stats iter respect to plan length: 12.5
+[t=3.211520s, 557044 KB] Average position of refined forward flawed states in the last stats iter respect to plan length: 0
+[t=3.211520s, 557044 KB] Average position of refined backward flawed states in the last stats iter respect to plan length: 0.56425
+[t=3.211520s, 557044 KB] Total number of times the cost of the optimal plan has been increased: 8
+[t=3.479507s, 562992 KB] Abstract solution cost: 9
+[t=3.639497s, 562992 KB] Number of refinements: 8000
+[t=3.639497s, 562992 KB] Forward refinements: 0
+[t=3.639497s, 562992 KB] Backward refinements: 8000
+[t=3.639497s, 562992 KB] Total forward flawed states found: 0
+[t=3.639497s, 562992 KB] Total backward flawed states found: 8000
+[t=3.639497s, 562992 KB] Average percentage of forward flawed states found in the last stats iter respect to plan length: 0
+[t=3.639497s, 562992 KB] Average percentage of backward flawed states found in the last stats iter respect to plan length: 11.9306
+[t=3.639497s, 562992 KB] Average position of refined forward flawed states in the last stats iter respect to plan length: 0
+[t=3.639497s, 562992 KB] Average position of refined backward flawed states in the last stats iter respect to plan length: 0.498222
+[t=3.639497s, 562992 KB] Total number of times the cost of the optimal plan has been increased: 9
+[t=4.007462s, 566560 KB] Number of refinements: 9000
+[t=4.007462s, 566560 KB] Forward refinements: 0
+[t=4.007462s, 566560 KB] Backward refinements: 9000
+[t=4.007462s, 566560 KB] Total forward flawed states found: 0
+[t=4.007462s, 566560 KB] Total backward flawed states found: 9000
+[t=4.007462s, 566560 KB] Average percentage of forward flawed states found in the last stats iter respect to plan length: 0
+[t=4.007462s, 566560 KB] Average percentage of backward flawed states found in the last stats iter respect to plan length: 11.1111
+[t=4.007462s, 566560 KB] Average position of refined forward flawed states in the last stats iter respect to plan length: 0
+[t=4.007462s, 566560 KB] Average position of refined backward flawed states in the last stats iter respect to plan length: 0.599778
+[t=4.007462s, 566560 KB] Total number of times the cost of the optimal plan has been increased: 9
+[t=4.271419s, 569728 KB] Reached maximum number of states.
+[t=4.271419s, 569728 KB] Time for finding abstract traces: 0.000000s
+[t=4.271419s, 569728 KB] Time for finding flaws and computing splits: 0.201688s
+[t=4.271419s, 569728 KB] Time for splitting states: 3.948886s
+[t=4.271419s, 569728 KB] Time for updating goal distances: 0.052927s
+[t=4.271419s, 569728 KB] Number of refinements: 9999
+[t=4.271419s, 569728 KB] Forward refinements: 0
+[t=4.271419s, 569728 KB] Backward refinements: 9999
+[t=4.271419s, 569728 KB] Total forward flawed states found: 0
+[t=4.271419s, 569728 KB] Total backward flawed states found: 9999
+[t=4.271419s, 569728 KB] Average percentage of forward flawed states found in the last stats iter respect to plan length: 0.000000
+[t=4.271419s, 569728 KB] Average percentage of backward flawed states found in the last stats iter respect to plan length: 11.100000
+[t=4.271419s, 569728 KB] Average position of refined forward flawed states in the last stats iter respect to plan length: 0.000000
+[t=4.271419s, 569728 KB] Average position of refined backward flawed states in the last stats iter respect to plan length: 0.626556
+[t=4.271419s, 569728 KB] Total number of times the cost of the optimal plan has been increased: 9
+[t=4.271419s, 569728 KB] Optimal abstract plan transitions removed: 0
+[t=4.271419s, 569728 KB] Done building abstraction.
+[t=4.271419s, 569728 KB] Time for building abstraction: 4.211499s
+[t=4.271419s, 569728 KB] States: 10000
+[t=4.271419s, 569728 KB] Goal states: 1
+[t=4.271419s, 569728 KB] Looping transitions: 724410
+[t=4.271419s, 569728 KB] Non-looping transitions: 258953
+[t=4.271419s, 569728 KB] Redundant operators: 0
+[t=4.271419s, 569728 KB] Nodes in refinement hierarchy: 160464
+[t=4.271419s, 569728 KB] Disambiguated states: 8967
+[t=4.271419s, 569728 KB] Removed states: 0
+[t=4.271419s, 569728 KB] Flaw searches: 0
+[t=4.271419s, 569728 KB] Expanded concrete states: 0
+[t=4.271419s, 569728 KB] Maximum expanded concrete states in single flaw search: 0
+[t=4.271419s, 569728 KB] Flaw search time: 0.000000s
+[t=4.271419s, 569728 KB] Time for computing splits: 0.074271s
+[t=4.271419s, 569728 KB] Time for selecting splits: 0.008001s
+[t=4.279422s, 569864 KB] Unsolvable Cartesian states: 0
+[t=4.279422s, 569864 KB] Initial h value: 9
+
+[t=4.307422s, 569864 KB] Done initializing additive Cartesian heuristic
+[t=4.307422s, 569864 KB] Time for initializing additive Cartesian heuristic: 4.247502s
+[t=4.307422s, 569864 KB] Cartesian abstractions: 1
+[t=4.307422s, 569864 KB] Total number of Cartesian states: 10000
+[t=4.307422s, 569864 KB] Total number of non-looping transitions: 258953
+
+AC3_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=optional_full scope=construction_phase cumulative=1 clock=steady_wall unit=ns phase_started=true construction_elapsed_ns=4301959627 calls=923 completed=923 empty_inputs=0 changed_calls=784 queue_copies=923 seed_arcs=387660 precheck_ns=163241 queue_setup_ns=3017118 propagation_ns=40654479 queue_teardown_ns=280073 total_ns=44114911
+AC3_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=optional_single scope=construction_phase cumulative=1 clock=steady_wall unit=ns phase_started=true construction_elapsed_ns=4301959627 calls=19998 completed=19998 empty_inputs=0 changed_calls=8967 queue_copies=19998 seed_arcs=519814 precheck_ns=4586917 queue_setup_ns=52912058 propagation_ns=64812210 queue_teardown_ns=8541279 total_ns=130852464
+AC3_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=modified_vars scope=construction_phase cumulative=1 clock=steady_wall unit=ns phase_started=true construction_elapsed_ns=4301959627 calls=0 completed=0 empty_inputs=0 changed_calls=0 queue_copies=0 seed_arcs=0 precheck_ns=0 queue_setup_ns=0 propagation_ns=0 queue_teardown_ns=0 total_ns=0
+AC3_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=test_disambiguate scope=construction_phase cumulative=1 clock=steady_wall unit=ns phase_started=true construction_elapsed_ns=4301959627 calls=0 completed=0 positive=0 total_ns=0
+REFINEMENT_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete scope=committed_refine cumulative=1 clock=steady_wall unit=ns components=exclusive total=inclusive valid=true construction_elapsed_ns=4301959627 calls=9999 closed=9999 unwound=0 checkpoints=89991 split_state_copy_ns=59202242 hierarchy_goal_ns=27611295 child_disambiguation_ns=132531844 rewiring_ns=3649838533 residual_ns=5179290 component_sum_ns=3874363204 total_ns=3874363204 active_refine=0 active_rewire=0 attribution_errors=0
+REWIRE_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=inside_refine scope=construction_phase cumulative=1 clock=steady_wall unit=ns aggregation=inclusive overlap=refine_rewiring valid=true construction_elapsed_ns=4301959627 calls=9999 closed=9999 unwound=0 total_ns=3648792657
+REWIRE_DETAIL_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=inside_refine scope=rewire_calls cumulative=1 clock=steady_wall unit=ns aggregation=exclusive_partition overlap=rewire_profile valid=true construction_elapsed_ns=4301959627 calls=9999 closed=9999 unwound=0 checkpoints=59994 vector_setup_ns=2031789 incoming_remove_ns=55676071 incoming_generate_ns=1224503906 outgoing_remove_ns=50327416 outgoing_generate_ns=1355277742 loops_ns=955389154 residual_ns=4035221 component_sum_ns=3647241299 total_ns=3647241299 old_incoming=414572 old_outgoing=445844 old_loops=1049575 incoming_neighbors=318772 incoming_adjacency_scanned=15288110 incoming_child_candidates=829144 incoming_reachable=526110 incoming_emitted=526110 outgoing_neighbors=329589 outgoing_adjacency_scanned=18046932 outgoing_child_candidates=891688 outgoing_eligible=555889 outgoing_emitted=555889 loop_self_emitted=1773063 loop_cross_emitted=37370
+REWIRE_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=outside_simulated scope=construction_phase cumulative=1 clock=steady_wall unit=ns aggregation=inclusive overlap=outside_refine valid=true construction_elapsed_ns=4301959627 calls=0 closed=0 unwound=0 total_ns=0
+REWIRE_DETAIL_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=outside_simulated scope=rewire_calls cumulative=1 clock=steady_wall unit=ns aggregation=exclusive_partition overlap=rewire_profile valid=true construction_elapsed_ns=4301959627 calls=0 closed=0 unwound=0 checkpoints=0 vector_setup_ns=0 incoming_remove_ns=0 incoming_generate_ns=0 outgoing_remove_ns=0 outgoing_generate_ns=0 loops_ns=0 residual_ns=0 component_sum_ns=0 total_ns=0 old_incoming=0 old_outgoing=0 old_loops=0 incoming_neighbors=0 incoming_adjacency_scanned=0 incoming_child_candidates=0 incoming_reachable=0 incoming_emitted=0 outgoing_neighbors=0 outgoing_adjacency_scanned=0 outgoing_child_candidates=0 outgoing_eligible=0 outgoing_emitted=0 loop_self_emitted=0 loop_cross_emitted=0
+REWIRE_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=outside_actual scope=construction_phase cumulative=1 clock=steady_wall unit=ns aggregation=inclusive overlap=outside_refine valid=true construction_elapsed_ns=4301959627 calls=0 closed=0 unwound=0 total_ns=0
+REWIRE_DETAIL_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete kind=outside_actual scope=rewire_calls cumulative=1 clock=steady_wall unit=ns aggregation=exclusive_partition overlap=rewire_profile valid=true construction_elapsed_ns=4301959627 calls=0 closed=0 unwound=0 checkpoints=0 vector_setup_ns=0 incoming_remove_ns=0 incoming_generate_ns=0 outgoing_remove_ns=0 outgoing_generate_ns=0 loops_ns=0 residual_ns=0 component_sum_ns=0 total_ns=0 old_incoming=0 old_outgoing=0 old_loops=0 incoming_neighbors=0 incoming_adjacency_scanned=0 incoming_child_candidates=0 incoming_reachable=0 incoming_emitted=0 outgoing_neighbors=0 outgoing_adjacency_scanned=0 outgoing_child_candidates=0 outgoing_eligible=0 outgoing_emitted=0 loop_self_emitted=0 loop_cross_emitted=0
+CONSTRUCTION_PROFILE schema=1 snapshot=1 phase_id=1 phase=additive_cartesian_init_complete scope=construction_phase cumulative=1 clock=steady_wall unit=ns aggregation=exclusive_partition valid=true construction_elapsed_ns=4301959627 split_state_copy_ns=59202242 hierarchy_goal_ns=27611295 child_disambiguation_ns=132531844 rewiring_ns=3649838533 refinement_residual_ns=5179290 other_construction_ns=427596423
+[t=4.307422s, 569864 KB] Building successor generator...done!
+[t=4.307422s, 569864 KB] peak memory difference for successor generator creation: 0 KB
+[t=4.307422s, 569864 KB] time for successor generation creation: 0.000000s
+[t=4.307422s, 569864 KB] Variables: 35
+[t=4.307422s, 569864 KB] FactPairs: 230
+[t=4.307422s, 569864 KB] Bytes per state: 12
+[t=4.307422s, 569864 KB] Conducting best first search with reopening closed nodes, (real) bound = 2147483647
+[t=4.307422s, 569864 KB] New best heuristic value for cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 9
+[t=4.307422s, 569864 KB] g=0, 1 evaluated, 0 expanded
+[t=4.307422s, 569864 KB] f = 9, 1 evaluated, 0 expanded
+[t=4.307422s, 569864 KB] Initial heuristic value for cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 9
+[t=4.311421s, 569864 KB] New best heuristic value for cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 8
+[t=4.311421s, 569864 KB] g=1, 11 evaluated, 1 expanded
+[t=4.311421s, 569864 KB] New best heuristic value for cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 7
+[t=4.311421s, 569864 KB] g=2, 37 evaluated, 3 expanded
+[t=4.311421s, 569864 KB] f = 10, 72 evaluated, 6 expanded
+[t=4.311421s, 569864 KB] New best heuristic value for cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 6
+[t=4.311421s, 569864 KB] g=4, 97 evaluated, 10 expanded
+[t=4.311421s, 569864 KB] New best heuristic value for cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 5
+[t=4.311421s, 569864 KB] g=5, 107 evaluated, 11 expanded
+[t=4.311421s, 569864 KB] f = 11, 563 evaluated, 92 expanded
+[t=4.311421s, 569864 KB] New best heuristic value for cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 4
+[t=4.311421s, 569864 KB] g=7, 615 evaluated, 102 expanded
+[t=4.315422s, 569864 KB] f = 12, 2124 evaluated, 557 expanded
+[t=4.315422s, 569864 KB] New best heuristic value for cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=ac3(cache_disambiguations=false),operators_disambiguation=ac3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=sequence_backward,sequence_split=first_flaw)]): 3
+[t=4.315422s, 569864 KB] g=9, 3830 evaluated, 1075 expanded
+[t=4.323430s, 569864 KB] f = 13, 6697 evaluated, 2043 expanded
+[t=4.343325s, 569864 KB] f = 14, 19117 evaluated, 6246 expanded
+[t=4.395325s, 569864 KB] f = 15, 50291 evaluated, 17669 expanded
+[t=4.527322s, 569864 KB] f = 16, 121788 evaluated, 46013 expanded
+[t=4.847241s, 569864 KB] f = 17, 278916 evaluated, 111135 expanded
+[t=5.711191s, 569864 KB] f = 18, 612168 evaluated, 254830 expanded
+[t=7.993429s, 569864 KB] f = 19, 1293766 evaluated, 560308 expanded
+[t=13.324864s, 569864 KB] f = 20, 2638350 evaluated, 1184280 expanded
+[t=25.371374s, 569864 KB] f = 21, 5217533 evaluated, 2418591 expanded
+[t=49.927140s, 569864 KB] f = 22, 10003999 evaluated, 4790059 expanded
+[t=95.459752s, 808120 KB] f = 23, 18607338 evaluated, 9204417 expanded
+[t=190.384410s, 1495824 KB] f = 24, 33549956 evaluated, 17150716 expanded
+[t=338.296243s, 2306328 KB] f = 25, 58657880 evaluated, 30999581 expanded
+Failed to allocate memory.
+Memory limit has been reached.
+search exit code: 22
+
+Driver aborting after search
+INFO     Planner time: 338.91s
