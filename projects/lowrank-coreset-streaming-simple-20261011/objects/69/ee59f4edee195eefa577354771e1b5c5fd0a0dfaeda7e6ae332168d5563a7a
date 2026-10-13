@@ -1,0 +1,18 @@
+# Prospective audit amendment: reconstruct topology arms independently
+
+Status: frozen before any numerical outcome. This strengthens verification only;
+it does not change data, widths, leaves, hypothesis, falsifier, or resource gate.
+
+Static review found that the first audit draft recomputed metrics from saved
+sketches but trusted the producer's method labels. That would not detect a
+producer that accidentally saved the same or wrongly constructed topology under
+both labels. The independent audit must therefore reimplement row-stream FD and
+the balanced/left-deep merge operators without importing the producer, rebuild
+all three arms from the source matrix, and compare reconstructed versus saved
+covariance operators, accumulated shrink mass, and shrink counts before testing
+the prospective inequalities.
+
+Because singular-vector signs are not identifiable, equality is checked through
+the covariance operator. Its Frobenius difference is computed from small Gram
+matrices, avoiding a dense `d x d` allocation. Timing remains producer telemetry
+and is not independently reconstructed.

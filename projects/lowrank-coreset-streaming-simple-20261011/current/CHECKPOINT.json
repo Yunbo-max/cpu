@@ -8,8 +8,8 @@
   "idea": "fd-merge-topology-audit-v1",
   "revision": 1,
   "goal_contract_version": 2,
-  "scientific_status": "w011 selected a distinct low-rank question with an intrinsic state contract after preserving all w010 retirements. Primary-source and exact-arithmetic review of Frequent Directions established that mergeability preserves the formal space/error trade-off for arbitrary merge order but does not require identical realized sketches, discarded mass, projection error, or serial runtime. A prospective native Landmark experiment is frozen to compare balanced and left-deep merge trees at ell=32,48,64 with identical eight contiguous leaves, central row-stream FD and exact rank-25 SVD controls. The hypothesis is that balanced merging has no greater discarded mass and no greater projection cost at every width; any width violation retires that monotone heuristic. No numerical task has run because shared cgroup headroom fell from 293,412,864 to 106,815,488 bytes after a 30-second recheck, below the frozen 1 GiB launch threshold. File cache dominates the cgroup account but is not assumed safely reclaimable. This is a temporary resource wait, not a scientific failure or completed research cycle.",
-  "next_action": "On the next actual wake, remeasure host and cgroup memory and inspect w011 inbox/alerts/health. If cgroup headroom is at least 1 GiB and no duplicate or unknown attempt exists, submit the frozen fd-merge-topology-calibration-v1 and its independent audit through cpu_guard. Otherwise update the persisted waiting record without launching or weakening the plan; report once after three distinct blocked wakes.",
+  "scientific_status": "w011 retains the prospectively frozen Frequent Directions merge-topology experiment and its monotone balanced-versus-left-deep falsifier. Before any outcome existed, static review found that the planned audit recomputed metrics from saved sketches but trusted producer method labels, so it could miss topology construction or mislabeling defects. The audit was prospectively strengthened with an independent implementation and reconstruction of the central, balanced and left-deep arms; the original pinned waiting record was also restored byte-for-byte and a versioned wake-2 record was added. No numerical task has run. On the second distinct blocked wake, shared cgroup headroom was 345,829,376 bytes before and 224,468,992 bytes after a 30-second recheck, below the frozen 1 GiB launch threshold; file cache dominated the account, shmem was zero and OOM/oom_kill counters remained zero. This is an audit/provenance repair plus temporary resource wait, not an empirical result, scientific failure or completed research cycle.",
+  "next_action": "On the next actual wake, remeasure host and cgroup memory and inspect w011 status/inbox/alerts/health. If cgroup headroom is at least 1 GiB and no duplicate or unknown attempt exists, submit the frozen fd-merge-topology-calibration-v1 and then its independently reconstructing audit through cpu_guard. If still blocked, create a new immutable wake-3 waiting record and issue the required one-time report for three distinct blocked wakes while preserving the experiment unchanged for later recovery.",
   "automation_status": "enabled; hourly recurring schedule without end date",
   "resource_limit_bytes": 8000000000,
   "worker_address_space_limit_bytes": 4294967296,
@@ -167,7 +167,12 @@
     "execution_windows/w011/plans/fd_merge_topology_calibration_v1.md",
     "execution_windows/w011/notes/waiting_for_memory.json",
     "execution_windows/w011/scripts/fd_merge_topology_calibration_v1.py",
-    "execution_windows/w011/scripts/audit_fd_merge_topology_v1.py"
+    "execution_windows/w011/scripts/audit_fd_merge_topology_v1.py",
+    "execution_windows/w011/plans/fd_merge_topology_audit_amendment_v1.md",
+    "execution_windows/w011/notes/waiting_for_memory_wake2.json",
+    "execution_windows/w011/memory_wait_response_wake2_v1.json",
+    "execution_windows/w011/resource_current_w011_wake2_pre.json",
+    "execution_windows/w011/resource_current_w011_wake2_recheck1.json"
   ],
   "limitations": [
     "finite-pool guarantee only",
@@ -232,11 +237,12 @@
     "The independent w010 audit recomputed row inventory, decisions, state formulas, Wilson intervals and paired bootstrap aggregates, but is not a separate feature-map implementation",
     "The w010 supervisor was interrupted at an awaiting-decision boundary after all tasks were terminal; its identity was no longer alive, but no orderly exit receipt was written, so the retained health record is lost rather than exited",
     "FD mergeability and arbitrary-order composition are established prior results; w011 tests only realized topology sensitivity and cannot be described as a new mergeable sketch or new guarantee",
-    "The w011 numerical experiment has not run: cgroup headroom was only106815488 bytes after the required recheck, below the prospectively frozen1GiB recovery threshold"
+    "The w011 numerical experiment has not run after two distinct blocked wakes: latest cgroup headroom fell from345829376 to224468992 bytes after the required recheck, below the prospectively frozen1GiB recovery threshold",
+    "The w011 audit reconstruction and immutable-evidence repair were completed before any numerical outcome; they are verification engineering progress, not an empirical result or research cycle"
   ],
-  "updated_at": "2026-10-13T05:23:33.217011+00:00",
+  "updated_at": "2026-10-13T05:41:07.203459+00:00",
   "execution": {
-    "updated_at": "2026-10-13T05:23:33.217011+00:00",
+    "updated_at": "2026-10-13T05:41:07.203459+00:00",
     "overall_end_date": null,
     "overall_attempt_limit": null,
     "overall_time_limit": null,
@@ -489,8 +495,8 @@
       },
       {
         "window": "execution_windows/w011",
-        "status": "awaiting_decision",
-        "sequence": 1,
+        "status": "ready",
+        "sequence": 2,
         "research_cycle_count": 0,
         "budget": {
           "attempts_used": 0,
@@ -498,7 +504,7 @@
           "elapsed_seconds": 0.0,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 6921.013241291046,
+          "remaining_deadline_seconds": 5867.024796962738,
           "remaining_seconds": 1800.0,
           "reserved_seconds": 0
         },

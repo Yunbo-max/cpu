@@ -1,0 +1,50 @@
+{
+  "response_id": "w011-memory-wait-response-wake2-v1",
+  "request_id": "decision-336840d178424cafb24656435a97d82d",
+  "idea": "fd-merge-topology-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "A second distinct wake and a 30-second in-session recheck both remained below the frozen 1 GiB cgroup-headroom launch threshold. No task was submitted. Low-memory static review repaired the immutable wait evidence and strengthened the independent audit before outcomes.",
+  "events": [
+    {
+      "event_id": "w011-fd-merge-audit-reconstruction-progress-v1",
+      "kind": "progress",
+      "next_phase": "resources",
+      "reason": "Static review found that the audit draft recomputed metrics but trusted producer topology labels. Before any outcomes, the audit was amended to independently reconstruct central, balanced, and left-deep arms and compare covariance operators, shrink mass, and shrink counts. The original resource-event evidence file was also restored to its referenced hash.",
+      "evidence": [
+        {
+          "path": "plans/fd_merge_topology_audit_amendment_v1.md",
+          "sha256": "69ee59f4edee195eefa577354771e1b5c5fd0a0dfaeda7e6ae332168d5563a7a"
+        },
+        {
+          "path": "scripts/audit_fd_merge_topology_v1.py",
+          "sha256": "931e56c43fa95d65c6ea17ad0910fa8302f97cae3a3f0eaef486c33798b29448"
+        },
+        {
+          "path": "notes/waiting_for_memory.json",
+          "sha256": "057ecb7297a0394c9a1c478b970510f681631c77124dead7d9eae74588f56699"
+        }
+      ]
+    },
+    {
+      "event_id": "w011-fd-merge-memory-wait-wake2-v1",
+      "kind": "resource_issue",
+      "issue": "shared-cgroup-memory-headroom",
+      "reason": "At this distinct wake, observed cgroup headroom was 345,829,376 bytes and decreased to 224,468,992 bytes after a real 30-second wait, versus the unchanged 1 GiB launch threshold. File cache dominated, but was neither treated as unavailable nor assumed safely reclaimable. OOM and OOM-kill counts remained zero.",
+      "evidence": [
+        {
+          "path": "notes/waiting_for_memory_wake2.json",
+          "sha256": "ee24ea3f9aa0f34fc1777af135af11ea6d0108128ba3facc0231e10ae9d49f49"
+        },
+        {
+          "path": "resource_current_w011_wake2_pre.json",
+          "sha256": "a42415cc56fbca6706d38015097ed35808f2a10740cc12fbb0c5b8baba89439f"
+        },
+        {
+          "path": "resource_current_w011_wake2_recheck1.json",
+          "sha256": "9b7875320a716bbcfbd9d09040f506b9d33a8e1db43f524ba8fca40bb064eb88"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "event_id": "w011-fd-merge-memory-wait-v1",
+  "state": "waiting_for_memory",
+  "first_observed_at_utc": "2026-10-13T05:15:08Z",
+  "latest_observed_at_utc": "2026-10-13T05:16:00Z",
+  "recheck_count": 1,
+  "planned_task": "fd-merge-topology-calibration-v1",
+  "plan_path": "plans/fd_merge_topology_calibration_v1.md",
+  "input_identity": {
+    "landmark_path": "../w002/sources/consistent-LRA/landmark.mtx",
+    "landmark_sha256": "29fb87018e59049a52314c847c5ac2a4eaa3b875f7cd8467621fe074fbbc298b"
+  },
+  "estimated_peak_bytes_range": [268435456, 536870912],
+  "estimate_basis": "Closest retained 512x2704 Block-Krylov tasks peaked at 115700 and 155556 KiB; repeated FD SVDs and retained sketches need additional headroom.",
+  "required_cgroup_headroom_bytes": 1073741824,
+  "latest_measurement": {
+    "cgroup_limit_bytes": 8589934592,
+    "cgroup_current_bytes": 8483119104,
+    "cgroup_headroom_bytes": 106815488,
+    "anon_bytes": 778883072,
+    "file_bytes": 7321522176,
+    "inactive_file_bytes": 4672786432,
+    "active_file_bytes": 2648731648,
+    "shmem_bytes": 0,
+    "slab_bytes": 370058344,
+    "oom_events": 0,
+    "oom_kill_events": 0
+  },
+  "reason": "Observed cgroup headroom remained below the prospective 1 GiB recovery threshold after a 30-second wait. File cache dominates but is neither assumed unavailable nor assumed safely reclaimable.",
+  "resume_condition": "On a later real wake, remeasure host and cgroup memory; if cgroup headroom is at least 1 GiB and no duplicate or unknown attempt exists, initialize/resume w011 and submit the frozen task through cpu_guard.",
+  "reported_event_id": null
+}

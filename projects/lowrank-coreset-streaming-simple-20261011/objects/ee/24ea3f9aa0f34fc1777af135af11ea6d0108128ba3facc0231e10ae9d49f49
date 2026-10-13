@@ -1,0 +1,47 @@
+{
+  "event_id": "w011-fd-merge-memory-wait-wake2-v1",
+  "state": "waiting_for_memory",
+  "wake_index": 2,
+  "first_observed_at_utc": "2026-10-13T05:15:08Z",
+  "latest_observed_at_utc": "2026-10-13T05:37:23.731306Z",
+  "distinct_blocked_wakes": 2,
+  "in_wake_recheck_count": 1,
+  "planned_task": "fd-merge-topology-calibration-v1",
+  "plan_path": "plans/fd_merge_topology_calibration_v1.md",
+  "input_identity": {
+    "landmark_path": "../w002/sources/consistent-LRA/landmark.mtx",
+    "landmark_sha256": "29fb87018e59049a52314c847c5ac2a4eaa3b875f7cd8467621fe074fbbc298b"
+  },
+  "estimated_peak_bytes_range": [268435456, 536870912],
+  "estimate_basis": "Closest retained 512x2704 Block-Krylov tasks peaked at 115700 and 155556 KiB; repeated FD SVDs and retained sketches need additional headroom.",
+  "required_cgroup_headroom_bytes": 1073741824,
+  "measurements": [
+    {
+      "path": "resource_current_w011_wake2_pre.json",
+      "collected_at_utc": "2026-10-13T05:36:29.379665Z",
+      "cgroup_limit_bytes": 8589934592,
+      "cgroup_current_bytes": 8244105216,
+      "cgroup_headroom_bytes": 345829376,
+      "host_mem_available_bytes": 9600462848
+    },
+    {
+      "path": "resource_current_w011_wake2_recheck1.json",
+      "collected_at_utc": "2026-10-13T05:37:23.731306Z",
+      "cgroup_limit_bytes": 8589934592,
+      "cgroup_current_bytes": 8365465600,
+      "cgroup_headroom_bytes": 224468992,
+      "host_mem_available_bytes": 9646919680,
+      "anon_bytes": 105852928,
+      "file_bytes": 7818506240,
+      "inactive_file_bytes": 1169428480,
+      "active_file_bytes": 6649077760,
+      "shmem_bytes": 0,
+      "slab_bytes": 423695568,
+      "oom_events": 0,
+      "oom_kill_events": 0
+    }
+  ],
+  "reason": "After a real 30-second wait, observed cgroup headroom decreased from 345,829,376 to 224,468,992 bytes, below the frozen 1 GiB launch threshold. File cache dominates but is neither assumed unavailable nor assumed safely reclaimable.",
+  "resume_condition": "On a later real wake, remeasure host and cgroup memory; if cgroup headroom is at least 1 GiB and no duplicate or unknown attempt exists, submit the unchanged frozen task through cpu_guard.",
+  "reported_event_id": null
+}
