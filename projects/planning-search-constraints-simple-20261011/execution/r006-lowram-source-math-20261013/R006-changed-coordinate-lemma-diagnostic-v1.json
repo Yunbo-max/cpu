@@ -1,0 +1,84 @@
+{
+  "scope": "Finite2variable/2value Cartesian predicate enumeration under certified old-edge and all-changed-coordinate assumptions. Not native graph/audit/VAL/timing, not public benchmark, not new algorithm or novelty proof. Existing frozen native source unchanged.",
+  "source_sha256": {
+    "cartesian_abstractions/abstraction.cc": "816e50d0a851d2d80ed109c46ae154111d967ad0ba22e99f358f08a046f4fcc7",
+    "cartesian_abstractions/transition_system.cc": "dbea05cdaa17b9f074abe51ef42e948d67f677cfa86864527a284eb052829918",
+    "cartesian_abstractions/cegar.cc": "78ef1f24e5accd4d52fce5906900fe8307d1378fe7865e6570310978fbe8339b",
+    "task_utils/cartesian_state.cc": "7c09396cfb49055b93d912b19a7a442f044d436ba299fbac27169faf7ba942e2",
+    "task_utils/cartesian_set.cc": "f1d7c5204c47673819fdfddc213627183077d239dafec78831c5c6105175f294",
+    "task_utils/disambiguated_operator.h": "e26d15fa4239048df3e80a6a906a109cc34f37ddb62a3f6fe6d9bb3e8501cf3b"
+  },
+  "counts": {
+    "incoming_comparisons": 71232,
+    "outgoing_comparisons": 60800,
+    "loop_comparisons": 25344,
+    "proper_split_cases": 96
+  },
+  "mismatches": [],
+  "conditional_enumeration_consistent": true,
+  "necessity_counterexamples": [
+    {
+      "condition_removed": "missing_parent_certificate",
+      "parent": [
+        3,
+        1
+      ],
+      "child": [
+        1,
+        1
+      ],
+      "target": [
+        3,
+        2
+      ],
+      "pre": [
+        3,
+        2
+      ],
+      "effect": [
+        -1,
+        -1
+      ],
+      "claimed_changed": [
+        0
+      ],
+      "old_edge_full_valid": false,
+      "full_predicate": false,
+      "restricted_predicate": true
+    },
+    {
+      "condition_removed": "omitted_changed_coordinate",
+      "parent": [
+        3,
+        3
+      ],
+      "child": [
+        1,
+        1
+      ],
+      "target": [
+        3,
+        3
+      ],
+      "pre": [
+        3,
+        2
+      ],
+      "effect": [
+        -1,
+        -1
+      ],
+      "claimed_changed": [
+        0
+      ],
+      "old_edge_full_valid": true,
+      "full_predicate": false,
+      "restricted_predicate": true
+    }
+  ],
+  "wall_seconds": 0.4291252839975641,
+  "process_cpu_seconds": 0.429082292,
+  "shared_before": 7703142400,
+  "shared_after": 7702609920,
+  "peak_process_RSS_bytes": 10092544
+}

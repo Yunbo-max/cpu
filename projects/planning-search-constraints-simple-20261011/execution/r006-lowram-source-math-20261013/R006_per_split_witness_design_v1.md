@@ -1,0 +1,28 @@
+# R006逐split见证：源码边界与未执行协议
+
+2026-10-13；同一constraint-propagation-cost-v1/Simple13/W0004。本文是低内存源码分析和待实施的审计协议，没有修改或运行新的C++求解器，没有新图、计划、VAL、CPU计时或速度结果。不改变当前优先任务：先恢复CPU-clock counts/fine/coarse真实资格，再冻结CPU/wall比较。逐split导出只能用于独立资格实验，禁止进入性能计时。原final1000见证仍仅为终态证据。
+
+## 已实际读到的边界
+
+固定源码vendor/scorpion_cpu_clock_coarse_r006_v1/src/search，全部完整SHA见results/R006-changed-coordinate-lemma-diagnostic-v1.json。abstraction.cc SHA816e50d0a851d2d80ed109c46ae154111d967ad0ba22e99f358f08a046f4fcc7；cegar.cc SHA78ef1f24e5accd4d52fce5906900fe8307d1378fe7865e6570310978fbe8339b。这是已有冻结测量树，不归因未知的上游错误，不升级源码。
+
+1. Abstraction::refine(abstraction.cc:185–337)先产生children、传播与层次/goal更新；transition_system->rewire在317–318，states在321–323提交，才返回。单独在rewire内部采样会同时看到旧states表和新邻接，不能宣称是提交后的完整图。
+2. 普通主循环cegar.cc:463–464调用refine；526–532之后才完成update_shortest_paths_incrementally。refine刚返回时新图/域已提交，但native最短路可能尚旧，甚至距离数组尚未扩到新frontier。不能立即调用含距离的原终态exporter并将不一致判为图错。
+3. 主循环在534–584还存在OPTIMAL_UNTIL_COST_NOT_IMPROVED策略的额外删边和再次distance更新。当前冻结NONE不走该分支；若将来改变policy，post-first-update不能代表该轮最终状态。
+4. 预处理refine不都走主循环：separate_facts_unreachable_before_goal、refine_abstract_initial_state及refinement_loop里的初始细化可先改变图，后mark_goal或在381–390统一recompute。不能把一次普通主循环hook误称覆盖所有split。
+5. 原exporter仅位于CEGAR::extract_abstraction的move前。现有独立auditor硬编码n==1000；它不能直接用于1至999的prefix。需新版本，保留旧审计与结果，不偷偷解除旧合同断言。
+
+## 两类记录，不把相位混为一个PASS
+
+- graph_commit：在refine已提交states/邻接后记录domains、empty、init/goals和完整有序incoming/outgoing/loop多重集。distances_valid=false，不读取/对比可能过期的native距离。预处理caller随后mark_goal必须另记goal_commit；图记录的goals必须明确是哪个边界。
+- distance_synchronized：caller完成对应原有incremental update/recompute和本policy本轮全部删边后记录同一图加native64位双向距离。独立Dijkstra按原zero-cost编码/INF检验。初始批量recompute只证明其对应frontier的距离，不补造之前每个split的native距离见证。
+
+每条含phase_kind、全局split_sequence、caller/site、parentID、childIDs、splitvar/wanted、direction、policy、frontier、源码/binary/SAS/config/operator身份、graph_commit_sequence和distance_valid标记。children ID会因小集合与initialID约束交换，必须记录实际返回ID及域，不能只假定v1等于wanted。每个native qualification各自写唯一文件，不覆盖旧记录。
+
+两个arm比较前先核对完整split序列与实际domains/goal事件及RNG/config；最早分歧保留，不跳过/补齐prefix。相同最终图不推出中间图相同，因为不同更新序列可汇合；相同多重集也不推出邻接顺序相同。逐事件必须验证有序邻接、multiplicity、mirror、计数、域/empty/init/goal、实际算子pre/effect以及已同步距离。原TSV只有cost而没有disambiguated operator pre/effect，不能单凭它独立认证每条edge的Cartesian可行性；新增oracle必须导出并冻结真实算子前置Cartesian域/每var effect及MULTIPLE_POSTCONDITIONS=-1，和任务转换身份。
+
+若time/resource cutoff使两个arm走不同prefix，记录完整失败/删失，不能固定最终frontier替代trajectory。外部replay相同split动作若以后实现，只是条件更新诊断；不能充当原生policy同轨迹/完整planner收益。状态统计/VAL也不能替代上述prefix见证。
+
+## 接纳和未决
+
+本协议未派发，没有新的taskID/receipt/编译/solver。只在当前R006最新decision/probes消费及版本化源码资格之后接纳，保持单队列/1thread/CPU-only/8e9和更低宿主限制/原7.8e9运行保护，鲜测observer/导出峰值与额外I/O。不限科研寿命，但本导出需要明确有限CPU/wall/frontier界。假如导出增加到O(所有prefix边数)成本，按实际记录归档，绝不能拿有export的wall比较速度，也不能偷偷缩小病例或丢弃失败。
