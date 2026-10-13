@@ -1,0 +1,9 @@
+# Streaming variance offset-stability audit v2 repair
+
+The v1 plan, code, result and receipt are retained unchanged. Its first task exposed an incorrect representability premise: at `M=2^53`, `M-1` is still representable while `M+1` rounds to `M`, so the represented pair has separation one and exact `M2=n/4`; both values first collapse together at `M=2^54`. This is a design/truth error, not a method failure.
+
+The v2 repair evaluates `n=4096`, the same alternating and blocked orders, the same five algorithms and tolerance `1e-12`, but over `e=0..54`. It derives represented-data truth at every exponent as `n*(hi-lo)^2/4` rather than using a binary distinct/collapsed assumption. No method, order or tolerance changes.
+
+Corrected prediction: uncentered raw moments fail no later than `e=27` on both orders; balanced Chan, first-value-shifted raw moments and centered two-pass remain within tolerance through `e=53`; all five methods return zero at `e=54`. Welford remains a measured order-sensitive comparator. The claim is falsified if any of the three stability comparators fails by `e=53`, if raw moments pass beyond `e=27` on either order, or if any method reports nonzero variance after the inputs collapse at `e=54`.
+
+Execution remains serial via `cpu_guard.py`, one thread, 4 GiB address-space limit, expected peak below 100 MiB. An independent audit recomputes the represented-data truth and all gates. This remains a frozen scalar numerical audit, not a new estimator, multivariate theorem or runtime claim.

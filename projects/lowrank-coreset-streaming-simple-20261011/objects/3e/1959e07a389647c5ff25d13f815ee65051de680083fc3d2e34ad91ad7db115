@@ -1,0 +1,42 @@
+{
+  "submission_id": "w014-streaming-variance-offset-primary-v1",
+  "idea": "streaming-variance-offset-stability-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "streaming-variance-offset-stability-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/streaming_variance_offset_stability_v1.py"
+      ],
+      "phase": "verify",
+      "purpose": "Measure the frozen float64 cancellation boundary of five variance-state implementations against analytic represented-data truth",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "39a3066ceaaadc35b5ce903f298c99a636467564ea735866568ad7619a0e1ff3"
+        },
+        {
+          "path": "scripts/streaming_variance_offset_stability_v1.py",
+          "sha256": "bd860a1d0e6c0459fa17cc35ea09d25ff65ebec69c5c29e5259a157375c69285"
+        },
+        {
+          "path": "plans/streaming_variance_offset_stability_v1.md",
+          "sha256": "973e9f0804b5c4ac4e0e56324d37216f5b313e5a54cc6269db27e3031f7aed7d"
+        },
+        {
+          "path": "resource_pre_variance_v1.json",
+          "sha256": "843aeda60144cace592863f9bc6a3dbc2d9bc3a77cd61df23f403f13b4dba6a5"
+        }
+      ],
+      "outputs": [
+        "results/streaming_variance_offset_stability_v1.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import hashlib
+import json
+import resource
+import time
+from pathlib import Path
+
+
+def main() -> None:
+    start_wall = time.perf_counter()
+    start_cpu = time.process_time()
+    source_path = Path("results/streaming_variance_offset_stability_v2.json")
+    source_bytes = source_path.read_bytes()
+    source = json.loads(source_bytes)
+    failures = []
+    if len(source["rows"]) != 55 * 2 * 5:
+        failures.append("unexpected_row_count")
+    index = {(r["exponent"], r["order"], r["method"]): r for r in source["rows"]}
+    for exponent in range(55):
+        center = float(2**exponent)
+        lo = float(center - 1.0)
+        hi = float(center + 1.0)
+        expected = 4096.0 * (hi - lo) ** 2 / 4.0
+        for order in ("alternating", "blocked"):
+            two_pass = index[(exponent, order, "centered_two_pass_fsum")]
+            shifted = index[(exponent, order, "raw_shift_first")]
+            # The two-pass mean is itself float64. At e53 the represented
+            # values are M-1 and M, whose exact mean M-0.5 is unrepresentable;
+            # round-to-even selects M, producing n/2 rather than true n/4.
+            expected_two_pass = 2048.0 if exponent == 53 else expected
+            if two_pass["estimate_m2"] != expected_two_pass:
+                failures.append(f"two_pass_replay_{order}_e{exponent}")
+            if shifted["estimate_m2"] != expected:
+                failures.append(f"shifted_{order}_e{exponent}")
+        # Alternating balanced Chan forms identical two-point states, then
+        # repeatedly merges equal means, so its exact expected M2 is analytic.
+        chan_alt = index[(exponent, "alternating", "chan_balanced")]
+        if chan_alt["estimate_m2"] != expected:
+            failures.append(f"chan_alternating_e{exponent}")
+    recomputed_checks = {
+        "raw_fails_no_later_than_e27_both_orders": all(
+            min((e for e in range(54) if not index[(e, order, "raw_uncentered")]["passes"]), default=999) <= 27
+            for order in ("alternating", "blocked")
+        ),
+        "chan_passes_through_e53": all(index[(e, o, "chan_balanced")]["passes"] for e in range(54) for o in ("alternating", "blocked")),
+        "shifted_passes_through_e53": all(index[(e, o, "raw_shift_first")]["passes"] for e in range(54) for o in ("alternating", "blocked")),
+        "two_pass_passes_through_e53": all(index[(e, o, "centered_two_pass_fsum")]["passes"] for e in range(54) for o in ("alternating", "blocked")),
+        "all_methods_zero_at_e54": all(r["passes"] for r in source["rows"] if r["exponent"] == 54),
+    }
+    if recomputed_checks != source["prediction_checks"]:
+        failures.append("prediction_check_mismatch")
+    expected_first_failures = {
+        "raw_uncentered": {"alternating": 21, "blocked": 21},
+        "welford_left_deep": {"alternating": 53, "blocked": 11},
+        "chan_balanced": {"alternating": None, "blocked": None},
+        "raw_shift_first": {"alternating": None, "blocked": None},
+        "centered_two_pass_fsum": {"alternating": 53, "blocked": 53},
+    }
+    observed_first_failures = {
+        method: source["summaries"][method]["first_failure_by_order"]
+        for method in expected_first_failures
+    }
+    if observed_first_failures != expected_first_failures:
+        failures.append("first_failure_boundary_mismatch")
+    output = {
+        "schema_version": 1,
+        "source_sha256": hashlib.sha256(source_bytes).hexdigest(),
+        "row_count": len(source["rows"]),
+        "recomputed_prediction_checks": recomputed_checks,
+        "observed_first_failures": observed_first_failures,
+        "expected_first_failures": expected_first_failures,
+        "failures": failures,
+        "passed": not failures,
+        "wall_seconds": time.perf_counter() - start_wall,
+        "process_cpu_seconds": time.process_time() - start_cpu,
+        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+    }
+    path = Path("results/streaming_variance_offset_stability_audit_v2.json")
+    path.write_text(json.dumps(output, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(output, sort_keys=True))
+    if failures:
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

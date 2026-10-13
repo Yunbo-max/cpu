@@ -1,0 +1,161 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+import math
+import resource
+import time
+from pathlib import Path
+
+N = 4096
+TOL = 1e-12
+
+
+def raw_m2(xs: list[float]) -> float:
+    s = 0.0
+    q = 0.0
+    for x in xs:
+        s += x
+        q += x * x
+    return q - s * s / len(xs)
+
+
+def welford_m2(xs: list[float]) -> float:
+    count = 0
+    mean = 0.0
+    m2 = 0.0
+    for x in xs:
+        count += 1
+        delta = x - mean
+        mean += delta / count
+        m2 += delta * (x - mean)
+    return m2
+
+
+def merge(a: tuple[int, float, float], b: tuple[int, float, float]) -> tuple[int, float, float]:
+    na, ma, m2a = a
+    nb, mb, m2b = b
+    n = na + nb
+    delta = mb - ma
+    mean = ma + delta * (nb / n)
+    m2 = m2a + m2b + delta * delta * (na * nb / n)
+    return n, mean, m2
+
+
+def balanced_chan_m2(xs: list[float]) -> float:
+    states = [(1, x, 0.0) for x in xs]
+    while len(states) > 1:
+        states = [merge(states[i], states[i + 1]) for i in range(0, len(states), 2)]
+    return states[0][2]
+
+
+def shifted_raw_m2(xs: list[float]) -> float:
+    shift = xs[0]
+    ys = [x - shift for x in xs]
+    return raw_m2(ys)
+
+
+def centered_two_pass_m2(xs: list[float]) -> float:
+    mean = math.fsum(xs) / len(xs)
+    return math.fsum((x - mean) * (x - mean) for x in xs)
+
+
+def main() -> None:
+    start_wall = time.perf_counter()
+    start_cpu = time.process_time()
+    methods = {
+        "raw_uncentered": raw_m2,
+        "welford_left_deep": welford_m2,
+        "chan_balanced": balanced_chan_m2,
+        "raw_shift_first": shifted_raw_m2,
+        "centered_two_pass_fsum": centered_two_pass_m2,
+    }
+    rows = []
+    for exponent in range(54):
+        center = float(2**exponent)
+        lo = float(center - 1.0)
+        hi = float(center + 1.0)
+        represented_distinct = lo != hi
+        truth = float(N if represented_distinct else 0)
+        orders = {
+            "alternating": [lo, hi] * (N // 2),
+            "blocked": [lo] * (N // 2) + [hi] * (N // 2),
+        }
+        for order_name, xs in orders.items():
+            if represented_distinct:
+                assert math.fsum(xs) / N == center
+            for method_name, method in methods.items():
+                estimate = method(xs)
+                abs_error = abs(estimate - truth)
+                rel_error = abs_error / truth if truth else abs_error
+                rows.append(
+                    {
+                        "exponent": exponent,
+                        "order": order_name,
+                        "method": method_name,
+                        "center": center,
+                        "lo": lo,
+                        "hi": hi,
+                        "represented_distinct": represented_distinct,
+                        "truth_m2": truth,
+                        "estimate_m2": estimate,
+                        "absolute_error": abs_error,
+                        "relative_or_zero_error": rel_error,
+                        "passes": rel_error <= TOL,
+                    }
+                )
+    summaries = {}
+    for method_name in methods:
+        method_rows = [r for r in rows if r["method"] == method_name]
+        positive = [r for r in method_rows if r["truth_m2"] > 0]
+        failures = [r for r in positive if not r["passes"]]
+        summaries[method_name] = {
+            "first_failure_by_order": {
+                order: min(
+                    (r["exponent"] for r in failures if r["order"] == order),
+                    default=None,
+                )
+                for order in ("alternating", "blocked")
+            },
+            "max_relative_error_through_e52": max(r["relative_or_zero_error"] for r in positive),
+            "negative_estimate_count": sum(r["estimate_m2"] < 0 for r in method_rows),
+            "e53_zero_passes": all(r["passes"] for r in method_rows if r["exponent"] == 53),
+        }
+    prediction_checks = {
+        "raw_fails_no_later_than_e27_both_orders": all(
+            summaries["raw_uncentered"]["first_failure_by_order"][order] is not None
+            and summaries["raw_uncentered"]["first_failure_by_order"][order] <= 27
+            for order in ("alternating", "blocked")
+        ),
+        "chan_passes_through_e52": summaries["chan_balanced"]["first_failure_by_order"]
+        == {"alternating": None, "blocked": None},
+        "shifted_passes_through_e52": summaries["raw_shift_first"]["first_failure_by_order"]
+        == {"alternating": None, "blocked": None},
+        "two_pass_passes_through_e52": summaries["centered_two_pass_fsum"]["first_failure_by_order"]
+        == {"alternating": None, "blocked": None},
+        "all_methods_zero_at_e53": all(v["e53_zero_passes"] for v in summaries.values()),
+    }
+    output = {
+        "schema_version": 1,
+        "design": "streaming-variance-offset-stability-v1",
+        "n": N,
+        "tolerance": TOL,
+        "exponents": [0, 53],
+        "orders": ["alternating", "blocked"],
+        "rows": rows,
+        "summaries": summaries,
+        "prediction_checks": prediction_checks,
+        "prediction_passed": all(prediction_checks.values()),
+        "wall_seconds": time.perf_counter() - start_wall,
+        "process_cpu_seconds": time.process_time() - start_cpu,
+        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "scope": "Frozen scalar float64 numerical audit; not a multivariate guarantee, runtime claim, or new algorithm.",
+    }
+    path = Path("results/streaming_variance_offset_stability_v1.json")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(output, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps({"prediction_passed": output["prediction_passed"], "summaries": summaries, "peak_rss_kib": output["peak_rss_kib"]}, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

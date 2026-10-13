@@ -1,0 +1,57 @@
+{
+  "response_id": "w014-streaming-variance-covariance-interpret-v1",
+  "request_id": "decision-5e073d7021e14302b65a685f844c33d3",
+  "idea": "streaming-variance-offset-stability-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The scalar repair and independent audit establish exact fixture-specific boundaries, while the frozen covariance audit correctly rejected two over-specific boundary predictions and preserved the stable-method result. The nonzero audit exit is accepted as a valid scientific contradiction rather than repaired away.",
+  "events": [
+    {
+      "event_id": "w014-streaming-variance-offset-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "The raw-moment covariance identity used in earlier streaming diagnostics raised a concrete numerical question: whether large affine offsets separate algebraically equivalent variance states before the represented input itself collapses.",
+      "hypothesis": "For a two-point float64 stream translated by powers of two, raw uncentered moments fail much earlier than balanced centered merging or explicit shifting, and a left-deep Welford state can be sensitive to observation order.",
+      "prediction": "After correcting the represented-data truth and extending through exponent 54, raw uncentered variance will fail no later than exponent 27 in both orders; balanced Chan and first-value shifting will remain exact through exponent 53; Welford will have different first-failure exponents under alternating and blocked orders; all methods will return the correct zero after complete input collapse at exponent 54.",
+      "result": "The 550-row scalar v2 result and independent audit had zero audit failures. Raw uncentered moments first failed at exponent 21 in both orders and produced seven negative estimates. Welford first failed at exponent 53 for alternating order and 11 for blocked order. Balanced Chan and first-value shifting were exact through exponent 53. Centered two-pass with an accurately summed mean first failed at exponent 53, and all methods correctly returned zero at exponent 54. The retained v1 result exposed and did not erase the original mistaken collapse premise.",
+      "interpretation": "Large-offset cancellation distinguishes algebraically equivalent state representations, and left-deep online updating is not order-invariant in floating-point arithmetic. These are deterministic synthetic numerical boundaries, not statistical accuracy or novelty claims.",
+      "next_action": "Test whether the same mechanism transfers to the multivariate raw sum/Gram scatter pattern already present in the earlier centered streaming-FID diagnostic, using a frozen orthogonal d=8 fixture and stable controls.",
+      "evidence": [
+        {"path": "plans/streaming_variance_offset_stability_v2.md", "sha256": "e369167c72fa94c9df9aa304d6e0000996202e8b7ea022ab243402065c8e7283"},
+        {"path": "results/streaming_variance_offset_stability_v2.json", "sha256": "9e89b751aa3e7f7e600866dd4555132b6a6ee0197de1adaa5810b430618e7ff9"},
+        {"path": "results/streaming_variance_offset_stability_audit_v2.json", "sha256": "cd823ebc10631dce8848f09e60dd9d8cadfc79112261be4b1aa604ec06ac7ba0"},
+        {"path": ".research-autopilot/runner/attempts/attempt-759daf45db5240ecb6825e3e164a0fcc/receipt.json", "sha256": "8db76bd8eced68ec4080edc36cfa3b7400b23165ea5dc7892dcd8ba13a787a00"},
+        {"path": ".research-autopilot/runner/attempts/attempt-8a806e2c37084418ab8ad47beb03a0fe/receipt.json", "sha256": "08a8de219ca0d3b5d38f0438cfa0b84272905c25140a0479107254993c1f8cd6"},
+        {"path": ".research-autopilot/runner/attempts/attempt-a9009d1e50f840eb906b71846720dc19/receipt.json", "sha256": "f886e521d64e2303b33c04288e0d83d01a97205bc6a58a7789dc8262e4fa8af6"}
+      ]
+    },
+    {
+      "event_id": "w014-streaming-covariance-offset-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "The scalar result did not by itself establish multivariate behavior, and the prior centered streaming-FID implementation uses the exact raw sum/Gram subtraction pattern whose cancellation risk needed a separate test.",
+      "hypothesis": "On an orthogonal d=8 translated Rademacher fixture, raw sum/Gram and ordinary centered two-pass accumulation will exhibit offset-induced covariance error, while balanced Chan and first-row shifting preserve the exact scatter through the last noncollapsed exponent.",
+      "prediction": "Raw sum/Gram will first fail by exponent 21 in both orders; balanced Chan and first-row shifting will remain exact through exponent 53; ordinary centered two-pass will first fail at exponent 53 with nonzero spurious cross-covariance; all methods will return zero at exponent 54.",
+      "result": "The 550-row primary result found raw sum/Gram first failure at exponent 23, not by 21; centered two-pass first failure at exponent 46, not 53. At exponent 53, centered two-pass nevertheless had diagonal and off-diagonal errors of 1024 in both orders, while natural-order raw sum/Gram had minimum eigenvalue about -2.33e20. Balanced Chan and first-row shifting remained exact through exponent 53, and all methods returned zero at exponent 54. The frozen audit independently recomputed the complete inventory and prediction flags, then exited one solely on the preregistered boundary mismatch.",
+      "interpretation": "The qualitative stability transfer is supported but the claimed exact failure thresholds are not. Thresholds depend on dimension, order, and summation implementation. The earlier raw sum/Gram identity remains algebraically correct and its small-offset fixture remains valid, but future large-offset streaming covariance/FID implementations should prefer mergeable centered state or an explicit justified shift. No authentic feature distribution or downstream FID score was tested.",
+      "next_action": "Close this bounded synthetic offset-stability idea. In the next execution window, inspect realistic feature offset and conditioning evidence or choose a different unresolved streaming-statistics question before designing any further guarded experiment; do not expand the exponent grid merely to refine synthetic boundaries.",
+      "evidence": [
+        {"path": "plans/streaming_covariance_offset_stability_v1.md", "sha256": "9487dc32fab93b6ab11b90fbb8a1628fb57fba468385c0609680d22db70730d6"},
+        {"path": "results/streaming_covariance_offset_stability_v1.json", "sha256": "2503f3dc2de789ef386c438865ddebc82998c4e623691f6aa13cdd9c36d8c392"},
+        {"path": "results/streaming_covariance_offset_stability_audit_v1.json", "sha256": "59ab37539e92730f4bbe167215c7581481289d179f467938b7022d442a0d5356"},
+        {"path": "analysis/streaming_variance_covariance_offset_stability_analysis_v1.md", "sha256": "37cc48a121ceebe2f35e4a9e08f88194d753933e1846aa740c6b60fce031c75d"},
+        {"path": ".research-autopilot/runner/attempts/attempt-dd4ff0d3b87047fe8c6b655b318ecb72/receipt.json", "sha256": "5301a008802b665fccc964e765cfcba38f8928dba763ba500f44a231d36e7a01"},
+        {"path": ".research-autopilot/runner/attempts/attempt-4080c55c86524a1ea9ee21722802f547/receipt.json", "sha256": "33cd8fbee4bdf3acca86475e92fb95fcfdddc31313fb368aef173d6ca82ddf45"}
+      ]
+    },
+    {
+      "event_id": "w014-streaming-variance-offset-complete-v1",
+      "kind": "completion",
+      "outcome": "supported",
+      "reason": "The bounded diagnostic established the requested implementation-level stability distinction with complete retained raw results, an accepted scalar audit, and an intentionally failing frozen multivariate audit that preserves the contradicted exact-boundary prediction.",
+      "evidence": [
+        {"path": "results/streaming_variance_offset_stability_audit_v2.json", "sha256": "cd823ebc10631dce8848f09e60dd9d8cadfc79112261be4b1aa604ec06ac7ba0"},
+        {"path": "results/streaming_covariance_offset_stability_audit_v1.json", "sha256": "59ab37539e92730f4bbe167215c7581481289d179f467938b7022d442a0d5356"},
+        {"path": "analysis/streaming_variance_covariance_offset_stability_analysis_v1.md", "sha256": "37cc48a121ceebe2f35e4a9e08f88194d753933e1846aa740c6b60fce031c75d"}
+      ]
+    }
+  ]
+}

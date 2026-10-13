@@ -1,0 +1,47 @@
+{
+  "response_id": "w014-streaming-variance-offset-audit-v2",
+  "request_id": "decision-d529f15f7e8c419d9a739341bbe45600",
+  "idea": "streaming-variance-offset-stability-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The corrected primary run verifies exact Chan and shifted-state behavior but falsifies the two-pass stability prediction at the asymmetric e53 representability boundary; independently recompute represented-data truth, the corrected two-pass replay, all gates and observed first-failure exponents before interpretation.",
+  "tasks": [
+    {
+      "task_id": "audit-streaming-variance-offset-stability-v2",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/audit_streaming_variance_offset_stability_v2.py"
+      ],
+      "phase": "verify",
+      "purpose": "Independently audit represented-data truth, e53 mean-rounding behavior, prediction gates and method failure boundaries",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "streaming-variance-offset-stability-v2"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "39a3066ceaaadc35b5ce903f298c99a636467564ea735866568ad7619a0e1ff3"
+        },
+        {
+          "path": "scripts/audit_streaming_variance_offset_stability_v2.py",
+          "sha256": "0f43118569677b7ca3178a98c340aae02f7b7682ed5bb05f2bb72917b88df388"
+        },
+        {
+          "path": "plans/streaming_variance_offset_stability_v2.md",
+          "sha256": "e369167c72fa94c9df9aa304d6e0000996202e8b7ea022ab243402065c8e7283"
+        },
+        {
+          "path": "results/streaming_variance_offset_stability_v2.json",
+          "sha256": "9e89b751aa3e7f7e600866dd4555132b6a6ee0197de1adaa5810b430618e7ff9"
+        }
+      ],
+      "outputs": [
+        "results/streaming_variance_offset_stability_audit_v2.json"
+      ]
+    }
+  ]
+}

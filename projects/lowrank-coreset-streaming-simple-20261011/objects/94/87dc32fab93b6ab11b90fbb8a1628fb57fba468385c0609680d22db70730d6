@@ -1,0 +1,27 @@
+# Multivariate covariance offset-stability follow-up v1
+
+## Reason and frozen fixture
+
+The audited scalar result found that balanced Chan state and first-value shifting remained exact through the asymmetric float64 boundary at `2^53`, while uncentered raw moments failed much earlier and ordinary centered two-pass failed when its mean became unrepresentable. The existing centered streaming FID diagnostic in w004 uses the multivariate raw state `Gram - outer(sum,sum)/n`; this follow-up tests whether the scalar mechanism transfers to that exact algebraic pattern. It does not rerun or reinterpret the retired FID estimator comparisons.
+
+Use `N=4096`, `d=8`, and the deterministic complete binary design whose column `j` is the `j`th bit of row index mapped to `{-1,+1}`. Add common offset `M=2^e`, for `e=0..54`. Every represented column has the same low/high separation `s`; exact represented-data centered scatter is `N*s^2/4 * I_d`, with zero cross-covariance. Evaluate natural binary row order and Gray-code order.
+
+Methods:
+
+1. uncentered NumPy sum/Gram formula used by the w004 centered streaming equivalence diagnostic;
+2. left-deep vector Welford update;
+3. balanced vector Chan merge;
+4. raw sum/Gram after subtracting the first represented row;
+5. ordinary NumPy centered two-pass batch comparator.
+
+Report relative Frobenius error, maximum absolute diagonal and off-diagonal errors, minimum eigenvalue, first failure at tolerance `1e-12`, and the full `e=53` matrices.
+
+## Prospective prediction
+
+The raw sum/Gram formula will fail by `e=21` on both orders. Balanced Chan and first-row shifting will remain within `1e-12` through `e=53`. At `e=53`, ordinary centered two-pass will fail because each exact represented mean is `M-0.5`, which float64 cannot store; subtracting rounded `M` leaves values `{-1,0}` and introduces a common residual mean, producing both diagonal inflation and spurious cross-covariance. All methods must return zero at `e=54`. Welford's boundary is measured, not predicted.
+
+The core transfer claim is falsified if either stable state exceeds tolerance through `e=53`, if raw Gram remains within tolerance past `e=21` on either order, or if centered two-pass has zero off-diagonal error at `e=53`.
+
+## Resources and limits
+
+The fixture occupies under 1 MiB and the Chan state under 10 MiB. Run one primary task and one independent audit serially through `cpu_guard.py`, one thread, with the 4 GiB address-space cap. The pre-launch resource snapshot records about 959 MiB shared-cgroup headroom. No speed claim, general PSD guarantee, FID score claim, originality claim, or theorem about arbitrary data follows.

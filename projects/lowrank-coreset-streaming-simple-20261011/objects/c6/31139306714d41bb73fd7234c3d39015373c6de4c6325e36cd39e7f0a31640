@@ -1,0 +1,7 @@
+# Supervisor start alert resolution
+
+- Alert: `supervisor-start:bc4471d6bcac2f897607dab9f4670737fd5fa7077e8239f12426538b896b371d`
+- Observation: a second `run` invocation was refused because the existing w014 supervisor owned the lock.
+- Reconciliation: `health --max-age-seconds 120` observed PID 76884, matching start ticks 1853119 and boot ID `e655c1f8-c88b-4e30-925f-a690e2e9f4c3`, alive with fresh activity while awaiting a decision.
+- Impact: no experiment was duplicated, cancelled, or lost. The existing supervisor subsequently consumed the covariance primary and audit tasks under their original identities.
+- Action: retained the alert and used only `respond`/status against the owned live supervisor. Reported the resolved anomaly in the active user-visible commentary. No restart or process signal was issued.

@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import hashlib
+import json
+import resource
+import time
+from pathlib import Path
+
+
+def main() -> None:
+    start_wall = time.perf_counter()
+    start_cpu = time.process_time()
+    source_path = Path("results/streaming_covariance_offset_stability_v1.json")
+    source_bytes = source_path.read_bytes()
+    source = json.loads(source_bytes)
+    failures = []
+    rows = source["rows"]
+    if len(rows) != 55 * 2 * 5:
+        failures.append("unexpected_row_count")
+    index = {(r["exponent"], r["order"], r["method"]): r for r in rows}
+    methods = ("raw_sum_gram", "welford_left_deep", "chan_balanced", "raw_shift_first", "centered_two_pass")
+    observed_first = {m: source["summaries"][m]["first_failure_by_order"] for m in methods}
+    expected_preregistered = {
+        "chan_balanced": {"natural": None, "gray": None},
+        "raw_shift_first": {"natural": None, "gray": None},
+        "centered_two_pass": {"natural": 53, "gray": 53},
+    }
+    if any(observed_first[m] != boundary for m, boundary in expected_preregistered.items()):
+        failures.append("preregistered_stable_boundary_mismatch")
+    for order in ("natural", "gray"):
+        two = index[(53, order, "centered_two_pass")]
+        if two["max_absolute_diagonal_error"] != 1024.0 or two["max_absolute_offdiagonal_error"] != 1024.0:
+            failures.append(f"e53_two_pass_structure_{order}")
+        for method in ("chan_balanced", "raw_shift_first"):
+            if not all(index[(e, order, method)]["passes"] for e in range(54)):
+                failures.append(f"stable_boundary_{order}_{method}")
+    recomputed_checks = {
+        "raw_fails_by_e21_both_orders": all(observed_first["raw_sum_gram"][o] is not None and observed_first["raw_sum_gram"][o] <= 21 for o in ("natural", "gray")),
+        "chan_passes_through_e53": all(index[(e, o, "chan_balanced")]["passes"] for e in range(54) for o in ("natural", "gray")),
+        "shifted_passes_through_e53": all(index[(e, o, "raw_shift_first")]["passes"] for e in range(54) for o in ("natural", "gray")),
+        "two_pass_has_spurious_e53_cross_covariance": all(index[(53, o, "centered_two_pass")]["max_absolute_offdiagonal_error"] > 0 for o in ("natural", "gray")),
+        "all_methods_zero_at_e54": all(r["passes"] for r in rows if r["exponent"] == 54),
+    }
+    if recomputed_checks != source["prediction_checks"]:
+        failures.append("prediction_check_mismatch")
+    output = {
+        "schema_version": 1,
+        "source_sha256": hashlib.sha256(source_bytes).hexdigest(),
+        "row_count": len(rows),
+        "observed_first_failures": observed_first,
+        "expected_preregistered_first_failures": expected_preregistered,
+        "recomputed_prediction_checks": recomputed_checks,
+        "failures": failures,
+        "passed": not failures,
+        "wall_seconds": time.perf_counter() - start_wall,
+        "process_cpu_seconds": time.process_time() - start_cpu,
+        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+    }
+    path = Path("results/streaming_covariance_offset_stability_audit_v1.json")
+    path.write_text(json.dumps(output, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(output, sort_keys=True))
+    if failures:
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

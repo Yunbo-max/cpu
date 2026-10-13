@@ -1,0 +1,50 @@
+# Float64 offset stability of streaming variance and covariance states
+
+## Scope and evidence status
+
+This window tested one bounded numerical question: how five mathematically equivalent variance/scatter accumulators behave when a small centered signal is translated by a large common float64 offset. The scalar and `d=8` fixtures are deterministic synthetic diagnostics, not FID-score experiments, native-image benchmarks, general covariance theorems, or new estimators.
+
+The initial scalar v1 plan incorrectly assumed that `2^53 - 1` and `2^53 + 1` both collapse to `2^53`. The former remains representable, while the latter rounds to `2^53`; complete collapse occurs at `2^54`. The v1 plan, code, result, and receipt are retained as a premise error. Scalar v2 prospectively repaired the truth definition to the exact represented-data value `n(hi-lo)^2/4` and extended the grid through exponent 54 before producing its replacement result.
+
+## Scalar result
+
+For `n=4096` values alternating or blocked between the represented low/high points:
+
+| Method | First failure, alternating | First failure, blocked | Accepted interpretation |
+|---|---:|---:|---|
+| Raw uncentered `sum(x^2)-sum(x)^2/n` | 21 | 21 | Catastrophic cancellation begins far before input collapse; seven estimates were negative. |
+| Left-deep Welford | 53 | 11 | Numerically order-sensitive despite exact-algebra equivalence. |
+| Balanced Chan merge | none through 53 | none through 53 | Exact on this dyadic fixture through the last noncollapsed input. |
+| First-value shift plus raw moments | none through 53 | none through 53 | Exact on this fixture because shifting removes the large common offset. |
+| Centered two-pass with `fsum` mean | 53 | 53 | Fails when the exact represented-data mean is `2^53-0.5`, which is not itself representable. |
+
+At exponent 54 the represented low/high values coincide, so the correct represented-data variance is zero and all methods return zero. The independent scalar audit recomputed all 550 rows, all method/order boundaries, and the prediction checks with no failure.
+
+## Multivariate transfer
+
+The multivariate fixture used all 4096 rows of an 8-bit Rademacher design, translated by `2^e`, with exact represented-data scatter `4096 s^2/4 I_8`. Natural and Gray-code orders were evaluated. This algebra matches the raw `Gram - outer(sum,sum)/n` pattern used in the earlier centered streaming-FID diagnostic, although the present offset family is deliberately extreme and does not establish failure on that earlier fixture.
+
+| Method | First failure, natural | First failure, Gray | Key result |
+|---|---:|---:|---|
+| Raw sum/Gram | 23 | 23 | The preregistered “by exponent 21” prediction was false; it still failed decades before input collapse. |
+| Left-deep vector Welford | 15 | 14 | Strong order dependence remained, with earlier failure than in the scalar alternating order. |
+| Balanced vector Chan | none through 53 | none through 53 | Exact on every tested noncollapsed exponent. |
+| First-row-shifted sum/Gram | none through 53 | none through 53 | Exact on every tested noncollapsed exponent. |
+| Ordinary centered two-pass | 46 | 46 | The preregistered exponent-53 first-failure boundary was false; NumPy's finite-precision mean accumulation already produced a diagonal error of 4 at exponent 46. |
+
+At exponent 53, centered two-pass produced diagonal and off-diagonal errors of 1024 in both orders, confirming the predicted spurious cross-covariance structure. Raw sum/Gram was also non-PSD in the natural order, with minimum eigenvalue about `-2.33e20`; the Gray order instead collapsed that estimate to zero. Balanced Chan and first-row shifting still exactly recovered `1024 I_8`. At exponent 54 all inputs and all estimates collapse to zero.
+
+The frozen covariance audit intentionally exited nonzero because `centered_two_pass` first failed at exponent 46 instead of its preregistered exponent 53. It nevertheless independently recomputed the complete 550-row inventory, the stable-method boundaries, the exponent-53 structure, and all prediction flags from the immutable result. This is a valid negative result against the over-specific boundary prediction, not an implementation crash or missing evidence.
+
+## Scientific decision
+
+The supported result is narrower than the original multivariate prediction: on these dyadic affine-offset fixtures, raw uncentered moments are fragile, left-deep Welford is order-sensitive, and balanced mergeable centered state or explicit shifting is substantially more stable. The exact failure exponents depend on dimension, summation order, and mean implementation; they are not universal thresholds.
+
+The earlier w004 centered sufficient-statistics identity remains algebraically correct and its small-offset numerical equivalence result remains valid. This window adds an implementation warning: future large-offset streaming covariance/FID code should avoid relying solely on raw sum/Gram subtraction and should prefer a mergeable `(count, mean, centered M2)` state or an explicitly justified shift. No prior result is retroactively invalidated, because authentic feature ranges and the downstream matrix-square-root/FID effect were not tested here.
+
+Welford and Chan-style updates are established numerical methods. This window claims neither algorithmic originality nor a new statistical guarantee. The bounded offset-stability idea should close after recording this implementation guidance. A future window should first inspect realistic feature offsets/condition numbers or another unresolved streaming-statistics question; it should not expand the exponent grid merely to refine synthetic thresholds.
+
+## Resource and receipt summary
+
+Five runner attempts were made: scalar v1, repaired scalar v2, scalar audit, covariance primary, and frozen covariance audit. Four commands exited zero; the final audit exited one solely because it correctly detected the preregistered boundary mismatch. Total runner command time was `6.283977038998273` seconds. Peak observed numerical RSS was `28,464 KiB`, well below the 4 GiB per-process address-space cap. No OOM occurred.
+

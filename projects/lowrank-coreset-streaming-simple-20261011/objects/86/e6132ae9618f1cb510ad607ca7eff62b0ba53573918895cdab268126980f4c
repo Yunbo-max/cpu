@@ -1,0 +1,51 @@
+{
+  "response_id": "w014-streaming-covariance-offset-audit-v1",
+  "request_id": "decision-66be80a50d2847a49ced952062f83843",
+  "idea": "streaming-variance-offset-stability-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The frozen multivariate prediction was partly contradicted: raw sum/Gram first failed at exponent 23 rather than by 21, and ordinary centered two-pass first failed at exponent 46 rather than 53, while balanced Chan and first-row shifting remained exact through exponent 53. Run the already frozen audit unchanged so that this contradiction is retained rather than tuning its criteria after exposure.",
+  "tasks": [
+    {
+      "task_id": "audit-streaming-covariance-offset-stability-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/audit_streaming_covariance_offset_stability_v1.py"
+      ],
+      "phase": "verify",
+      "purpose": "Independently recompute inventory, frozen boundaries, e53 error structure and prediction checks from the immutable covariance result",
+      "timeout_seconds": 60,
+      "cwd": ".",
+      "depends_on": [
+        "streaming-covariance-offset-stability-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "39a3066ceaaadc35b5ce903f298c99a636467564ea735866568ad7619a0e1ff3"
+        },
+        {
+          "path": "scripts/audit_streaming_covariance_offset_stability_v1.py",
+          "sha256": "29bd2ec6e68945a85e9ab4fc934de448eb693f9037e2ea71d70e8085b4a696bb"
+        },
+        {
+          "path": "plans/streaming_covariance_offset_stability_v1.md",
+          "sha256": "9487dc32fab93b6ab11b90fbb8a1628fb57fba468385c0609680d22db70730d6"
+        },
+        {
+          "path": "results/streaming_covariance_offset_stability_v1.json",
+          "sha256": "2503f3dc2de789ef386c438865ddebc82998c4e623691f6aa13cdd9c36d8c392"
+        },
+        {
+          "path": "resource_wake_current.json",
+          "sha256": "15ff35bfde9895cdab44f7ec8161a65e6179431171941f640345625fc5e139f5"
+        }
+      ],
+      "outputs": [
+        "results/streaming_covariance_offset_stability_audit_v1.json"
+      ]
+    }
+  ]
+}

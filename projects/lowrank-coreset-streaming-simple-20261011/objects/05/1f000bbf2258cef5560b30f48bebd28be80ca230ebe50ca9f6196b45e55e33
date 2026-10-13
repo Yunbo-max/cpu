@@ -1,0 +1,23 @@
+{
+  "idea": "streaming-variance-offset-stability-v1",
+  "goal": "持续低秩、coreset与流式统计研究；保留w001-w013全部证据与退役结论，量化经典流式方差充分统计在大公共偏移下的浮点失效边界，并据此审查此前精确流式矩实现的数值适用范围。",
+  "goal_contract": {
+    "mode": "continuous_research",
+    "completion_criteria": [
+      {
+        "id": "validity",
+        "description": "在冻结的M±1标量流上，用解析真值和独立实现核验未中心化原始矩、Welford、平衡Chan合并、平移原始矩与中心化两遍算法的误差"
+      },
+      {
+        "id": "research",
+        "description": "确定平衡Chan合并是否把失效边界推迟到float64输入不可分辨点，明确顺序依赖、适用范围及对流式协方差/FID实现的含义"
+      }
+    ]
+  },
+  "limits": {
+    "max_attempts": 32,
+    "max_command_seconds": 1800,
+    "deadline_seconds": 7200,
+    "max_concurrency": 1
+  }
+}

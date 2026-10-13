@@ -1,0 +1,30 @@
+# Streaming variance offset-stability audit v1
+
+## Scope and prior art
+
+This is a numerical-boundary audit, not a new estimator. Welford (1962) gives an online corrected-sum update; Chan, Golub and LeVeque (1983) analyze updating and pairwise variance algorithms. The present question is narrower: under the exact frozen binary-offset family below, where do common implementations stop reproducing the exact variance of their *represented float64 inputs*?
+
+## Frozen question and data
+
+Let `n=4096`, `M=2^e` for every integer `e=0..53`, and construct equal numbers of the float64 values `M-1` and `M+1`. Evaluate two deterministic orders: alternating and blocked. For `e<=52` the values are distinct and their exact corrected sum of squares is `M2=n`; at `e=53` both inputs round to `M`, so the represented-data truth is `M2=0`. This explicitly separates algorithmic cancellation from information already lost on input.
+
+Methods:
+
+1. uncentered raw moments, `sum(x^2)-sum(x)^2/n`;
+2. left-deep Welford update;
+3. balanced binary Chan merge of singleton states;
+4. raw moments after shifting by the first represented value;
+5. centered two-pass reference using `math.fsum`.
+
+All methods consume the same represented float64 sequence. Report absolute and relative error against the analytic represented-data truth, first failing exponent at tolerance `1e-12` when truth is nonzero, negative estimates, and order sensitivity.
+
+## Prospective prediction and falsifier
+
+Prediction: on both frozen orders the uncentered raw-moment implementation first fails no later than `e=27`, while balanced Chan, shifted raw moments, and centered two-pass remain exact within `1e-12` through `e=52`; all methods must return zero at `e=53` because the two inputs have become identical. The core claim is falsified if balanced Chan exceeds `1e-12` relative error at any `e<=52`, or if the raw implementation remains within tolerance through `e=27` on both orders.
+
+Welford is a strong streaming comparator whose order-dependent boundary is measured rather than predicted. No runtime advantage, multivariate guarantee, paper invalidity, originality, or general balanced-tree dominance will be inferred.
+
+## Execution and resources
+
+Run one primary implementation and one independent replay audit, serially, through `cpu_guard.py` with one thread and a 4 GiB address-space cap. Each holds at most a few thousand scalar states; expected peak RSS is below 100 MiB. The current shared-cgroup headroom snapshot must be recorded immediately before submission. Stop on a truth inconsistency and retain all failures.
+

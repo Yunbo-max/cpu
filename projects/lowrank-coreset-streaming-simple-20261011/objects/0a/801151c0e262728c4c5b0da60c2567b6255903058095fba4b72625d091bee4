@@ -1,0 +1,149 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import json
+import resource
+import time
+from pathlib import Path
+
+import numpy as np
+
+N = 4096
+D = 8
+TOL = 1e-12
+
+
+def raw_scatter(x: np.ndarray) -> np.ndarray:
+    s = x.sum(axis=0)
+    return x.T @ x - np.outer(s, s) / x.shape[0]
+
+
+def welford_scatter(x: np.ndarray) -> np.ndarray:
+    count = 0
+    mean = np.zeros(D, dtype=np.float64)
+    m2 = np.zeros((D, D), dtype=np.float64)
+    for row in x:
+        count += 1
+        delta = row - mean
+        mean += delta / count
+        m2 += np.outer(delta, row - mean)
+    return (m2 + m2.T) * 0.5
+
+
+def merge(a: tuple[int, np.ndarray, np.ndarray], b: tuple[int, np.ndarray, np.ndarray]) -> tuple[int, np.ndarray, np.ndarray]:
+    na, ma, m2a = a
+    nb, mb, m2b = b
+    n = na + nb
+    delta = mb - ma
+    mean = ma + delta * (nb / n)
+    m2 = m2a + m2b + np.outer(delta, delta) * (na * nb / n)
+    return n, mean, m2
+
+
+def chan_scatter(x: np.ndarray) -> np.ndarray:
+    zero = np.zeros((D, D), dtype=np.float64)
+    states = [(1, row.copy(), zero.copy()) for row in x]
+    while len(states) > 1:
+        states = [merge(states[i], states[i + 1]) for i in range(0, len(states), 2)]
+    m2 = states[0][2]
+    return (m2 + m2.T) * 0.5
+
+
+def shifted_scatter(x: np.ndarray) -> np.ndarray:
+    return raw_scatter(x - x[0])
+
+
+def centered_two_pass(x: np.ndarray) -> np.ndarray:
+    y = x - x.mean(axis=0)
+    return y.T @ y
+
+
+def metrics(estimate: np.ndarray, truth: np.ndarray) -> dict[str, float | bool]:
+    error = estimate - truth
+    offdiag = error.copy()
+    np.fill_diagonal(offdiag, 0.0)
+    truth_norm = float(np.linalg.norm(truth, ord="fro"))
+    relative = float(np.linalg.norm(error, ord="fro") / truth_norm) if truth_norm else float(np.linalg.norm(error, ord="fro"))
+    return {
+        "relative_or_zero_frobenius_error": relative,
+        "max_absolute_diagonal_error": float(np.max(np.abs(np.diag(error)))),
+        "max_absolute_offdiagonal_error": float(np.max(np.abs(offdiag))),
+        "minimum_eigenvalue": float(np.linalg.eigvalsh((estimate + estimate.T) * 0.5)[0]),
+        "passes": relative <= TOL,
+    }
+
+
+def main() -> None:
+    start_wall = time.perf_counter()
+    start_cpu = time.process_time()
+    indices = np.arange(N, dtype=np.uint64)
+    base = np.column_stack([np.where(((indices >> j) & 1) == 0, -1.0, 1.0) for j in range(D)])
+    gray_order = np.argsort(indices ^ (indices >> 1), kind="stable")
+    methods = {
+        "raw_sum_gram": raw_scatter,
+        "welford_left_deep": welford_scatter,
+        "chan_balanced": chan_scatter,
+        "raw_shift_first": shifted_scatter,
+        "centered_two_pass": centered_two_pass,
+    }
+    rows = []
+    matrices_e53 = {}
+    for exponent in range(55):
+        center = float(2**exponent)
+        lo = float(center - 1.0)
+        hi = float(center + 1.0)
+        separation = hi - lo
+        x0 = np.where(base < 0, lo, hi)
+        truth = np.eye(D, dtype=np.float64) * (N * separation * separation / 4.0)
+        for order_name, x in (("natural", x0), ("gray", x0[gray_order])):
+            for method_name, method in methods.items():
+                estimate = method(x)
+                row = {
+                    "exponent": exponent,
+                    "order": order_name,
+                    "method": method_name,
+                    "represented_separation": separation,
+                    **metrics(estimate, truth),
+                }
+                rows.append(row)
+                if exponent == 53:
+                    matrices_e53[f"{order_name}:{method_name}"] = estimate.tolist()
+    summaries = {}
+    for method_name in methods:
+        summaries[method_name] = {
+            "first_failure_by_order": {
+                order: min((r["exponent"] for r in rows if r["method"] == method_name and r["order"] == order and not r["passes"]), default=None)
+                for order in ("natural", "gray")
+            },
+            "max_relative_error": max(r["relative_or_zero_frobenius_error"] for r in rows if r["method"] == method_name),
+        }
+    checks = {
+        "raw_fails_by_e21_both_orders": all(summaries["raw_sum_gram"]["first_failure_by_order"][o] is not None and summaries["raw_sum_gram"]["first_failure_by_order"][o] <= 21 for o in ("natural", "gray")),
+        "chan_passes_through_e53": all(r["passes"] for r in rows if r["method"] == "chan_balanced" and r["exponent"] <= 53),
+        "shifted_passes_through_e53": all(r["passes"] for r in rows if r["method"] == "raw_shift_first" and r["exponent"] <= 53),
+        "two_pass_has_spurious_e53_cross_covariance": all(r["max_absolute_offdiagonal_error"] > 0 for r in rows if r["method"] == "centered_two_pass" and r["exponent"] == 53),
+        "all_methods_zero_at_e54": all(r["passes"] for r in rows if r["exponent"] == 54),
+    }
+    output = {
+        "schema_version": 1,
+        "design": "streaming-covariance-offset-stability-v1",
+        "n": N,
+        "dimension": D,
+        "tolerance": TOL,
+        "rows": rows,
+        "summaries": summaries,
+        "matrices_e53": matrices_e53,
+        "prediction_checks": checks,
+        "prediction_passed": all(checks.values()),
+        "wall_seconds": time.perf_counter() - start_wall,
+        "process_cpu_seconds": time.process_time() - start_cpu,
+        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "scope": "Deterministic d=8 float64 scatter audit; no FID-score, runtime, or general covariance guarantee.",
+    }
+    path = Path("results/streaming_covariance_offset_stability_v1.json")
+    path.write_text(json.dumps(output, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps({"prediction_passed": output["prediction_passed"], "summaries": summaries, "checks": checks, "peak_rss_kib": output["peak_rss_kib"]}, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

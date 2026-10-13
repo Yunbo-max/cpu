@@ -4,12 +4,12 @@
   "policy_version": "0.3.0-simple.9",
   "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
   "goal_mode": "continuous_research",
-  "active_window": "execution_windows/w013",
-  "idea": "fd-merge-topology-phase-boundary-v1",
+  "active_window": "execution_windows/w014",
+  "idea": "streaming-variance-offset-stability-v1",
   "revision": 1,
   "goal_contract_version": 2,
-  "scientific_status": "w013 established and independently audited an exact leaf-energy topology phase boundary for a restricted width-two Frequent Directions family. For A=a e1, B=b e1, C=c e2, D=d e3, s=a+b, and d>c>s>0, the balanced tree selects e1 exactly when s>d-c, while the left-deep tree always selects e3. Hence left-deep has strictly smaller full-data rank-one projection cost exactly when d-c<s; if d-c>s, both trees select e3 and have equal cost. A complete 1..24 integer grid contained 10,186 eligible points: 7,986 reversals and 2,200 equal-cost cases, with zero formula mismatches; a separate audit reproduced all counts and boundary cases with zero failures. This is a simultaneous-diagonal, axis-aligned theorem only, not a noncommuting predictor, global tree optimizer, new FD guarantee, or originality claim.",
-  "next_action": "Restore and reconcile stopped w013, then establish w014 under the existing continuous authorization. Treat the restricted orthogonal FD phase-boundary idea as complete and do not widen it without a prospectively frozen leaf-observable condition for noncommuting summaries. Pivot to a still-unresolved low-rank or streaming-statistics question, beginning with low-memory mathematical/source review and only then a falsifiable guarded experiment. Continue CPU-only execution under the existing memory limits and shared-memory waiting rules.",
+  "scientific_status": "w014 completed a deterministic float64 offset-stability audit for scalar variance and d=8 covariance states. Scalar raw uncentered moments first failed at exponent21, left-deep Welford at exponent53 versus11 under alternating versus blocked order, while balanced Chan and first-value shifting were exact through exponent53. In d=8, raw sum/Gram first failed at exponent23 and centered two-pass at exponent46, contradicting the preregistered exact thresholds; at exponent53 centered two-pass had 1024 diagonal and off-diagonal errors, while balanced Chan and first-row shifting remained exact. The frozen covariance audit intentionally failed on the boundary mismatch after independently recomputing all550 rows. This supports only a synthetic implementation-stability warning, not a FID-score, realistic-feature, general covariance, or originality claim.",
+  "next_action": "Restore and reconcile stopped w014, then establish w015 under the existing continuous authorization. Treat the synthetic offset-stability idea as complete; do not expand the exponent grid merely to refine fixture-specific thresholds. First inspect realistic feature offset and conditioning evidence or select a different unresolved streaming-statistics question, then freeze a decision-changing low-memory experiment only if the review identifies a consequential open claim. Continue CPU-only execution under the existing shared-memory rules.",
   "automation_status": "enabled; hourly recurring schedule without end date",
   "resource_limit_bytes": 8000000000,
   "worker_address_space_limit_bytes": 4294967296,
@@ -198,7 +198,15 @@
     "execution_windows/w013/results/fd_merge_orthogonal_phase_boundary_audit_v1.json",
     "execution_windows/w013/analysis/fd_merge_orthogonal_phase_boundary_analysis_v1.md",
     "execution_windows/w013/phase_boundary_interpret_response_v1.json",
-    "notes/github_w013_verification_receipt_v1.json"
+    "notes/github_w013_verification_receipt_v1.json",
+    "execution_windows/w014/plans/streaming_variance_offset_stability_v2.md",
+    "execution_windows/w014/results/streaming_variance_offset_stability_v2.json",
+    "execution_windows/w014/results/streaming_variance_offset_stability_audit_v2.json",
+    "execution_windows/w014/plans/streaming_covariance_offset_stability_v1.md",
+    "execution_windows/w014/results/streaming_covariance_offset_stability_v1.json",
+    "execution_windows/w014/results/streaming_covariance_offset_stability_audit_v1.json",
+    "execution_windows/w014/analysis/streaming_variance_covariance_offset_stability_analysis_v1.md",
+    "execution_windows/w014/variance_covariance_interpret_response_v1.json"
   ],
   "limitations": [
     "finite-pool guarantee only",
@@ -270,11 +278,15 @@
     "The strict-margin counterexample grid is a finite exact integer search at dimension3, width2 and four rank-one leaves; 5,328 eligible reversals do not quantify prevalence for arbitrary dimensions, streams or tree families",
     "Common eigenvectors and strict local spectral margins are insufficient for topology invariance; the proven rank-below-width common-subspace condition is exact but restrictive and is not presented as a novel theorem",
     "The w013 leaf-energy phase boundary is exact only for a simultaneous-diagonal axis-aligned four-leaf family at width2 and rank-one evaluation; it is not a predictor for noncommuting summaries, arbitrary trees or higher widths",
-    "The 10,186-point exhaustive grid verifies the closed form over a bounded integer domain and does not estimate prevalence, failure probability or originality"
+    "The 10,186-point exhaustive grid verifies the closed form over a bounded integer domain and does not estimate prevalence, failure probability or originality",
+    "The w014 scalar and d=8 offset families are deterministic synthetic float64 diagnostics; their exact failure exponents depend on dimension, order and summation implementation and do not establish realistic feature or FID-score failure",
+    "The initial scalar v1 collapse premise was false and is retained as a premise error; only the prospectively repaired v2 represented-data truth and audit support the scalar boundaries",
+    "The frozen covariance audit exited nonzero because centered two-pass first failed at exponent46 rather than53; this valid preregistered contradiction is not an implementation crash and cannot be rewritten as an audit pass",
+    "Balanced Chan and explicit shifting were exact through exponent53 only on the tested dyadic fixtures; this is not a universal numerical-stability theorem or originality claim"
   ],
-  "updated_at": "2026-10-13T08:25:28.836944+00:00",
+  "updated_at": "2026-10-13T09:19:13.947105+00:00",
   "execution": {
-    "updated_at": "2026-10-13T08:25:28.836944+00:00",
+    "updated_at": "2026-10-13T09:19:13.947105+00:00",
     "overall_end_date": null,
     "overall_attempt_limit": null,
     "overall_time_limit": null,
@@ -557,7 +569,7 @@
           "elapsed_seconds": 4.028580146999957,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 3492.3742978572845,
+          "remaining_deadline_seconds": 267.4149434566498,
           "remaining_seconds": 1795.971419853,
           "reserved_seconds": 0
         },
@@ -577,7 +589,7 @@
           "elapsed_seconds": 0.5236433880018012,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 6484.117231607437,
+          "remaining_deadline_seconds": 3259.125526189804,
           "remaining_seconds": 1799.4763566119982,
           "reserved_seconds": 0
         },
@@ -585,18 +597,48 @@
           "audit-fd-merge-orthogonal-phase-boundary-v1": "succeeded",
           "verify-fd-merge-orthogonal-phase-boundary-v1": "succeeded"
         }
+      },
+      {
+        "window": "execution_windows/w014",
+        "status": "stopped",
+        "sequence": 6,
+        "research_cycle_count": 2,
+        "budget": {
+          "attempts_used": 5,
+          "deadline_epoch": 1791889519.0099041,
+          "elapsed_seconds": 6.283977038998273,
+          "max_attempts": 32,
+          "max_command_seconds": 1800,
+          "remaining_deadline_seconds": 6365.095423936844,
+          "remaining_seconds": 1793.7160229610017,
+          "reserved_seconds": 0
+        },
+        "task_states": {
+          "audit-streaming-covariance-offset-stability-v1": "failed",
+          "audit-streaming-variance-offset-stability-v2": "succeeded",
+          "streaming-covariance-offset-stability-v1": "succeeded",
+          "streaming-variance-offset-stability-v1": "succeeded",
+          "streaming-variance-offset-stability-v2": "succeeded"
+        }
       }
     ],
-    "cumulative_attempts": 73,
-    "cumulative_command_seconds": 605.5898331880726
+    "cumulative_attempts": 78,
+    "cumulative_command_seconds": 611.8738102270709
   },
   "automation_id": "6acc15a522f08191a1bbf19f58f033a1",
   "library_file_id": "libfile_d0c64b9b3a98819197c0ffcf4641cc50",
-  "current_research_cycle_count": 38,
+  "current_research_cycle_count": 40,
   "additional_bernstein_rows": 96,
   "moment_boundary_checked_suffixes": 20,
   "moment_native_pilot_suffixes": 15,
-  "latest_numerical_peak_rss_kib": 9856,
+  "latest_numerical_peak_rss_kib": 28464,
+  "streaming_variance_raw_first_failure_exponent": 21,
+  "streaming_variance_welford_first_failure_alternating": 53,
+  "streaming_variance_welford_first_failure_blocked": 11,
+  "streaming_covariance_raw_first_failure_exponent": 23,
+  "streaming_covariance_centered_two_pass_first_failure_exponent": 46,
+  "streaming_covariance_welford_first_failure_natural": 15,
+  "streaming_covariance_welford_first_failure_gray": 14,
   "fd_orthogonal_phase_boundary_grid_eligible": 10186,
   "fd_orthogonal_phase_boundary_reversals": 7986,
   "fd_orthogonal_phase_boundary_equal_cost": 2200,
