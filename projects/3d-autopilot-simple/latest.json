@@ -16,18 +16,16 @@
   "supervisor_running": false,
   "unknown_attempts": 0,
   "cleanup_preflight": {
-    "project_files": 1121,
-    "project_bytes": 1702872226,
-    "restore_files": 179,
-    "restore_bytes": 184450486,
-    "delta_files": 69,
-    "delta_bytes": 93569378,
-    "checkpoint_bytes": 60018447
+    "remote_objects_read_back": 49,
+    "sparse_restore_files": 13,
+    "sparse_restore_downloaded_bytes": 26274552,
+    "local_project_files_after_observation": 0,
+    "local_project_bytes_after_observation": 0
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "wake24_overlay_committed_verification_pending",
-  "local_workspace_state": "Wake24 scientific state and raw results are in an immutable overlay; sparse restore verification and local cleanup receipts are pending.",
+  "cleanup_status": "wake24_remote_verified_local_eviction_observed",
+  "local_workspace_state": "Wake24 immutable overlay and receipts were verified. After one explicit project-only eviction and a subsequent observation, the project root contained 0 files/0 bytes; the temporary restore and checkpoint ZIP were absent. This is an observed state, not a claim that the earlier host-level rematerialization cause is resolved.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -74,13 +72,14 @@
   "journal_version": 156,
   "empirical_research_cycles": 33,
   "latest_handoff": "notes/handoff-wake24.md",
-  "verified_at_utc": null,
+  "verified_at_utc": "2026-10-13T09:56:09Z",
   "verification_path": "projects/3d-autopilot-simple/verification-wake24.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
   "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake24.json",
-  "cleanup_observed_at_utc": null,
-  "restore_verification_commit": null,
-  "cleanup_receipt_commit": null,
-  "verification_readback_blob_sha": null,
-  "build_receipt_path": "projects/3d-autopilot-simple/build-wake24.json"
+  "cleanup_observed_at_utc": "2026-10-13T09:56:43Z",
+  "restore_verification_commit": "6841337a7f75fc6a8fa918f4847189d77876ceff",
+  "cleanup_receipt_commit": "6841337a7f75fc6a8fa918f4847189d77876ceff",
+  "verification_readback_blob_sha": "627ffd8af17ca19756bb06171c06f0fc3e645e07",
+  "build_receipt_path": "projects/3d-autopilot-simple/build-wake24.json",
+  "total_index_files": 3228
 }
