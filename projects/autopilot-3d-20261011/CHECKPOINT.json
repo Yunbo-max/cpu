@@ -21,7 +21,8 @@
     "overall_time_attempt_cap": null,
     "authorization": "notes/open-ended-authorization-v1.json",
     "renewable_window": "scripts/renew_authorized_window.py --apply under project lock, no active or unknown attempts, supervisor stopped; preserve cumulative usage and queued tasks",
-    "initial_limits_historical_only": true
+    "initial_limits_historical_only": true,
+    "continuation_authorized": false
   },
   "scope": [
     "TESO",
@@ -32,10 +33,10 @@
   ],
   "active_question": "Do failed exhausted generator attempts create geometrically inconsistent accepted inputs that confound gravity-pose solver attribution?",
   "scientific_status": "R017 positivity claim remains not_supported and R018 valid-benchmark solver quality remains inconclusive. R019 telemetry-first causal localization remains active. Build-v3, design-v3, smoke8/audit8, smoke100/audit100, full5000 and reviewed full audit-v2 all executed successfully. On the GT/call-identical 5000-problem native stream, rejected terminal attempt-101 points were appended in 331 accepted problems (567 features): this local incidence claim is supported. All 567 features had at least one required field never assigned on the terminal attempt. Cross-binary value-level overlap with R018 specific geometry failures and the broader preregistered causal-contributor claim remain inconclusive because R018 feature bytes were not identity-established and may be stale or uninitialized.",
-  "execution_status": "Sequence191, journal version216. A coordinator-side memory recovery briefly passed the frozen1536MiB/cache-credit0 gate, so build-v4 was registered exactly once after lock, request, process and14-input-hash checks. Worker-side admission then observed only877.21MiB raw headroom and returned exit75 waiting_for_memory with command_executed=false. Compiler/scientific experiment did not run; no binary/build manifest exists. Attempt attempt-8a91a5d92555449d8221b5855237af69 is terminal and retained.147 runner attempts,13211.25004875403 command-seconds; no OOM/oom_kill. Idle supervisor intentionally stopped.",
+  "execution_status": "stopped_by_user: scheduled automation disabled; all 147 runner attempts terminal; existing runner stop gate asserted; no live project process found. No new experiment executed.",
   "author_commit": "34f8fa9a2b2dcaacdbb7ffc784a80682228b288c",
-  "wake_mechanism": "Enabled hourly ChatGPT automation; not proof of continuous compute",
-  "next_action": "Read notes/R019_recovery_wait_20261013.md and notes/R019_memory_wait_20261013T0519.json. Build-v4 is immutable terminal waiting_for_memory and must not be retried. On a later distinct wake, after a fresh stable1536MiB raw-headroom/cache-credit0 check plus no active/unknown attempts and project lock, submit prepared plans/R019_safe_build_response_v5_20261013.json, which supersedes build-v4 and binds its failed receipt/resource output. If compilation succeeds, continue8/audit,100/audit,5000/audit serially with exact C0 bindings. Do not weaken the protocol, repeat prior telemetry or reset accounting.",
+  "wake_mechanism": "Disabled by explicit user request on 2026-10-13",
+  "next_action": "Do not resume, poll memory, compile, launch experiments, or enable the automation without explicit new user authorization. Read STOP.json before any restore.",
   "observed_issues": [
     {
       "id": "carla-index-timeout-1",
@@ -319,7 +320,7 @@
   "automation_id": "6acbc3de9398819193c8b61a5cb42bb5",
   "checkpoint_library_id": "libfile_8d235c544fb48191929cce3ca06aedf0",
   "runner_session_id": "388730c06c744f5f84dd97dae721534b",
-  "updated_at_utc": "2026-10-13T08:20:00+00:00",
+  "updated_at_utc": "2026-10-13T09:38:26.160469+00:00",
   "active_task_ids": [],
   "scientific_plan": "plans/R019_generator_causal_plan_v4_1.json",
   "last_health_observation": {
@@ -461,7 +462,7 @@
   "latest_handoff": {
     "record": "notes/R019_recovery_wait_20261013.md",
     "baseline_commit": "25d98df3be197ca94233475730d189b7753d3023",
-    "status": "build-v4 registered once after coordinator gate recovery, then rejected by worker admission as waiting_for_memory; fifth distinct wake worsened from609.91MiB to326.71MiB raw headroom after30seconds, so prepared build-v5 remained unsubmitted and compiler/native geometry did not run",
+    "status": "Stopped by user after the seq191 memory wait; latest scientific evidence unchanged.",
     "latest_memory_recheck": {
       "utc": "2026-10-13T09:12:23.664839+00:00",
       "memory_max": 8589934592,
@@ -481,5 +482,36 @@
       "old_state": "intentionally stopped at sequence191 after terminal resource-admission rejection"
     },
     "cleanup_status": "anomaly reproduced:3402 individual verified files unlinked,2510 reappeared in independent context; no further deletion or memory release claim"
+  },
+  "previous_execution_status": "Sequence191, journal version216. A coordinator-side memory recovery briefly passed the frozen1536MiB/cache-credit0 gate, so build-v4 was registered exactly once after lock, request, process and14-input-hash checks. Worker-side admission then observed only877.21MiB raw headroom and returned exit75 waiting_for_memory with command_executed=false. Compiler/scientific experiment did not run; no binary/build manifest exists. Attempt attempt-8a91a5d92555449d8221b5855237af69 is terminal and retained.147 runner attempts,13211.25004875403 command-seconds; no OOM/oom_kill. Idle supervisor intentionally stopped.",
+  "previous_next_action": "Read notes/R019_recovery_wait_20261013.md and notes/R019_memory_wait_20261013T0519.json. Build-v4 is immutable terminal waiting_for_memory and must not be retried. On a later distinct wake, after a fresh stable1536MiB raw-headroom/cache-credit0 check plus no active/unknown attempts and project lock, submit prepared plans/R019_safe_build_response_v5_20261013.json, which supersedes build-v4 and binds its failed receipt/resource output. If compilation succeeds, continue8/audit,100/audit,5000/audit serially with exact C0 bindings. Do not weaken the protocol, repeat prior telemetry or reset accounting.",
+  "status": "stopped_by_user",
+  "stop_control": {
+    "project_id": "autopilot-3d-20261011",
+    "status": "stopped_by_user",
+    "user_instruction": "你更新github然后停止",
+    "requested_at_utc": "2026-10-13T09:37:23+00:00",
+    "automation": {
+      "id": "6acbc3de9398819193c8b61a5cb42bb5",
+      "title": "推进 3D Simple 研究",
+      "is_enabled": false,
+      "disabled_at_utc": "2026-10-13T09:38:26.160469+00:00"
+    },
+    "resume_requires_explicit_user_authorization": true,
+    "supersedes": "All previous open-ended continuation, hourly wake and waiting-for-memory resumption instructions for this project.",
+    "runner": {
+      "sequence": 191,
+      "attempts": 147,
+      "terminal_attempts": 147,
+      "elapsed_seconds": 13211.25004875403,
+      "stop_gate_already_asserted": true,
+      "database_integrity": "ok",
+      "project_lock_available": true,
+      "matching_live_project_processes": 0,
+      "inspection": "Direct /proc cmdline inspection; ps failed on this host. No process termination needed."
+    },
+    "new_scientific_experiments": 0,
+    "archive_policy": "Existing verified seq191 archives and all earlier history are retained unchanged. This control record and top-level CHECKPOINT supersede continuation instructions inside historical archives. Do not run archived continuation commands without new explicit user authorization.",
+    "local_cleanup": "No deletion in this stop operation; previously observed file-reappearance anomaly remains unresolved."
   }
 }
