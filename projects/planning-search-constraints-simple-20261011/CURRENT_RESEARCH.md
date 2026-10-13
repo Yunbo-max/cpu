@@ -1,9 +1,19 @@
-# 当前规划约束研究
+# R007：长构建窗口的真实 CPU / wall 对照
 
-CPU真实可用；最新用户内存政策为只服从宿主内核硬限额、真实失败后诊断，不按高共享file-cache提前等待。R0061000-state新12次CPU/wall对照完整成功，但fine/counts三比例1.0995/0.9047/1.2751仍反转，不能认定intrinsic谓词成本或算法速度收益。此前wall批次、失败和预算全部保留。
+同一公开 Blocksworld p05 开发条件，仅将 max_states1000 调至作者支持的10000，其他源、SAS、搜索/种子/线程和原生资源条件不变。Pilot 和三个资格模式实际达到10000；coarse 独立审计，counts/fine 实际对比coarse；finalgraph SHA7c141bddef4d6f14ba5449c5922e43263ccb2a2111aab36217a3890fff841c12 完全一致。计划成本24、独立VAL通过；finalgraph见证不证明中间每split。
 
-R007同一公开BWp05开发条件仅改max_states10000：pilot真实达到10000，计划cost24独立VAL；coarse/counts/fine真实finalgraph一致（SHA7c141bddef4d6f14ba5449c5922e43263ccb2a2111aab36217a3890fff841c12），线性独立auditor核验mirror/multiplicity/domain/order/64bit shortest paths。Coarse独立无peer，counts/fine实际对比coarse，不把旧字段graph_exact_peer标签当不存在peer的证据。资格export时间不eligible performance。
+冻结12次全部执行：3warmups+9评分、三种顺序、一个暴露公开问题，不能称12独立样本或周期。全部cost24/VAL、9999closed rewires、common/fullfinecounts/expanded18657/evaluated43157/plan hash一致，整数CPU/wall和阶段加和检查通过。
 
-新12次CPUwall冻结对照当前只执行前6次（3warmup+rotation1三项），均cost24/VAL；其余6项未启动。协调脚本实际遭磁盘空间不足，第7项decision写入失败，无新增native attempt/科学失败。保留当前62 attempts/0reserve和原始错误；先完整远端保存闲置raw forensic/bookkeeping字节，核验后清理相同hash副本，再接续。此时不发表R007全部比较结论或计新周期。项目仍是continuous_research，没有goalstop。
+| 评分rotation | CPU fine/counts | CPU counts/coarse |
+| --- | ---: | ---: |
+| 1 | 1.146037803 | 1.209067277 |
+| 2 | 0.907236651 | 1.318456063 |
+| 3 | 1.087403551 | 0.970587866 |
 
-完整native效率、多public条件、每split图见证及变换算子oracle、主要原文/作者代码新颖性证据仍欠。旧W3取消/保守账本、R005/R005L1超时与native内存删失不改写。R007的最终图见证同样不推出中间每split等价。
+方向仍反转。更长窗口并未在这个非独占宿主上建立稳定的clock开销或intrinsic谓词成本；不能把CPU聚合差值减到单个wall谓词计时，不能宣称算法加速/新颖性。12次guard childCPU合15.871629s、wall16.31205761s，含包装器和原生求解，排除输入hash/preflight、翻译、VAL和归档；不是全项目CPU总账。
+
+保留连接丢失和真实磁盘满：前六项成功不重跑，第七项decision写入OSError28，solver未启动；完成远端raw42prefix核验后只删同hash闲置临时SQLite副本，source13/currentcanonicalSQLite/unique科学结果未删。剩余六项从原inventory接续，native代码/参数没改；coordinator stdout改为完整zstd保存。间隔/宿主变化限制因果归因。原analysis-v1模板遗漏gap限定，独立v1r1补正，原数值和原文件保留。
+
+探索性回看同case的coarse：1000→10000 搜索expanded减少88.4434%、evaluated减少87.1883%，但guard childCPU median0.700917→1.245861s。两组不是同时间独占配对，不能作为严格速度比较；它提示搜索节点下降不是整个求解阶段效率的充分代理。不能据此拿纯构建或节点统计代替完整native成本。
+
+下一步已在最新v4决策中选择原Depots p05 nativeAS3000M/600CPU边界诊断：复用原v3r2二进制（不可变恢复后完整SHA验证）和R005/L1同SAS，states_ops/none两个预冻结串行配置；不重跑旧2500M结果，不重新翻译PDDL，明确native-SAS-only范围、全部删失/失败分母与独立VAL。此报告生成时两项尚未提交/没有native结果。每split见证、变换算子oracle、多公开条件完整native效率和新颖性仍欠；没有宣布整个持续研究完成。

@@ -1,0 +1,84 @@
+{
+  "run_id": "R005L2-depots-p05-states_ops-600s-3000M-host-v2",
+  "arm": "states_ops",
+  "binary": "vendor/scorpion_profile_v3r2/builds/release_no_lp/bin/downward",
+  "domain": "data/autoscale21.11/depots/domain.pddl",
+  "problem": "data/autoscale21.11/depots/p05.pddl",
+  "sas": "results/R005-profile-depots-p05-states_ops-v1/output.sas",
+  "sas_sha256": "164b71eede20d07dc1ee0a412f8d4197a8acbb63292ee76d6db5e824339b39bd",
+  "search": "astar(cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+  "seed": 2011,
+  "native_AS_bytes": 3145728000,
+  "native_CPU_seconds": 600,
+  "kernel_only_host_memory_policy": true,
+  "input_refs": [
+    {
+      "path": "plans/configs/R005-profile-depots-p05-states_ops-v1.json",
+      "sha256": "f9babbf3e63f4c32f466736f6f8262b96dc907fc4e393d091776c1bae270bfc5"
+    },
+    {
+      "path": "results/build-profile-v3r2-recovery-v1/build_identity.json",
+      "sha256": "e9d27e97dbb8dede2e032698867bded294aeb6aead754abf4c55d0bc08e0b61d"
+    },
+    {
+      "path": "data/profile-source-manifest-v3r2.json",
+      "sha256": "a0a347552c7d42114078058d316d82e7828b26e949b00a05e1132bd332f3d4ed"
+    },
+    {
+      "path": "vendor/scorpion_profile_v3r2/builds/release_no_lp/bin/downward",
+      "sha256": "8f86d760cb8aac55b8b2eccc1cc8f435bff73ceff9f489fc0967a991979e12a9"
+    },
+    {
+      "path": "results/R005-profile-depots-p05-states_ops-v1/output.sas",
+      "sha256": "164b71eede20d07dc1ee0a412f8d4197a8acbb63292ee76d6db5e824339b39bd"
+    },
+    {
+      "path": "data/autoscale21.11/depots/domain.pddl",
+      "sha256": "81def700212ae8b703f6352307eb588223da67b943ae9289b0661c8e72319e69"
+    },
+    {
+      "path": "data/autoscale21.11/depots/p05.pddl",
+      "sha256": "e141d660e8836165bd1b71205166bcfa489dc69387d4adb54f7343d5ac154603"
+    },
+    {
+      "path": "scripts/bounded_command_host_limit_v5.py",
+      "sha256": "970a4bb0e2326c32d60d822bca87b52652a698a20a88484d58a066b8c0ac89be"
+    },
+    {
+      "path": "scripts/r005l2_native_stdin_host_v2.py",
+      "sha256": "b64055fc8d31a137a967ff9b9e4d64acdf1438b5a5982170f757fa122a2e2caa"
+    },
+    {
+      "path": "scripts/run_r005l2_host_only_native_sas_v2.py",
+      "sha256": "433aca38f04f3c802b1b09e8461e4f3ef49eed7d788ceff3fdb6db585e7d545b"
+    },
+    {
+      "path": "plans/R005L2_host_only_native_SAS_protocol_v2.md",
+      "sha256": "42257cd0232db30f48eca63cb6c3b84209990004cca26ca164e660abb7fe9875"
+    },
+    {
+      "path": "evidence/USER_MEMORY_POLICY_20261013T2144Z.json",
+      "sha256": "b3055e9b02e2ec156b7248389a7ceda75d8bd59599586ab7c3c98bb9419aefb4"
+    },
+    {
+      "path": "evidence/R005L2-parent-binary-restoration-v1.json",
+      "sha256": "e8c5c792feda04bad39d26f9c964766b129cc9fc9a0a79d984e903d4a2548e78"
+    },
+    {
+      "path": "results/R007-cpu-overhead-analysis-v1r1.json",
+      "sha256": "443e008c4741abab2574657ac925a3f6ac54791e58627fe136398a1e563b7256"
+    },
+    {
+      "path": "results/R007-retrospective-full-solve-scope-v1.json",
+      "sha256": "3c53f4422080918cc1c7e293bd6178c55d095c908b0c8449462af5ebbf28bd8d"
+    },
+    {
+      "path": "vendor/val/builds/release/bin/Validate",
+      "sha256": "f930ece7eae862eca84bd03eeee22ca6fbcdd83ff8b0945f1f006b95f160b705"
+    },
+    {
+      "path": "vendor/val/builds/release/bin/libVAL.so",
+      "sha256": "fc81bf2976ed8e29141247d6230503612be3be4046eed88bd7a987db88de3533"
+    }
+  ]
+}

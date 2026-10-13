@@ -1,0 +1,61 @@
+{
+  "run_id": "R005L2-depots-p05-states_ops-600s-3000M-v1",
+  "domain": "data/autoscale21.11/depots/domain.pddl",
+  "problem": "data/autoscale21.11/depots/p05.pddl",
+  "search": "astar(cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+  "native_cpu_seconds": 600,
+  "native_memory": "3000M",
+  "group_rss_mb": 3000,
+  "shared_ceiling_mb": 7800,
+  "outer_address_space_mb": 3500,
+  "outer_wall_seconds": 650,
+  "seed": 2011,
+  "input_refs": [
+    {
+      "path": "plans/configs/R004-profile-depots-p05-states_ops-v1.json",
+      "sha256": "528fb22f2e01a1cd999e5c41f64b38f5b2a5139501b0705cbb8a08247d334534"
+    },
+    {
+      "path": "results/R002-depots-p05-states_ops/result.json",
+      "sha256": "07524fd9a1ca552bee1e0b9d7d703725fafc2e28b55c2d3632da860bd19fa805"
+    },
+    {
+      "path": "results/R002-depots-p05-states_ops/command/stdout.log",
+      "sha256": "4b0ff52776ef0002f5f42520e6cd59f1b7a05af75d838ce01aa0394782a18ef8"
+    },
+    {
+      "path": "data/autoscale21.11/depots/domain.pddl",
+      "sha256": "81def700212ae8b703f6352307eb588223da67b943ae9289b0661c8e72319e69"
+    },
+    {
+      "path": "data/autoscale21.11/depots/p05.pddl",
+      "sha256": "e141d660e8836165bd1b71205166bcfa489dc69387d4adb54f7343d5ac154603"
+    },
+    {
+      "path": "data/manifest-v1.json",
+      "sha256": "91deb68d3e93a3227d8a9e8afa514cdd9bd2cd18b645bacbdcf0ef46640651f7"
+    },
+    {
+      "path": "data/profile-source-manifest-v3r2.json",
+      "sha256": "a0a347552c7d42114078058d316d82e7828b26e949b00a05e1132bd332f3d4ed"
+    },
+    {
+      "path": "scripts/bounded_command.py",
+      "sha256": "47d3de6874904d055a7152967319ac02b64784f042037e8c11c872d50644baaf"
+    },
+    {
+      "path": "plans/R005_execution_contract_v1.md",
+      "sha256": "b188fc75a156f1fcb46202abda3d14b7c4e803e306c90be2f7636effcae4f348"
+    },
+    {
+      "path": "plans/configs/R005-profile-depots-p05-states_ops-v1.json",
+      "sha256": "f9babbf3e63f4c32f466736f6f8262b96dc907fc4e393d091776c1bae270bfc5"
+    },
+    {
+      "path": "results/build-profile-v3r2-recovery-v1/build_identity.json",
+      "sha256": "e9d27e97dbb8dede2e032698867bded294aeb6aead754abf4c55d0bc08e0b61d"
+    }
+  ],
+  "admission": "freshcgroup+3e9RSS+250e6margin<=7.8e9 after verifiedcompleted input-cache advice",
+  "change": "One prospective native memory-envelope probe; original R005 and R005L1 retain all censored outcomes"
+}

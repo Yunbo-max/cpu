@@ -1,0 +1,95 @@
+{
+  "protocol": "plans/R007_cpu_overhead_protocol_v1.md",
+  "independent_public_cases": 1,
+  "successful_target_executions": 12,
+  "warmups": 3,
+  "scored": 9,
+  "qualified_refs": [
+    {
+      "path": "results/R007-10000-coarse-cpu-graph-qualification-v1/result.json",
+      "sha256": "39c5d72cb77e70fc1a1cf220b0e7d716311e1a28605417f7c1529a98ca24e0a8"
+    },
+    {
+      "path": "results/R007-10000-counts-cpu-graph-qualification-v1/result.json",
+      "sha256": "fffcfe079633d7f628b2ee1b753ae6d3555cccf7b670e3c5710bd1e5643ff88f"
+    },
+    {
+      "path": "results/R007-10000-fine-cpu-graph-qualification-v1/result.json",
+      "sha256": "8ad2bceb35163763749de7fac8ba7228cb3ccbb84b786403265ced3a73fa54ed"
+    }
+  ],
+  "runs": [
+    {
+      "task_id": "R007-cpu-overhead-r0-coarse-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r0-coarse-host-v1.json",
+      "rotation": 0,
+      "arm": "coarse"
+    },
+    {
+      "task_id": "R007-cpu-overhead-r0-counts-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r0-counts-host-v1.json",
+      "rotation": 0,
+      "arm": "counts"
+    },
+    {
+      "task_id": "R007-cpu-overhead-r0-fine-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r0-fine-host-v1.json",
+      "rotation": 0,
+      "arm": "fine"
+    },
+    {
+      "task_id": "R007-cpu-overhead-r1-coarse-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r1-coarse-host-v1.json",
+      "rotation": 1,
+      "arm": "coarse"
+    },
+    {
+      "task_id": "R007-cpu-overhead-r1-counts-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r1-counts-host-v1.json",
+      "rotation": 1,
+      "arm": "counts"
+    },
+    {
+      "task_id": "R007-cpu-overhead-r1-fine-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r1-fine-host-v1.json",
+      "rotation": 1,
+      "arm": "fine"
+    },
+    {
+      "task_id": "R007-cpu-overhead-r2-counts-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r2-counts-host-v1.json",
+      "rotation": 2,
+      "arm": "counts"
+    },
+    {
+      "task_id": "R007-cpu-overhead-r2-fine-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r2-fine-host-v1.json",
+      "rotation": 2,
+      "arm": "fine"
+    },
+    {
+      "task_id": "R007-cpu-overhead-r2-coarse-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r2-coarse-host-v1.json",
+      "rotation": 2,
+      "arm": "coarse"
+    },
+    {
+      "task_id": "R007-cpu-overhead-r3-fine-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r3-fine-host-v1.json",
+      "rotation": 3,
+      "arm": "fine"
+    },
+    {
+      "task_id": "R007-cpu-overhead-r3-coarse-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r3-coarse-host-v1.json",
+      "rotation": 3,
+      "arm": "coarse"
+    },
+    {
+      "task_id": "R007-cpu-overhead-r3-counts-host-v1",
+      "task_plan": "plans/task-R007-cpu-overhead-r3-counts-host-v1.json",
+      "rotation": 3,
+      "arm": "counts"
+    }
+  ]
+}
