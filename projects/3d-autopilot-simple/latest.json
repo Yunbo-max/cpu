@@ -20,7 +20,7 @@
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "wake23_overlay_uploaded_pending_verified_restore",
+  "cleanup_status": "wake23_manifest_truncation_repaired_pending_verified_restore",
   "local_workspace_state": "Wake23 workspace and verification staging remain local pending remote restore verification; no cleanup completion is claimed.",
   "overlays": [
     {
@@ -54,7 +54,7 @@
       "archive_sha256": "ba9afb5ba8fecb49e45d6ea0248219a9e4061b118bb06beb4ccf0f6d1c5f4362"
     },
     {
-      "commit": "4959e869177f8edebd16c19be991811c6eafa575",
+      "commit": "6d842a40769ca6ab3af5990d92db1ed06b07f3ca",
       "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-13-wake23/manifest.json",
       "archive_sha256": "aac89c228fbd15813bcda42c3b53f408ae5af90516bb41ae8cb98b3554a474c4"
     }
@@ -63,7 +63,7 @@
   "journal_version": 151,
   "empirical_research_cycles": 32,
   "latest_handoff": "notes/handoff-wake23.md",
-  "verified_at_utc": "2026-10-13T07:55:41.572Z",
+  "verified_at_utc": "2026-10-13T07:59:54.739Z",
   "verification_path": "projects/3d-autopilot-simple/verification-wake23.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
   "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake23.json",
