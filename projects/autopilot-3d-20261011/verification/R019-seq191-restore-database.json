@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project_id": "autopilot-3d-20261011",
+  "verified_at_utc": "2026-10-13T08:30:00+00:00",
+  "repository": "Yunbo-max/cpu",
+  "archive_commit": "38b7ae0df38ce4ac55cdbaa4f0a5a0b218b11c59",
+  "archive": "active-seq191-297d99edadf8.zip",
+  "archive_sha256": "297d99edadf8969b322280003a804f4a60b8f04023e03261ce872b79152a480d",
+  "restore": {
+    "kind": "active",
+    "parts_verified": 27,
+    "files_verified": 2147,
+    "zip_crc": "passed",
+    "inventory": "ARCHIVE_INVENTORY.json",
+    "status": "restored_to_empty_temporary_parent"
+  },
+  "checkpoint": {
+    "sha256": "5f2e3a625df5501d753c28827148230234a075269bcbbac60f2fb68ee33b87c4",
+    "project_id": "autopilot-3d-20261011",
+    "active_idea": "gravity-pose-root-reconstruction-localization-v1",
+    "last_runner_sequence": 191,
+    "attempts_used": 147,
+    "command_seconds": 13211.25004875403
+  },
+  "database": {
+    "path_in_archive": ".research-autopilot/simple-loop.sqlite3",
+    "integrity_check": "ok",
+    "table_counts": {
+      "project": 1,
+      "events": 218,
+      "runner_state": 1
+    },
+    "runner_state": {
+      "sequence": 191,
+      "attempts_used": 147,
+      "elapsed_seconds": 13211.25004875403,
+      "source_error": null,
+      "stop_reason": "R019 build admission returned waiting_for_memory before command execution; preserve sequence191 decision for a later fresh shared-memory wake"
+    }
+  },
+  "continuity": {
+    "verified": true,
+    "scientific_experiment_executed_this_attempt": false,
+    "new_scientific_result": false,
+    "next_prepared_task": "gravity-R019-safe-build-v5",
+    "cleanup": "Only the isolated restore/upload staging may be removed; the real project worktree is retained because the prior cross-context cleanup anomaly is unresolved."
+  }
+}
