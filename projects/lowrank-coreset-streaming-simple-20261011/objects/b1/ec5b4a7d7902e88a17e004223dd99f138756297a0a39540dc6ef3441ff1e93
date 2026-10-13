@@ -1,0 +1,56 @@
+{
+  "response_id": "w011-fd-merge-topology-audit-repair-wake3-v2",
+  "request_id": "decision-1490b2c4fa3749a5b838b2119bc8db44",
+  "idea": "fd-merge-topology-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The failed audit exposed an evaluator error, not a numerical-task or memory failure: a 2ell-to-ell merge loses the truncated lower singular-value tail in addition to ell times the shrink threshold. Preserve the failed audit and run a versioned repair that independently checks threshold sums and total norm loss separately while retaining the frozen norm-loss falsifier.",
+  "tasks": [
+    {
+      "task_id": "audit-fd-merge-topology-v2",
+      "supersedes": "audit-fd-merge-topology-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/audit_fd_merge_topology_v2.py"
+      ],
+      "phase": "verify",
+      "purpose": "Repair the merge-mass identity check and independently reconstruct all topology arms without changing the frozen scientific comparison",
+      "timeout_seconds": 600,
+      "cwd": ".",
+      "depends_on": ["fd-merge-topology-calibration-v1"],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "e3f369d67302d7f77d50ad436f040192bd8d4bd1093e29585485fce0ef4f5b30"
+        },
+        {
+          "path": "scripts/audit_fd_merge_topology_v2.py",
+          "sha256": "ab5c72e40882672eb5603c4f81d9da479ce422ed311375515d62001f0588ea08"
+        },
+        {
+          "path": "notes/fd_merge_metric_failure_analysis_v1.md",
+          "sha256": "f900c23a3eca8e16eb6129a8631a0db55766d83ac5bda288d4510973e7582a76"
+        },
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-e8cc5165bc734660b1b3416a2c25bc3f/receipt.json",
+          "sha256": "e089d6572c40f4aa4549dfa748b4cc7d3f84830566329d132e85aceb3cf59108"
+        },
+        {
+          "path": "results/fd_merge_topology_calibration_v1.json",
+          "sha256": "b1bc037f6bd31727ac3835399dbb50c6e26fe247ec2ecfcc5199e8d48770ad49"
+        },
+        {
+          "path": "results/fd_merge_topology_calibration_v1_sketches.npz",
+          "sha256": "b17cce0100c6da21b1d938e8c1cecd47dc6baa6f03c7a7affa1ccde08d9791db"
+        },
+        {
+          "path": "resource_current_w011_wake3_pre_repair.json",
+          "sha256": "b1879cf47807469485f376bf6f4a56baedbca4ad5a8450fd516b8aa615647090"
+        }
+      ],
+      "outputs": ["results/fd_merge_topology_calibration_v2_audit.json"]
+    }
+  ]
+}

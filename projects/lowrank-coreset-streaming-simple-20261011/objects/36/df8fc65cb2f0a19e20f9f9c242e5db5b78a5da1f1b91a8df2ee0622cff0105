@@ -1,0 +1,51 @@
+{
+  "response_id": "w011-fd-merge-topology-audit-submit-wake3-v1",
+  "request_id": "decision-4926980704964e12a74ef04c1e163895",
+  "idea": "fd-merge-topology-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The frozen producer completed successfully, but production success does not validate its metrics or topology labels. Run the prospectively strengthened independent reconstruction audit before interpreting the result.",
+  "tasks": [
+    {
+      "task_id": "audit-fd-merge-topology-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/audit_fd_merge_topology_v1.py"
+      ],
+      "phase": "verify",
+      "purpose": "Independently reconstruct all FD topology arms and recompute metrics, bounds, shrink mass, shrink counts and the frozen balanced-versus-left-deep falsifier",
+      "timeout_seconds": 600,
+      "cwd": ".",
+      "depends_on": ["fd-merge-topology-calibration-v1"],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "e3f369d67302d7f77d50ad436f040192bd8d4bd1093e29585485fce0ef4f5b30"
+        },
+        {
+          "path": "scripts/audit_fd_merge_topology_v1.py",
+          "sha256": "931e56c43fa95d65c6ea17ad0910fa8302f97cae3a3f0eaef486c33798b29448"
+        },
+        {
+          "path": "plans/fd_merge_topology_calibration_v1.md",
+          "sha256": "d474cca387cb64807151368d45c2f93cef62efedcf930fb5c03d7ac13364ec74"
+        },
+        {
+          "path": "plans/fd_merge_topology_audit_amendment_v1.md",
+          "sha256": "69ee59f4edee195eefa577354771e1b5c5fd0a0dfaeda7e6ae332168d5563a7a"
+        },
+        {
+          "path": "results/fd_merge_topology_calibration_v1.json",
+          "sha256": "b1bc037f6bd31727ac3835399dbb50c6e26fe247ec2ecfcc5199e8d48770ad49"
+        },
+        {
+          "path": "results/fd_merge_topology_calibration_v1_sketches.npz",
+          "sha256": "b17cce0100c6da21b1d938e8c1cecd47dc6baa6f03c7a7affa1ccde08d9791db"
+        }
+      ],
+      "outputs": ["results/fd_merge_topology_calibration_v1_audit.json"]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import hashlib
+import json
+import resource
+from pathlib import Path
+
+import numpy as np
+from scipy.io import mmread
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SUMMARY = ROOT / "results" / "fd_merge_topology_calibration_v1.json"
+SKETCHES = ROOT / "results" / "fd_merge_topology_calibration_v1_sketches.npz"
+SOURCE = ROOT.parent / "w002" / "sources" / "consistent-LRA" / "landmark.mtx"
+K = 25
+
+
+def close(a: float, b: float, scale: float) -> bool:
+    return abs(a - b) <= 2e-9 * max(scale, 1.0)
+
+
+def reference_stream(rows: np.ndarray, ell: int) -> tuple[np.ndarray, float, float, int]:
+    """Independent row-stream FD; returns sketch, threshold sum, norm loss, shrinks."""
+    sketch = np.zeros((ell, rows.shape[1]), dtype=np.float64)
+    occupied = 0
+    threshold_sum = 0.0
+    norm_loss = 0.0
+    shrinks = 0
+    for row in rows:
+        sketch[occupied] = row
+        occupied += 1
+        if occupied == ell:
+            before = float(np.sum(sketch * sketch))
+            _, singular, vt = np.linalg.svd(sketch, full_matrices=False)
+            delta = float(singular[-1] ** 2)
+            sketch = np.sqrt(np.maximum(singular**2 - delta, 0.0))[:, None] * vt
+            after = float(np.sum(sketch * sketch))
+            threshold_sum += delta
+            norm_loss += (before - after) / ell
+            shrinks += 1
+            occupied = ell - 1
+    return sketch, threshold_sum, norm_loss, shrinks
+
+
+def reference_merge_pair(
+    left: np.ndarray, right: np.ndarray, ell: int
+) -> tuple[np.ndarray, float, float]:
+    stacked = np.concatenate((left, right), axis=0)
+    before = float(np.sum(stacked * stacked))
+    _, singular, vt = np.linalg.svd(stacked, full_matrices=False)
+    delta = float(singular[ell - 1] ** 2)
+    retained = np.sqrt(np.maximum(singular[:ell] ** 2 - delta, 0.0))
+    merged = retained[:, None] * vt[:ell]
+    norm_loss = (before - float(np.sum(merged * merged))) / ell
+    return merged, delta, norm_loss
+
+
+def reference_merge(
+    leaves: list[np.ndarray],
+    leaf_threshold_sum: float,
+    leaf_norm_loss: float,
+    leaf_shrinks: int,
+    ell: int,
+    method: str,
+) -> tuple[np.ndarray, float, float, int]:
+    threshold_sum = leaf_threshold_sum
+    norm_loss = leaf_norm_loss
+    shrinks = leaf_shrinks
+    if method == "left_deep":
+        current = leaves[0].copy()
+        for other in leaves[1:]:
+            current, delta, pair_loss = reference_merge_pair(current, other, ell)
+            threshold_sum += delta
+            norm_loss += pair_loss
+            shrinks += 1
+        return current, threshold_sum, norm_loss, shrinks
+    if method == "balanced":
+        level = [leaf.copy() for leaf in leaves]
+        while len(level) > 1:
+            following = []
+            for index in range(0, len(level), 2):
+                merged, delta, pair_loss = reference_merge_pair(
+                    level[index], level[index + 1], ell
+                )
+                following.append(merged)
+                threshold_sum += delta
+                norm_loss += pair_loss
+                shrinks += 1
+            level = following
+        return level[0], threshold_sum, norm_loss, shrinks
+    raise ValueError(method)
+
+
+def covariance_frobenius_difference(left: np.ndarray, right: np.ndarray) -> float:
+    ll = left @ left.T
+    rr = right @ right.T
+    lr = left @ right.T
+    squared = float(np.sum(ll * ll) + np.sum(rr * rr) - 2.0 * np.sum(lr * lr))
+    return float(np.sqrt(max(squared, 0.0)))
+
+
+def main() -> None:
+    recorded = json.loads(SUMMARY.read_text(encoding="utf-8"))
+    source_hash = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
+    assert source_hash == recorded["source"]["sha256"]
+    a_source = np.asarray(mmread(SOURCE).tocsr()[:512].toarray(), dtype=np.float64)
+    with np.load(SKETCHES, allow_pickle=False) as raw:
+        a = np.asarray(raw["dense_prefix"])
+        assert np.array_equal(a, a_source)
+        assert hashlib.sha256(a.tobytes(order="C")).hexdigest() == recorded["source"]["dense_prefix_sha256"]
+        _, singular, vt = np.linalg.svd(a, full_matrices=False)
+        optimum = float(np.sum(singular[K:] ** 2))
+        assert close(optimum, recorded["exact"]["optimum_rank25_frobenius_cost"], optimum)
+        rank_tol = np.finfo(np.float64).eps * max(a.shape) * singular[0]
+        basis = vt[: int(np.sum(singular > rank_tol))].T
+        scale = float(np.sum(a * a))
+        leaves = int(recorded["parameters"]["leaves"])
+        blocks = list(np.split(a, leaves))
+        references: dict[tuple[int, str], tuple[np.ndarray, float, float, int]] = {}
+        for width in recorded["parameters"]["widths"]:
+            ell = int(width)
+            references[(ell, "central")] = reference_stream(a, ell)
+            leaf_results = [reference_stream(block, ell) for block in blocks]
+            leaf_sketches = [item[0] for item in leaf_results]
+            leaf_threshold_sum = float(sum(item[1] for item in leaf_results))
+            leaf_norm_loss = float(sum(item[2] for item in leaf_results))
+            leaf_shrinks = int(sum(item[3] for item in leaf_results))
+            for method in ("balanced", "left_deep"):
+                references[(ell, method)] = reference_merge(
+                    leaf_sketches,
+                    leaf_threshold_sum,
+                    leaf_norm_loss,
+                    leaf_shrinks,
+                    ell,
+                    method,
+                )
+
+        rows = []
+        for arm in recorded["arms"]:
+            ell = int(arm["ell"])
+            method = str(arm["method"])
+            sketch = np.asarray(raw[f"ell{ell}_{method}"])
+            assert sketch.shape == (ell, a.shape[1]) and np.isfinite(sketch).all()
+            _, _, sketch_vt = np.linalg.svd(sketch, full_matrices=False)
+            projection = float(scale - np.sum((a @ sketch_vt[:K].T) ** 2))
+            aq = a @ basis
+            bq = sketch @ basis
+            loss = aq.T @ aq - bq.T @ bq
+            eigenvalues = np.linalg.eigvalsh((loss + loss.T) * 0.5)
+            covariance = float(max(eigenvalues[-1], 0.0))
+            discarded = float((scale - np.sum(sketch * sketch)) / ell)
+            reference, ref_thresholds, ref_norm_loss, ref_shrinks = references[(ell, method)]
+            reconstruction_difference = covariance_frobenius_difference(sketch, reference)
+            assert close(projection, float(arm["projection_cost"]), scale)
+            assert close(covariance, float(arm["covariance_error"]), scale)
+            assert close(discarded, float(arm["discarded_mass_from_norm"]), scale)
+            assert close(ref_thresholds, float(arm["accumulated_discarded_mass"]), scale)
+            assert close(ref_norm_loss, discarded, scale)
+            assert int(arm["shrink_count"]) == ref_shrinks
+            assert reconstruction_difference <= 2e-8 * max(scale, 1.0)
+            tolerance = 1e-8 * max(scale, 1.0)
+            assert eigenvalues[0] >= -tolerance
+            assert covariance <= optimum / (ell - K) + tolerance
+            assert projection <= (1.0 + K / (ell - K)) * optimum + tolerance
+            rows.append(
+                {
+                    "ell": ell,
+                    "method": method,
+                    "projection_cost": projection,
+                    "total_discarded_norm_mass": discarded,
+                    "threshold_sum": ref_thresholds,
+                    "merge_tail_mass": discarded - ref_thresholds,
+                    "covariance_error": covariance,
+                    "reconstructed_covariance_frobenius_difference": reconstruction_difference,
+                }
+            )
+
+    by_key = {(row["ell"], row["method"]): row for row in rows}
+    comparisons = []
+    all_widths_pass = True
+    for ell in sorted({int(row["ell"]) for row in rows}):
+        balanced = by_key[(ell, "balanced")]
+        left = by_key[(ell, "left_deep")]
+        mass_difference = float(balanced["total_discarded_norm_mass"] - left["total_discarded_norm_mass"])
+        projection_difference = float(balanced["projection_cost"] - left["projection_cost"])
+        tolerance = 2e-9 * max(scale, 1.0)
+        width_pass = mass_difference <= tolerance and projection_difference <= tolerance
+        all_widths_pass = all_widths_pass and width_pass
+        comparisons.append(
+            {
+                "ell": ell,
+                "balanced_minus_left_deep_total_discarded_norm_mass": mass_difference,
+                "balanced_minus_left_deep_projection_cost": projection_difference,
+                "frozen_tolerance": tolerance,
+                "hypothesis_pass": width_pass,
+            }
+        )
+
+    audit = {
+        "repair_of_failed_task": "audit-fd-merge-topology-v1",
+        "failure_cause": "merge norm loss includes truncated lower singular-value energy in addition to ell times the shrink threshold",
+        "summary_sha256": hashlib.sha256(SUMMARY.read_bytes()).hexdigest(),
+        "sketches_sha256": hashlib.sha256(SKETCHES.read_bytes()).hexdigest(),
+        "source_sha256": source_hash,
+        "rows_recomputed": len(rows),
+        "all_metric_bound_and_reconstruction_checks_pass": True,
+        "comparisons": comparisons,
+        "prospective_all_widths_hypothesis_pass": all_widths_pass,
+        "rows": rows,
+        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+    }
+    target = ROOT / "results" / "fd_merge_topology_calibration_v2_audit.json"
+    target.write_text(json.dumps(audit, indent=2, allow_nan=False), encoding="utf-8")
+    print(json.dumps(audit))
+
+
+if __name__ == "__main__":
+    main()

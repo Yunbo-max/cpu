@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T05:41:07.203459+00:00",
+  "updated_at": "2026-10-13T07:10:42.368052+00:00",
   "overall_end_date": null,
   "overall_attempt_limit": null,
   "overall_time_limit": null,
@@ -252,22 +252,26 @@
     },
     {
       "window": "execution_windows/w011",
-      "status": "ready",
-      "sequence": 2,
-      "research_cycle_count": 0,
+      "status": "stopped",
+      "sequence": 6,
+      "research_cycle_count": 1,
       "budget": {
-        "attempts_used": 0,
+        "attempts_used": 3,
         "deadline_epoch": 1791875934.220181,
-        "elapsed_seconds": 0.0,
+        "elapsed_seconds": 14.55448470400006,
         "max_attempts": 32,
         "max_command_seconds": 1800,
-        "remaining_deadline_seconds": 5867.024796962738,
-        "remaining_seconds": 1800.0,
+        "remaining_deadline_seconds": 491.87155628204346,
+        "remaining_seconds": 1785.445515296,
         "reserved_seconds": 0
       },
-      "task_states": {}
+      "task_states": {
+        "audit-fd-merge-topology-v1": "failed",
+        "audit-fd-merge-topology-v2": "succeeded",
+        "fd-merge-topology-calibration-v1": "succeeded"
+      }
     }
   ],
-  "cumulative_attempts": 66,
-  "cumulative_command_seconds": 586.4831249490708
+  "cumulative_attempts": 69,
+  "cumulative_command_seconds": 601.0376096530708
 }

@@ -1,0 +1,41 @@
+# FD merge metric failure analysis v1
+
+Status: post-outcome evaluator diagnosis. The failed audit attempt and its
+original inputs remain immutable. This note does not change the frozen data,
+arms, widths, primary norm-loss definition, projection metric, or hypothesis.
+
+## Observed failure
+
+`audit-fd-merge-topology-v1` failed at the assertion equating
+`discarded_mass_from_norm` with `accumulated_discarded_mass` for a merge arm.
+For `ell=32`, balanced merging reported 0.0362063117 from the final norm loss
+but only 0.0317927833 from summed shrink thresholds. The analogous left-deep
+values were 0.0411400851 and 0.0372706052. Central row-stream FD retained the
+expected equality to roundoff.
+
+## Cause
+
+For a row-stream FD shrink of a full `ell x d` buffer, subtracting
+`delta = sigma_ell^2` from all `ell` squared singular values leaves one zero
+row, so the Frobenius norm loss divided by `ell` equals `delta`.
+
+For a merge, however, the input is a `2 ell x d` stack. Keeping only the first
+`ell` singular directions after the same subtraction gives
+
+`(||C||_F^2 - ||B||_F^2) / ell
+ = delta + (1/ell) * sum_{i>ell} sigma_i(C)^2`.
+
+The second term is the energy of the truncated lower half. Therefore the sum of
+thresholds is not the total discarded norm mass for merge trees. The producer's
+final norm-loss field remains the prospectively declared primary measurement;
+the threshold sum is a separate diagnostic and was mislabeled as if an identity
+held.
+
+## Repair contract
+
+The v2 audit will independently reconstruct every topology and retain four
+separate checks: covariance equivalence of reconstructed sketches, summed
+threshold equivalence, shrink-count equivalence, and total norm-loss equivalence
+including merge-tail energy. It will apply the frozen balanced-versus-left-deep
+falsifier to the norm-derived total discarded mass and projection cost. No raw
+result is overwritten and no new data or favorable tolerance is introduced.

@@ -1,0 +1,62 @@
+{
+  "response_id": "w011-fd-merge-topology-interpret-wake3-v1",
+  "request_id": "decision-bcd049b8595649059235f4d2b117f821",
+  "idea": "fd-merge-topology-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The prospectively frozen native FD topology comparison and repaired independent audit are complete. Balanced merging passed the finite-instance non-worseness prediction at all three widths, but the advantage concentrates at width 32 and vanishes near the lossless width-64 regime.",
+  "events": [
+    {
+      "event_id": "w011-fd-merge-topology-development-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "Merge topology is not associative for repeated lossy FD reductions, creating a falsifiable question about balanced versus left-deep aggregation under a fixed native partition.",
+      "hypothesis": "On the frozen first-512-row Landmark instance with eight contiguous leaves, balanced merging has neither larger total norm-derived discarded mass nor larger rank-25 projection cost than left-deep merging at every width in {32,48,64}.",
+      "prediction": "For each frozen width, balanced-minus-left-deep total discarded norm mass and rank-25 projection cost are nonpositive up to the frozen numerical tolerance.",
+      "result": "The repaired independent audit reconstructed all nine arms with zero saved-sketch covariance discrepancy and passed all metric, PSD and FD-bound checks. At widths 32,48,64, balanced-minus-left-deep discarded mass was -0.00493377343, -0.00000355686808 and -4.88e-15; projection-cost difference was -0.0000918399126, -6.59e-10 and -1.42e-14. All frozen comparisons passed. Guarded producer peak RSS was 121992 KiB and audit peak RSS was 129536 KiB.",
+      "interpretation": "The finite development prediction survived. The benefit is material only at the narrowest width and is effectively a tie at width 64. This does not establish a global topology ordering, runtime advantage, failure probability, or new method. The first audit's failure exposed and preserved an evaluator error: merge norm loss includes discarded lower-tail singular energy in addition to the shrink-threshold sum; the repaired audit separated these quantities without changing the frozen scientific endpoint.",
+      "next_action": "Perform a low-memory mathematical and source audit for either a sufficient condition guaranteeing balanced-tree non-worseness or a small deterministic counterexample; freeze that claim and an adversarial baseline before any further numerical confirmation, and do not run seed or partition sweeps.",
+      "evidence": [
+        {
+          "path": "plans/fd_merge_topology_calibration_v1.md",
+          "sha256": "d474cca387cb64807151368d45c2f93cef62efedcf930fb5c03d7ac13364ec74"
+        },
+        {
+          "path": "results/fd_merge_topology_calibration_v1.json",
+          "sha256": "b1bc037f6bd31727ac3835399dbb50c6e26fe247ec2ecfcc5199e8d48770ad49"
+        },
+        {
+          "path": "results/fd_merge_topology_calibration_v1_sketches.npz",
+          "sha256": "b17cce0100c6da21b1d938e8c1cecd47dc6baa6f03c7a7affa1ccde08d9791db"
+        },
+        {
+          "path": "results/fd_merge_topology_calibration_v2_audit.json",
+          "sha256": "62ff94710f160d4b3e92799f74a36ca248388c7c864e5b9fc3e06f9ddc3ed78a"
+        },
+        {
+          "path": "notes/fd_merge_metric_failure_analysis_v1.md",
+          "sha256": "f900c23a3eca8e16eb6129a8631a0db55766d83ac5bda288d4510973e7582a76"
+        },
+        {
+          "path": "notes/fd_merge_topology_analysis_v1.md",
+          "sha256": "a228871308216c9e61a8b4a026aee3caaef083e7105fe17b0ca449ac8cd0ed9c"
+        }
+      ]
+    },
+    {
+      "event_id": "w011-fd-merge-topology-development-complete-v1",
+      "kind": "completion",
+      "outcome": "inconclusive",
+      "reason": "The fixed native instance supports balanced non-worseness, but the observed effect is width-dependent and supplies neither a global theorem nor a novel method.",
+      "evidence": [
+        {
+          "path": "results/fd_merge_topology_calibration_v2_audit.json",
+          "sha256": "62ff94710f160d4b3e92799f74a36ca248388c7c864e5b9fc3e06f9ddc3ed78a"
+        },
+        {
+          "path": "notes/fd_merge_topology_analysis_v1.md",
+          "sha256": "a228871308216c9e61a8b4a026aee3caaef083e7105fe17b0ca449ac8cd0ed9c"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+# FD merge-topology development analysis v1
+
+## Frozen question
+
+For the first 512 native Landmark rows (dimension 2704), rank target 25, eight contiguous 64-row leaves, and sketch widths 32, 48, and 64, the prospectively frozen prediction was that the balanced merge tree would have neither larger total norm-derived discarded mass nor larger rank-25 projection cost than the left-deep tree at every width. The central row-stream FD arm and exact SVD were retained as references.
+
+## Resource and execution record
+
+The experiment was launched only after a 30-second resource recheck. Cgroup headroom changed from 4,488,531,968 to 4,522,016,768 bytes, above the frozen 1 GiB launch threshold. The producer completed in 5.345 seconds of guarded command time with peak RSS 121,992 KiB. The independent repaired audit completed in 4.927 seconds with peak RSS 129,536 KiB. No OOM or stderr was observed.
+
+## Independent audited result
+
+The repaired audit independently reconstructed all nine topology-width arms and obtained zero covariance-operator discrepancy against the saved sketches. All metric, PSD, and FD-bound checks passed.
+
+| width | balanced - left-deep total discarded norm mass | balanced - left-deep projection cost | frozen outcome |
+|---:|---:|---:|:---|
+| 32 | -0.00493377343064072 | -0.0000918399125993119 | pass |
+| 48 | -0.00000355686808125211 | -0.000000000658815224597 | pass |
+| 64 | -0.00000000000000488498 | -0.00000000000001421085 | pass |
+
+The frozen tolerance was 2.3575079549391285e-7. Thus the balanced tree was clearly better on both frozen quantities at width 32, slightly better in discarded mass but essentially tied in projection cost at width 48, and numerically tied at width 64. Timing was not uniformly better for the balanced tree: its balanced/left-deep wall times were 0.3705/0.3674, 0.3184/0.3228, and 0.1247/0.1144 seconds at widths 32, 48, and 64.
+
+## Preserved audit failure and repair
+
+The first independent audit failed because it equated the sum of shrink thresholds with total norm-derived discarded mass for merge operations. For a 2-ell by d merge stack C reduced to ell rows, the per-width norm loss is the shrink threshold plus the discarded lower-tail singular energy divided by ell. This lower-tail term is absent in the ell-by-d row-stream shrink identity but is generally nonzero during merges. The failed receipt and stderr remain preserved. The repaired auditor tracks threshold sum, merge-tail mass, and exact norm loss separately; it did not alter the frozen scientific endpoint or comparison direction.
+
+## Interpretation and decision
+
+The prospective finite-instance prediction survived this development test. The effect concentrates at the narrowest sketch and vanishes as the sketch approaches a near-lossless regime. This is evidence only for this fixed 512-row native instance and fixed contiguous leaf partition. It is not a global balanced-tree ordering theorem, a failure-probability validation, a runtime advantage, or confirmation of a new method.
+
+The topology heuristic therefore remains a bounded positive observation, not a promoted method. The next scientific step is a low-memory mathematical/source audit of whether balanced-tree non-worseness follows under a clearly stated sufficient condition or admits a small deterministic counterexample. A new numerical confirmation should be designed only after that audit freezes the exact claim and a strong adversarial baseline; no seed or partition sweep is justified by the present result.

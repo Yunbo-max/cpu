@@ -1,0 +1,51 @@
+{
+  "submission_id": "w011-fd-merge-topology-submit-wake3-v1",
+  "idea": "fd-merge-topology-audit-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "fd-merge-topology-calibration-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/fd_merge_topology_calibration_v1.py"
+      ],
+      "phase": "experiment",
+      "purpose": "Run the prospectively frozen native FD merge-topology comparison after two resource-blocked wakes and a successful 30-second memory recheck",
+      "timeout_seconds": 600,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "e3f369d67302d7f77d50ad436f040192bd8d4bd1093e29585485fce0ef4f5b30"
+        },
+        {
+          "path": "scripts/fd_merge_topology_calibration_v1.py",
+          "sha256": "3a6cf6a8781a6a272cad387ed2a764019f56593de7005f501d8492846791427e"
+        },
+        {
+          "path": "plans/fd_merge_topology_calibration_v1.md",
+          "sha256": "d474cca387cb64807151368d45c2f93cef62efedcf930fb5c03d7ac13364ec74"
+        },
+        {
+          "path": "notes/fd_merge_source_math_audit_v1.md",
+          "sha256": "2b74508a96eaef8bc494db0a108d23daf0dd054d73db744b1a605386a5ca7720"
+        },
+        {
+          "path": "resource_current_w011_wake3_pre.json",
+          "sha256": "63ba70a36e520dda5cde0338f401855bd750dd8dc60ea8f731f8faef4fa13ac2"
+        },
+        {
+          "path": "resource_current_w011_wake3_recheck1.json",
+          "sha256": "61c5676a2369e20f0325924829929fbac5a03267414a4970a73853229ba4f2ac"
+        }
+      ],
+      "outputs": [
+        "results/fd_merge_topology_calibration_v1.json",
+        "results/fd_merge_topology_calibration_v1_sketches.npz"
+      ]
+    }
+  ]
+}
