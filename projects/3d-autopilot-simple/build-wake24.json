@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "project": "3d_autopilot_simple",
+  "snapshot": "2026-10-13-wake24",
+  "built_at_utc": "2026-10-13T09:33:21.318078Z",
+  "parent_main_at_delta_build": "93df63813bac42be11c5c636014c4cfcd3f528b3",
+  "checkpoint": {
+    "bytes": 76083723,
+    "files": 1974,
+    "sha256": "153d2e8dcbc2bf0a943bf040dbcc38da2d1680ec2f6858a8670e13f69460798d"
+  },
+  "overlay": {
+    "changed_files": 106,
+    "parts": 47,
+    "archive_bytes": 33233499,
+    "archive_sha256": "398cd9192adca24140179c1f361bebe35b9881c37c595bc3fffea398be8999ad",
+    "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-13-wake24/manifest.json"
+  },
+  "state": {
+    "active_idea": "gravity-pose-public-rgbd-validation",
+    "revision": 1,
+    "goal_contract": 1,
+    "attempts_used": 95,
+    "command_seconds": 3759.1021510600285,
+    "journal_version": 156,
+    "empirical_research_cycles": 33,
+    "supervisor_running": false,
+    "unknown_attempts": 0
+  },
+  "experiment": {
+    "primary_result": "results/gravity-pose-tum-fr1xyz-v3.json",
+    "primary_result_sha256": "1dd60948fe625f8f859291da3591c18e23cbff6a7d019b5f9e6fcb9c26e5489a",
+    "verification_sha256": "2425b05d043191f2c2bc357ea5ef61ce825d591e78c359ff4464effb43c35c65",
+    "primary_peak_rss_kib": 494200,
+    "oom": 0,
+    "oom_kill": 0
+  },
+  "exclusions": [
+    {
+      "path": "data/tum/rgbd_dataset_freiburg1_xyz.tgz",
+      "reason": "official re-downloadable source; exact archive SHA-256 retained"
+    },
+    {
+      "pattern": "data/tum/*.part*",
+      "reason": "incomplete/reconstructable acquisition temporaries"
+    },
+    {
+      "pattern": ".research-autopilot/.simple-loop.sqlite3.*",
+      "reason": "non-authoritative SQLite temporary copies; coherent online backup retained"
+    }
+  ]
+}
