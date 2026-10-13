@@ -1,0 +1,56 @@
+{
+  "canonical_records_sha256": "2361ec9f0f0d10eecc89837108556dfddf43ebc16dd960f249e8536c514013b7",
+  "elapsed_seconds": 0.20328664600128832,
+  "eligible_points": 10186,
+  "equality_surface_excluded": "d-c=a+b",
+  "examples": {
+    "equal": {
+      "a": 1,
+      "b": 1,
+      "balanced": [
+        0,
+        0,
+        1
+      ],
+      "balanced_cost": 5,
+      "c": 3,
+      "d": 6,
+      "left": [
+        0,
+        0,
+        5
+      ],
+      "left_cost": 5,
+      "predicted_reversal": false
+    },
+    "reversal": {
+      "a": 1,
+      "b": 1,
+      "balanced": [
+        1,
+        0,
+        0
+      ],
+      "balanced_cost": 7,
+      "c": 3,
+      "d": 4,
+      "left": [
+        0,
+        0,
+        3
+      ],
+      "left_cost": 5,
+      "predicted_reversal": true
+    }
+  },
+  "family": "A=a*e1,B=b*e1,C=c*e2,D=d*e3; d>c>a+b>0",
+  "integer_limit_inclusive": 24,
+  "minimum_strict_margin": 1,
+  "mismatch_count": 0,
+  "mismatches_first_10": [],
+  "peak_rss_kib": 9856,
+  "predicted_and_observed_equal_cost_points": 2200,
+  "predicted_and_observed_reversal_points": 7986,
+  "schema_version": 1,
+  "scope": "Exact finite-grid verification of a restricted symbolic phase boundary; not a general FD guarantee."
+}

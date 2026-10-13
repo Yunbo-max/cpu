@@ -1,0 +1,47 @@
+{
+  "response_id": "w013-fd-phase-boundary-audit-v1",
+  "request_id": "decision-df3d543c686a473687649b91a1fd57aa",
+  "idea": "fd-merge-topology-phase-boundary-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The literal exact-integer tree computation matched the frozen leaf-energy boundary on 10,186 eligible grid points with zero mismatches; run the separately written audit with the result bytes now pinned before interpreting the theorem.",
+  "tasks": [
+    {
+      "task_id": "audit-fd-merge-orthogonal-phase-boundary-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/audit_fd_merge_orthogonal_phase_boundary_v1.py"
+      ],
+      "phase": "verify",
+      "purpose": "Independently recompute closed-form counts, canonical digest and boundary replays for the frozen phase-boundary result",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [
+        "verify-fd-merge-orthogonal-phase-boundary-v1"
+      ],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "e3f369d67302d7f77d50ad436f040192bd8d4bd1093e29585485fce0ef4f5b30"
+        },
+        {
+          "path": "scripts/audit_fd_merge_orthogonal_phase_boundary_v1.py",
+          "sha256": "9e40d08acc8d13c4c52f6027fcda83e2b01b570bbd517eaeae9aaca3e8f08d4f"
+        },
+        {
+          "path": "plans/fd_merge_orthogonal_phase_boundary_v1.md",
+          "sha256": "663548ca784b674138017ce9a1ff04d9fa09aa2a6aea251490d8fcb88bac1563"
+        },
+        {
+          "path": "results/fd_merge_orthogonal_phase_boundary_v1.json",
+          "sha256": "71746400a6ea9b1972d62d57779ae8aed8b8775721c62a5c974276c0665db966"
+        }
+      ],
+      "outputs": [
+        "results/fd_merge_orthogonal_phase_boundary_audit_v1.json"
+      ]
+    }
+  ]
+}

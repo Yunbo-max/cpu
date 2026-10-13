@@ -1,0 +1,23 @@
+# Exact derivation for the ordered orthogonal family
+
+For a nonnegative diagonal covariance vector `x`, width-two FD compression is
+
+`T2(x)_i = max(x_i - tau2(x), 0)`,
+
+where `tau2(x)` is the second-largest entry. Let `s=a+b` and assume strictly `d>c>s>0`.
+
+Balanced tree:
+
+1. `T2(A+B)=s e1` because the sum has rank one.
+2. `T2(C+D)=(d-c)e3` because `d>c`.
+3. The root is `T2(s e1+(d-c)e3)`. It retains `e1` when `s>d-c`, retains `e3` when `s<d-c`, and vanishes on the excluded equality surface.
+
+Left-deep tree:
+
+1. `T2(A+B)=s e1`.
+2. `T2(s e1+C)=(c-s)e2` because `c>s`.
+3. Since `d>c>c-s`, `T2((c-s)e2+D)=(d-c+s)e3`, so its selected direction is always `e3`.
+
+The full unsummarized covariance is `diag(s,c,d)`. A rank-one projector onto `e1` has residual cost `c+d`; a projector onto `e3` has residual cost `s+c`. Hence when `d-c<s`, balanced chooses `e1`, left-deep chooses `e3`, and balanced is worse by `d-s>0`. When `d-c>s`, both choose `e3` and their full-data rank-one projection costs are equal. All nontrivial two-coordinate merge inputs have strict positive spectral margins away from `d-c=s`.
+
+This proof is exact but restricted. It identifies an open cone of strict counterexamples and a leaf-energy phase boundary; it does not extend to noncommuting covariance eigenspaces.

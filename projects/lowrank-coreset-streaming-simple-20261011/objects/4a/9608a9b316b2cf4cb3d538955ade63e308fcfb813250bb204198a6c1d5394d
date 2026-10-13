@@ -1,0 +1,31 @@
+# Exact orthogonal four-leaf phase boundary
+
+## Decision
+
+The frozen claim is supported for the stated, restricted family. For width-two Frequent Directions with ordered orthogonal leaf energies
+
+\[
+A=a e_1,\quad B=b e_1,\quad C=c e_2,\quad D=d e_3,
+\]
+
+write \(s=a+b\) and assume \(d>c>s>0\). Then the balanced tree selects the \(e_1\) direction exactly when \(s>d-c\), whereas the left-deep tree always selects \(e_3\). Consequently, the left-deep tree has strictly smaller full-data rank-one projection cost exactly when \(d-c<s\); when \(d-c>s\), both trees select \(e_3\) and have equal projection cost. At equality the balanced final merge annihilates both coordinates, so the strict statement deliberately excludes that boundary.
+
+## Derivation
+
+For two orthogonal rows with norms \(x\le y\), a width-two FD reduction subtracts \(x^2\) from both squared singular values and therefore returns a single row of norm \(\sqrt{y^2-x^2}\) in the larger direction. Using energy variables makes this map \((x,y)\mapsto y-x\).
+
+The balanced tree first maps \(A+B\) to energy \(s\) on \(e_1\), and \(C+D\) to energy \(d-c\) on \(e_3\). Its final direction is therefore determined by the sign of \(s-(d-c)\). The left-deep tree maps \((s,c)\) to \(c-s\) on \(e_2\), then maps \((c-s,d)\) to \(d-c+s\) on \(e_3\), which is positive in the strict ordered regime.
+
+The full covariance is \(\operatorname{diag}(s,c,d)\). Projecting onto \(e_1\) costs \(c+d\), while projecting onto \(e_3\) costs \(s+c\). In the reversal region \(d-c<s\), the gap is \((c+d)-(s+c)=d-s>0\).
+
+## Verification
+
+The literal integer merge implementation exhaustively evaluated \(a,b,c,d\in\{1,\ldots,24\}\) under \(d>c>a+b\). Among 10,186 eligible points, 7,986 were strict reversals and 2,200 were equal-cost cases; the formula disagreed with the literal merge at zero points. A separately written audit recomputed the counts, canonical digest, and representative boundary replays, again with zero failures.
+
+The canonical reversal \((a,b,c,d)=(1,1,3,4)\) gives balanced direction \(e_1\), cost 7, and left-deep direction \(e_3\), cost 5. The equal-cost example \((1,1,3,6)\) makes both trees select \(e_3\), despite different retained sketch energies.
+
+## Scope and disposition
+
+This is a leaf-observable, non-post-hoc phase boundary for a simultaneous-diagonal, axis-aligned family. It is not a predictor for noncommuting covariance summaries, not a global merge-tree optimizer, not a new FD approximation guarantee, and not an originality claim. Because the exact mechanism depends on a shared eigenbasis and collapses to scalar energy subtraction, widening the same branch without a prospectively stated observable condition for noncommuting summaries would be an unfocused search.
+
+The restricted theorem is accepted and this FD phase-boundary idea is complete. The next window should pivot to a still-unresolved low-rank or streaming-statistics problem; it should not restart universal balanced-tree dominance or expand this grid merely to accumulate trials.

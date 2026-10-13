@@ -1,0 +1,46 @@
+{
+  "submission_id": "w013-fd-phase-boundary-primary-v1",
+  "idea": "fd-merge-topology-phase-boundary-v1",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "verify-fd-merge-orthogonal-phase-boundary-v1",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/verify_fd_merge_orthogonal_phase_boundary_v1.py"
+      ],
+      "phase": "verify",
+      "purpose": "Verify the frozen exact leaf-energy phase boundary by literal integer FD merges over the complete 1..24 grid",
+      "timeout_seconds": 120,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "e3f369d67302d7f77d50ad436f040192bd8d4bd1093e29585485fce0ef4f5b30"
+        },
+        {
+          "path": "scripts/verify_fd_merge_orthogonal_phase_boundary_v1.py",
+          "sha256": "349b4836e6ab211790ab170c0ff438e3e571bbd72f64c09c71df90b581882013"
+        },
+        {
+          "path": "plans/fd_merge_orthogonal_phase_boundary_v1.md",
+          "sha256": "663548ca784b674138017ce9a1ff04d9fa09aa2a6aea251490d8fcb88bac1563"
+        },
+        {
+          "path": "notes/fd_merge_orthogonal_phase_boundary_derivation_v1.md",
+          "sha256": "31196619f6df52a282c4b8603da5cdc31275d3557db88ea7fa2041b72f8a9148"
+        },
+        {
+          "path": "resource_pre_phase_boundary_v1.json",
+          "sha256": "f7a359b47caa9e0f5564b533abcb659d37b2faee882b22b184af702058019a03"
+        }
+      ],
+      "outputs": [
+        "results/fd_merge_orthogonal_phase_boundary_v1.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import hashlib
+import json
+import resource
+from pathlib import Path
+
+LIMIT = 24
+
+
+def direct_t2(x: tuple[int, int, int]) -> tuple[int, int, int]:
+    middle = sum(x) - min(x) - max(x)
+    return tuple(v - middle if v > middle else 0 for v in x)
+
+
+def direct_merge(x: tuple[int, int, int], y: tuple[int, int, int]) -> tuple[int, int, int]:
+    return direct_t2(tuple(xi + yi for xi, yi in zip(x, y)))
+
+
+def main() -> None:
+    source = json.loads(Path("results/fd_merge_orthogonal_phase_boundary_v1.json").read_text())
+    eligible = reversal = equal_cost = 0
+    canonical = hashlib.sha256()
+    replay_failures: list[dict[str, object]] = []
+    boundary_neighbors: list[dict[str, object]] = []
+
+    for a in range(1, LIMIT + 1):
+        for b in range(1, LIMIT + 1):
+            s = a + b
+            for c in range(s + 1, LIMIT + 1):
+                for d in range(c + 1, LIMIT + 1):
+                    delta = d - c
+                    if delta == s:
+                        if len(boundary_neighbors) < 8:
+                            boundary_neighbors.append({"a": a, "b": b, "c": c, "d": d, "relation": "boundary"})
+                        continue
+                    eligible += 1
+                    is_reversal = delta < s
+                    reversal += int(is_reversal)
+                    equal_cost += int(not is_reversal)
+                    A, B, C, D = (a, 0, 0), (b, 0, 0), (0, c, 0), (0, 0, d)
+                    balanced = direct_merge(direct_merge(A, B), direct_merge(C, D))
+                    left = direct_merge(direct_merge(direct_merge(A, B), C), D)
+                    full = (s, c, d)
+                    bc = sum(full) - full[balanced.index(max(balanced))]
+                    lc = sum(full) - full[left.index(max(left))]
+                    record = {
+                        "a": a,
+                        "b": b,
+                        "c": c,
+                        "d": d,
+                        "balanced": balanced,
+                        "left": left,
+                        "balanced_cost": bc,
+                        "left_cost": lc,
+                        "predicted_reversal": is_reversal,
+                    }
+                    canonical.update((json.dumps(record, sort_keys=True, separators=(",", ":")) + "\n").encode())
+                    if (bc > lc) != is_reversal or left[2] <= 0:
+                        replay_failures.append(record)
+
+    checks = {
+        "eligible_points": eligible == source["eligible_points"],
+        "reversal_points": reversal == source["predicted_and_observed_reversal_points"],
+        "equal_cost_points": equal_cost == source["predicted_and_observed_equal_cost_points"],
+        "canonical_digest": canonical.hexdigest() == source["canonical_records_sha256"],
+        "source_zero_mismatches": source["mismatch_count"] == 0,
+        "independent_replay_zero_failures": not replay_failures,
+    }
+    result = {
+        "schema_version": 1,
+        "checks": checks,
+        "all_checks_pass": all(checks.values()),
+        "eligible_points": eligible,
+        "reversal_points": reversal,
+        "equal_cost_points": equal_cost,
+        "canonical_records_sha256": canonical.hexdigest(),
+        "boundary_examples": boundary_neighbors,
+        "replay_failures_first_10": replay_failures[:10],
+        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+    }
+    out = Path("results/fd_merge_orthogonal_phase_boundary_audit_v1.json")
+    out.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    print(json.dumps(result, sort_keys=True))
+    if not result["all_checks_pass"]:
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

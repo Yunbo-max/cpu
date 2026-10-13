@@ -4,12 +4,12 @@
   "policy_version": "0.3.0-simple.9",
   "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
   "goal_mode": "continuous_research",
-  "active_window": "execution_windows/w012",
-  "idea": "fd-merge-topology-condition-counterexample-audit-v1",
+  "active_window": "execution_windows/w013",
+  "idea": "fd-merge-topology-phase-boundary-v1",
   "revision": 1,
   "goal_contract_version": 2,
-  "scientific_status": "w012 refuted universal Frequent Directions balanced-tree non-worseness with an exact deterministic diagonal construction and a prospectively frozen strict-margin control. For width ell=2 and rank-one evaluation, the minimal selected strict-margin leaves (1,0,0),(1,0,0),(0,3,0),(0,0,4) yield balanced final summary (1,0,0) with projection cost 7, versus left-deep final summary (0,0,3) with cost 5. All positive-threshold merge inputs have unique leading eigenvalues, so the reversal is not a tie artifact. The frozen 331,776-candidate grid contained 5,328 eligible reversals. This does not contradict FD mergeability guarantees; it rejects a topology ordering extrapolated from the finite w011 Landmark result. A common subspace of dimension below ell is a simple but restrictive sufficient condition for exact topology invariance because no merge shrinks.",
-  "next_action": "Restore and reconcile stopped w012, then establish w013 under the existing continuous authorization. Do not restart unconditional FD balanced-tree dominance. Pursue a topology-sensitivity predictor only if a non-tautological observable heterogeneity or subspace-overlap condition can be frozen and compared against the exact rank-below-ell condition and fixed-tree baselines; otherwise pivot to the next unresolved low-rank or streaming-statistics question. Continue CPU-only guarded execution under the existing memory limits.",
+  "scientific_status": "w013 established and independently audited an exact leaf-energy topology phase boundary for a restricted width-two Frequent Directions family. For A=a e1, B=b e1, C=c e2, D=d e3, s=a+b, and d>c>s>0, the balanced tree selects e1 exactly when s>d-c, while the left-deep tree always selects e3. Hence left-deep has strictly smaller full-data rank-one projection cost exactly when d-c<s; if d-c>s, both trees select e3 and have equal cost. A complete 1..24 integer grid contained 10,186 eligible points: 7,986 reversals and 2,200 equal-cost cases, with zero formula mismatches; a separate audit reproduced all counts and boundary cases with zero failures. This is a simultaneous-diagonal, axis-aligned theorem only, not a noncommuting predictor, global tree optimizer, new FD guarantee, or originality claim.",
+  "next_action": "Restore and reconcile stopped w013, then establish w014 under the existing continuous authorization. Treat the restricted orthogonal FD phase-boundary idea as complete and do not widen it without a prospectively frozen leaf-observable condition for noncommuting summaries. Pivot to a still-unresolved low-rank or streaming-statistics question, beginning with low-memory mathematical/source review and only then a falsifiable guarded experiment. Continue CPU-only execution under the existing memory limits and shared-memory waiting rules.",
   "automation_status": "enabled; hourly recurring schedule without end date",
   "resource_limit_bytes": 8000000000,
   "worker_address_space_limit_bytes": 4294967296,
@@ -191,7 +191,13 @@
     "execution_windows/w012/scripts/search_fd_merge_strict_margin_counterexample_v1.py",
     "execution_windows/w012/results/fd_merge_topology_strict_margin_search_v1.json",
     "execution_windows/w012/analysis/fd_merge_topology_counterexample_analysis_v1.md",
-    "execution_windows/w012/fd_merge_counterexample_interpret_response_v1.json"
+    "execution_windows/w012/fd_merge_counterexample_interpret_response_v1.json",
+    "execution_windows/w013/plans/fd_merge_orthogonal_phase_boundary_v1.md",
+    "execution_windows/w013/notes/fd_merge_orthogonal_phase_boundary_derivation_v1.md",
+    "execution_windows/w013/results/fd_merge_orthogonal_phase_boundary_v1.json",
+    "execution_windows/w013/results/fd_merge_orthogonal_phase_boundary_audit_v1.json",
+    "execution_windows/w013/analysis/fd_merge_orthogonal_phase_boundary_analysis_v1.md",
+    "execution_windows/w013/phase_boundary_interpret_response_v1.json"
   ],
   "limitations": [
     "finite-pool guarantee only",
@@ -261,11 +267,13 @@
     "The balanced advantage was material at width32, small at width48 and within numerical tolerance at width64; selective presentation as a width-uniform material improvement is prohibited",
     "w012 supplies an exact diagonal counterexample to universal balanced-tree non-worseness, not a contradiction of the established FD mergeability guarantee form",
     "The strict-margin counterexample grid is a finite exact integer search at dimension3, width2 and four rank-one leaves; 5,328 eligible reversals do not quantify prevalence for arbitrary dimensions, streams or tree families",
-    "Common eigenvectors and strict local spectral margins are insufficient for topology invariance; the proven rank-below-width common-subspace condition is exact but restrictive and is not presented as a novel theorem"
+    "Common eigenvectors and strict local spectral margins are insufficient for topology invariance; the proven rank-below-width common-subspace condition is exact but restrictive and is not presented as a novel theorem",
+    "The w013 leaf-energy phase boundary is exact only for a simultaneous-diagonal axis-aligned four-leaf family at width2 and rank-one evaluation; it is not a predictor for noncommuting summaries, arbitrary trees or higher widths",
+    "The 10,186-point exhaustive grid verifies the closed form over a bounded integer domain and does not estimate prevalence, failure probability or originality"
   ],
-  "updated_at": "2026-10-13T07:35:41.791168+00:00",
+  "updated_at": "2026-10-13T08:19:33.249380+00:00",
   "execution": {
-    "updated_at": "2026-10-13T07:35:41.791168+00:00",
+    "updated_at": "2026-10-13T08:19:33.249380+00:00",
     "overall_end_date": null,
     "overall_attempt_limit": null,
     "overall_time_limit": null,
@@ -548,7 +556,7 @@
           "elapsed_seconds": 4.028580146999957,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 6479.338432788849,
+          "remaining_deadline_seconds": 3847.9834926128387,
           "remaining_seconds": 1795.971419853,
           "reserved_seconds": 0
         },
@@ -556,18 +564,42 @@
           "search-fd-merge-strict-margin-counterexample-v1": "succeeded",
           "verify-fd-merge-topology-counterexample-v1": "succeeded"
         }
+      },
+      {
+        "window": "execution_windows/w013",
+        "status": "stopped",
+        "sequence": 3,
+        "research_cycle_count": 1,
+        "budget": {
+          "attempts_used": 2,
+          "deadline_epoch": 1791886412.9405594,
+          "elapsed_seconds": 0.5236433880018012,
+          "max_attempts": 32,
+          "max_command_seconds": 1800,
+          "remaining_deadline_seconds": 6839.710282802582,
+          "remaining_seconds": 1799.4763566119982,
+          "reserved_seconds": 0
+        },
+        "task_states": {
+          "audit-fd-merge-orthogonal-phase-boundary-v1": "succeeded",
+          "verify-fd-merge-orthogonal-phase-boundary-v1": "succeeded"
+        }
       }
     ],
-    "cumulative_attempts": 71,
-    "cumulative_command_seconds": 605.0661898000708
+    "cumulative_attempts": 73,
+    "cumulative_command_seconds": 605.5898331880726
   },
   "automation_id": "6acc15a522f08191a1bbf19f58f033a1",
   "library_file_id": "libfile_d0c64b9b3a98819197c0ffcf4641cc50",
-  "current_research_cycle_count": 37,
+  "current_research_cycle_count": 38,
   "additional_bernstein_rows": 96,
   "moment_boundary_checked_suffixes": 20,
   "moment_native_pilot_suffixes": 15,
-  "latest_numerical_peak_rss_kib": 129536,
+  "latest_numerical_peak_rss_kib": 9856,
+  "fd_orthogonal_phase_boundary_grid_eligible": 10186,
+  "fd_orthogonal_phase_boundary_reversals": 7986,
+  "fd_orthogonal_phase_boundary_equal_cost": 2200,
+  "fd_orthogonal_phase_boundary_mismatches": 0,
   "moment_prefix_advice_labels": 49,
   "moment_exact_baseline_checks": 5000,
   "moment_smooth_online_checks": 4000,

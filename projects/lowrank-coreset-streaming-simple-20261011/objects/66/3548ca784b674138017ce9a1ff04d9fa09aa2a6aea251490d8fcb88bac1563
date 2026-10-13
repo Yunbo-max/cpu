@@ -1,0 +1,39 @@
+# FD orthogonal four-leaf phase boundary v1
+
+## Question
+
+For exact width-two Frequent Directions covariance shrinkage, consider four ordered rank-one leaves
+
+`A=a e1`, `B=b e1`, `C=c e2`, `D=d e3`,
+
+where the entries denote covariance energy, `s=a+b`, and the strict ordered regime is `d>c>s>0`. Can the sign of the balanced-versus-left-deep rank-one projection-cost difference be predicted from leaf energies without constructing both final sketches?
+
+## Frozen hypothesis and derivation target
+
+Let `T2(x)` subtract the second-largest entry of a nonnegative diagonal covariance vector from every entry and truncate at zero. The proposed exact boundary is:
+
+- left-deep always selects `e3` in the strict ordered regime;
+- balanced selects `e1` exactly when `d-c<s`, and selects `e3` exactly when `d-c>s`;
+- therefore left-deep has strictly smaller rank-one projection cost exactly when `d-c<s`; otherwise the two trees choose `e3` and have equal projection cost;
+- the equality surface `d-c=s` is excluded because the balanced root is annihilated and has no unique selected coordinate.
+
+The predicted strict reversal gap is `(c+d)-(s+c)=d-s>0`.
+
+## Exact verification
+
+- Enumerate every integer `a,b,c,d` in `1..24`.
+- Retain only `d>c>a+b` and exclude `d-c=a+b`.
+- Independently compute both fixed trees with the literal exact-integer `T2` merge operator.
+- Compare their unique final coordinate and full-data rank-one projection cost against the frozen formulas.
+- Record all eligible points, reversal/equality counts, minimum margins, any mismatches, and a SHA-256 digest of canonical per-point records.
+- A second script must recompute the eligible/reversal counts from the closed-form inequalities, validate the canonical digest and independently replay boundary examples.
+
+## Baselines, resources and scope
+
+The quality baseline is the exact rank-one choice on full covariance `diag(s,c,d)`. The two method arms are the balanced and left-deep fixed trees; no tree is selected after observing its cost. Arithmetic is exact integers. Both commands are CPU-only, single-threaded, serialized through `cpu_guard.py`, with a 4 GiB address-space cap. Expected peak memory is below 100 MiB.
+
+This is a mathematical mechanism check on a restricted diagonal/orthogonal family. It cannot establish a general predictor for noncommuting covariances, a global merge-tree optimum, a new FD guarantee, or originality.
+
+## Falsifier and decision
+
+Any eligible mismatch between the literal tree computation and the frozen boundary falsifies the theorem as stated. Zero mismatches plus independent audit supports only the restricted exact characterization. Continue the FD branch only if the boundary exposes a plausible observable generalization beyond simultaneous diagonalization; otherwise retain it as a negative/mechanistic result and pivot.
