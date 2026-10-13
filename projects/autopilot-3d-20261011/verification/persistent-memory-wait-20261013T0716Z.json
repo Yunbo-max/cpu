@@ -1,0 +1,64 @@
+{
+  "project_id": "autopilot-3d-20261011",
+  "status": "waiting_for_memory",
+  "event_id": "host-issue:R019-persistent-memory-wait-20261013T0716Z",
+  "observed_at_utc": "2026-10-13T07:19:42.195366+00:00",
+  "incident_first_wait_utc": "2026-10-13T05:19:30+00:00",
+  "wait_duration_to_latest_measurement_seconds": 7034,
+  "blocked_activation_count_this_incident": 3,
+  "experiment_executed": false,
+  "runner_sequence": 190,
+  "journal_version": 216,
+  "runner_attempts": 146,
+  "runner_attempts_terminal": 146,
+  "runner_command_seconds": 13211.193054299029,
+  "active_or_unknown_attempts": 0,
+  "project_lock": "available",
+  "task": "gravity-R019-safe-build-v4-pending",
+  "required_raw_headroom_mib": 1536,
+  "cache_credit_mib": 0,
+  "measurements": [
+    {
+      "utc": "2026-10-13T07:15:56.072837+00:00",
+      "raw_headroom_mib": 613.78515625
+    },
+    {
+      "utc": "2026-10-13T07:16:44.146131+00:00",
+      "raw_headroom_mib": 956.3125,
+      "shortfall_mib": 579.6875,
+      "anon_bytes": 157593600,
+      "file_bytes": 7025319936,
+      "shmem_bytes": 0,
+      "inactive_file_bytes": 1338863616,
+      "file_dirty_bytes": 233439232,
+      "file_writeback_bytes": 0
+    }
+  ],
+  "memory_events": {
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "delivery_state_before_this_user_visible_report": "local_pending_report",
+  "scientific_scope": "No build, smoke test or native scientific experiment ran; this is a resource wait, not a scientific failure.",
+  "decision": "Keep the prepared build waiting and leave the existing research automation enabled.",
+  "resume_condition": "Fresh raw headroom at or above1536MiB with no active or unknown attempt; submit the prepared response once through the pinned simple_runner, then continue8/audit,100/audit,5000/audit serially.",
+  "local_evidence": [
+    {
+      "path": "notes/R019_memory_wait_20261013T0519.json",
+      "sha256": "53e11532aa6affcb20299f08a82292033c4be511d55a9f6448f8d4fd7ce0473a"
+    },
+    {
+      "path": "notes/R019_recovery_wait_20261013.md",
+      "sha256": "021930eef2559572b8c68a8e5e97bd7d5c1dbc4aeef80e1beb99b7bde9044e30"
+    },
+    {
+      "path": ".research-autopilot/runner/diagnostics/alerts/f23928b86fc7a795238040e6885c23e0d0cf05d6b37a9bcbfa52f863ed966547.json",
+      "sha256": "4b67e7feda9925cd9c5306c7c7345a35dcb24dc147c22d7442528cffd77a8fcd"
+    }
+  ],
+  "active_archive_commit": "8c1c91eff867743bc4a7d8f55f5f26300c1d94f9",
+  "database_recovery_verification_commit": "e4e330870513bfe29c03acad5fe6f205a1045edd",
+  "prior_wait_status_commit": "16d4eda037ac1c96edd1d709446af905e1793b58",
+  "cleanup_status": "unresolved reappearing paths; no deletion or memory release claimed"
+}
