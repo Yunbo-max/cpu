@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "project": "3d_autopilot_simple",
+  "wake": "wake21",
+  "observed_at_utc": "2026-10-13T05:23:43Z",
+  "preconditions": {
+    "remote_verification_commit": "643d75cb528fed183626e890abeadebdcc725008",
+    "verification_readback_blob_sha": "534149c4e91257e80cd93655ae31cb339761046d",
+    "all_attempts_settled": true,
+    "supervisor_running": false,
+    "unknown_attempts": 0
+  },
+  "scope": "Only this wake's sparse restore directory and fetched helper under /workspace/scratch/faa0880830cd; no other project, /dev/shm, or global cache was touched.",
+  "restore_directory": {
+    "path": "/workspace/scratch/faa0880830cd/wake21-restore-verify",
+    "files_before": 70,
+    "apparent_bytes_before": 800170708,
+    "directory_inode_before": 1179822,
+    "exists_immediately_after": false
+  },
+  "project_root": {
+    "path": "/workspace/scratch/faa0880830cd/3d_autopilot_simple",
+    "state": "absent_before_and_after_this_cleanup",
+    "note": "The root had been pruned by the execution environment before this wake; this cleanup did not remove it."
+  },
+  "helper": {
+    "path": "/workspace/scratch/faa0880830cd/restore_checkpoint.py",
+    "requested_delete": true,
+    "exists_after_delete_action": true,
+    "inode_after": 928538,
+    "bytes_after": 5488,
+    "sha256_after": "c3518fb010072bc1ff15773fab9353506816447e46cc3191fa55fae987f60165",
+    "interpretation": "The helper reappeared immediately after deletion, consistent with the previously observed host rematerialization anomaly. No further forced cleanup was attempted."
+  },
+  "memory_observation": {
+    "cgroup_memory_current_after_bytes": 7280562176,
+    "cgroup_memory_max_bytes": 8589934592,
+    "oom_events": 0,
+    "oom_kill_events": 0,
+    "caveat": "Deleting files releases disk space and may affect file cache; it is not evidence of equal RAM release."
+  },
+  "status": "verified_restore_removed_but_helper_rematerialized",
+  "persistent_cleanup_claim": false
+}
