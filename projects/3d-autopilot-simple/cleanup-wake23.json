@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project": "3d_autopilot_simple",
+  "cleanup_attempted_at_utc": "2026-10-13T08:09:35Z",
+  "cleanup_observed_at_utc": "2026-10-13T08:09:36Z",
+  "preconditions": {
+    "remote_verification_commit": "71a5d71da05b1f9469242061938db61d6a017c1e",
+    "remote_files_verified": 179,
+    "sqlite_integrity_check": "ok",
+    "unknown_attempts": 0,
+    "supervisor_running": false
+  },
+  "deletion_receipt": {
+    "project_files_removed": 1121,
+    "project_bytes_before": 1702872226,
+    "restore_files_removed": 179,
+    "restore_bytes_before": 184450486,
+    "delta_files_removed": 69,
+    "delta_bytes_before": 93569378,
+    "checkpoint_bytes_removed": 60018447
+  },
+  "subsequent_observation": {
+    "project_root_exists": true,
+    "project_root_inode": 929033,
+    "project_files": 1018,
+    "project_bytes": 1678136461,
+    "checkpoint_zip_exists": true,
+    "checkpoint_zip_inode": 918605,
+    "checkpoint_zip_bytes": 60018447,
+    "restore_directory_exists_empty": true,
+    "delta_directory_exists_empty": true
+  },
+  "resource_observation": {
+    "cgroup_current_bytes": 7515836416,
+    "cgroup_max_bytes": 8589934592,
+    "anon_bytes": 835186688,
+    "file_bytes": 6268755968,
+    "shmem_bytes": 0,
+    "oom": 0,
+    "oom_kill": 0
+  },
+  "disposition": "Persistent local eviction is not confirmed. The host rematerialized this project's files after a successful explicit deletion. No further forced cleanup was attempted, no other project or global cache was touched, and deleted byte counts are not reported as equal RAM release."
+}
