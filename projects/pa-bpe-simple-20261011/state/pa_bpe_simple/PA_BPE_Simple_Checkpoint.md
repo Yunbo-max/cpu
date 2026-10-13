@@ -1,3 +1,15 @@
+# 最新规范状态：generation 25，2026-10-13
+
+冻结污染源兼容性审计已完成。24个固定输入的有效替代任务成功、输入哈希执行前后不变；可恢复清单包括训练入选文档515个（英209/法155/西151）、TICO 970个三语行、GlobalVoices指纹1536项、FLORES devtest预期每语1012行和书籍抽样单元5120个。
+
+新增关键负结果：wake12 GlobalVoices指纹按Unicode正则`\w+`分词并用NUL连接五词，而Tatoeba冻结实施补充要求“规范化后的空白分隔词元”连续五词多重集。两者不可互换；raw正文未写入指纹库，三份冻结raw archive也不在GitHub `archives/index.json`，现存exact/shingle哈希不能反演新指纹。因此不得直接对38,091个合格三角执行污染判断，production development selection、tokenizer训练和公平性评分继续HOLD。
+
+首次attempt虽exit0但只读SQLite WAL查询更新了固定`selection.sqlite3-shm`，runner标记`invalid_inputs`；修复为在临时副本查询，并以新任务ID显式替代成功。两attempt wall合计0.727898819秒，累计1946.898724222秒，reservation0、无OOM。该runner未记录逐进程CPU/RSS，二者明确记为未知而不是0。所有科学作业终态，有限runner受控停止；continuous_research仍继续。
+
+下一步：按记录SHA256恢复英/法/西三份冻结OPUS GlobalVoices raw archive，重建精确512×3 source units和空白词元指纹，独立核验后才能把完整污染清单用于38,091个合格三角并冻结确定性开发选择。恢复必读：`PA_BPE_Wake24_Report.md`、`evidence/wake24_handoff.json`、`evidence/incidents_wake24.json`、`execution_windows/wake24/output/contamination_source_recovery_audit_v2.json`及两份runner receipt。
+
+# generation 24 历史状态（保留）
+
 # 最新规范状态：generation 24，2026-10-13
 
 Tatoeba 的另版本 `eligible-inner-join-v2` 固定源图审计已实际完成并由第二个实现精确复核。严格协议 v1 的失败保留不变；v2 只保留链接两端同时存在于固定、语种匹配句子导出中的边。英法 441,739 条中保留 441,232、排除 507；英西 283,852 中保留 283,642、排除 210；法西 61,696 中保留 61,669、排除 27。合计保留 786,543、排除 744，三张边表都没有重复边。
