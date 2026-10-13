@@ -1,0 +1,104 @@
+{
+  "run_id": "R006-fixed1000-blocksworld-p05-states_ops-v1",
+  "scope": "First exposed fixed-work fine-clock diagnostic only",
+  "checks": {
+    "matching_records": true,
+    "native_valid": true,
+    "construction_partition": true,
+    "inside_refine_lifecycle": true,
+    "inside_refine_detail_partition": true,
+    "inside_refine_incoming_partition": true,
+    "inside_refine_outgoing_partition": true,
+    "inside_refine_counters": true,
+    "outside_simulated_lifecycle": true,
+    "outside_simulated_detail_partition": true,
+    "outside_simulated_incoming_partition": true,
+    "outside_simulated_outgoing_partition": true,
+    "outside_simulated_counters": true,
+    "outside_actual_lifecycle": true,
+    "outside_actual_detail_partition": true,
+    "outside_actual_incoming_partition": true,
+    "outside_actual_outgoing_partition": true,
+    "outside_actual_counters": true,
+    "exact1000_states": true,
+    "artifact_bindings": true
+  },
+  "timing_valid": true,
+  "terminal_execution_success": true,
+  "terminal_guard_status": "completed",
+  "terminal_guard_exit_code": 0,
+  "acceptance_policy": "Completed construction profile may diagnose mechanism after a later censored search; failed host command is retained separately and cannot become a solve or full-trajectory claim.",
+  "construction_ns": 134628252,
+  "summed_generation_fields": {
+    "outgoing_applicability_ns": 4325892,
+    "incoming_reachability_ns": 9529331,
+    "outgoing_reachability_ns": 8229643,
+    "incoming_policy_ns": 799464,
+    "outgoing_policy_ns": 819564,
+    "incoming_emission_ns": 1591236,
+    "outgoing_emission_ns": 1759133,
+    "incoming_generation_residual_ns": 26553821,
+    "outgoing_generation_residual_ns": 27520502,
+    "incoming_generate_ns": 38473852,
+    "outgoing_generate_ns": 42654734,
+    "outgoing_occurrences": 23178,
+    "outgoing_distinct_operator_sum": 7528,
+    "calls": 999,
+    "zero_outgoing_rewires": 1
+  },
+  "fractions_of_construction": {
+    "outgoing_applicability_ns": 0.03213212632367833,
+    "incoming_reachability_ns": 0.07078255015893692,
+    "outgoing_reachability_ns": 0.06112864779674923,
+    "incoming_policy_ns": 0.005938307807784655,
+    "outgoing_policy_ns": 0.00608760782246508,
+    "incoming_emission_ns": 0.011819480505473694,
+    "outgoing_emission_ns": 0.013066596155463713,
+    "incoming_generation_residual_ns": 0.19723810274235754,
+    "outgoing_generation_residual_ns": 0.2044184752543619,
+    "incoming_generate_ns": 0.2857784412145528,
+    "outgoing_generate_ns": 0.3168334533527183
+  },
+  "m_over_d": 3.078905419766206,
+  "equal_cost_screen_rational_ns": {
+    "numerator": 11283368300,
+    "denominator": 3863
+  },
+  "equal_cost_screen_fraction_of_construction": 0.021695908920768225,
+  "screen_gates": {
+    "valid_and_exact1000": true,
+    "m_over_d_at_least_1_5": true,
+    "equal_cost_priority_screen_above_one_eleventh": false,
+    "total_measured_applicability_above_one_eleventh": false,
+    "applicability_not_displaced": false
+  },
+  "decision": "retire_applicability_reuse_priority",
+  "limitations": [
+    "The aggregate T_app*(1-d/m) assumes equal per-call cost; it is not an unconditional upper bound for heterogeneous calls.",
+    "Fine-clock overhead, counter and distinct-operator set work are not attributed to predicate intrinsic costs.",
+    "Graph/mirror/adjacency order and shortest paths not witnessed by this diagnostic.",
+    "No native speedup or novelty claim; full planner/preprocessing scope excluded from timing comparison."
+  ],
+  "input_refs": [
+    {
+      "path": "results/R006-fixed1000-blocksworld-p05-states_ops-v1/command/stdout.log",
+      "sha256": "d42c6f35086dd66426aeaab44847b39b3bd67cd1231b3c6cf366f3efcb91d4e5"
+    },
+    {
+      "path": "results/R006-fixed1000-blocksworld-p05-states_ops-v1/command/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R006-fixed1000-blocksworld-p05-states_ops-v1/command/metrics.json",
+      "sha256": "b9da9fecd4de477bb4be9e172ed105794e5725d7388454949fb4fb399986e2dc"
+    },
+    {
+      "path": "results/R006-fixed1000-blocksworld-p05-states_ops-v1/result.json",
+      "sha256": "c234cc76d637c000eed8c51789e6cfec94dae790402fe8e7de974b3c8326d801"
+    },
+    {
+      "path": "plans/configs/R006-fixed1000-blocksworld-p05-states_ops-v1.json",
+      "sha256": "57a7e9a592702dc5649e5395e7feaf60fdcfd7cf18799cb85fb6bc00639264b7"
+    }
+  ]
+}

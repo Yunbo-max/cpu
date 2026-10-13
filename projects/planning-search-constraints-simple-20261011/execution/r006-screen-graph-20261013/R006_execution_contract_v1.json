@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "idea": "constraint-propagation-cost-v1",
+  "run_family": "R006",
+  "status": "frozen_before_execution",
+  "parent_results": [
+    "results/R005-summary-v1.json",
+    "results/Depots_extended_summary_v1.json"
+  ],
+  "first_row": {
+    "domain": "blocksworld",
+    "instance": "p05",
+    "arm": "states_ops",
+    "seed": 2011,
+    "max_states": 1000,
+    "threads": 1,
+    "policy": "NONE"
+  },
+  "resource_caps": {
+    "compile_threads": 1,
+    "rss_mb": 2800,
+    "address_space_mb": 3500,
+    "shared_cgroup_abort_bytes": 7800000000,
+    "project_hard_limit_bytes": 8000000000
+  },
+  "prediction": {
+    "candidate": "per-rewire child/operator applicability reuse",
+    "ordinary_control_not_new_method": true,
+    "required_m_over_d": 1.5,
+    "required_ideal_saved_applicability_fraction_of_construction": 0.09090909090909091,
+    "required_exact_state_frontier": 1000,
+    "failure_action": "retire applicability reuse as an optimization priority"
+  },
+  "claims_excluded": [
+    "planner speedup",
+    "native solve improvement",
+    "graph equivalence before exact audit",
+    "novel algorithm"
+  ]
+}

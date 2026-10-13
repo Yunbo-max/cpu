@@ -1,0 +1,68 @@
+{
+  "valid": true,
+  "scope": "Exact final1000-state native snapshot only; no every-step equivalence or timing claim",
+  "exact_peer_checks": {
+    "states": true,
+    "initial": true,
+    "goals": true,
+    "operator_costs": true,
+    "domains": true,
+    "state_empty_markers": true,
+    "outgoing_multiset": true,
+    "incoming_multiset": true,
+    "loop_multiset": true,
+    "ordered_outgoing": true,
+    "ordered_incoming": true,
+    "ordered_loops": true,
+    "native_distances": true,
+    "reference_init_distances": true,
+    "reference_goal_distances": true,
+    "inf_marker": true
+  },
+  "first": {
+    "input": "results/R006-graph-export-fine-v1/graph.tsv",
+    "input_sha256": "6d8625157b472ac3c372bfda6afc6124f1468c70a8e6cf8a0e6df2926bb39d3a",
+    "checks": {
+      "mirror_multiset_exact": true,
+      "stored_non_loop_count": true,
+      "stored_loop_count": true,
+      "init_shortest_paths_exact": true,
+      "goal_shortest_paths_exact": true
+    },
+    "valid": true,
+    "summary": {
+      "states": 1000,
+      "edges_with_multiplicity": 16422,
+      "distinct_edges": 16422,
+      "loops_with_multiplicity": 7186,
+      "variables_per_state": 19,
+      "zero_cost_encoding": false,
+      "unreachable_from_init": 0,
+      "unreachable_to_goal": 0
+    }
+  },
+  "peer": {
+    "input": "results/R006-graph-export-coarse-v2/graph.tsv",
+    "input_sha256": "6d8625157b472ac3c372bfda6afc6124f1468c70a8e6cf8a0e6df2926bb39d3a",
+    "checks": {
+      "mirror_multiset_exact": true,
+      "stored_non_loop_count": true,
+      "stored_loop_count": true,
+      "init_shortest_paths_exact": true,
+      "goal_shortest_paths_exact": true
+    },
+    "valid": true,
+    "summary": {
+      "states": 1000,
+      "edges_with_multiplicity": 16422,
+      "distinct_edges": 16422,
+      "loops_with_multiplicity": 7186,
+      "variables_per_state": 19,
+      "zero_cost_encoding": false,
+      "unreachable_from_init": 0,
+      "unreachable_to_goal": 0
+    }
+  },
+  "full_audit_sha256": "8a3672eafa8c2a8af9f9aaa7adff3687e9e45d08398c2c7ce7fd568b6a4a1102",
+  "full_audit_archive_path": "windows/W0004/results/R006-final-frontier-exact-graph-audit-v1.json"
+}

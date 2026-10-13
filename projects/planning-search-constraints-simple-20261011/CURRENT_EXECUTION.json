@@ -1,24 +1,43 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-13T17:41:36.989472+00:00",
+  "updated_utc": "2026-10-13T18:16:37.308040+00:00",
   "window": "W0004",
-  "predecessor": "W0003",
   "execution_root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
-  "status": "running",
-  "active_execution_observed": [
-    {
-      "task_id": "R006-build-profile-v4-w4-recovery1",
-      "attempt_id": "attempt-716c3f13e05741b28ca008bdc0f8f3ed",
-      "state": "running"
-    }
-  ],
-  "health": {
-    "activity_age_seconds": 0.02562856674194336,
+  "status_observed": "awaiting_decision",
+  "active_or_unknown_attempts": 0,
+  "current_accepted_decision": {
+    "path": "plans/W4_R006_clock_control_decision_v4_001.json",
+    "sha256": "ea7ab46a54506902a4cfa645fab527b3897bb46520e7efc330d93e4b2ab160a0"
+  },
+  "window_budget": {
+    "attempts_used": 14,
+    "deadline_epoch": 1791999247.845339,
+    "elapsed_seconds": 712.7839457820155,
+    "max_attempts": 500,
+    "max_command_seconds": 80000,
+    "remaining_deadline_seconds": 83902.27470564842,
+    "remaining_seconds": 79287.21605421798,
+    "reserved_seconds": 0
+  },
+  "project_ledger": {
+    "prior_attempt_floor": 214,
+    "prior_command_seconds_floor": 14447.537480669998,
+    "window_attempts": 14,
+    "window_command_seconds": 712.7839457820155,
+    "combined_attempt_floor": 228,
+    "combined_command_seconds_floor": 15160.321426452014,
+    "scope": "Command wall accounting includes 1823s conservative failed settlement and earlier reported missing-host tail; not exact CPU time or scientific cycles",
+    "native_model_usage": "unknown",
+    "cumulative_scientific_cycles": "Do not infer from attempts; actual journal cycle records retained"
+  },
+  "actual_health": {
+    "activity_age_seconds": 41.88854432106018,
     "errors": [],
-    "identity_observed_alive": true,
+    "identity_observed_alive": false,
     "max_age_seconds": 30,
+    "reason": "Retained process identity is unverified: it may have exited, changed identity, or become unavailable to local observation; no restart or reconciliation is implied",
     "record": {
       "exit_status": null,
       "exited_at": null,
@@ -27,40 +46,43 @@
         "pid": 136931,
         "start_ticks": 4905625
       },
-      "last_activity_at": "2026-10-13T17:41:36.954495+00:00",
-      "last_activity_epoch": 1791913296.9544926,
+      "last_activity_at": "2026-10-13T18:15:55.410698+00:00",
+      "last_activity_epoch": 1791915355.4106932,
       "mode": "run",
       "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
       "schema_version": 1,
       "session_id": "242152077c134b6f89730c658127423a",
-      "stage": "running",
+      "stage": "awaiting_decision",
       "started_at": "2026-10-13T17:34:31.763215+00:00"
     },
     "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
     "scope": "Local process observation only; no external watcher or user delivery is activated",
-    "status": "active"
+    "status": "lost"
   },
-  "authorization": "RESUME_AUTHORIZATION_20261013T162554Z.json",
-  "historical_stop": "W0003 explicitly stopped2026-10-13T16:21:25Z; retry1 cancelled16:21:31Z with real receipt; oldSQLite/deadline/stop unchanged",
-  "prior_attempt_floor": 214,
-  "prior_command_seconds_floor": 14447.537480669998,
-  "window_budget": {
-    "attempts_used": 1,
-    "deadline_epoch": 1791999247.845339,
-    "elapsed_seconds": 0.0,
-    "max_attempts": 500,
-    "max_command_seconds": 80000,
-    "remaining_deadline_seconds": 85950.9523601532,
-    "remaining_seconds": 78177.0,
-    "reserved_seconds": 1823.0
+  "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
+  "R006_scientific_results": {
+    "first_fixed1000": "succeeded, independent integer identities valid, cost24 VAL passed",
+    "applicability_fraction_of_construction": 0.03213212632367833,
+    "conditional_equal_call_cost_saved_fraction": 0.021695908920768225,
+    "m_over_d": 3.078905419766206,
+    "screen": "deprioritize ordinary applicability reuse under frozen1/11 criterion on this exposed fine-clock case",
+    "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
+    "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
   },
-  "scientific_state": "R005 and R005L1 complete retained; R006 frozen build recovery underway, no R006 native or graph result yet",
+  "next_task": "R006-clock-control-build-v1 planned, not yet dispatched",
+  "active_coordinator": "Current Work conversation, single writer and single native queue",
   "guards": {
     "cpu_only": true,
-    "compile_threads": 1,
+    "threads": 1,
     "max_concurrency": 1,
     "project_memory_limit_bytes": 8000000000,
     "shared_abort_bytes": 7800000000
   },
-  "recovery_rule": "Use new linked W4 only; do not clear old stop, rerun completed rows, or trust stale b63 W3-running observation"
+  "preserved_anomalies": [
+    "W4 initial649s link failure, two invalid ELF objects",
+    "W4 first object repair failed; explicit fresh-object link succeeded",
+    "Coarse audit link failed after new CEGAR object became empty",
+    "Coarse repaired binary later read as invalid zeros/SHA mismatch; fresh re-link without cache advice succeeded, independent readback and native export qualified; cause unresolved"
+  ],
+  "quiet_archive_boundary": "Owned supervisor session63161 exited130 after immediate fresh check of0active/unknown/reservations. This is engineering quiet boundary, not user stop or research completion."
 }
