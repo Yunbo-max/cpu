@@ -1,5 +1,7 @@
-# 接续
+继续同一 Simple13 / constraint-propagation-cost-v1 / W0004，保留 W0003 真实停止和全部预算。
 
-读取latestmain的CURRENT/CHECKPOINT/LATEST与SHAmanifest，然后actual localstatus/health/inbox/receipts/newuserstop。Simple13同W4，不重复原12项已成功R007或旧R005/L1；68terminal/0reserve、4scopedcycles、最新accepted W4_R007_complete_depots_L2_decision_v4_001r1。ownedrun25577在全终态边界SIGINT实际exit130，无goalstop。新L2v2两项原SAS/600CPU/3000M是预冻结未来诊断，尚未提交；待当前validcore归档独立核验，再同W4官方respond、官方tick/有限observer或身份已核验run接续。current旧userstop只保留W3，任何更新真实stop优先。
+当前68项均终态、0保留。R007完整12项和控制/源码/日志/VAL/图资格以 core68 归档发布5d8baf13bb21a47e034b1de492a14f7c951a256d，29parts/374新rawmembers完整独立回读；42非canonical临时原始对象显式保留本地未归档，不是全部filesystem快照。
 
-用户22:44BST撤销所有人为project8GB/shared7.8GB/prelaunchheadroom等待，actualkernel memory.max8589934592B执行，source13digest不升级，不清SQLite/改deadline。实际磁盘满已按immutablec524读取26parts/42完整prefixrawSHA核验后清闲置同hash副本恢复；partialarchive不是完整62窗口。新raw临时文件/大型responsecopies正另行归档，sourcecauseunknown。保留所有baseoverlay历史，expected-head普通commit、不可变验证后才清idleduplicates；activecontrol/SQLite/unique科学输出不清。
+下一步仅使用已冻结 R005L2_host_only_native_SAS_inventory_v2.json，先实际核验 status/receipts/worker/最新真实stop，使用 advance_depots_L2_host_v9.py 官方respond及 run_depots_L2_official_tick_observer_v1.py 官方tick 串行派发两项新ID。保持原源码/SAS/seed/thread，600CPU/3000M 原生AS，新SAS-onlyscope；有效native22/23删失保留并继续另一预先声明模式，其他失败诊断。已完成任何旧ID不重跑。
+
+整体内存和缓存预启动门槛已按最新用户指令取消，宿主内核8589934592B约束保留。仅真实失败后诊断/等待，无重复队列或任务。每次定时接续先观察实际coordinator/attempt状态，未结清任务保留reservation；不盲启。持续研究目标未完成。
