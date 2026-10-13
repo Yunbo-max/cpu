@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "project": "3d_autopilot_simple",
+  "verified_at_utc": "2026-10-13T08:07:18Z",
+  "latest_commit_tested": "5d7f076e15cb264fc6798b795c85da804d7f439a",
+  "overlay_commit": "6d842a40769ca6ab3af5990d92db1ed06b07f3ca",
+  "overlay_manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-13-wake23/manifest.json",
+  "overlay_archive_sha256": "aac89c228fbd15813bcda42c3b53f408ae5af90516bb41ae8cb98b3554a474c4",
+  "restore": {
+    "restored_files": 179,
+    "total_index_files": 3125,
+    "archive_count": 8,
+    "downloaded_bytes": 48951453,
+    "whole_archive_hashes_verified": [
+      "aac89c228fbd15813bcda42c3b53f408ae5af90516bb41ae8cb98b3554a474c4"
+    ],
+    "all_selected_file_hashes_verified": true,
+    "independent_local_hash_mismatches": 0
+  },
+  "sqlite": {
+    "path": ".research-autopilot/simple-loop.sqlite3",
+    "sha256": "f9374c0175b58d1a1b784b7d3372de53c4293bc4ea10aed834415a236ca09891",
+    "integrity_check": "ok",
+    "event_rows": 152,
+    "min_version": 0,
+    "max_version": 151,
+    "distinct_versions": 152,
+    "active_idea": "gravity-pose-public-rgbd-validation",
+    "active_revision": 1,
+    "active_event": "gravity-pose-public-rgbd-replace-v1"
+  },
+  "ledger": {
+    "attempts_used": 91,
+    "command_seconds": 3691.1559064700295,
+    "empirical_research_cycles": 32,
+    "unknown_attempts": 0,
+    "supervisor_running": false
+  },
+  "repair_evidence": {
+    "failed_latest_commit": "3abea37b6d43734a913b0c355b8d2bcc4c42cda2",
+    "failure": "The first wake23 manifest blob was truncated at 9955 bytes and failed JSON parsing at line 241 column 1.",
+    "truncated_blob_sha": "5c136aa10b869a575f86b242834f35228a024da6",
+    "complete_manifest_bytes": 19653,
+    "complete_manifest_blob_sha": "df85d21d502de144932016d2d8c0f77077e8a458",
+    "disposition": "Preserved the failed commit, wrote a new complete immutable manifest, repointed latest without force, and reran the exact sparse restore successfully."
+  },
+  "resource_observation": {
+    "cgroup_current_bytes": 4930985984,
+    "cgroup_max_bytes": 8589934592,
+    "anon_bytes": 499539968,
+    "file_bytes": 4104585216,
+    "shmem_bytes": 0,
+    "oom": 0,
+    "oom_kill": 0
+  }
+}
