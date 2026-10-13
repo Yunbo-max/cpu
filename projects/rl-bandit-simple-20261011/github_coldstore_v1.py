@@ -233,6 +233,101 @@ def materialize(checkout, destination):
     return latest
 
 
+def verify_streaming(checkout):
+    """Verify the complete chain without materializing a second full project.
+
+    Every remote part, reconstructed ZIP, ZIP member, final file hash, SQLite
+    database and the pinned skill are still read and checked.  Only final
+    SQLite files are written temporarily for PRAGMA quick_check, which keeps
+    verification viable when the active project and remote clone already
+    occupy most of the local disk.
+    """
+    namespace = checkout / PREFIX
+    latest = json.loads((namespace / 'LATEST.json').read_text())
+    if latest['project_id'] != PROJECT or latest['original_root'] != str(ROOT):
+        raise ValueError('Wrong project identity')
+    files = latest['files']
+    unresolved = set(files)
+    databases, skill_sha = [], None
+    with tempfile.TemporaryDirectory(prefix='rl-stream-verify-', dir=ROOT.parent) as td:
+        temp = Path(td)
+        payload = temp / 'delta.zip'
+        database_paths = {}
+        for snap in reversed(latest['chain']):
+            with payload.open('wb') as out:
+                for part in snap['parts']:
+                    safe_name(part['path'])
+                    p = namespace / part['path']
+                    if p.is_symlink() or p.stat().st_size != part['bytes'] or digest_file(p) != part['sha256']:
+                        raise RuntimeError('Remote part failed verification: ' + part['path'])
+                    with p.open('rb') as src:
+                        shutil.copyfileobj(src, out, 1024 * 1024)
+            if payload.stat().st_size != snap['bytes'] or digest_file(payload) != snap['sha256']:
+                raise RuntimeError('Remote snapshot hash mismatch')
+            with zipfile.ZipFile(payload) as z:
+                names = [info.filename for info in z.infolist() if not info.is_dir()]
+                if len(names) != len(set(names)):
+                    raise ValueError('Duplicate ZIP member')
+                manifest_name = 'rl_bandit_simple/ARCHIVE_MANIFEST.json'
+                if manifest_name not in names:
+                    raise ValueError('Snapshot manifest missing')
+                snapshot_files = json.loads(z.read(manifest_name))['files']
+                changed_count = 0
+                for info in z.infolist():
+                    if info.is_dir():
+                        continue
+                    p = safe_name(info.filename)
+                    if p.parts[0] != 'rl_bandit_simple':
+                        raise ValueError('Invalid ZIP member root')
+                    rel = str(Path(*p.parts[1:]))
+                    if rel == 'ARCHIVE_MANIFEST.json':
+                        continue
+                    changed_count += 1
+                    if rel not in files or rel not in snapshot_files:
+                        raise ValueError('Undeclared snapshot file: ' + rel)
+                    h, size = hashlib.sha256(), 0
+                    db_out = None
+                    if rel in unresolved and rel.endswith('.sqlite3'):
+                        db_path = temp / ('db-' + hashlib.sha256(rel.encode()).hexdigest() + '.sqlite3')
+                        db_out = db_path.open('wb')
+                        database_paths[rel] = db_path
+                    try:
+                        with z.open(info) as src:
+                            while data := src.read(1024 * 1024):
+                                h.update(data)
+                                size += len(data)
+                                if db_out:
+                                    db_out.write(data)
+                    finally:
+                        if db_out:
+                            db_out.close()
+                    observed = {'bytes': size, 'sha256': h.hexdigest()}
+                    expected_snapshot = snapshot_files[rel]
+                    if observed != {k: expected_snapshot[k] for k in ('bytes', 'sha256')}:
+                        raise RuntimeError('Snapshot member hash mismatch: ' + rel)
+                    if rel in unresolved:
+                        expected_final = files[rel]
+                        if observed != {k: expected_final[k] for k in ('bytes', 'sha256')}:
+                            raise RuntimeError('Final file hash mismatch: ' + rel)
+                        unresolved.remove(rel)
+                        if rel == 'runtime/SKILL.md':
+                            skill_sha = observed['sha256']
+                if changed_count != snap['changed_files']:
+                    raise RuntimeError('Snapshot changed-file count mismatch')
+        if unresolved:
+            raise RuntimeError('Final files absent from snapshot chain: ' + str(sorted(unresolved)[:20]))
+        for name, path in sorted(database_paths.items()):
+            with sqlite3.connect(path.as_uri() + '?mode=ro', uri=True) as conn:
+                result = conn.execute('PRAGMA quick_check').fetchall()
+            if result != [('ok',)]:
+                raise RuntimeError('Restored SQLite integrity failure: ' + name)
+            databases.append(name)
+    for name, mode in latest.get('file_modes', {}).items():
+        if name not in files or not isinstance(mode, int) or mode & ~0o777:
+            raise ValueError('Invalid file mode metadata')
+    return latest, databases, skill_sha
+
+
 def verify_inventory(root, files, database_backup=True, allow_missing=False):
     paths = {str(p.relative_to(root)): p for p in root.rglob('*')
              if p.is_file() and included(p.relative_to(root))}
@@ -275,19 +370,9 @@ def verify(args):
     checkout = Path(args.checkout).resolve()
     commit = check_remote_checkout(checkout)
     ROOT.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix='rl-remote-verify-', dir=ROOT.parent) as td:
-        restored = Path(td) / 'restored'
-        latest = materialize(checkout, restored)
-        databases = []
-        for p in restored.rglob('*.sqlite3'):
-            with sqlite3.connect(p.as_uri() + '?mode=ro', uri=True) as conn:
-                result = conn.execute('PRAGMA quick_check').fetchall()
-            if result != [('ok',)]:
-                raise RuntimeError('Restored SQLite integrity failure: ' + str(p))
-            databases.append(str(p.relative_to(restored)))
-        skill_sha = digest_file(restored / 'runtime/SKILL.md')
-        if skill_sha != '8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390':
-            raise RuntimeError('Pinned rsi-simple skill digest changed')
+    latest, databases, skill_sha = verify_streaming(checkout)
+    if skill_sha != '8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390':
+        raise RuntimeError('Pinned rsi-simple skill digest changed')
     receipt = {'project_id': PROJECT, 'commit': commit, 'repository': REPO,
                'checked_at_utc': dt.datetime.now(dt.timezone.utc).isoformat(),
                'latest_sha256': digest_file(checkout / PREFIX / 'LATEST.json'),
