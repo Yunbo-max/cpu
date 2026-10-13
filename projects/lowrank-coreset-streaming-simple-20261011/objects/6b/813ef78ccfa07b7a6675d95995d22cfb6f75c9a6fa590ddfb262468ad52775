@@ -1,0 +1,39 @@
+{
+  "response_id": "w011-source-memory-response-v1",
+  "request_id": "decision-93db6ddc81a74f3287424a6f2cb6810b",
+  "idea": "fd-merge-topology-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The primary-source and exact-arithmetic review identified a distinct intrinsic-state question and froze its development test, but current shared cgroup headroom remains below the prospective safe launch threshold after a real recheck.",
+  "events": [
+    {
+      "event_id": "w011-fd-merge-source-plan-milestone-v1",
+      "kind": "milestone",
+      "label": "FD merge theorem and prospective topology test audited",
+      "next_phase": "experiment",
+      "reason": "The source proves topology-independent formal mergeability but not identical realized discarded mass or error. A balanced-versus-left-deep native test is now frozen with central FD and exact-SVD controls.",
+      "evidence": [
+        {
+          "path": "notes/fd_merge_source_math_audit_v1.md",
+          "sha256": "2b74508a96eaef8bc494db0a108d23daf0dd054d73db744b1a605386a5ca7720"
+        },
+        {
+          "path": "plans/fd_merge_topology_calibration_v1.md",
+          "sha256": "d474cca387cb64807151368d45c2f93cef62efedcf930fb5c03d7ac13364ec74"
+        }
+      ]
+    },
+    {
+      "event_id": "w011-fd-merge-memory-wait-v1",
+      "kind": "resource_issue",
+      "issue": "shared-cgroup-memory-headroom",
+      "reason": "After a 30-second wait, observed cgroup headroom was 106,815,488 bytes versus the frozen 1 GiB launch threshold. The 7.32 GB file-cache component is not assumed either unavailable or safely reclaimable.",
+      "evidence": [
+        {
+          "path": "notes/waiting_for_memory.json",
+          "sha256": "057ecb7297a0394c9a1c478b970510f681631c77124dead7d9eae74588f56699"
+        }
+      ]
+    }
+  ]
+}

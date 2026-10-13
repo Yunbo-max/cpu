@@ -1,0 +1,14 @@
+# w011 supervisor boundary
+
+- The w011 runner was initialized with the fixed rsi-simple source digest and
+  produced one decision sequence.
+- Source/mathematics audit and the prospective experiment plan were recorded as
+  a milestone; the memory shortage was recorded separately as a resource issue.
+- No numerical task was submitted, launched, queued, or left with unknown
+  identity.  Attempts used and command seconds remain zero.
+- The supervisor was interrupted at `awaiting_decision` solely to create a safe
+  archive boundary.  Its retained health identity is consequently recorded as
+  lost/unverified rather than an orderly process exit; this is not a task failure.
+- The active idea and frozen experiment remain pending.  The next real wake must
+  remeasure memory and continue automatically only after the 1 GiB cgroup
+  headroom condition is met.

@@ -1,0 +1,66 @@
+# Frequent Directions merge topology: source and mathematics audit
+
+## Why this is a new serial question
+
+The w010 Nyström/RFF comparison was retired because its proposed equal-memory
+frontier depended on implementation-specific state accounting.  Frequent
+Directions (FD) instead exposes an intrinsic summary parameter: an `ell x d`
+matrix, with temporary shrink storage reported separately.  This question does
+not reopen the retired consistent-LRA update, Block-Krylov, or Nyström/RFF
+branches.
+
+## Primary-source facts
+
+The fixed primary source is Ghashami, Liberty, Phillips and Woodruff,
+*Frequent Directions: Simple and Deterministic Matrix Sketching*, arXiv
+1501.01711v2 (2015), especially Algorithm 1, Theorems 1.1--1.2 and Section 3.1.
+The source defines an `ell x d` deterministic sketch, proves covariance and
+rank-k projection bounds, and calls the summary mergeable.  Section 3.1 forms
+`B'=[B1;B2]`, applies FD once more, and proves that the merged sketch satisfies
+the same three proof properties with
+
+`Delta = Delta_1 + Delta_2 + delta_merge`.
+
+It states that partitions may be combined in arbitrary order.  The proof gives
+the same formal space/error trade-off; it does not state that different merge
+trees produce identical sketches, equal discarded mass, equal realized
+projection error, or equal runtime.  The 2016 Sparse Frequent Directions paper
+also uses repeated merge/shrink steps and identifies exact SVD shrink cost as a
+runtime bottleneck.  Therefore a claim that FD is newly mergeable would be a
+direct collision with prior work.  The open scoped question here is only the
+finite implementation quality/cost sensitivity within the established guarantee.
+
+Primary URLs inspected on 2026-10-13 UTC:
+
+- https://arxiv.org/html/1501.01711v2
+- https://arxiv.org/abs/1602.00412
+
+## Exact-arithmetic accounting
+
+For a binary merge tree `T` over fixed leaf sketches, let `Delta_i` be the
+discarded-mass sum inside leaf `i`, and let `delta_v` be the singular-value
+threshold at internal merge node `v`.  Repeatedly applying the source proof gives
+
+`Delta_T = sum_i Delta_i + sum_v delta_v`.
+
+For the exact shrink used here, each shrink subtracts the same `delta` from
+`ell` squared singular values, so
+
+`||A||_F^2 - ||B_T||_F^2 = ell * Delta_T`
+
+up to floating-point roundoff.  Thus the total discarded mass is independently
+recoverable from input and final sketch Frobenius norms.  Different trees may
+have different internal `delta_v` values, hence different `Delta_T` and realized
+errors, without violating mergeability.
+
+## Decision boundary
+
+The next experiment may test a topology heuristic, not a new FD guarantee:
+on the already retained 512-row Landmark prefix, with fixed contiguous leaves,
+does a balanced tree reduce cumulative discarded mass and rank-25 projection
+error relative to a left-deep merge at the same exported `ell x d` summary?
+Central row-stream FD and exact rank-25 SVD are required controls.  Any violation
+of the declared all-width direction retires the monotone topology heuristic;
+all formal FD guarantees remain intact.  A positive bounded result would still
+require new data/partition confirmation and closest-work review before any method
+claim.

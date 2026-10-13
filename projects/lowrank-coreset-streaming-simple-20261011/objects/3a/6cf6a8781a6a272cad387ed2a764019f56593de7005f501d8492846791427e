@@ -1,0 +1,258 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import hashlib
+import json
+import resource
+import time
+from pathlib import Path
+
+import numpy as np
+from scipy.io import mmread
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE = ROOT.parent / "w002" / "sources" / "consistent-LRA" / "landmark.mtx"
+K = 25
+WIDTHS = (32, 48, 64)
+LEAVES = 8
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def dense_prefix() -> np.ndarray:
+    sparse = mmread(SOURCE).tocsr()
+    out = np.asarray(sparse[:512].toarray(), dtype=np.float64)
+    del sparse
+    return out
+
+
+def shrink_full(buffer: np.ndarray) -> tuple[np.ndarray, float]:
+    """Algorithm-1 shrink of a full ell-by-d sketch, leaving one zero row."""
+    _, singular, vt = np.linalg.svd(buffer, full_matrices=False)
+    delta = float(singular[-1] ** 2)
+    shrunk = np.sqrt(np.maximum(singular * singular - delta, 0.0))[:, None] * vt
+    return shrunk, delta
+
+
+def stream_fd(rows: np.ndarray, ell: int) -> tuple[np.ndarray, float, int]:
+    sketch = np.zeros((ell, rows.shape[1]), dtype=np.float64)
+    occupied = 0
+    delta_sum = 0.0
+    shrinks = 0
+    for row in rows:
+        sketch[occupied] = row
+        occupied += 1
+        if occupied == ell:
+            sketch, delta = shrink_full(sketch)
+            delta_sum += delta
+            shrinks += 1
+            occupied = ell - 1
+    return sketch, delta_sum, shrinks
+
+
+def merge_two(left: np.ndarray, right: np.ndarray, ell: int) -> tuple[np.ndarray, float]:
+    stacked = np.vstack((left, right))
+    _, singular, vt = np.linalg.svd(stacked, full_matrices=False)
+    delta = float(singular[ell - 1] ** 2)
+    values = np.sqrt(np.maximum(singular[:ell] ** 2 - delta, 0.0))
+    return values[:, None] * vt[:ell], delta
+
+
+def merge_left_deep(
+    sketches: list[np.ndarray], leaf_delta: float, leaf_shrinks: int, ell: int
+) -> tuple[np.ndarray, float, int]:
+    current = sketches[0].copy()
+    delta_sum = leaf_delta
+    shrinks = leaf_shrinks
+    for other in sketches[1:]:
+        current, delta = merge_two(current, other, ell)
+        delta_sum += delta
+        shrinks += 1
+    return current, delta_sum, shrinks
+
+
+def merge_balanced(
+    sketches: list[np.ndarray], leaf_delta: float, leaf_shrinks: int, ell: int
+) -> tuple[np.ndarray, float, int]:
+    level = [x.copy() for x in sketches]
+    delta_sum = leaf_delta
+    shrinks = leaf_shrinks
+    while len(level) > 1:
+        next_level: list[np.ndarray] = []
+        for i in range(0, len(level), 2):
+            merged, delta = merge_two(level[i], level[i + 1], ell)
+            next_level.append(merged)
+            delta_sum += delta
+            shrinks += 1
+        level = next_level
+    return level[0], delta_sum, shrinks
+
+
+def metrics(
+    a: np.ndarray,
+    sketch: np.ndarray,
+    right_basis: np.ndarray,
+    optimum: float,
+    ell: int,
+) -> dict[str, float | bool | int]:
+    _, _, vt = np.linalg.svd(sketch, full_matrices=False)
+    vk = vt[:K]
+    projected = a @ vk.T
+    residual = float(np.sum(a * a) - np.sum(projected * projected))
+    aq = a @ right_basis
+    bq = sketch @ right_basis
+    covariance_loss = aq.T @ aq - bq.T @ bq
+    covariance_loss = (covariance_loss + covariance_loss.T) * 0.5
+    eigenvalues = np.linalg.eigvalsh(covariance_loss)
+    scale = max(float(np.sum(a * a)), 1.0)
+    tolerance = 1e-8 * scale
+    covariance_error = float(max(eigenvalues[-1], 0.0))
+    covariance_bound = float(optimum / (ell - K))
+    projection_bound = float((1.0 + K / (ell - K)) * optimum)
+    discarded_from_norm = float((np.sum(a * a) - np.sum(sketch * sketch)) / ell)
+    return {
+        "projection_cost": residual,
+        "projection_ratio_to_optimum": residual / optimum,
+        "projection_bound": projection_bound,
+        "projection_bound_pass": residual <= projection_bound + tolerance,
+        "covariance_error": covariance_error,
+        "covariance_min_eigenvalue": float(eigenvalues[0]),
+        "covariance_bound": covariance_bound,
+        "covariance_bound_pass": covariance_error <= covariance_bound + tolerance,
+        "covariance_psd_pass": float(eigenvalues[0]) >= -tolerance,
+        "discarded_mass_from_norm": discarded_from_norm,
+        "metric_tolerance": tolerance,
+    }
+
+
+def main() -> None:
+    begin = time.perf_counter()
+    a = dense_prefix()
+    dense_hash = hashlib.sha256(a.tobytes(order="C")).hexdigest()
+    exact_start = time.perf_counter()
+    _, singular, vt_exact = np.linalg.svd(a, full_matrices=False)
+    exact_seconds = time.perf_counter() - exact_start
+    optimum = float(np.sum(singular[K:] ** 2))
+    rank_tolerance = np.finfo(np.float64).eps * max(a.shape) * singular[0]
+    numerical_rank = int(np.sum(singular > rank_tolerance))
+    right_basis = vt_exact[:numerical_rank].T
+    output: dict[str, object] = {
+        "scope": "prospective native development calibration of FD merge topology",
+        "parameters": {
+            "shape": list(a.shape),
+            "k": K,
+            "widths": list(WIDTHS),
+            "leaves": LEAVES,
+            "leaf_rows": a.shape[0] // LEAVES,
+            "row_order": "native contiguous",
+        },
+        "source": {
+            "path": str(SOURCE.relative_to(ROOT.parent)),
+            "sha256": sha256(SOURCE),
+            "dense_prefix_sha256": dense_hash,
+        },
+        "exact": {
+            "seconds": exact_seconds,
+            "optimum_rank25_frobenius_cost": optimum,
+            "numerical_rank": numerical_rank,
+            "rank_tolerance": float(rank_tolerance),
+        },
+        "arms": [],
+        "error": None,
+    }
+    arrays: dict[str, np.ndarray] = {"dense_prefix": a}
+    try:
+        blocks = list(np.split(a, LEAVES))
+        for ell in WIDTHS:
+            central_wall = time.perf_counter()
+            central_cpu = time.process_time()
+            central, central_delta, central_shrinks = stream_fd(a, ell)
+            central_cpu = time.process_time() - central_cpu
+            central_wall = time.perf_counter() - central_wall
+
+            leaf_wall = time.perf_counter()
+            leaf_cpu = time.process_time()
+            leaf_results = [stream_fd(block, ell) for block in blocks]
+            leaf_cpu = time.process_time() - leaf_cpu
+            leaf_wall = time.perf_counter() - leaf_wall
+            leaf_sketches = [item[0] for item in leaf_results]
+            leaf_delta = float(sum(item[1] for item in leaf_results))
+            leaf_shrinks = int(sum(item[2] for item in leaf_results))
+
+            for name, merger in (
+                ("balanced", merge_balanced),
+                ("left_deep", merge_left_deep),
+            ):
+                merge_wall = time.perf_counter()
+                merge_cpu = time.process_time()
+                sketch, delta_sum, shrinks = merger(
+                    leaf_sketches, leaf_delta, leaf_shrinks, ell
+                )
+                merge_cpu = time.process_time() - merge_cpu
+                merge_wall = time.perf_counter() - merge_wall
+                arm = {
+                    "ell": ell,
+                    "method": name,
+                    "wall_seconds": leaf_wall + merge_wall,
+                    "cpu_seconds": leaf_cpu + merge_cpu,
+                    "leaf_wall_seconds_shared": leaf_wall,
+                    "leaf_cpu_seconds_shared": leaf_cpu,
+                    "merge_wall_seconds": merge_wall,
+                    "merge_cpu_seconds": merge_cpu,
+                    "shrink_count": shrinks,
+                    "accumulated_discarded_mass": delta_sum,
+                    "exported_state_bytes": int(sketch.nbytes),
+                    "merge_live_array_bytes_lower_bound": int(3 * sketch.nbytes),
+                    **metrics(a, sketch, right_basis, optimum, ell),
+                }
+                arm["discarded_mass_identity_abs_error"] = abs(
+                    float(arm["discarded_mass_from_norm"]) - delta_sum
+                )
+                output["arms"].append(arm)
+                arrays[f"ell{ell}_{name}"] = sketch
+
+            central_arm = {
+                "ell": ell,
+                "method": "central",
+                "wall_seconds": central_wall,
+                "cpu_seconds": central_cpu,
+                "shrink_count": central_shrinks,
+                "accumulated_discarded_mass": central_delta,
+                "exported_state_bytes": int(central.nbytes),
+                "merge_live_array_bytes_lower_bound": int(central.nbytes),
+                **metrics(a, central, right_basis, optimum, ell),
+            }
+            central_arm["discarded_mass_identity_abs_error"] = abs(
+                float(central_arm["discarded_mass_from_norm"]) - central_delta
+            )
+            output["arms"].append(central_arm)
+            arrays[f"ell{ell}_central"] = central
+    except Exception as exc:
+        output["error"] = repr(exc)
+        raise
+    finally:
+        output["elapsed_seconds"] = time.perf_counter() - begin
+        output["peak_rss_kib"] = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        result_dir = ROOT / "results"
+        result_dir.mkdir(exist_ok=True)
+        np.savez_compressed(result_dir / "fd_merge_topology_calibration_v1_sketches.npz", **arrays)
+        (result_dir / "fd_merge_topology_calibration_v1.json").write_text(
+            json.dumps(output, indent=2, allow_nan=False), encoding="utf-8"
+        )
+        print(
+            json.dumps(
+                {
+                    "arms": len(output["arms"]),
+                    "elapsed_seconds": output["elapsed_seconds"],
+                    "peak_rss_kib": output["peak_rss_kib"],
+                    "error": output["error"],
+                }
+            )
+        )
+
+
+if __name__ == "__main__":
+    main()

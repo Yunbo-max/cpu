@@ -1,0 +1,75 @@
+# Prospective plan: FD merge-topology calibration v1
+
+Status: frozen before numerical outcomes.  This is a development diagnostic,
+not an originality, distributed-speedup, or global FD-validity claim.
+
+## Question and hypothesis
+
+Question: with the same intrinsic exported `ell x d` summary and the same eight
+contiguous leaf partitions, does merge-tree depth change realized Frequent
+Directions quality on the retained native Landmark prefix?
+
+Hypothesis: relative to a left-deep merge, a balanced binary merge tree performs
+fewer repeated compressions on early leaves and will have (i) no larger total
+discarded mass and (ii) no larger rank-25 projection cost at every tested
+`ell` in `{32, 48, 64}`.
+
+Falsifier: either inequality fails beyond numerical tolerance at any tested
+width.  Such a result retires the monotone balanced-is-better heuristic.  It does
+not contradict FD mergeability, whose source guarantee is topology-independent
+but does not require identical realized sketches.
+
+## Fixed data and arms
+
+- Data: first 512 rows of the already retained native
+  `execution_windows/w002/sources/consistent-LRA/landmark.mtx`, converted once to
+  dense float64 in original row order; record source and dense-byte SHA-256.
+- Target rank: `k=25`, fixed by the retained author workload.
+- Leaf policy: eight consecutive 64-row blocks; no random partition tuning.
+- Widths: `ell={32,48,64}`, chosen before outcomes to span just above `k` through
+  the retained prefix's previously observed numerical rank near 65.
+- Exact control: one full SVD of the 512-row matrix, reporting optimal rank-25
+  Frobenius residual.
+- Central control: source-faithful row-stream FD with one persistent `ell x d`
+  sketch.
+- Merge arms: the same eight leaf sketches combined as a balanced tree and as a
+  deterministic left-deep tree.  Leaves, arithmetic, shrink function and order
+  within each leaf are identical.
+
+## Measurements and checks
+
+Primary measurements are total discarded mass
+`(||A||_F^2-||B||_F^2)/ell`, rank-25 projection residual and ratio to exact
+rank-25 residual.  Secondary measurements are covariance spectral error, wall
+and CPU seconds, shrink counts, exported bytes, maximum simultaneously live
+algorithm arrays by direct `nbytes` accounting, and process peak RSS.
+
+Checks:
+
+1. every sketch has the declared shape and finite values;
+2. covariance loss is positive semidefinite up to an independently scaled
+   roundoff tolerance;
+3. direct norm-loss discarded mass matches the accumulated shrink thresholds;
+4. the source covariance and projection upper bounds hold within tolerance;
+5. an independent audit recomputes every reported metric from retained sketches
+   and source data rather than trusting summary fields.
+
+No timing claim will compare a single-machine serialized simulation with actual
+distributed wall time.  Complete serial work is retained only as implementation
+cost under this CPU host.
+
+## Resources and stopping
+
+CPU only, one process and one numerical thread, all execution through
+`scripts/cpu_guard.py`, 4 GiB process address-space limit and project limit
+8,000,000,000 bytes.  Previous dense 512x2704 experiments peaked between roughly
+116 and 156 MiB for the closest Block-Krylov tasks; this FD task is estimated to
+need 256--512 MiB because it performs repeated SVDs and retains several output
+sketches.  Require at least 1 GiB observed cgroup headroom immediately before
+launch to allow shared-host growth and file-cache uncertainty.  If unavailable,
+do not submit; preserve this plan and wait under the user's memory rule.
+
+One successful raw task and one independent audit are sufficient for this
+development decision.  No extra seeds or partition search are permitted in this
+plan.  If the hypothesis is falsified, interpret and retire it rather than tuning
+leaf order post hoc.
