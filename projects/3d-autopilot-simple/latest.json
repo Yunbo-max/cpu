@@ -16,13 +16,15 @@
   "supervisor_running": false,
   "unknown_attempts": 0,
   "cleanup_preflight": {
-    "files": 2405,
-    "checkpoint_bytes": 267608535
+    "files": 50,
+    "project_bytes": 473840068,
+    "temporary_files": 89,
+    "temporary_bytes": 547053416
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "wake22_overlay_uploaded_pending_remote_restore_verification",
-  "local_workspace_state": "Wake22 sparse working state remains local pending exact remote restore verification; do not evict until verification succeeds.",
+  "cleanup_status": "wake22_verified_restore_then_local_eviction_observed",
+  "local_workspace_state": "After verified wake22 remote restore, 50 project files and 89 verified/reconstructable wake22 temporary files were removed. A subsequent observation found no project root, helper or checkpoint ZIP. Prior host rematerialization remains possible; this is not a perpetual deletion guarantee.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -59,16 +61,14 @@
   "journal_version": 138,
   "empirical_research_cycles": 31,
   "latest_handoff": "notes/handoff-wake22.md",
-  "verified_at_utc": "2026-10-13T05:22:10Z",
-  "verification_path": "projects/3d-autopilot-simple/verification-wake21.json",
+  "verified_at_utc": "2026-10-13T06:02:38.294Z",
+  "verification_path": "projects/3d-autopilot-simple/verification-wake22.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
-  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake21.json",
-  "cleanup_observed_at_utc": "2026-10-13T05:23:43Z",
-  "restore_verification_commit": "643d75cb528fed183626e890abeadebdcc725008",
-  "cleanup_receipt_commit": "8938fa34adbed88834b5c749664b27765ce95a18",
-  "verification_readback_blob_sha": "534149c4e91257e80cd93655ae31cb339761046d",
-  "total_index_files": 2940,
-  "build_receipt_path": "projects/3d-autopilot-simple/build-wake22.json",
-  "pending_overlay_commit": "092ba8834e1032938a5acb7c0194a19be7cffe5e",
-  "pending_verification": true
+  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake22.json",
+  "cleanup_observed_at_utc": "2026-10-13T06:05:01.276Z",
+  "restore_verification_commit": "244b3c3d1189d2c6c5ab4f41887959107a0f4eae",
+  "cleanup_receipt_commit": "0ec9aec38cf08a98922326fd81b1371270243009",
+  "verification_readback_blob_sha": "6c8b480d0dca3fca6e3a4cdadc7fc5420557690d",
+  "total_index_files": 2950,
+  "build_receipt_path": "projects/3d-autopilot-simple/build-wake22.json"
 }
