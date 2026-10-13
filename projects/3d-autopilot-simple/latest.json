@@ -8,23 +8,20 @@
   "restore_script_blob_sha": "3e9d21397836f41f8bdf1e8de977c08e89c55e9e",
   "restore_script_sha256": "c3518fb010072bc1ff15773fab9353506816447e46cc3191fa55fae987f60165",
   "original_root": "/workspace/scratch/faa0880830cd/3d_autopilot_simple",
-  "active_idea": "linear-fundamental-public-data-validation",
+  "active_idea": "gravity-pose-public-rgbd-validation",
   "revision": 1,
   "goal_contract": 1,
-  "attempts_used": 82,
-  "command_seconds": 3614.3195147820306,
+  "attempts_used": 91,
+  "command_seconds": 3691.1559064700295,
   "supervisor_running": false,
   "unknown_attempts": 0,
   "cleanup_preflight": {
-    "files": 50,
-    "project_bytes": 473840068,
-    "temporary_files": 89,
-    "temporary_bytes": 547053416
+    "status": "pending_remote_verification"
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "wake22_verified_restore_then_local_eviction_observed",
-  "local_workspace_state": "After verified wake22 remote restore, 50 project files and 89 verified/reconstructable wake22 temporary files were removed. A subsequent observation found no project root, helper or checkpoint ZIP. Prior host rematerialization remains possible; this is not a perpetual deletion guarantee.",
+  "cleanup_status": "wake23_overlay_uploaded_pending_verified_restore",
+  "local_workspace_state": "Wake23 workspace and verification staging remain local pending remote restore verification; no cleanup completion is claimed.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -55,20 +52,25 @@
       "commit": "092ba8834e1032938a5acb7c0194a19be7cffe5e",
       "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-13-wake22/manifest.json",
       "archive_sha256": "ba9afb5ba8fecb49e45d6ea0248219a9e4061b118bb06beb4ccf0f6d1c5f4362"
+    },
+    {
+      "commit": "4959e869177f8edebd16c19be991811c6eafa575",
+      "manifest_path": "projects/3d-autopilot-simple/snapshots/2026-10-13-wake23/manifest.json",
+      "archive_sha256": "aac89c228fbd15813bcda42c3b53f408ae5af90516bb41ae8cb98b3554a474c4"
     }
   ],
   "restore_usage": "Fetch helper from this latest.json commit; --commit must be that current main commit, not only archive_commit. Helper resolves immutable base+overlays before extracting selected paths into a new empty staging directory.",
-  "journal_version": 138,
-  "empirical_research_cycles": 31,
-  "latest_handoff": "notes/handoff-wake22.md",
-  "verified_at_utc": "2026-10-13T06:02:38.294Z",
-  "verification_path": "projects/3d-autopilot-simple/verification-wake22.json",
+  "journal_version": 151,
+  "empirical_research_cycles": 32,
+  "latest_handoff": "notes/handoff-wake23.md",
+  "verified_at_utc": "2026-10-13T07:55:41.572Z",
+  "verification_path": "projects/3d-autopilot-simple/verification-wake23.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
-  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake22.json",
-  "cleanup_observed_at_utc": "2026-10-13T06:05:01.276Z",
-  "restore_verification_commit": "244b3c3d1189d2c6c5ab4f41887959107a0f4eae",
-  "cleanup_receipt_commit": "0ec9aec38cf08a98922326fd81b1371270243009",
-  "verification_readback_blob_sha": "6c8b480d0dca3fca6e3a4cdadc7fc5420557690d",
+  "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake23.json",
+  "cleanup_observed_at_utc": null,
+  "restore_verification_commit": null,
+  "cleanup_receipt_commit": null,
+  "verification_readback_blob_sha": null,
   "total_index_files": 2950,
-  "build_receipt_path": "projects/3d-autopilot-simple/build-wake22.json"
+  "build_receipt_path": "projects/3d-autopilot-simple/build-wake23.json"
 }
