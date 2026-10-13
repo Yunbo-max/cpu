@@ -32,10 +32,10 @@
   ],
   "active_question": "Do failed exhausted generator attempts create geometrically inconsistent accepted inputs that confound gravity-pose solver attribution?",
   "scientific_status": "R017 positivity claim remains not_supported and R018 valid-benchmark solver quality remains inconclusive. R019 telemetry-first causal localization remains active. Build-v3, design-v3, smoke8/audit8, smoke100/audit100, full5000 and reviewed full audit-v2 all executed successfully. On the GT/call-identical 5000-problem native stream, rejected terminal attempt-101 points were appended in 331 accepted problems (567 features): this local incidence claim is supported. All 567 features had at least one required field never assigned on the terminal attempt. Cross-binary value-level overlap with R018 specific geometry failures and the broader preregistered causal-contributor claim remain inconclusive because R018 feature bytes were not identity-established and may be stale or uninitialized.",
-  "execution_status": "Sequence190,146 DB attempts all terminal,13211.193054299029 command-seconds; three historical external receipts retained. This activation: one admission refusal (scientific command not executed), two static checks and one design check passed. New safe geometry binary NOT built or run. Supervisor236898 intentionally stopped idle and independently confirmed absent; no user stop.",
+  "execution_status": "No new experiment attempted. Local DB malformed on new boot e655c1f8-c88b-4e30-925f-a690e2e9f4c3; restored exact verified archive DB under project lock; independent integrity and full logical table reads passed. Sequence190,146 terminal attempts,13211.193054299029seconds unchanged. No live project supervisor or unknown attempt observed. Compilation remains waiting_for_memory; latest raw headroom1311268864bytes below1536MiB threshold.",
   "author_commit": "34f8fa9a2b2dcaacdbb7ffc784a80682228b288c",
   "wake_mechanism": "Enabled hourly ChatGPT automation; not proof of continuous compute",
-  "next_action": "Read notes/R019_safe_geometry_wake23.md operational binding. Compile safe geometry v4 through fixed simple_runner only after fresh1536MiB raw-headroom/no-active check. Use frozen plan-v4.1 and latest auditor/checker v3; bind hashes and handoff note. Run8/audit,100/audit,5000/audit serially; full audit requires static and both smoke C0 receipts. Pending geometry scientific claim remains inconclusive. Do not repeat accepted prior telemetry.",
+  "next_action": "Read notes/R019_recovery_wait_20261013.md and latest memory-wait record. After fresh shared memory/identity check passes1536MiB raw headroom, submit prepared plans/R019_safe_build_response_v4_20261013.json through fixed simple_runner (refresh request_id only if inbox has changed), start supervisor serially, inspect real receipt, then8/audit,100/audit,5000/audit. Before full verdict bind current static/checker/auditor/overlay/binary/build manifest and actual smoke receipts in runner input_refs. Do not repeat previous successful telemetry or reset cumulative accounting. Retain cleanup and corrupt DB evidence.",
   "observed_issues": [
     {
       "id": "carla-index-timeout-1",
@@ -289,14 +289,32 @@
       "symptom": "R019 ordinals cannot establish value-level overlap with R018 geometry because R018 stale or uninitialized feature bytes were not identity-established and telemetry changes binary layout.",
       "repair": "Plan-v4 must serialize only initialized geometry in the same execution before the broader causal claim can be tested.",
       "evidence": "results/R019-full5000-audit-v1.json"
+    },
+    {
+      "id": "local-database-malformed-20261013T0516",
+      "state": "repaired",
+      "evidence": "logs/recovery-20261013T0516/independent-recheck.json",
+      "symptom": "Initial SQLite read malformed; exact archive restored, corrupt original retained; no new receipts or non-DB inventory changes before repair."
+    },
+    {
+      "id": "residual-cleanup-reappearance-20261013",
+      "state": "unresolved",
+      "evidence": "logs/recovery-20261013T0516/residual-cleanup.json",
+      "symptom": "Byte-identical archived residual cleanup did not persist consistently across tool contexts; no further deletion."
+    },
+    {
+      "id": "R019-memory-wait-20261013T0519",
+      "state": "waiting_for_memory",
+      "evidence": "notes/R019_memory_wait_20261013T0519.json",
+      "symptom": "No new high-memory attempt submitted; raw-headroom gate not met on limited30-second rechecks; no OOM."
     }
   ],
   "automation_id": "6acbc3de9398819193c8b61a5cb42bb5",
   "checkpoint_library_id": "libfile_8d235c544fb48191929cce3ca06aedf0",
   "runner_session_id": "388730c06c744f5f84dd97dae721534b",
-  "updated_at_utc": "2026-10-12T17:00:00+00:00",
+  "updated_at_utc": "2026-10-13T05:26:00+00:00",
   "active_task_ids": [],
-  "scientific_plan": "plans/R019_generator_causal_plan_v3.json",
+  "scientific_plan": "plans/R019_generator_causal_plan_v4_1.json",
   "last_health_observation": {
     "activity_age_seconds": 8.369809627532959,
     "errors": [],
@@ -430,20 +448,20 @@
   "storage": {
     "repository": "Yunbo-max/cpu",
     "namespace": "projects/autopilot-3d-20261011",
-    "parent_project_commit": "dea45cedbb8e0baf6463bfc8b1ff283955e53bd2",
+    "parent_project_commit": "a9e5f277dba63a79c31682ef84210ef55d72a035",
     "workflow": "download active; run serial; upload with conflict guard; remote verify; cleanprojectonly"
   },
   "latest_handoff": {
-    "record": "notes/R019_safe_geometry_wake23.md",
-    "baseline_commit": "dea45cedbb8e0baf6463bfc8b1ff283955e53bd2",
-    "status": "static/design validated; native geometry pending",
+    "record": "notes/R019_recovery_wait_20261013.md",
+    "baseline_commit": "a9e5f277dba63a79c31682ef84210ef55d72a035",
+    "status": "repaired database; waiting_for_memory; native geometry not run",
     "runner_identity": {
-      "pid": 236898,
-      "boot_id": "00040193-a9c3-4add-838f-f7ef6b25c99f",
-      "start_ticks": 3377099,
-      "session_id": "592b264137474aaa995c45984bef2196",
-      "status": "intentionally stopped idle"
+      "current_boot": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+      "live_supervisor": null,
+      "old_session": "592b264137474aaa995c45984bef2196",
+      "old_boot": "00040193-a9c3-4add-838f-f7ef6b25c99f",
+      "old_state": "intentionally stopped previous handoff; boot now changed"
     },
-    "cleanup_status": "not_completed: source directory reappeared after move; residuals retained"
+    "cleanup_status": "anomaly reproduced:3402 individual verified files unlinked,2510 reappeared in independent context; no further deletion or memory release claim"
   }
 }
