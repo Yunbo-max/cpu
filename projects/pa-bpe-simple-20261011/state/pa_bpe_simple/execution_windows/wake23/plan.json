@@ -1,0 +1,64 @@
+{
+  "submission_id": "wake23-eligible-inner-join-v2",
+  "idea": "tatoeba-eligible-inner-join-repair",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake23-audit-eligible-inner-join-v2",
+      "argv": [
+        "python",
+        "scripts/measure_command.py",
+        "output/audit_resource_usage.json",
+        "scripts/audit_eligible_inner_join.py"
+      ],
+      "phase": "diagnostic",
+      "purpose": "Apply the separately versioned eligible-endpoint inner join to the six fixed Tatoeba exports and count retained/excluded edges and closed triangles exactly",
+      "timeout_seconds": 110,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "scripts/measure_command.py", "sha256": "e60574a651fc485284b981cd0b1373d9683a3d7d6726a90418b0f2c480a6d6cd"},
+        {"path": "scripts/audit_eligible_inner_join.py", "sha256": "ea6b730c4a98cb55596e62a2f1695cb25014876caedbb29f42fa7f2cbcee1e85"},
+        {"path": "inputs/eng_sentences.tsv.bz2", "sha256": "0eabb52f54350bbb39807190920bfddaf9fee2ba50ca75af67e11a22ec475c29"},
+        {"path": "inputs/fra_sentences.tsv.bz2", "sha256": "fac31d82b216c95affee7dffcee6c0ae59c45f254ebbfbbf8abb9e66da86ee8f"},
+        {"path": "inputs/spa_sentences.tsv.bz2", "sha256": "d1f7aa997368571e8bbba341ab60f9145fefe14970f21065bd97be8e03c8e6fb"},
+        {"path": "inputs/eng-fra_links.tsv.bz2", "sha256": "fc05adc4b3bc78871c6809d979d754e41b67ed10477d8ba6b877bc16f036c2bc"},
+        {"path": "inputs/eng-spa_links.tsv.bz2", "sha256": "3009b84ae398f39f21ce27e2d012d456c9ee8732a201ae5523f1ab2f8d5658f3"},
+        {"path": "inputs/fra-spa_links.tsv.bz2", "sha256": "e869ab6b17355bc94e6a607ab361fd1cd27af4b09e1cc321e05913402b243df6"}
+      ],
+      "outputs": [
+        "output/audit_resource_usage.json",
+        "output/eligible_inner_join_audit.json",
+        "output/eligible_closed_triangles.tsv.gz"
+      ]
+    },
+    {
+      "task_id": "wake23-verify-eligible-inner-join-v2",
+      "argv": [
+        "python",
+        "scripts/measure_command.py",
+        "output/verification_resource_usage.json",
+        "scripts/verify_eligible_inner_join.py"
+      ],
+      "phase": "verify",
+      "purpose": "Independently recompute endpoint eligibility and exact triangle membership with in-memory sets",
+      "timeout_seconds": 110,
+      "cwd": ".",
+      "depends_on": ["wake23-audit-eligible-inner-join-v2"],
+      "input_refs": [
+        {"path": "scripts/measure_command.py", "sha256": "e60574a651fc485284b981cd0b1373d9683a3d7d6726a90418b0f2c480a6d6cd"},
+        {"path": "scripts/verify_eligible_inner_join.py", "sha256": "9f15c823394cf0eb076a02fa33a3911393f70c6936a0573c1170a686c6b8cb16"},
+        {"path": "inputs/eng_sentences.tsv.bz2", "sha256": "0eabb52f54350bbb39807190920bfddaf9fee2ba50ca75af67e11a22ec475c29"},
+        {"path": "inputs/fra_sentences.tsv.bz2", "sha256": "fac31d82b216c95affee7dffcee6c0ae59c45f254ebbfbbf8abb9e66da86ee8f"},
+        {"path": "inputs/spa_sentences.tsv.bz2", "sha256": "d1f7aa997368571e8bbba341ab60f9145fefe14970f21065bd97be8e03c8e6fb"},
+        {"path": "inputs/eng-fra_links.tsv.bz2", "sha256": "fc05adc4b3bc78871c6809d979d754e41b67ed10477d8ba6b877bc16f036c2bc"},
+        {"path": "inputs/eng-spa_links.tsv.bz2", "sha256": "3009b84ae398f39f21ce27e2d012d456c9ee8732a201ae5523f1ab2f8d5658f3"},
+        {"path": "inputs/fra-spa_links.tsv.bz2", "sha256": "e869ab6b17355bc94e6a607ab361fd1cd27af4b09e1cc321e05913402b243df6"}
+      ],
+      "outputs": [
+        "output/verification_resource_usage.json",
+        "output/eligible_inner_join_verification.json"
+      ]
+    }
+  ]
+}

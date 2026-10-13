@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-13T05:46:10+00:00",
+  "updated_utc": "2026-10-13T06:56:00+00:00",
   "goal_mode": "continuous_research",
   "authorization_ref": "evidence/continuous_authorization_20261011.json",
   "phase_limit_seconds": null,
@@ -304,9 +304,20 @@
       "scientific_processes_active": 0,
       "receipt_inventory": "execution_windows/wake22/.research-autopilot/runner/attempts",
       "notes": "Official exporter source audit identified unequal sentence/link eligibility predicates. One low-memory task succeeded; fixed source restore and membership audit did not start because shared headroom stayed below the unchanged 512MiB guard. Four management CLI errors were repaired before creating any extra scientific attempt."
+    },
+    {
+      "id": "wake23-20261013",
+      "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake23_20261013T0636/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake23",
+      "attempts": 2,
+      "wall_seconds": 23.128966763997596,
+      "reserved_seconds": 0,
+      "status": "eligible_inner_join_v2_verified_selection_hold",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake23/.research-autopilot/runner/attempts",
+      "notes": "Fixed-source eligible-endpoint inner join and independent exact set-membership verification. Both attempts exit0; 744 edges excluded, 786543 retained and 38091 closed triangles verified. No development selection, tokenizer scoring or fairness outcome. Idle supervisor deliberately interrupted after settlement; retained health lost is a management incident, not an unknown scientific attempt."
     }
   ],
-  "cumulative_charged_seconds": 1923.041858638973,
+  "cumulative_charged_seconds": 1946.1708254029706,
   "remaining_seconds": null,
   "unknown_model_tokens": true,
   "allocation_rule": "User explicitly removed cumulative time limits on 2026-10-11. Auto-renew finite CPU-only safety windows without a project-wide time/attempt/cycle endpoint; retain all historical and failed usage/reservations and original executor deadlines. Null limit/remaining means no cumulative cap, not zero usage. Existing hardware, memory, concurrency, permissions and user stops remain binding."

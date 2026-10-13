@@ -1,0 +1,79 @@
+{
+  "attempt_id": "attempt-630447ca568840ad8506cd67cf5c84ad",
+  "command_identity": {
+    "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+    "pid": 24683,
+    "start_ticks": 1042914
+  },
+  "contract_sha256": "c8f3c3630a23d506b20ee04f4aa83ff62879f14499018902c00707d73ded284c",
+  "elapsed_seconds": 12.614652962998662,
+  "error": null,
+  "exit_code": 0,
+  "finished_at": "2026-10-13T06:50:57.170496+00:00",
+  "input_refs": [
+    {
+      "path": "scripts/measure_command.py",
+      "sha256": "e60574a651fc485284b981cd0b1373d9683a3d7d6726a90418b0f2c480a6d6cd"
+    },
+    {
+      "path": "scripts/audit_eligible_inner_join.py",
+      "sha256": "ea6b730c4a98cb55596e62a2f1695cb25014876caedbb29f42fa7f2cbcee1e85"
+    },
+    {
+      "path": "inputs/eng_sentences.tsv.bz2",
+      "sha256": "0eabb52f54350bbb39807190920bfddaf9fee2ba50ca75af67e11a22ec475c29"
+    },
+    {
+      "path": "inputs/fra_sentences.tsv.bz2",
+      "sha256": "fac31d82b216c95affee7dffcee6c0ae59c45f254ebbfbbf8abb9e66da86ee8f"
+    },
+    {
+      "path": "inputs/spa_sentences.tsv.bz2",
+      "sha256": "d1f7aa997368571e8bbba341ab60f9145fefe14970f21065bd97be8e03c8e6fb"
+    },
+    {
+      "path": "inputs/eng-fra_links.tsv.bz2",
+      "sha256": "fc05adc4b3bc78871c6809d979d754e41b67ed10477d8ba6b877bc16f036c2bc"
+    },
+    {
+      "path": "inputs/eng-spa_links.tsv.bz2",
+      "sha256": "3009b84ae398f39f21ce27e2d012d456c9ee8732a201ae5523f1ab2f8d5658f3"
+    },
+    {
+      "path": "inputs/fra-spa_links.tsv.bz2",
+      "sha256": "e869ab6b17355bc94e6a607ab361fd1cd27af4b09e1cc321e05913402b243df6"
+    }
+  ],
+  "output_refs": [
+    {
+      "path": "output/audit_resource_usage.json",
+      "sha256": "edb84a513edf3699db8cee7fbe85140cd86c579d6041573407d4daf2d1393388"
+    },
+    {
+      "path": "output/eligible_inner_join_audit.json",
+      "sha256": "27cf8cb950c736d0dd58f7565c3ce7ae6d0e5de9e19d1c816c0b61a25735b589"
+    },
+    {
+      "path": "output/eligible_closed_triangles.tsv.gz",
+      "sha256": "83af88f96911474cc7062c3a502c9865caedc2a04995590eb1ce300f9b6e2f5d"
+    }
+  ],
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake23_20261013T0636/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake23",
+  "schema_version": 1,
+  "started_at": "2026-10-13T06:50:44.555848+00:00",
+  "status": "succeeded",
+  "stderr_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-630447ca568840ad8506cd67cf5c84ad/stderr.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-630447ca568840ad8506cd67cf5c84ad/stdout.txt",
+    "sha256": "fbc77ee80563d72bf416d7f223660717717923e7f708dfe894ff3a91b29e118a"
+  },
+  "task_id": "wake23-audit-eligible-inner-join-v2",
+  "worker_identity": {
+    "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+    "pid": 24682,
+    "start_ticks": 1042907
+  }
+}

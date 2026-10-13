@@ -1,0 +1,17 @@
+{
+  "response_id": "wake23-verified-handoff",
+  "request_id": "decision-13631287e5b041beaac584a63a5f54e3",
+  "idea": "tatoeba-eligible-inner-join-repair",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The independent verification task is terminal and successful. Preserve the verified v2 graph as a milestone while leaving selection and tokenizer scoring blocked on the already-frozen contamination-list recovery.",
+  "continuation": {
+    "reason": "partial",
+    "checkpoint_refs": [
+      {"path": "output/eligible_inner_join_audit.json", "sha256": "27cf8cb950c736d0dd58f7565c3ce7ae6d0e5de9e19d1c816c0b61a25735b589"},
+      {"path": "output/eligible_inner_join_verification.json", "sha256": "309195c23d5fa475eae2c2b146c0895e21a370e9bcfd8c190662e2d278b9d3bf"},
+      {"path": "output/eligible_closed_triangles.tsv.gz", "sha256": "83af88f96911474cc7062c3a502c9865caedc2a04995590eb1ce300f9b6e2f5d"}
+    ],
+    "next_action": "Recover and bind the frozen contamination-list source and exact identity, apply it to the 38,091 verified eligible closed triangles, then run deterministic production development selection. Keep tokenizer training and fairness scoring on hold until that source stage is independently verified."
+  }
+}

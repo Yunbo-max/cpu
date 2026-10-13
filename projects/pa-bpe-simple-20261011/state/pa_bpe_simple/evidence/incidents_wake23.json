@@ -1,0 +1,39 @@
+{
+  "incidents": [
+    {
+      "id": "wake23-historical-runner-root-mismatch",
+      "scope": "management",
+      "symptom": "The restored wake22 runner rejected status, alerts and health reads because its absolute project root differed from the new temporary root.",
+      "impact": "No scientific command was launched from the historical runner.",
+      "resolution": "Used the authoritative wake22 terminal status, confirmed reservation zero and no duplicate PA-BPE science, then created a fresh wake23 runner root."
+    },
+    {
+      "id": "wake23-sparse-restore-transport-disconnect",
+      "scope": "storage_recovery",
+      "symptom": "The first sparse restoration channel disconnected before adding the requested files.",
+      "impact": "No scientific attempt or unknown job was created.",
+      "resolution": "Checked that no requested files had landed, then retried the bounded sparse restore successfully."
+    },
+    {
+      "id": "wake23-sparse-add-option-rejected",
+      "scope": "management",
+      "symptom": "This Git build rejected sparse-checkout add --no-cone.",
+      "impact": "No archive object was partially materialized and no science ran.",
+      "resolution": "Retried with the supported --skip-checks option and verified all 14 chunks totalled 45,851,023 bytes."
+    },
+    {
+      "id": "cli:c2e02703a52b4110aac6522e199c6eac",
+      "scope": "runner_plan_validation",
+      "symptom": "The first plan submission used unsupported phase verification.",
+      "impact": "Submission was rejected before any attempt was created.",
+      "resolution": "Changed the phase to the supported verify value; both intended tasks then ran once and succeeded."
+    },
+    {
+      "id": "wake23-controlled-supervisor-exit-health-lost",
+      "scope": "management",
+      "symptom": "After a controlled PTY interrupt at the quiet boundary, runner health reports lost because no orderly exit code was persisted.",
+      "impact": "No scientific identity is unknown: both attempts are terminal-success, reservation is zero, the PTY returned, and there are no active PA-BPE scientific processes.",
+      "resolution": "Retained the health record and exact session exit as an incident; do not restart this finite window."
+    }
+  ]
+}

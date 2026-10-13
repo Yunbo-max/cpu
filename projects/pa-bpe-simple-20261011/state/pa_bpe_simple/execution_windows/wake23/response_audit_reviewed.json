@@ -1,0 +1,27 @@
+{
+  "response_id": "wake23-eligible-inner-join-reviewed",
+  "request_id": "decision-384bd897e4574d888d961ca349983c4e",
+  "idea": "tatoeba-eligible-inner-join-repair",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The separately versioned eligible-endpoint inner join completed and an independent set-based implementation reproduced every edge partition and all 38,091 closed triangles. This repairs source eligibility without rewriting the strict-v1 negative result, but development selection and tokenizer scoring remain on hold until the frozen contamination list is recovered and applied.",
+  "events": [
+    {
+      "event_id": "wake23-eligible-inner-join-v2-verified",
+      "kind": "research_cycle",
+      "hypothesis": "The official exporter predicate mismatch can be repaired reproducibly by retaining only pair links whose two sentence IDs both occur in the fixed per-language sentence exports.",
+      "prediction": "Exactly 744 links will be excluded across the three fixed pair exports, and the retained graph will yield a deterministic set of closed English-French-Spanish triangles under two independent implementations.",
+      "result": "The audit excluded 507 English-French, 210 English-Spanish and 27 French-Spanish edges; retained 786,543 total edges; and found 38,091 closed triangles. A separate in-memory implementation matched every partition count and exact triangle membership.",
+      "interpretation": "Eligible-inner-join v2 is a valid mechanical repair of the source graph under the documented exporter semantics. It does not validate strict v1, select development rows, remove contamination, train a tokenizer or establish fairness.",
+      "next_action": "Recover the frozen contamination-list identity and apply it to the 38,091 eligible closed triangles before any production development selection or tokenizer scoring.",
+      "reason": "Two independent implementations agree exactly on the fixed source identities and membership relation.",
+      "evidence": [
+        {"path": "output/eligible_inner_join_audit.json", "sha256": "27cf8cb950c736d0dd58f7565c3ce7ae6d0e5de9e19d1c816c0b61a25735b589"},
+        {"path": "output/eligible_inner_join_verification.json", "sha256": "309195c23d5fa475eae2c2b146c0895e21a370e9bcfd8c190662e2d278b9d3bf"},
+        {"path": "output/eligible_closed_triangles.tsv.gz", "sha256": "83af88f96911474cc7062c3a502c9865caedc2a04995590eb1ce300f9b6e2f5d"},
+        {"path": "output/audit_resource_usage.json", "sha256": "edb84a513edf3699db8cee7fbe85140cd86c579d6041573407d4daf2d1393388"},
+        {"path": "output/verification_resource_usage.json", "sha256": "aa6a3284c20037829307aa9506f83ecf96fe21864cd4db109de566ce9647a6b5"}
+      ]
+    }
+  ]
+}

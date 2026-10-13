@@ -1,3 +1,15 @@
+# 最新规范状态：generation 24，2026-10-13
+
+Tatoeba 的另版本 `eligible-inner-join-v2` 固定源图审计已实际完成并由第二个实现精确复核。严格协议 v1 的失败保留不变；v2 只保留链接两端同时存在于固定、语种匹配句子导出中的边。英法 441,739 条中保留 441,232、排除 507；英西 283,852 中保留 283,642、排除 210；法西 61,696 中保留 61,669、排除 27。合计保留 786,543、排除 744，三张边表都没有重复边。
+
+合格图得到 38,091 个英法西闭合三角。SQLite 流式实现和独立内存集合实现对所有边分区与三角形精确成员完全一致；固定三角归档 SHA256 为 `83af88f96911474cc7062c3a502c9865caedc2a04995590eb1ce300f9b6e2f5d`。这只证明来源图资格修复可复核；没有选择开发样本、训练或评分 tokenizer，也没有新的公平性结论。
+
+本轮2个科学 attempt 均 exit0，runner计费wall 23.128966764秒，峰值RSS分别38,297,600与472,723,456字节；累计计费wall 1,946.170825403秒，reservation0，无OOM/oom_kill。恢复/管理异常均在 `evidence/incidents_wake23.json` 保留，未形成重复科学attempt或未知reservation。有限supervisor在安静边界受控中断；health因未持久退出码显示lost，但PTY已返回、两项attempt均terminal-success且无活动科学进程。
+
+下一步：恢复并hash绑定此前冻结的完整污染清单，把它应用到38,091个合格闭合三角，再独立核验确定性production development selection。在此来源阶段通过前，tokenizer训练与公平性评分继续HOLD。恢复必读：`PA_BPE_Wake23_Report.md`、`evidence/wake23_handoff.json`、`evidence/incidents_wake23.json`、`execution_windows/wake23/output/eligible_inner_join_audit.json`、`eligible_inner_join_verification.json`及runner receipts。
+
+# generation 23 历史状态（保留）
+
 # 最新规范状态：generation 23，2026-10-13
 
 Tatoeba固定源的缺失端点机制已经由官方上游源码定位。`Tatoeba/tatoeba2`提交`0fbb4506ce071827f85375bd4c8c8f9c7cf23d41`中，句子导出要求`correctness > -1 AND license != ''`，而全局及逐语言link导出直接来自`sentences_translations`，没有同一资格过滤；逐语言句子文件则来自已过滤的`sentences.csv`。因此link文件可以合法引用未进入对应句子文件的ID。wake21的507/210/27、合计744条缺端点边与此机制相符，不再构成6份文件必然异步的证据。
