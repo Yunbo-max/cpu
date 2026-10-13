@@ -16,12 +16,18 @@
   "supervisor_running": false,
   "unknown_attempts": 0,
   "cleanup_preflight": {
-    "status": "pending_remote_verification"
+    "project_files": 1121,
+    "project_bytes": 1702872226,
+    "restore_files": 179,
+    "restore_bytes": 184450486,
+    "delta_files": 69,
+    "delta_bytes": 93569378,
+    "checkpoint_bytes": 60018447
   },
   "persistence_policy": "GitHub authoritative. Preserve negative evidence and ledger. Restore only required paths using --include, upload new results and coherent state, verify exact remote bytes/commit, then evict only this project. Never clear global /dev/shm or other projects.",
   "legacy_backup": "The previous Library checkpoint version18 remains historical fallback only; never prefer it over this newer GitHub state.",
-  "cleanup_status": "wake23_manifest_truncation_repaired_pending_verified_restore",
-  "local_workspace_state": "Wake23 workspace and verification staging remain local pending remote restore verification; no cleanup completion is claimed.",
+  "cleanup_status": "wake23_remote_verified_local_eviction_rematerialized",
+  "local_workspace_state": "Remote wake23 restore verified exactly. Explicit local deletion completed once, but the next observation found the project tree rematerialized with 1018 files/1678136461 bytes and the 60018447-byte checkpoint ZIP present again. Persistent local eviction is not confirmed; no repeated forced cleanup and no other project or global cache was touched.",
   "overlays": [
     {
       "commit": "cb1706469b530248afb1857bd6b6da4dcba0486f",
@@ -63,14 +69,14 @@
   "journal_version": 151,
   "empirical_research_cycles": 32,
   "latest_handoff": "notes/handoff-wake23.md",
-  "verified_at_utc": "2026-10-13T07:59:54.739Z",
+  "verified_at_utc": "2026-10-13T08:07:18Z",
   "verification_path": "projects/3d-autopilot-simple/verification-wake23.json",
   "memory_policy": "If insufficient memory blocks a command, preserve task, wait and recheck before retry; report persistent blocker. Host cgroup accounting includes file cache and is not experiment RSS.",
   "cleanup_path": "projects/3d-autopilot-simple/cleanup-wake23.json",
-  "cleanup_observed_at_utc": null,
-  "restore_verification_commit": null,
-  "cleanup_receipt_commit": null,
-  "verification_readback_blob_sha": null,
-  "total_index_files": 2950,
+  "cleanup_observed_at_utc": "2026-10-13T08:09:36Z",
+  "restore_verification_commit": "71a5d71da05b1f9469242061938db61d6a017c1e",
+  "cleanup_receipt_commit": "0e00c203886fb5c3e78d0e0fbb131b7da412db7b",
+  "verification_readback_blob_sha": "3671ad647b53547a72b6322734479515b738993c",
+  "total_index_files": 3125,
   "build_receipt_path": "projects/3d-autopilot-simple/build-wake23.json"
 }
