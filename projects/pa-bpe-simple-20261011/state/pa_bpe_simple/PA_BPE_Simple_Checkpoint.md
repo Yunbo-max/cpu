@@ -1,3 +1,13 @@
+# 最新规范状态：generation 28，2026-10-13
+
+用户于2026-10-13 09:39 UTC明确要求“更新github然后停止”。本轮没有启动新的科学attempt；修正后的Tatoeba完整污染清单筛选器与独立复核器仍未运行。generation27的失败、修复、等待与累计用量全部保留；开发选择、tokenizer训练和跨域公平性评分继续HOLD。这是用户停止，不是研究完成、科学失败或资源失败。
+
+停止前确认上一轮所有作业终态、reservation为0、无活动科学进程。共享cgroup实测硬上限8,589,934,592字节、计账7,081,676,800字节、余量1,508,257,792字节，OOM/oom_kill均为0；虽已超过746,586,112字节启动门槛，但服从用户停止，未提交实验。恢复阶段一次错误引用不存在的`tools/cache_io.py`在读取输入前退出，修正为仓库根`cache_io.py`后partial state验证通过；未形成科学attempt。
+
+未来仅在用户明确恢复后，从GitHub最新提交重新确认唯一writer、作业身份与内存，再以新窗口运行修正选择器。恢复必读：`PA_BPE_Wake27_Report.md`、`evidence/user_stop_20261013.json`、generation27的`PA_BPE_Wake26_Report.md`与`evidence/wake26_handoff.json`。
+
+# generation 27 历史状态（保留）
+
 # 最新规范状态：generation 27，2026-10-13
 
 本轮已把完整冻结污染清单选择器和独立复核器实现到可执行状态，但尚未生成Tatoeba开发集。唯一科学attempt在构建污染索引后因计数断言错误退出：Alice/Poe的682+264行被误写成947，正确为946。exit1、runner wall 12.868660200秒、峰值RSS104,730,624字节；未生成候选判定或1,024行选择，无OOM/oom_kill，不能记作科学负结果。

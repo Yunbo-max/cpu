@@ -5,8 +5,8 @@
   "canonical_repository": "https://github.com/Yunbo-max/cpu",
   "canonical_path": "projects/pa-bpe-simple-20261011",
   "checkpoint_directory": "state/pa_bpe_simple",
-  "generation": 27,
-  "manifest_sha256": "81e92ab8ef1e412698824d2be6dd01c46de3771498a051149b66e4d13c575105",
+  "generation": 28,
+  "manifest_sha256": "9c39b336643c87f20d5396c966b4b499c1a8b0566e4dad7e0b70520fdee1a436",
   "original_checkpoint_archive_sha256": "14ada86a40564a620b5ed01a43ba16e8b24d2c8b77b745d6aa759752339ff2d3",
   "external_raw_source_archive_sha256": "825a8c063b19d4b1dc21f8a540ea2acbe5e11fa1da1cd6bfdeac5200c6805b6c",
   "external_raw_source_required_for_next_step": false,
@@ -16,8 +16,11 @@
   },
   "history_rule": "Keep scientific evidence immutable. New generations update this pointer and the checkpoint manifest; Git records prior states.",
   "active_science_processes_at_import": 0,
-  "next_action": "Recheck shared cgroup memory and unknown/duplicate PA-BPE jobs; only with at least 746586112 bytes headroom, submit corrected wake26-tatoeba-selection-v2 superseding v1, then independently verify the deterministic 1024-row development selection before tokenizer scoring",
+  "project_state": "stopped_by_user",
+  "stopped_utc": "2026-10-13T09:39:03Z",
+  "stop_evidence": "state/pa_bpe_simple/evidence/user_stop_20261013.json",
+  "next_action": "None while stopped. Resume only after a new explicit user request; then fetch the latest GitHub state, verify the unique writer and memory, and run the corrected Tatoeba selector before independent verification or tokenizer scoring.",
   "active_science_processes": 0,
   "reserved_seconds": 0,
-  "confirmation_outcome_status": "The complete-inventory selector and independent verifier are implemented and corrected, but the only attempt failed before candidate decisions on a repaired 946-row assertion. The corrected experiment was not rerun because latest memory headroom was below the 746586112-byte threshold. Development selection, independent verification, tokenizer training and fairness scoring remain HOLD."
+  "confirmation_outcome_status": "Stopped by explicit user request before any wake27 science attempt. The complete-inventory selector and independent verifier remain implemented and corrected but unrun after the historical v1 assertion failure. Development selection, independent verification, tokenizer training and fairness scoring remain HOLD; this is not research completion or a scientific negative result."
 }

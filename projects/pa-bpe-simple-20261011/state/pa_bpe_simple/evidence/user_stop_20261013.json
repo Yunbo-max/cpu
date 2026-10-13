@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "project_id": "pa-bpe-simple-20261011",
+  "event_id": "user-stop-20261013T0939Z",
+  "observed_utc": "2026-10-13T09:39:03Z",
+  "kind": "user_requested_stop",
+  "request": "你更新github然后停止",
+  "effect": "Stop the PA-BPE continuous-research automation after persisting and independently verifying the current state. Do not launch the corrected Tatoeba selector or any later tokenizer/fairness experiment.",
+  "science_attempts_started_in_wake27": 0,
+  "scientific_processes_active": 0,
+  "reserved_seconds": 0,
+  "preserved_unfinished_work": "The corrected complete-inventory Tatoeba selector and independent verifier remain unrun. Development selection, tokenizer training and cross-domain fairness scoring remain HOLD, not completed or scientifically failed.",
+  "base_remote_commit": "6a95096adab87d39be8421defd1b52d1c1ecb1be",
+  "base_project_tree": "da6985dcdbb2fc75b6ce107e7453d4e29e1d9f82",
+  "resource_observation": {
+    "memory_max_bytes": 8589934592,
+    "memory_current_bytes": 7081676800,
+    "headroom_bytes": 1508257792,
+    "oom": 0,
+    "oom_kill": 0
+  },
+  "management_incident": "A recovery-only command first referenced the nonexistent tools/cache_io.py path and exited before reading experiment inputs; it was corrected to cache_io.py. No scientific attempt or runner budget was consumed."
+}
