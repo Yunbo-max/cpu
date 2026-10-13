@@ -1,6 +1,6 @@
 {
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-13T19:11:41.575235+00:00",
+  "updated_utc": "2026-10-13T20:41:07.019482+00:00",
   "goal_contract_version": 1,
   "goal_contract": {
     "completion_criteria": [
@@ -18,26 +18,26 @@
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
   "current_window": "windows/W0004",
   "accepted_decision": {
-    "path": "plans/W4_R006_cpu_native_qualification_decision_v4_001.json",
-    "sha256": "56c40d415c8bf809b4ac9b4cc37611cb98b8d12291ca214458a70fe864cd4852"
+    "path": "plans/W4_R006_cpu_memory_wait_decision_v4.json",
+    "sha256": "c6ed1aee9952d0cfe39b04dda5ff48a3e8e9d3abb7fa9a4a989eebb0a00789b0"
   },
   "historical_stops_preserved": true,
   "authorization": "RESUME_AUTHORIZATION_20261013T162554Z.json",
   "ledger": {
     "prior_attempt_floor": 214,
     "prior_command_seconds_floor": 14447.537480669998,
-    "window_attempts": 34,
-    "window_command_seconds": 768.7501078230198,
-    "combined_attempt_floor": 248,
-    "combined_command_seconds_floor": 15216.287588493018,
+    "window_attempts": 37,
+    "window_command_seconds": 769.783455120014,
+    "combined_attempt_floor": 251,
+    "combined_command_seconds_floor": 15217.320935790012,
     "scope": "Command wall accounting includes 1823s conservative failed settlement and earlier reported missing-host tail; not exact CPU time or scientific cycles",
     "native_model_usage": "unknown",
-    "cumulative_scientific_cycles": "Read actual journal cycle records; attempts and timing repetitions are not scientific cycles"
+    "scientific_cycles": 2
   },
-  "stage": "R00612native overhead executions complete, inconclusive wall ratios; two CPU-clock builds succeeded, native qualification next",
-  "next_task_id": "R006-cpu-clock-counts-qualification-v1",
-  "next_submission": "windows/W0004/plans/submit-R006-cpu-clock-counts-qualification-v1.json",
-  "next_dispatch": "Not submitted. After quiet overlay archive and remote verification, fresh current<=6.3GB plus known peak/margin and all-active reconciliation; sameW4 official submit/run, no userstop or budget reset.",
+  "stage": "waiting_for_memory; CPUclock binaries built but all3 native qualification attempts refused before solver",
+  "next_task_id": "R006-cpu-clock-counts-qualification-after-memory-v4",
+  "next_submission": null,
+  "next_dispatch": "Prepared newID only; unsubmitted. Enforce saved growth-aware admission before fresh v4 decision/submit. No supervisor/native worker observed alive.",
   "unfinished": [
     "New C++ CPU clocks/graph/VAL need real native qualification counts/fine/coarse before paired CPU/wall comparison",
     "Shared-host wall ratios reverse; no intrinsic residual/clock causal amount or speedup determined",
@@ -46,5 +46,39 @@
     "Object/binary corruption cause unresolved; immutable failures and source snapshots retained"
   ],
   "no_goal_completion": true,
-  "active_or_unknown_attempts": 0
+  "active_or_unknown_attempts": 0,
+  "waiting_for_memory": {
+    "state": "waiting_for_memory",
+    "task_id": "R006-cpu-clock-counts-qualification-after-memory-v4",
+    "unsubmitted_task_ref": {
+      "path": "plans/task-R006-cpu-clock-counts-qualification-after-memory-v4.json",
+      "sha256": "73df952e74088fa06fda8030f367a2fb9b11638ce5d1ae238f9941df419ede05"
+    },
+    "updated_utc": "2026-10-13T20:35:41.089026+00:00",
+    "latest_shared_bytes": 7070236672,
+    "last_native_guard_before_bytes": 7481118720,
+    "native_has_not_started_in_any3CPU_qualification_attempts": true,
+    "native_CPU_clock_still_unqualified": true,
+    "failed_tasks": [
+      "R006-cpu-clock-counts-qualification-v1",
+      "R006-cpu-clock-counts-qualification-v2",
+      "R006-cpu-clock-counts-qualification-v3"
+    ],
+    "versioned_case_guard_prelaunch_reserve_bytes": 750000000,
+    "guard_plan": "plans/R006_cpu_fixed1000_memory_admission_v3.json",
+    "resume_condition": {
+      "idle_no_supervisor_current_at_most_bytes": 6100000000,
+      "already_live_resident_supervisor_current_at_most_bytes": 6600000000,
+      "coordinator_and_worker_growth_allowance_bytes": 700000000,
+      "extra_preflight_safety_bytes": 250000000,
+      "shared_abort_bytes": 7800000000,
+      "project_limit_bytes": 8000000000,
+      "condition_basis": "Observed start6956630016\u2192guard7481118720 adds524488704B after supervisor restart. Reserve700MB for nonresident coordinator/worker growth,750MB case work and250MB margin, so no-supervisor admission<=6.1GB. With a proven already-resident supervisor, permit<=6.6GB with450MB worker/preflight margin before750MB case reserve. Actualguard stillchecksagain; snapshots are not global reservations."
+    },
+    "shared_memory_stat": "anon 305815552\nfile 6502125568\nkernel 260767744\nkernel_stack 720896\npagetables 4579328\nsec_pagetables 0\npercpu 6732\nsock 0\nvmalloc 4096\nshmem 0\nfile_mapped 36864\nfile_dirty 89694208\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 2726297600\nshmem_thp 0\ninactive_anon 305582080\nactive_anon 77824\ninactive_file 1915494400\nactive_file 4586618880\nunevictable 0\nslab_reclaimable 254379616\nslab_unreclaimable 967816\nslab 255347432\nworkingset_refault_anon 0\nworkingset_refault_file 8611295\nworkingset_activate_anon 0\nworkingset_activate_file 3535060\nworkingset_restore_anon 0\nworkingset_restore_file 423099\nworkingset_nodereclaim 0\npgdemote_kswapd 0\npgdemote_direct 0\npgdemote_khugepaged 0\npgdemote_proactive 0\npgscan 17530328\npgsteal 16396382\npswpin 0\npswpout 0\npgscan_kswapd 445966\npgscan_direct 17084362\npgscan_khugepaged 0\npgscan_proactive 0\npgsteal_kswapd 212434\npgsteal_direct 16183948\npgsteal_khugepaged 0\npgsteal_proactive 0\npgfault 1704725635\npgmajfault 1633\npgrefill 4513756\npgactivate 19922883\npgdeactivate 4513756\npglazyfree 100\npglazyfreed 0\nswpin_zero 0\nswpout_zero 0\nthp_fault_alloc 5689\nthp_collapse_alloc 0\nthp_swpout 0\nthp_swpout_fallback 0\n",
+    "shared_memory_events": "low 0\nhigh 0\nmax 287362\noom 0\noom_kill 0\noom_group_kill 0\n",
+    "submitted": false,
+    "next_action": "On same existing future wake, verify latest actual stop/status/health/receipts/all active/reservations, measure true current memory with coordinator liveness accounted. Only after condition fits consume all latest host probes into v4 previous_ref and submit prepared v4/new-ID; no blind same refusal. Native data/config/binaries/caps unchanged. Continue low-memory source/math work when useful."
+  },
+  "full_window_snapshot": "7104b194 full34attempt archive verified; latest37attempt control/failure supplement being published; full overlay pending archive headroom."
 }

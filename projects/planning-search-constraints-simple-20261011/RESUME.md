@@ -8,3 +8,9 @@ CPU双boundary观测源码审计和两个独立build已实际成功：coarse e6b
 全队列单任务、编译/solver单线程、CPU-only、项目<=8e9/共享guard7.8e9且更低host限制。fresh测anon/file/cache/memory.events/CPU quota/他者峰值+margin；原guard before必须<=6.6e9，协调admit<=6.3e9留300MB preflight/observer。刚保存测6766657536B，这只是快照不预留。资源不够保存waiting_for_memory原task身份，不重复提交guard拒绝，不清全局cache、不删独一产物。已只对独立remote readback核验的闲置同项目duplicate binaries和pack做cachehint，7185457152→6292717568B(当次观察)；无truncate/delete，无碰current unique clock binaries/objects/SQLite，不能当rootcause结论。source/guard/benchmarkcap不变化。
 
 所有R005/R005L1及R006 first1000/VAL/finalgraph、旧12开销执行不恢复重跑；L2仍draft。有限同W4窗口到deadline才明确链接后继，继承全总账和授权；不把新窗口当独立样本。GitHub本namespace唯一archive，overlay保留所有旧member/pack。最新main/manifest和本CHECKPOINT优先于旧任务正文；所有新增真实成果先expected-head普通提交、不可变回读核验，不能宣称未运行/未归档/未核验成功。原d75pack36parts和4970新成员914070498B已完整独立校验，receipt evidence/R006-d75-remote-archive-verification.json；新snapshot之后也需独立校验。
+
+## 最新接续 2026-10-13T20:41:07.019482+00:00
+
+CPU资格v1/v2/v3均在prelaunch资源保护拒绝，solver没有启动，未产生nativeCPU字段、图或VAL新结果。v3实际guard前共享charge7481118720B，750MB案例余量不能满足。此前非常驻supervisor启动后计账增长524488704B，因此恢复条件已版本化：无live supervisor时current<=6.1e9；有真实核验resident supervisor时<=6.6e9，并鲜测CPU/anon/file/cache/events/其他或未知活动。仍保持shared abort7.8e9/project8e9及全部native限制。快照不是全局资源预留。新R006-cpu-clock-counts-qualification-after-memory-v4已准备但未提交，先消费所有最新probes/newprevious_ref才派发；不重复已失败ID，不以空队列/局部失败结束持续目标。
+
+W4实际37attempts/769.783455120014结算秒/reservation0；项目累计下界251/15217.320935790012。保守1823秒、losthostreported19次/1042.6368527140294秒和旧W3真实stop/cancel保留；不是精确CPU或科研周期。所有native任务terminal，旧supervisor身份当前不存活，session不可连接但不伪造exit130。已有12次旧native对照不重跑。完整7104归档已独立回读31parts、全部3731新members/817741509B和4直接rawcopy；最新37状态与三个拒绝作为独立操作补充提交，旧LATEST保留，完整37全窗口overlay待归档余量满足。

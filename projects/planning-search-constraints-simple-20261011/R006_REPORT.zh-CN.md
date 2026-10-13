@@ -39,3 +39,9 @@ clock-control build-v1在旧fine-audit CEGAR对象0bytes身份检查失败，sol
 下一步实际做了CPU-clock source-boundary/API审计，随后两份source-isolated C++ controls成功构建。只在原begin/print construction边界增加2次CLOCK_THREAD_CPUTIME_ID，原steady wall/component clocks不更换；CPU interval为wall outer bracket，含边界读取开销，不能直接两者相减当纯等待/谓词成本。coarse binary e6b21554b4f7c08288236c54f56f4fb3b5ca928400e267bec4ac6000a0cf51be，fine_counts30d810ab1b5cbb642eb486a3ad4a8ce8963333aa4e52154ef80a34bf7f7eaa10；guardwall12.933846s、sampled groupRSS582545408B、shared peak7431770112B、exit0/无guard。**尚未执行native CPU-clock/graph/VAL资格或CPU比较。** 下一份counts资格已有完整代码和accepted decision，资源鲜测后同W4接续。
 
 旧d75e3e6归档36parts/301462889B、整体SHAf2d701e...和manifest已独立从不可变Git对象回读；新pack全部4970members/914070498B逐成员SHA/bytes核验，5直接raw复制也核验。没有删除本地唯一数据。只对已核验、hash不变、闲置的3份published duplicate binaries和pack做cachehint，当次7185457152→6292717568B，无truncate/byte mutation/global cache clear；不把这个观察当对象损坏原因。
+
+## 最新接续 2026-10-13T20:41:07.019482+00:00
+
+CPU资格v1/v2/v3均在prelaunch资源保护拒绝，solver没有启动，未产生nativeCPU字段、图或VAL新结果。v3实际guard前共享charge7481118720B，750MB案例余量不能满足。此前非常驻supervisor启动后计账增长524488704B，因此恢复条件已版本化：无live supervisor时current<=6.1e9；有真实核验resident supervisor时<=6.6e9，并鲜测CPU/anon/file/cache/events/其他或未知活动。仍保持shared abort7.8e9/project8e9及全部native限制。快照不是全局资源预留。新R006-cpu-clock-counts-qualification-after-memory-v4已准备但未提交，先消费所有最新probes/newprevious_ref才派发；不重复已失败ID，不以空队列/局部失败结束持续目标。
+
+W4实际37attempts/769.783455120014结算秒/reservation0；项目累计下界251/15217.320935790012。保守1823秒、losthostreported19次/1042.6368527140294秒和旧W3真实stop/cancel保留；不是精确CPU或科研周期。所有native任务terminal，旧supervisor身份当前不存活，session不可连接但不伪造exit130。已有12次旧native对照不重跑。完整7104归档已独立回读31parts、全部3731新members/817741509B和4直接rawcopy；最新37状态与三个拒绝作为独立操作补充提交，旧LATEST保留，完整37全窗口overlay待归档余量满足。
