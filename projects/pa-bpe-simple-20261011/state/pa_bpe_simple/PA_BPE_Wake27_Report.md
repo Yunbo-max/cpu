@@ -10,4 +10,6 @@
 
 恢复阶段有一项管理异常：协议文字中的 `tools/cache_io.py` 路径与仓库实际 `cache_io.py` 不一致，首次只读恢复命令在读取实验输入前退出；修正路径后 partial state 验证通过（225 个已检出文件，3,515 个因稀疏检出缺失）。该异常没有形成科学 attempt，也没有消耗 runner 预算。
 
-本轮停止证据：`evidence/user_stop_20261013.json`。generation 27 的失败、修复和等待证据均原样保留。
+持久化阶段发生一次 GitHub `create_blob` ReadTimeout，以及一次本地 32 GiB overlay 的 ENOSPC。上传器保留已有逐项回执后续传；仅删除本轮已按哈希核验、可从 GitHub 恢复的 PA-BPE 大输入与归档块，未动其他项目或全局缓存。generation 28 最终提交 `f7d28f300a95ce2d8063403bcde4055cad6046e9`，项目树 `d2f246adb046b10c55eb439a4fe3a29fc7f016f4`；独立新克隆重算 manifest 与关键文件哈希全部一致。
+
+本轮停止证据：`evidence/user_stop_20261013.json`。异常记录：`evidence/incidents_wake27.json`。独立回读：`receipts/wake27_stop_remote_verification.json`。generation 27 的失败、修复和等待证据均原样保留。

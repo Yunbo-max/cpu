@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "project_id": "pa-bpe-simple-20261011",
+  "incidents": [
+    {
+      "event_id": "wake27-cache-io-path",
+      "observed_utc": "2026-10-13T09:36:44Z",
+      "kind": "runtime_issue",
+      "symptom": "Recovery-only command referenced nonexistent tools/cache_io.py and exited before reading experiment inputs.",
+      "repair": "Used the repository's actual cache_io.py path; partial-state verification then passed.",
+      "science_impact": "No scientific attempt, input read, or runner budget consumption."
+    },
+    {
+      "event_id": "wake27-github-create-blob-timeout",
+      "observed_utc": "2026-10-13T09:43:17Z",
+      "kind": "persistence_issue",
+      "symptom": "The GitHub connector returned ReadTimeout during resumable blob upload.",
+      "repair": "Retained per-blob receipts and resumed from the same list; the branch had not changed before the guarded publish.",
+      "science_impact": "No science impact and no partial branch commit."
+    },
+    {
+      "event_id": "wake27-local-enospc",
+      "observed_utc": "2026-10-13T09:45:03Z",
+      "kind": "storage_issue",
+      "symptom": "Saving a resumable upload receipt failed with ENOSPC on the 32 GiB overlay.",
+      "repair": "Deleted only this wake's hash-verified, GitHub-recoverable PA-BPE archive chunks and restored large inputs; resumed upload successfully. Other projects and global caches were untouched.",
+      "science_impact": "No new science had started; canonical historical objects remained on GitHub and the guarded base tree preserved sparse files."
+    }
+  ]
+}
