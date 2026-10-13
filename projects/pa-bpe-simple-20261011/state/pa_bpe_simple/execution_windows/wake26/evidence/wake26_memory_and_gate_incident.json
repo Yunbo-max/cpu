@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "incident_id": "wake26-memory-gate-20261013T0917Z",
+  "observed_utc": "2026-10-13T09:17:04Z",
+  "task_id": "wake26-tatoeba-selection-v1",
+  "attempt_id": "attempt-5b7c5f02bd0b49ab810066bc04a46292",
+  "symptoms": [
+    "The pre-launch snapshot showed 804913152 bytes headroom, 33947648 bytes below the then-configured 838860800-byte gate.",
+    "The diagnostic probe and runner invocation were mistakenly chained unconditionally, so the task launched despite gate=false.",
+    "The command exited 1 after 12.868660200001614 seconds because the frozen Alice/Poe row-count assertion used 947 instead of the correct 682+264=946.",
+    "No candidate decision or development selection was produced; the only command output was the resource receipt.",
+    "cgroup memory.events remained oom=0 and oom_kill=0."
+  ],
+  "attempt_resources": {
+    "peak_rss_bytes": 104730624,
+    "wall_seconds": 12.606322227002238,
+    "user_cpu_seconds": 11.688362999999999,
+    "system_cpu_seconds": 0.914206,
+    "exit_code": 1
+  },
+  "bounded_repair": {
+    "primary_script_old_sha256": "e187e2cf86c4550687922cfc6c73c634e8d2ddcd5b10a891011c48c56a0d71c7",
+    "primary_script_new_sha256": "709c3b72758bd1ec2e1d08d111e11aeb35194f512189a30af2ea16f15c05e514",
+    "verifier_script_old_sha256": "2bf4292a00baf02d32e2302f2b7788f20994bb32eae62c7f1323cdbe0810af51",
+    "verifier_script_new_sha256": "84c495f1c90579d178db4be355d1b4d9e35ee6f6d07d92a0bc6aece8a6420aa8",
+    "change": "Both independent implementations now assert 946 Alice/Poe aligned rows; both compile successfully.",
+    "rerun_submitted": false
+  },
+  "memory_rechecks": [
+    {"utc": "2026-10-13T09:18:06.695215Z", "current_bytes": 7976914944, "headroom_bytes": 613019648, "anon_bytes": 353165312, "file_bytes": 7193415680, "shmem_bytes": 0, "kernel_bytes": 429236224},
+    {"utc": "2026-10-13T09:18:36.695715Z", "current_bytes": 8405286912, "headroom_bytes": 184647680, "anon_bytes": 899239936, "file_bytes": 7087874048, "shmem_bytes": 0, "kernel_bytes": 416866304},
+    {"utc": "2026-10-13T09:19:17.176901Z", "current_bytes": 7887323136, "headroom_bytes": 702611456, "anon_bytes": 543457280, "file_bytes": 6936510464, "shmem_bytes": 0, "kernel_bytes": 406286336},
+    {"utc": "2026-10-13T09:20:00.734711Z", "current_bytes": 8006504448, "headroom_bytes": 583430144, "anon_bytes": 456462336, "file_bytes": 7135965184, "shmem_bytes": 0, "kernel_bytes": 412770304}
+  ],
+  "waiting_for_memory": {
+    "first_wait_utc": "2026-10-13T09:18:06.695215Z",
+    "recheck_count": 3,
+    "required_peak_bytes": 209715200,
+    "safety_margin_bytes": 536870912,
+    "required_headroom_bytes": 746586112,
+    "latest_headroom_bytes": 583430144,
+    "resume_condition": "At least 746586112 bytes measured cgroup headroom, no active or unknown PA-BPE attempt, and an explicit conditional gate that prevents runner launch when false.",
+    "status": "experiment_not_rerun_continuing_to_wait"
+  }
+}

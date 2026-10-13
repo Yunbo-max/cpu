@@ -1,3 +1,13 @@
+# 最新规范状态：generation 27，2026-10-13
+
+本轮已把完整冻结污染清单选择器和独立复核器实现到可执行状态，但尚未生成Tatoeba开发集。唯一科学attempt在构建污染索引后因计数断言错误退出：Alice/Poe的682+264行被误写成947，正确为946。exit1、runner wall 12.868660200秒、峰值RSS104,730,624字节；未生成候选判定或1,024行选择，无OOM/oom_kill，不能记作科学负结果。
+
+两个独立实现都已修正为946并通过编译，修复后SHA256为`709c3b72…5e514`与`84c495f1…20aa8`。一次启动保护门被无条件命令串接绕过的管理错误已保留；修复后没有重提。三次有界内存复测的最新余量583,430,144字节，低于按200MiB保守峰值加512MiB安全余量得到的746,586,112字节恢复门限，因此记录`experiment_not_rerun_continuing_to_wait`。累计wall 1,995.799927273秒、reservation0；有限supervisor已退出，没有活动或未知科学作业。
+
+下一次先确认cgroup余量至少746,586,112字节和无重复/未知PA-BPE attempt，再用显式条件门提交`wake26-tatoeba-selection-v2`替代失败v1；成功后才运行独立复核。开发选择、tokenizer训练及公平性评分继续HOLD。恢复必读：`PA_BPE_Wake26_Report.md`、`evidence/wake26_handoff.json`、`evidence/incidents_wake26.json`、`execution_windows/wake26/evidence/wake26_memory_and_gate_incident.json`及失败receipt。
+
+# generation 26 历史状态（保留）
+
 # 最新规范状态：generation 26，2026-10-13
 
 已从持久归档中的完整 GlobalVoices raw-source bundle 恢复并流式核验三份冻结OPUS归档，英/法/西SHA256分别为 `974c2b10…fa9b3f`、`84cfd37d…36587`、`2af6fb98…be55`。这更正generation25“individual archive key缺失即来源不可恢复”的过强推断；旧记录保留不改。

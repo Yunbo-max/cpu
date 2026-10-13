@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-13T09:22:30Z",
+  "incidents": [
+    {
+      "id": "wake26-overbroad-sparse-checkout",
+      "kind": "storage_and_memory_management",
+      "effect": "The first sparse pattern materialized about 1.2 GiB instead of the intended minimal state.",
+      "repair": "Before any scientific attempt, a 14 MiB true non-cone sparse clone replaced it and the exact disposable clone was deleted.",
+      "scientific_impact": "none"
+    },
+    {
+      "id": "wake26-launch-gate-unconditional-20261013T0917Z",
+      "kind": "runtime_issue",
+      "effect": "A false memory gate did not prevent the first runner invocation because probe and launch were chained unconditionally.",
+      "repair": "No replacement was submitted; future launch must be inside an explicit conditional branch.",
+      "oom": 0,
+      "oom_kill": 0
+    },
+    {
+      "id": "wake26-row-count-assertion",
+      "kind": "implementation_error",
+      "effect": "The only scientific attempt exited 1 before candidate decisions because 682+264 was incorrectly asserted as 947.",
+      "repair": "Both primary and independent verifier now assert 946 and compile successfully.",
+      "scientific_impact": "No selection or fairness conclusion was produced."
+    },
+    {
+      "id": "wake26-waiting-for-memory-20261013T0918Z",
+      "kind": "resource_unavailable",
+      "effect": "Corrected selector was not rerun because latest headroom was 583430144 bytes, below the 746586112-byte evidence-based threshold.",
+      "repair": "Persist state and resume on a later wake after a real resource recheck; do not stop continuous research."
+    }
+  ]
+}

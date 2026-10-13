@@ -1,0 +1,23 @@
+{
+  "idea": "frozen-tatoeba-development-selection",
+  "goal": "Continue PA-BPE cross-domain multilingual tokenization fairness research by applying the frozen contamination protocol to eligible Tatoeba triangles and independently verifying the deterministic development selection before tokenizer scoring",
+  "goal_contract": {
+    "mode": "continuous_research",
+    "completion_criteria": [
+      {
+        "id": "authentic_comparison",
+        "description": "Compare Classical BPE, PA-BPE variants and a simple data-balancing control on frozen aligned development and unseen-domain evaluation data with independently verified fairness and total-cost metrics"
+      },
+      {
+        "id": "cross_domain_interpretation",
+        "description": "Determine whether fairness gains persist across domains and test one evidence-derived repair if a failure mechanism is observed, retaining negative results"
+      }
+    ]
+  },
+  "limits": {
+    "max_attempts": 12,
+    "max_command_seconds": 600,
+    "deadline_seconds": 1800,
+    "max_concurrency": 1
+  }
+}

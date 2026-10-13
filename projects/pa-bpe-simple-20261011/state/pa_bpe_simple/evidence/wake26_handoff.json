@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-13T09:22:30Z",
+  "generation_from": 26,
+  "generation_to": 27,
+  "active_idea": "frozen-tatoeba-development-selection",
+  "status": "selector_repaired_waiting_for_memory_selection_hold",
+  "attempt": {
+    "task_id": "wake26-tatoeba-selection-v1",
+    "attempt_id": "attempt-5b7c5f02bd0b49ab810066bc04a46292",
+    "status": "failed",
+    "exit_code": 1,
+    "reason": "Alice/Poe aligned-row assertion expected 947 instead of the correct 946",
+    "wall_seconds": 12.868660200001614,
+    "peak_rss_bytes": 104730624,
+    "receipt_sha256": "4fdacc6fc083712bdc72d643824cc8c01875f362d374f5774def2e2e82c976d7",
+    "scientific_outputs_produced": false
+  },
+  "repair": {
+    "primary_script": "execution_windows/wake26/scripts/apply_contamination_and_select.py",
+    "primary_sha256": "709c3b72758bd1ec2e1d08d111e11aeb35194f512189a30af2ea16f15c05e514",
+    "verifier_script": "execution_windows/wake26/scripts/verify_selection.py",
+    "verifier_sha256": "84c495f1c90579d178db4be355d1b4d9e35ee6f6d07d92a0bc6aece8a6420aa8",
+    "compile_status": "passed",
+    "replacement_submitted": false
+  },
+  "waiting_for_memory": {
+    "first_wait_utc": "2026-10-13T09:18:06.695215Z",
+    "latest_measurement_utc": "2026-10-13T09:20:00.734711Z",
+    "recheck_count": 3,
+    "cgroup_limit_bytes": 8589934592,
+    "latest_current_bytes": 8006504448,
+    "latest_headroom_bytes": 583430144,
+    "required_peak_bytes": 209715200,
+    "safety_margin_bytes": 536870912,
+    "required_headroom_bytes": 746586112,
+    "event_ids": [
+      "host-issue:wake26-launch-gate-unconditional-20261013T0917Z",
+      "host-issue:wake26-waiting-for-memory-20261013T0918Z"
+    ],
+    "resume_condition": "Headroom at least 746586112 bytes, no active or unknown PA-BPE attempt, and explicit conditional launch gate"
+  },
+  "resource_accounting": {
+    "attempts": 1,
+    "failed_attempts": 1,
+    "wall_seconds": 12.868660200001614,
+    "measured_command_wall_seconds": 12.606322227002238,
+    "measured_command_cpu_seconds": 12.602568999999999,
+    "max_rss_bytes": 104730624,
+    "reserved_seconds": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "cumulative_wall_seconds": 1995.7999272730015
+  },
+  "science_hold": [
+    "Tatoeba contamination decisions",
+    "production development selection",
+    "independent selection verification",
+    "tokenizer training",
+    "fairness scoring"
+  ],
+  "next_action": "After a real memory recheck reaches 746586112 bytes and no duplicate/unknown attempt exists, submit the corrected selector as wake26-tatoeba-selection-v2 superseding v1; then independently verify the exact 1024-row selection before any tokenizer scoring."
+}

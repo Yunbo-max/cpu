@@ -1,0 +1,47 @@
+{
+  "submission_id": "wake26-tatoeba-selection-v1",
+  "idea": "frozen-tatoeba-development-selection",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake26-tatoeba-selection-v1",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/selection_resource_usage.json",
+        "scripts/apply_contamination_and_select.py"
+      ],
+      "phase": "sources",
+      "purpose": "Apply the frozen exact and five-token 0.8 multiset-overlap contamination screens for every restored training, TICO, verified GlobalVoices, FLORES, MultiBook and Alice/Poe item, then select the deterministic 1024-row Tatoeba development set with representative and sentence-ID uniqueness constraints",
+      "timeout_seconds": 110,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "scripts/apply_contamination_and_select.py", "sha256": "e187e2cf86c4550687922cfc6c73c634e8d2ddcd5b10a891011c48c56a0d71c7"},
+        {"path": "scripts/measure_command.py", "sha256": "e60574a651fc485284b981cd0b1373d9683a3d7d6726a90418b0f2c480a6d6cd"},
+        {"path": "inputs/eligible_closed_triangles.tsv.gz", "sha256": "83af88f96911474cc7062c3a502c9865caedc2a04995590eb1ce300f9b6e2f5d"},
+        {"path": "inputs/eng_sentences.tsv.bz2", "sha256": "0eabb52f54350bbb39807190920bfddaf9fee2ba50ca75af67e11a22ec475c29"},
+        {"path": "inputs/fra_sentences.tsv.bz2", "sha256": "fac31d82b216c95affee7dffcee6c0ae59c45f254ebbfbbf8abb9e66da86ee8f"},
+        {"path": "inputs/spa_sentences.tsv.bz2", "sha256": "d1f7aa997368571e8bbba341ab60f9145fefe14970f21065bd97be8e03c8e6fb"},
+        {"path": "inputs/selected_rows.json", "sha256": "c6f76310b3c2e08848706608c391ec13cbf630b3d03b1a92a0cca210c358cfbf"},
+        {"path": "inputs/selection.sqlite3", "sha256": "79c84b9a7479d3c7e90dff779fb4a8a909991cf8cf0de2ff77bac4e7e7f0e1b9"},
+        {"path": "inputs/selection.sqlite3-wal", "sha256": "16f21c1854b2cfac43481fa9c1a715b7535a432c9f33a59e9aba65aeab50c921"},
+        {"path": "inputs/selection.sqlite3-shm", "sha256": "82fcc635181880d4d81efd4343a652cfebe1773187a4f8d611473d4938783b2e"},
+        {"path": "inputs/tico_dev.json", "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"},
+        {"path": "inputs/globalvoices_whitespace_fingerprints.sqlite3", "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"},
+        {"path": "inputs/flores200_dataset.tar.gz", "sha256": "b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6"},
+        {"path": "inputs/multibook_raw_evaluation.json", "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"},
+        {"path": "inputs/books_dev.tsv", "sha256": "e7fdc895e89dc4faa8d0c2f454a224599d85513f87b08bd90d2cf4a3553da59b"},
+        {"path": "inputs/books_confirm.tsv", "sha256": "d7dcf7da4ecfcb0d10eb1c6596e50d668eb7a533aeb584c05da8e78ca432f739"},
+        {"path": "inputs/tatoeba_confirmation_protocol.json", "sha256": "275c2dae7285fb0baa2a54ae2acbdf960382a9b6b1b54207d6fcfc61f6832aeb"},
+        {"path": "inputs/protocol_implementation_addendum.md", "sha256": "5ef015d58d15b587757e8d3f9a3e4fae29ddb8dba8c39cf249f22ff9616b3a5b"}
+      ],
+      "outputs": [
+        "output/candidate_decisions.jsonl.gz",
+        "output/tatoeba_development_1024.json",
+        "output/selection_summary.json",
+        "output/selection_resource_usage.json"
+      ]
+    }
+  ]
+}

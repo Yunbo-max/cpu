@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/42f1128b703b/pa_bpe_wake26_GPc4rMEd/runner/scripts/measure_command.py", line 15, in <module>
+    runpy.run_path(script, run_name="__main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "scripts/apply_contamination_and_select.py", line 425, in <module>
+    main()
+  File "scripts/apply_contamination_and_select.py", line 285, in main
+    idx = build_prior_index(SCRATCH / "prior.sqlite3")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "scripts/apply_contamination_and_select.py", line 241, in build_prior_index
+    build_books(idx)
+  File "scripts/apply_contamination_and_select.py", line 232, in build_books
+    raise ValueError(aligned)
+ValueError: 946

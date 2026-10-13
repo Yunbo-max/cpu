@@ -1,0 +1,685 @@
+{
+  "agent_error": null,
+  "agent_version": 0,
+  "attempts": [
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/pa_bpe_wake26_GPc4rMEd/runner/.research-autopilot/runner/attempts/attempt-5b7c5f02bd0b49ab810066bc04a46292",
+      "attempt_id": "attempt-5b7c5f02bd0b49ab810066bc04a46292",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/measure_command.py",
+          "output/selection_resource_usage.json",
+          "scripts/apply_contamination_and_select.py"
+        ],
+        "attempt_id": "attempt-5b7c5f02bd0b49ab810066bc04a46292",
+        "cwd": ".",
+        "deadline_epoch": 1791884809.5276225,
+        "input_refs": [
+          {
+            "path": "scripts/apply_contamination_and_select.py",
+            "sha256": "e187e2cf86c4550687922cfc6c73c634e8d2ddcd5b10a891011c48c56a0d71c7"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "e60574a651fc485284b981cd0b1373d9683a3d7d6726a90418b0f2c480a6d6cd"
+          },
+          {
+            "path": "inputs/eligible_closed_triangles.tsv.gz",
+            "sha256": "83af88f96911474cc7062c3a502c9865caedc2a04995590eb1ce300f9b6e2f5d"
+          },
+          {
+            "path": "inputs/eng_sentences.tsv.bz2",
+            "sha256": "0eabb52f54350bbb39807190920bfddaf9fee2ba50ca75af67e11a22ec475c29"
+          },
+          {
+            "path": "inputs/fra_sentences.tsv.bz2",
+            "sha256": "fac31d82b216c95affee7dffcee6c0ae59c45f254ebbfbbf8abb9e66da86ee8f"
+          },
+          {
+            "path": "inputs/spa_sentences.tsv.bz2",
+            "sha256": "d1f7aa997368571e8bbba341ab60f9145fefe14970f21065bd97be8e03c8e6fb"
+          },
+          {
+            "path": "inputs/selected_rows.json",
+            "sha256": "c6f76310b3c2e08848706608c391ec13cbf630b3d03b1a92a0cca210c358cfbf"
+          },
+          {
+            "path": "inputs/selection.sqlite3",
+            "sha256": "79c84b9a7479d3c7e90dff779fb4a8a909991cf8cf0de2ff77bac4e7e7f0e1b9"
+          },
+          {
+            "path": "inputs/selection.sqlite3-wal",
+            "sha256": "16f21c1854b2cfac43481fa9c1a715b7535a432c9f33a59e9aba65aeab50c921"
+          },
+          {
+            "path": "inputs/selection.sqlite3-shm",
+            "sha256": "82fcc635181880d4d81efd4343a652cfebe1773187a4f8d611473d4938783b2e"
+          },
+          {
+            "path": "inputs/tico_dev.json",
+            "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+          },
+          {
+            "path": "inputs/globalvoices_whitespace_fingerprints.sqlite3",
+            "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"
+          },
+          {
+            "path": "inputs/flores200_dataset.tar.gz",
+            "sha256": "b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6"
+          },
+          {
+            "path": "inputs/multibook_raw_evaluation.json",
+            "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"
+          },
+          {
+            "path": "inputs/books_dev.tsv",
+            "sha256": "e7fdc895e89dc4faa8d0c2f454a224599d85513f87b08bd90d2cf4a3553da59b"
+          },
+          {
+            "path": "inputs/books_confirm.tsv",
+            "sha256": "d7dcf7da4ecfcb0d10eb1c6596e50d668eb7a533aeb584c05da8e78ca432f739"
+          },
+          {
+            "path": "inputs/tatoeba_confirmation_protocol.json",
+            "sha256": "275c2dae7285fb0baa2a54ae2acbdf960382a9b6b1b54207d6fcfc61f6832aeb"
+          },
+          {
+            "path": "inputs/protocol_implementation_addendum.md",
+            "sha256": "5ef015d58d15b587757e8d3f9a3e4fae29ddb8dba8c39cf249f22ff9616b3a5b"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "output/candidate_decisions.jsonl.gz",
+          "output/tatoeba_development_1024.json",
+          "output/selection_summary.json",
+          "output/selection_resource_usage.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake26_GPc4rMEd/runner",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "wake26-tatoeba-selection-v1",
+        "timeout_seconds": 110
+      },
+      "contract_sha256": "7aa60a07a0344b6b9429ca2043ce3f1f92618001a1e2887de1bae4b7df068c6b",
+      "elapsed_seconds": 12.868660200001614,
+      "kind": "task",
+      "reason": "Command exited with status 1; Cannot safely read output/candidate_decisions.jsonl.gz: [Errno 2] No such file or directory: 'candidate_decisions.jsonl.gz'; Cannot safely read output/tatoeba_development_1024.json: [Errno 2] No such file or directory: 'tatoeba_development_1024.json'; Cannot safely read output/selection_summary.json: [Errno 2] No such file or directory: 'selection_summary.json'",
+      "receipt": {
+        "attempt_id": "attempt-5b7c5f02bd0b49ab810066bc04a46292",
+        "command_identity": {
+          "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+          "pid": 81417,
+          "start_ticks": 1920879
+        },
+        "contract_sha256": "7aa60a07a0344b6b9429ca2043ce3f1f92618001a1e2887de1bae4b7df068c6b",
+        "elapsed_seconds": 12.868660200001614,
+        "error": "Command exited with status 1; Cannot safely read output/candidate_decisions.jsonl.gz: [Errno 2] No such file or directory: 'candidate_decisions.jsonl.gz'; Cannot safely read output/tatoeba_development_1024.json: [Errno 2] No such file or directory: 'tatoeba_development_1024.json'; Cannot safely read output/selection_summary.json: [Errno 2] No such file or directory: 'selection_summary.json'",
+        "exit_code": 1,
+        "finished_at": "2026-10-13T09:17:17.027395+00:00",
+        "input_refs": [
+          {
+            "path": "scripts/apply_contamination_and_select.py",
+            "sha256": "e187e2cf86c4550687922cfc6c73c634e8d2ddcd5b10a891011c48c56a0d71c7"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "e60574a651fc485284b981cd0b1373d9683a3d7d6726a90418b0f2c480a6d6cd"
+          },
+          {
+            "path": "inputs/eligible_closed_triangles.tsv.gz",
+            "sha256": "83af88f96911474cc7062c3a502c9865caedc2a04995590eb1ce300f9b6e2f5d"
+          },
+          {
+            "path": "inputs/eng_sentences.tsv.bz2",
+            "sha256": "0eabb52f54350bbb39807190920bfddaf9fee2ba50ca75af67e11a22ec475c29"
+          },
+          {
+            "path": "inputs/fra_sentences.tsv.bz2",
+            "sha256": "fac31d82b216c95affee7dffcee6c0ae59c45f254ebbfbbf8abb9e66da86ee8f"
+          },
+          {
+            "path": "inputs/spa_sentences.tsv.bz2",
+            "sha256": "d1f7aa997368571e8bbba341ab60f9145fefe14970f21065bd97be8e03c8e6fb"
+          },
+          {
+            "path": "inputs/selected_rows.json",
+            "sha256": "c6f76310b3c2e08848706608c391ec13cbf630b3d03b1a92a0cca210c358cfbf"
+          },
+          {
+            "path": "inputs/selection.sqlite3",
+            "sha256": "79c84b9a7479d3c7e90dff779fb4a8a909991cf8cf0de2ff77bac4e7e7f0e1b9"
+          },
+          {
+            "path": "inputs/selection.sqlite3-wal",
+            "sha256": "16f21c1854b2cfac43481fa9c1a715b7535a432c9f33a59e9aba65aeab50c921"
+          },
+          {
+            "path": "inputs/selection.sqlite3-shm",
+            "sha256": "82fcc635181880d4d81efd4343a652cfebe1773187a4f8d611473d4938783b2e"
+          },
+          {
+            "path": "inputs/tico_dev.json",
+            "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+          },
+          {
+            "path": "inputs/globalvoices_whitespace_fingerprints.sqlite3",
+            "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"
+          },
+          {
+            "path": "inputs/flores200_dataset.tar.gz",
+            "sha256": "b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6"
+          },
+          {
+            "path": "inputs/multibook_raw_evaluation.json",
+            "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"
+          },
+          {
+            "path": "inputs/books_dev.tsv",
+            "sha256": "e7fdc895e89dc4faa8d0c2f454a224599d85513f87b08bd90d2cf4a3553da59b"
+          },
+          {
+            "path": "inputs/books_confirm.tsv",
+            "sha256": "d7dcf7da4ecfcb0d10eb1c6596e50d668eb7a533aeb584c05da8e78ca432f739"
+          },
+          {
+            "path": "inputs/tatoeba_confirmation_protocol.json",
+            "sha256": "275c2dae7285fb0baa2a54ae2acbdf960382a9b6b1b54207d6fcfc61f6832aeb"
+          },
+          {
+            "path": "inputs/protocol_implementation_addendum.md",
+            "sha256": "5ef015d58d15b587757e8d3f9a3e4fae29ddb8dba8c39cf249f22ff9616b3a5b"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "output/selection_resource_usage.json",
+            "sha256": "985f14264e43c22ef203a6af6c16764ef3ee7cc5c91f4d8cea6abb8d3ff0ae86"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake26_GPc4rMEd/runner",
+        "schema_version": 1,
+        "started_at": "2026-10-13T09:17:04.158742+00:00",
+        "status": "failed",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-5b7c5f02bd0b49ab810066bc04a46292/stderr.txt",
+          "sha256": "37f772214aae30a214289d8c87519f4edf89075e7ee699992fed34999b3f8f61"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-5b7c5f02bd0b49ab810066bc04a46292/stdout.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "task_id": "wake26-tatoeba-selection-v1",
+        "worker_identity": {
+          "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+          "pid": 81416,
+          "start_ticks": 1920867
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-5b7c5f02bd0b49ab810066bc04a46292/receipt.json",
+        "sha256": "4fdacc6fc083712bdc72d643824cc8c01875f362d374f5774def2e2e82c976d7"
+      },
+      "reservation_seconds": 113.0,
+      "response_handled": true,
+      "result": "failed",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "wake26-tatoeba-selection-v1"
+    }
+  ],
+  "budget": {
+    "attempts_used": 1,
+    "deadline_epoch": 1791884809.5276225,
+    "elapsed_seconds": 12.868660200001614,
+    "max_attempts": 12,
+    "max_command_seconds": 600,
+    "remaining_deadline_seconds": 1772.3264977931976,
+    "remaining_seconds": 587.1313397999984,
+    "reserved_seconds": 0
+  },
+  "continuation": null,
+  "current_question": "Continue diagnostic: Execution observation for wake26-tatoeba-selection-v1: failed; Command exited with status 1; Cannot safely read output/candidate_decisions.jsonl.gz: [Errno 2] No such file or directory: 'candidate_decisions.jsonl.gz'; Cannot safely read output/tatoeba_development_1024.json: [Errno 2] No such file or directory: 'tatoeba_development_1024.json'; Cannot safely read output/selection_summary.json: [Errno 2] No such file or directory: 'selection_summary.json'",
+  "goal": "Continue PA-BPE cross-domain multilingual tokenization fairness research by applying the frozen contamination protocol to eligible Tatoeba triangles and independently verifying the deterministic development selection before tokenizer scoring",
+  "goal_contract": {
+    "completion_criteria": [
+      {
+        "description": "Compare Classical BPE, PA-BPE variants and a simple data-balancing control on frozen aligned development and unseen-domain evaluation data with independently verified fairness and total-cost metrics",
+        "id": "authentic_comparison"
+      },
+      {
+        "description": "Determine whether fairness gains persist across domains and test one evidence-derived repair if a failure mechanism is observed, retaining negative results",
+        "id": "cross_domain_interpretation"
+      }
+    ],
+    "mode": "continuous_research"
+  },
+  "goal_contract_version": 1,
+  "idea": "frozen-tatoeba-development-selection",
+  "idea_status": "active",
+  "journal_version": 1,
+  "milestones": [],
+  "next_action": "Continue diagnostic: Execution observation for wake26-tatoeba-selection-v1: failed; Command exited with status 1; Cannot safely read output/candidate_decisions.jsonl.gz: [Errno 2] No such file or directory: 'candidate_decisions.jsonl.gz'; Cannot safely read output/tatoeba_development_1024.json: [Errno 2] No such file or directory: 'tatoeba_development_1024.json'; Cannot safely read output/selection_summary.json: [Errno 2] No such file or directory: 'selection_summary.json'",
+  "observations": [
+    {
+      "event_id": "result:attempt-5b7c5f02bd0b49ab810066bc04a46292",
+      "kind": "task_result",
+      "payload": {
+        "attempt_id": "attempt-5b7c5f02bd0b49ab810066bc04a46292",
+        "reason": "Command exited with status 1; Cannot safely read output/candidate_decisions.jsonl.gz: [Errno 2] No such file or directory: 'candidate_decisions.jsonl.gz'; Cannot safely read output/tatoeba_development_1024.json: [Errno 2] No such file or directory: 'tatoeba_development_1024.json'; Cannot safely read output/selection_summary.json: [Errno 2] No such file or directory: 'selection_summary.json'",
+        "receipt": {
+          "attempt_id": "attempt-5b7c5f02bd0b49ab810066bc04a46292",
+          "command_identity": {
+            "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+            "pid": 81417,
+            "start_ticks": 1920879
+          },
+          "contract_sha256": "7aa60a07a0344b6b9429ca2043ce3f1f92618001a1e2887de1bae4b7df068c6b",
+          "elapsed_seconds": 12.868660200001614,
+          "error": "Command exited with status 1; Cannot safely read output/candidate_decisions.jsonl.gz: [Errno 2] No such file or directory: 'candidate_decisions.jsonl.gz'; Cannot safely read output/tatoeba_development_1024.json: [Errno 2] No such file or directory: 'tatoeba_development_1024.json'; Cannot safely read output/selection_summary.json: [Errno 2] No such file or directory: 'selection_summary.json'",
+          "exit_code": 1,
+          "finished_at": "2026-10-13T09:17:17.027395+00:00",
+          "input_refs": [
+            {
+              "path": "scripts/apply_contamination_and_select.py",
+              "sha256": "e187e2cf86c4550687922cfc6c73c634e8d2ddcd5b10a891011c48c56a0d71c7"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "e60574a651fc485284b981cd0b1373d9683a3d7d6726a90418b0f2c480a6d6cd"
+            },
+            {
+              "path": "inputs/eligible_closed_triangles.tsv.gz",
+              "sha256": "83af88f96911474cc7062c3a502c9865caedc2a04995590eb1ce300f9b6e2f5d"
+            },
+            {
+              "path": "inputs/eng_sentences.tsv.bz2",
+              "sha256": "0eabb52f54350bbb39807190920bfddaf9fee2ba50ca75af67e11a22ec475c29"
+            },
+            {
+              "path": "inputs/fra_sentences.tsv.bz2",
+              "sha256": "fac31d82b216c95affee7dffcee6c0ae59c45f254ebbfbbf8abb9e66da86ee8f"
+            },
+            {
+              "path": "inputs/spa_sentences.tsv.bz2",
+              "sha256": "d1f7aa997368571e8bbba341ab60f9145fefe14970f21065bd97be8e03c8e6fb"
+            },
+            {
+              "path": "inputs/selected_rows.json",
+              "sha256": "c6f76310b3c2e08848706608c391ec13cbf630b3d03b1a92a0cca210c358cfbf"
+            },
+            {
+              "path": "inputs/selection.sqlite3",
+              "sha256": "79c84b9a7479d3c7e90dff779fb4a8a909991cf8cf0de2ff77bac4e7e7f0e1b9"
+            },
+            {
+              "path": "inputs/selection.sqlite3-wal",
+              "sha256": "16f21c1854b2cfac43481fa9c1a715b7535a432c9f33a59e9aba65aeab50c921"
+            },
+            {
+              "path": "inputs/selection.sqlite3-shm",
+              "sha256": "82fcc635181880d4d81efd4343a652cfebe1773187a4f8d611473d4938783b2e"
+            },
+            {
+              "path": "inputs/tico_dev.json",
+              "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+            },
+            {
+              "path": "inputs/globalvoices_whitespace_fingerprints.sqlite3",
+              "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"
+            },
+            {
+              "path": "inputs/flores200_dataset.tar.gz",
+              "sha256": "b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6"
+            },
+            {
+              "path": "inputs/multibook_raw_evaluation.json",
+              "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"
+            },
+            {
+              "path": "inputs/books_dev.tsv",
+              "sha256": "e7fdc895e89dc4faa8d0c2f454a224599d85513f87b08bd90d2cf4a3553da59b"
+            },
+            {
+              "path": "inputs/books_confirm.tsv",
+              "sha256": "d7dcf7da4ecfcb0d10eb1c6596e50d668eb7a533aeb584c05da8e78ca432f739"
+            },
+            {
+              "path": "inputs/tatoeba_confirmation_protocol.json",
+              "sha256": "275c2dae7285fb0baa2a54ae2acbdf960382a9b6b1b54207d6fcfc61f6832aeb"
+            },
+            {
+              "path": "inputs/protocol_implementation_addendum.md",
+              "sha256": "5ef015d58d15b587757e8d3f9a3e4fae29ddb8dba8c39cf249f22ff9616b3a5b"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/selection_resource_usage.json",
+              "sha256": "985f14264e43c22ef203a6af6c16764ef3ee7cc5c91f4d8cea6abb8d3ff0ae86"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake26_GPc4rMEd/runner",
+          "schema_version": 1,
+          "started_at": "2026-10-13T09:17:04.158742+00:00",
+          "status": "failed",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-5b7c5f02bd0b49ab810066bc04a46292/stderr.txt",
+            "sha256": "37f772214aae30a214289d8c87519f4edf89075e7ee699992fed34999b3f8f61"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-5b7c5f02bd0b49ab810066bc04a46292/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "wake26-tatoeba-selection-v1",
+          "worker_identity": {
+            "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+            "pid": 81416,
+            "start_ticks": 1920867
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-5b7c5f02bd0b49ab810066bc04a46292/receipt.json",
+          "sha256": "4fdacc6fc083712bdc72d643824cc8c01875f362d374f5774def2e2e82c976d7"
+        },
+        "status": "failed",
+        "task_id": "wake26-tatoeba-selection-v1"
+      },
+      "request_id": null,
+      "sequence": 1
+    }
+  ],
+  "request_id": "decision-3ce6e73f396e4c5387bcf25024b9b471",
+  "research_cycles": [],
+  "revision": 1,
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake26_GPc4rMEd/runner",
+  "source": {
+    "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+      },
+      {
+        "path": "references/rsi-simple.md",
+        "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+      },
+      {
+        "path": "references/simple-runner.md",
+        "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+      },
+      {
+        "path": "scripts/_simple_process.py",
+        "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+      },
+      {
+        "path": "scripts/_simple_source.py",
+        "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+      },
+      {
+        "path": "scripts/simple_loop.py",
+        "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+      },
+      {
+        "path": "scripts/simple_runner.py",
+        "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+      },
+      {
+        "path": "references/simple-experiment-design.md",
+        "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+      },
+      {
+        "path": "scripts/simple_design.py",
+        "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+      },
+      {
+        "path": "scripts/simple_resources.py",
+        "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+      },
+      {
+        "path": "assets/templates/simple-experiment-plan.json",
+        "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+      },
+      {
+        "path": "assets/templates/simple-experiment-results.json",
+        "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+      },
+      {
+        "path": "references/simple-collaboration.md",
+        "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+      },
+      {
+        "path": "assets/templates/simple-delegation.json",
+        "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+      }
+    ],
+    "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "tasks": [
+    {
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/selection_resource_usage.json",
+        "scripts/apply_contamination_and_select.py"
+      ],
+      "attempt_id": "attempt-5b7c5f02bd0b49ab810066bc04a46292",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "frozen-tatoeba-development-selection",
+      "input_refs": [
+        {
+          "path": "scripts/apply_contamination_and_select.py",
+          "sha256": "e187e2cf86c4550687922cfc6c73c634e8d2ddcd5b10a891011c48c56a0d71c7"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "e60574a651fc485284b981cd0b1373d9683a3d7d6726a90418b0f2c480a6d6cd"
+        },
+        {
+          "path": "inputs/eligible_closed_triangles.tsv.gz",
+          "sha256": "83af88f96911474cc7062c3a502c9865caedc2a04995590eb1ce300f9b6e2f5d"
+        },
+        {
+          "path": "inputs/eng_sentences.tsv.bz2",
+          "sha256": "0eabb52f54350bbb39807190920bfddaf9fee2ba50ca75af67e11a22ec475c29"
+        },
+        {
+          "path": "inputs/fra_sentences.tsv.bz2",
+          "sha256": "fac31d82b216c95affee7dffcee6c0ae59c45f254ebbfbbf8abb9e66da86ee8f"
+        },
+        {
+          "path": "inputs/spa_sentences.tsv.bz2",
+          "sha256": "d1f7aa997368571e8bbba341ab60f9145fefe14970f21065bd97be8e03c8e6fb"
+        },
+        {
+          "path": "inputs/selected_rows.json",
+          "sha256": "c6f76310b3c2e08848706608c391ec13cbf630b3d03b1a92a0cca210c358cfbf"
+        },
+        {
+          "path": "inputs/selection.sqlite3",
+          "sha256": "79c84b9a7479d3c7e90dff779fb4a8a909991cf8cf0de2ff77bac4e7e7f0e1b9"
+        },
+        {
+          "path": "inputs/selection.sqlite3-wal",
+          "sha256": "16f21c1854b2cfac43481fa9c1a715b7535a432c9f33a59e9aba65aeab50c921"
+        },
+        {
+          "path": "inputs/selection.sqlite3-shm",
+          "sha256": "82fcc635181880d4d81efd4343a652cfebe1773187a4f8d611473d4938783b2e"
+        },
+        {
+          "path": "inputs/tico_dev.json",
+          "sha256": "fa3b4953e5bb696d0ef1e3a975e94db00c85e1cc63bcc2652443e7aeb3b1e12b"
+        },
+        {
+          "path": "inputs/globalvoices_whitespace_fingerprints.sqlite3",
+          "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"
+        },
+        {
+          "path": "inputs/flores200_dataset.tar.gz",
+          "sha256": "b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6"
+        },
+        {
+          "path": "inputs/multibook_raw_evaluation.json",
+          "sha256": "c93f81a12c2c85726d72ba3c61109b475a9ac50fdd8ef5c5f07aaaca3b009e77"
+        },
+        {
+          "path": "inputs/books_dev.tsv",
+          "sha256": "e7fdc895e89dc4faa8d0c2f454a224599d85513f87b08bd90d2cf4a3553da59b"
+        },
+        {
+          "path": "inputs/books_confirm.tsv",
+          "sha256": "d7dcf7da4ecfcb0d10eb1c6596e50d668eb7a533aeb584c05da8e78ca432f739"
+        },
+        {
+          "path": "inputs/tatoeba_confirmation_protocol.json",
+          "sha256": "275c2dae7285fb0baa2a54ae2acbdf960382a9b6b1b54207d6fcfc61f6832aeb"
+        },
+        {
+          "path": "inputs/protocol_implementation_addendum.md",
+          "sha256": "5ef015d58d15b587757e8d3f9a3e4fae29ddb8dba8c39cf249f22ff9616b3a5b"
+        }
+      ],
+      "outputs": [
+        "output/candidate_decisions.jsonl.gz",
+        "output/tatoeba_development_1024.json",
+        "output/selection_summary.json",
+        "output/selection_resource_usage.json"
+      ],
+      "phase": "sources",
+      "purpose": "Apply the frozen exact and five-token 0.8 multiset-overlap contamination screens for every restored training, TICO, verified GlobalVoices, FLORES, MultiBook and Alice/Poe item, then select the deterministic 1024-row Tatoeba development set with representative and sentence-ID uniqueness constraints",
+      "reason": "Command exited with status 1; Cannot safely read output/candidate_decisions.jsonl.gz: [Errno 2] No such file or directory: 'candidate_decisions.jsonl.gz'; Cannot safely read output/tatoeba_development_1024.json: [Errno 2] No such file or directory: 'tatoeba_development_1024.json'; Cannot safely read output/selection_summary.json: [Errno 2] No such file or directory: 'selection_summary.json'",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "failed",
+      "supersedes": null,
+      "task_id": "wake26-tatoeba-selection-v1",
+      "timeout_seconds": 110
+    }
+  ]
+}

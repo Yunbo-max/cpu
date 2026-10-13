@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-13T08:48:00+00:00",
+  "updated_utc": "2026-10-13T09:22:30+00:00",
   "goal_mode": "continuous_research",
   "authorization_ref": "evidence/continuous_authorization_20261011.json",
   "phase_limit_seconds": null,
@@ -337,6 +337,17 @@
       "scientific_processes_active": 0,
       "receipt_inventory": "execution_windows/wake25/.research-autopilot/runner/attempts",
       "notes": "Recovered the exact three frozen OPUS GlobalVoices raw archives from the already-persisted full bundle, rebuilt the 512x3 result-blind index using the prospective whitespace-token rule, and independently recomputed all 1536 exact hashes and shingle multisets. All three attempts exit0; peak RSS 103268352 bytes. No contamination selection, tokenizer, or fairness score."
+    },
+    {
+      "id": "wake26-20261013",
+      "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake26_GPc4rMEd/runner",
+      "attempts": 1,
+      "wall_seconds": 12.868660200001614,
+      "reserved_seconds": 0,
+      "status": "selector_repaired_waiting_for_memory_selection_hold",
+      "scientific_processes_active": 0,
+      "receipt_inventory": "execution_windows/wake26/.research-autopilot/runner/attempts",
+      "notes": "One retained exit1 attempt exposed an incorrect 947 row-count assertion before candidate decisions. Both primary and independent verifier were corrected to 946 and compiled. No replacement started because three bounded memory rechecks ended below the 746586112-byte restart threshold. No OOM, selection, tokenizer or fairness result; continuous goal remains active."
     }
   ],
   "cumulative_charged_seconds": 1982.9312670729757,
