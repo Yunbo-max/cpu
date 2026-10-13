@@ -10,7 +10,7 @@
 
 1. 读取远端最新 main 和本目录 LATEST；若本地已有工作，先比较检查点时间、sequence、证据哈希，禁止覆盖更新现场。
 2. 在独立临时 checkout 中只恢复本项目。可使用 `git clone --depth 1 --filter=blob:none --sparse https://github.com/Yunbo-max/cpu.git checkout` 后，在 checkout 中执行 `git sparse-checkout set projects/lowrank-coreset-streaming-simple-20261011`。克隆记录实际 commit。
-3. 执行 `python3 projects/lowrank-coreset-streaming-simple-20261011/archive_store.py restore /absolute/path/lowrank_coreset_streaming_rsi_simple`。目标必须不存在；脚本校验每个对象及恢复后的每个文件。随后阅读 START_HERE 和固定 runtime 技能，重新检查资源/身份/收据。归档停止的 w001–w008 全部保留，下一可用窗口从 w009 接续，不修改旧预算。
+3. 执行 `python3 projects/lowrank-coreset-streaming-simple-20261011/archive_store.py restore /absolute/path/lowrank_coreset_streaming_rsi_simple`。目标必须不存在；脚本校验每个对象及恢复后的每个文件。随后阅读 START_HERE 和固定 runtime 技能，重新检查资源/身份/收据。全部旧窗口和失败记录均须保留；下一编号窗口以最新 CHECKPOINT 和 ledger 为准，不修改旧预算。
 4. 数值任务通过固定 runner 和 cpu_guard；代码和真实结果先在工作目录保存。结束前调和所有任务/收据，监督器退出或处于已证实安静边界，运行项目 `scripts/build_checkpoint.py`。
 5. 执行 `python3 projects/lowrank-coreset-streaming-simple-20261011/archive_store.py pack /absolute/path/LowRank_Coreset_Streaming_Simple_Checkpoint.zip`；它验证 ZIP 成员，新增变更对象与完整快照。更新本项目摘要。
 6. 基于最新 main 提交本项目目录，普通非强推。冲突时重新获取最新 main 并只调和本项目变化，不覆盖其他项目。不得 force/reset 远端。失败时保留唯一现场。
@@ -20,10 +20,10 @@
 
 ## 本次新结果
 
-w011 已完成冻结的 Frequent Directions 合并拓扑开发实验，累计37个研究周期。第三次资源复查的共享 cgroup 余量在30秒内由4,488,531,968升至4,522,016,768字节，超过预注册的1 GiB门槛；512行 Landmark、8个连续叶块、目标秩25、`ell=32,48,64` 的平衡树、左深树、中央逐行 FD 与精确 SVD 比较随后通过4 GiB保护器单线程运行。生产任务峰值121,992 KiB，无 OOM。
+w012 已用精确确定性反例否定从 w011 有限 Landmark 结果外推的“Frequent Directions 平衡合并树普遍非劣”命题，累计38个研究周期。对 `ell=2`、rank-1 评价，严格谱间隔对照选中的四个有序叶协方差为 `(1,0,0),(1,0,0),(0,3,0),(0,0,4)`：平衡树最终为 `(1,0,0)`、投影代价7；左深树最终为 `(0,0,3)`、代价5。
 
-首版独立审计真实失败并保留：它把合并收缩阈值和误当成总范数损失。对2ell到ell的合并，总损失还包含被截断下尾奇异值能量。修复版审计不导入生产脚本，独立重建全部9个方法—宽度组合，保存草图的协方差重建差为0，全部度量、PSD和 FD 界检查通过；峰值129,536 KiB。
+前瞻冻结的整数网格覆盖 `3^4 * 8^4 = 331,776` 个候选，并要求所有正阈值合并都有唯一首特征值；其中5,328个仍构成拓扑反转。因此反例不是内部特征值平局伪影，共同对角基也不足以保证拓扑无关。冻结搜索通过4 GiB保护器单线程运行3.9405秒、峰值26,752 KiB，无 OOM。
 
-冻结比较中，平衡树减左深树的“总丢弃范数质量/秩25投影代价”在ell32、48、64分别为 `-0.00493377343/-0.0000918399126`、`-0.00000355686808/-6.59e-10`、约0。因此有限实例的非劣预测通过，但可见优势集中在最窄宽度，到ell64为数值平局；没有全局拓扑排序、速度优势、新算法或失败概率保证。w011在3次尝试、14.5545命令秒和1个研究周期后归档正常停止，长期授权继续。
+该结果不否定已有 FD 可合并误差保证，只否定一个普遍拓扑排序。已确认的简单充分条件是所有叶位于维数小于 `ell` 的共同子空间，此时所有收缩阈值为0、任意树都等于普通协方差相加；这是严格但受限的条件，不作原创性声明。w012在2次成功尝试、4.0286命令秒和1个研究周期后归档正常停止，长期授权继续。
 
-下一窗口应先做低内存数学与来源审查：寻找平衡树非劣的可陈述充分条件，或构造小型确定性反例。只有冻结准确命题和强对抗基线后才考虑新数值实验，不做种子/分区泛扫来放大本次正面点。详细状态与证据见 `current/CHECKPOINT.json`、`current/START_HERE.md` 和最新快照。
+下一窗口从w013接续。不要重新启动无条件平衡树优势或用种子/分区泛扫淡化反例；只有能先冻结非同义反复的可观测拓扑敏感性条件并与 rank-below-width 强基线比较，才继续FD拓扑分支，否则转向下一个未解决的低秩或流式统计问题。详细状态与证据见 `current/CHECKPOINT.json`、`current/START_HERE.md` 和最新快照。

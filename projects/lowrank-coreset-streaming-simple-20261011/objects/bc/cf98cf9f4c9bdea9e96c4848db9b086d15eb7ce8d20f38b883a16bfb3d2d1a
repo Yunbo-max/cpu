@@ -1,0 +1,49 @@
+# FD merge-topology source and mathematical scope v1
+
+## Primary-source boundary
+
+Ghashami, Liberty, Phillips, and Woodruff, *Frequent Directions: Simple and Deterministic Matrix Sketching* (arXiv:1501.01711v2; SIAM J. Comput. 2016) proves the standard covariance and projection guarantees and states that the summary is mergeable. The primary source supports preservation of the guarantee form after merging; it does not state that the binary merge operator is associative, that every merge tree produces the same sketch, or that a balanced tree minimizes realized projection cost. Source: https://arxiv.org/abs/1501.01711 .
+
+The present question is therefore narrower than mergeability: does the stronger empirical ordering observed in w011 (balanced no worse than left-deep) hold universally? A counterexample to that ordering would not contradict the published mergeability theorem.
+
+## Diagonal reduction
+
+For a diagonal covariance vector `x` and sketch width `ell`, define
+
+`T_ell(x)_i = max(x_i - tau_ell(x), 0)`,
+
+where `tau_ell(x)` is the ell-th largest coordinate. For axis-aligned rows, one exact FD reduction maps the input covariance to `T_ell(x)`. Hence the covariance-level merge of two already valid summaries is
+
+`M_ell(x,y) = T_ell(x+y)`.
+
+This operator preserves the FD guarantee machinery but need not be associative. It provides a fully auditable setting in which merge topology can be decided with integer arithmetic.
+
+## Analytically constructed candidate
+
+Take width `ell=2`, target rank `k=1`, dimension three, and four rank-one leaf covariances in stream order:
+
+- `a=(5,0,0)`
+- `b=(0,4,0)`
+- `c=(0,0,4)`
+- `d=(0,4,0)`
+
+Every leaf is realizable exactly by one axis-aligned row and has rank below `ell`. The candidate was constructed analytically before writing the verification script; it is not an unseen exhaustive-search discovery.
+
+Balanced tree:
+
+- `M(a,b)=(1,0,0)`
+- `M(c,d)=(0,0,0)` because the two nonzero eigenvalues tie at 4
+- final `M(M(a,b),M(c,d))=(1,0,0)`
+
+Left-deep tree:
+
+- `M(a,b)=(1,0,0)`
+- `M((1,0,0),c)=(0,0,3)`
+- final `M((0,0,3),d)=(0,1,0)`
+
+The original covariance is `(5,8,4)`. Thus the balanced rank-one subspace selects coordinate 1 and has projection cost `8+4=12`, while the left-deep subspace selects coordinate 2 and has cost `5+4=9`. Both final sketch traces equal one, so their total norm-derived discarded mass is tied. This single strict projection-cost violation is enough to refute universal balanced non-worseness.
+
+## What remains to verify
+
+Run a small independent exact-integer verifier through the fixed runner and CPU guard. It must recompute both trees from the leaf vectors, assert the intermediate states, compute projection costs from the unsummarized covariance, and confirm that all leaves are valid rank-one inputs. No random search, floating-point SVD, timing claim, or broad empirical sweep is needed.
+

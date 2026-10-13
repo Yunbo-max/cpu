@@ -1,0 +1,27 @@
+# Prospectively fixed exact counterexample verification v1
+
+## Question
+
+Is the w011 finite-instance ordering “balanced FD merge tree is no worse than a left-deep tree in total discarded mass and rank-k projection cost” a universal property of FD merging?
+
+## Hypothesis and prediction
+
+Hypothesis: the stronger universal ordering is false even though both trees retain the published FD guarantee form.
+
+Prediction: for `ell=2`, `k=1`, dimension three, and ordered rank-one leaf covariance vectors `(5,0,0)`, `(0,4,0)`, `(0,0,4)`, `(0,4,0)`, exact covariance-level FD reductions produce balanced final state `(1,0,0)` and left-deep final state `(0,1,0)`. On the original covariance `(5,8,4)`, balanced projection cost is 12 and left-deep cost is 9; total norm-derived discarded mass is tied.
+
+## Falsifier
+
+The counterexample is rejected if any exact intermediate state differs, if the final rank-one selected coordinates are not uniquely 1 and 2 respectively, if balanced projection cost is not strictly larger, or if any leaf is not a valid rank-below-ell PSD covariance input.
+
+## Method
+
+- Use integer-only vectors and a separately implemented `T_ell` operator.
+- Construct balanced and left-deep trees explicitly; do not import w011 producer code.
+- Check leaf validity, intermediate states, final traces, norm-derived discarded mass, unique selected coordinate, and projection cost against direct integer formulas.
+- Run once through `scripts/cpu_guard.py`; this is deterministic proof verification, not a stochastic trial.
+
+## Scope and decision
+
+Passing refutes only the universal topology ordering and explains why the positive w011 result must remain instance-specific. It does not refute FD mergeability or its published error guarantees. The result should retire attempts to prove unconditional balanced dominance. The next research decision should ask whether a useful sufficient condition exists; new large numerics are not justified by this exact counterexample alone.
+

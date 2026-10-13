@@ -1,0 +1,26 @@
+# Strict-margin counterexample search v1
+
+## Motivation
+
+The exact four-leaf counterexample in `fd_merge_topology_counterexample_v1.md` uses one internal positive eigenvalue tie: merging `(0,0,4)` and `(0,4,0)` at `ell=2` annihilates both directions. The universal ordering is already refuted, but a strict-margin example would show that the reversal is not confined to this tie surface.
+
+## Hypothesis and prediction
+
+Hypothesis: balanced-tree projection-cost inferiority persists for axis-aligned rank-one leaves even when every nontrivial `ell=2` shrink has a strict top-versus-second covariance eigenvalue gap.
+
+Prediction: the finite exact grid of four ordered leaves, three coordinates, and integer weights 1 through 8 contains at least one candidate for which all balanced and left-deep merge inputs with two or more positive coordinates have strictly unequal largest and second-largest entries, both final sketches select unique coordinates, and balanced rank-one projection cost is strictly larger.
+
+## Frozen search and selection
+
+- Enumerate all `3^4` ordered coordinate assignments and `8^4` ordered positive integer weights.
+- Use only exact integer covariance-vector arithmetic and `T_2`.
+- Reject a candidate if any nontrivial merge input in either tree has equal positive largest and second-largest coordinates.
+- Reject if either final sketch has no unique positive maximum.
+- Retain candidates with balanced projection cost strictly larger than left-deep cost on the original unsummarized covariance.
+- Select deterministically by minimum total leaf weight, then lexicographic `(coordinates, weights)` order.
+- Report the complete candidate count, selected intermediate states, margins, projection costs and discarded masses.
+
+## Falsifier and decision
+
+If the frozen grid has zero eligible counterexamples, the tie-free robustness hypothesis fails for this bounded grid; do not enlarge it post hoc in this cycle. If a candidate exists, the unconditional balanced-dominance direction is retired more strongly. In either case, no timing or probability claim follows.
+

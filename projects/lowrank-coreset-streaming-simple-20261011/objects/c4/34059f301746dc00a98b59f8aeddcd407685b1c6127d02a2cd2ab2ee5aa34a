@@ -1,0 +1,59 @@
+# Frequent Directions merge-topology counterexample analysis v1
+
+## Question
+
+Does the finite Landmark observation that a balanced merge tree was non-worse than a left-deep tree extend to a universal ordering for Frequent Directions (FD) rank-one projection quality?
+
+## Exact diagonal reduction
+
+For a diagonal covariance vector `x` and sketch width `ell`, exact FD shrinkage is
+
+`T_ell(x)_i = max(x_i - tau_ell(x), 0)`,
+
+where `tau_ell(x)` is the `ell`-th largest entry. Merging two exact diagonal summaries is therefore `M_ell(x,y)=T_ell(x+y)`. This is an exact covariance-domain representation of the FD SVD update for the constructed axis-aligned leaves, not a numerical approximation.
+
+## First constructed counterexample
+
+With `ell=2`, `k=1`, dimension 3 and ordered leaves
+
+`(5,0,0), (0,4,0), (0,0,4), (0,4,0)`,
+
+the balanced tree returns `(1,0,0)` whereas the left-deep tree returns `(0,1,0)`. Against the original covariance `(5,8,4)`, their rank-one projection costs are respectively 12 and 9. This already refutes unconditional balanced-tree non-worseness, but the `(0,0,4)+(0,4,0)` merge contains a positive eigenvalue tie.
+
+## Prospective strict-margin control
+
+The frozen finite grid enumerated all `3^4 * 8^4 = 331,776` ordered axis assignments and integer weights from 1 through 8. It required every merge input with positive second-largest entry to have a unique largest entry, and required unique final selected coordinates.
+
+The search found 5,328 eligible reversals. The predeclared minimum-total-weight, then lexicographic selection was
+
+`(1,0,0), (1,0,0), (0,3,0), (0,0,4)`.
+
+Balanced tree:
+
+- `M(a,b)=(2,0,0)` with zero threshold;
+- `M(c,d)=(0,0,1)` from strict input spectrum `(4,3,0)`;
+- final `M((2,0,0),(0,0,1))=(1,0,0)` from strict input spectrum `(2,1,0)`.
+
+Left-deep tree:
+
+- `M(a,b)=(2,0,0)`;
+- `M((2,0,0),c)=(0,1,0)` from strict input spectrum `(3,2,0)`;
+- final `M((0,1,0),d)=(0,0,3)` from strict input spectrum `(4,1,0)`.
+
+The original covariance is `(2,3,4)`. Balanced selects coordinate 1 and has rank-one projection cost `3+4=7`; left-deep selects coordinate 3 and has cost `2+3=5`. The strict-margin control therefore refutes the tie-artifact explanation. The norm-derived discarded masses are 4 and 3, so topology affects both the final direction and cumulative shrinkage in this instance.
+
+## What remains true
+
+This does not contradict FD mergeability: the known guarantee is that merged summaries retain an FD-form approximation guarantee, not that the merge operator is associative, that all merge trees are equal, or that balanced trees universally dominate.
+
+A simple sufficient condition for exact topology invariance is: all leaves lie in a common subspace `U` with `dim(U) < ell`. Every partial covariance sum then has rank below `ell`, every FD threshold is zero, and every merge is ordinary covariance addition. This condition is exact but restrictive. Common eigenvectors alone are insufficient, because the strict-margin counterexample is diagonal in one common basis.
+
+## Decision
+
+Retire the unconditional balanced-tree dominance hypothesis as false. Do not extrapolate the prior finite Landmark ordering into a theorem. A successor question is scientifically worthwhile only if it proposes a non-tautological, observable heterogeneity or subspace-overlap condition that predicts topology sensitivity and is compared against the exact rank-below-`ell` condition and ordinary fixed-tree baselines.
+
+## Evidence
+
+- `results/fd_merge_topology_counterexample_v1.json`
+- `results/fd_merge_topology_strict_margin_search_v1.json`
+- runner receipts for `verify-fd-merge-topology-counterexample-v1` and `search-fd-merge-strict-margin-counterexample-v1`

@@ -1,0 +1,62 @@
+{
+  "response_id": "w012-fd-merge-counterexample-interpret-v1",
+  "request_id": "decision-2514de1a932b495fa7fab0a70ff5c171",
+  "idea": "fd-merge-topology-condition-counterexample-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The exact constructed example and the prospectively frozen strict-margin control both refute unconditional balanced-tree non-worseness. The stronger control rules out a positive-eigenvalue-tie artifact, while a common rank-below-width subspace supplies only a restrictive topology-invariance condition.",
+  "events": [
+    {
+      "event_id": "w012-fd-merge-topology-counterexample-cycle-v1",
+      "kind": "research_cycle",
+      "reason": "The prior native Landmark experiment favored balanced merging on one finite instance, creating a falsifiable question about whether the ordering extends beyond that instance or requires restrictive structure.",
+      "hypothesis": "For exact Frequent Directions summaries of four ordered leaves, a balanced merge tree is universally non-worse than a left-deep tree in rank-one projection cost; if a reversal appears, it is attributable to an internal positive eigenvalue tie.",
+      "prediction": "No exact diagonal four-leaf instance with strict spectral margins at every nontrivial width-two merge will have balanced rank-one projection cost strictly greater than the left-deep cost.",
+      "result": "An exact constructed instance already gave balanced cost 12 versus left-deep cost 9. The prospectively frozen 331,776-candidate integer grid then found 5,328 strict-margin reversals. Its minimum-total-weight selected leaves were (1,0,0), (1,0,0), (0,3,0), (0,0,4): balanced returned (1,0,0) with projection cost 7, while left-deep returned (0,0,3) with cost 5. Every positive compression threshold had a unique leading eigenvalue. The guarded search used 3.940541495 seconds and peaked at 26,752 KiB RSS.",
+      "interpretation": "The prediction is false. Balanced-tree non-worseness is not a general FD property and the reversal is not a tie artifact; common diagonal eigenvectors are also insufficient. This does not contradict FD mergeability, which preserves approximation-guarantee form rather than associativity or a topology ordering. Topology is exactly irrelevant under the restrictive sufficient condition that all leaves lie in one subspace of dimension below the sketch width, because every shrink threshold is zero.",
+      "next_action": "Retire unconditional balanced-tree dominance. In a later window, pursue a topology-sensitivity predictor only if a non-tautological observable condition can be frozen and compared against the exact rank-below-width condition and fixed-tree baselines; otherwise pivot to the next unresolved low-rank or streaming-statistics question.",
+      "evidence": [
+        {
+          "path": "plans/fd_merge_topology_counterexample_v1.md",
+          "sha256": "f406d426908c9e96e512fc5d43bdb34859d92bf4ad94ac0b768a65e09900fe69"
+        },
+        {
+          "path": "results/fd_merge_topology_counterexample_v1.json",
+          "sha256": "e6d69f81398e7ea28169aa39774fc420bf34b594fc53f9e96e041b60c8aecd20"
+        },
+        {
+          "path": "plans/fd_merge_topology_strict_margin_search_v1.md",
+          "sha256": "45e5ea6db0780bd40f118d98e6c8f1fc13512cbd16afa678715e08fee1dbe1a2"
+        },
+        {
+          "path": "results/fd_merge_topology_strict_margin_search_v1.json",
+          "sha256": "e83683941f91539909d2bdb3b590e6b0615301f779a727beb9922657368714d0"
+        },
+        {
+          "path": "analysis/fd_merge_topology_counterexample_analysis_v1.md",
+          "sha256": "c434059f301746dc00a98b59f8aeddcd407685b1c6127d02a2cd2ab2ee5aa34a"
+        },
+        {
+          "path": ".research-autopilot/runner/attempts/attempt-a0a46dbe3460427f93d48e034a4b889e/receipt.json",
+          "sha256": "c6c2f54f1c1ac68fd73de45f6dfecae80a9bfd36a3383ae5b5542c13417ccd62"
+        }
+      ]
+    },
+    {
+      "event_id": "w012-fd-merge-topology-condition-audit-complete-v1",
+      "kind": "completion",
+      "outcome": "not_supported",
+      "reason": "A strict-margin exact counterexample disproves universal balanced-tree non-worseness; the only proven topology-invariance condition here is the restrictive lossless rank-below-width regime.",
+      "evidence": [
+        {
+          "path": "results/fd_merge_topology_strict_margin_search_v1.json",
+          "sha256": "e83683941f91539909d2bdb3b590e6b0615301f779a727beb9922657368714d0"
+        },
+        {
+          "path": "analysis/fd_merge_topology_counterexample_analysis_v1.md",
+          "sha256": "c434059f301746dc00a98b59f8aeddcd407685b1c6127d02a2cd2ab2ee5aa34a"
+        }
+      ]
+    }
+  ]
+}

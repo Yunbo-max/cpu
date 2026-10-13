@@ -1,0 +1,49 @@
+{
+  "response_id": "w012-fd-merge-counterexample-submit-v1",
+  "request_id": "decision-6438783e1c8940f0b067a1982b9ecaef",
+  "idea": "fd-merge-topology-condition-counterexample-audit-v1",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Primary-source review bounds mergeability to preservation of FD guarantee form, not associative equality or balanced-tree dominance. An analytically constructed four-leaf diagonal candidate gives a cheaper exact falsifier of unconditional balanced non-worseness than any new random or partition sweep.",
+  "tasks": [
+    {
+      "task_id": "verify-fd-merge-topology-counterexample-v1",
+      "phase": "verify",
+      "purpose": "Independently verify the prospectively written exact-integer four-leaf counterexample and its rank-one projection costs",
+      "argv": [
+        "python3",
+        "scripts/cpu_guard.py",
+        "python3",
+        "scripts/verify_fd_merge_counterexample_v1.py"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 120,
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/cpu_guard.py",
+          "sha256": "e3f369d67302d7f77d50ad436f040192bd8d4bd1093e29585485fce0ef4f5b30"
+        },
+        {
+          "path": "scripts/verify_fd_merge_counterexample_v1.py",
+          "sha256": "37ad0695271a453fb77175ac193acc134421aa172786ebbd4b3d009dd6a5bb42"
+        },
+        {
+          "path": "plans/fd_merge_topology_counterexample_v1.md",
+          "sha256": "f406d426908c9e96e512fc5d43bdb34859d92bf4ad94ac0b768a65e09900fe69"
+        },
+        {
+          "path": "notes/fd_merge_topology_source_math_scope_v1.md",
+          "sha256": "bccf98cf9f4c9bdea9e96c4848db9b086d15eb7ce8d20f38b883a16bfb3d2d1a"
+        },
+        {
+          "path": "resource_pre_counterexample_v1.json",
+          "sha256": "8ab03144ad6b92f22c5ed24279456771c70ea4d8dd27fda0ef632a7e4b91b3a2"
+        }
+      ],
+      "outputs": [
+        "results/fd_merge_topology_counterexample_v1.json"
+      ]
+    }
+  ]
+}

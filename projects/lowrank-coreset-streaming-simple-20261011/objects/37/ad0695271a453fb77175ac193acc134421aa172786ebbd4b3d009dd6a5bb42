@@ -1,0 +1,108 @@
+#!/usr/bin/env python3
+"""Exact integer verification of a four-leaf FD merge-topology counterexample."""
+
+from __future__ import annotations
+
+import json
+import resource
+import time
+from pathlib import Path
+
+
+ELL = 2
+K = 1
+LEAVES = {
+    "a": (5, 0, 0),
+    "b": (0, 4, 0),
+    "c": (0, 0, 4),
+    "d": (0, 4, 0),
+}
+
+
+def fd_reduce_diagonal(values: tuple[int, ...], ell: int) -> tuple[int, ...]:
+    """Return covariance diagonal after one exact FD ell-row reduction."""
+    if min(values) < 0:
+        raise ValueError("covariance entries must be nonnegative")
+    ordered = sorted(values, reverse=True)
+    threshold = ordered[ell - 1] if len(ordered) >= ell else 0
+    return tuple(max(value - threshold, 0) for value in values)
+
+
+def merge(left: tuple[int, ...], right: tuple[int, ...]) -> tuple[int, ...]:
+    return fd_reduce_diagonal(tuple(x + y for x, y in zip(left, right)), ELL)
+
+
+def projection_cost(original: tuple[int, ...], sketch: tuple[int, ...]) -> tuple[int, int]:
+    maximum = max(sketch)
+    winners = [index for index, value in enumerate(sketch) if value == maximum and value > 0]
+    if len(winners) != K:
+        raise AssertionError(f"rank-{K} sketch direction is not unique: {sketch}")
+    chosen = winners[0]
+    return sum(value for index, value in enumerate(original) if index != chosen), chosen
+
+
+def main() -> None:
+    started = time.perf_counter()
+    assert all(sum(value > 0 for value in leaf) < ELL for leaf in LEAVES.values())
+
+    ab = merge(LEAVES["a"], LEAVES["b"])
+    cd = merge(LEAVES["c"], LEAVES["d"])
+    balanced = merge(ab, cd)
+
+    abc = merge(ab, LEAVES["c"])
+    left_deep = merge(abc, LEAVES["d"])
+
+    assert ab == (1, 0, 0)
+    assert cd == (0, 0, 0)
+    assert balanced == (1, 0, 0)
+    assert abc == (0, 0, 3)
+    assert left_deep == (0, 1, 0)
+
+    original = tuple(sum(leaf[index] for leaf in LEAVES.values()) for index in range(3))
+    assert original == (5, 8, 4)
+    balanced_cost, balanced_coordinate = projection_cost(original, balanced)
+    left_deep_cost, left_deep_coordinate = projection_cost(original, left_deep)
+    assert (balanced_cost, balanced_coordinate) == (12, 0)
+    assert (left_deep_cost, left_deep_coordinate) == (9, 1)
+    assert balanced_cost > left_deep_cost
+
+    original_trace = sum(original)
+    balanced_discarded_mass = (original_trace - sum(balanced)) / ELL
+    left_deep_discarded_mass = (original_trace - sum(left_deep)) / ELL
+    assert balanced_discarded_mass == left_deep_discarded_mass == 8
+
+    output = {
+        "definition": {
+            "ell": ELL,
+            "k": K,
+            "dimension": 3,
+            "leaves": LEAVES,
+            "operator": "T_ell(x)_i=max(x_i-ellth_largest(x),0)",
+        },
+        "valid_rank_below_ell_leaves": True,
+        "intermediate": {"ab": ab, "cd": cd, "abc": abc},
+        "final": {"balanced": balanced, "left_deep": left_deep},
+        "original_covariance_diagonal": original,
+        "rank_one_projection": {
+            "balanced_selected_coordinate_zero_based": balanced_coordinate,
+            "left_deep_selected_coordinate_zero_based": left_deep_coordinate,
+            "balanced_cost": balanced_cost,
+            "left_deep_cost": left_deep_cost,
+            "balanced_minus_left_deep_cost": balanced_cost - left_deep_cost,
+        },
+        "norm_derived_discarded_mass": {
+            "balanced": balanced_discarded_mass,
+            "left_deep": left_deep_discarded_mass,
+        },
+        "universal_balanced_nonworseness_refuted": True,
+        "elapsed_seconds": time.perf_counter() - started,
+        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+    }
+    destination = Path("results/fd_merge_topology_counterexample_v1.json")
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(json.dumps(output, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(output, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,23 @@
+{
+  "idea": "fd-merge-topology-condition-counterexample-audit-v1",
+  "goal": "持续低秩、coreset与流式统计研究；保留w001-w011全部证据与退役结论，审查Frequent Directions平衡合并树非劣是否存在可陈述充分条件，或是否有小型确定性反例，再据此冻结下一步可证伪研究。",
+  "goal_contract": {
+    "mode": "continuous_research",
+    "completion_criteria": [
+      {
+        "id": "validity",
+        "description": "核验FD合并算子、阈值与下尾损失分解、已知保证和反例定义"
+      },
+      {
+        "id": "research",
+        "description": "给出可审计的充分条件或确定性反例，并据证据决定是否需要冻结数值确认"
+      }
+    ]
+  },
+  "limits": {
+    "max_attempts": 32,
+    "max_command_seconds": 1800,
+    "deadline_seconds": 7200,
+    "max_concurrency": 1
+  }
+}

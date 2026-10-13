@@ -4,12 +4,12 @@
   "policy_version": "0.3.0-simple.9",
   "source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
   "goal_mode": "continuous_research",
-  "active_window": "execution_windows/w011",
+  "active_window": "execution_windows/w012",
   "idea": "fd-merge-topology-condition-counterexample-audit-v1",
   "revision": 1,
   "goal_contract_version": 2,
-  "scientific_status": "w011 completed the prospectively frozen Frequent Directions merge-topology development experiment after shared-memory headroom recovered from 4,488,531,968 to 4,522,016,768 bytes across the required 30-second recheck. On the fixed first-512-row Landmark instance with eight contiguous leaves, balanced merging had no larger norm-derived discarded mass or rank-25 projection cost than left-deep merging at widths 32,48,64. The independently reconstructed differences were respectively -0.00493377343/-0.0000918399126, -0.00000355686808/-6.59e-10, and approximately zero. The first audit failed because it incorrectly equated merge threshold sums with total norm loss; that failed receipt is preserved, the exact lower-tail correction was derived, and the repaired independent audit passed all nine arms with zero covariance reconstruction discrepancy. This is one finite development research cycle: strongest at width32 and a numerical tie by width64, not a global ordering theorem, timing advantage or new method.",
-  "next_action": "Restore the latest verified snapshot, reconcile stopped w011, and establish w012 under the existing continuous authorization. Before any new numerics, perform a low-memory mathematical and source audit for a sufficient condition guaranteeing balanced-tree non-worseness or a small deterministic counterexample. Freeze the exact claim and a strong adversarial baseline before testing; do not run seed or partition sweeps merely to amplify the positive width32 observation.",
+  "scientific_status": "w012 refuted universal Frequent Directions balanced-tree non-worseness with an exact deterministic diagonal construction and a prospectively frozen strict-margin control. For width ell=2 and rank-one evaluation, the minimal selected strict-margin leaves (1,0,0),(1,0,0),(0,3,0),(0,0,4) yield balanced final summary (1,0,0) with projection cost 7, versus left-deep final summary (0,0,3) with cost 5. All positive-threshold merge inputs have unique leading eigenvalues, so the reversal is not a tie artifact. The frozen 331,776-candidate grid contained 5,328 eligible reversals. This does not contradict FD mergeability guarantees; it rejects a topology ordering extrapolated from the finite w011 Landmark result. A common subspace of dimension below ell is a simple but restrictive sufficient condition for exact topology invariance because no merge shrinks.",
+  "next_action": "Restore and reconcile stopped w012, then establish w013 under the existing continuous authorization. Do not restart unconditional FD balanced-tree dominance. Pursue a topology-sensitivity predictor only if a non-tautological observable heterogeneity or subspace-overlap condition can be frozen and compared against the exact rank-below-ell condition and fixed-tree baselines; otherwise pivot to the next unresolved low-rank or streaming-statistics question. Continue CPU-only guarded execution under the existing memory limits.",
   "automation_status": "enabled; hourly recurring schedule without end date",
   "resource_limit_bytes": 8000000000,
   "worker_address_space_limit_bytes": 4294967296,
@@ -182,7 +182,16 @@
     "execution_windows/w011/results/fd_merge_topology_calibration_v2_audit.json",
     "execution_windows/w011/notes/fd_merge_topology_analysis_v1.md",
     "execution_windows/w011/fd_merge_topology_interpret_response_wake3_v1.json",
-    "execution_windows/w011/notes/archive_stop_request_wake3_v1.json"
+    "execution_windows/w011/notes/archive_stop_request_wake3_v1.json",
+    "execution_windows/w012/notes/fd_merge_topology_source_math_scope_v1.md",
+    "execution_windows/w012/plans/fd_merge_topology_counterexample_v1.md",
+    "execution_windows/w012/scripts/verify_fd_merge_counterexample_v1.py",
+    "execution_windows/w012/results/fd_merge_topology_counterexample_v1.json",
+    "execution_windows/w012/plans/fd_merge_topology_strict_margin_search_v1.md",
+    "execution_windows/w012/scripts/search_fd_merge_strict_margin_counterexample_v1.py",
+    "execution_windows/w012/results/fd_merge_topology_strict_margin_search_v1.json",
+    "execution_windows/w012/analysis/fd_merge_topology_counterexample_analysis_v1.md",
+    "execution_windows/w012/fd_merge_counterexample_interpret_response_v1.json"
   ],
   "limitations": [
     "finite-pool guarantee only",
@@ -249,11 +258,14 @@
     "FD mergeability and arbitrary-order composition are established prior results; w011 tests only realized topology sensitivity and cannot be described as a new mergeable sketch or new guarantee",
     "The first w011 independent audit failed because threshold sums omit lower-tail singular energy discarded by 2ell-to-ell merge reductions; the failed receipt remains evidence, and only the repaired v2 audit supports interpretation",
     "The w011 topology result is one fixed 512-row instance with one contiguous eight-leaf partition and three widths; it does not establish global balanced-tree dominance, nominal failure probability, runtime advantage or a new algorithm",
-    "The balanced advantage was material at width32, small at width48 and within numerical tolerance at width64; selective presentation as a width-uniform material improvement is prohibited"
+    "The balanced advantage was material at width32, small at width48 and within numerical tolerance at width64; selective presentation as a width-uniform material improvement is prohibited",
+    "w012 supplies an exact diagonal counterexample to universal balanced-tree non-worseness, not a contradiction of the established FD mergeability guarantee form",
+    "The strict-margin counterexample grid is a finite exact integer search at dimension3, width2 and four rank-one leaves; 5,328 eligible reversals do not quantify prevalence for arbitrary dimensions, streams or tree families",
+    "Common eigenvectors and strict local spectral margins are insufficient for topology invariance; the proven rank-below-width common-subspace condition is exact but restrictive and is not presented as a novel theorem"
   ],
-  "updated_at": "2026-10-13T07:10:42.368052+00:00",
+  "updated_at": "2026-10-13T07:35:41.791168+00:00",
   "execution": {
-    "updated_at": "2026-10-13T07:10:42.368052+00:00",
+    "updated_at": "2026-10-13T07:35:41.791168+00:00",
     "overall_end_date": null,
     "overall_attempt_limit": null,
     "overall_time_limit": null,
@@ -515,7 +527,7 @@
           "elapsed_seconds": 14.55448470400006,
           "max_attempts": 32,
           "max_command_seconds": 1800,
-          "remaining_deadline_seconds": 491.87155628204346,
+          "remaining_deadline_seconds": 0.0,
           "remaining_seconds": 1785.445515296,
           "reserved_seconds": 0
         },
@@ -524,10 +536,30 @@
           "audit-fd-merge-topology-v2": "succeeded",
           "fd-merge-topology-calibration-v1": "succeeded"
         }
+      },
+      {
+        "window": "execution_windows/w012",
+        "status": "stopped",
+        "sequence": 3,
+        "research_cycle_count": 1,
+        "budget": {
+          "attempts_used": 2,
+          "deadline_epoch": 1791883421.1172175,
+          "elapsed_seconds": 4.028580146999957,
+          "max_attempts": 32,
+          "max_command_seconds": 1800,
+          "remaining_deadline_seconds": 6479.338432788849,
+          "remaining_seconds": 1795.971419853,
+          "reserved_seconds": 0
+        },
+        "task_states": {
+          "search-fd-merge-strict-margin-counterexample-v1": "succeeded",
+          "verify-fd-merge-topology-counterexample-v1": "succeeded"
+        }
       }
     ],
-    "cumulative_attempts": 69,
-    "cumulative_command_seconds": 601.0376096530708
+    "cumulative_attempts": 71,
+    "cumulative_command_seconds": 605.0661898000708
   },
   "automation_id": "6acc15a522f08191a1bbf19f58f033a1",
   "library_file_id": "libfile_d0c64b9b3a98819197c0ffcf4641cc50",

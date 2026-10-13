@@ -1,0 +1,124 @@
+#!/usr/bin/env python3
+"""Exact bounded search for a strict-margin FD merge-topology counterexample."""
+
+from __future__ import annotations
+
+import itertools
+import json
+import resource
+import time
+from pathlib import Path
+
+
+ELL = 2
+DIMENSION = 3
+MAX_WEIGHT = 8
+
+
+def add(left: tuple[int, ...], right: tuple[int, ...]) -> tuple[int, ...]:
+    return tuple(x + y for x, y in zip(left, right))
+
+
+def reduce_fd(values: tuple[int, ...]) -> tuple[tuple[int, ...], int, int]:
+    ordered = sorted(values, reverse=True)
+    largest, threshold = ordered[0], ordered[ELL - 1]
+    return tuple(max(value - threshold, 0) for value in values), largest, threshold
+
+
+def merge(left: tuple[int, ...], right: tuple[int, ...]):
+    merge_input = add(left, right)
+    output, largest, threshold = reduce_fd(merge_input)
+    strict = threshold == 0 or largest > threshold
+    return output, {"input": merge_input, "largest": largest, "threshold": threshold, "strict": strict}
+
+
+def selected_coordinate(sketch: tuple[int, ...]):
+    maximum = max(sketch)
+    winners = [index for index, value in enumerate(sketch) if value == maximum and value > 0]
+    return winners[0] if len(winners) == 1 else None
+
+
+def evaluate(coordinates: tuple[int, ...], weights: tuple[int, ...]):
+    leaves = []
+    for coordinate, weight in zip(coordinates, weights):
+        leaf = [0] * DIMENSION
+        leaf[coordinate] = weight
+        leaves.append(tuple(leaf))
+
+    ab, ab_meta = merge(leaves[0], leaves[1])
+    cd, cd_meta = merge(leaves[2], leaves[3])
+    balanced, balanced_meta = merge(ab, cd)
+    abc, abc_meta = merge(ab, leaves[2])
+    left_deep, left_meta = merge(abc, leaves[3])
+    metadata = [ab_meta, cd_meta, balanced_meta, abc_meta, left_meta]
+    if not all(item["strict"] for item in metadata):
+        return None
+
+    balanced_coordinate = selected_coordinate(balanced)
+    left_coordinate = selected_coordinate(left_deep)
+    if balanced_coordinate is None or left_coordinate is None:
+        return None
+    original = tuple(sum(leaf[index] for leaf in leaves) for index in range(DIMENSION))
+    balanced_cost = sum(value for index, value in enumerate(original) if index != balanced_coordinate)
+    left_cost = sum(value for index, value in enumerate(original) if index != left_coordinate)
+    if balanced_cost <= left_cost:
+        return None
+    original_trace = sum(original)
+    return {
+        "coordinates_zero_based": coordinates,
+        "weights": weights,
+        "leaves": leaves,
+        "original_covariance_diagonal": original,
+        "intermediate": {"ab": ab, "cd": cd, "abc": abc},
+        "final": {"balanced": balanced, "left_deep": left_deep},
+        "merge_checks": metadata,
+        "rank_one_projection": {
+            "balanced_selected_coordinate_zero_based": balanced_coordinate,
+            "left_deep_selected_coordinate_zero_based": left_coordinate,
+            "balanced_cost": balanced_cost,
+            "left_deep_cost": left_cost,
+            "balanced_minus_left_deep_cost": balanced_cost - left_cost,
+        },
+        "norm_derived_discarded_mass": {
+            "balanced": (original_trace - sum(balanced)) / ELL,
+            "left_deep": (original_trace - sum(left_deep)) / ELL,
+        },
+    }
+
+
+def main() -> None:
+    started = time.perf_counter()
+    eligible = []
+    examined = 0
+    for coordinates in itertools.product(range(DIMENSION), repeat=4):
+        for weights in itertools.product(range(1, MAX_WEIGHT + 1), repeat=4):
+            examined += 1
+            candidate = evaluate(coordinates, weights)
+            if candidate is not None:
+                eligible.append(candidate)
+    eligible.sort(key=lambda item: (sum(item["weights"]), item["coordinates_zero_based"], item["weights"]))
+    selected = eligible[0] if eligible else None
+    output = {
+        "grid": {
+            "dimension": DIMENSION,
+            "ell": ELL,
+            "ordered_leaves": 4,
+            "integer_weight_min": 1,
+            "integer_weight_max": MAX_WEIGHT,
+            "examined": examined,
+        },
+        "strict_margin_definition": "every merge input with positive second-largest entry has largest > second-largest",
+        "eligible_counterexample_count": len(eligible),
+        "selected_by": "minimum total weight, then lexicographic coordinates and weights",
+        "selected": selected,
+        "hypothesis_pass": selected is not None,
+        "elapsed_seconds": time.perf_counter() - started,
+        "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+    }
+    destination = Path("results/fd_merge_topology_strict_margin_search_v1.json")
+    destination.write_text(json.dumps(output, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(output, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()
