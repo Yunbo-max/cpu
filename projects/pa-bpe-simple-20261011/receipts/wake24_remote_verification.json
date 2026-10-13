@@ -1,0 +1,33 @@
+{
+  "project": "pa-bpe-simple-20261011",
+  "wake": 24,
+  "verified_utc": "2026-10-13T07:53:24Z",
+  "repository": "Yunbo-max/cpu",
+  "branch": "main",
+  "science_commit": "3c5907697d058b89ec0ed51df6074fc0c0c0eaf3",
+  "project_tree": "4e9f0c678b5c43a9cfd15bad6fa287ef578fe62d",
+  "generation": 25,
+  "manifest_sha256": "d77d09a76599aa5fc4c14f9301ee5ecd0b2f3e2be7901d0455b5e5be86af5fd3",
+  "manifest_entries": 3597,
+  "materialized_manifest_entries_verified": 3592,
+  "wake24_tree_files": 68,
+  "core_sha256": {
+    "state/pa_bpe_simple/PA_BPE_Wake24_Report.md": "72b977a2aaddeb2e1791d90293e19f372ce0eb1255077da73d532fb34342249c",
+    "state/pa_bpe_simple/evidence/wake24_handoff.json": "5a4937e4647aabb027fa5d1e2951674a39fc9093c2a87fc4cc216e852b5a85a4",
+    "state/pa_bpe_simple/execution_windows/wake24/output/contamination_source_recovery_audit_v2.json": "5aa5eeb5bf1e5d5be291afd8f622c5dfd7906e64770da748bc30ef971a5caac4"
+  },
+  "verified": {
+    "remote_main_bound": true,
+    "project_tree_bound": true,
+    "current_generation_and_manifest": true,
+    "materialized_manifest_hashes": true,
+    "successful_and_invalid_attempt_receipts_present": true,
+    "wake24_inputs_not_published": true
+  },
+  "publication_incident": {
+    "direct_git_push_failed_without_https_credentials": true,
+    "first_connector_commit_omitted_sparse_unmaterialized_wake24_files": true,
+    "repair": "Materialized all wake24 paths, republished against the observed project tree, and independently fetched and verified the repaired commit."
+  },
+  "status": "verified"
+}
