@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-13T08:48:00Z",
+  "generation_from": 25,
+  "generation_to": 26,
+  "active_idea": "frozen-contamination-source-recovery",
+  "status": "globalvoices_whitespace_index_verified_selection_hold",
+  "source_recovery": {
+    "bundle_sha256": "825a8c063b19d4b1dc21f8a540ea2acbe5e11fa1da1cd6bfdeac5200c6805b6c",
+    "bundle_bytes": 232883564,
+    "archives": {
+      "en": {"bytes": 115069300, "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"},
+      "fr": {"bytes": 37776586, "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"},
+      "es": {"bytes": 80028192, "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"}
+    },
+    "raw_text_inspected_during_audit": false
+  },
+  "verified_index": {
+    "path": "execution_windows/wake25/output/globalvoices_whitespace_fingerprints.sqlite3",
+    "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a",
+    "bytes": 6549504,
+    "units_per_language": 512,
+    "word_counts": {"en": 10254, "fr": 11457, "es": 11097},
+    "shingle_mass": {"en": 8231, "fr": 9420, "es": 9072},
+    "normalization": "NFKC + casefold + Unicode whitespace collapse; whitespace-separated tokens; NUL-separated contiguous five-token full-SHA256 multiset",
+    "raw_text_stored": false
+  },
+  "verification": {
+    "path": "execution_windows/wake25/output/whitespace_fingerprint_verification.json",
+    "sha256": "857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5",
+    "exact_hashes_recomputed": 1536,
+    "shingle_multisets_recomputed": 1536,
+    "status": "passed"
+  },
+  "attempts": [
+    {"task_id": "wake25-raw-bundle-audit-v1", "attempt_id": "attempt-b415fd725b2342ac8d6e58087b28f84a", "status": "succeeded", "wall_seconds": 1.0295501850014261, "receipt_sha256": "99474566d4a574c62afb1193f7e761d854c22bab82770edfb5a5e89913d6da12"},
+    {"task_id": "wake25-whitespace-fingerprint-build-v1", "attempt_id": "attempt-a228578a63064b49b6091343e79a20d5", "status": "succeeded", "wall_seconds": 17.981780234000325, "receipt_sha256": "67a4ceca88d56255ca7739155d08bfb2a190f1664ae55b25b7b204babf1239bb"},
+    {"task_id": "wake25-whitespace-fingerprint-verify-v1", "attempt_id": "attempt-6a7044f0363242a78731658a41e7e304", "status": "succeeded", "wall_seconds": 17.021212432002358, "receipt_sha256": "b5f08dd3c01130ca155298587a5a10f624368ee5672879a61858a1a2cc6824af"}
+  ],
+  "resource_accounting": {
+    "attempts": 3,
+    "wall_seconds": 36.03254285100411,
+    "measured_command_cpu_seconds": 34.755824,
+    "max_rss_bytes": 103268352,
+    "reserved_seconds": 0,
+    "oom": 0,
+    "oom_kill": 0
+  },
+  "science_hold": ["Tatoeba contamination decisions", "production development selection", "tokenizer training", "fairness scoring"],
+  "next_action": "Apply the complete frozen training, TICO, verified GlobalVoices, FLORES and Books inventories to the 38091 eligible Tatoeba triangles; independently verify deterministic 1024-row development selection before tokenizer scoring."
+}

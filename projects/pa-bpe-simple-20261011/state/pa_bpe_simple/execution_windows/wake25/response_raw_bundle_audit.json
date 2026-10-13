@@ -1,0 +1,33 @@
+{
+  "response_id": "wake25-raw-bundle-audit-reviewed",
+  "request_id": "decision-1186010f27bc4b7fa1b130610181f5dc",
+  "idea": "frozen-contamination-source-recovery",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The streamed bundle audit completed with exit code 0, all three inner archives matched the frozen byte counts and SHA256 identities, and no raw story text was opened. This corrects wake24's narrower but overextended inference that absent individual archive-index keys meant absent recoverable source.",
+  "events": [
+    {
+      "event_id": "wake25-frozen-globalvoices-raw-source-recovered",
+      "kind": "research_cycle",
+      "goal_contract_version": 1,
+      "hypothesis": "The full raw-source bundle already persisted in the archive store contains the exact three frozen OPUS GlobalVoices archives even though their individual SHA256 values are not top-level archive-index keys.",
+      "prediction": "Streaming the bundle will yield en/fr/es archive members whose byte counts and SHA256 identities exactly match the frozen source manifest and embedded fetch receipts.",
+      "result": "The 232,883,564-byte bundle SHA256 825a8c063b19d4b1dc21f8a540ea2acbe5e11fa1da1cd6bfdeac5200c6805b6c passed ZIP CRC. Its en archive was 115,069,300 bytes with SHA256 974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f; fr was 37,776,586 bytes with SHA256 84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587; es was 80,028,192 bytes with SHA256 2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55. All embedded receipts agreed.",
+      "interpretation": "The source-recovery hypothesis is accepted and wake24's source-gap inference is corrected. The actual compatibility blocker remains narrower: the old fingerprint database used regex-word/NUL shingles and must be rebuilt under the frozen whitespace-token rule before contamination filtering. This is source provenance progress, not a tokenizer or fairness result.",
+      "next_action": "Reconstruct the exact frozen 512x3 units from these verified archives, rebuild a separate whitespace-token fingerprint database, independently verify its unit/hash semantics, and then apply the complete frozen inventory to the 38,091 eligible Tatoeba triangles.",
+      "reason": "The hash-bound task completed without opening raw story text and used 15,204,352 bytes peak RSS.",
+      "evidence": [
+        {"path": "output/raw_bundle_audit.json", "sha256": "58319195ef6b4584f4bb9e33d56ac0c5117bb12c1b869281336a7ebbf4a92ecd"},
+        {"path": "output/raw_bundle_audit.resources.json", "sha256": "618f779ed5b75d5e2dce38704674e9fdccbaa7502f08caa0832b2f79d4622bd6"},
+        {"path": ".research-autopilot/runner/attempts/attempt-b415fd725b2342ac8d6e58087b28f84a/receipt.json", "sha256": "99474566d4a574c62afb1193f7e761d854c22bab82770edfb5a5e89913d6da12"}
+      ]
+    }
+  ],
+  "continuation": {
+    "reason": "partial",
+    "checkpoint_refs": [
+      {"path": "output/raw_bundle_audit.json", "sha256": "58319195ef6b4584f4bb9e33d56ac0c5117bb12c1b869281336a7ebbf4a92ecd"}
+    ],
+    "next_action": "Rebuild and independently verify the frozen 512x3 GlobalVoices fingerprint index using NFKC, casefold, Unicode whitespace collapse, whitespace-separated tokens, and contiguous five-token multisets. Keep tokenizer training and fairness scoring on hold."
+  }
+}

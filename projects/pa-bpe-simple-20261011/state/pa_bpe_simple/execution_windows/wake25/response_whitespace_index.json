@@ -1,0 +1,35 @@
+{
+  "response_id": "wake25-whitespace-index-reviewed",
+  "request_id": "decision-d0bde0a3c5ce4f2b97f057115f97ad50",
+  "idea": "frozen-contamination-source-recovery",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The separate whitespace-token index build and independent all-row recomputation both exited 0. Every one of the 1,536 unit-language exact hashes and shingle multisets matched the rebuilt database, so the prior compatibility blocker is repaired without producing tokenizer or fairness outcomes.",
+  "events": [
+    {
+      "event_id": "wake25-globalvoices-whitespace-index-verified",
+      "kind": "research_cycle",
+      "goal_contract_version": 1,
+      "hypothesis": "The exact frozen 512x3 GlobalVoices units can be reconstructed from the recovered archives and represented with the Tatoeba addendum's whitespace-token five-shingle rule in a result-blind index.",
+      "prediction": "A new database will contain 1,536 confirmation rows, and an independent parser will reproduce every exact hash and every full-SHA256 five-token multiset without raw text in outputs.",
+      "result": "The build produced a 6,549,504-byte SQLite database (SHA256 2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a) with 512 units per language. Aggregate whitespace-token counts were en 10,254 / fr 11,457 / es 11,097; shingle masses were en 8,231 / fr 9,420 / es 9,072. A separately implemented verifier reparsed all frozen sources and matched 1,536 exact hashes and 1,536 shingle multisets. Build and verification peak RSS were 103,268,352 and 102,158,336 bytes, respectively.",
+      "interpretation": "The compatibility-repair hypothesis is accepted. The old regex-word index remains an informative negative artifact, while the new index is eligible for the next contamination-filtering step. This does not yet show that any Tatoeba triangle is uncontaminated and is not a tokenizer/fairness result.",
+      "next_action": "Apply the complete frozen training, TICO, GlobalVoices, FLORES and Books inventories to the 38,091 eligible Tatoeba triangles, independently verify deterministic selection, and only then release the development set for tokenizer comparison.",
+      "reason": "Both finite scientific commands completed under the shared-memory guard and all reservations settled.",
+      "evidence": [
+        {"path": "output/whitespace_fingerprint_summary.json", "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"},
+        {"path": "output/whitespace_fingerprint_verification.json", "sha256": "857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5"},
+        {"path": ".research-autopilot/runner/attempts/attempt-a228578a63064b49b6091343e79a20d5/receipt.json", "sha256": "67a4ceca88d56255ca7739155d08bfb2a190f1664ae55b25b7b204babf1239bb"},
+        {"path": ".research-autopilot/runner/attempts/attempt-6a7044f0363242a78731658a41e7e304/receipt.json", "sha256": "b5f08dd3c01130ca155298587a5a10f624368ee5672879a61858a1a2cc6824af"}
+      ]
+    }
+  ],
+  "continuation": {
+    "reason": "partial",
+    "checkpoint_refs": [
+      {"path": "output/whitespace_fingerprint_summary.json", "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"},
+      {"path": "output/whitespace_fingerprint_verification.json", "sha256": "857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5"}
+    ],
+    "next_action": "Use the verified whitespace index in the frozen complete-inventory contamination pass over 38,091 Tatoeba triangles; independently verify the deterministic 1,024-row development selection before tokenizer scoring."
+  }
+}

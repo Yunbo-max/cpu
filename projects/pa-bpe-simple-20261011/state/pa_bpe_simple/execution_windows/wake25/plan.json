@@ -1,0 +1,42 @@
+{
+  "submission_id": "wake25-raw-bundle-audit-v1",
+  "idea": "frozen-contamination-source-recovery",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake25-raw-bundle-audit-v1",
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/raw_bundle_audit.resources.json",
+        "scripts/audit_raw_bundle.py"
+      ],
+      "phase": "sources",
+      "purpose": "Stream-verify the persisted raw bundle and restore the three exact frozen OPUS GlobalVoices language archives without opening raw story text, correcting the prior source-gap inference before rebuilding whitespace-token fingerprints",
+      "timeout_seconds": 90,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {
+          "path": "scripts/audit_raw_bundle.py",
+          "sha256": "5b01edf237de8a7466beb947196c3229aaf1110ffcead837443e6275291c6d5b"
+        },
+        {
+          "path": "inputs/PA_BPE_GlobalVoices_v2018q4_Raw_Source.zip",
+          "sha256": "825a8c063b19d4b1dc21f8a540ea2acbe5e11fa1da1cd6bfdeac5200c6805b6c"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+        }
+      ],
+      "outputs": [
+        "output/raw_bundle_audit.json",
+        "output/raw_bundle_audit.resources.json",
+        "inputs/raw/en.zip",
+        "inputs/raw/fr.zip",
+        "inputs/raw/es.zip"
+      ]
+    }
+  ]
+}

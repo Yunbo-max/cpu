@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-13T08:48:00Z",
+  "events": [
+    {
+      "event_id": "wake25-memory-wait-resolved",
+      "kind": "waiting_for_memory_resolved",
+      "first_observed_current_bytes": 8155148288,
+      "memory_max_bytes": 8589934592,
+      "first_observed_headroom_bytes": 434786304,
+      "launch_current_bytes": 7107743744,
+      "launch_headroom_bytes": 1482190848,
+      "launch_condition_bytes": 536870912,
+      "action": "Did not submit science below the unchanged guard; waited in bounded intervals and remeasured before launch.",
+      "oom": 0,
+      "oom_kill": 0
+    },
+    {
+      "event_id": "wake25-runner-contract-repairs",
+      "kind": "management_cli_repair",
+      "symptoms": [
+        "Initial plan revision was stale after runner initialization.",
+        "A cross-window measurement-helper input path was rejected as unsafe.",
+        "Two submissions using a symlinked builder input were rejected with a symbolic-link loop error."
+      ],
+      "impact": "No additional scientific attempt launched; all rejected submissions consumed zero scientific wall and reservation.",
+      "repair": "Raised plan revision, copied the small measurement helper into the new window, and materialized uniquely named immutable input copies under the runner root.",
+      "repair_status": "verified"
+    },
+    {
+      "event_id": "wake25-host-tool-repairs",
+      "kind": "management_tool_repair",
+      "symptoms": [
+        "git sparse-checkout add does not accept --no-cone on this host.",
+        "/usr/bin/time is absent.",
+        "measure_command.py has no --help mode and raised IndexError when probed without positional arguments."
+      ],
+      "impact": "No scientific result affected and no scientific attempt consumed.",
+      "repair": "Used the supported sparse-checkout syntax and the previously persisted Python resource wrapper with its actual positional contract."
+    },
+    {
+      "event_id": "wake25-wake24-source-gap-correction",
+      "kind": "scientific_correction",
+      "symptom": "wake24 inferred that absent individual raw-archive keys meant the frozen source was absent from persistent archives.",
+      "evidence": "archives/index.json contains a complete source bundle whose three inner archives exactly match all frozen SHA256 identities.",
+      "impact": "The source-absence blocker is withdrawn; only the fingerprint tokenization incompatibility remained and was repaired in this wake.",
+      "preservation": "wake24 negative evidence remains immutable and this correction is appended rather than overwriting it."
+    }
+  ]
+}

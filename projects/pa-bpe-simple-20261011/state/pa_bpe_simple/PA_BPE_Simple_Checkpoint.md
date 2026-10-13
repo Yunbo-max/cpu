@@ -1,3 +1,15 @@
+# 最新规范状态：generation 26，2026-10-13
+
+已从持久归档中的完整 GlobalVoices raw-source bundle 恢复并流式核验三份冻结OPUS归档，英/法/西SHA256分别为 `974c2b10…fa9b3f`、`84cfd37d…36587`、`2af6fb98…be55`。这更正generation25“individual archive key缺失即来源不可恢复”的过强推断；旧记录保留不改。
+
+按冻结512×3单元实际重建空白分隔词元五词指纹库，数据库SHA256 `2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a`。独立实现重新解析所有来源并精确复核1,536个exact hash和1,536个shingle multiset，全部一致；raw text未写入输出。三项科学attempt均exit0，wall合计36.032542851秒、峰值RSS103,268,352字节、reservation0、无OOM；累计wall 1,982.931267073秒。runner受控停止，无活动科学进程。
+
+本代完成的是污染源协议兼容性修复，不是污染筛选、tokenizer或公平性结果。下一步把训练、TICO、新GlobalVoices、FLORES和Books完整冻结清单用于38,091个合格Tatoeba三角，独立核验确定性1,024行开发选择；此前production selection、训练和评分继续HOLD。
+
+恢复必读：`PA_BPE_Wake25_Report.md`、`evidence/wake25_handoff.json`、`evidence/incidents_wake25.json`、`execution_windows/wake25/output/raw_bundle_audit.json`、`whitespace_fingerprint_summary.json`、`whitespace_fingerprint_verification.json`及三份runner receipt。
+
+# generation 25 历史状态（保留）
+
 # 最新规范状态：generation 25，2026-10-13
 
 冻结污染源兼容性审计已完成。24个固定输入的有效替代任务成功、输入哈希执行前后不变；可恢复清单包括训练入选文档515个（英209/法155/西151）、TICO 970个三语行、GlobalVoices指纹1536项、FLORES devtest预期每语1012行和书籍抽样单元5120个。

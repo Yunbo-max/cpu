@@ -1,0 +1,139 @@
+{
+  "schema": "pa-bpe-raw-bundle-audit-v1",
+  "created_utc": "2026-10-13T08:37:04.351248+00:00",
+  "status": "passed",
+  "bundle": {
+    "path": "inputs/PA_BPE_GlobalVoices_v2018q4_Raw_Source.zip",
+    "sha256": "825a8c063b19d4b1dc21f8a540ea2acbe5e11fa1da1cd6bfdeac5200c6805b6c",
+    "bytes": 232883564
+  },
+  "archives": {
+    "en": {
+      "member": "PA_BPE_GlobalVoices_v2018q4_Raw_Source/raw/en.zip",
+      "output": "inputs/raw/en.zip",
+      "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f",
+      "bytes": 115069300,
+      "matches_frozen_identity": true
+    },
+    "fr": {
+      "member": "PA_BPE_GlobalVoices_v2018q4_Raw_Source/raw/fr.zip",
+      "output": "inputs/raw/fr.zip",
+      "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587",
+      "bytes": 37776586,
+      "matches_frozen_identity": true
+    },
+    "es": {
+      "member": "PA_BPE_GlobalVoices_v2018q4_Raw_Source/raw/es.zip",
+      "output": "inputs/raw/es.zip",
+      "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55",
+      "bytes": 80028192,
+      "matches_frozen_identity": true
+    }
+  },
+  "embedded_receipt_checks": {
+    "en": {
+      "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f",
+      "bytes": 115069300,
+      "matches_frozen_identity": true
+    },
+    "fr": {
+      "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587",
+      "bytes": 37776586,
+      "matches_frozen_identity": true
+    },
+    "es": {
+      "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55",
+      "bytes": 80028192,
+      "matches_frozen_identity": true
+    }
+  },
+  "embedded_raw_source_manifest": {
+    "schema_version": 1,
+    "frozen_at_utc": "2026-10-12T05:42:00Z",
+    "release": "OPUS-GlobalVoices/v2018q4",
+    "purpose": "result-blind confirmation fingerprint source; no tokenizer or fairness outcome may be emitted",
+    "archives": {
+      "en": {
+        "url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/raw/en.zip",
+        "expected_bytes": 115069300,
+        "expected_etag": "784830696482dfd4ee1ed7096b3d3547",
+        "expected_last_modified": "Fri, 13 Nov 2020 07:42:11 GMT"
+      },
+      "fr": {
+        "url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/raw/fr.zip",
+        "expected_bytes": 37776586,
+        "expected_etag": "90f2f70b8fec375179f371ed633553de",
+        "expected_last_modified": "Fri, 13 Nov 2020 07:42:11 GMT"
+      },
+      "es": {
+        "url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/raw/es.zip",
+        "expected_bytes": 80028192,
+        "expected_etag": "85c840e723f7faabba7fd7b569c3c695",
+        "expected_last_modified": "Fri, 13 Nov 2020 07:42:11 GMT"
+      }
+    },
+    "source_evidence": {
+      "review_path": "../../review/wake7_confirmation_source_review.md",
+      "release_protocol_path": "../wake7/opus_gv_closed_components_protocol.json",
+      "reserved_units_path": "../wake7/output/opus_gv_closed_components.json"
+    },
+    "output_policy": {
+      "raw_archives": "private checkpoint only; do not redistribute",
+      "logs": "archive hashes, byte counts and HTTP provenance only; never raw text",
+      "fingerprint_builder": "emit blinded document IDs, content fingerprints and aggregate counts only"
+    }
+  },
+  "embedded_index_build_manifest": {
+    "schema_version": 2,
+    "frozen_at_utc": "2026-10-12T05:55:00Z",
+    "project": "pa-bpe-simple-20261011",
+    "active_idea": "pa-bpe-domain-robustness",
+    "idea_revision": 1,
+    "checkpoint_generation": 12,
+    "adopted_source_digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "release": "OPUS-GlobalVoices/v2018q4",
+    "purpose": "fail-closed result-blind confirmation fingerprint source",
+    "units": {
+      "expected_count": 512,
+      "expected_sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+    },
+    "bindings": {
+      "raw_schema_sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9",
+      "selector_protocol_sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+    },
+    "archives": {
+      "en": {
+        "url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/raw/en.zip",
+        "expected_bytes": 115069300,
+        "expected_sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f",
+        "expected_etag": "784830696482dfd4ee1ed7096b3d3547",
+        "expected_last_modified": "Fri, 13 Nov 2020 07:42:11 GMT",
+        "fetch_receipt_sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+      },
+      "fr": {
+        "url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/raw/fr.zip",
+        "expected_bytes": 37776586,
+        "expected_sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587",
+        "expected_etag": "90f2f70b8fec375179f371ed633553de",
+        "expected_last_modified": "Fri, 13 Nov 2020 07:42:11 GMT",
+        "fetch_receipt_sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+      },
+      "es": {
+        "url": "https://object.pouta.csc.fi/OPUS-GlobalVoices/v2018q4/raw/es.zip",
+        "expected_bytes": 80028192,
+        "expected_sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55",
+        "expected_etag": "85c840e723f7faabba7fd7b569c3c695",
+        "expected_last_modified": "Fri, 13 Nov 2020 07:42:11 GMT",
+        "fetch_receipt_sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+      }
+    },
+    "output_policy": {
+      "database": "blinded unit IDs, language, URL hashes, normalized exact hashes, full SHA256 shingles and counts only",
+      "raw_text_stored": false,
+      "tokenizer_or_fairness_output_computed": false
+    }
+  },
+  "raw_text_inspected": false,
+  "tokenizer_or_fairness_result": false,
+  "interpretation": "The persisted bundle contains the three exact frozen OPUS GlobalVoices raw archives. This repairs the prior source-gap inference but does not yet validate the whitespace-token fingerprint index or any tokenizer/fairness outcome."
+}

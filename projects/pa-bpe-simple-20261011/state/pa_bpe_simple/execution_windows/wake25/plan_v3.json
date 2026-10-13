@@ -1,0 +1,34 @@
+{
+  "submission_id": "wake25-whitespace-fingerprint-verify-v1",
+  "idea": "frozen-contamination-source-recovery",
+  "revision": 1,
+  "tasks": [
+    {
+      "task_id": "wake25-whitespace-fingerprint-verify-v1",
+      "argv": [
+        "python3", "scripts/measure_command.py", "output/whitespace_fingerprint_verification.resources.json",
+        "scripts/verify_whitespace_fingerprints.py"
+      ],
+      "phase": "verify",
+      "purpose": "Independently reparse all frozen source units and recompute every normalized exact hash and whitespace-token five-shingle multiset, comparing all 1,536 unit-language rows to the rebuilt database",
+      "timeout_seconds": 90,
+      "cwd": ".",
+      "depends_on": [],
+      "input_refs": [
+        {"path": "scripts/verify_whitespace_fingerprints.py", "sha256": "f89a71b215ef47c0e60828483b5fdea41d772b7f354dd6cd37a68c0d0ba10eeb"},
+        {"path": "scripts/measure_command.py", "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"},
+        {"path": "output/globalvoices_whitespace_fingerprints.sqlite3", "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"},
+        {"path": "output/whitespace_fingerprint_summary.json", "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"},
+        {"path": "inputs/frozen_units.json", "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"},
+        {"path": "inputs/frozen_source_manifest.json", "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"},
+        {"path": "inputs/raw/en.zip", "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"},
+        {"path": "inputs/raw/fr.zip", "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"},
+        {"path": "inputs/raw/es.zip", "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"}
+      ],
+      "outputs": [
+        "output/whitespace_fingerprint_verification.json",
+        "output/whitespace_fingerprint_verification.resources.json"
+      ]
+    }
+  ]
+}

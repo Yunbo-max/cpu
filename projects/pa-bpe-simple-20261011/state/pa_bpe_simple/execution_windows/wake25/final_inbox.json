@@ -1,0 +1,1508 @@
+[
+  {
+    "agent_error": null,
+    "agent_version": 0,
+    "attempts": [
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25/.research-autopilot/runner/attempts/attempt-6a7044f0363242a78731658a41e7e304",
+        "attempt_id": "attempt-6a7044f0363242a78731658a41e7e304",
+        "contract": {
+          "argv": [
+            "python3",
+            "scripts/measure_command.py",
+            "output/whitespace_fingerprint_verification.resources.json",
+            "scripts/verify_whitespace_fingerprints.py"
+          ],
+          "attempt_id": "attempt-6a7044f0363242a78731658a41e7e304",
+          "cwd": ".",
+          "deadline_epoch": 1791882353.6630998,
+          "input_refs": [
+            {
+              "path": "scripts/verify_whitespace_fingerprints.py",
+              "sha256": "f89a71b215ef47c0e60828483b5fdea41d772b7f354dd6cd37a68c0d0ba10eeb"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+            },
+            {
+              "path": "output/globalvoices_whitespace_fingerprints.sqlite3",
+              "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"
+            },
+            {
+              "path": "output/whitespace_fingerprint_summary.json",
+              "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"
+            },
+            {
+              "path": "inputs/frozen_units.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/frozen_source_manifest.json",
+              "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+            },
+            {
+              "path": "inputs/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "inputs/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "output/whitespace_fingerprint_verification.json",
+            "output/whitespace_fingerprint_verification.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "wake25-whitespace-fingerprint-verify-v1",
+          "timeout_seconds": 90
+        },
+        "contract_sha256": "6bb7e98dc8a925db796912de20329036521b21f1069929827745e01b76ddedc2",
+        "elapsed_seconds": 17.021212432002358,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-6a7044f0363242a78731658a41e7e304",
+          "command_identity": {
+            "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+            "pid": 71617,
+            "start_ticks": 1729810
+          },
+          "contract_sha256": "6bb7e98dc8a925db796912de20329036521b21f1069929827745e01b76ddedc2",
+          "elapsed_seconds": 17.021212432002358,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-13T08:45:30.414539+00:00",
+          "input_refs": [
+            {
+              "path": "scripts/verify_whitespace_fingerprints.py",
+              "sha256": "f89a71b215ef47c0e60828483b5fdea41d772b7f354dd6cd37a68c0d0ba10eeb"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+            },
+            {
+              "path": "output/globalvoices_whitespace_fingerprints.sqlite3",
+              "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"
+            },
+            {
+              "path": "output/whitespace_fingerprint_summary.json",
+              "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"
+            },
+            {
+              "path": "inputs/frozen_units.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/frozen_source_manifest.json",
+              "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+            },
+            {
+              "path": "inputs/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "inputs/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/whitespace_fingerprint_verification.json",
+              "sha256": "857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5"
+            },
+            {
+              "path": "output/whitespace_fingerprint_verification.resources.json",
+              "sha256": "954e9586fe218c63b295b4e033d45565a12fac39f7ab72ea5fa5806e09083847"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25",
+          "schema_version": 1,
+          "started_at": "2026-10-13T08:45:13.393336+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-6a7044f0363242a78731658a41e7e304/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-6a7044f0363242a78731658a41e7e304/stdout.txt",
+            "sha256": "d3517b65df2857cfc4a7bea13e82b1c57c206f553eb020b342801a7c2e56472b"
+          },
+          "task_id": "wake25-whitespace-fingerprint-verify-v1",
+          "worker_identity": {
+            "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+            "pid": 71616,
+            "start_ticks": 1729791
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-6a7044f0363242a78731658a41e7e304/receipt.json",
+          "sha256": "b5f08dd3c01130ca155298587a5a10f624368ee5672879a61858a1a2cc6824af"
+        },
+        "reservation_seconds": 93.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "wake25-whitespace-fingerprint-verify-v1"
+      },
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25/.research-autopilot/runner/attempts/attempt-a228578a63064b49b6091343e79a20d5",
+        "attempt_id": "attempt-a228578a63064b49b6091343e79a20d5",
+        "contract": {
+          "argv": [
+            "python3",
+            "scripts/measure_command.py",
+            "output/whitespace_fingerprint_build.resources.json",
+            "scripts/build_whitespace_fingerprints.py",
+            "--units",
+            "inputs/frozen_units.json",
+            "--raw-dir",
+            "inputs/raw",
+            "--source-manifest",
+            "inputs/frozen_source_manifest.json",
+            "--fetch-receipts",
+            "inputs/frozen_fetch_receipts",
+            "--raw-schema",
+            "inputs/frozen_raw_schema.json",
+            "--selector-protocol",
+            "inputs/frozen_selector_protocol.json",
+            "--database",
+            "output/globalvoices_whitespace_fingerprints.sqlite3",
+            "--summary",
+            "output/whitespace_fingerprint_summary.json"
+          ],
+          "attempt_id": "attempt-a228578a63064b49b6091343e79a20d5",
+          "cwd": ".",
+          "deadline_epoch": 1791882353.6630998,
+          "input_refs": [
+            {
+              "path": "scripts/build_whitespace_fingerprints.py",
+              "sha256": "9f8c23077f4a518dc41d3ecd1abdadb8b472aaf9d86b36364a1a54c685c9351b"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+            },
+            {
+              "path": "inputs/frozen_original_builder.py",
+              "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+            },
+            {
+              "path": "inputs/frozen_units.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/frozen_source_manifest.json",
+              "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+            },
+            {
+              "path": "inputs/frozen_raw_schema.json",
+              "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+            },
+            {
+              "path": "inputs/frozen_selector_protocol.json",
+              "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+            },
+            {
+              "path": "inputs/frozen_fetch_receipts/fetch_en.json",
+              "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+            },
+            {
+              "path": "inputs/frozen_fetch_receipts/fetch_fr.json",
+              "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+            },
+            {
+              "path": "inputs/frozen_fetch_receipts/fetch_es.json",
+              "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+            },
+            {
+              "path": "inputs/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "inputs/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "output/globalvoices_whitespace_fingerprints.sqlite3",
+            "output/whitespace_fingerprint_summary.json",
+            "output/whitespace_fingerprint_build.resources.json"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "wake25-whitespace-fingerprint-build-v1",
+          "timeout_seconds": 90
+        },
+        "contract_sha256": "3716e49c7ca1f11dbe67f110dc327a377943bfef530e2973129e97ceca8e3632",
+        "elapsed_seconds": 17.981780234000325,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-a228578a63064b49b6091343e79a20d5",
+          "command_identity": {
+            "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+            "pid": 69769,
+            "start_ticks": 1718923
+          },
+          "contract_sha256": "3716e49c7ca1f11dbe67f110dc327a377943bfef530e2973129e97ceca8e3632",
+          "elapsed_seconds": 17.981780234000325,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-13T08:43:42.516110+00:00",
+          "input_refs": [
+            {
+              "path": "scripts/build_whitespace_fingerprints.py",
+              "sha256": "9f8c23077f4a518dc41d3ecd1abdadb8b472aaf9d86b36364a1a54c685c9351b"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+            },
+            {
+              "path": "inputs/frozen_original_builder.py",
+              "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+            },
+            {
+              "path": "inputs/frozen_units.json",
+              "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+            },
+            {
+              "path": "inputs/frozen_source_manifest.json",
+              "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+            },
+            {
+              "path": "inputs/frozen_raw_schema.json",
+              "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+            },
+            {
+              "path": "inputs/frozen_selector_protocol.json",
+              "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+            },
+            {
+              "path": "inputs/frozen_fetch_receipts/fetch_en.json",
+              "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+            },
+            {
+              "path": "inputs/frozen_fetch_receipts/fetch_fr.json",
+              "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+            },
+            {
+              "path": "inputs/frozen_fetch_receipts/fetch_es.json",
+              "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+            },
+            {
+              "path": "inputs/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "inputs/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/globalvoices_whitespace_fingerprints.sqlite3",
+              "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"
+            },
+            {
+              "path": "output/whitespace_fingerprint_summary.json",
+              "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"
+            },
+            {
+              "path": "output/whitespace_fingerprint_build.resources.json",
+              "sha256": "fc9e0bc0140e829b4fecc2c09f37c9e9a13f2e2bef42835f4b644c30abf859b5"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25",
+          "schema_version": 1,
+          "started_at": "2026-10-13T08:43:24.534336+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-a228578a63064b49b6091343e79a20d5/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-a228578a63064b49b6091343e79a20d5/stdout.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "task_id": "wake25-whitespace-fingerprint-build-v1",
+          "worker_identity": {
+            "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+            "pid": 69768,
+            "start_ticks": 1718905
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-a228578a63064b49b6091343e79a20d5/receipt.json",
+          "sha256": "67a4ceca88d56255ca7739155d08bfb2a190f1664ae55b25b7b204babf1239bb"
+        },
+        "reservation_seconds": 93.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "wake25-whitespace-fingerprint-build-v1"
+      },
+      {
+        "attempt_dir": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25/.research-autopilot/runner/attempts/attempt-b415fd725b2342ac8d6e58087b28f84a",
+        "attempt_id": "attempt-b415fd725b2342ac8d6e58087b28f84a",
+        "contract": {
+          "argv": [
+            "python3",
+            "scripts/measure_command.py",
+            "output/raw_bundle_audit.resources.json",
+            "scripts/audit_raw_bundle.py"
+          ],
+          "attempt_id": "attempt-b415fd725b2342ac8d6e58087b28f84a",
+          "cwd": ".",
+          "deadline_epoch": 1791882353.6630998,
+          "input_refs": [
+            {
+              "path": "scripts/audit_raw_bundle.py",
+              "sha256": "5b01edf237de8a7466beb947196c3229aaf1110ffcead837443e6275291c6d5b"
+            },
+            {
+              "path": "inputs/PA_BPE_GlobalVoices_v2018q4_Raw_Source.zip",
+              "sha256": "825a8c063b19d4b1dc21f8a540ea2acbe5e11fa1da1cd6bfdeac5200c6805b6c"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+            }
+          ],
+          "kind": "task",
+          "outputs": [
+            "output/raw_bundle_audit.json",
+            "output/raw_bundle_audit.resources.json",
+            "inputs/raw/en.zip",
+            "inputs/raw/fr.zip",
+            "inputs/raw/es.zip"
+          ],
+          "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25",
+          "schema_version": 1,
+          "source": {
+            "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+            "files": [
+              {
+                "path": "SKILL.md",
+                "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+              },
+              {
+                "path": "references/rsi-simple.md",
+                "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+              },
+              {
+                "path": "references/simple-runner.md",
+                "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+              },
+              {
+                "path": "scripts/_simple_process.py",
+                "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+              },
+              {
+                "path": "scripts/_simple_source.py",
+                "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+              },
+              {
+                "path": "scripts/simple_loop.py",
+                "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+              },
+              {
+                "path": "scripts/simple_runner.py",
+                "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+              },
+              {
+                "path": "references/simple-experiment-design.md",
+                "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+              },
+              {
+                "path": "scripts/simple_design.py",
+                "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+              },
+              {
+                "path": "scripts/simple_resources.py",
+                "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+              },
+              {
+                "path": "assets/templates/simple-experiment-plan.json",
+                "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+              },
+              {
+                "path": "assets/templates/simple-experiment-results.json",
+                "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+              },
+              {
+                "path": "references/simple-collaboration.md",
+                "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+              },
+              {
+                "path": "assets/templates/simple-delegation.json",
+                "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+              }
+            ],
+            "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+          },
+          "task_id": "wake25-raw-bundle-audit-v1",
+          "timeout_seconds": 90
+        },
+        "contract_sha256": "a3867e716697301bc71e5fef9ce1d6ef9efd77b886227030a435456987591079",
+        "elapsed_seconds": 1.0295501850014261,
+        "kind": "task",
+        "reason": "Command execution reported succeeded",
+        "receipt": {
+          "attempt_id": "attempt-b415fd725b2342ac8d6e58087b28f84a",
+          "command_identity": {
+            "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+            "pid": 65174,
+            "start_ticks": 1680840
+          },
+          "contract_sha256": "a3867e716697301bc71e5fef9ce1d6ef9efd77b886227030a435456987591079",
+          "elapsed_seconds": 1.0295501850014261,
+          "error": null,
+          "exit_code": 0,
+          "finished_at": "2026-10-13T08:37:04.730904+00:00",
+          "input_refs": [
+            {
+              "path": "scripts/audit_raw_bundle.py",
+              "sha256": "5b01edf237de8a7466beb947196c3229aaf1110ffcead837443e6275291c6d5b"
+            },
+            {
+              "path": "inputs/PA_BPE_GlobalVoices_v2018q4_Raw_Source.zip",
+              "sha256": "825a8c063b19d4b1dc21f8a540ea2acbe5e11fa1da1cd6bfdeac5200c6805b6c"
+            },
+            {
+              "path": "scripts/measure_command.py",
+              "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+            }
+          ],
+          "output_refs": [
+            {
+              "path": "output/raw_bundle_audit.json",
+              "sha256": "58319195ef6b4584f4bb9e33d56ac0c5117bb12c1b869281336a7ebbf4a92ecd"
+            },
+            {
+              "path": "output/raw_bundle_audit.resources.json",
+              "sha256": "618f779ed5b75d5e2dce38704674e9fdccbaa7502f08caa0832b2f79d4622bd6"
+            },
+            {
+              "path": "inputs/raw/en.zip",
+              "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+            },
+            {
+              "path": "inputs/raw/fr.zip",
+              "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+            },
+            {
+              "path": "inputs/raw/es.zip",
+              "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+            }
+          ],
+          "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25",
+          "schema_version": 1,
+          "started_at": "2026-10-13T08:37:03.701357+00:00",
+          "status": "succeeded",
+          "stderr_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-b415fd725b2342ac8d6e58087b28f84a/stderr.txt",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-b415fd725b2342ac8d6e58087b28f84a/stdout.txt",
+            "sha256": "dd9031692c9cbb6b74578f9996f43d0a985004a340498de55bb1fba2f9ec3e22"
+          },
+          "task_id": "wake25-raw-bundle-audit-v1",
+          "worker_identity": {
+            "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+            "pid": 65171,
+            "start_ticks": 1680822
+          }
+        },
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-b415fd725b2342ac8d6e58087b28f84a/receipt.json",
+          "sha256": "99474566d4a574c62afb1193f7e761d854c22bab82770edfb5a5e89913d6da12"
+        },
+        "reservation_seconds": 93.0,
+        "response_handled": true,
+        "result": "succeeded",
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "state": "terminal",
+        "task_id": "wake25-raw-bundle-audit-v1"
+      }
+    ],
+    "budget": {
+      "attempts_used": 3,
+      "deadline_epoch": 1791882353.6630998,
+      "elapsed_seconds": 36.03254285100411,
+      "max_attempts": 12,
+      "max_command_seconds": 600,
+      "remaining_deadline_seconds": 1153.944670677185,
+      "remaining_seconds": 563.9674571489959,
+      "reserved_seconds": 0
+    },
+    "continuation": {
+      "agent_version": 0,
+      "attempt_id": null,
+      "checkpoint_refs": [
+        {
+          "path": ".research-autopilot/runner/checkpoints/wake25-whitespace-index-reviewed/0-4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642.checkpoint",
+          "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"
+        },
+        {
+          "path": ".research-autopilot/runner/checkpoints/wake25-whitespace-index-reviewed/1-857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5.checkpoint",
+          "sha256": "857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5"
+        }
+      ],
+      "idea": "frozen-contamination-source-recovery",
+      "next_action": "Use the verified whitespace index in the frozen complete-inventory contamination pass over 38,091 Tatoeba triangles; independently verify the deterministic 1,024-row development selection before tokenizer scoring.",
+      "original_checkpoint_refs": [
+        {
+          "path": "output/whitespace_fingerprint_summary.json",
+          "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"
+        },
+        {
+          "path": "output/whitespace_fingerprint_verification.json",
+          "sha256": "857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5"
+        }
+      ],
+      "reason": "partial",
+      "request_id": "decision-d0bde0a3c5ce4f2b97f057115f97ad50",
+      "response_id": "wake25-whitespace-index-reviewed",
+      "revision": 1
+    },
+    "current_question": "The exact frozen 512x3 GlobalVoices units can be reconstructed from the recovered archives and represented with the Tatoeba addendum's whitespace-token five-shingle rule in a result-blind index.",
+    "error": null,
+    "goal": "Continue PA-BPE cross-domain multilingual tokenization fairness research by recovering and validating every frozen contamination source before development selection or tokenizer scoring",
+    "goal_contract": {
+      "completion_criteria": [
+        {
+          "description": "Compare Classical BPE, PA-BPE variants and a simple data-balancing control on frozen aligned development and unseen-domain evaluation data with independently verified fairness and total-cost metrics",
+          "id": "authentic_comparison"
+        },
+        {
+          "description": "Determine whether fairness gains persist across domains and test one evidence-derived repair if a failure mechanism is observed, retaining negative results",
+          "id": "cross_domain_interpretation"
+        }
+      ],
+      "mode": "continuous_research"
+    },
+    "goal_contract_version": 1,
+    "idea": "frozen-contamination-source-recovery",
+    "idea_status": "active",
+    "journal_version": 5,
+    "milestones": [],
+    "next_action": "Apply the complete frozen training, TICO, GlobalVoices, FLORES and Books inventories to the 38,091 eligible Tatoeba triangles, independently verify deterministic selection, and only then release the development set for tokenizer comparison.",
+    "observations": [
+      {
+        "event_id": "result:attempt-a228578a63064b49b6091343e79a20d5",
+        "kind": "task_result",
+        "payload": {
+          "attempt_id": "attempt-a228578a63064b49b6091343e79a20d5",
+          "reason": "Command execution reported succeeded",
+          "receipt": {
+            "attempt_id": "attempt-a228578a63064b49b6091343e79a20d5",
+            "command_identity": {
+              "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+              "pid": 69769,
+              "start_ticks": 1718923
+            },
+            "contract_sha256": "3716e49c7ca1f11dbe67f110dc327a377943bfef530e2973129e97ceca8e3632",
+            "elapsed_seconds": 17.981780234000325,
+            "error": null,
+            "exit_code": 0,
+            "finished_at": "2026-10-13T08:43:42.516110+00:00",
+            "input_refs": [
+              {
+                "path": "scripts/build_whitespace_fingerprints.py",
+                "sha256": "9f8c23077f4a518dc41d3ecd1abdadb8b472aaf9d86b36364a1a54c685c9351b"
+              },
+              {
+                "path": "scripts/measure_command.py",
+                "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+              },
+              {
+                "path": "inputs/frozen_original_builder.py",
+                "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+              },
+              {
+                "path": "inputs/frozen_units.json",
+                "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+              },
+              {
+                "path": "inputs/frozen_source_manifest.json",
+                "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+              },
+              {
+                "path": "inputs/frozen_raw_schema.json",
+                "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+              },
+              {
+                "path": "inputs/frozen_selector_protocol.json",
+                "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+              },
+              {
+                "path": "inputs/frozen_fetch_receipts/fetch_en.json",
+                "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+              },
+              {
+                "path": "inputs/frozen_fetch_receipts/fetch_fr.json",
+                "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+              },
+              {
+                "path": "inputs/frozen_fetch_receipts/fetch_es.json",
+                "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+              },
+              {
+                "path": "inputs/raw/en.zip",
+                "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+              },
+              {
+                "path": "inputs/raw/fr.zip",
+                "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+              },
+              {
+                "path": "inputs/raw/es.zip",
+                "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+              }
+            ],
+            "output_refs": [
+              {
+                "path": "output/globalvoices_whitespace_fingerprints.sqlite3",
+                "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"
+              },
+              {
+                "path": "output/whitespace_fingerprint_summary.json",
+                "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"
+              },
+              {
+                "path": "output/whitespace_fingerprint_build.resources.json",
+                "sha256": "fc9e0bc0140e829b4fecc2c09f37c9e9a13f2e2bef42835f4b644c30abf859b5"
+              }
+            ],
+            "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25",
+            "schema_version": 1,
+            "started_at": "2026-10-13T08:43:24.534336+00:00",
+            "status": "succeeded",
+            "stderr_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-a228578a63064b49b6091343e79a20d5/stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stdout_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-a228578a63064b49b6091343e79a20d5/stdout.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "task_id": "wake25-whitespace-fingerprint-build-v1",
+            "worker_identity": {
+              "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+              "pid": 69768,
+              "start_ticks": 1718905
+            }
+          },
+          "receipt_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-a228578a63064b49b6091343e79a20d5/receipt.json",
+            "sha256": "67a4ceca88d56255ca7739155d08bfb2a190f1664ae55b25b7b204babf1239bb"
+          },
+          "status": "succeeded",
+          "task_id": "wake25-whitespace-fingerprint-build-v1"
+        },
+        "request_id": null,
+        "sequence": 3
+      },
+      {
+        "event_id": "result:attempt-6a7044f0363242a78731658a41e7e304",
+        "kind": "task_result",
+        "payload": {
+          "attempt_id": "attempt-6a7044f0363242a78731658a41e7e304",
+          "reason": "Command execution reported succeeded",
+          "receipt": {
+            "attempt_id": "attempt-6a7044f0363242a78731658a41e7e304",
+            "command_identity": {
+              "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+              "pid": 71617,
+              "start_ticks": 1729810
+            },
+            "contract_sha256": "6bb7e98dc8a925db796912de20329036521b21f1069929827745e01b76ddedc2",
+            "elapsed_seconds": 17.021212432002358,
+            "error": null,
+            "exit_code": 0,
+            "finished_at": "2026-10-13T08:45:30.414539+00:00",
+            "input_refs": [
+              {
+                "path": "scripts/verify_whitespace_fingerprints.py",
+                "sha256": "f89a71b215ef47c0e60828483b5fdea41d772b7f354dd6cd37a68c0d0ba10eeb"
+              },
+              {
+                "path": "scripts/measure_command.py",
+                "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+              },
+              {
+                "path": "output/globalvoices_whitespace_fingerprints.sqlite3",
+                "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"
+              },
+              {
+                "path": "output/whitespace_fingerprint_summary.json",
+                "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"
+              },
+              {
+                "path": "inputs/frozen_units.json",
+                "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+              },
+              {
+                "path": "inputs/frozen_source_manifest.json",
+                "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+              },
+              {
+                "path": "inputs/raw/en.zip",
+                "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+              },
+              {
+                "path": "inputs/raw/fr.zip",
+                "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+              },
+              {
+                "path": "inputs/raw/es.zip",
+                "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+              }
+            ],
+            "output_refs": [
+              {
+                "path": "output/whitespace_fingerprint_verification.json",
+                "sha256": "857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5"
+              },
+              {
+                "path": "output/whitespace_fingerprint_verification.resources.json",
+                "sha256": "954e9586fe218c63b295b4e033d45565a12fac39f7ab72ea5fa5806e09083847"
+              }
+            ],
+            "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25",
+            "schema_version": 1,
+            "started_at": "2026-10-13T08:45:13.393336+00:00",
+            "status": "succeeded",
+            "stderr_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-6a7044f0363242a78731658a41e7e304/stderr.txt",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stdout_ref": {
+              "path": ".research-autopilot/runner/attempts/attempt-6a7044f0363242a78731658a41e7e304/stdout.txt",
+              "sha256": "d3517b65df2857cfc4a7bea13e82b1c57c206f553eb020b342801a7c2e56472b"
+            },
+            "task_id": "wake25-whitespace-fingerprint-verify-v1",
+            "worker_identity": {
+              "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+              "pid": 71616,
+              "start_ticks": 1729791
+            }
+          },
+          "receipt_ref": {
+            "path": ".research-autopilot/runner/attempts/attempt-6a7044f0363242a78731658a41e7e304/receipt.json",
+            "sha256": "b5f08dd3c01130ca155298587a5a10f624368ee5672879a61858a1a2cc6824af"
+          },
+          "status": "succeeded",
+          "task_id": "wake25-whitespace-fingerprint-verify-v1"
+        },
+        "request_id": null,
+        "sequence": 4
+      },
+      {
+        "event_id": "continuation:wake25-whitespace-index-reviewed",
+        "kind": "continuation",
+        "payload": {
+          "agent_version": 0,
+          "attempt_id": null,
+          "checkpoint_refs": [
+            {
+              "path": ".research-autopilot/runner/checkpoints/wake25-whitespace-index-reviewed/0-4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642.checkpoint",
+              "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"
+            },
+            {
+              "path": ".research-autopilot/runner/checkpoints/wake25-whitespace-index-reviewed/1-857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5.checkpoint",
+              "sha256": "857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5"
+            }
+          ],
+          "idea": "frozen-contamination-source-recovery",
+          "next_action": "Use the verified whitespace index in the frozen complete-inventory contamination pass over 38,091 Tatoeba triangles; independently verify the deterministic 1,024-row development selection before tokenizer scoring.",
+          "original_checkpoint_refs": [
+            {
+              "path": "output/whitespace_fingerprint_summary.json",
+              "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"
+            },
+            {
+              "path": "output/whitespace_fingerprint_verification.json",
+              "sha256": "857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5"
+            }
+          ],
+          "reason": "partial",
+          "request_id": "decision-d0bde0a3c5ce4f2b97f057115f97ad50",
+          "response_id": "wake25-whitespace-index-reviewed",
+          "revision": 1
+        },
+        "request_id": null,
+        "sequence": 5
+      }
+    ],
+    "request_id": "decision-6cd215389c804e77ac0a1c91a3217f25",
+    "request_ref": {
+      "path": ".research-autopilot/runner/requests/decision-6cd215389c804e77ac0a1c91a3217f25.json",
+      "sha256": "9e097a860d3011d108eebe45cacd0d9402f8058cf69ab0c625d049a58f9817d5"
+    },
+    "research_cycles": [
+      {
+        "event_id": "wake25-frozen-globalvoices-raw-source-recovered",
+        "evidence": [
+          {
+            "path": "output/raw_bundle_audit.json",
+            "sha256": "58319195ef6b4584f4bb9e33d56ac0c5117bb12c1b869281336a7ebbf4a92ecd"
+          },
+          {
+            "path": "output/raw_bundle_audit.resources.json",
+            "sha256": "618f779ed5b75d5e2dce38704674e9fdccbaa7502f08caa0832b2f79d4622bd6"
+          },
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-b415fd725b2342ac8d6e58087b28f84a/receipt.json",
+            "sha256": "99474566d4a574c62afb1193f7e761d854c22bab82770edfb5a5e89913d6da12"
+          }
+        ],
+        "goal_contract_version": 1,
+        "hypothesis": "The full raw-source bundle already persisted in the archive store contains the exact three frozen OPUS GlobalVoices archives even though their individual SHA256 values are not top-level archive-index keys.",
+        "idea": "frozen-contamination-source-recovery",
+        "interpretation": "The source-recovery hypothesis is accepted and wake24's source-gap inference is corrected. The actual compatibility blocker remains narrower: the old fingerprint database used regex-word/NUL shingles and must be rebuilt under the frozen whitespace-token rule before contamination filtering. This is source provenance progress, not a tokenizer or fairness result.",
+        "kind": "research_cycle",
+        "next_action": "Reconstruct the exact frozen 512x3 units from these verified archives, rebuild a separate whitespace-token fingerprint database, independently verify its unit/hash semantics, and then apply the complete frozen inventory to the 38,091 eligible Tatoeba triangles.",
+        "prediction": "Streaming the bundle will yield en/fr/es archive members whose byte counts and SHA256 identities exactly match the frozen source manifest and embedded fetch receipts.",
+        "reason": "The hash-bound task completed without opening raw story text and used 15,204,352 bytes peak RSS.",
+        "result": "The 232,883,564-byte bundle SHA256 825a8c063b19d4b1dc21f8a540ea2acbe5e11fa1da1cd6bfdeac5200c6805b6c passed ZIP CRC. Its en archive was 115,069,300 bytes with SHA256 974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f; fr was 37,776,586 bytes with SHA256 84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587; es was 80,028,192 bytes with SHA256 2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55. All embedded receipts agreed.",
+        "revision": 1
+      },
+      {
+        "event_id": "wake25-globalvoices-whitespace-index-verified",
+        "evidence": [
+          {
+            "path": "output/whitespace_fingerprint_summary.json",
+            "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"
+          },
+          {
+            "path": "output/whitespace_fingerprint_verification.json",
+            "sha256": "857b80e2129d3787e135fec6e861b6e15192f4daaafc7216b3096d2b9f0e10d5"
+          },
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-a228578a63064b49b6091343e79a20d5/receipt.json",
+            "sha256": "67a4ceca88d56255ca7739155d08bfb2a190f1664ae55b25b7b204babf1239bb"
+          },
+          {
+            "path": ".research-autopilot/runner/attempts/attempt-6a7044f0363242a78731658a41e7e304/receipt.json",
+            "sha256": "b5f08dd3c01130ca155298587a5a10f624368ee5672879a61858a1a2cc6824af"
+          }
+        ],
+        "goal_contract_version": 1,
+        "hypothesis": "The exact frozen 512x3 GlobalVoices units can be reconstructed from the recovered archives and represented with the Tatoeba addendum's whitespace-token five-shingle rule in a result-blind index.",
+        "idea": "frozen-contamination-source-recovery",
+        "interpretation": "The compatibility-repair hypothesis is accepted. The old regex-word index remains an informative negative artifact, while the new index is eligible for the next contamination-filtering step. This does not yet show that any Tatoeba triangle is uncontaminated and is not a tokenizer/fairness result.",
+        "kind": "research_cycle",
+        "next_action": "Apply the complete frozen training, TICO, GlobalVoices, FLORES and Books inventories to the 38,091 eligible Tatoeba triangles, independently verify deterministic selection, and only then release the development set for tokenizer comparison.",
+        "prediction": "A new database will contain 1,536 confirmation rows, and an independent parser will reproduce every exact hash and every full-SHA256 five-token multiset without raw text in outputs.",
+        "reason": "Both finite scientific commands completed under the shared-memory guard and all reservations settled.",
+        "result": "The build produced a 6,549,504-byte SQLite database (SHA256 2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a) with 512 units per language. Aggregate whitespace-token counts were en 10,254 / fr 11,457 / es 11,097; shingle masses were en 8,231 / fr 9,420 / es 9,072. A separately implemented verifier reparsed all frozen sources and matched 1,536 exact hashes and 1,536 shingle multisets. Build and verification peak RSS were 103,268,352 and 102,158,336 bytes, respectively.",
+        "revision": 1
+      }
+    ],
+    "revision": 1,
+    "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake25_5siIJo/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake25",
+    "source": {
+      "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+        },
+        {
+          "path": "references/rsi-simple.md",
+          "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+        },
+        {
+          "path": "references/simple-runner.md",
+          "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+        },
+        {
+          "path": "scripts/_simple_process.py",
+          "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+        },
+        {
+          "path": "scripts/_simple_source.py",
+          "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+        },
+        {
+          "path": "scripts/simple_loop.py",
+          "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+        },
+        {
+          "path": "scripts/simple_runner.py",
+          "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+        },
+        {
+          "path": "references/simple-experiment-design.md",
+          "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+        },
+        {
+          "path": "scripts/simple_design.py",
+          "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+        },
+        {
+          "path": "scripts/simple_resources.py",
+          "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+        },
+        {
+          "path": "assets/templates/simple-experiment-plan.json",
+          "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+        },
+        {
+          "path": "assets/templates/simple-experiment-results.json",
+          "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+        },
+        {
+          "path": "references/simple-collaboration.md",
+          "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+        },
+        {
+          "path": "assets/templates/simple-delegation.json",
+          "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+        }
+      ],
+      "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+    },
+    "state": "open",
+    "tasks": [
+      {
+        "argv": [
+          "python3",
+          "scripts/measure_command.py",
+          "output/raw_bundle_audit.resources.json",
+          "scripts/audit_raw_bundle.py"
+        ],
+        "attempt_id": "attempt-b415fd725b2342ac8d6e58087b28f84a",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "frozen-contamination-source-recovery",
+        "input_refs": [
+          {
+            "path": "scripts/audit_raw_bundle.py",
+            "sha256": "5b01edf237de8a7466beb947196c3229aaf1110ffcead837443e6275291c6d5b"
+          },
+          {
+            "path": "inputs/PA_BPE_GlobalVoices_v2018q4_Raw_Source.zip",
+            "sha256": "825a8c063b19d4b1dc21f8a540ea2acbe5e11fa1da1cd6bfdeac5200c6805b6c"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+          }
+        ],
+        "outputs": [
+          "output/raw_bundle_audit.json",
+          "output/raw_bundle_audit.resources.json",
+          "inputs/raw/en.zip",
+          "inputs/raw/fr.zip",
+          "inputs/raw/es.zip"
+        ],
+        "phase": "sources",
+        "purpose": "Stream-verify the persisted raw bundle and restore the three exact frozen OPUS GlobalVoices language archives without opening raw story text, correcting the prior source-gap inference before rebuilding whitespace-token fingerprints",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": null,
+        "task_id": "wake25-raw-bundle-audit-v1",
+        "timeout_seconds": 90
+      },
+      {
+        "argv": [
+          "python3",
+          "scripts/measure_command.py",
+          "output/whitespace_fingerprint_build.resources.json",
+          "scripts/build_whitespace_fingerprints.py",
+          "--units",
+          "inputs/frozen_units.json",
+          "--raw-dir",
+          "inputs/raw",
+          "--source-manifest",
+          "inputs/frozen_source_manifest.json",
+          "--fetch-receipts",
+          "inputs/frozen_fetch_receipts",
+          "--raw-schema",
+          "inputs/frozen_raw_schema.json",
+          "--selector-protocol",
+          "inputs/frozen_selector_protocol.json",
+          "--database",
+          "output/globalvoices_whitespace_fingerprints.sqlite3",
+          "--summary",
+          "output/whitespace_fingerprint_summary.json"
+        ],
+        "attempt_id": "attempt-a228578a63064b49b6091343e79a20d5",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "frozen-contamination-source-recovery",
+        "input_refs": [
+          {
+            "path": "scripts/build_whitespace_fingerprints.py",
+            "sha256": "9f8c23077f4a518dc41d3ecd1abdadb8b472aaf9d86b36364a1a54c685c9351b"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+          },
+          {
+            "path": "inputs/frozen_original_builder.py",
+            "sha256": "145d00e539bd3d348a70230e52d56fb7652f3cb9dc9ec79df5141e734d09068b"
+          },
+          {
+            "path": "inputs/frozen_units.json",
+            "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+          },
+          {
+            "path": "inputs/frozen_source_manifest.json",
+            "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+          },
+          {
+            "path": "inputs/frozen_raw_schema.json",
+            "sha256": "05b27bf340f923ee339b6248d3e3d769a922400d37232130ea9220d9550a1bc9"
+          },
+          {
+            "path": "inputs/frozen_selector_protocol.json",
+            "sha256": "b1dfa1533666d134a1bc79ba7e8bbe04071e9323c78989d11759f91b4cbc5735"
+          },
+          {
+            "path": "inputs/frozen_fetch_receipts/fetch_en.json",
+            "sha256": "db52ab64035ae8401b0d9eddca0204990774b05c9638e46f5865f8d4aff58aee"
+          },
+          {
+            "path": "inputs/frozen_fetch_receipts/fetch_fr.json",
+            "sha256": "81d85086d1217d0c1834ac4ea44157b500420b18cc0faa8cce867596985242c2"
+          },
+          {
+            "path": "inputs/frozen_fetch_receipts/fetch_es.json",
+            "sha256": "8b55269119f593dbde6ce030bb1db0eb337b1a8bbf54e4d89f2b90fead764a2b"
+          },
+          {
+            "path": "inputs/raw/en.zip",
+            "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+          },
+          {
+            "path": "inputs/raw/fr.zip",
+            "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+          },
+          {
+            "path": "inputs/raw/es.zip",
+            "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+          }
+        ],
+        "outputs": [
+          "output/globalvoices_whitespace_fingerprints.sqlite3",
+          "output/whitespace_fingerprint_summary.json",
+          "output/whitespace_fingerprint_build.resources.json"
+        ],
+        "phase": "sources",
+        "purpose": "Rebuild the frozen 512x3 GlobalVoices result-blind fingerprint index with the prospective Tatoeba addendum's whitespace-token semantics while preserving exact hashes, URL hashes and full SHA256 five-token shingle multisets",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": null,
+        "task_id": "wake25-whitespace-fingerprint-build-v1",
+        "timeout_seconds": 90
+      },
+      {
+        "argv": [
+          "python3",
+          "scripts/measure_command.py",
+          "output/whitespace_fingerprint_verification.resources.json",
+          "scripts/verify_whitespace_fingerprints.py"
+        ],
+        "attempt_id": "attempt-6a7044f0363242a78731658a41e7e304",
+        "cancel_requested": false,
+        "cwd": ".",
+        "depends_on": [],
+        "idea": "frozen-contamination-source-recovery",
+        "input_refs": [
+          {
+            "path": "scripts/verify_whitespace_fingerprints.py",
+            "sha256": "f89a71b215ef47c0e60828483b5fdea41d772b7f354dd6cd37a68c0d0ba10eeb"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "353d86fff87a97f65b7ef6baf53f0f0a6b24c8a295ace9cdc10738cb14e9ec70"
+          },
+          {
+            "path": "output/globalvoices_whitespace_fingerprints.sqlite3",
+            "sha256": "2ec1dc4b27d9f4f842ce220610cd06b0bea9da25394173c59390d6650869d95a"
+          },
+          {
+            "path": "output/whitespace_fingerprint_summary.json",
+            "sha256": "4e509ee190f2cf8756cf7ae7c72a6f09aae6dbe11ac0f0bc16c4db83eebcc642"
+          },
+          {
+            "path": "inputs/frozen_units.json",
+            "sha256": "497815f98a6fb66ea95a0d3fc0d796f5b1bb1c789f5df09f57216c0223d75a0f"
+          },
+          {
+            "path": "inputs/frozen_source_manifest.json",
+            "sha256": "e063489b996656c42a4e974e6323a694371bf5ba556fe855f090c7f610c89ae4"
+          },
+          {
+            "path": "inputs/raw/en.zip",
+            "sha256": "974c2b104717a99662e6756272e2463989e7e78002e1a78e8e0e83c046fa9b3f"
+          },
+          {
+            "path": "inputs/raw/fr.zip",
+            "sha256": "84cfd37dec57098be81c7309ca878cad104c71e37087bbc9f70f4f16b5c36587"
+          },
+          {
+            "path": "inputs/raw/es.zip",
+            "sha256": "2af6fb985de8965c5ae722a6ce0fdaf61477d3faa083a32cf2490a86e983be55"
+          }
+        ],
+        "outputs": [
+          "output/whitespace_fingerprint_verification.json",
+          "output/whitespace_fingerprint_verification.resources.json"
+        ],
+        "phase": "verify",
+        "purpose": "Independently reparse all frozen source units and recompute every normalized exact hash and whitespace-token five-shingle multiset, comparing all 1,536 unit-language rows to the rebuilt database",
+        "reason": "Command execution reported succeeded",
+        "replaced_by": null,
+        "revision": 1,
+        "state": "succeeded",
+        "supersedes": null,
+        "task_id": "wake25-whitespace-fingerprint-verify-v1",
+        "timeout_seconds": 90
+      }
+    ]
+  }
+]
