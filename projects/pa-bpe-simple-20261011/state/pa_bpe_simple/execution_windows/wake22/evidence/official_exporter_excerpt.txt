@@ -1,0 +1,21 @@
+Official repository: https://github.com/Tatoeba/tatoeba2
+Commit: 0fbb4506ce071827f85375bd4c8c8f9c7cf23d41
+Observed commit date: 2026-07-18T19:09:36Z
+
+docs/database/scripts/weekly_exports.sql, relevant statements:
+SELECT id, lang, text FROM `sentences`
+WHERE correctness > -1 AND license != ''
+INTO OUTFILE '/var/tmp/sentences.csv';
+
+SELECT sentence_id, translation_id FROM `sentences_translations`
+INTO OUTFILE '/var/tmp/links.csv';
+
+docs/cron/export.sh, relevant flow:
+split_file sentences.csv
+
+mysql --skip-column-names --batch tatoeba -e \
+    "SELECT sentence_lang, translation_lang, sentence_id, translation_id
+     FROM sentences_translations" | awk ...
+
+The exact upstream files and repository commit were inspected locally; this
+excerpt only preserves the minimum lines needed for the source-semantics audit.

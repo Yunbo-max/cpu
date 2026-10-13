@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-13T05:46:10Z",
+  "incidents": [
+    {
+      "event_id": "cli:c3a50874ce6549ce9e9e150ddc455af6",
+      "observed_at": "2026-10-13T05:41:48.970866+00:00",
+      "phenomenon": "Evidence paths must be safe project-relative paths",
+      "impact": "Initial submission rejected before an attempt was created",
+      "repair": "Copied the immutable wake21 diagnostic into wake22 evidence and pinned its SHA256; resubmission succeeded"
+    },
+    {
+      "event_id": "cli:0ef8e9c85c454dd4b6fd37f732bffb06",
+      "observed_at": "2026-10-13T05:43:20.710273+00:00",
+      "phenomenon": "Unexpected event fields",
+      "impact": "First decision response rejected; scientific attempt remained terminal and unchanged",
+      "repair": "Removed unsupported target_phase from resource_issue and resubmitted"
+    },
+    {
+      "event_id": "supervisor-start:bc4471d6bcac2f897607dab9f4670737fd5fa7077e8239f12426538b896b371d",
+      "observed_at": "2026-10-13T05:43:20.774547+00:00",
+      "phenomenon": "Another supervisor owns this project lock",
+      "impact": "Duplicate supervisor start was rejected; no duplicate scientific process launched",
+      "repair": "Kept the original verified supervisor identity and sent decisions to it"
+    },
+    {
+      "event_id": "cli:602bd91038db497a89a05080db6e442f",
+      "observed_at": "2026-10-13T05:44:10.218828+00:00",
+      "phenomenon": "Unknown structured continuation reason",
+      "impact": "First handoff response rejected; no task state changed",
+      "repair": "Replaced the custom reason with supported reason partial; continuation was stored"
+    }
+  ],
+  "science_impact": "none",
+  "attempts_created": 1,
+  "attempts_terminal": 1,
+  "reserved_seconds": 0
+}

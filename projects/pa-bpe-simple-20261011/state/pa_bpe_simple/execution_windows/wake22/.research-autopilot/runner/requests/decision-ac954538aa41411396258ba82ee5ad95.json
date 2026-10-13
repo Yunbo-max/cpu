@@ -1,0 +1,473 @@
+{
+  "agent_error": null,
+  "agent_version": 0,
+  "attempts": [
+    {
+      "attempt_dir": "/workspace/scratch/42f1128b703b/pa_bpe_wake22_20261013T0535/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake22/.research-autopilot/runner/attempts/attempt-efb3399e4b2a4f7f817f19c5f4c7ff61",
+      "attempt_id": "attempt-efb3399e4b2a4f7f817f19c5f4c7ff61",
+      "contract": {
+        "argv": [
+          "python3",
+          "scripts/measure_command.py",
+          "output/official_export_semantics.resources.json",
+          "scripts/audit_official_exporter.py"
+        ],
+        "attempt_id": "attempt-efb3399e4b2a4f7f817f19c5f4c7ff61",
+        "cwd": ".",
+        "deadline_epoch": 1791871887.0479808,
+        "input_refs": [
+          {
+            "path": "evidence/official_exporter_excerpt.txt",
+            "sha256": "ef51e7b6e9d293235825bbdcd4b900c8a9813d304d87d236a554249b6300d5c9"
+          },
+          {
+            "path": "scripts/audit_official_exporter.py",
+            "sha256": "bed6cfdf7dc99a729e0461b494ede392451cbbbd6c0a31ffbd3156ba33bf7b46"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+          },
+          {
+            "path": "evidence/wake21_source_endpoint_diagnostic.json",
+            "sha256": "200db02e794ce7822b9a4853a7748c7fd08bf5f8e475f9e8690760bd8442ec71"
+          }
+        ],
+        "kind": "task",
+        "outputs": [
+          "output/official_export_semantics.json",
+          "output/official_export_semantics.resources.json"
+        ],
+        "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake22_20261013T0535/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake22",
+        "schema_version": 1,
+        "source": {
+          "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+          "files": [
+            {
+              "path": "SKILL.md",
+              "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+            },
+            {
+              "path": "references/rsi-simple.md",
+              "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+            },
+            {
+              "path": "references/simple-runner.md",
+              "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+            },
+            {
+              "path": "scripts/_simple_process.py",
+              "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+            },
+            {
+              "path": "scripts/_simple_source.py",
+              "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+            },
+            {
+              "path": "scripts/simple_loop.py",
+              "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+            },
+            {
+              "path": "scripts/simple_runner.py",
+              "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+            },
+            {
+              "path": "references/simple-experiment-design.md",
+              "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+            },
+            {
+              "path": "scripts/simple_design.py",
+              "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+            },
+            {
+              "path": "scripts/simple_resources.py",
+              "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+            },
+            {
+              "path": "assets/templates/simple-experiment-plan.json",
+              "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+            },
+            {
+              "path": "assets/templates/simple-experiment-results.json",
+              "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+            },
+            {
+              "path": "references/simple-collaboration.md",
+              "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+            },
+            {
+              "path": "assets/templates/simple-delegation.json",
+              "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+            }
+          ],
+          "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+        },
+        "task_id": "audit-official-exporter",
+        "timeout_seconds": 60
+      },
+      "contract_sha256": "d628d2b87e6673d6d6017ecbe63ab5ad921c25ed5efd857e0c482d605f13928f",
+      "elapsed_seconds": 0.08367272399937065,
+      "kind": "task",
+      "reason": "Command execution reported succeeded",
+      "receipt": {
+        "attempt_id": "attempt-efb3399e4b2a4f7f817f19c5f4c7ff61",
+        "command_identity": {
+          "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+          "pid": 9739,
+          "start_ticks": 631395
+        },
+        "contract_sha256": "d628d2b87e6673d6d6017ecbe63ab5ad921c25ed5efd857e0c482d605f13928f",
+        "elapsed_seconds": 0.08367272399937065,
+        "error": null,
+        "exit_code": 0,
+        "finished_at": "2026-10-13T05:42:09.482998+00:00",
+        "input_refs": [
+          {
+            "path": "evidence/official_exporter_excerpt.txt",
+            "sha256": "ef51e7b6e9d293235825bbdcd4b900c8a9813d304d87d236a554249b6300d5c9"
+          },
+          {
+            "path": "scripts/audit_official_exporter.py",
+            "sha256": "bed6cfdf7dc99a729e0461b494ede392451cbbbd6c0a31ffbd3156ba33bf7b46"
+          },
+          {
+            "path": "scripts/measure_command.py",
+            "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+          },
+          {
+            "path": "evidence/wake21_source_endpoint_diagnostic.json",
+            "sha256": "200db02e794ce7822b9a4853a7748c7fd08bf5f8e475f9e8690760bd8442ec71"
+          }
+        ],
+        "output_refs": [
+          {
+            "path": "output/official_export_semantics.json",
+            "sha256": "6b5623016ed9a2d5dfdb8c823b4e742c23bec425b7a026d0f7793011499d3830"
+          },
+          {
+            "path": "output/official_export_semantics.resources.json",
+            "sha256": "090604844304b3757cf1540744c1d9f25d5aa2be6b239d7628e78d1971ba03f3"
+          }
+        ],
+        "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake22_20261013T0535/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake22",
+        "schema_version": 1,
+        "started_at": "2026-10-13T05:42:09.399326+00:00",
+        "status": "succeeded",
+        "stderr_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-efb3399e4b2a4f7f817f19c5f4c7ff61/stderr.txt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-efb3399e4b2a4f7f817f19c5f4c7ff61/stdout.txt",
+          "sha256": "136bde254b6b79fd7e93d4858820aaa087b7862475536223e07619a584f32186"
+        },
+        "task_id": "audit-official-exporter",
+        "worker_identity": {
+          "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
+          "pid": 9738,
+          "start_ticks": 631389
+        }
+      },
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-efb3399e4b2a4f7f817f19c5f4c7ff61/receipt.json",
+        "sha256": "3bf4926d06e63ca925648ecb2b504de69db3c6e6e911e2657c9cae3e585454dd"
+      },
+      "reservation_seconds": 63.0,
+      "response_handled": true,
+      "result": "succeeded",
+      "source": {
+        "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+          },
+          {
+            "path": "references/rsi-simple.md",
+            "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+          },
+          {
+            "path": "references/simple-runner.md",
+            "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+          },
+          {
+            "path": "scripts/_simple_process.py",
+            "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+          },
+          {
+            "path": "scripts/_simple_source.py",
+            "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+          },
+          {
+            "path": "scripts/simple_loop.py",
+            "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+          },
+          {
+            "path": "scripts/simple_runner.py",
+            "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+          },
+          {
+            "path": "references/simple-experiment-design.md",
+            "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+          },
+          {
+            "path": "scripts/simple_design.py",
+            "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+          },
+          {
+            "path": "scripts/simple_resources.py",
+            "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+          },
+          {
+            "path": "assets/templates/simple-experiment-plan.json",
+            "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+          },
+          {
+            "path": "assets/templates/simple-experiment-results.json",
+            "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+          },
+          {
+            "path": "references/simple-collaboration.md",
+            "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+          },
+          {
+            "path": "assets/templates/simple-delegation.json",
+            "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+          }
+        ],
+        "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+      },
+      "state": "terminal",
+      "task_id": "audit-official-exporter"
+    }
+  ],
+  "budget": {
+    "attempts_used": 1,
+    "deadline_epoch": 1791871887.0479808,
+    "elapsed_seconds": 0.08367272399937065,
+    "max_attempts": 12,
+    "max_command_seconds": 600,
+    "remaining_deadline_seconds": 1623.417602300644,
+    "remaining_seconds": 599.9163272760006,
+    "reserved_seconds": 0
+  },
+  "continuation": {
+    "agent_version": 0,
+    "attempt_id": null,
+    "checkpoint_refs": [
+      {
+        "path": ".research-autopilot/runner/checkpoints/wake22-memory-handoff/0-b03a53fa0dada5f93085c14b031b1dd3dcd4be70533e9bbba4a642b2cb31a916.checkpoint",
+        "sha256": "b03a53fa0dada5f93085c14b031b1dd3dcd4be70533e9bbba4a642b2cb31a916"
+      },
+      {
+        "path": ".research-autopilot/runner/checkpoints/wake22-memory-handoff/1-6b5623016ed9a2d5dfdb8c823b4e742c23bec425b7a026d0f7793011499d3830.checkpoint",
+        "sha256": "6b5623016ed9a2d5dfdb8c823b4e742c23bec425b7a026d0f7793011499d3830"
+      }
+    ],
+    "idea": "pa-bpe-domain-robustness",
+    "next_action": "On the next wake, remeasure shared cgroup memory. If headroom is at least 536870912 bytes and no PA-BPE job is active or unknown, restore the six fixed archive identities, apply the separately versioned eligible inner-join rule, and report exact excluded-edge membership before any confirmation selection or tokenizer scoring.",
+    "original_checkpoint_refs": [
+      {
+        "path": "evidence/waiting_for_memory.json",
+        "sha256": "b03a53fa0dada5f93085c14b031b1dd3dcd4be70533e9bbba4a642b2cb31a916"
+      },
+      {
+        "path": "output/official_export_semantics.json",
+        "sha256": "6b5623016ed9a2d5dfdb8c823b4e742c23bec425b7a026d0f7793011499d3830"
+      }
+    ],
+    "reason": "partial",
+    "request_id": "decision-193476cc0df14218b817724d21738f51",
+    "response_id": "wake22-memory-handoff",
+    "revision": 1
+  },
+  "current_question": "Revise the execution plan within the actual resource constraints: The full 45,851,023-byte source restoration and streaming membership audit were not started because measured cgroup headroom fell below the unchanged 512 MiB startup guard; this is a wait, not a scientific failure.",
+  "goal": "Continuously test and improve the cross-domain stability of multilingual tokenization fairness using legal aligned data, strong controls, retained negative results, and current authorized CPU resources.",
+  "goal_contract": {
+    "completion_criteria": [
+      {
+        "description": "Maintain reproducible development and independent-domain comparisons for Classical and parity-aware variants with fairness and cost metrics.",
+        "id": "cross-domain-evidence"
+      },
+      {
+        "description": "Use observed mechanism evidence to test serial, falsifiable revisions while retaining failures and limits.",
+        "id": "mechanism-revision"
+      }
+    ],
+    "mode": "continuous_research"
+  },
+  "goal_contract_version": 1,
+  "idea": "pa-bpe-domain-robustness",
+  "idea_status": "active",
+  "journal_version": 3,
+  "milestones": [
+    {
+      "event_id": "wake22-official-export-semantics-resolved",
+      "evidence": [
+        {
+          "path": "output/official_export_semantics.json",
+          "sha256": "6b5623016ed9a2d5dfdb8c823b4e742c23bec425b7a026d0f7793011499d3830"
+        },
+        {
+          "path": "output/official_export_semantics.resources.json",
+          "sha256": "090604844304b3757cf1540744c1d9f25d5aa2be6b239d7628e78d1971ba03f3"
+        }
+      ],
+      "idea": "pa-bpe-domain-robustness",
+      "label": "Official Tatoeba export semantics resolved",
+      "reason": "Upstream primary source code shows that missing link endpoints are an expected consequence of unequal eligibility predicates, not evidence that the six downloaded blobs came from different versions.",
+      "revision": 1
+    }
+  ],
+  "next_action": "Revise the execution plan within the actual resource constraints: The full 45,851,023-byte source restoration and streaming membership audit were not started because measured cgroup headroom fell below the unchanged 512 MiB startup guard; this is a wait, not a scientific failure.",
+  "observations": [
+    {
+      "event_id": "continuation:wake22-memory-handoff",
+      "kind": "continuation",
+      "payload": {
+        "agent_version": 0,
+        "attempt_id": null,
+        "checkpoint_refs": [
+          {
+            "path": ".research-autopilot/runner/checkpoints/wake22-memory-handoff/0-b03a53fa0dada5f93085c14b031b1dd3dcd4be70533e9bbba4a642b2cb31a916.checkpoint",
+            "sha256": "b03a53fa0dada5f93085c14b031b1dd3dcd4be70533e9bbba4a642b2cb31a916"
+          },
+          {
+            "path": ".research-autopilot/runner/checkpoints/wake22-memory-handoff/1-6b5623016ed9a2d5dfdb8c823b4e742c23bec425b7a026d0f7793011499d3830.checkpoint",
+            "sha256": "6b5623016ed9a2d5dfdb8c823b4e742c23bec425b7a026d0f7793011499d3830"
+          }
+        ],
+        "idea": "pa-bpe-domain-robustness",
+        "next_action": "On the next wake, remeasure shared cgroup memory. If headroom is at least 536870912 bytes and no PA-BPE job is active or unknown, restore the six fixed archive identities, apply the separately versioned eligible inner-join rule, and report exact excluded-edge membership before any confirmation selection or tokenizer scoring.",
+        "original_checkpoint_refs": [
+          {
+            "path": "evidence/waiting_for_memory.json",
+            "sha256": "b03a53fa0dada5f93085c14b031b1dd3dcd4be70533e9bbba4a642b2cb31a916"
+          },
+          {
+            "path": "output/official_export_semantics.json",
+            "sha256": "6b5623016ed9a2d5dfdb8c823b4e742c23bec425b7a026d0f7793011499d3830"
+          }
+        ],
+        "reason": "partial",
+        "request_id": "decision-193476cc0df14218b817724d21738f51",
+        "response_id": "wake22-memory-handoff",
+        "revision": 1
+      },
+      "request_id": null,
+      "sequence": 3
+    }
+  ],
+  "request_id": "decision-ac954538aa41411396258ba82ee5ad95",
+  "research_cycles": [],
+  "revision": 1,
+  "root": "/workspace/scratch/42f1128b703b/pa_bpe_wake22_20261013T0535/repo/projects/pa-bpe-simple-20261011/state/pa_bpe_simple/execution_windows/wake22",
+  "source": {
+    "digest": "e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "8051d4fd35f3c6fb27628c265365e76a7bed6b3e98eed4b87319799bc4ec8390"
+      },
+      {
+        "path": "references/rsi-simple.md",
+        "sha256": "1ca0c10bf3e63a668ccb82fa1b525d44e4229030bc70b610d6c1fd9586f2a88c"
+      },
+      {
+        "path": "references/simple-runner.md",
+        "sha256": "276fdc9688378f53386a67d680334d9c1c64bd9ae0e6821d14bc049ce8748f7f"
+      },
+      {
+        "path": "scripts/_simple_process.py",
+        "sha256": "8923763ee5efd8f34b6a16cfe57caa655f7f8ee9bf1019742f55b21740eca72d"
+      },
+      {
+        "path": "scripts/_simple_source.py",
+        "sha256": "f848d99536fd3d6b60b9e87a3e0f2e12dd847b3ee2d64860edb0f71a3cbf00c1"
+      },
+      {
+        "path": "scripts/simple_loop.py",
+        "sha256": "ea26a9203546f0ab87b72e977ec87c96dc43c7b07a74228253501c3051537c10"
+      },
+      {
+        "path": "scripts/simple_runner.py",
+        "sha256": "fd958fbc171d93314935db932a410938d232dce66ffcea9926e4dd3848a613de"
+      },
+      {
+        "path": "references/simple-experiment-design.md",
+        "sha256": "992cd7071fb4f9464271fca843d7606cf6d5f0b15288d155f05df29005ddfa2c"
+      },
+      {
+        "path": "scripts/simple_design.py",
+        "sha256": "c9973848481c8b159bc3974d95fae2bf045f2531a7cb816e8777989eb37b191f"
+      },
+      {
+        "path": "scripts/simple_resources.py",
+        "sha256": "756235f260ba1bad72133ff76029220dc6893a7dd96bb918aacf88c21f129cfa"
+      },
+      {
+        "path": "assets/templates/simple-experiment-plan.json",
+        "sha256": "41512a6cf06fa50ead4e14c7c771be4dcd3f7b52735ad6533742c5c219aba1b2"
+      },
+      {
+        "path": "assets/templates/simple-experiment-results.json",
+        "sha256": "31eaa7121222837b7bedabc9b3ecff0ac6db64b1f80480d557df3302ff9010a8"
+      },
+      {
+        "path": "references/simple-collaboration.md",
+        "sha256": "6ad1d882caacb2118e5eaa4cb173dd59110496da719ad8e850ca6fe87bbd1414"
+      },
+      {
+        "path": "assets/templates/simple-delegation.json",
+        "sha256": "5cbb47d1d3991133498b0d6322846e00c124894943a1ca62812a80e772bb2af3"
+      }
+    ],
+    "root": ".research-autopilot/runner/sources/e2b9d1c04fdb680bdf6e069ec387d84ec8f92efed5c44f59b7724ab446db5ae8"
+  },
+  "tasks": [
+    {
+      "argv": [
+        "python3",
+        "scripts/measure_command.py",
+        "output/official_export_semantics.resources.json",
+        "scripts/audit_official_exporter.py"
+      ],
+      "attempt_id": "attempt-efb3399e4b2a4f7f817f19c5f4c7ff61",
+      "cancel_requested": false,
+      "cwd": ".",
+      "depends_on": [],
+      "idea": "pa-bpe-domain-robustness",
+      "input_refs": [
+        {
+          "path": "evidence/official_exporter_excerpt.txt",
+          "sha256": "ef51e7b6e9d293235825bbdcd4b900c8a9813d304d87d236a554249b6300d5c9"
+        },
+        {
+          "path": "scripts/audit_official_exporter.py",
+          "sha256": "bed6cfdf7dc99a729e0461b494ede392451cbbbd6c0a31ffbd3156ba33bf7b46"
+        },
+        {
+          "path": "scripts/measure_command.py",
+          "sha256": "8945a7f63a8d5d937304e9eb0219a07785991a70afb0d85f6d4f69003ec49821"
+        },
+        {
+          "path": "evidence/wake21_source_endpoint_diagnostic.json",
+          "sha256": "200db02e794ce7822b9a4853a7748c7fd08bf5f8e475f9e8690760bd8442ec71"
+        }
+      ],
+      "outputs": [
+        "output/official_export_semantics.json",
+        "output/official_export_semantics.resources.json"
+      ],
+      "phase": "verify",
+      "purpose": "Identify the upstream export-rule mechanism behind wake21 missing endpoints and specify the only defensible separately versioned eligibility join without selecting or scoring confirmation items.",
+      "reason": "Command execution reported succeeded",
+      "replaced_by": null,
+      "revision": 1,
+      "state": "succeeded",
+      "supersedes": null,
+      "task_id": "audit-official-exporter",
+      "timeout_seconds": 60
+    }
+  ]
+}

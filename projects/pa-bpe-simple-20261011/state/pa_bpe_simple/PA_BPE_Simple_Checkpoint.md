@@ -1,3 +1,19 @@
+# 最新规范状态：generation 23，2026-10-13
+
+Tatoeba固定源的缺失端点机制已经由官方上游源码定位。`Tatoeba/tatoeba2`提交`0fbb4506ce071827f85375bd4c8c8f9c7cf23d41`中，句子导出要求`correctness > -1 AND license != ''`，而全局及逐语言link导出直接来自`sentences_translations`，没有同一资格过滤；逐语言句子文件则来自已过滤的`sentences.csv`。因此link文件可以合法引用未进入对应句子文件的ID。wake21的507/210/27、合计744条缺端点边与此机制相符，不再构成6份文件必然异步的证据。
+
+严格协议v1仍按其原规则保留失败，不能后验删边冒称通过。可辩护的修订另立版本：每个冻结pair-link表仅保留同时存在于两侧冻结、语种匹配句子表的inner join，逐条记录排除边，缺端点条目不得选择或评分。这只是来源机制修复；尚未生成确认集，也没有tokenizer或公平性结果。
+
+本轮1个低内存runner任务exit0：命令wall 0.008751049秒、峰值RSS13,238,272 bytes；runner计费wall0.083672724秒、reservation0。累计计费wall1923.041858639秒，无项目累计上限。四个管理CLI错误均在科学命令外修复并保留：不安全跨窗口路径、事件字段错误、重复supervisor启动、无效continuation reason；没有重复科学attempt。
+
+完整45,851,023-byte固定源恢复与membership审计尚未启动。2026-10-13 05:46:01 UTC实测8GiB cgroup仅余248,578,048 bytes，低于512MiB启动门限；anon/file/shmem分别为526,508,032/7,395,381,248/0 bytes。记为`waiting_for_memory`，不是实验完成或科学失败，没有OOM。唯一attempt终态、reservation0；有限runner停止，无活动PA-BPE科学进程，continuous_research和原调度继续。
+
+下一步：新唤醒先重测共享内存；余量至少536,870,912 bytes、且无重复/未知PA-BPE进程时，从既有14个哈希块恢复6份固定源，实际执行版本化eligible-inner-join membership审计，报告精确保留/排除边和闭合三角数量。之后仍须恢复完整历史污染排除清单，才能冻结选择；此前公平性继续HOLD。
+
+恢复必读：`PA_BPE_Wake22_Report.md`、`evidence/wake22_handoff.json`、`evidence/waiting_for_memory_wake22_final.json`、`evidence/incidents_wake22.json`、`execution_windows/wake22/output/official_export_semantics.json`及runner receipt。
+
+# generation 22 历史状态（保留）
+
 # 最新规范状态：generation 22，2026-10-12
 
 固定的6份Tatoeba压缩源全部取得，大小与冻结元数据吻合，SHA256和HTTP元数据已记录，共45,851,023字节。大小吻合不证明与历史观察的导出逐字节相同；实际下载的哈希才是本次输入身份。14个不超过4MiB的块列入archives/index.json，可按source_archive_refs.json恢复。

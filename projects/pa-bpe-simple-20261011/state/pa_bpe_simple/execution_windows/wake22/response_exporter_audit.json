@@ -1,0 +1,39 @@
+{
+  "response_id": "wake22-exporter-audit-reviewed",
+  "request_id": "decision-7e058d21f38a45c2a2a8c62e76bc250c",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "The official exporter code resolves the wake21 missing-endpoint mechanism: sentence rows are eligibility-filtered but link rows are not. Retain strict protocol v1 as failed, version the inner-join eligibility repair separately, and defer the fixed-source membership audit until the existing 512 MiB startup guard is met.",
+  "events": [
+    {
+      "event_id": "wake22-official-export-semantics-resolved",
+      "kind": "milestone",
+      "label": "Official Tatoeba export semantics resolved",
+      "next_phase": "sources",
+      "reason": "Upstream primary source code shows that missing link endpoints are an expected consequence of unequal eligibility predicates, not evidence that the six downloaded blobs came from different versions.",
+      "evidence": [
+        {
+          "path": "output/official_export_semantics.json",
+          "sha256": "6b5623016ed9a2d5dfdb8c823b4e742c23bec425b7a026d0f7793011499d3830"
+        },
+        {
+          "path": "output/official_export_semantics.resources.json",
+          "sha256": "090604844304b3757cf1540744c1d9f25d5aa2be6b239d7628e78d1971ba03f3"
+        }
+      ]
+    },
+    {
+      "event_id": "wake22-fixed-source-restore-memory-wait",
+      "kind": "resource_issue",
+      "issue": "waiting_for_memory_before_fixed_source_restore",
+      "reason": "The full 45,851,023-byte source restoration and streaming membership audit were not started because measured cgroup headroom fell below the unchanged 512 MiB startup guard; this is a wait, not a scientific failure.",
+      "evidence": [
+        {
+          "path": "evidence/waiting_for_memory.json",
+          "sha256": "b03a53fa0dada5f93085c14b031b1dd3dcd4be70533e9bbba4a642b2cb31a916"
+        }
+      ]
+    }
+  ]
+}

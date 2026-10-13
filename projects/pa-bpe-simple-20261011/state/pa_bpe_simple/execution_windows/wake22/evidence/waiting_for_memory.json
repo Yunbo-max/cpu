@@ -1,0 +1,19 @@
+{
+  "status": "waiting_for_memory",
+  "first_wait_utc": "2026-10-13T05:34:40Z",
+  "latest_measurement_utc": "2026-10-13T05:40:45Z",
+  "rechecks_this_wake": 2,
+  "cgroup_limit_bytes": 8589934592,
+  "latest_cgroup_current_bytes": 8164085760,
+  "latest_headroom_bytes": 425848832,
+  "latest_anon_bytes": 445849600,
+  "latest_file_bytes": 7303139328,
+  "latest_shmem_bytes": 0,
+  "deferred_task": "Restore the 45,851,023-byte fixed Tatoeba source bundle and run the streaming endpoint-membership audit.",
+  "required_start_headroom_bytes": 536870912,
+  "basis": "Wake21 measured peak RSS below 29 MiB, but the existing guard requires 512 MiB startup headroom for archive restore plus streaming SQLite and shared-environment growth.",
+  "recovery_condition": "At least 536870912 bytes of measured cgroup headroom immediately before restore, no duplicate/unknown PA-BPE process, and the same archive identities.",
+  "experiment_started": false,
+  "scientific_failure": false,
+  "reported_event_id": null
+}

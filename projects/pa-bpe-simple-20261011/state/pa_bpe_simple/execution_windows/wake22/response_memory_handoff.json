@@ -1,0 +1,22 @@
+{
+  "response_id": "wake22-memory-handoff",
+  "request_id": "decision-193476cc0df14218b817724d21738f51",
+  "idea": "pa-bpe-domain-robustness",
+  "revision": 1,
+  "goal_contract_version": 1,
+  "reason": "Preserve the resolved exporter semantics and the unstarted fixed-source membership audit for the next real wake; do not turn a RAM wait into an experiment or failure.",
+  "continuation": {
+    "reason": "partial",
+    "checkpoint_refs": [
+      {
+        "path": "evidence/waiting_for_memory.json",
+        "sha256": "b03a53fa0dada5f93085c14b031b1dd3dcd4be70533e9bbba4a642b2cb31a916"
+      },
+      {
+        "path": "output/official_export_semantics.json",
+        "sha256": "6b5623016ed9a2d5dfdb8c823b4e742c23bec425b7a026d0f7793011499d3830"
+      }
+    ],
+    "next_action": "On the next wake, remeasure shared cgroup memory. If headroom is at least 536870912 bytes and no PA-BPE job is active or unknown, restore the six fixed archive identities, apply the separately versioned eligible inner-join rule, and report exact excluded-edge membership before any confirmation selection or tokenizer scoring."
+  }
+}

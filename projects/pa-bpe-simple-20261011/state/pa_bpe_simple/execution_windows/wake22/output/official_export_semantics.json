@@ -1,0 +1,23 @@
+{
+  "status": "export_semantics_identified",
+  "official_repository": "https://github.com/Tatoeba/tatoeba2",
+  "official_commit": "0fbb4506ce071827f85375bd4c8c8f9c7cf23d41",
+  "excerpt_sha256": "ef51e7b6e9d293235825bbdcd4b900c8a9813d304d87d236a554249b6300d5c9",
+  "checks": {
+    "sentences_are_eligibility_filtered": true,
+    "global_links_are_unfiltered": true,
+    "per_language_sentences_derive_from_filtered_export": true,
+    "per_language_links_query_relation_directly": true
+  },
+  "mechanism": "Sentence exports exclude correctness <= -1 or empty-license rows, while link exports are drawn directly from sentences_translations without the same eligibility predicate. Therefore a per-language link file can legitimately reference an ID absent from the corresponding per-language sentence export.",
+  "wake21_excluded_edge_counts": {
+    "ef": 507,
+    "es": 210,
+    "fs": 27
+  },
+  "wake21_excluded_edge_total": 744,
+  "strict_protocol_v1": "retained_as_failed",
+  "revised_protocol_rule": "For a separately versioned protocol, define the eligible graph as the inner join of each frozen pair-link table with both frozen, language-matched sentence tables; record every excluded edge and never score or select an item using an absent endpoint.",
+  "tokenizer_scored": false,
+  "confirmation_items_selected": false
+}
