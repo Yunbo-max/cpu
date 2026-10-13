@@ -22,7 +22,10 @@ ROOT = Path('/workspace/scratch/41d88df23405/rl_bandit_simple')
 PREFIX = 'projects/' + PROJECT
 REPO = 'https://github.com/Yunbo-max/cpu.git'
 EXCLUDED = ('env', 'env-daac')
-PART_SIZE = 4 * 1024 * 1024
+# Keep each base64-encoded blob below the connector transport's 1 MiB text
+# boundary (700 KiB -> 955,736 base64 bytes).  This changes only transport
+# chunking; snapshot and per-part hashes still provide the same verification.
+PART_SIZE = 700 * 1024
 
 
 def digest_file(path):
@@ -101,8 +104,16 @@ def quiet(root):
     status = json.loads(subprocess.check_output([
         'python3', str(root / 'runtime/scripts/simple_runner.py'),
         '--root', str(root), 'status']))
+    # Keep this aligned with runtime/scripts/simple_runner.py::TERMINAL.  In
+    # particular, invalid_evidence is a retained terminal observation, not
+    # active work; treating it as nonterminal can make a safely quiescent
+    # project impossible to archive after a superseding verification passes.
+    terminal = {
+        'succeeded', 'failed', 'timed_out', 'cancelled', 'invalid_inputs',
+        'invalid_outputs', 'launch_failed', 'invalid_evidence', 'blocked',
+    }
     nonterminal = [t['task_id'] for t in status['tasks']
-                   if t['state'] not in ('succeeded', 'failed', 'blocked', 'cancelled')]
+                   if t['state'] not in terminal]
     if nonterminal or status['budget']['reserved_seconds']:
         raise RuntimeError('Nonterminal work or reserved resources: ' + str(nonterminal))
     return {'sequence': status['sequence'], 'status': status['status'],
