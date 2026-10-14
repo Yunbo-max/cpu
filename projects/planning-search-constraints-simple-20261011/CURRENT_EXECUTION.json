@@ -1,33 +1,33 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-14T21:43:50.919790+00:00",
+  "updated_utc": "2026-10-14T21:52:29.077214+00:00",
   "window": "W0005",
   "execution_root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
   "status_observed": "running",
   "active_or_unknown_attempts": 1,
   "current_accepted_decision": {
-    "path": "plans/R005L2-depots-p05-states_ops-600s-3000M-W5-v1-decision-v4.json",
-    "sha256": "6451eec81fc978a31c2353a1363f0aa378a65b0fe79fee06cc3fca5371d53d1a"
+    "path": "plans/R005L2-depots-p05-none-600s-3000M-W5-v1-decision-v4.json",
+    "sha256": "8ddc2c7faa7d2830de17c03c897bfc2d982e7e6cd08bfce832d886f2597d65e6"
   },
   "window_budget": {
-    "attempts_used": 1,
+    "attempts_used": 2,
     "max_attempts": 500,
-    "elapsed_seconds": 0.0,
+    "elapsed_seconds": 355.2966061239986,
     "reserved_seconds": 678.0,
-    "remaining_seconds": 79322.0,
+    "remaining_seconds": 78966.703393876,
     "max_command_seconds": 80000,
     "deadline_epoch": 1792100153.542538,
-    "remaining_deadline_seconds": 85922.62564015388
+    "remaining_deadline_seconds": 85404.47210645676
   },
   "project_ledger": {
     "prior_attempt_floor": 283,
     "prior_command_seconds_floor": 15590.955507759041,
-    "window_attempts": 1,
-    "window_command_seconds": 0.0,
-    "combined_attempt_floor": 284,
-    "combined_command_seconds_floor": 15590.955507759041,
+    "window_attempts": 2,
+    "window_command_seconds": 355.2966061239986,
+    "combined_attempt_floor": 285,
+    "combined_command_seconds_floor": 15946.25211388304,
     "actual_scoped_research_cycles": 4,
     "scope": "W5 command accounting plus retained priorfloor. Replayed scientific journal usage is historical and must not be added twice; command accounting is not exact CPU/scientific cycles.",
     "native_model_usage": "unknown"
@@ -43,8 +43,8 @@
         "pid": 4617,
         "start_ticks": 1322002
       },
-      "last_activity_at": "2026-10-14T21:43:50.765013+00:00",
-      "last_activity_epoch": 1792014230.7650125,
+      "last_activity_at": "2026-10-14T21:52:28.903804+00:00",
+      "last_activity_epoch": 1792014748.9038014,
       "mode": "run",
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "schema_version": 1,
@@ -56,7 +56,7 @@
     "max_age_seconds": 30,
     "scope": "Local process observation only; no external watcher or user delivery is activated",
     "identity_observed_alive": true,
-    "activity_age_seconds": 0.15539288520812988
+    "activity_age_seconds": 0.1736772060394287
   },
   "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
   "R006_scientific_results": {
@@ -68,13 +68,13 @@
     "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
     "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
   },
-  "next_task": "Observe and settle original W5 attempt attempt-1595713fe36e41708a417316d5b0dd66; no duplicate launch. Then select none arm with newdecision and allprior hostfeedback.",
+  "next_task": "Observe/settle original none attempt attempt-309350f666784614a566cfb949b72132; do not repeat either states_ops or completed old experiments. Read actual native receipt/sidecar/logs, then analyze complete matched L2 denominator before selecting next scientific action.",
   "active_coordinator": {
     "single_queue": "W0005",
     "supervisor_started": true,
     "owned_exec_session": 54552,
-    "native_attempt": "attempt-1595713fe36e41708a417316d5b0dd66",
-    "task_id": "R005L2-depots-p05-states_ops-600s-3000M-W5-v1",
+    "native_attempt": "attempt-309350f666784614a566cfb949b72132",
+    "task_id": "R005L2-depots-p05-none-600s-3000M-W5-v1",
     "native_Popen_observed": true,
     "no_resident_guarantee": true
   },
@@ -461,7 +461,7 @@
     "native_executed": false,
     "accepted_decision": "plans/decision-R005L2-depots-p05-states_ops-600s-3000M-host-v3-hostv10.json"
   },
-  "current_control_snapshot_scope": "Remote verified W5 queued0 control/source supplement b24f8f4 + current1-attempt dispatch identity supplement; live1-control backup pending quiet settlement. Do not restore0snapshot and blindly relaunch active1.",
+  "current_control_snapshot_scope": "Consistent activeW5 control2 + all completed states_ops raw output and new none inputs/dispatch; overlay supplement to b24W5base, core68oldinputs and69forensics. No terminal none or full scratch-filesystem claim.",
   "actual_control_status": "Officialstatus unreadable; lasthealthy69snapshot retained; all69knownphysicalattempts have verifiedterminalreceipts; v3no nativeattemptallocated",
   "control_failure": {
     "current_W5_integrity_check": "ok",
@@ -471,8 +471,11 @@
     "original_139_events_and_4_cycles_preserved": true
   },
   "automation_operational_pause": {
-    "is_enabled": false,
-    "reason": "Recovery verified; existing hourly task will be re-enabled after publishing actual dispatch identity, no new task"
+    "is_enabled": true,
+    "automation_id": "6ace5c4436ac8191acfcc79f74105e52",
+    "same_existing_task": true,
+    "next_run_time_returned": null,
+    "no_precise_wake_or_residency_guarantee": true
   },
   "budget_scope": "Lasthealthy69 officialsettlement/acceptedv3snapshot; currentcanonicalunreadable, no privatebudget overwritten",
   "predecessor_W4": {
@@ -506,6 +509,91 @@
         "last_verified_valid_control_core": 68,
         "current_control_native_attempts_last_healthy": 69
       }
+    }
+  },
+  "native_L2_W5": {
+    "states_ops": {
+      "task_id": "R005L2-depots-p05-states_ops-600s-3000M-W5-v1",
+      "arm": "states_ops",
+      "native_launched": true,
+      "native_launch_marker": {
+        "utc": "2026-10-14T21:42:20.583522+00:00",
+        "native_Popen_returned": true,
+        "pid_in_caller_namespace": 9,
+        "binary": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/vendor/scorpion_profile_v3r2/builds/release_no_lp/bin/downward",
+        "search": "astar(cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+        "scope": "Actual Popen launch marker; localPID is not host signalPID or terminal success; never use it for blind external signals"
+      },
+      "native_CPU_accounting_complete": true,
+      "native_exit_status": {
+        "native_process_returncode": 22,
+        "wrapper_exit_code": 22,
+        "native_CPU_soft_seconds": 600,
+        "native_CPU_hard_seconds": 601,
+        "native_AS_bytes": 3145728000,
+        "native_reaped_child_cpu_user_seconds": 350.775445,
+        "native_reaped_child_cpu_system_seconds": 3.632149,
+        "native_reaped_child_cpu_seconds": 354.407594,
+        "native_reaped_child_max_RSS_bytes_linux": 3133698048,
+        "scope": "SAS-only originalnative solver, native child waited/reaped; no PDDLtranslation; missing sidecar on termination means CPU incomplete, not no launch"
+      },
+      "outer_guard_exit_code": 22,
+      "outcome": "native_memory_censored",
+      "valid_observation": true,
+      "native_succeeded": false,
+      "cost": null,
+      "VAL_valid": null,
+      "binary_sha256": "8f86d760cb8aac55b8b2eccc1cc8f435bff73ceff9f489fc0967a991979e12a9",
+      "source_manifest_sha256": "a0a347552c7d42114078058d316d82e7828b26e949b00a05e1132bd332f3d4ed",
+      "sas_sha256": "164b71eede20d07dc1ee0a412f8d4197a8acbb63292ee76d6db5e824339b39bd",
+      "config_sha256": "d45bd78a3af8240a1ed3df5f0ea0dbc296c6329a98a5741b07dd374c15eeeeed",
+      "native_guard_child_cpu_seconds": 357.77509299999997,
+      "native_guard_wall_seconds": 354.67670645600083,
+      "outer_group_RSS_cap_bytes": 3350000000,
+      "reaped_child_CPU_accounting_note": "Guard-childCPU includes descendants only if waited/reaped; sidecar records direct nativeCPU if complete, missing sidecar cannot imply no nativeexecution",
+      "scope": "One exposed original Depots p05 SAS-only native memory-envelope probe; original binary/search/SAS/seed/thread, native600CPU/3000M_AS. Includes Python guard+native solve, excludes preflight/hash/translation/VAL/archive. Old2500M censored results retained; new AS cap is a versioned diagnostic, no algorithm/speed/novelty/whole-PDDL-pipeline comparison. Graph trajectory/applicability oracle not measured; kernel memory.max enforced, shared events not automatically attributed to this worker."
+    },
+    "states_ops_metrics": {
+      "status": "command_failed",
+      "exit_code": 22,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/scripts/r005l2_native_stdin_host_v3.py",
+        "--sas",
+        "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R005-profile-depots-p05-states_ops-v1/output.sas",
+        "--binary",
+        "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/vendor/scorpion_profile_v3r2/builds/release_no_lp/bin/downward",
+        "--search",
+        "astar(cegar(max_states=10000,max_transitions=1000000,max_time=30,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())"
+      ],
+      "cwd": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R005L2-depots-p05-states_ops-600s-3000M-W5-v1",
+      "started_utc": "2026-10-14T21:42:20.555982+00:00",
+      "finished_utc": "2026-10-14T21:48:15.191670+00:00",
+      "wall_seconds": 354.6356904880013,
+      "peak_process_group_rss_bytes_sampled": 3144183808,
+      "rss_samples": 3510,
+      "cgroup_memory_before_bytes": 7179853824,
+      "cgroup_memory_peak_bytes_sampled": 8590225408,
+      "host_process_group": 4625,
+      "cpu_affinity": [
+        0
+      ],
+      "threads": 1,
+      "address_space_limit_bytes_per_process": 3500000000,
+      "process_group_rss_abort_bytes": 3350000000,
+      "shared_cgroup_abort_bytes": null,
+      "prelaunch_reserved_bytes": 0,
+      "actual_host_memory_hard_limit": "8589934592",
+      "host_memory_only": true,
+      "memory_events_after": "low 0\nhigh 0\nmax 7597\noom 0\noom_kill 0\noom_group_kill 0\n",
+      "timing_scope": "shared host, contention uncontrolled; diagnostic timing only"
+    },
+    "none": {
+      "task_id": "R005L2-depots-p05-none-600s-3000M-W5-v1",
+      "attempt_id": "attempt-309350f666784614a566cfb949b72132",
+      "state": "running",
+      "contract_sha256": "8fd69bb774c26d1de53bf31409bfc45ca142d89939f138d124ce90a26b3b1716",
+      "not_yet_a_terminal_result": true
     }
   }
 }

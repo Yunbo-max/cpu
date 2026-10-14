@@ -1,13 +1,22 @@
 {
   "window": "W0005",
-  "manifest": "execution/w5-recovery-20261014/supplement-manifest.json",
-  "archive": "execution/w5-recovery-20261014/control-supplement.zip",
-  "archive_sha256": "9d5c670e670d53be81606c1d2416e853927496d39d407e8911b5228608668208",
-  "archive_bytes": 2041452,
-  "valid_W5_control_backup": true,
-  "window_attempts": 0,
+  "manifest": "execution/w5-native-20261014/after-states-manifest.json",
+  "archive": "execution/w5-native-20261014/after-states-active-control-supplement.zip",
+  "archive_sha256": "851a3e2fa948f5a4093cd0549dc460c18ac578fc239f7e7187643f0cf31f071b",
+  "archive_bytes": 2543221,
+  "new_control_integrity_check": "ok",
+  "window_budget": {
+    "attempts_used": 2,
+    "max_attempts": 500,
+    "elapsed_seconds": 355.2966061239986,
+    "reserved_seconds": 678,
+    "remaining_seconds": 78966.703393876,
+    "max_command_seconds": 80000,
+    "deadline_epoch": 1792100153.542538,
+    "remaining_deadline_seconds": 85404.47210645676
+  },
   "prior_attempt_floor": 283,
   "prior_command_seconds_floor": 15590.955507759041,
-  "scope": "Consistent NEW W5 queued0control, fixedsource35, newcontracts/recoveryevidence and fulloriginal139event/history69ledger. Required unchanged solver/data/historical evidence remain pinned in oldcore68packs and69forensic archive; not fullW5filesystem overlay.",
+  "scope": "W5consistent active2control, completed states_ops rawlogs/metrics/sidecars/result/receipt and newnone contracts/dispatch; fixedsource and historical unchanged inputs remain immutable base-by-reference. Inflightnone mutable output excluded. No fullrawscratch or terminalnone claim.",
   "old_core_LATEST_unchanged": true
 }

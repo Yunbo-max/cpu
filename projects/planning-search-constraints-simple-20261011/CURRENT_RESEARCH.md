@@ -1,9 +1,9 @@
-CPU可用；当前阻塞是W4控制库访问。
+# 当前规划、搜索与约束求解研究
 
-R00710,000状态12项全部真实完成，cost24独立VAL/计数与搜索工作一致；CPU比例反转，不能稳定归因谓词开销，无速度/新颖性结论。Validcore68全部29parts/374newrawmembers已独立回读并保留历史。
+W5已通过原版Simple13公开接口接续：原139条科学历史、4个既有周期、失败和总账保留，旧W4损坏库未覆盖。现唯一串行队列工作中。
 
-DepotsL2v2实际运行291.999秒，被3e9进程组RSSguard76终止，峰值3000315904B，宿主OOM/kill0，无计划。原生AS3000M=3145728000B高于该RSS保护，包装器配置不合适；并且旧collector误把无exit-sidecar当no-launch，2.823036秒只计已reaped子进程而非全nativeCPU。原输出不改写，附诊断。新v3仅包装器RSS改3350MB并明确Popenlaunch/nativewait4usage，原source/binary/SAS/CPU600/AS3000M/thread不变，两个新ID前瞻冻结。
+R005/R005L1原6行结果全部保留；延长时间后Depots两臂在2500M原生AS下exit22。R006/R007完成的计数/粗细插桩对照和图资格不重跑。10,000状态12项均cost24独立VAL，计数/搜索工作一致，但CPU开销比率方向仍反转；没有稳定速度或新颖性结论。最终图见证不替代每split/全trajectory证明。
 
-Firstv3官方response已接纳但尚未派发时，当前canonicalDB只读失败；随后官方幂等RW恢复出现stateUTF8错误，quick_check确认结构错误，49localtemporary候选均不能读取有效项目状态。原始坏库和journal/全部acceptedresponse保存，不删除/修改旧privateDB/deadline/用户stop。V3无nativeattempt，none未运行，R007旧成功不重跑。全部69已知physicalattempts真实terminalreceipt核验，没有已知在跑solver/observer。
+本次新结果：Depots states_ops同源/同SAS/同搜索/单线程、600CPU和3000M原生AS，使用修正的3.35GB外RSS包装器，真实nativeCPU354.407594秒后exit22，无计划；原生reaped最大RSS3133698048B，进程组sampled峰值3144183808B，宿主OOM/kill0。它是有效原生内存删失，不是数据库故障、包装器提前终止、CPU不足或不可解证明。原生地址空间限额是前瞻冻结实验条件；撤销的整机8GB/cache启动门槛没有恢复。
 
-缺少可用的最新69一致控制恢复对象或官方replay接口；直接以core68覆盖会回退原运行账本，故不能声称已经恢复或再起队列。实际控制访问边界暂停自动派发，目标未完成。文件/缓存高不是CPU不可用，磁盘原故障及原停止/累计损耗全部保留。
+匹配none臂已消费69旧回执和该新回执后独立选择并开始运行，尚无终态结论。两臂完成后保留完整失败分母分析原生边界，再选择每split图见证或完整native多public条件等有决策价值的下一项；不无限升配或重复同一失败。原控制库损坏触发原因仍未知；后继恢复成功不等于旧库已修复。
