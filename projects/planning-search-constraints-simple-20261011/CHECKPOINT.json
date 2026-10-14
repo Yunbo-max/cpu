@@ -1,6 +1,6 @@
 {
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-14T00:28:33.968891+00:00",
+  "updated_utc": "2026-10-14T00:33:31.508472+00:00",
   "goal_contract_version": 1,
   "goal_contract": {
     "completion_criteria": [
@@ -252,11 +252,23 @@
     "official_idempotent_RW_recovery_failed": true,
     "local_candidate_probe_count": 49,
     "local_readable_project_state_candidates": 0,
-    "forensic_raw_archive_pending_remote_verification": true,
+    "forensic_raw_archive_pending_remote_verification": false,
     "last_verified_valid_core_window_attempt": 68,
     "entire_accepted_v3_status_capture_retained": true,
     "no_manual_SQL_edit_or_old_DB_delete": true,
-    "operational_pause_not_user_goal_stop": true
+    "operational_pause_not_user_goal_stop": true,
+    "forensic_raw_preservation": {
+      "manifest": "execution/r005l2-control-failure-20261014/r005l2-control-failure-raw-manifest-v1.json",
+      "manifest_sha256": "169929503d2ca5f5b8c0ef53798d4e4665721e3902a91770f19f7e6c50e4af7a",
+      "commit": "1be044320c95ef1080fc72577c8d6a4bb5913908",
+      "pack_sha256": "3f31a518e7e84a0fa7fb2bcd6bc7886d5e3a79f66e204d272a8d0918d20d1fb8",
+      "pack_bytes": 19593404,
+      "complete_raw_preservation_verified": true,
+      "valid_SQLite_restore": false,
+      "scope": "Immutable remote full3parts/wholeSHA and all4complete rawtar memberbytes/SHA verified. Includes unreadable badcanonicalW4rawSQLite, originalrollbackjournal, entireacceptedv3stdout and failedrecoverystdout. Forensicrawpreservation only, NOT validcontrol69/database restoration/nativev3science. Originalcanonical/control/source notdeleted",
+      "last_verified_valid_control_core": 68,
+      "current_control_native_attempts_last_healthy": 69
+    }
   },
   "automation_operational_pause": {
     "utc": "2026-10-14T00:30:24.575878+00:00",
