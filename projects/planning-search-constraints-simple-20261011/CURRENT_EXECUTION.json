@@ -1,12 +1,12 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-14T00:02:59.733456+00:00",
+  "updated_utc": "2026-10-14T00:14:59.841238+00:00",
   "window": "W0004",
   "execution_root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
-  "status_observed": "running",
-  "active_or_unknown_attempts": 1,
+  "status_observed": "ready",
+  "active_or_unknown_attempts": 0,
   "current_accepted_decision": {
     "path": "plans/decision-R005L2-depots-p05-states_ops-600s-3000M-host-v2-hostv9.json",
     "sha256": "63adf00ec1577ffe7153d69d7dc3d5884850482ca33c17dd679177c43e38fa66"
@@ -14,20 +14,20 @@
   "window_budget": {
     "attempts_used": 69,
     "max_attempts": 500,
-    "elapsed_seconds": 850.7296572050473,
-    "reserved_seconds": 703.0,
-    "remaining_seconds": 78446.27034279495,
+    "elapsed_seconds": 1143.4180270890429,
+    "reserved_seconds": 0,
+    "remaining_seconds": 78856.58197291096,
     "max_command_seconds": 80000,
     "deadline_epoch": 1791999247.845339,
-    "remaining_deadline_seconds": 63129.90479230881
+    "remaining_deadline_seconds": 62584.671688079834
   },
   "project_ledger": {
     "prior_attempt_floor": 214,
     "prior_command_seconds_floor": 14447.537480669998,
     "window_attempts": 69,
-    "window_command_seconds": 850.7296572050473,
+    "window_command_seconds": 1143.4180270890429,
     "combined_attempt_floor": 283,
-    "combined_command_seconds_floor": 15298.267137875046,
+    "combined_command_seconds_floor": 15590.955507759041,
     "actual_scoped_research_cycles": 4,
     "scope": "Command accounting contains conservative1823s settlement and earlier reported missing-host tail, not precise CPU/modelusage/scientific attempts",
     "native_model_usage": "unknown"
@@ -68,18 +68,13 @@
     "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
     "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
   },
-  "next_task": "Observe original native states_ops600CPU/3000M, preserve genuine outcome; same finite coordinator submitsnone once firstvalidobservation is officiallysettled. Never duplicate active task.",
+  "next_task": "Prospective two newL2v3IDs after actual outerRSSguard76 diagnosed; nativeAS3000M600CPU unchanged, outerRSS3.35GB avoids preemption",
   "active_coordinator": {
-    "owned_observer_session": 32362,
-    "identity": {
-      "pid": 225621,
-      "start_ticks": 7225731,
-      "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3"
-    },
-    "stage": "observe-native",
-    "uses_official_supervised_Python_tick": true,
-    "resident_run_supervisor": false,
-    "native_active_or_unknown": 1,
+    "old_owned_observer_session": 32362,
+    "actual_exit_code": 1,
+    "reason": "Stopped on invalid v2outerRSSguard result, originalerror/actualresult retained",
+    "native_active_or_unknown": 0,
+    "officially_settled_reservation": 0,
     "goal_stop_issued": false
   },
   "guards": {
@@ -391,7 +386,7 @@
     "scope": "Longerwindow diagnostic still reversed; no intrinsic or speed or novelty claim; engineering gaps retained in v1r1; final snapshot only, not per-split proof"
   },
   "native_L2_v2": {
-    "state": "First new native states_ops actually running; matchednone remains unsubmitted until terminal valid observation and official settlement",
+    "state": "Actualstates_ops v2 completed outerRSSguardcensor76; not nativeAS22/time23 and not solved; nonev2 neverregistered",
     "protocol": "windows/W0004/plans/R005L2_host_only_native_SAS_protocol_v2.md",
     "task_ids": [
       "R005L2-depots-p05-states_ops-600s-3000M-host-v2",
@@ -399,7 +394,7 @@
     ],
     "native_binary_sha256": "8f86d760cb8aac55b8b2eccc1cc8f435bff73ceff9f489fc0967a991979e12a9",
     "changed_condition": "OriginalSAS only/newnativeAS3000M600CPU, sameoriginalsource/search/seed/thread, source verified immutable restore; not oldfullPDDL pipeline timing",
-    "no_native_result_yet": true,
+    "no_native_result_yet": false,
     "active_task": "R005L2-depots-p05-states_ops-600s-3000M-host-v2",
     "attempt_id": "attempt-42c859f5cc5f4d51881b2f788589d7cb",
     "worker_identity": {
@@ -413,7 +408,13 @@
       "reason": "The same detached worker is alive"
     },
     "observer_session": 32362,
-    "new_native_result_yet": false
+    "new_native_result_yet": true,
+    "actual_launched": true,
+    "collector_old_false_launch_preserved_with_diagnosis": true,
+    "terminal_result": "execution/r005l2-native-20261014/results/R005L2-depots-p05-states_ops-600s-3000M-host-v2/result.json",
+    "sampled_group_RSS_peak": 3000315904,
+    "wall_seconds": 291.9991773990041,
+    "hostOOMkill": 0
   },
   "disk_failure_recovery": {
     "prefix_remote_commit": "c524e43849e419ddcec75f6579ee7611daae3742",
@@ -444,5 +445,18 @@
     "raw_bytes": 8168956515,
     "idle_duplicate_cleanup_complete": true,
     "proof": "execution/r007-coordinator-storage-20261013/remote-proof-v1.json"
-  }
+  },
+  "native_L2_v3": {
+    "state": "Frozen preparedunsubmitted finitewrapperrepair afteractualfailure",
+    "native_AS_bytes": 3145728000,
+    "nativeCPU_seconds": 600,
+    "outer_RSS_bytes": 3350000000,
+    "originalsource_binary_SAS_search_thread_unchanged": true,
+    "new_task_ids": [
+      "R005L2-depots-p05-states_ops-600s-3000M-host-v3",
+      "R005L2-depots-p05-none-600s-3000M-host-v3"
+    ],
+    "old_failures_preserved": true
+  },
+  "current_control_snapshot_scope": "Core68 valid/control/source/science archivedverified; actual69failednative raw supplement here, canonical69 quiet full overlay pending; not all temporary rawfilesystem archive"
 }

@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-14T00:11:07.937261+00:00",
+  "actual_launched": true,
+  "launch_evidence": "Nonempty native FastDownward search log with f25/30,999,581 expansions and native signal15 handler. Status-sidecar absence does not mean no launch. Oldresult.native_launchedfalse remains preserved as collection inference error.",
+  "actual_outcome": "process_group_RSS_guard_censored_not_native_AS22_or_CPU23",
+  "status": "process_group_rss_guard",
+  "outer_exit76": true,
+  "group_rss_threshold_bytes": 3000000000,
+  "sampled_group_peak": 3000315904,
+  "native_AS_cap": 3145728000,
+  "memory_events": "low 0\nhigh 0\nmax 422135\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "hostOOM_claim": false,
+  "time_seconds_wall": 291.9991773990041,
+  "native_CPU_unknown": "Collector RUsageChild2.823036 excluded terminated unreaped native descendant CPU; not whole native CPU. Retain as partial reaped-child accounting only, exact nativeCPU unavailable.",
+  "no_plan": true,
+  "scope": "Valid execution/outer resource censoring evidence but invalid native-AS feasibility probe; originalfailure retained, newversionwrapper prevents guard preemption of nativeAS. No native result solved/VAL or unboundedinfeasibility.",
+  "receipt_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-42c859f5cc5f4d51881b2f788589d7cb/receipt.json",
+    "sha256": "d7edf38596ee4832e827929a29002ed898198d55696a04aa4003a473b54b9336"
+  },
+  "actual_budget": {
+    "attempts_used": 69,
+    "max_attempts": 500,
+    "elapsed_seconds": 1143.4180270890429,
+    "reserved_seconds": 0,
+    "remaining_seconds": 78856.58197291096,
+    "max_command_seconds": 80000,
+    "deadline_epoch": 1791999247.845339,
+    "remaining_deadline_seconds": 62584.671688079834
+  },
+  "official_settle_stdout_bytes": 260811481,
+  "official_settle_stdout_sha256": "56dccff6e4a7936e5aa8816063501183cacd27e26a20dab109ab6ccd6e572a40",
+  "superseding_native_condition": "Native600CPU/3000M originalsource/SAS unchanged, wrapperRSS3350MB declared prospectively for both newIDs; no sharedgate. NativePopen launch/exit/usage recorded explicitly; raw oldresult immutable."
+}
