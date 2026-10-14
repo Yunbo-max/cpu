@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-13T23:59:41.611233+00:00",
+  "before_inbox": 0,
+  "after_official_API_tick_inbox": 1,
+  "attempts_unchanged": 68,
+  "native_L2_registered_or_launched": false,
+  "bootstrap_full_stdout_sha256": "4be324efe8820f309d422cfded7dec37fdca9786cf32def4f529f06bb9e18614",
+  "bootstrap_full_stdout_bytes": 252816960,
+  "confirmed_cause": "Finite observer omitted initial tick after quiet resident supervisor exit; official _request is only invoked by tick/run, status/inbox do not create request. Simple13 public Python SimpleRunner.tick exists and retains _supervised_session/_monitored_tick/source/liveness semantics, but CLI subcommands do NOT expose tick. Public API adapter successfully created exactly one new request with no native attempt change.",
+  "preserved_failures": [
+    {
+      "observer_session": 6351,
+      "exit_code": 1,
+      "error": "Helper IndexError at inbox[0], before proposal/respond/native launch"
+    },
+    {
+      "bootstrap_cli_test_session": 72338,
+      "exit_code": 1,
+      "error": "Wrapper assertion of Simple13 CLI exit2 invalid choice tick; no native task/attempt effect"
+    }
+  ],
+  "unchanged": "Simple13 adopted source/privateDB/deadline/native task IDs/config unmodified; failed coordinatorv1 retained; v2 uses official API adapter and bootstrap before respond"
+}
