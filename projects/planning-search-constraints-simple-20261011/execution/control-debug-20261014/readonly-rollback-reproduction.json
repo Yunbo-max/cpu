@@ -1,0 +1,10 @@
+{
+  "disposable_fixture": true,
+  "journal_present_before": true,
+  "database_owner_writable": true,
+  "readonly_error": "attempt to write a readonly database",
+  "readonly_error_code": 776,
+  "readonly_error_name": "SQLITE_READONLY_ROLLBACK",
+  "normal_rw_recovery_fixture_valid": true,
+  "scope": "Explains how a readonly read can require rollback despite writable permissions. Does not reproduce or establish the original corruption cause; actual forensic DB separately fails structural checks."
+}

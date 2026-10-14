@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "sqlite_version": "3.53.1",
+  "input_commit": "1be044320c95ef1080fc72577c8d6a4bb5913908",
+  "manifest_sha256": "169929503d2ca5f5b8c0ef53798d4e4665721e3902a91770f19f7e6c50e4af7a",
+  "canonical_raw_sha256_before_and_after": "99d33b328acdbc1ff02b216414694fc4078e1e4daee96bb1684054c9aeda62b2",
+  "readonly_immutable": true,
+  "quick_check": [
+    "*** in database main ***\nFreelist: freelist leaf count too big on page 110756\nFreelist: freelist leaf count too big on page 110755\nFreelist: freelist leaf count too big on page 110754\nFreelist: freelist leaf count too big on page 110753\nFreelist: freelist leaf count too big on page 110752\nFreelist: freelist leaf count too big on page 110751\nFreelist: freelist leaf count too big on page 110750\nFreelist: freelist leaf count too big on page 110749\nFreelist: freelist leaf count too big on page 110748\nFreelist: freelist leaf count too big on page 110747"
+  ],
+  "journal_utf8_json_error": "'utf-8' codec can't decode byte 0xd8 in position 6507: invalid continuation byte",
+  "runner_table_error": "database disk image is malformed",
+  "readable_physical_events": 138,
+  "exported_history_events": 139,
+  "shared_event_mismatches": [],
+  "exported_attempts": 69,
+  "active_exported_attempts": [],
+  "budget": {
+    "attempts_used": 69,
+    "deadline_epoch": 1791999247.845339,
+    "elapsed_seconds": 1143.4180270890429,
+    "max_attempts": 500,
+    "max_command_seconds": 80000,
+    "remaining_deadline_seconds": 62280.842451334,
+    "remaining_seconds": 78856.58197291096,
+    "reserved_seconds": 0
+  },
+  "queued_tasks": [
+    "R005L2-depots-p05-states_ops-600s-3000M-host-v3"
+  ],
+  "exported_scoped_cycles": 4,
+  "preserved_export_source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
+  "valid_control_restoration": false,
+  "solver_launched": false,
+  "reason": "Public JSON export preserves observations and intent but omits private runner fields needed for an exact writable controller restoration. No production state was rebuilt or overwritten.",
+  "origin_of_corruption": "unresolved; current structural and text corruption reproduced independently; not evidence of insufficient CPU"
+}

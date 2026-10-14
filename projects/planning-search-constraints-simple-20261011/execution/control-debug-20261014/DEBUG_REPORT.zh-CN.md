@@ -1,0 +1,25 @@
+# 控制库故障调试：2026-10-14
+
+CPU容量不是当前派发阻塞的证据支持原因。阻塞发生在Simple13加载控制数据库时，求解器尚未启动。当前替换宿主基本CPU检查成功，cpu.max=800000/100000（8核配额）、memory.max=8589934592B；这仅验证当前宿主，不能证明先前宿主每个时刻的状态。先前Depots真实失败是包装器3,000,000,000B进程组RSS保护，比原生3000M地址空间3,145,728,000B更低；当次无宿主OOM。修正版仍未原生执行。
+
+## 本次真实检查
+
+从不可变GitHub commit 1be044320c95ef1080fc72577c8d6a4bb5913908重新下载原3个分块，校验整体SHA256 3f31a518e7e84a0fa7fb2bcd6bc7886d5e3a79f66e204d272a8d0918d20d1fb8；流式解压并逐字节校验全部4个取证成员。仅对恢复到调试目录的数据库副本执行mode=ro&immutable=1读取，前后SHA256均为99d33b328acdbc1ff02b216414694fc4078e1e4daee96bb1684054c9aeda62b2。未覆盖旧canonical、编辑原账本或启动研究求解器。
+
+1. PRAGMA quick_check复现freelist leaf count too big；runner_state查询复现database disk image is malformed。
+2. project.state字节长度22869，UTF-8在位置6507失败；相邻字节包含连续数据库页编号。状态内容已实际损坏，不能通过忽略UTF-8错误或修改权限恢复成可信状态。
+3. 数据库还能读出138条事件。完整accepted-v3导出有139条历史事件；共有138条逐版本、事件ID与payload完全一致，导出另有最后一条修正版任务接纳review（version138）。不能把坏库、旧68备份或公开导出彼此当作同一个完整可写状态。
+4. 完整accepted-v3导出是可解析JSON，保留69个唯一已终态attempt、0reservation、原deadline、累计账本、4个scoped研究周期及排队v3身份。它是可用于恢复的证据，但公开status导出省略部分私有runner字段和journal内部字段，不是原生可导入的完整控制数据库。本次没有伪造恢复或新native结果。
+5. 一个独立临时SQLite实验在可写文件上制造未完成事务：只读查询产生SQLITE_READONLY_ROLLBACK，普通读写打开成功自动回滚且integrity_check=ok。这解释了“只读读取为什么要求写入”的机制；未证明原故障起因相同，也未修复实际坏库。
+
+诊断脚本第一次把公开history误当含顶层event_id，报KeyError；按固定源码实际输出结构纠正为event.event_id后，真实完成上述138条比对。原故障不因此改变。调试执行使用SQLite3.53.1；这是当前诊断工具版本，不是替换项目固定Simple13版本。
+
+## 结论和尚未完成的修复
+
+已定位当前故障层为控制数据库结构与状态内容损坏；首次只读异常还可能涉及热回滚日志，而不是权限不足。数据库最初损坏的触发因素尚未查明；先前磁盘满、异常退出、归档/存储问题是待核查线索，不能据此宣称因果。没有证据支持增加CPU核数能修复这个数据库。
+
+恢复必须验证完整最新69状态、所有已结算失败和queued-v3意图，并保留原source digest、deadline、全部历史stop和预算。固定Simple13现有接口没有完整控制状态导入/重放操作；直接把68旧备份覆盖到当前身份会回退69账本，直接重建私有SQL也不符合现有项目约束。本次未升级Simple13、未重写原数据库、未创建第二队列、未重跑完成实验、未启用自动任务。
+
+下一项必要工程工作是提供并验证受支持的控制恢复/重放入口：从已核验68一致备份和真实69终态回执、已接纳v3状态恢复到隔离候选，证明attempt/事件/预算/stop/deadline和源身份不丢失、不重复派发，再在安静边界采用。当前尚无已验证恢复产物，实验仍暂停。不要把本报告当作数据库已修复或持续运行的证据。
+
+参考：SQLite官方lockingv3.html（热日志读取前回滚）、recovery.html（恢复数据的限制）、howtocorrupt.html（损坏原因不能从单一症状直接推定）；固定Simple13源码Research_Autopilot@f397d3f93893e66d57e4ca5566cd414782e5b71b/skills/research-autopilot/scripts/simple_loop.py和simple_runner.py。
