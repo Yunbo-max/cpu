@@ -1,59 +1,235 @@
 {
+  "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-14T00:33:31.508472+00:00",
-  "goal_contract_version": 1,
-  "goal_contract": {
-    "completion_criteria": [
-      {
-        "description": "Advance serial substantive planning hypotheses with correct native outcomes, scoped evidence and retained negative results until user stops.",
-        "id": "evidence"
-      }
-    ],
-    "mode": "continuous_research"
-  },
-  "active_idea": "constraint-propagation-cost-v1",
-  "revision": 1,
-  "policy": "rsi-simple",
-  "policy_version": "0.3.0-simple.13",
+  "updated_utc": "2026-10-14T21:40:39.729369+00:00",
+  "window": "W0005",
+  "execution_root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
-  "current_window": "windows/W0004",
-  "accepted_decision": {
-    "path": "plans/W4_R007_complete_depots_L2_decision_v4_001r1.json",
-    "sha256": "218704cc93ce3d5aa2705c3c6708601ca42bafb092837d80148ad0e5516e881e"
+  "status_observed": "ready",
+  "active_or_unknown_attempts": 0,
+  "current_accepted_decision": {
+    "path": "plans/R005L2-depots-p05-states_ops-600s-3000M-W5-v1-decision-v4.json",
+    "sha256": "6451eec81fc978a31c2353a1363f0aa378a65b0fe79fee06cc3fca5371d53d1a"
   },
-  "historical_stops_preserved": true,
-  "authorization": "RESUME_AUTHORIZATION_20261013T162554Z.json",
-  "ledger": {
-    "prior_attempt_floor": 214,
-    "prior_command_seconds_floor": 14447.537480669998,
-    "window_attempts": 68,
-    "window_command_seconds": 850.7296572050473,
-    "combined_attempt_floor": 282,
-    "combined_command_seconds_floor": 15298.267137875046,
+  "window_budget": {
+    "attempts_used": 0,
+    "max_attempts": 500,
+    "elapsed_seconds": 0.0,
+    "reserved_seconds": 0,
+    "remaining_seconds": 80000.0,
+    "max_command_seconds": 80000,
+    "deadline_epoch": 1792100153.542538,
+    "remaining_deadline_seconds": 86113.81419181824
+  },
+  "project_ledger": {
+    "prior_attempt_floor": 283,
+    "prior_command_seconds_floor": 15590.955507759041,
+    "window_attempts": 0,
+    "window_command_seconds": 0,
+    "combined_attempt_floor": 283,
+    "combined_command_seconds_floor": 15590.955507759041,
     "actual_scoped_research_cycles": 4,
-    "scope": "Command accounting contains conservative1823s settlement and earlier reported missing-host tail, not precise CPU/modelusage/scientific attempts",
+    "scope": "W5 command accounting plus retained priorfloor. Replayed scientific journal usage is historical and must not be added twice; command accounting is not exact CPU/scientific cycles.",
     "native_model_usage": "unknown"
   },
-  "stage": "R007 complete12native outcomes, fourth scoped cycle; nativeDepots3GBSAS-only diagnostic prepared, not run",
-  "next_task_id": "R005L2-depots-p05-states_ops-600s-3000M-host-v2",
-  "next_submission": null,
-  "next_dispatch": "After latestvalidcore incremental archive/remote verification, officialsameW4respond and nativeexecution; no artificialmemorygate. Prefer bounded officialtick observer to reduce retained idle polling snapshots withoutsource upgrade/privateDB mutation.",
-  "unfinished": [
-    "ProspectiveL2two nativepublicoutcome boundaries, neither executed yet",
-    "Per-split graph witness/transformedoperatororacle beforealgorithm optimization",
-    "Fullpublic nativeefficiency/independentconditions/novelty",
-    "Newtemporaryforensicrawimages/idlelargecoordinatorresponses pendingcompletearchive"
-  ],
-  "no_goal_completion": true,
-  "active_or_unknown_attempts": 0,
-  "waiting_for_memory": null,
-  "full_window_snapshot": {
-    "state": "Published verified valid-core68 with allhistorical overlay,42raw noncanonical objects explicitlydeferred and retainedlocal",
-    "manifest": "snapshots/r007-native-core-w4-20261013T2347.json",
-    "sha256": "af0708304697337f7c36b1cac238167fa2522bee75a4aad5df12b909484b328f",
-    "commit": "5d8baf13bb21a47e034b1de492a14f7c951a256d",
-    "scope": "Immutable remote full manifest/index/all29 new compressedparts and wholeSHA readback, matched localcompressedbytes then all374 new ZIPmembers rawbytes/SHA verified. Core68 current canonical control, source/contracts/nativeR007complete12results/logs/VAL/graphqualifications/ledger and prepared unexecuted L2, allpriorhistoryoverlay. Explicit42 noncanonical rawtemporary/staging objects retained locally/deferred; not full allrawfilesystem or per-split graph proof. No new native measurement from archival."
+  "actual_health": {
+    "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
+    "status": "exited",
+    "record": {
+      "exit_status": "tick_complete",
+      "exited_at": "2026-10-14T21:38:28.932035+00:00",
+      "identity": {
+        "boot_id": "7a4888c1-6733-45ac-8d7c-5c5e3785db10",
+        "pid": 3295,
+        "start_ticks": 1298960
+      },
+      "last_activity_at": "2026-10-14T21:38:28.932040+00:00",
+      "last_activity_epoch": 1792013908.9320407,
+      "mode": "tick",
+      "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
+      "schema_version": 1,
+      "session_id": "68d7df2451a04a6380b858c9b3d2efbf",
+      "stage": "exited",
+      "started_at": "2026-10-14T21:38:28.919058+00:00"
+    },
+    "errors": [],
+    "max_age_seconds": 30,
+    "scope": "Local process observation only; no external watcher or user delivery is activated",
+    "identity_observed_alive": false,
+    "activity_age_seconds": 130.79754376411438
   },
+  "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
+  "R006_scientific_results": {
+    "first_fixed1000": "succeeded, independent integer identities valid, cost24 VAL passed",
+    "applicability_fraction_of_construction": 0.03213212632367833,
+    "conditional_equal_call_cost_saved_fraction": 0.021695908920768225,
+    "m_over_d": 3.078905419766206,
+    "screen": "deprioritize ordinary applicability reuse under frozen1/11 criterion on this exposed fine-clock case",
+    "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
+    "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
+  },
+  "next_task": "R005L2-depots-p05-states_ops-600s-3000M-W5-v1",
+  "active_coordinator": {
+    "single_queue": "W0005",
+    "supervisor_started": false,
+    "native_active_or_unknown": 0
+  },
+  "guards": {
+    "cpu_only": true,
+    "threads": 1,
+    "max_concurrency": 1,
+    "project_memory_limit_bytes": null,
+    "shared_abort_bytes": null,
+    "prelaunch_headroom_gate": false,
+    "actual_kernel_memory_max_bytes": 8589934592,
+    "native_frozen_comparison": "120CPU/2500M_AS,145wall/2.8GBprocessRSS/3.5GBouterAS"
+  },
+  "preserved_anomalies": [
+    "W4 initial649s link failure, two invalid ELF objects",
+    "W4 first object repair failed; explicit fresh-object link succeeded",
+    "Coarse audit link failed after new CEGAR object became empty",
+    "Coarse repaired binary later read as invalid zeros/SHA mismatch; fresh re-link without cache advice succeeded, independent readback and native export qualified; cause unresolved"
+  ],
+  "quiet_archive_boundary": "Owned supervisor session63161 exited130 after immediate fresh check of0active/unknown/reservations. This is engineering quiet boundary, not user stop or research completion.",
+  "overhead_native_results": {
+    "successful_native": 12,
+    "warmups": 3,
+    "scored": 9,
+    "independent_cases": 1,
+    "all_cost24_independent_VAL": true,
+    "common_counts_and_search_work_and_plan_exact": true,
+    "construction_ratios": {
+      "fine_over_counts": {
+        "observed": [
+          0.814768520704972,
+          0.9989623743843993,
+          1.0398463597717227
+        ],
+        "range": [
+          0.814768520704972,
+          1.0398463597717227
+        ],
+        "median": 0.9989623743843993
+      },
+      "counts_over_coarse": {
+        "observed": [
+          1.30275596259676,
+          1.0597654000270293,
+          1.3549696590255982
+        ],
+        "range": [
+          1.0597654000270293,
+          1.3549696590255982
+        ],
+        "median": 1.30275596259676
+      },
+      "fine_over_coarse": {
+        "observed": [
+          1.061444548484544,
+          1.0586657603014338,
+          1.4089602675389006
+        ],
+        "range": [
+          1.0586657603014338,
+          1.4089602675389006
+        ],
+        "median": 1.061444548484544
+      }
+    },
+    "original_refused_attempt": "R006-overhead-r2-counts-v1 native guard resource_wait at6685921280B before solver launch; new-IDv2 succeeded; old refused receipt retained",
+    "scope": "One exposed Blocksworld p05 exact1000 development condition. Rotations are repeated timing observations, not independent cases/cycles. Shared-host noise and a memory-wait gap prevent superiority or intrinsic predicate-cost inference. Every successful cost24 plan independently VAL valid. Exact final graphs qualified per mode, not every timing step. Zero counts durations mean disabled measurement. Conditional branch and common audit-hook argument cost retained."
+  },
+  "cpu_clock_control": {
+    "build_task": "R006-cpu-clock-control-build-v1",
+    "receipt_status": "succeeded",
+    "builds": {
+      "coarse": {
+        "binary": "results/R006-cpu-clock-control-build-v1/coarse/downward-cpu-clock",
+        "binary_sha256": "e6b21554b4f7c08288236c54f56f4fb3b5ca928400e267bec4ac6000a0cf51be",
+        "source_manifest": "results/R006-cpu-clock-control-build-v1/coarse/source-manifest.json",
+        "source_manifest_sha256": "fa0adcae4b644c27986f4eaea80486cbf70d3b449b7c81eac67e4cff42c7683b"
+      },
+      "fine_counts": {
+        "binary": "results/R006-cpu-clock-control-build-v1/fine_counts/downward-cpu-clock",
+        "binary_sha256": "30d810ab1b5cbb642eb486a3ad4a8ce8963333aa4e52154ef80a34bf7f7eaa10",
+        "source_manifest": "results/R006-cpu-clock-control-build-v1/fine_counts/source-manifest.json",
+        "source_manifest_sha256": "73c5538de796fff908dd689b4bfa5b990f2fc45d1d51a7d3b86ed9797b64da75"
+      }
+    },
+    "native_clock_qualified": true,
+    "native_CPU_timing_results": "windows/W0004/results/R006-cpu-overhead-analysis-v1.json",
+    "qualification_failures": [
+      "R006-cpu-clock-counts-qualification-v1",
+      "R006-cpu-clock-counts-qualification-v2",
+      "R006-cpu-clock-counts-qualification-v3"
+    ],
+    "qualified_modes": {
+      "coarse": {
+        "mode": "coarse",
+        "construction_thread_cpu_ns": 139486726,
+        "construction_steady_wall_ns": 139488492,
+        "CPU_clock_native_fields_valid": true,
+        "CPU_bracket_scope": "Thread CPU interval includes two boundary reads; separate unit/clock, no intrinsic predicate or performance conclusion",
+        "valid": true,
+        "native_exit_code": 0,
+        "cost": 24,
+        "states": 1000,
+        "graph_sha256": "6d8625157b472ac3c372bfda6afc6124f1468c70a8e6cf8a0e6df2926bb39d3a",
+        "graph_exact_peer": true,
+        "VAL_valid": true,
+        "mode_timer_contract_valid": true,
+        "binary_sha256": "e6b21554b4f7c08288236c54f56f4fb3b5ca928400e267bec4ac6000a0cf51be",
+        "source_manifest_sha256": "fa0adcae4b644c27986f4eaea80486cbf70d3b449b7c81eac67e4cff42c7683b",
+        "sas_sha256": "11454e2d4aea5bab34fc39877ed2db950d4252c1a4f14c94ba800267a7be3391",
+        "config_sha256": "57a7e9a592702dc5649e5395e7feaf60fdcfd7cf18799cb85fb6bc00639264b7",
+        "build_identity_sha256": "b7e6a84570db1f0333e35db8f3921a73921252de0ccd06ec86f8179a84e85873",
+        "scope": "Final-frontier qualification and this native plan only; no per-split proof or eligible performance timing; counts duration0 means disabled measurement."
+      },
+      "counts": {
+        "mode": "counts",
+        "construction_thread_cpu_ns": 92368340,
+        "construction_steady_wall_ns": 92369366,
+        "CPU_clock_native_fields_valid": true,
+        "CPU_bracket_scope": "Thread CPU interval includes two boundary reads; separate unit/clock, no intrinsic predicate or performance conclusion",
+        "valid": true,
+        "native_exit_code": 0,
+        "cost": 24,
+        "states": 1000,
+        "graph_sha256": "6d8625157b472ac3c372bfda6afc6124f1468c70a8e6cf8a0e6df2926bb39d3a",
+        "graph_exact_peer": true,
+        "VAL_valid": true,
+        "mode_timer_contract_valid": true,
+        "binary_sha256": "30d810ab1b5cbb642eb486a3ad4a8ce8963333aa4e52154ef80a34bf7f7eaa10",
+        "source_manifest_sha256": "73c5538de796fff908dd689b4bfa5b990f2fc45d1d51a7d3b86ed9797b64da75",
+        "sas_sha256": "11454e2d4aea5bab34fc39877ed2db950d4252c1a4f14c94ba800267a7be3391",
+        "config_sha256": "57a7e9a592702dc5649e5395e7feaf60fdcfd7cf18799cb85fb6bc00639264b7",
+        "build_identity_sha256": "eac8d93c9571ba764c285b936e2c5cdfaced3a3ae7b8dcc68069c35aeb645b3a",
+        "scope": "Final-frontier qualification and this native plan only; no per-split proof or eligible performance timing; counts duration0 means disabled measurement."
+      },
+      "fine": {
+        "mode": "fine",
+        "construction_thread_cpu_ns": 124241407,
+        "construction_steady_wall_ns": 124240794,
+        "CPU_clock_native_fields_valid": true,
+        "CPU_bracket_scope": "Thread CPU interval includes two boundary reads; separate unit/clock, no intrinsic predicate or performance conclusion",
+        "valid": true,
+        "native_exit_code": 0,
+        "cost": 24,
+        "states": 1000,
+        "graph_sha256": "6d8625157b472ac3c372bfda6afc6124f1468c70a8e6cf8a0e6df2926bb39d3a",
+        "graph_exact_peer": true,
+        "VAL_valid": true,
+        "mode_timer_contract_valid": true,
+        "binary_sha256": "30d810ab1b5cbb642eb486a3ad4a8ce8963333aa4e52154ef80a34bf7f7eaa10",
+        "source_manifest_sha256": "73c5538de796fff908dd689b4bfa5b990f2fc45d1d51a7d3b86ed9797b64da75",
+        "sas_sha256": "11454e2d4aea5bab34fc39877ed2db950d4252c1a4f14c94ba800267a7be3391",
+        "config_sha256": "57a7e9a592702dc5649e5395e7feaf60fdcfd7cf18799cb85fb6bc00639264b7",
+        "build_identity_sha256": "eac8d93c9571ba764c285b936e2c5cdfaced3a3ae7b8dcc68069c35aeb645b3a",
+        "scope": "Final-frontier qualification and this native plan only; no per-split proof or eligible performance timing; counts duration0 means disabled measurement."
+      }
+    }
+  },
+  "waiting_for_memory": null,
   "published_supplement": {
     "schema_version": 1,
     "project_id": "planning-search-constraints-simple-20261011",
@@ -87,6 +263,94 @@
     "native_frozen_comparison_caps_retained": "native120CPU/2500M_AS, outer145wall/2.8e9processgroupRSS/3.5e9AS/thread1/affinity0 unchanged for exact1000 comparison fairness. User removed artificial total/shared memory launch wait, not original benchmark configuration. Host actual hard limit remains enforced by kernel.",
     "failure_policy": "Execute one actual task, retain any real failure receipt/exit/logs/memory_events, then diagnose/repair/wait; no blind duplicates or restarting completed tasks. No bought resources, no other project resumed, no guard against arbitrary shared cache threshold.",
     "same_window_no_budget_reset": true
+  },
+  "CPU_wall_overhead_native_results": {
+    "successful_native_executions": 12,
+    "scored_executions": 9,
+    "warmups": 3,
+    "independent_public_cases": 1,
+    "all_VAL_valid": true,
+    "common_counter_contract_exact": true,
+    "fine_counts_full_counters_exact": true,
+    "expanded_evaluated_plan_exact": true,
+    "construction_ratios": {
+      "fine_over_counts": {
+        "observed": [
+          1.1035608100939234,
+          0.9047448880136564,
+          1.2750787033452409
+        ],
+        "range": [
+          0.9047448880136564,
+          1.2750787033452409
+        ],
+        "median": 1.1035608100939234
+      },
+      "counts_over_coarse": {
+        "observed": [
+          1.4709164792509002,
+          1.1118718961273528,
+          0.9472316906342733
+        ],
+        "range": [
+          0.9472316906342733,
+          1.4709164792509002
+        ],
+        "median": 1.1118718961273528
+      },
+      "fine_over_coarse": {
+        "observed": [
+          1.6232457814226249,
+          1.0059604141472738,
+          1.2077949558614693
+        ],
+        "range": [
+          1.0059604141472738,
+          1.6232457814226249
+        ],
+        "median": 1.2077949558614693
+      },
+      "CPU_fine_over_counts": {
+        "observed": [
+          1.0995024357775744,
+          0.904726385840528,
+          1.2750647780818951
+        ],
+        "range": [
+          0.904726385840528,
+          1.2750647780818951
+        ],
+        "median": 1.0995024357775744
+      },
+      "CPU_counts_over_coarse": {
+        "observed": [
+          1.5164840341896975,
+          1.1537900916207675,
+          0.9473203762522019
+        ],
+        "range": [
+          0.9473203762522019,
+          1.5164840341896975
+        ],
+        "median": 1.1537900916207675
+      },
+      "CPU_fine_over_coarse": {
+        "observed": [
+          1.667377889409375,
+          1.0438643396106686,
+          1.2078948453184712
+        ],
+        "range": [
+          1.0438643396106686,
+          1.667377889409375
+        ],
+        "median": 1.2078948453184712
+      }
+    },
+    "native_guard_child_cpu_seconds_sum": 9.564565,
+    "native_guard_monotonic_wall_seconds_sum": 10.005934679000347,
+    "scope": "One exposed Blocksworld p05 exact1000 development condition. Rotations are repeated timing observations, not independent cases/cycles. Matched integerthreadCPU andwall construction windows; sharedhost remains uncontrolled. No memorywait gap inserted in this new fixedprotocol, no superiority or individualpredicate intrinsiccost inference. Every successful cost24 plan independently VAL valid. Exact final graphs qualified per mode, not every timing step. Zero counts durations mean disabled measurement. Conditional branch and common audit-hook argument cost retained.",
+    "interpretation": "Report complete CPU andwall ranges including any reversals; CPU does not remove CPUfrequency/cache/contention or observer/bookkeeping overhead. Do not subtract aggregate clock overhead from individual predicate times or infer a new algorithm. One scored rotation is insufficient alone; all3 retained; Do not subtract aggregate CPUcontrast from wall individualcomponent timers. Evaluate remaining uncertainty and fullplanner/development scope before any optimization investment."
   },
   "waiting_for_storage": null,
   "R007_native_results": {
@@ -179,57 +443,6 @@
     "idle_duplicate_cleanup_complete": true,
     "proof": "execution/r007-coordinator-storage-20261013/remote-proof-v1.json"
   },
-  "status_observed": "blocked_control_corruption",
-  "window_budget": {
-    "attempts_used": 69,
-    "max_attempts": 500,
-    "elapsed_seconds": 1143.4180270890429,
-    "reserved_seconds": 0,
-    "remaining_seconds": 78856.58197291096,
-    "max_command_seconds": 80000,
-    "deadline_epoch": 1791999247.845339,
-    "remaining_deadline_seconds": 62584.671688079834
-  },
-  "current_accepted_decision": {
-    "path": "plans/decision-R005L2-depots-p05-states_ops-600s-3000M-host-v2-hostv9.json",
-    "sha256": "63adf00ec1577ffe7153d69d7dc3d5884850482ca33c17dd679177c43e38fa66"
-  },
-  "actual_health": {
-    "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
-    "status": "exited",
-    "record": {
-      "exit_status": "tick_complete",
-      "exited_at": "2026-10-14T00:01:59.797258+00:00",
-      "identity": {
-        "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
-        "pid": 225738,
-        "start_ticks": 7228146
-      },
-      "last_activity_at": "2026-10-14T00:01:59.797267+00:00",
-      "last_activity_epoch": 1791936119.797267,
-      "mode": "tick",
-      "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
-      "schema_version": 1,
-      "session_id": "d23a4cbc4cc347f89ce6692c872455b6",
-      "stage": "exited",
-      "started_at": "2026-10-14T00:01:36.945862+00:00"
-    },
-    "errors": [],
-    "max_age_seconds": 30,
-    "scope": "Local process observation only; no external watcher or user delivery is activated",
-    "identity_observed_alive": false,
-    "activity_age_seconds": 59.936176776885986
-  },
-  "active_coordinator": {
-    "v2_owned_session": 32362,
-    "v2_exit": 1,
-    "v3_owned_session": 29642,
-    "v3_exit": 1,
-    "native_active_or_unknown_known_physical_attempts": 0,
-    "future_dispatch_paused_for_actual_control_access_failure": true,
-    "goal_stop_issued": false
-  },
-  "next_task": "Requires consistent latest69control restore or supportedofficialreplay preserving all69accounting/v3intent; do not overwritecore68 or editprivateDB/resetdeadline/newduplicatequeue",
   "native_L2_v3": {
     "state": "Officialresponse accepted queuedv3 beforecanonicalcorruption; no v3nativeattempt/solverlaunched; no safe currentdispatch",
     "native_AS_bytes": 3145728000,
@@ -244,43 +457,51 @@
     "native_executed": false,
     "accepted_decision": "plans/decision-R005L2-depots-p05-states_ops-600s-3000M-host-v3-hostv10.json"
   },
-  "current_control_snapshot_scope": "Core68 valid/control/source/science archivedverified; actual69failednative raw supplement here, canonical69 quiet full overlay pending; not all temporary rawfilesystem archive",
+  "current_control_snapshot_scope": "W5 valid queued0-control supplement in preparation; oldfull core68 LATEST and old69forensics remain immutable; not a claim of full latestfilesystem overlay.",
   "actual_control_status": "Officialstatus unreadable; lasthealthy69snapshot retained; all69knownphysicalattempts have verifiedterminalreceipts; v3no nativeattemptallocated",
   "control_failure": {
-    "confirmed_canonical_quick_check_ok": false,
-    "official_read_failure": "readonlydatabase thenbadUTF8state",
-    "official_idempotent_RW_recovery_failed": true,
-    "local_candidate_probe_count": 49,
-    "local_readable_project_state_candidates": 0,
-    "forensic_raw_archive_pending_remote_verification": false,
-    "last_verified_valid_core_window_attempt": 68,
-    "entire_accepted_v3_status_capture_retained": true,
-    "no_manual_SQL_edit_or_old_DB_delete": true,
-    "operational_pause_not_user_goal_stop": true,
-    "forensic_raw_preservation": {
-      "manifest": "execution/r005l2-control-failure-20261014/r005l2-control-failure-raw-manifest-v1.json",
-      "manifest_sha256": "169929503d2ca5f5b8c0ef53798d4e4665721e3902a91770f19f7e6c50e4af7a",
-      "commit": "1be044320c95ef1080fc72577c8d6a4bb5913908",
-      "pack_sha256": "3f31a518e7e84a0fa7fb2bcd6bc7886d5e3a79f66e204d272a8d0918d20d1fb8",
-      "pack_bytes": 19593404,
-      "complete_raw_preservation_verified": true,
-      "valid_SQLite_restore": false,
-      "scope": "Immutable remote full3parts/wholeSHA and all4complete rawtar memberbytes/SHA verified. Includes unreadable badcanonicalW4rawSQLite, originalrollbackjournal, entireacceptedv3stdout and failedrecoverystdout. Forensicrawpreservation only, NOT validcontrol69/database restoration/nativev3science. Originalcanonical/control/source notdeleted",
-      "last_verified_valid_control_core": 68,
-      "current_control_native_attempts_last_healthy": 69
-    }
+    "current_W5_integrity_check": "ok",
+    "recovered_as_linked_successor": true,
+    "old_W4_database_repaired": false,
+    "public_journal_replay_verified": true,
+    "original_139_events_and_4_cycles_preserved": true
   },
   "automation_operational_pause": {
-    "utc": "2026-10-14T00:30:24.575878+00:00",
-    "automation_id": "6ace5c4436ac8191acfcc79f74105e52",
     "is_enabled": false,
-    "reason": "No safe officialnativequeue continuation with confirmedcanonicalcorruption, failedofficialRWrecovery,49unreadablelocalcandidates, and no latestvalid69restore/replay. Scheduled run instruction explicitly requires disabling current task when fully blocked.",
-    "goal_complete": false,
-    "user_goal_stop_issued": false,
-    "source_upgrade": false,
-    "private_SQL_edit_or_budget_reset": false,
-    "no_live_known_native_attempt": true,
-    "scope": "Operational automation pause for actual control access boundary, not CPU unavailable or scientific completion; all known69terminal receipts and acceptedv3 intent retained."
+    "reason": "Remains paused until successful successor dispatch evidence; no goal stop"
   },
-  "budget_scope": "Lasthealthy69 officialsettlement/acceptedv3snapshot; currentcanonicalunreadable, no privatebudget overwritten"
+  "budget_scope": "Lasthealthy69 officialsettlement/acceptedv3snapshot; currentcanonicalunreadable, no privatebudget overwritten",
+  "predecessor_W4": {
+    "status": "deadline_expired_and_corrupt_control_retained",
+    "deadline_epoch": 1791999247.845339,
+    "attempts": 69,
+    "elapsed_seconds": 1143.4180270890429,
+    "reserved_seconds": 0,
+    "active_or_unknown_attempts": 0,
+    "old_stop_database_deadline_unchanged": true,
+    "control_failure": {
+      "confirmed_canonical_quick_check_ok": false,
+      "official_read_failure": "readonlydatabase thenbadUTF8state",
+      "official_idempotent_RW_recovery_failed": true,
+      "local_candidate_probe_count": 49,
+      "local_readable_project_state_candidates": 0,
+      "forensic_raw_archive_pending_remote_verification": false,
+      "last_verified_valid_core_window_attempt": 68,
+      "entire_accepted_v3_status_capture_retained": true,
+      "no_manual_SQL_edit_or_old_DB_delete": true,
+      "operational_pause_not_user_goal_stop": true,
+      "forensic_raw_preservation": {
+        "manifest": "execution/r005l2-control-failure-20261014/r005l2-control-failure-raw-manifest-v1.json",
+        "manifest_sha256": "169929503d2ca5f5b8c0ef53798d4e4665721e3902a91770f19f7e6c50e4af7a",
+        "commit": "1be044320c95ef1080fc72577c8d6a4bb5913908",
+        "pack_sha256": "3f31a518e7e84a0fa7fb2bcd6bc7886d5e3a79f66e204d272a8d0918d20d1fb8",
+        "pack_bytes": 19593404,
+        "complete_raw_preservation_verified": true,
+        "valid_SQLite_restore": false,
+        "scope": "Immutable remote full3parts/wholeSHA and all4complete rawtar memberbytes/SHA verified. Includes unreadable badcanonicalW4rawSQLite, originalrollbackjournal, entireacceptedv3stdout and failedrecoverystdout. Forensicrawpreservation only, NOT validcontrol69/database restoration/nativev3science. Originalcanonical/control/source notdeleted",
+        "last_verified_valid_control_core": 68,
+        "current_control_native_attempts_last_healthy": 69
+      }
+    }
+  }
 }

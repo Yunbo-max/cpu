@@ -1,62 +1,62 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-14T00:33:31.507728+00:00",
-  "window": "W0004",
-  "execution_root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
+  "updated_utc": "2026-10-14T21:40:39.729369+00:00",
+  "window": "W0005",
+  "execution_root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
-  "status_observed": "blocked_control_corruption",
+  "status_observed": "ready",
   "active_or_unknown_attempts": 0,
   "current_accepted_decision": {
-    "path": "plans/decision-R005L2-depots-p05-states_ops-600s-3000M-host-v2-hostv9.json",
-    "sha256": "63adf00ec1577ffe7153d69d7dc3d5884850482ca33c17dd679177c43e38fa66"
+    "path": "plans/R005L2-depots-p05-states_ops-600s-3000M-W5-v1-decision-v4.json",
+    "sha256": "6451eec81fc978a31c2353a1363f0aa378a65b0fe79fee06cc3fca5371d53d1a"
   },
   "window_budget": {
-    "attempts_used": 69,
+    "attempts_used": 0,
     "max_attempts": 500,
-    "elapsed_seconds": 1143.4180270890429,
+    "elapsed_seconds": 0.0,
     "reserved_seconds": 0,
-    "remaining_seconds": 78856.58197291096,
+    "remaining_seconds": 80000.0,
     "max_command_seconds": 80000,
-    "deadline_epoch": 1791999247.845339,
-    "remaining_deadline_seconds": 62584.671688079834
+    "deadline_epoch": 1792100153.542538,
+    "remaining_deadline_seconds": 86113.81419181824
   },
   "project_ledger": {
-    "prior_attempt_floor": 214,
-    "prior_command_seconds_floor": 14447.537480669998,
-    "window_attempts": 69,
-    "window_command_seconds": 1143.4180270890429,
+    "prior_attempt_floor": 283,
+    "prior_command_seconds_floor": 15590.955507759041,
+    "window_attempts": 0,
+    "window_command_seconds": 0,
     "combined_attempt_floor": 283,
     "combined_command_seconds_floor": 15590.955507759041,
     "actual_scoped_research_cycles": 4,
-    "scope": "Command accounting contains conservative1823s settlement and earlier reported missing-host tail, not precise CPU/modelusage/scientific attempts",
+    "scope": "W5 command accounting plus retained priorfloor. Replayed scientific journal usage is historical and must not be added twice; command accounting is not exact CPU/scientific cycles.",
     "native_model_usage": "unknown"
   },
   "actual_health": {
-    "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
+    "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
     "status": "exited",
     "record": {
       "exit_status": "tick_complete",
-      "exited_at": "2026-10-14T00:01:59.797258+00:00",
+      "exited_at": "2026-10-14T21:38:28.932035+00:00",
       "identity": {
-        "boot_id": "e655c1f8-c88b-4e30-925f-a690e2e9f4c3",
-        "pid": 225738,
-        "start_ticks": 7228146
+        "boot_id": "7a4888c1-6733-45ac-8d7c-5c5e3785db10",
+        "pid": 3295,
+        "start_ticks": 1298960
       },
-      "last_activity_at": "2026-10-14T00:01:59.797267+00:00",
-      "last_activity_epoch": 1791936119.797267,
+      "last_activity_at": "2026-10-14T21:38:28.932040+00:00",
+      "last_activity_epoch": 1792013908.9320407,
       "mode": "tick",
-      "root": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004",
+      "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "schema_version": 1,
-      "session_id": "d23a4cbc4cc347f89ce6692c872455b6",
+      "session_id": "68d7df2451a04a6380b858c9b3d2efbf",
       "stage": "exited",
-      "started_at": "2026-10-14T00:01:36.945862+00:00"
+      "started_at": "2026-10-14T21:38:28.919058+00:00"
     },
     "errors": [],
     "max_age_seconds": 30,
     "scope": "Local process observation only; no external watcher or user delivery is activated",
     "identity_observed_alive": false,
-    "activity_age_seconds": 59.936176776885986
+    "activity_age_seconds": 130.79754376411438
   },
   "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
   "R006_scientific_results": {
@@ -68,15 +68,11 @@
     "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
     "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
   },
-  "next_task": "Requires consistent latest69control restore or supportedofficialreplay preserving all69accounting/v3intent; do not overwritecore68 or editprivateDB/resetdeadline/newduplicatequeue",
+  "next_task": "R005L2-depots-p05-states_ops-600s-3000M-W5-v1",
   "active_coordinator": {
-    "v2_owned_session": 32362,
-    "v2_exit": 1,
-    "v3_owned_session": 29642,
-    "v3_exit": 1,
-    "native_active_or_unknown_known_physical_attempts": 0,
-    "future_dispatch_paused_for_actual_control_access_failure": true,
-    "goal_stop_issued": false
+    "single_queue": "W0005",
+    "supervisor_started": false,
+    "native_active_or_unknown": 0
   },
   "guards": {
     "cpu_only": true,
@@ -461,43 +457,51 @@
     "native_executed": false,
     "accepted_decision": "plans/decision-R005L2-depots-p05-states_ops-600s-3000M-host-v3-hostv10.json"
   },
-  "current_control_snapshot_scope": "Core68 valid/control/source/science archivedverified; actual69failednative raw supplement here, canonical69 quiet full overlay pending; not all temporary rawfilesystem archive",
+  "current_control_snapshot_scope": "W5 valid queued0-control supplement in preparation; oldfull core68 LATEST and old69forensics remain immutable; not a claim of full latestfilesystem overlay.",
   "actual_control_status": "Officialstatus unreadable; lasthealthy69snapshot retained; all69knownphysicalattempts have verifiedterminalreceipts; v3no nativeattemptallocated",
   "control_failure": {
-    "confirmed_canonical_quick_check_ok": false,
-    "official_read_failure": "readonlydatabase thenbadUTF8state",
-    "official_idempotent_RW_recovery_failed": true,
-    "local_candidate_probe_count": 49,
-    "local_readable_project_state_candidates": 0,
-    "forensic_raw_archive_pending_remote_verification": false,
-    "last_verified_valid_core_window_attempt": 68,
-    "entire_accepted_v3_status_capture_retained": true,
-    "no_manual_SQL_edit_or_old_DB_delete": true,
-    "operational_pause_not_user_goal_stop": true,
-    "forensic_raw_preservation": {
-      "manifest": "execution/r005l2-control-failure-20261014/r005l2-control-failure-raw-manifest-v1.json",
-      "manifest_sha256": "169929503d2ca5f5b8c0ef53798d4e4665721e3902a91770f19f7e6c50e4af7a",
-      "commit": "1be044320c95ef1080fc72577c8d6a4bb5913908",
-      "pack_sha256": "3f31a518e7e84a0fa7fb2bcd6bc7886d5e3a79f66e204d272a8d0918d20d1fb8",
-      "pack_bytes": 19593404,
-      "complete_raw_preservation_verified": true,
-      "valid_SQLite_restore": false,
-      "scope": "Immutable remote full3parts/wholeSHA and all4complete rawtar memberbytes/SHA verified. Includes unreadable badcanonicalW4rawSQLite, originalrollbackjournal, entireacceptedv3stdout and failedrecoverystdout. Forensicrawpreservation only, NOT validcontrol69/database restoration/nativev3science. Originalcanonical/control/source notdeleted",
-      "last_verified_valid_control_core": 68,
-      "current_control_native_attempts_last_healthy": 69
-    }
+    "current_W5_integrity_check": "ok",
+    "recovered_as_linked_successor": true,
+    "old_W4_database_repaired": false,
+    "public_journal_replay_verified": true,
+    "original_139_events_and_4_cycles_preserved": true
   },
   "automation_operational_pause": {
-    "utc": "2026-10-14T00:30:24.575878+00:00",
-    "automation_id": "6ace5c4436ac8191acfcc79f74105e52",
     "is_enabled": false,
-    "reason": "No safe officialnativequeue continuation with confirmedcanonicalcorruption, failedofficialRWrecovery,49unreadablelocalcandidates, and no latestvalid69restore/replay. Scheduled run instruction explicitly requires disabling current task when fully blocked.",
-    "goal_complete": false,
-    "user_goal_stop_issued": false,
-    "source_upgrade": false,
-    "private_SQL_edit_or_budget_reset": false,
-    "no_live_known_native_attempt": true,
-    "scope": "Operational automation pause for actual control access boundary, not CPU unavailable or scientific completion; all known69terminal receipts and acceptedv3 intent retained."
+    "reason": "Remains paused until successful successor dispatch evidence; no goal stop"
   },
-  "budget_scope": "Lasthealthy69 officialsettlement/acceptedv3snapshot; currentcanonicalunreadable, no privatebudget overwritten"
+  "budget_scope": "Lasthealthy69 officialsettlement/acceptedv3snapshot; currentcanonicalunreadable, no privatebudget overwritten",
+  "predecessor_W4": {
+    "status": "deadline_expired_and_corrupt_control_retained",
+    "deadline_epoch": 1791999247.845339,
+    "attempts": 69,
+    "elapsed_seconds": 1143.4180270890429,
+    "reserved_seconds": 0,
+    "active_or_unknown_attempts": 0,
+    "old_stop_database_deadline_unchanged": true,
+    "control_failure": {
+      "confirmed_canonical_quick_check_ok": false,
+      "official_read_failure": "readonlydatabase thenbadUTF8state",
+      "official_idempotent_RW_recovery_failed": true,
+      "local_candidate_probe_count": 49,
+      "local_readable_project_state_candidates": 0,
+      "forensic_raw_archive_pending_remote_verification": false,
+      "last_verified_valid_core_window_attempt": 68,
+      "entire_accepted_v3_status_capture_retained": true,
+      "no_manual_SQL_edit_or_old_DB_delete": true,
+      "operational_pause_not_user_goal_stop": true,
+      "forensic_raw_preservation": {
+        "manifest": "execution/r005l2-control-failure-20261014/r005l2-control-failure-raw-manifest-v1.json",
+        "manifest_sha256": "169929503d2ca5f5b8c0ef53798d4e4665721e3902a91770f19f7e6c50e4af7a",
+        "commit": "1be044320c95ef1080fc72577c8d6a4bb5913908",
+        "pack_sha256": "3f31a518e7e84a0fa7fb2bcd6bc7886d5e3a79f66e204d272a8d0918d20d1fb8",
+        "pack_bytes": 19593404,
+        "complete_raw_preservation_verified": true,
+        "valid_SQLite_restore": false,
+        "scope": "Immutable remote full3parts/wholeSHA and all4complete rawtar memberbytes/SHA verified. Includes unreadable badcanonicalW4rawSQLite, originalrollbackjournal, entireacceptedv3stdout and failedrecoverystdout. Forensicrawpreservation only, NOT validcontrol69/database restoration/nativev3science. Originalcanonical/control/source notdeleted",
+        "last_verified_valid_control_core": 68,
+        "current_control_native_attempts_last_healthy": 69
+      }
+    }
+  }
 }

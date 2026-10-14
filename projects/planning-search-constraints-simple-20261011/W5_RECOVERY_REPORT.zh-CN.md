@@ -1,0 +1,1 @@
+已在W4真实deadline到界后创建同项目有限后继W5，未修复或覆盖旧坏库。固定Simple13公开initialize/record/init实际重放原139条科学历史，排除物理root和重放时间后逐字段一致，旧4周期、失败、usage、review链均保留；新库integrity_check=ok，源35文件逐SHA与既有digest一致。独立只读验收确认全部69反馈被新review消费、新ID无旧runtime依赖、窗口预算与项目总账分离。新states_ops任务正式接纳queued，当前nativeattempt0，none未提交。本次为工程恢复，不是新科学结果。原控制库损坏根因仍未证明，CPU并非此控制故障的阻塞原因。
