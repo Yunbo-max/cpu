@@ -1,0 +1,9 @@
+CPU可用；当前阻塞是W4控制库访问。
+
+R00710,000状态12项全部真实完成，cost24独立VAL/计数与搜索工作一致；CPU比例反转，不能稳定归因谓词开销，无速度/新颖性结论。Validcore68全部29parts/374newrawmembers已独立回读并保留历史。
+
+DepotsL2v2实际运行291.999秒，被3e9进程组RSSguard76终止，峰值3000315904B，宿主OOM/kill0，无计划。原生AS3000M=3145728000B高于该RSS保护，包装器配置不合适；并且旧collector误把无exit-sidecar当no-launch，2.823036秒只计已reaped子进程而非全nativeCPU。原输出不改写，附诊断。新v3仅包装器RSS改3350MB并明确Popenlaunch/nativewait4usage，原source/binary/SAS/CPU600/AS3000M/thread不变，两个新ID前瞻冻结。
+
+Firstv3官方response已接纳但尚未派发时，当前canonicalDB只读失败；随后官方幂等RW恢复出现stateUTF8错误，quick_check确认结构错误，49localtemporary候选均不能读取有效项目状态。原始坏库和journal/全部acceptedresponse保存，不删除/修改旧privateDB/deadline/用户stop。V3无nativeattempt，none未运行，R007旧成功不重跑。全部69已知physicalattempts真实terminalreceipt核验，没有已知在跑solver/observer。
+
+缺少可用的最新69一致控制恢复对象或官方replay接口；直接以core68覆盖会回退原运行账本，故不能声称已经恢复或再起队列。实际控制访问边界暂停自动派发，目标未完成。文件/缓存高不是CPU不可用，磁盘原故障及原停止/累计损耗全部保留。

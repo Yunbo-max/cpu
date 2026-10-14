@@ -1,0 +1,58 @@
+{
+  "utc": "2026-10-14T00:25:40.639904+00:00",
+  "pack_file": "/workspace/scratch/d503fbbd44e2/planning-restart/r005l2-control-failure-raw-v1.tar.zst",
+  "format": "complete tar.zst forensic raw bytes, NOT valid SQLite snapshot",
+  "bytes": 19593404,
+  "sha256": "3f31a518e7e84a0fa7fb2bcd6bc7886d5e3a79f66e204d272a8d0918d20d1fb8",
+  "raw_bytes": 514581193,
+  "members": [
+    {
+      "path": "/workspace/scratch/1389522c4edd/planning_simple/windows/W0004/.research-autopilot/simple-loop.sqlite3",
+      "member": "canonical-W4-after-failed-official-recovery.sqlite3.raw",
+      "bytes": 506580992,
+      "sha256": "99d33b328acdbc1ff02b216414694fc4078e1e4daee96bb1684054c9aeda62b2"
+    },
+    {
+      "path": "/workspace/scratch/d503fbbd44e2/planning-restart/r005l2-v3-control-journal-before-official-recovery-v1.bin",
+      "member": "rollback-journal-before-official-recovery.bin",
+      "bytes": 272352,
+      "sha256": "9245836faffddab96cbf70b09ea70aba37a13ae5ebcbdc3824d25be59f48f11e"
+    },
+    {
+      "path": "/workspace/scratch/d503fbbd44e2/planning-restart/accepted-R005L2-depots-p05-states_ops-600s-3000M-host-v3-hostv10.json.zst",
+      "member": "accepted-v3-complete-stdout.json.zst",
+      "bytes": 7727840,
+      "sha256": "0f49766bf34eefb8c6010815883924501de20d4283427a9203826baf56373989"
+    },
+    {
+      "path": "/workspace/scratch/d503fbbd44e2/planning-restart/r005l2-v3-idempotent-response-recovery-v1.json.zst",
+      "member": "failed-idempotent-recovery-stdout.json.zst",
+      "bytes": 9,
+      "sha256": "6fb8543883dafcc2ed0934866b8b3f775231f5b0933add08bf502e9e84944cbd"
+    }
+  ],
+  "parts": [
+    {
+      "offset": 0,
+      "bytes": 8388608,
+      "sha256": "8bcb2e61d24fa5722f6ce2c949423d288e84a31a899c1693311bae2b14def057",
+      "git_sha": "1735ddb52e224acafd0790f2bcd7cd42cc7de28c",
+      "path": "projects/planning-search-constraints-simple-20261011/execution/r005l2-control-failure-20261014/parts/part-00000.bin"
+    },
+    {
+      "offset": 8388608,
+      "bytes": 8388608,
+      "sha256": "2dd91336d721359e49f785be125f0074166aa06175f685f1adc2130ba1d31a1a",
+      "git_sha": "d70238e0bd594b241da1f85fceb718839d3f2667",
+      "path": "projects/planning-search-constraints-simple-20261011/execution/r005l2-control-failure-20261014/parts/part-00001.bin"
+    },
+    {
+      "offset": 16777216,
+      "bytes": 2816188,
+      "sha256": "ad6176ac4ead499a2013de863add9eef43ad9123e45e2c87636ccc4ce29e0085",
+      "git_sha": "faccf2f404554b41a945ae2434f74328829fc704",
+      "path": "projects/planning-search-constraints-simple-20261011/execution/r005l2-control-failure-20261014/parts/part-00002.bin"
+    }
+  ],
+  "scope": "Preserved actual unreadable/corrupt canonicalW4 raw SQLite after officialidempotentRW recovery failed, oldrollbackjournalbytes, entirepreviouslyacceptedv3stdout and failedrecoverystdout. CanonicalbadDB/originalfiles NOT deleted/edited; no validcontrol69 or scientificnativev3 execution claim. Validcore68 remains independent lastknown safe snapshot; native69failed/RSSguard and queuedv3 contracts separately archived."
+}

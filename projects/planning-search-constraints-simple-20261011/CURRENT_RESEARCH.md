@@ -1,21 +1,9 @@
-# R007：长构建窗口的真实 CPU / wall 对照
+CPU可用；当前阻塞是W4控制库访问。
 
-同一公开 Blocksworld p05 开发条件，仅将 max_states1000 调至作者支持的10000，其他源、SAS、搜索/种子/线程和原生资源条件不变。Pilot 和三个资格模式实际达到10000；coarse 独立审计，counts/fine 实际对比coarse；finalgraph SHA7c141bddef4d6f14ba5449c5922e43263ccb2a2111aab36217a3890fff841c12 完全一致。计划成本24、独立VAL通过；finalgraph见证不证明中间每split。
+R00710,000状态12项全部真实完成，cost24独立VAL/计数与搜索工作一致；CPU比例反转，不能稳定归因谓词开销，无速度/新颖性结论。Validcore68全部29parts/374newrawmembers已独立回读并保留历史。
 
-冻结12次全部执行：3warmups+9评分、三种顺序、一个暴露公开问题，不能称12独立样本或周期。全部cost24/VAL、9999closed rewires、common/fullfinecounts/expanded18657/evaluated43157/plan hash一致，整数CPU/wall和阶段加和检查通过。
+DepotsL2v2实际运行291.999秒，被3e9进程组RSSguard76终止，峰值3000315904B，宿主OOM/kill0，无计划。原生AS3000M=3145728000B高于该RSS保护，包装器配置不合适；并且旧collector误把无exit-sidecar当no-launch，2.823036秒只计已reaped子进程而非全nativeCPU。原输出不改写，附诊断。新v3仅包装器RSS改3350MB并明确Popenlaunch/nativewait4usage，原source/binary/SAS/CPU600/AS3000M/thread不变，两个新ID前瞻冻结。
 
-| 评分rotation | CPU fine/counts | CPU counts/coarse |
-| --- | ---: | ---: |
-| 1 | 1.146037803 | 1.209067277 |
-| 2 | 0.907236651 | 1.318456063 |
-| 3 | 1.087403551 | 0.970587866 |
+Firstv3官方response已接纳但尚未派发时，当前canonicalDB只读失败；随后官方幂等RW恢复出现stateUTF8错误，quick_check确认结构错误，49localtemporary候选均不能读取有效项目状态。原始坏库和journal/全部acceptedresponse保存，不删除/修改旧privateDB/deadline/用户stop。V3无nativeattempt，none未运行，R007旧成功不重跑。全部69已知physicalattempts真实terminalreceipt核验，没有已知在跑solver/observer。
 
-方向仍反转。更长窗口并未在这个非独占宿主上建立稳定的clock开销或intrinsic谓词成本；不能把CPU聚合差值减到单个wall谓词计时，不能宣称算法加速/新颖性。12次guard childCPU合15.871629s、wall16.31205761s，含包装器和原生求解，排除输入hash/preflight、翻译、VAL和归档；不是全项目CPU总账。
-
-保留连接丢失和真实磁盘满：前六项成功不重跑，第七项decision写入OSError28，solver未启动；完成远端raw42prefix核验后只删同hash闲置临时SQLite副本，source13/currentcanonicalSQLite/unique科学结果未删。剩余六项从原inventory接续，native代码/参数没改；coordinator stdout改为完整zstd保存。间隔/宿主变化限制因果归因。原analysis-v1模板遗漏gap限定，独立v1r1补正，原数值和原文件保留。
-
-探索性回看同case的coarse：1000→10000 搜索expanded减少88.4434%、evaluated减少87.1883%，但guard childCPU median0.700917→1.245861s。两组不是同时间独占配对，不能作为严格速度比较；它提示搜索节点下降不是整个求解阶段效率的充分代理。不能据此拿纯构建或节点统计代替完整native成本。
-
-下一步已在最新v4决策中选择原Depots p05 nativeAS3000M/600CPU边界诊断：复用原v3r2二进制（不可变恢复后完整SHA验证）和R005/L1同SAS，states_ops/none两个预冻结串行配置；不重跑旧2500M结果，不重新翻译PDDL，明确native-SAS-only范围、全部删失/失败分母与独立VAL。此报告生成时两项尚未提交/没有native结果。每split见证、变换算子oracle、多公开条件完整native效率和新颖性仍欠；没有宣布整个持续研究完成。
-
-后续执行：原 Depots states_ops600CPU/3000M 新SAS-only任务已实际运行；None对照尚未提交，现没有新终态结果。R007报告和上述12项结论保持。
+缺少可用的最新69一致控制恢复对象或官方replay接口；直接以core68覆盖会回退原运行账本，故不能声称已经恢复或再起队列。实际控制访问边界暂停自动派发，目标未完成。文件/缓存高不是CPU不可用，磁盘原故障及原停止/累计损耗全部保留。

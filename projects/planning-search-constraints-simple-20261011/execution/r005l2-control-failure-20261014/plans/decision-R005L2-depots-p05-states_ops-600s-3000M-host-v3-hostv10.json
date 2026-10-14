@@ -1,0 +1,2001 @@
+{
+  "kind": "research_decision",
+  "schema_version": 4,
+  "decision_id": "depots-L2-hostv10-R005L2-depots-p05-states_ops-600s-3000M-host-v3",
+  "goal_id": "planning-search-constraints-simple-20261011",
+  "candidate_id": "constraint-propagation-cost-v1",
+  "family_id": "constraint-propagation-cost-v1",
+  "mechanism": "Correctness-preserving constrained Cartesian construction cost investigation",
+  "previous_ref": {
+    "path": "plans/decision-R005L2-depots-p05-states_ops-600s-3000M-host-v2-hostv9.json",
+    "sha256": "63adf00ec1577ffe7153d69d7dc3d5884850482ca33c17dd679177c43e38fa66"
+  },
+  "review_after_rounds": 2,
+  "evidence_change": "boundary",
+  "evidence_refs": [
+    {
+      "path": "plans/configs/R005-profile-depots-p05-states_ops-v1.json",
+      "sha256": "f9babbf3e63f4c32f466736f6f8262b96dc907fc4e393d091776c1bae270bfc5"
+    },
+    {
+      "path": "results/build-profile-v3r2-recovery-v1/build_identity.json",
+      "sha256": "e9d27e97dbb8dede2e032698867bded294aeb6aead754abf4c55d0bc08e0b61d"
+    },
+    {
+      "path": "data/profile-source-manifest-v3r2.json",
+      "sha256": "a0a347552c7d42114078058d316d82e7828b26e949b00a05e1132bd332f3d4ed"
+    },
+    {
+      "path": "vendor/scorpion_profile_v3r2/builds/release_no_lp/bin/downward",
+      "sha256": "8f86d760cb8aac55b8b2eccc1cc8f435bff73ceff9f489fc0967a991979e12a9"
+    },
+    {
+      "path": "results/R005-profile-depots-p05-states_ops-v1/output.sas",
+      "sha256": "164b71eede20d07dc1ee0a412f8d4197a8acbb63292ee76d6db5e824339b39bd"
+    },
+    {
+      "path": "data/autoscale21.11/depots/domain.pddl",
+      "sha256": "81def700212ae8b703f6352307eb588223da67b943ae9289b0661c8e72319e69"
+    },
+    {
+      "path": "data/autoscale21.11/depots/p05.pddl",
+      "sha256": "e141d660e8836165bd1b71205166bcfa489dc69387d4adb54f7343d5ac154603"
+    },
+    {
+      "path": "scripts/bounded_command_host_limit_v5.py",
+      "sha256": "970a4bb0e2326c32d60d822bca87b52652a698a20a88484d58a066b8c0ac89be"
+    },
+    {
+      "path": "scripts/r005l2_native_stdin_host_v3.py",
+      "sha256": "303f38a7a3121277fac405a4444d5604798712e8d79b37193408d1f96c258dde"
+    },
+    {
+      "path": "scripts/run_r005l2_host_only_native_sas_v3.py",
+      "sha256": "c0a85ddcb894cea6d6c5bad036376a2ca21aa29ee99a0fcd38a04dc88199cb3d"
+    },
+    {
+      "path": "plans/R005L2_host_only_native_SAS_protocol_v3.md",
+      "sha256": "d1075a2ce38d53d5807e85143b03b23ab9c97c90f155714df96bed5376b27a02"
+    },
+    {
+      "path": "evidence/USER_MEMORY_POLICY_20261013T2144Z.json",
+      "sha256": "b3055e9b02e2ec156b7248389a7ceda75d8bd59599586ab7c3c98bb9419aefb4"
+    },
+    {
+      "path": "evidence/R005L2-parent-binary-restoration-v1.json",
+      "sha256": "e8c5c792feda04bad39d26f9c964766b129cc9fc9a0a79d984e903d4a2548e78"
+    },
+    {
+      "path": "results/R007-cpu-overhead-analysis-v1r1.json",
+      "sha256": "443e008c4741abab2574657ac925a3f6ac54791e58627fe136398a1e563b7256"
+    },
+    {
+      "path": "results/R007-retrospective-full-solve-scope-v1.json",
+      "sha256": "3c53f4422080918cc1c7e293bd6178c55d095c908b0c8449462af5ebbf28bd8d"
+    },
+    {
+      "path": "vendor/val/builds/release/bin/Validate",
+      "sha256": "f930ece7eae862eca84bd03eeee22ca6fbcdd83ff8b0945f1f006b95f160b705"
+    },
+    {
+      "path": "vendor/val/builds/release/bin/libVAL.so",
+      "sha256": "fc81bf2976ed8e29141247d6230503612be3be4046eed88bd7a987db88de3533"
+    },
+    {
+      "path": "scripts/classify_r005l2_native_observation_v3.py",
+      "sha256": "8f817dc77c16e3591284554f319aef6f406372a38bbf9b36d776047a61314dab"
+    },
+    {
+      "path": "evidence/R005L2-v2-outer-RSS-censor-diagnosis-v1.json",
+      "sha256": "3509369354e8404fc61bed6ea75db0a89d2e783eae57210ea7ffa7832e72be52"
+    },
+    {
+      "path": "evidence/R005L2-v3-actual-guard-regression-v1.json",
+      "sha256": "2d3357c84cae7e9f5275d6badf0bee0094b1cab227c75ab0688cf00946010a8a"
+    },
+    {
+      "path": "plans/configs/R005L2-depots-p05-states_ops-600s-3000M-host-v3.json",
+      "sha256": "b63d1399776dd92115a1ece940a255ee090204e76f0a7a0fcfe1ce89b013f217"
+    },
+    {
+      "path": ".research-autopilot/runner/attempts/attempt-42c859f5cc5f4d51881b2f788589d7cb/receipt.json",
+      "sha256": "d7edf38596ee4832e827929a29002ed898198d55696a04aa4003a473b54b9336"
+    }
+  ],
+  "objective_change": "Original Depots states_ops600CPU/3000M nativeAS with versioned3350MB outerRSS after actualv2guard failure; unchanged solver/input/seed/thread, SAS-only, allfailurehistory retained",
+  "if_repairs_free": "A valid measurement-only build enables exact mechanism measurement but does not establish graph equivalence or planner speedup.",
+  "options": [
+    {
+      "id": "original-native-memory-boundary",
+      "action": "continue",
+      "value_if_success": "Resolve a prospective finite original-SAS AS envelope and complete both declared arms with original failure history intact",
+      "cost": "One native600CPU/3000M SAS-only arm, outer650wall/RSS3.35GB/AS3.5GB, thread1, host kernel limit only"
+    },
+    {
+      "id": "per-split-witness-next",
+      "action": "explore",
+      "value_if_success": "Addresses missing intermediate graph correctness before optimization",
+      "cost": "Separate source-isolated observer build/audit after this bounded original solver diagnosis"
+    }
+  ],
+  "selected_option": "original-native-memory-boundary",
+  "selected_task_ids": [
+    "R005L2-depots-p05-states_ops-600s-3000M-host-v3"
+  ],
+  "why_selected": "Current nativeboundary decision and realv2 failure support one bounded wrapperRSS recovery with source/nativeAS/CPU unchanged; all69probes consumed and oldfailure retained; archive/source identities checked, no completed runs replayed, no artificial shared-cache admission gate.",
+  "stop_or_pivot": "If the build fails, repair only source/build defects under the same guards. If the fixed-work screen later fails, retire applicability reuse as a priority and retain the exact graph audit obligation.",
+  "strategy_reassessment": "Same Simple13, idea/W4/deadline/project ledger and historical stops; no algorithm change, new AS boundary and disclosed SAS-only timing scope. Informative native censoring is preserved even if runner receipt status is failed.",
+  "facts": [],
+  "math_trace_ref": null,
+  "trajectory_ref": null,
+  "quality_ref": null,
+  "inquiry": {
+    "problem_id": "constraint-propagation-cost-v1",
+    "frame_id": "r005l2-native-memory-boundary-v2",
+    "entry": "mixed",
+    "stage": "hypothesis",
+    "goal_ref": {
+      "path": "RESUME_AUTHORIZATION_20261013T162554Z.json",
+      "sha256": "601d7c5587bee99f206bc4e5bf6f2383671e7b13f93dcfb7e65bd8c36291f6e0"
+    },
+    "question": "Original Depots states_ops600CPU/3000M nativeAS with versioned3350MB outerRSS after actualv2guard failure; unchanged solver/input/seed/thread, SAS-only, allfailurehistory retained",
+    "goal_preservation": "Investigate native planning efficiency with correctness constraints; no redefinition to file counts or engineering success.",
+    "objects": {
+      "target": "Native original public planning solution/cost under exact source/data/quality conditions",
+      "information": "Complete R005/L1 censoring, R006/R007 raw native controls, unchanged binary/SAS pins and actual latest user host-only resource authorization",
+      "objective": "Resolve one explicit native memory-envelope feasibility question without claiming speedup or new algorithm",
+      "representation": "Original source v3r2 search on original frozen preprocessed SAS; no algorithm/layout change",
+      "cost_model": "Native600CPU/3000M_AS plus wrappers, full raw exit/RSS/outcomes; source/archive/hash/translation/VAL excluded from native interval and stated separately"
+    },
+    "defaults": [],
+    "no_default_reason": "Frozen protocol and negative queue evidence already retain assumptions; this initial v4 handoff is an unresolved aggregation decision, not a fresh default algorithm.",
+    "explanations": [
+      {
+        "id": "short-cap",
+        "mechanism": "The same finite search completes beyond120 and within600CPU seconds",
+        "conditions": "Frozen source/search and memory cap; no input or planner defect",
+        "prediction": "A successful native plan with independent VAL occurs within600CPU seconds",
+        "status": "refuted",
+        "evidence_refs": [
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/supplement_outcome_v1.json",
+            "sha256": "4dcbff18b80bbfb19e46452bf8f14bd3fe60182daee7d889be60a596877f620a"
+          }
+        ]
+      },
+      {
+        "id": "frontier-growth",
+        "mechanism": "Native optimal-search frontier exceeds600CPU seconds or the retained memory cap",
+        "conditions": "Same frozen source/search and public p05 input",
+        "prediction": "The larger-budget run remains time- or memory-censored without a validated plan",
+        "status": "supported",
+        "evidence_refs": [
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/supplement_outcome_v1.json",
+            "sha256": "4dcbff18b80bbfb19e46452bf8f14bd3fe60182daee7d889be60a596877f620a"
+          }
+        ]
+      },
+      {
+        "id": "none-short-cap",
+        "mechanism": "Unpropagated search completes after120 and by600CPU seconds",
+        "conditions": "Unpropagated arm, same source/data/search/thread and2500M memory cap",
+        "prediction": "A native plan with independent VAL appears before600CPU seconds",
+        "status": "refuted",
+        "evidence_refs": [
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/command/metrics.json",
+            "sha256": "e3d997db7b42824c6fbe8f41c9a58d19c7ec6e60349654bc7fb05352741b8854"
+          },
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/command/stdout.log",
+            "sha256": "afbd0fed051191824a208800057407c3e042818ded88374efda905f0138d0a8d"
+          },
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/command/stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/outer_usage.json",
+            "sha256": "04f53bfa45e9b6566dbf4e0c16b2874d98fe40aeef887f95feb9891afd3ad5af"
+          },
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/output.sas",
+            "sha256": "164b71eede20d07dc1ee0a412f8d4197a8acbb63292ee76d6db5e824339b39bd"
+          },
+          {
+            "path": "results/R005L1-depots-p05-none-600s-v1/command/metrics.json",
+            "sha256": "339c35dc3d545f5cf57ea350652208c4a13589ea31ae32bdb9dd44cb92b5669f"
+          },
+          {
+            "path": "results/R005L1-depots-p05-none-600s-v1/command/stdout.log",
+            "sha256": "9a58791425797e5f346dd66bbd242f68f006137fea7431d210f393545bf21848"
+          },
+          {
+            "path": "results/R005L1-depots-p05-none-600s-v1/command/stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "results/R005L1-depots-p05-none-600s-v1/outer_usage.json",
+            "sha256": "c52d47e4a2b29bdf4757c84aa5889ce10a9343fab64557c5330703c4d9886773"
+          },
+          {
+            "path": "results/R005L1-depots-p05-none-600s-v1/output.sas",
+            "sha256": "164b71eede20d07dc1ee0a412f8d4197a8acbb63292ee76d6db5e824339b39bd"
+          }
+        ]
+      },
+      {
+        "id": "none-frontier-growth",
+        "mechanism": "Unpropagated frontier also exceeds600CPU seconds or2500M",
+        "conditions": "Unpropagated arm, same source/data/search/thread and2500M memory cap",
+        "prediction": "Native no-plan time- or memory-censoring recurs within the declared budget",
+        "status": "supported",
+        "evidence_refs": [
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/command/metrics.json",
+            "sha256": "e3d997db7b42824c6fbe8f41c9a58d19c7ec6e60349654bc7fb05352741b8854"
+          },
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/command/stdout.log",
+            "sha256": "afbd0fed051191824a208800057407c3e042818ded88374efda905f0138d0a8d"
+          },
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/command/stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/outer_usage.json",
+            "sha256": "04f53bfa45e9b6566dbf4e0c16b2874d98fe40aeef887f95feb9891afd3ad5af"
+          },
+          {
+            "path": "results/R005L1-depots-p05-states_ops-600s-v1/output.sas",
+            "sha256": "164b71eede20d07dc1ee0a412f8d4197a8acbb63292ee76d6db5e824339b39bd"
+          },
+          {
+            "path": "results/R005L1-depots-p05-none-600s-v1/command/metrics.json",
+            "sha256": "339c35dc3d545f5cf57ea350652208c4a13589ea31ae32bdb9dd44cb92b5669f"
+          },
+          {
+            "path": "results/R005L1-depots-p05-none-600s-v1/command/stdout.log",
+            "sha256": "9a58791425797e5f346dd66bbd242f68f006137fea7431d210f393545bf21848"
+          },
+          {
+            "path": "results/R005L1-depots-p05-none-600s-v1/command/stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "path": "results/R005L1-depots-p05-none-600s-v1/outer_usage.json",
+            "sha256": "c52d47e4a2b29bdf4757c84aa5889ce10a9343fab64557c5330703c4d9886773"
+          },
+          {
+            "path": "results/R005L1-depots-p05-none-600s-v1/output.sas",
+            "sha256": "164b71eede20d07dc1ee0a412f8d4197a8acbb63292ee76d6db5e824339b39bd"
+          }
+        ]
+      },
+      {
+        "id": "app-cost",
+        "mechanism": "Repeated outgoing applicability contributes enough measured construction cost to prioritize ordinary per-call reuse",
+        "conditions": "Exact1000 state frontier and valid instrumentation; equal-cost aggregate estimate conditional",
+        "prediction": "m/d>=1.5 and11*estimated_saved_app_cost>construction",
+        "status": "refuted",
+        "evidence_refs": [
+          {
+            "path": "results/R006-fixed1000-blocksworld-p05-states_ops-v1/r006_analysis_v1.json",
+            "sha256": "07ac9d0d40e7458fd301f629d0e4336d0468ab5d690b633fdc42931863e557d8"
+          }
+        ]
+      },
+      {
+        "id": "other-cost",
+        "mechanism": "Reachability, emission, residual or remaining construction dominates",
+        "conditions": "Same frozen fixed-frontier execution",
+        "prediction": "Applicability opportunity fails the prespecified screen",
+        "status": "open",
+        "evidence_refs": []
+      },
+      {
+        "id": "graph-preserved",
+        "mechanism": "Fine instrumentation preserves final-frontier native construction relation",
+        "conditions": "Same frozen source parent, public SAS, policy, state frontier and seed",
+        "prediction": "All final tuple/mirror/domain/order/distance comparisons match exactly",
+        "status": "supported",
+        "evidence_refs": [
+          {
+            "path": "results/R006-final-frontier-exact-graph-audit-v1.json",
+            "sha256": "8a3672eafa8c2a8af9f9aaa7adff3687e9e45d08398c2c7ce7fd568b6a4a1102"
+          }
+        ]
+      },
+      {
+        "id": "graph-changed",
+        "mechanism": "Instrumentation or audit/export defect alters or misstates native relation",
+        "conditions": "Same frozen1000-state diagnostic",
+        "prediction": "Some exact identity/mirror/count/order/domain/reference-distance check disagrees",
+        "status": "refuted",
+        "evidence_refs": [
+          {
+            "path": "results/R006-final-frontier-exact-graph-audit-v1.json",
+            "sha256": "8a3672eafa8c2a8af9f9aaa7adff3687e9e45d08398c2c7ce7fd568b6a4a1102"
+          }
+        ]
+      },
+      {
+        "id": "instrumentation-residual",
+        "mechanism": "Fine generation clocks and additional counts/operator-summary bookkeeping contribute materially to measured construction/residual",
+        "conditions": "Same counters/graph/frontier, separate counts/fine modes and coarse parent, timing without graph export",
+        "prediction": "Matched fine mode has larger construction duration than counts mode; counts may also exceed coarse",
+        "status": "conflicting",
+        "evidence_refs": [
+          {
+            "path": "results/R006-overhead-analysis-v1.json",
+            "sha256": "5c0ef9fa4c6fe545b21640cef39af8ea6cef999d8936ec796ba078f55e49b586"
+          }
+        ]
+      },
+      {
+        "id": "intrinsic-residual",
+        "mechanism": "Original loop/index/representation work remains dominant after disabling fine clocks",
+        "conditions": "Same matched native work and counters, controlled accounting",
+        "prediction": "Counts mode retains comparable residual/construction, after fair paired scope",
+        "status": "open",
+        "evidence_refs": []
+      },
+      {
+        "id": "wall-cpu-noise",
+        "mechanism": "Shared-host wall-time variation or boundary/read costs confound the small-frontier instrumentation contrast",
+        "conditions": "One exposed exact1000 case, serial rotations but uncontrolled host and a prelaunch memory-wait gap",
+        "prediction": "Matched per-run thread CPU and steady-wall intervals clarify external waiting; cache/frequency and bracket overhead still require scoped interpretation",
+        "status": "open",
+        "evidence_refs": [
+          {
+            "path": "results/R006-overhead-analysis-v1.json",
+            "sha256": "5c0ef9fa4c6fe545b21640cef39af8ea6cef999d8936ec796ba078f55e49b586"
+          },
+          {
+            "path": "results/R006-cpu-clock-source-audit-v1.json",
+            "sha256": "d1dd9bb70e8f44d35374363e5155b75cc52c3d06d8ed99c8417535a14f885e63"
+          }
+        ]
+      },
+      {
+        "id": "depots-3GB-suffices",
+        "mechanism": "Original native search can complete with additional500MiB AS under600CPU",
+        "conditions": "Original v3r2/SAS/search/seed/thread and validated native execution, new3GB cap",
+        "prediction": "Nativeexit0 with costed plan and independentVAL within600CPU",
+        "status": "open",
+        "evidence_refs": [
+          {
+            "path": "plans/R005L2_host_only_native_SAS_protocol_v2.md",
+            "sha256": "42257cd0232db30f48eca63cb6c3b84209990004cca26ca164e660abb7fe9875"
+          }
+        ]
+      },
+      {
+        "id": "depots-3GB-still-censored",
+        "mechanism": "Original search frontier/resources still exceed this finite envelope",
+        "conditions": "Same fixed source/data/config, no input/source/host execution defect",
+        "prediction": "Native memory/CPU censor with no validated completed plan",
+        "status": "open",
+        "evidence_refs": [
+          {
+            "path": "plans/R005L2_host_only_native_SAS_protocol_v2.md",
+            "sha256": "42257cd0232db30f48eca63cb6c3b84209990004cca26ca164e660abb7fe9875"
+          }
+        ]
+      }
+    ],
+    "unexplained_lead": null,
+    "contrasts": [
+      {
+        "id": "budget-change",
+        "explanation_ids": [
+          "short-cap",
+          "frontier-growth"
+        ],
+        "intervention": "Increase only native CPU budget120->600 and outer guard145->650; distinct output paths",
+        "held_fixed": "Source, binary, seed, data, CEGAR construction parameters, A* search, thread count and memory caps",
+        "predictions": {
+          "short-cap": "Native successful completion and valid plan before limits",
+          "frontier-growth": "Still censored by time or memory"
+        }
+      },
+      {
+        "id": "none-budget-change",
+        "explanation_ids": [
+          "none-short-cap",
+          "none-frontier-growth"
+        ],
+        "intervention": "Unpropagated parent120->600CPU-second budget, distinct outputs",
+        "held_fixed": "None search/source/data/seed/threads/memory limits and construction settings",
+        "predictions": {
+          "none-short-cap": "Native solved and VAL passed",
+          "none-frontier-growth": "Time- or memory-censored without plan"
+        }
+      },
+      {
+        "id": "generation-components",
+        "explanation_ids": [
+          "app-cost",
+          "other-cost"
+        ],
+        "intervention": "Measurement-only fine-clock subdivision at frozen1000-state frontier",
+        "held_fixed": "Native SAS, search except declared frontier, policy NONE, seed2011, single thread, frozen source",
+        "predictions": {
+          "app-cost": "Enough measured applicability opportunity under conditional equal-cost estimate",
+          "other-cost": "Applicability screen fails; investigate other measured components"
+        }
+      },
+      {
+        "id": "graph-audit-pair",
+        "explanation_ids": [
+          "graph-preserved",
+          "graph-changed"
+        ],
+        "intervention": "Separate identical read-only exporter on coarse parent and fine source, independent reconstruction",
+        "held_fixed": "Native SAS, search/policy, seed,1000-state frontier, graph serialization and external auditor",
+        "predictions": {
+          "graph-preserved": "All exact final comparisons match",
+          "graph-changed": "At least one exact final comparison fails"
+        }
+      },
+      {
+        "id": "clock-counts-coarse",
+        "explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "intervention": "New fine/counts clock mode with identical counters and coarse-parent control",
+        "held_fixed": "Source semantics, original public SAS, ordered construction, exact1000 frontier, policy and seed",
+        "predictions": {
+          "instrumentation-residual": "Fine/counts contrast substantial; counts/coarse captures extra bookkeeping",
+          "intrinsic-residual": "Residual remains substantial after fine clocks disabled"
+        }
+      },
+      {
+        "id": "cpu-wall-boundary",
+        "explanation_ids": [
+          "wall-cpu-noise",
+          "intrinsic-residual"
+        ],
+        "intervention": "New source-isolated coarse and fine/counts controls with two thread-CPU boundary reads while retaining original wall stage clocks",
+        "held_fixed": "Original source semantics, SAS/search/state frontier, policy and native counts; read-only graph qualification before any timings",
+        "predictions": {
+          "wall-cpu-noise": "Thread CPU/wall divergence makes some previous wall contrast unstable; genuine clock overhead not proven by prior ratios",
+          "intrinsic-residual": "Residual persists in appropriately qualified CPU scope, but independent decomposition still needed"
+        }
+      },
+      {
+        "id": "depots-3GB-native-outcome",
+        "explanation_ids": [
+          "depots-3GB-suffices",
+          "depots-3GB-still-censored"
+        ],
+        "intervention": "Increase only native AS2500M to3000M for two predeclared original-SAS600CPU arms; actual kernel-only host policy",
+        "held_fixed": "Original source/binary/SAS/search/default2011/thread/case/native600CPU, newwrapper discloses SAS-only scope versus prior full-PDDL driver",
+        "predictions": {
+          "depots-3GB-suffices": "Nativeexit0 costed independentlyVAL valid plan within600CPU",
+          "depots-3GB-still-censored": "Native memory/CPU censor without completed validated plan; infrastructure invalidity separate"
+        }
+      }
+    ],
+    "selected_explanation_ids": [
+      "depots-3GB-suffices",
+      "depots-3GB-still-censored"
+    ],
+    "selected_contrast_id": "depots-3GB-native-outcome",
+    "selection_reason": "Resolve original Depots finite native AS boundary, preserve all original2500M failures and current same-idea accounting.",
+    "priority": {
+      "basis": "Original public Depots600CPU/2500M native memory-censoring plus completed inconclusive measurement controls",
+      "uncertainty": "Whether original search completes in new600CPU/3000M finite envelope",
+      "decision_value": "Native feasibility and complete matched two-arm censoring, not speed or novelty",
+      "cost": "One new bounded original-SAS600CPU/3000M arm"
+    },
+    "next_check": {
+      "action": "probe",
+      "question": "Original Depots states_ops600CPU/3000M nativeAS with versioned3350MB outerRSS after actualv2guard failure; unchanged solver/input/seed/thread, SAS-only, allfailurehistory retained",
+      "task_ids": [
+        "R005L2-depots-p05-states_ops-600s-3000M-host-v3"
+      ],
+      "input_refs": [
+        {
+          "path": "plans/configs/R005-profile-depots-p05-states_ops-v1.json",
+          "sha256": "f9babbf3e63f4c32f466736f6f8262b96dc907fc4e393d091776c1bae270bfc5"
+        },
+        {
+          "path": "results/build-profile-v3r2-recovery-v1/build_identity.json",
+          "sha256": "e9d27e97dbb8dede2e032698867bded294aeb6aead754abf4c55d0bc08e0b61d"
+        },
+        {
+          "path": "data/profile-source-manifest-v3r2.json",
+          "sha256": "a0a347552c7d42114078058d316d82e7828b26e949b00a05e1132bd332f3d4ed"
+        },
+        {
+          "path": "vendor/scorpion_profile_v3r2/builds/release_no_lp/bin/downward",
+          "sha256": "8f86d760cb8aac55b8b2eccc1cc8f435bff73ceff9f489fc0967a991979e12a9"
+        },
+        {
+          "path": "results/R005-profile-depots-p05-states_ops-v1/output.sas",
+          "sha256": "164b71eede20d07dc1ee0a412f8d4197a8acbb63292ee76d6db5e824339b39bd"
+        },
+        {
+          "path": "data/autoscale21.11/depots/domain.pddl",
+          "sha256": "81def700212ae8b703f6352307eb588223da67b943ae9289b0661c8e72319e69"
+        },
+        {
+          "path": "data/autoscale21.11/depots/p05.pddl",
+          "sha256": "e141d660e8836165bd1b71205166bcfa489dc69387d4adb54f7343d5ac154603"
+        },
+        {
+          "path": "scripts/bounded_command_host_limit_v5.py",
+          "sha256": "970a4bb0e2326c32d60d822bca87b52652a698a20a88484d58a066b8c0ac89be"
+        },
+        {
+          "path": "scripts/r005l2_native_stdin_host_v3.py",
+          "sha256": "303f38a7a3121277fac405a4444d5604798712e8d79b37193408d1f96c258dde"
+        },
+        {
+          "path": "scripts/run_r005l2_host_only_native_sas_v3.py",
+          "sha256": "c0a85ddcb894cea6d6c5bad036376a2ca21aa29ee99a0fcd38a04dc88199cb3d"
+        },
+        {
+          "path": "plans/R005L2_host_only_native_SAS_protocol_v3.md",
+          "sha256": "d1075a2ce38d53d5807e85143b03b23ab9c97c90f155714df96bed5376b27a02"
+        },
+        {
+          "path": "evidence/USER_MEMORY_POLICY_20261013T2144Z.json",
+          "sha256": "b3055e9b02e2ec156b7248389a7ceda75d8bd59599586ab7c3c98bb9419aefb4"
+        },
+        {
+          "path": "evidence/R005L2-parent-binary-restoration-v1.json",
+          "sha256": "e8c5c792feda04bad39d26f9c964766b129cc9fc9a0a79d984e903d4a2548e78"
+        },
+        {
+          "path": "results/R007-cpu-overhead-analysis-v1r1.json",
+          "sha256": "443e008c4741abab2574657ac925a3f6ac54791e58627fe136398a1e563b7256"
+        },
+        {
+          "path": "results/R007-retrospective-full-solve-scope-v1.json",
+          "sha256": "3c53f4422080918cc1c7e293bd6178c55d095c908b0c8449462af5ebbf28bd8d"
+        },
+        {
+          "path": "vendor/val/builds/release/bin/Validate",
+          "sha256": "f930ece7eae862eca84bd03eeee22ca6fbcdd83ff8b0945f1f006b95f160b705"
+        },
+        {
+          "path": "vendor/val/builds/release/bin/libVAL.so",
+          "sha256": "fc81bf2976ed8e29141247d6230503612be3be4046eed88bd7a987db88de3533"
+        },
+        {
+          "path": "scripts/classify_r005l2_native_observation_v3.py",
+          "sha256": "8f817dc77c16e3591284554f319aef6f406372a38bbf9b36d776047a61314dab"
+        },
+        {
+          "path": "evidence/R005L2-v2-outer-RSS-censor-diagnosis-v1.json",
+          "sha256": "3509369354e8404fc61bed6ea75db0a89d2e783eae57210ea7ffa7832e72be52"
+        },
+        {
+          "path": "evidence/R005L2-v3-actual-guard-regression-v1.json",
+          "sha256": "2d3357c84cae7e9f5275d6badf0bee0094b1cab227c75ab0688cf00946010a8a"
+        },
+        {
+          "path": "plans/configs/R005L2-depots-p05-states_ops-600s-3000M-host-v3.json",
+          "sha256": "b63d1399776dd92115a1ece940a255ee090204e76f0a7a0fcfe1ce89b013f217"
+        }
+      ],
+      "outcome_actions": {
+        "supports": "Complete other predeclared native arm; independently validate successful plan and retain native scope",
+        "refutes": "Complete matched original none arm after valid memory/CPU censor, retain failure denominator; no unlimited escalation",
+        "inconclusive": "Resolve actual missing source/output/worker identity without duplicate native work",
+        "invalid": "Inspect exact native/guard/source/host failure, bounded repair newID or wait; retain original"
+      }
+    },
+    "observations": [
+      {
+        "id": "obs-attempt-0a44f004d5c940a8a7c649a7e3297b8a",
+        "attempt_id": "attempt-0a44f004d5c940a8a7c649a7e3297b8a",
+        "task_id": "R005-profile-depots-p05-states_ops-v1-analysis",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-0a44f004d5c940a8a7c649a7e3297b8a/receipt.json",
+          "sha256": "b6536760638ca67db02cc0079b835fad4490efa99a57d5dd1aa5cde55e3c2b17"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "scope",
+        "affected_explanation_ids": [],
+        "interpretation": "Engineering/accounting completion only; does not certify mechanism or graph"
+      },
+      {
+        "id": "obs-attempt-32f11d549436467d9f376116c62fda0f",
+        "attempt_id": "attempt-32f11d549436467d9f376116c62fda0f",
+        "task_id": "R005-profile-depots-p05-states_ops-v1",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-32f11d549436467d9f376116c62fda0f/receipt.json",
+          "sha256": "98fbf986accb42f9ef85c117691646f5ce0b38e61f2bda9a0cd5381c8372859c"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "scope",
+        "affected_explanation_ids": [],
+        "interpretation": "Native result is a censored/solved member of four-row diagnostic; consume all rows before mechanism claims"
+      },
+      {
+        "id": "obs-attempt-602187f7a97943f781bee4503bb6a0d4",
+        "attempt_id": "attempt-602187f7a97943f781bee4503bb6a0d4",
+        "task_id": "R005-profile-depots-p05-none-v1",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-602187f7a97943f781bee4503bb6a0d4/receipt.json",
+          "sha256": "5d71cf3b9b49f9531dedcd4acdf2808bbfa1201387b4f2ad61baf07579a30e1a"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "scope",
+        "affected_explanation_ids": [],
+        "interpretation": "Native result is a censored/solved member of four-row diagnostic; consume all rows before mechanism claims"
+      },
+      {
+        "id": "obs-attempt-6b9c961fa46d41e38b537b618005875f",
+        "attempt_id": "attempt-6b9c961fa46d41e38b537b618005875f",
+        "task_id": "build-profile-v3r2-v1",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-6b9c961fa46d41e38b537b618005875f/receipt.json",
+          "sha256": "d1d74a819db800f64faf0650838c516b7310c3f0f4141ae266a5ff1655ab4258"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [],
+        "interpretation": "Engineering/accounting completion only; does not certify mechanism or graph"
+      },
+      {
+        "id": "obs-attempt-94e0e1aa067643a7bf2d971c46ea8645",
+        "attempt_id": "attempt-94e0e1aa067643a7bf2d971c46ea8645",
+        "task_id": "R005-profile-blocksworld-p05-states_ops-v1-analysis",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-94e0e1aa067643a7bf2d971c46ea8645/receipt.json",
+          "sha256": "97893ca8d7893b38a8f4abdcf24f31537e4259947ea6e4ae1c566507164abc09"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "scope",
+        "affected_explanation_ids": [],
+        "interpretation": "Engineering/accounting completion only; does not certify mechanism or graph"
+      },
+      {
+        "id": "obs-attempt-bbecd73626ec46079de9ad60d7e5b2b9",
+        "attempt_id": "attempt-bbecd73626ec46079de9ad60d7e5b2b9",
+        "task_id": "cmake-finalize-v3",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-bbecd73626ec46079de9ad60d7e5b2b9/receipt.json",
+          "sha256": "9e53fa543b99cfa6b661f09c8c5bc628a2fa74234b62a085a5e0a4899c3817b6"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [],
+        "interpretation": "Engineering/accounting completion only; does not certify mechanism or graph"
+      },
+      {
+        "id": "obs-attempt-eb065eaf3be04e03b28221f446e4bc5c",
+        "attempt_id": "attempt-eb065eaf3be04e03b28221f446e4bc5c",
+        "task_id": "R005-profile-blocksworld-p05-none-v1",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-eb065eaf3be04e03b28221f446e4bc5c/receipt.json",
+          "sha256": "7a0854b9eb5ae829862b01786b1c8177ef5b70fa65b4802e5bf4a88e0b826909"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "scope",
+        "affected_explanation_ids": [],
+        "interpretation": "Native result is a censored/solved member of four-row diagnostic; consume all rows before mechanism claims"
+      },
+      {
+        "id": "obs-attempt-eb8e913be5bc43e2890f33fd164d1ead",
+        "attempt_id": "attempt-eb8e913be5bc43e2890f33fd164d1ead",
+        "task_id": "cmake-recovery-v1",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-eb8e913be5bc43e2890f33fd164d1ead/receipt.json",
+          "sha256": "0ceade2f81fe1f3fa1495363ced0b2d31a1f47a65196c6b0e83c18b7b38a044c"
+        },
+        "outcome": "invalid",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [],
+        "interpretation": "Dependency wrapper failed; retained and repaired"
+      },
+      {
+        "id": "obs-attempt-ee9e1bfd9552416f8522e838f659014b",
+        "attempt_id": "attempt-ee9e1bfd9552416f8522e838f659014b",
+        "task_id": "R005-profile-depots-p05-none-v1-analysis",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-ee9e1bfd9552416f8522e838f659014b/receipt.json",
+          "sha256": "74ceabf12dd67569552b0d17de61371bdbb57d227572c63e2f7d17d8c57a8910"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "scope",
+        "affected_explanation_ids": [],
+        "interpretation": "Engineering/accounting completion only; does not certify mechanism or graph"
+      },
+      {
+        "id": "obs-attempt-fd2e68ea4c654245a5fda58344e9bde1",
+        "attempt_id": "attempt-fd2e68ea4c654245a5fda58344e9bde1",
+        "task_id": "R005-profile-blocksworld-p05-none-v1-analysis",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-fd2e68ea4c654245a5fda58344e9bde1/receipt.json",
+          "sha256": "fa556b2859a9d3c9cb131894a787bfeacc0ecfa22f53d1baa32ab93d9451ed78"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "scope",
+        "affected_explanation_ids": [],
+        "interpretation": "Engineering/accounting completion only; does not certify mechanism or graph"
+      },
+      {
+        "id": "obs-attempt-ffb8f5376d274accaffb9d1d89b31bf7",
+        "attempt_id": "attempt-ffb8f5376d274accaffb9d1d89b31bf7",
+        "task_id": "R005-profile-blocksworld-p05-states_ops-v1",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-ffb8f5376d274accaffb9d1d89b31bf7/receipt.json",
+          "sha256": "c8914bbdcd8cba22d7b290aecca1587d8963b3c5f320af02f571d1af6e9f1793"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "scope",
+        "affected_explanation_ids": [],
+        "interpretation": "Native result is a censored/solved member of four-row diagnostic; consume all rows before mechanism claims"
+      },
+      {
+        "id": "obs-attempt-bf4236db40974e60ad8b6aa7c387a944",
+        "attempt_id": "attempt-bf4236db40974e60ad8b6aa7c387a944",
+        "task_id": "R005-independent-summary-v1",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-bf4236db40974e60ad8b6aa7c387a944/receipt.json",
+          "sha256": "8238cfa4c4f6a91c502085441da76671e7e1580f09a63e2a2fa76b67d29ab66d"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "scope",
+        "affected_explanation_ids": [],
+        "interpretation": "Independent summary confirms the scoped R005 cost accounting; no600s native outcome or graph-equivalence evidence yet."
+      },
+      {
+        "id": "obs-attempt-a788e322883c4f17935edb1099a5438b",
+        "attempt_id": "attempt-a788e322883c4f17935edb1099a5438b",
+        "task_id": "R005L1-depots-p05-states_ops-600s-v1",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-a788e322883c4f17935edb1099a5438b/receipt.json",
+          "sha256": "d983ff4c1894be6d45cb2d6e8cdc3485f972a74d850a7cad9e0a828c3db1f04c"
+        },
+        "outcome": "invalid",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "short-cap",
+          "frontier-growth"
+        ],
+        "interpretation": "Host command nonzero22, native deliberately bounded search reaches2500M. Scientific outcome is memory-censored; no kernel OOM or invalid input, no mathematical refutation."
+      },
+      {
+        "id": "obs-attempt-74901636b3e94dceaee65ab356cc0d9a",
+        "attempt_id": "attempt-74901636b3e94dceaee65ab356cc0d9a",
+        "task_id": "R005L1-depots-p05-none-600s-v1",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-74901636b3e94dceaee65ab356cc0d9a/receipt.json",
+          "sha256": "d665267513434233ab3ccd47a948ea650d0c46139d50cc0868ba3a73b8ed8678"
+        },
+        "outcome": "invalid",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "none-short-cap",
+          "none-frontier-growth"
+        ],
+        "interpretation": "Host command failed22 at native configured memory cap. Scientific outcome memory-censored, not corrupt input or mathematical refutation; total host usage remained below8GB."
+      },
+      {
+        "id": "obs-attempt-519e1efc992f40bd9229d99e86a33c76",
+        "attempt_id": "attempt-519e1efc992f40bd9229d99e86a33c76",
+        "task_id": "R005L1-summary-v1",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-519e1efc992f40bd9229d99e86a33c76/receipt.json",
+          "sha256": "8214d243529e8b01544911bbb2b15379304b9088bfbc1d45f6689f2a29b8c749"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "scope",
+        "affected_explanation_ids": [
+          "frontier-growth",
+          "none-frontier-growth"
+        ],
+        "interpretation": "Pair summary confirms two native-memory-censored rows, zero solved rows, identical SAS identity and zero kernel OOM; it closes the budget supplement but does not establish a method comparison."
+      },
+      {
+        "id": "obs-attempt-172a9ab3adb9417a8aba09880cbfad38",
+        "attempt_id": "attempt-172a9ab3adb9417a8aba09880cbfad38",
+        "task_id": "R006-build-profile-v4-w4-explicit-object-v2",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-172a9ab3adb9417a8aba09880cbfad38/receipt.json",
+          "sha256": "eb53f8940b7524bbee2c92c738de5b0dea38e757fddd899a76236a0f4783b6a1"
+        },
+        "outcome": "supports",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "frontier-growth"
+        ],
+        "interpretation": "Actual frozen build engineering outcome succeeded; failures preserved, only actual succeeded receipt enables native measurement. No graph or speed claim."
+      },
+      {
+        "id": "obs-attempt-178a933d754746e2a5c1178298d49f94",
+        "attempt_id": "attempt-178a933d754746e2a5c1178298d49f94",
+        "task_id": "R006-build-profile-v4-w4-object-repair1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-178a933d754746e2a5c1178298d49f94/receipt.json",
+          "sha256": "563dbaafdf2eed0ce4902b4262ed031e7c424c5d80dcff4768d6275d7af10df8"
+        },
+        "outcome": "invalid",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "frontier-growth"
+        ],
+        "interpretation": "Actual frozen build engineering outcome failed; failures preserved, only actual succeeded receipt enables native measurement. No graph or speed claim."
+      },
+      {
+        "id": "obs-attempt-716c3f13e05741b28ca008bdc0f8f3ed",
+        "attempt_id": "attempt-716c3f13e05741b28ca008bdc0f8f3ed",
+        "task_id": "R006-build-profile-v4-w4-recovery1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-716c3f13e05741b28ca008bdc0f8f3ed/receipt.json",
+          "sha256": "d1e9e2e446b5597bc98398d4ef018b050de38d1d4db5ff9a233e08f30df15e4a"
+        },
+        "outcome": "invalid",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "frontier-growth"
+        ],
+        "interpretation": "Actual frozen build engineering outcome failed; failures preserved, only actual succeeded receipt enables native measurement. No graph or speed claim."
+      },
+      {
+        "id": "obs-w3-cancelled-retry1",
+        "attempt_id": "attempt-11a52899022b4f149ddab57925371fb7",
+        "task_id": "R006-build-profile-v4-retry1",
+        "receipt_ref": {
+          "path": "history/W0003/attempts/attempt-11a52899022b4f149ddab57925371fb7/receipt.json",
+          "sha256": "3d2f385bc6301be90a4d3a59a2d475f3a2751131741bdaa3ba89e5372fd20ba7"
+        },
+        "outcome": "invalid",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "frontier-growth"
+        ],
+        "interpretation": "Authentic user cancellation in stopped W3; retained older effort and newer future-only W4 authorization."
+      },
+      {
+        "id": "obs-attempt-1f008db9870c42e3966a7ad3dc42858c",
+        "attempt_id": "attempt-1f008db9870c42e3966a7ad3dc42858c",
+        "task_id": "R006-fixed1000-blocksworld-p05-states_ops-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-1f008db9870c42e3966a7ad3dc42858c/receipt.json",
+          "sha256": "aaf651e5186b1dc92aef208ac761f540c83acb382a83988e13bf178db7f85f42"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "app-cost",
+          "other-cost"
+        ],
+        "interpretation": "Native command succeeded with a logged1000-state construction and cost24 plan; numeric interpretation and external validity await independent analysis."
+      },
+      {
+        "id": "obs-attempt-e6ef681cc61f47ca8b3aaa603c1d3e05",
+        "attempt_id": "attempt-e6ef681cc61f47ca8b3aaa603c1d3e05",
+        "task_id": "R006-fixed1000-analysis-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-e6ef681cc61f47ca8b3aaa603c1d3e05/receipt.json",
+          "sha256": "d82fde09a27ec4bca5af3e606255e7cd3af293e79d7e24b7f0ec53039193545f"
+        },
+        "outcome": "refutes",
+        "affected_layer": "value",
+        "affected_explanation_ids": [
+          "app-cost"
+        ],
+        "interpretation": "Valid fixed1000 first-screen measurement fails specified applicability investment threshold; conditional equal-cost model, no cross-condition impossibility or speedup claim."
+      },
+      {
+        "id": "obs-attempt-3f7e80c1116046c680778ca2815281f8",
+        "attempt_id": "attempt-3f7e80c1116046c680778ca2815281f8",
+        "task_id": "R006-fixed1000-independent-VAL-v2",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-3f7e80c1116046c680778ca2815281f8/receipt.json",
+          "sha256": "a282b368f9768db0d7d4b7a7d0fa2e0422ddbcd4e5a7dcdcb07f6272f22a6229"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "other-cost"
+        ],
+        "interpretation": "Actual R006-fixed1000-independent-VAL-v2 terminal succeeded; source/build, plan validity and negative screen scopes stay distinct from graph evidence."
+      },
+      {
+        "id": "obs-attempt-cb0b962a8e224d8a8150650feb1ac074",
+        "attempt_id": "attempt-cb0b962a8e224d8a8150650feb1ac074",
+        "task_id": "R006-audit-coarse-build-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-cb0b962a8e224d8a8150650feb1ac074/receipt.json",
+          "sha256": "19316fc407b08f7322cd33ea1591cc340327f6ebe52f18abc9123e2ed18486c9"
+        },
+        "outcome": "invalid",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "other-cost"
+        ],
+        "interpretation": "Actual R006-audit-coarse-build-v1 terminal failed; source/build, plan validity and negative screen scopes stay distinct from graph evidence."
+      },
+      {
+        "id": "obs-attempt-eac1feaaa5a44e529e9ca9d4bbf2b0be",
+        "attempt_id": "attempt-eac1feaaa5a44e529e9ca9d4bbf2b0be",
+        "task_id": "R006-audit-fine-build-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-eac1feaaa5a44e529e9ca9d4bbf2b0be/receipt.json",
+          "sha256": "ba9b9fe89d97018c00c2447c5e89177e6d808c4d9284e94fdee68b01f3efb4fb"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "other-cost"
+        ],
+        "interpretation": "Actual R006-audit-fine-build-v1 terminal succeeded; source/build, plan validity and negative screen scopes stay distinct from graph evidence."
+      },
+      {
+        "id": "obs-attempt-66ccb5eea16440d3aad7eb53f8baec55",
+        "attempt_id": "attempt-66ccb5eea16440d3aad7eb53f8baec55",
+        "task_id": "R006-graph-export-fine-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-66ccb5eea16440d3aad7eb53f8baec55/receipt.json",
+          "sha256": "ab8d339f84d2fa05312d1da1cb65f311b7668b2da4a59053eb1930aa17b83ace"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "other-cost"
+        ],
+        "interpretation": "Actual R006-graph-export-fine-v1 terminal succeeded; source/build, plan validity and negative screen scopes stay distinct from graph evidence."
+      },
+      {
+        "id": "obs-attempt-b8346809825b45eab4f227abb0ccc6e2",
+        "attempt_id": "attempt-b8346809825b45eab4f227abb0ccc6e2",
+        "task_id": "R006-audit-coarse-build-repair-v2",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-b8346809825b45eab4f227abb0ccc6e2/receipt.json",
+          "sha256": "bb22709e096e87ddbf049be447aa9453fdaf6c9a9c1df5b977ff014cea5333b5"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "other-cost"
+        ],
+        "interpretation": "Actual R006-audit-coarse-build-repair-v2 terminal succeeded; source/build, plan validity and negative screen scopes stay distinct from graph evidence."
+      },
+      {
+        "id": "obs-attempt-1dd816d541234239acb11cbf1b8547d1",
+        "attempt_id": "attempt-1dd816d541234239acb11cbf1b8547d1",
+        "task_id": "R006-audit-coarse-relink-v3",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-1dd816d541234239acb11cbf1b8547d1/receipt.json",
+          "sha256": "1e61a55f663a4fff5ed0151b46824c00a0c611af73be73fc3403dc2f2d9b0fec"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "other-cost"
+        ],
+        "interpretation": "Actual R006-audit-coarse-relink-v3 terminal succeeded; source/build, plan validity and negative screen scopes stay distinct from graph evidence."
+      },
+      {
+        "id": "obs-attempt-6e309453422048fdac07be3cb3501cc7",
+        "attempt_id": "attempt-6e309453422048fdac07be3cb3501cc7",
+        "task_id": "R006-graph-export-coarse-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-6e309453422048fdac07be3cb3501cc7/receipt.json",
+          "sha256": "fb4b7d9f551f808ec5eeeb815e9e448238e488bb0a23604567033a0f8bc43cdf"
+        },
+        "outcome": "invalid",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "other-cost"
+        ],
+        "interpretation": "Actual R006-graph-export-coarse-v1 terminal failed; source/build, plan validity and negative screen scopes stay distinct from graph evidence."
+      },
+      {
+        "id": "obs-attempt-33e8133f83e1445dafbf1bb9b254f475",
+        "attempt_id": "attempt-33e8133f83e1445dafbf1bb9b254f475",
+        "task_id": "R006-graph-export-coarse-v2",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-33e8133f83e1445dafbf1bb9b254f475/receipt.json",
+          "sha256": "650a101cd66e25fa7b5a05f575840a4056e140d175c7c267cd248c5881387b6a"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "other-cost"
+        ],
+        "interpretation": "Actual R006-graph-export-coarse-v2 terminal succeeded; source/build, plan validity and negative screen scopes stay distinct from graph evidence."
+      },
+      {
+        "id": "obs-attempt-4666a1d6cb124e50b666786eb0e43a0c",
+        "attempt_id": "attempt-4666a1d6cb124e50b666786eb0e43a0c",
+        "task_id": "R006-final-frontier-exact-graph-audit-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-4666a1d6cb124e50b666786eb0e43a0c/receipt.json",
+          "sha256": "d35be73844026b7e65d3b51edc9217f518823a52755ecb447a7d98210e3e6ed7"
+        },
+        "outcome": "supports",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "graph-preserved"
+        ],
+        "interpretation": "Actual terminal R006-final-frontier-exact-graph-audit-v1 succeeded retained. Final paired audit has exact tuples/mirrors/counts/domains/order and independently recomputed distances; scoped to1000-state final snapshot."
+      },
+      {
+        "id": "obs-attempt-c5152d88aa5944e685a1f66bf64e87c3",
+        "attempt_id": "attempt-c5152d88aa5944e685a1f66bf64e87c3",
+        "task_id": "R006-clock-control-build-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-c5152d88aa5944e685a1f66bf64e87c3/receipt.json",
+          "sha256": "744cc4ef25cd8025d6b42ee417a95fe1c2ec626bd8ad7fe39dfc6d351471acd3"
+        },
+        "outcome": "invalid",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-clock-control-build-v1 failed retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-ab71bebebba1483ebf40294e7624fc23",
+        "attempt_id": "attempt-ab71bebebba1483ebf40294e7624fc23",
+        "task_id": "R006-clock-control-build-v2",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-ab71bebebba1483ebf40294e7624fc23/receipt.json",
+          "sha256": "7e274b49d892302f569860c86acd5c63b7deadbd6307783348b1d4e81cf6f955"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-clock-control-build-v2 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-0fbad5bb55bb44e391c0f0972b0c695d",
+        "attempt_id": "attempt-0fbad5bb55bb44e391c0f0972b0c695d",
+        "task_id": "R006-clock-fine-qualification-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-0fbad5bb55bb44e391c0f0972b0c695d/receipt.json",
+          "sha256": "c6de66a006032921989a25e67297126cd6e989fcfa2d3caab4db00b525d8e08f"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-clock-fine-qualification-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-dc52d9962c3841e282477670ae1a2582",
+        "attempt_id": "attempt-dc52d9962c3841e282477670ae1a2582",
+        "task_id": "R006-clock-counts-qualification-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-dc52d9962c3841e282477670ae1a2582/receipt.json",
+          "sha256": "be52931435155a04a327d4a7d213a10556050c9a54beb990025927c7225bedf4"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-clock-counts-qualification-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-321f4d1151de4583be0f67347bccea52",
+        "attempt_id": "attempt-321f4d1151de4583be0f67347bccea52",
+        "task_id": "R006-overhead-r0-coarse-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-321f4d1151de4583be0f67347bccea52/receipt.json",
+          "sha256": "691305f726c49e9d2ca86c7e947ede46963071096bc4b4a6b70f3c60a37b96f3"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r0-coarse-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-4500058ad50848789661e69895c91077",
+        "attempt_id": "attempt-4500058ad50848789661e69895c91077",
+        "task_id": "R006-overhead-r0-counts-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-4500058ad50848789661e69895c91077/receipt.json",
+          "sha256": "3674adbc00edb0894b3fb160be6b408bebeca54be9056ba8cbc8578722515ad8"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r0-counts-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-b1669b6378944cd4a2ac74ce66390d98",
+        "attempt_id": "attempt-b1669b6378944cd4a2ac74ce66390d98",
+        "task_id": "R006-overhead-r0-fine-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-b1669b6378944cd4a2ac74ce66390d98/receipt.json",
+          "sha256": "ff80c4b06d62637e13677ed0a2eb5a55db0662283e73acf5b5d4c460da5ee960"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r0-fine-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-349f8896d0064afda3e53e8c105821fb",
+        "attempt_id": "attempt-349f8896d0064afda3e53e8c105821fb",
+        "task_id": "R006-overhead-r1-coarse-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-349f8896d0064afda3e53e8c105821fb/receipt.json",
+          "sha256": "6b1526a2f88231f319938d1d318ac9b9068318782bcb29356b9a55fb7b466fcb"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r1-coarse-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-5672d97ebd944df8a94d923d78a551b6",
+        "attempt_id": "attempt-5672d97ebd944df8a94d923d78a551b6",
+        "task_id": "R006-overhead-r1-counts-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-5672d97ebd944df8a94d923d78a551b6/receipt.json",
+          "sha256": "41203d3989d55a3e3923fe5dc41f42d6166700be6ff4f58bd23295ee1150939e"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r1-counts-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-510b8781360347c48c867fac681ede84",
+        "attempt_id": "attempt-510b8781360347c48c867fac681ede84",
+        "task_id": "R006-overhead-r1-fine-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-510b8781360347c48c867fac681ede84/receipt.json",
+          "sha256": "ecd654c647b7b2bd258c20dceaec4209fc241430d59fdfaba06eba840f4edef9"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r1-fine-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-5ed072b2eb2f43358b6ff202d56b79ff",
+        "attempt_id": "attempt-5ed072b2eb2f43358b6ff202d56b79ff",
+        "task_id": "R006-overhead-r2-counts-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-5ed072b2eb2f43358b6ff202d56b79ff/receipt.json",
+          "sha256": "ff393fa51eb7c3f946560451febf339f3d6a1df99743989f8220fd925e1fc7f1"
+        },
+        "outcome": "invalid",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r2-counts-v1 failed retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-e4545e12fbc64a56915b13725734777a",
+        "attempt_id": "attempt-e4545e12fbc64a56915b13725734777a",
+        "task_id": "R006-overhead-r2-counts-v2",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-e4545e12fbc64a56915b13725734777a/receipt.json",
+          "sha256": "cfe448eb6a9cada7e7b78413bfd875981d7e3f5da0b79e28bc5709a1e6146843"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r2-counts-v2 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-fe9c5016d006442fb4b1c002d63b231d",
+        "attempt_id": "attempt-fe9c5016d006442fb4b1c002d63b231d",
+        "task_id": "R006-overhead-r2-fine-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-fe9c5016d006442fb4b1c002d63b231d/receipt.json",
+          "sha256": "ddccd7dd51248c77f801904c727a2b5dd4f7ed941649778fb9bda0b5a57af285"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r2-fine-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-996e09126f3e4615aa9b3ca86609ed8d",
+        "attempt_id": "attempt-996e09126f3e4615aa9b3ca86609ed8d",
+        "task_id": "R006-overhead-r2-coarse-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-996e09126f3e4615aa9b3ca86609ed8d/receipt.json",
+          "sha256": "484addde79ac6444a18428bbf588a77373e087ab574e983bbc8ac37115eb4c1d"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r2-coarse-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-557a68bcfbd44e46aafe365f1d52dc7b",
+        "attempt_id": "attempt-557a68bcfbd44e46aafe365f1d52dc7b",
+        "task_id": "R006-overhead-r3-fine-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-557a68bcfbd44e46aafe365f1d52dc7b/receipt.json",
+          "sha256": "1a7f4b954c784468a9ed596fb6f9ef617a291ec62d94cd38b26325ed79506a06"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r3-fine-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-59fdf230b46c4d239faf40cf1b5f9900",
+        "attempt_id": "attempt-59fdf230b46c4d239faf40cf1b5f9900",
+        "task_id": "R006-overhead-r3-coarse-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-59fdf230b46c4d239faf40cf1b5f9900/receipt.json",
+          "sha256": "e024d0a8662559f4db50e555688b0b34033ca82c321915edcb59fdd20fc898b0"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r3-coarse-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-ac90e63b41284d3d83d41f8cd39ad8b5",
+        "attempt_id": "attempt-ac90e63b41284d3d83d41f8cd39ad8b5",
+        "task_id": "R006-overhead-r3-counts-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-ac90e63b41284d3d83d41f8cd39ad8b5/receipt.json",
+          "sha256": "1ddf987784aa885f5e237f3f93ff1aed11b93cd6e05fb03e6bed2572e45ed3f5"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-r3-counts-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-321cfb1f1c774626889dd39bab6a6181",
+        "attempt_id": "attempt-321cfb1f1c774626889dd39bab6a6181",
+        "task_id": "R006-overhead-analysis-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-321cfb1f1c774626889dd39bab6a6181/receipt.json",
+          "sha256": "5396660938c78b3deab2c8fc3d057a3918bb717a469f17c034875b12e0c4a002"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-overhead-analysis-v1 succeeded retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-6a981f5478044701999619d021b9b5cb",
+        "attempt_id": "attempt-6a981f5478044701999619d021b9b5cb",
+        "task_id": "R006-cpu-clock-source-audit-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-6a981f5478044701999619d021b9b5cb/receipt.json",
+          "sha256": "b034cd51de9e58748e55de41b34b4b6427f253c3c6a9837d65d52209b5db449a"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual terminal R006-cpu-clock-source-audit-v1 retained; CPU source boundary/API audit is engineering dependency, not native clock qualification or algorithm result."
+      },
+      {
+        "id": "obs-attempt-2f87ea78f1a0405e82b15a39adec7772",
+        "attempt_id": "attempt-2f87ea78f1a0405e82b15a39adec7772",
+        "task_id": "R006-cpu-clock-control-build-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-2f87ea78f1a0405e82b15a39adec7772/receipt.json",
+          "sha256": "5e42b7d7cdf3f487d93e4413f7c64a0c7106792aa4f32c50450df3a45b2c1c65"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "wall-cpu-noise",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual two-arm CPU clock incremental build succeeded12.93guardwall, peakgroupRSS582545408/cgroup7431770112; no guard/OOM evidence. Native C++ CPU clock/graph/VAL not yet qualified; not scientific speedup."
+      },
+      {
+        "id": "obs-attempt-51855894c4654b5aaea6780f05a19772",
+        "attempt_id": "attempt-51855894c4654b5aaea6780f05a19772",
+        "task_id": "R006-cpu-clock-counts-qualification-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-51855894c4654b5aaea6780f05a19772/receipt.json",
+          "sha256": "a7b2b8f8faafa16c445e4f71a26778006850dbf26f5bcc7a8ae17d6ef22c5d4d"
+        },
+        "outcome": "invalid",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-clock-counts-qualification-v1 failed retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-cc6e55fd050940a9b71ecd38001fead4",
+        "attempt_id": "attempt-cc6e55fd050940a9b71ecd38001fead4",
+        "task_id": "R006-cpu-clock-counts-qualification-v2",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-cc6e55fd050940a9b71ecd38001fead4/receipt.json",
+          "sha256": "aa573e9e659ba89b207ccc7f4e789b55516fd672430c6f972f6918d181bc3400"
+        },
+        "outcome": "invalid",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-clock-counts-qualification-v2 failed retained; engineering, final graph qualification and overhead timing remain distinct. No broader algorithm claim."
+      },
+      {
+        "id": "obs-attempt-6de6a2ff41e44613b07690f158112f68",
+        "attempt_id": "attempt-6de6a2ff41e44613b07690f158112f68",
+        "task_id": "R006-cpu-clock-counts-qualification-v3",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-6de6a2ff41e44613b07690f158112f68/receipt.json",
+          "sha256": "478a8578851a7975b1949210d8bb2cf0cceade90951c0b2e8c491be18e72944b"
+        },
+        "outcome": "invalid",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Native solver never started: prelaunch shared-memory reserve refused. No native CPU clock, graph, plan or VAL result; no scientific refutation or host OOM."
+      },
+      {
+        "id": "obs-attempt-6d022bc72e5a494390dfb97945d6f462",
+        "attempt_id": "attempt-6d022bc72e5a494390dfb97945d6f462",
+        "task_id": "R006-cpu-clock-counts-qualification-host-limit-v5",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-6d022bc72e5a494390dfb97945d6f462/receipt.json",
+          "sha256": "c03449dd7e52b90fa3b4c6a1508ecf5434f74c551ee25dd3212938bcb85933dc"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-clock-counts-qualification-host-limit-v5 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-7fdb52e4aea74dc586d77d26410f6a18",
+        "attempt_id": "attempt-7fdb52e4aea74dc586d77d26410f6a18",
+        "task_id": "R006-cpu-clock-fine-qualification-host-limit-v5",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-7fdb52e4aea74dc586d77d26410f6a18/receipt.json",
+          "sha256": "0cce60c09253c8f9ff185d71e2141b4f28b9beffe0557e766c4e20f974a66aad"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-clock-fine-qualification-host-limit-v5 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-0980aac89e0e4e81a4c18005f75a0ab8",
+        "attempt_id": "attempt-0980aac89e0e4e81a4c18005f75a0ab8",
+        "task_id": "R006-cpu-clock-coarse-qualification-host-limit-v5",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-0980aac89e0e4e81a4c18005f75a0ab8/receipt.json",
+          "sha256": "1a3bf3a7062ccd823ed3b2720c42422b10baccb45ed3cea5b368bf30d3d10a6e"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-clock-coarse-qualification-host-limit-v5 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-2e1da59bfd924640bce50596b6534acb",
+        "attempt_id": "attempt-2e1da59bfd924640bce50596b6534acb",
+        "task_id": "R006-cpu-overhead-r0-coarse-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-2e1da59bfd924640bce50596b6534acb/receipt.json",
+          "sha256": "94c7816612e487a99caab5b6cda990de65834b3d9d1e86c010ff1fd8397a9401"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-overhead-r0-coarse-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-8ab9c82473c44ac3a8d207fae0b2957a",
+        "attempt_id": "attempt-8ab9c82473c44ac3a8d207fae0b2957a",
+        "task_id": "R006-cpu-overhead-r0-counts-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-8ab9c82473c44ac3a8d207fae0b2957a/receipt.json",
+          "sha256": "e7abb2d9150bdf9b8f3199ba7100e0423d5a8190af40a68e7a64e90cff3c92df"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-overhead-r0-counts-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-c452ba050528473d9b2286c299a5c31f",
+        "attempt_id": "attempt-c452ba050528473d9b2286c299a5c31f",
+        "task_id": "R006-cpu-overhead-r0-fine-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-c452ba050528473d9b2286c299a5c31f/receipt.json",
+          "sha256": "449f48f2d8542b9f5e75c37c549d26c23ff0d152b11501759cdbbdffb55c6d4d"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-overhead-r0-fine-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-54a573bde94c4f5cb70667a3359affe8",
+        "attempt_id": "attempt-54a573bde94c4f5cb70667a3359affe8",
+        "task_id": "R006-cpu-overhead-r1-coarse-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-54a573bde94c4f5cb70667a3359affe8/receipt.json",
+          "sha256": "055ce3de39dca424ea17a97477e1143c48b6e9bc4187327ffef04cd114c19b10"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-overhead-r1-coarse-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-1ea3bd81136a45fab56c4daa321264c4",
+        "attempt_id": "attempt-1ea3bd81136a45fab56c4daa321264c4",
+        "task_id": "R006-cpu-overhead-r1-counts-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-1ea3bd81136a45fab56c4daa321264c4/receipt.json",
+          "sha256": "dba64437dead796a94e12a77c73096a5e7701347ea34233f964c7b3d5cdfb9ae"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-overhead-r1-counts-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-348fa50d178f4938b326f0fb7d11c513",
+        "attempt_id": "attempt-348fa50d178f4938b326f0fb7d11c513",
+        "task_id": "R006-cpu-overhead-r1-fine-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-348fa50d178f4938b326f0fb7d11c513/receipt.json",
+          "sha256": "8dc1f12c7bbad32682e611951463b2cc3ab5e7971bfffbd056fd30359c05bd63"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-overhead-r1-fine-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-4f2b334fee5d4f3d981f76fd46d62d9d",
+        "attempt_id": "attempt-4f2b334fee5d4f3d981f76fd46d62d9d",
+        "task_id": "R006-cpu-overhead-r2-counts-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-4f2b334fee5d4f3d981f76fd46d62d9d/receipt.json",
+          "sha256": "987fb36a0a13373e0f835626089a046f2b0309f55e1cec89098f763ba4420ac2"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-overhead-r2-counts-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-d052c52c2dd849be95022f3d450adb1e",
+        "attempt_id": "attempt-d052c52c2dd849be95022f3d450adb1e",
+        "task_id": "R006-cpu-overhead-r2-fine-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-d052c52c2dd849be95022f3d450adb1e/receipt.json",
+          "sha256": "2e6636d3fa2e5442d1484c03fa2c7f1350aa8d01dc85397ecc3c28985651b31a"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-overhead-r2-fine-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-1946480ae108436ca8f2e6765fce9955",
+        "attempt_id": "attempt-1946480ae108436ca8f2e6765fce9955",
+        "task_id": "R006-cpu-overhead-r2-coarse-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-1946480ae108436ca8f2e6765fce9955/receipt.json",
+          "sha256": "fdf4c8b90bc83254d84d8bb421118e19b6814415e50afeaa7bbea73d19a4efc4"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-overhead-r2-coarse-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-dc4427bcfbba471d998e05e2b5b6aa67",
+        "attempt_id": "attempt-dc4427bcfbba471d998e05e2b5b6aa67",
+        "task_id": "R006-cpu-overhead-r3-fine-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-dc4427bcfbba471d998e05e2b5b6aa67/receipt.json",
+          "sha256": "6de3d53dffc936b3f410e244d134806b048ee42bcb025e149e130ac7c534e642"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-overhead-r3-fine-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-1115feebfeb040a6861422dfd7961c02",
+        "attempt_id": "attempt-1115feebfeb040a6861422dfd7961c02",
+        "task_id": "R006-cpu-overhead-r3-coarse-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-1115feebfeb040a6861422dfd7961c02/receipt.json",
+          "sha256": "032ed249b783e1b2bbd04d42046a9495649845a23435eff0bcca9171b9c80219"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R006-cpu-overhead-r3-coarse-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-a7c4c816c17f47b8a238e69a0f6e598d",
+        "attempt_id": "attempt-a7c4c816c17f47b8a238e69a0f6e598d",
+        "task_id": "R006-cpu-overhead-r3-counts-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-a7c4c816c17f47b8a238e69a0f6e598d/receipt.json",
+          "sha256": "7d36b6a4c29314e24e8bbfc3773300ec4f61e6037ae9a7099a3da0439ae19b59"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Real nativeCPUwall R006-cpu-overhead-r3-counts-host-v1 succeeded preserved; one exposed development case/guardedsource, no intrinsiccost or planner speed result."
+      },
+      {
+        "id": "obs-attempt-2e8fb4e0d66b47649cb0d140e9620164",
+        "attempt_id": "attempt-2e8fb4e0d66b47649cb0d140e9620164",
+        "task_id": "R007-max10000-counts-native-pilot-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-2e8fb4e0d66b47649cb0d140e9620164/receipt.json",
+          "sha256": "2088ae077b620af31fa8eaac4cf163e31a17179ba3675fd50bb331f6da376612"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-max10000-counts-native-pilot-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-cd3e315fae644c3ca1690f84e34e29a8",
+        "attempt_id": "attempt-cd3e315fae644c3ca1690f84e34e29a8",
+        "task_id": "R007-10000-coarse-cpu-graph-qualification-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-cd3e315fae644c3ca1690f84e34e29a8/receipt.json",
+          "sha256": "57653cf699603d6567d686de47f58d73c6b7f82cc106fecd9a5a561619f1fd15"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-10000-coarse-cpu-graph-qualification-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-dfca1dd48f314c09a4807ec9b2c472e1",
+        "attempt_id": "attempt-dfca1dd48f314c09a4807ec9b2c472e1",
+        "task_id": "R007-10000-counts-cpu-graph-qualification-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-dfca1dd48f314c09a4807ec9b2c472e1/receipt.json",
+          "sha256": "c19136aca3dfbb96ce9c6c912b5b996df0caed383dd88510d51932210d281b17"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-10000-counts-cpu-graph-qualification-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-e905fa54672b469cae43b3725e9decba",
+        "attempt_id": "attempt-e905fa54672b469cae43b3725e9decba",
+        "task_id": "R007-10000-fine-cpu-graph-qualification-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-e905fa54672b469cae43b3725e9decba/receipt.json",
+          "sha256": "d6b19b05b2551ffc7eb52e9310da3b43280416bc69f20ec9e49893bd195fa630"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-10000-fine-cpu-graph-qualification-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-e634c98a5d3c4426ba91d271997cb2f7",
+        "attempt_id": "attempt-e634c98a5d3c4426ba91d271997cb2f7",
+        "task_id": "R007-cpu-overhead-r0-coarse-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-e634c98a5d3c4426ba91d271997cb2f7/receipt.json",
+          "sha256": "d2fe230fd3f0226e658087f19e0041f8e9ae8019f9663ec3feefe6ca73db3bff"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-cpu-overhead-r0-coarse-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-e1756c0eee7345f294bef30565cbc7d1",
+        "attempt_id": "attempt-e1756c0eee7345f294bef30565cbc7d1",
+        "task_id": "R007-cpu-overhead-r0-counts-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-e1756c0eee7345f294bef30565cbc7d1/receipt.json",
+          "sha256": "8597b24248c0453314466344d8571e2df7be25d157506f0924d794338c857f7f"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-cpu-overhead-r0-counts-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-c6e94898047743199e00dbf4498613d4",
+        "attempt_id": "attempt-c6e94898047743199e00dbf4498613d4",
+        "task_id": "R007-cpu-overhead-r0-fine-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-c6e94898047743199e00dbf4498613d4/receipt.json",
+          "sha256": "5667e9452af53c091e52914300deda25dc1e5054832ff382090096ad11d3e7a6"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-cpu-overhead-r0-fine-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-959ae2b953d544d682b722aed8501ea8",
+        "attempt_id": "attempt-959ae2b953d544d682b722aed8501ea8",
+        "task_id": "R007-cpu-overhead-r1-coarse-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-959ae2b953d544d682b722aed8501ea8/receipt.json",
+          "sha256": "9555d5e0226e21352d758a7b9c69078a29dac15123865d81f54014548b287a53"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-cpu-overhead-r1-coarse-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-9ff3a28f8fd345f4ae5295c10bb97d08",
+        "attempt_id": "attempt-9ff3a28f8fd345f4ae5295c10bb97d08",
+        "task_id": "R007-cpu-overhead-r1-counts-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-9ff3a28f8fd345f4ae5295c10bb97d08/receipt.json",
+          "sha256": "7385167f7ae4eddf60c263d1ef2b5d0c07969e0250807c039fef685c32bc0c4f"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-cpu-overhead-r1-counts-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-3d74e234e8d54d4e98d2f5d418d6a401",
+        "attempt_id": "attempt-3d74e234e8d54d4e98d2f5d418d6a401",
+        "task_id": "R007-cpu-overhead-r1-fine-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-3d74e234e8d54d4e98d2f5d418d6a401/receipt.json",
+          "sha256": "d3bda7933d0e7b290b61888a668ba1810e68823c614253fbdffb2e843066ce0c"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-cpu-overhead-r1-fine-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-1f1f85825551422bad997e23fb30c672",
+        "attempt_id": "attempt-1f1f85825551422bad997e23fb30c672",
+        "task_id": "R007-cpu-overhead-r2-counts-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-1f1f85825551422bad997e23fb30c672/receipt.json",
+          "sha256": "6d62480e1ce60ac4289ba05e8ff8a075974d0bda31aa048ce81ccc2f98305f39"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-cpu-overhead-r2-counts-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-a36f370d5f3143b9abbd25a0ffd9d6ee",
+        "attempt_id": "attempt-a36f370d5f3143b9abbd25a0ffd9d6ee",
+        "task_id": "R007-cpu-overhead-r2-fine-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-a36f370d5f3143b9abbd25a0ffd9d6ee/receipt.json",
+          "sha256": "c6ecc31f7540cf2f1ceec76d935585d38503d13a3b15f89c3a5ce686bde40f2f"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-cpu-overhead-r2-fine-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-f83f6eec40224cef921e32cb7fc049df",
+        "attempt_id": "attempt-f83f6eec40224cef921e32cb7fc049df",
+        "task_id": "R007-cpu-overhead-r2-coarse-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-f83f6eec40224cef921e32cb7fc049df/receipt.json",
+          "sha256": "ed66a619d43c320cddae13605da3a51285e9523d15833aea9b37df6b9f97f1db"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-cpu-overhead-r2-coarse-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-12602dbb9e19479099b7965c87b9ce06",
+        "attempt_id": "attempt-12602dbb9e19479099b7965c87b9ce06",
+        "task_id": "R007-cpu-overhead-r3-fine-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-12602dbb9e19479099b7965c87b9ce06/receipt.json",
+          "sha256": "2e329976fe7e784f2b7328258b8212e51434c983782abb8333513637c4a2c5a6"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-cpu-overhead-r3-fine-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-bdd0000913fb4c2d8fe020b346446713",
+        "attempt_id": "attempt-bdd0000913fb4c2d8fe020b346446713",
+        "task_id": "R007-cpu-overhead-r3-coarse-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-bdd0000913fb4c2d8fe020b346446713/receipt.json",
+          "sha256": "694d1a781f87486ac6d4c33426f80462d18b456274807a770a3ad5229392f0bb"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual"
+        ],
+        "interpretation": "Actual R007-cpu-overhead-r3-coarse-host-v1 succeeded; preserve original receipt. A qualification is not eligible performance timing or alltrajectory evidence."
+      },
+      {
+        "id": "obs-attempt-ce2afa9cf7f44eccb50eea019a2cbb9f",
+        "attempt_id": "attempt-ce2afa9cf7f44eccb50eea019a2cbb9f",
+        "task_id": "R007-cpu-overhead-r3-counts-host-v1",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-ce2afa9cf7f44eccb50eea019a2cbb9f/receipt.json",
+          "sha256": "8d5c92c75ca2ae86103c0ca2d6c6a0be9c1cfeece1a8b53a50c5c3d857b53fd4"
+        },
+        "outcome": "inconclusive",
+        "affected_layer": "evaluation",
+        "affected_explanation_ids": [
+          "instrumentation-residual",
+          "intrinsic-residual",
+          "wall-cpu-noise"
+        ],
+        "interpretation": "Actual terminal succeeded; full R007 comparison now complete, all ratios/reversals and transport/disk gaps retained; no intrinsic or speed claim."
+      },
+      {
+        "id": "obs-attempt-42c859f5cc5f4d51881b2f788589d7cb",
+        "attempt_id": "attempt-42c859f5cc5f4d51881b2f788589d7cb",
+        "task_id": "R005L2-depots-p05-states_ops-600s-3000M-host-v2",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-42c859f5cc5f4d51881b2f788589d7cb/receipt.json",
+          "sha256": "d7edf38596ee4832e827929a29002ed898198d55696a04aa4003a473b54b9336"
+        },
+        "outcome": "invalid",
+        "affected_layer": "infrastructure",
+        "affected_explanation_ids": [],
+        "interpretation": "Actual R005L2-depots-p05-states_ops-600s-3000M-host-v2 receipt failed; other_failure_requires_diagnosis; missingexit sidecar doesnotmean no launch; v2RSSguarddiagnosis preserved. A native22/23 censor is an informative bounded observation, not solved, and does not establish unbounded infeasibility or algorithm benefit."
+      }
+    ],
+    "based_on_observation_ids": [
+      "obs-attempt-0a44f004d5c940a8a7c649a7e3297b8a",
+      "obs-attempt-32f11d549436467d9f376116c62fda0f",
+      "obs-attempt-602187f7a97943f781bee4503bb6a0d4",
+      "obs-attempt-6b9c961fa46d41e38b537b618005875f",
+      "obs-attempt-94e0e1aa067643a7bf2d971c46ea8645",
+      "obs-attempt-bbecd73626ec46079de9ad60d7e5b2b9",
+      "obs-attempt-eb065eaf3be04e03b28221f446e4bc5c",
+      "obs-attempt-eb8e913be5bc43e2890f33fd164d1ead",
+      "obs-attempt-ee9e1bfd9552416f8522e838f659014b",
+      "obs-attempt-fd2e68ea4c654245a5fda58344e9bde1",
+      "obs-attempt-ffb8f5376d274accaffb9d1d89b31bf7",
+      "obs-attempt-bf4236db40974e60ad8b6aa7c387a944",
+      "obs-attempt-a788e322883c4f17935edb1099a5438b",
+      "obs-attempt-74901636b3e94dceaee65ab356cc0d9a",
+      "obs-attempt-519e1efc992f40bd9229d99e86a33c76",
+      "obs-attempt-172a9ab3adb9417a8aba09880cbfad38",
+      "obs-attempt-178a933d754746e2a5c1178298d49f94",
+      "obs-attempt-716c3f13e05741b28ca008bdc0f8f3ed",
+      "obs-w3-cancelled-retry1",
+      "obs-attempt-1f008db9870c42e3966a7ad3dc42858c",
+      "obs-attempt-e6ef681cc61f47ca8b3aaa603c1d3e05",
+      "obs-attempt-3f7e80c1116046c680778ca2815281f8",
+      "obs-attempt-cb0b962a8e224d8a8150650feb1ac074",
+      "obs-attempt-eac1feaaa5a44e529e9ca9d4bbf2b0be",
+      "obs-attempt-66ccb5eea16440d3aad7eb53f8baec55",
+      "obs-attempt-b8346809825b45eab4f227abb0ccc6e2",
+      "obs-attempt-1dd816d541234239acb11cbf1b8547d1",
+      "obs-attempt-6e309453422048fdac07be3cb3501cc7",
+      "obs-attempt-33e8133f83e1445dafbf1bb9b254f475",
+      "obs-attempt-4666a1d6cb124e50b666786eb0e43a0c",
+      "obs-attempt-c5152d88aa5944e685a1f66bf64e87c3",
+      "obs-attempt-ab71bebebba1483ebf40294e7624fc23",
+      "obs-attempt-0fbad5bb55bb44e391c0f0972b0c695d",
+      "obs-attempt-dc52d9962c3841e282477670ae1a2582",
+      "obs-attempt-321f4d1151de4583be0f67347bccea52",
+      "obs-attempt-4500058ad50848789661e69895c91077",
+      "obs-attempt-b1669b6378944cd4a2ac74ce66390d98",
+      "obs-attempt-349f8896d0064afda3e53e8c105821fb",
+      "obs-attempt-5672d97ebd944df8a94d923d78a551b6",
+      "obs-attempt-510b8781360347c48c867fac681ede84",
+      "obs-attempt-5ed072b2eb2f43358b6ff202d56b79ff",
+      "obs-attempt-e4545e12fbc64a56915b13725734777a",
+      "obs-attempt-fe9c5016d006442fb4b1c002d63b231d",
+      "obs-attempt-996e09126f3e4615aa9b3ca86609ed8d",
+      "obs-attempt-557a68bcfbd44e46aafe365f1d52dc7b",
+      "obs-attempt-59fdf230b46c4d239faf40cf1b5f9900",
+      "obs-attempt-ac90e63b41284d3d83d41f8cd39ad8b5",
+      "obs-attempt-321cfb1f1c774626889dd39bab6a6181",
+      "obs-attempt-6a981f5478044701999619d021b9b5cb",
+      "obs-attempt-2f87ea78f1a0405e82b15a39adec7772",
+      "obs-attempt-51855894c4654b5aaea6780f05a19772",
+      "obs-attempt-cc6e55fd050940a9b71ecd38001fead4",
+      "obs-attempt-6de6a2ff41e44613b07690f158112f68",
+      "obs-attempt-6d022bc72e5a494390dfb97945d6f462",
+      "obs-attempt-7fdb52e4aea74dc586d77d26410f6a18",
+      "obs-attempt-0980aac89e0e4e81a4c18005f75a0ab8",
+      "obs-attempt-2e1da59bfd924640bce50596b6534acb",
+      "obs-attempt-8ab9c82473c44ac3a8d207fae0b2957a",
+      "obs-attempt-c452ba050528473d9b2286c299a5c31f",
+      "obs-attempt-54a573bde94c4f5cb70667a3359affe8",
+      "obs-attempt-1ea3bd81136a45fab56c4daa321264c4",
+      "obs-attempt-348fa50d178f4938b326f0fb7d11c513",
+      "obs-attempt-4f2b334fee5d4f3d981f76fd46d62d9d",
+      "obs-attempt-d052c52c2dd849be95022f3d450adb1e",
+      "obs-attempt-1946480ae108436ca8f2e6765fce9955",
+      "obs-attempt-dc4427bcfbba471d998e05e2b5b6aa67",
+      "obs-attempt-1115feebfeb040a6861422dfd7961c02",
+      "obs-attempt-a7c4c816c17f47b8a238e69a0f6e598d",
+      "obs-attempt-2e8fb4e0d66b47649cb0d140e9620164",
+      "obs-attempt-cd3e315fae644c3ca1690f84e34e29a8",
+      "obs-attempt-dfca1dd48f314c09a4807ec9b2c472e1",
+      "obs-attempt-e905fa54672b469cae43b3725e9decba",
+      "obs-attempt-e634c98a5d3c4426ba91d271997cb2f7",
+      "obs-attempt-e1756c0eee7345f294bef30565cbc7d1",
+      "obs-attempt-c6e94898047743199e00dbf4498613d4",
+      "obs-attempt-959ae2b953d544d682b722aed8501ea8",
+      "obs-attempt-9ff3a28f8fd345f4ae5295c10bb97d08",
+      "obs-attempt-3d74e234e8d54d4e98d2f5d418d6a401",
+      "obs-attempt-1f1f85825551422bad997e23fb30c672",
+      "obs-attempt-a36f370d5f3143b9abbd25a0ffd9d6ee",
+      "obs-attempt-f83f6eec40224cef921e32cb7fc049df",
+      "obs-attempt-12602dbb9e19479099b7965c87b9ce06",
+      "obs-attempt-bdd0000913fb4c2d8fe020b346446713",
+      "obs-attempt-ce2afa9cf7f44eccb50eea019a2cbb9f",
+      "obs-attempt-42c859f5cc5f4d51881b2f788589d7cb"
+    ],
+    "change_reason": "Full R007 completed; actualv2native was intercepted by outer3GBRSS lower than nativeAS3145728000. Retaineddiagnosis/regression establish wrappermismatch; prospective bothnewIDs outerRSS3.35GB with nativeAS/CPU/search unchanged. User removed artificial total-memory/cache launch gates."
+  },
+  "accepted_previous_window_ref": {
+    "path": "plans/R006_decision_v4_002.json",
+    "sha256": "673641d460e04694ca9f494b4606e19b2a450dc636ae86694b6d9c92f7f336e2"
+  },
+  "cross_window_handoff_ref": {
+    "path": "SUCCESSOR.json",
+    "sha256": "16c4153d3b46dfb48d6feeacb5dfaaef695654c8df5dfb136f3627975b2254b5"
+  }
+}
