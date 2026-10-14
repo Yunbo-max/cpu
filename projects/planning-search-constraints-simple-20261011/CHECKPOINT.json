@@ -1,34 +1,34 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-14T22:48:00.398709+00:00",
+  "updated_utc": "2026-10-14T23:02:00.193741+00:00",
   "window": "W0005",
   "execution_root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
-  "status_observed": "running",
-  "active_or_unknown_attempts": 1,
+  "status_observed": "awaiting_decision",
+  "active_or_unknown_attempts": 0,
   "current_accepted_decision": {
-    "path": "plans/R008-observer-build-W5-v2-decision-v4.json",
-    "sha256": "d78395e0f01537c81b044b5486bf084d6c758d5548e6bad973ba31156dc1a9ca"
+    "path": "plans/R008-retained-witness-completion-W5-v1-decision-v4.json",
+    "sha256": "53e1cf6131c005d529b5d235f61b9d5f67241aeec6dadd4d442da8d48d6a0987"
   },
   "window_budget": {
-    "attempts_used": 4,
+    "attempts_used": 7,
     "max_attempts": 500,
-    "elapsed_seconds": 713.559820583001,
-    "reserved_seconds": 3733.0,
-    "remaining_seconds": 75553.440179417,
+    "elapsed_seconds": 1569.2396900099975,
+    "reserved_seconds": 0,
+    "remaining_seconds": 78430.76030999,
     "max_command_seconds": 80000,
     "deadline_epoch": 1792100153.542538,
-    "remaining_deadline_seconds": 82073.87701225281
+    "remaining_deadline_seconds": 81244.94032168388
   },
   "project_ledger": {
     "prior_attempt_floor": 283,
     "prior_command_seconds_floor": 15590.955507759041,
-    "window_attempts": 4,
-    "window_command_seconds": 713.559820583001,
-    "combined_attempt_floor": 287,
-    "combined_command_seconds_floor": 16304.515328342042,
-    "actual_scoped_research_cycles": 5,
+    "window_attempts": 7,
+    "window_command_seconds": 1569.2396900099975,
+    "combined_attempt_floor": 290,
+    "combined_command_seconds_floor": 17160.19519776904,
+    "actual_scoped_research_cycles": 6,
     "scope": "W5 command accounting plus retained priorfloor. Replayed scientific journal usage is historical and must not be added twice; command accounting is not exact CPU/scientific cycles.",
     "native_model_usage": "unknown"
   },
@@ -43,8 +43,8 @@
         "pid": 22223,
         "start_ticks": 1654055
       },
-      "last_activity_at": "2026-10-14T22:47:59.638037+00:00",
-      "last_activity_epoch": 1792018079.638031,
+      "last_activity_at": "2026-10-14T23:01:48.464753+00:00",
+      "last_activity_epoch": 1792018908.4647467,
       "mode": "run",
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "schema_version": 1,
@@ -56,7 +56,7 @@
     "max_age_seconds": 30,
     "scope": "Local process observation only; no external watcher or user delivery is activated",
     "identity_observed_alive": true,
-    "activity_age_seconds": 0.028140783309936523
+    "activity_age_seconds": 0.13820886611938477
   },
   "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
   "R006_scientific_results": {
@@ -68,7 +68,7 @@
     "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
     "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
   },
-  "next_task": "Read actual R008 build receipt/identity, then freeze/admit exact1000 per-split native witness qualification; consume all69old+latestW5 feedback. Do not rerun completed L2 or old measurement batches.",
+  "next_task": "R008 native999split/999SP/finalgraph/work/plan/VAL qualified by retained native v2 plus separate no-planner completion. Consume all69old+latest7W5receipts, acquire native converted operator objects and run independent Cartesian reference before a strong simple changed-coordinate control. Do not rerun completed native witness/L2/old batches.",
   "active_coordinator": {
     "single_queue": "W0005",
     "owned_exec_session": 38270,
@@ -83,8 +83,8 @@
           "pid": 22223,
           "start_ticks": 1654055
         },
-        "last_activity_at": "2026-10-14T22:47:59.638037+00:00",
-        "last_activity_epoch": 1792018079.638031,
+        "last_activity_at": "2026-10-14T23:01:48.464753+00:00",
+        "last_activity_epoch": 1792018908.4647467,
         "mode": "run",
         "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
         "schema_version": 1,
@@ -96,16 +96,9 @@
       "max_age_seconds": 30,
       "scope": "Local process observation only; no external watcher or user delivery is activated",
       "identity_observed_alive": true,
-      "activity_age_seconds": 0.028140783309936523
+      "activity_age_seconds": 0.13820886611938477
     },
-    "active_or_unknown": [
-      {
-        "task_id": "R008-observer-build-W5-v2",
-        "attempt_id": "attempt-18ee4b75cb8e45b9945cdd0a6699d0a5",
-        "state": "running",
-        "contract_sha256": "d016f332e4a32b41c6e6a93d7079684a08646e07e702c95bc31c2756f5c9b939"
-      }
-    ]
+    "active_or_unknown": []
   },
   "guards": {
     "cpu_only": true,
@@ -490,7 +483,7 @@
     "native_executed": false,
     "accepted_decision": "plans/decision-R005L2-depots-p05-states_ops-600s-3000M-host-v3-hostv10.json"
   },
-  "current_control_snapshot_scope": "Consistent actual W5 control, all new R008 source/contracts/evidence/terminal logs; known active products observational/deferred. Full parent source aliases and isolated CMake dependency separately retained. All prior packs by reference. Not all scratch filesystem or old W4 DB repair.",
+  "current_control_snapshot_scope": "Consistent terminalW5control7/reservation0/sixscopedcycles; complete R008 new source/contracts/rawlogs/failures, byte-identical executable, complete900MBrawtrajectory recoverable losslessly from included Zstandard member, independent audits/finalVAL/work. Declared temporary-prefix/byte-copy derivations preserve exactbytes/modes. All prior packs and CMake dependency retained. Generated object files explicitly deferred locally; not allscratch filesystem or oldW4DBrepair.",
   "actual_control_status": "Officialstatus unreadable; lasthealthy69snapshot retained; all69knownphysicalattempts have verifiedterminalreceipts; v3no nativeattemptallocated",
   "control_failure": {
     "current_W5_integrity_check": "ok",
@@ -660,21 +653,37 @@
     }
   },
   "R008": {
-    "actual_active_or_unknown": [
-      {
-        "task_id": "R008-observer-build-W5-v2",
-        "attempt_id": "attempt-18ee4b75cb8e45b9945cdd0a6699d0a5",
-        "state": "running",
-        "contract_sha256": "d016f332e4a32b41c6e6a93d7079684a08646e07e702c95bc31c2756f5c9b939"
-      }
-    ],
+    "actual_active_or_unknown": [],
     "attempts": [
       {
         "task_id": "R008-observer-build-W5-v2",
         "attempt_id": "attempt-18ee4b75cb8e45b9945cdd0a6699d0a5",
-        "state": "running",
-        "result": null,
-        "receipt_ref": null
+        "state": "terminal",
+        "result": "succeeded",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-18ee4b75cb8e45b9945cdd0a6699d0a5/receipt.json",
+          "sha256": "b33e5cc1ab5ff3e5c2a5f428909b7e4e059d1b72f073a239e6ec74e6cbf2fb3c"
+        }
+      },
+      {
+        "task_id": "R008-split-witness-native-W5-v1",
+        "attempt_id": "attempt-2f2b31df3efe4fbd88804cc8ff22a354",
+        "state": "terminal",
+        "result": "failed",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-2f2b31df3efe4fbd88804cc8ff22a354/receipt.json",
+          "sha256": "1afa683a0c6ad7058b6f73ae97c724866d1b94f9401736263b82b3181818854a"
+        }
+      },
+      {
+        "task_id": "R008-split-witness-native-W5-v2",
+        "attempt_id": "attempt-9635de770b3f401693db582ab72a4cea",
+        "state": "terminal",
+        "result": "failed",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-9635de770b3f401693db582ab72a4cea/receipt.json",
+          "sha256": "eaa2f9d11ac2226d844bad68f333eaf92559acb5edb46a23dbea3a1f5bca6c2f"
+        }
       },
       {
         "task_id": "R008-observer-build-W5-v1",
@@ -685,18 +694,59 @@
           "path": ".research-autopilot/runner/attempts/attempt-cc8986accd774d36b9ec0a93356fe233/receipt.json",
           "sha256": "0859d72566cf90d38ee88e4a8c1f66ad11d819fb6a22586f90d3e2e0a8a45775"
         }
+      },
+      {
+        "task_id": "R008-retained-witness-completion-W5-v1",
+        "attempt_id": "attempt-f3036548bfc341029725074ae89c542c",
+        "state": "terminal",
+        "result": "succeeded",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-f3036548bfc341029725074ae89c542c/receipt.json",
+          "sha256": "2bf011664bcf536bf42cf7ba7e92f08f2793a2391975a3ae4d6cc742f18509a7"
+        }
       }
     ],
-    "native_witness_not_yet_qualified": true,
+    "native_witness_not_yet_qualified": false,
     "evaluator_corrections": "v1 accepted three negative fixtures; v2 pins costs/INF/domain capacities and actual main-loop SP suffix/count. Synthetic checks are not native experiments.",
-    "source_boundary": "All actual refine paths observe after child commit; native SP omitted there and checked only post-update/final. Conservative parent modified_vars unchanged, opportunity not yet measured.",
-    "supplement_manifest_ref": {
-      "path": "execution/r008-observer-20261014/build-active-v1/manifest.json",
-      "sha256": "4a431c772d3c9c808085a3de6f31674644c5359d4c355ee551124d711bfa0002"
+    "source_boundary": "Const post-commit snapshots and distinct stable native SP milestones; actual coordinate excess measured, CPU cost opportunity not established.",
+    "qualification_result": {
+      "valid": true,
+      "native_run_reused": true,
+      "planner_invoked_in_this_task": false,
+      "original_native_task": "R008-split-witness-native-W5-v2",
+      "original_native_exit_code": 0,
+      "original_wrapper_exit_failed_at_final_auditor_argument_not_solver": true,
+      "trajectory_audit_sha256": "7bcf7bde760daab5da68d850310043eea1db088eb45aa50a1c387a831dd4b204",
+      "trajectory_audit_source_sha256": "ac10d6cc945fbc9411d000ddcc9324561e3c37fa0a18e0d4da6808449c6e14f3",
+      "final_audit_valid": true,
+      "VAL_valid": true,
+      "work_exact": {
+        "expanded": 161440,
+        "evaluated": 336855,
+        "cost": 24
+      },
+      "plan_sha256": "14ad8295bb98569b2c10edd962c635cb2e67d03efbbbcf0c2fbb4728a37e76e7",
+      "original_final_graph_sha256": "6d8625157b472ac3c372bfda6afc6124f1468c70a8e6cf8a0e6df2926bb39d3a",
+      "source_manifest_sha256": "4e2399c1bd516552c0afb43de984d9c176f5412b398aa69b4ca8cb0573e75ab2",
+      "binary_sha256": "ee4b543bfbcd4a7e31ad2e447ee2cfe1a666353455f11f1e330df8c517c75826",
+      "SAS_sha256": "11454e2d4aea5bab34fc39877ed2db950d4252c1a4f14c94ba800267a7be3391",
+      "post_refine_count": 999,
+      "snapshot_count": 2000,
+      "SP_updated_count": 999,
+      "excess_reporting_splits": 761,
+      "excess_reported_coordinates": 10805,
+      "reported_coordinates": 14697,
+      "actually_changed_coordinates": 3892,
+      "raw_witness_sha256": "2b891da86154ece205b94df5b97691d9d3bac6d1a4459af8c9792cb350cb2f0b",
+      "raw_witness_bytes": 899834536,
+      "compressed_witness_sha256": "5a18381a8345f106648defac24c3bbe944ea4e1c64cd7e3cf116a2ccf655acf1",
+      "compressed_witness_bytes": 20234385,
+      "scope": "One exposed exact1000 native diagnostic, 999 actual committed splits, independent graph/domain/order/mirror checks and Dijkstra, native SP999stable milestones+final, original final graph/work/plan and VAL. Not independent operator-applicability oracle, no algorithm comparison/efficiency/novelty. Observer-inclusive timings ineligible. Failed wrapper remains failed, final evaluation repaired as separate no-planner task."
     },
-    "dependency_manifest_ref": {
-      "path": "execution/r008-observer-20261014/cmake-dependency-manifest.json",
-      "sha256": "5995e519a4f1d1849fb2af24662a698d62afe1f045a5f0ac66ae0336e07d50da"
+    "completion_task": "R008-retained-witness-completion-W5-v1",
+    "supplement_manifest_ref": {
+      "path": "execution/r008-observer-20261014/completed-witness-v1/manifest.json",
+      "sha256": "5b2ee6b31a53c92f4c4c48325b6b31d0a1f22e5ebfcb45daad8efe34d18813cf"
     }
   }
 }
