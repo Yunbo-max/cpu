@@ -1,0 +1,375 @@
+{
+  "schema": "r008-independent-source-hook-review-v1",
+  "created_at_utc": "2026-10-14T22:35:40.805066+00:00",
+  "delegation_id": "R008-hook-semantics-review-v1",
+  "evidence_kind": "source inspection and conditional reasoning; no native execution or compilation",
+  "source_validation": {
+    "all_assignment_inputs_match": true,
+    "count": 36,
+    "files": [
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/transition_system.h",
+        "expected_sha256": "eaf685aba1d6a430fc24c97c1a79f6ef4fbd683b43285da11e3d369e768d17c4",
+        "actual_sha256": "eaf685aba1d6a430fc24c97c1a79f6ef4fbd683b43285da11e3d369e768d17c4",
+        "bytes": 3728,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/refinement_hierarchy.h",
+        "expected_sha256": "e44a25c658160fc8b10157e36820c905568da5e8b7c18fed19c59120e2112db9",
+        "actual_sha256": "e44a25c658160fc8b10157e36820c905568da5e8b7c18fed19c59120e2112db9",
+        "bytes": 4280,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/flaw_search_sequence.cc",
+        "expected_sha256": "b56f15be3b7c9adc50e35637eb5b543d84a4709503a6aaf4cfe767adeb5b4a92",
+        "actual_sha256": "b56f15be3b7c9adc50e35637eb5b543d84a4709503a6aaf4cfe767adeb5b4a92",
+        "bytes": 46997,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cost_saturation.h",
+        "expected_sha256": "b2ce848a17c6077581d03d06521dbfcc4923d6503f40ee0fa9605b8e50a8a83f",
+        "actual_sha256": "b2ce848a17c6077581d03d06521dbfcc4923d6503f40ee0fa9605b8e50a8a83f",
+        "bytes": 3447,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/flaw_search_legacy_backward.cc",
+        "expected_sha256": "b3888bbbe6669146022f3ad40e67047b25869533212ea62b416cf053b065d8fb",
+        "actual_sha256": "b3888bbbe6669146022f3ad40e67047b25869533212ea62b416cf053b065d8fb",
+        "bytes": 8575,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/transition_system.cc",
+        "expected_sha256": "dbea05cdaa17b9f074abe51ef42e948d67f677cfa86864527a284eb052829918",
+        "actual_sha256": "dbea05cdaa17b9f074abe51ef42e948d67f677cfa86864527a284eb052829918",
+        "bytes": 15263,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/additive_cartesian_heuristic.h",
+        "expected_sha256": "f4cc841bdba367592dee6b025990f4e6a6b9d0ae1fb97191acac757ba6c0fbea",
+        "actual_sha256": "f4cc841bdba367592dee6b025990f4e6a6b9d0ae1fb97191acac757ba6c0fbea",
+        "bytes": 650,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/split_selector.h",
+        "expected_sha256": "85f503e31461c84f2ab8280f7ae60f453ba62f804ee83acde3c519fba00fd729",
+        "actual_sha256": "85f503e31461c84f2ab8280f7ae60f453ba62f804ee83acde3c519fba00fd729",
+        "bytes": 10772,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/split_selector.cc",
+        "expected_sha256": "3ceb75d3019646546203fc166789665eedfd4e35f1c139904422feb1fc1af07d",
+        "actual_sha256": "3ceb75d3019646546203fc166789665eedfd4e35f1c139904422feb1fc1af07d",
+        "bytes": 36717,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/transition.h",
+        "expected_sha256": "dd5dfd671b8d04b561acf7dbd12ee1cf7546fe9ad82bda4553832cd5b03171b1",
+        "actual_sha256": "dd5dfd671b8d04b561acf7dbd12ee1cf7546fe9ad82bda4553832cd5b03171b1",
+        "bytes": 1258,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/utils_landmarks.h",
+        "expected_sha256": "c3457a7653d97bfcec715737b03c08f214bb2f0d841b3dc301d2768f49836475",
+        "actual_sha256": "c3457a7653d97bfcec715737b03c08f214bb2f0d841b3dc301d2768f49836475",
+        "bytes": 915,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/abstract_state.h",
+        "expected_sha256": "292ca1fb10b08cb745fd5722da79aead97826a5bebfa84fb7542069487f9df32",
+        "actual_sha256": "292ca1fb10b08cb745fd5722da79aead97826a5bebfa84fb7542069487f9df32",
+        "bytes": 1267,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/additive_cartesian_heuristic.cc",
+        "expected_sha256": "bbd8b2b16e450682ec017b8e8a81eee0c80f2e2f4f2a0b27a1fd2ca60a12b9dd",
+        "actual_sha256": "bbd8b2b16e450682ec017b8e8a81eee0c80f2e2f4f2a0b27a1fd2ca60a12b9dd",
+        "bytes": 6395,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/refinement_hierarchy.cc",
+        "expected_sha256": "313ba75423271539d8b8897917664b176364eefc09581b1cc817cb49b3b2c8e3",
+        "actual_sha256": "313ba75423271539d8b8897917664b176364eefc09581b1cc817cb49b3b2c8e3",
+        "bytes": 6206,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/utils_landmarks.cc",
+        "expected_sha256": "4c2db6f914e3de62ff6b49dbaa636e818b5dcc61e620fab3aa5e4d694f50567e",
+        "actual_sha256": "4c2db6f914e3de62ff6b49dbaa636e818b5dcc61e620fab3aa5e4d694f50567e",
+        "bytes": 2343,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/abstraction.cc",
+        "expected_sha256": "816e50d0a851d2d80ed109c46ae154111d967ad0ba22e99f358f08a046f4fcc7",
+        "actual_sha256": "816e50d0a851d2d80ed109c46ae154111d967ad0ba22e99f358f08a046f4fcc7",
+        "bytes": 19388,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/flaw_search_legacy.cc",
+        "expected_sha256": "874917a5560bc366a4390933d49a941b29f516ccb5f53276c7ea4f4742cd98d2",
+        "actual_sha256": "874917a5560bc366a4390933d49a941b29f516ccb5f53276c7ea4f4742cd98d2",
+        "bytes": 8781,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/flaw.cc",
+        "expected_sha256": "3a44b3d5fc960e75230054f9b7ada522e9f6e5f0de0365aabb8f933646af49a5",
+        "actual_sha256": "3a44b3d5fc960e75230054f9b7ada522e9f6e5f0de0365aabb8f933646af49a5",
+        "bytes": 3077,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cartesian_heuristic_function.h",
+        "expected_sha256": "7deaefd875d8be25dd52244245b086b26a8537bf8d8810c6a134bb511eae6d88",
+        "actual_sha256": "7deaefd875d8be25dd52244245b086b26a8537bf8d8810c6a134bb511eae6d88",
+        "bytes": 890,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cegar.h",
+        "expected_sha256": "54ddadca99baab5d03b19811a7decf93ca77a49b767f01bc91bfdc3b1ab1ae5f",
+        "actual_sha256": "54ddadca99baab5d03b19811a7decf93ca77a49b767f01bc91bfdc3b1ab1ae5f",
+        "bytes": 7477,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/shortest_paths.h",
+        "expected_sha256": "0ee84121569f00ba19db139e7c3087b335aec2f74d10accf29153aed41aae783",
+        "actual_sha256": "0ee84121569f00ba19db139e7c3087b335aec2f74d10accf29153aed41aae783",
+        "bytes": 6095,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cegar.cc",
+        "expected_sha256": "78ef1f24e5accd4d52fce5906900fe8307d1378fe7865e6570310978fbe8339b",
+        "actual_sha256": "78ef1f24e5accd4d52fce5906900fe8307d1378fe7865e6570310978fbe8339b",
+        "bytes": 33527,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/shortest_paths.cc",
+        "expected_sha256": "b21408d3b77e10d0052da09d5c5289ba176857a7e0359a3bdc2caff8535f5322",
+        "actual_sha256": "b21408d3b77e10d0052da09d5c5289ba176857a7e0359a3bdc2caff8535f5322",
+        "bytes": 26417,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/types.h",
+        "expected_sha256": "db80ae062880ad0eb02e1aadb9e0e68181d079645b8b8996b91dc2c572d80c42",
+        "actual_sha256": "db80ae062880ad0eb02e1aadb9e0e68181d079645b8b8996b91dc2c572d80c42",
+        "bytes": 888,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/splits_cache.cc",
+        "expected_sha256": "ef088c9cd309016e1b5642f54345dfacf938abf4835762296f51dfc6732f639d",
+        "actual_sha256": "ef088c9cd309016e1b5642f54345dfacf938abf4835762296f51dfc6732f639d",
+        "bytes": 3167,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/subtask_generators.h",
+        "expected_sha256": "5a4f45e88806b89ea5f8f9339ed4264f9ca4b703b220ca3e25a674fe86fe7bdf",
+        "actual_sha256": "5a4f45e88806b89ea5f8f9339ed4264f9ca4b703b220ca3e25a674fe86fe7bdf",
+        "bytes": 6354,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cartesian_heuristic_function.cc",
+        "expected_sha256": "3657ac45ed69bce5cbaa8d74e7d16fd9e754ef9ea024f7832ab5815902945e9a",
+        "actual_sha256": "3657ac45ed69bce5cbaa8d74e7d16fd9e754ef9ea024f7832ab5815902945e9a",
+        "bytes": 713,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/flaw_search.h",
+        "expected_sha256": "48f4789f51b7ab6cb4dcf3f0b4e337f2f7e4acd6d6505e043602d277cb0ad6a0",
+        "actual_sha256": "48f4789f51b7ab6cb4dcf3f0b4e337f2f7e4acd6d6505e043602d277cb0ad6a0",
+        "bytes": 18328,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/abstraction.h",
+        "expected_sha256": "3f0f5cedecb1d5ac9671b7bd5562de3c4c0439f6a88cd939d7236fb200cc8959",
+        "actual_sha256": "3f0f5cedecb1d5ac9671b7bd5562de3c4c0439f6a88cd939d7236fb200cc8959",
+        "bytes": 5778,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/utils.h",
+        "expected_sha256": "1489c1cfcc6c6e46f48e0125adf4262bd797c5da93c9dddcbc23c7c9a3d75f4a",
+        "actual_sha256": "1489c1cfcc6c6e46f48e0125adf4262bd797c5da93c9dddcbc23c7c9a3d75f4a",
+        "bytes": 1629,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/flaw_search.cc",
+        "expected_sha256": "e1132030f36169165ae953a2e27182e45bb13cd1d524bc718c8c4bef6060f6ea",
+        "actual_sha256": "e1132030f36169165ae953a2e27182e45bb13cd1d524bc718c8c4bef6060f6ea",
+        "bytes": 39359,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/abstract_state.cc",
+        "expected_sha256": "22f7e3fac6acb475b4f8df15db684971ae43255f71c27a17ddb501abb8f17f74",
+        "actual_sha256": "22f7e3fac6acb475b4f8df15db684971ae43255f71c27a17ddb501abb8f17f74",
+        "bytes": 734,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/subtask_generators.cc",
+        "expected_sha256": "c5478176afba9af2ac630915112a717db7abb88c92b7738737d6a7adbd1cc296",
+        "actual_sha256": "c5478176afba9af2ac630915112a717db7abb88c92b7738737d6a7adbd1cc296",
+        "bytes": 16800,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/utils.cc",
+        "expected_sha256": "1d227b41617a28974188c4ec008ad9dcaead10cebcc9fef324caec51d986e87f",
+        "actual_sha256": "1d227b41617a28974188c4ec008ad9dcaead10cebcc9fef324caec51d986e87f",
+        "bytes": 9296,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/flaw.h",
+        "expected_sha256": "e5dae64c43711c19ad0f96070db31571f92ff04c4551d8a12cc242dff5d53409",
+        "actual_sha256": "e5dae64c43711c19ad0f96070db31571f92ff04c4551d8a12cc242dff5d53409",
+        "bytes": 1617,
+        "matches": true
+      },
+      {
+        "path": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cost_saturation.cc",
+        "expected_sha256": "a16ecf8f900fce68b04bfeae843a2afb7489e2726913cd1f50179690b4904fc5",
+        "actual_sha256": "a16ecf8f900fce68b04bfeae843a2afb7489e2726913cd1f50179690b4904fc5",
+        "bytes": 11662,
+        "matches": true
+      }
+    ]
+  },
+  "actual_refine_call_sites_within_restored_namespace": [
+    {
+      "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cegar.cc",
+      "line": 149,
+      "path": "separate_facts_unreachable_before_goal: split unreachable fact values",
+      "post_call": "One child is immediately marked goal at155-158; native distances not updated after this split."
+    },
+    {
+      "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cegar.cc",
+      "line": 171,
+      "path": "separate_facts_unreachable_before_goal: optional goal fact split",
+      "post_call": "No per-split distance update; eventual initial recompute382."
+    },
+    {
+      "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cegar.cc",
+      "line": 331,
+      "path": "refinement_loop: multi-goal preprocessing",
+      "post_call": "Current goal child selected; no per-split distance update."
+    },
+    {
+      "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cegar.cc",
+      "line": 375,
+      "path": "refinement_loop: optional concrete initial-state preprocessing",
+      "post_call": "No per-split distance update; eventual initial recompute382."
+    },
+    {
+      "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cegar.cc",
+      "line": 463,
+      "path": "main flaw-driven forward/backward refinement loop",
+      "post_call": "Incremental distance update526-532; optional repeated pruning535-584."
+    }
+  ],
+  "simulation_exclusion": {
+    "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/abstraction.cc",
+    "definition_line": 340,
+    "call_sites": {
+      "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/split_selector.cc",
+      "lines": [
+        413,
+        433,
+        612,
+        635
+      ]
+    },
+    "reason": "simulate_refinement uses separate transition_system and deliberately omits simulated self-loops; not a committed real split and must not increment actual witness count"
+  },
+  "committed_graph_hook": {
+    "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/abstraction.cc",
+    "after_line": 323,
+    "before_return_line": 336,
+    "reason": "rewire318 completes incoming/outgoing/loop reconstruction; states vector grows321 and both child entries commit322-323. Goals and hierarchy updates precede rewire. All actual call paths flow through this common function.",
+    "forbidden_earlier_hook": "TransitionSystem::rewire end sees rewritten adjacency but old parent in states, plus missing new child; it is not a consistent abstraction snapshot.",
+    "native_distances_available": false,
+    "goal_policy_caveat": "The graph is committed here, but landmark preprocessing caller may immediately mark a child as goal. Label this refine-return goal phase and record later caller goal-policy mutation separately.",
+    "lifetime_hazard": "Parent reference state may be dangling after states replacement. Do not read it, moved child unique_ptrs, or moved split_result domains after commit; preserve needed parent metadata beforehand and obtain children through get_state.",
+    "timing_scope": "RefinementProfileScope is still alive; exporter IO and audit time contaminate construction/refinement timing. This instrumented run is a correctness diagnostic, not performance data."
+  },
+  "shortest_paths": {
+    "initial_stable_milestone": {
+      "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cegar.cc",
+      "after_lines": [
+        382,
+        387
+      ],
+      "scope": "After recompute and its test, all preprocessing splits are reflected; not an individual SP check for every preprocessing split."
+    },
+    "main_stable_milestone": {
+      "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/cegar.cc",
+      "after_line": 584,
+      "scope": "After update526-532 and optional removal/reupdate loop535-584. For frozen NONE policy, after update532 suffices; general hook after584 also covers iterative pruning."
+    },
+    "preprocessing_optimal_recomputes": "139,321,365 recompute BEFORE their respective split, not after it. They cannot justify accessing updated native distance vectors at the refine commit hook.",
+    "encoding": {
+      "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/shortest_paths.cc",
+      "lines": "14-58",
+      "rule": "If any operator cost is zero, cost0 maps to1, positive c maps to uint64(c)<<32; otherwise costs unchanged. INF and DIRTY are distinct sentinels. Independent oracle must implement encoding and both directions explicitly."
+    },
+    "assertion_limits": {
+      "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/shortest_paths.cc",
+      "lines": "598-662",
+      "rule": "test_distances compares rounded goal distances only when init is reachable, and path witness only for finite-goal/init-reachable non-goals. Its local init_distances shadows native init_distances and is not a comparison of native init-distance vector; assert may compile out. Do not treat it as independent all-state bidirectional verification."
+    },
+    "safe_readonly_strategy": "At every refine commit export graph/domains and run independent graph-only Dijkstra offline. At actual SP-stable milestones export native paired goal/init distances and compare. Do not force native recompute merely for the observer and call behavior unchanged."
+  },
+  "modified_vars": {
+    "file": "vendor/r008_source_semantics_v1/src/search/cartesian_abstractions/abstraction.cc",
+    "real_lines": "228-233",
+    "simulation_lines": "368-372",
+    "observation": "Real loop uses analysed_var as pushed index but compares parent/children at split variable var every iteration. Simulated loop tests its current iterated var.",
+    "conditional_consequence": "For a valid proper nonempty binary split and monotone child disambiguation, at least one child differs from parent at split variable; predicate is true for every analysed_var. Thus if either disambiguation flag is true, real modified_vars becomes all variables in ascending order. If neither flag true, vector is only split variable.",
+    "correctness_status": "This is a conservative superset of changed coordinates under the stated conditions. It can cause extra variable checks; it is not established wrong graph behavior, a measured bottleneck, or a speed opportunity without native evidence.",
+    "hierarchy_consequence": "All variables enter the branch but helper hierarchy splits for nonsplit coordinates still test actual child vs parent cardinality; unchanged coordinates do not unconditionally receive helper splits.",
+    "do_not_change_in_observer": "Changing var to analysed_var is an algorithm behavior/measurement change, not a readonly hook. Freeze and report current source behavior."
+  },
+  "bounded_first_native_protocol_recommendation": [
+    "Keep fixed source/binary ancestor, SAS, NONE policy, seed/thread and current native experiment caps. Build instrumented derivative separately and preserve ancestor binary.",
+    "Record initial graph plus one refine-return graph event per actual split. Sequential event IDs, num_states increments by1, no simulation increments, no truncated end counted complete. Expected actual splits equals final state count minus1 per abstraction.",
+    "Preserve ordered outgoing/incoming/loops with explicit multiplicity, node/domain/goal IDs, split metadata, both child IDs and source operator-cost identity. Compare final graph and plan with frozen control; final agreement does not substitute per-step checking.",
+    "Independent parser checks each event mirror multiplicity, sizes/counts/domain validity and adjacency order; derive graph-only forward/backward Dijkstra each event. Compare native distances only at labelled SP-stable events.",
+    "Do not require children Cartesian unions to equal parent after mutex disambiguation: disambiguation intentionally removes combinations/facts. Preserve actual domains and record this semantic scope.",
+    "A second independent edge-applicability/reachability oracle requires task_utils/cartesian_state and disambiguated_operator semantics, absent from this restored namespace input. Merely calling the same production predicates or comparing two exporters is not independent correctness proof.",
+    "Observer-enabled native run and output sizes need bounded real caps, not a restored artificial shared-memory/cache prelaunch gate. Failure/truncation remains explicit diagnostic failure with unique identity. No performance claim from exported timings."
+  ],
+  "actions_not_performed": [
+    "No solver run",
+    "No compilation",
+    "No runner, journal, decision or SQLite mutation",
+    "No source modifications",
+    "No delegation"
+  ],
+  "limits": "All call-site completeness claims are scoped to all 36 assignment source files in the restored cartesian_abstractions namespace. No native behavior, timing, correctness pass, full task semantic oracle or novelty conclusion established."
+}

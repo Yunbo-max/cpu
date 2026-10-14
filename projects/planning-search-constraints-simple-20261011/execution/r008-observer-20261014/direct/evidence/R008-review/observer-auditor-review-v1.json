@@ -1,0 +1,148 @@
+{
+  "schema": "r008-observer-auditor-independent-review-v1",
+  "delegation_id": "R008-observer-auditor-review-v1",
+  "created_at_utc": "2026-10-14T22:42:14.389312+00:00",
+  "scope": "Read-only source review and pure Python evaluator fixtures. No native experiments or source/runner/journal mutation.",
+  "all_six_assigned_hashes_match": true,
+  "assigned_inputs": [
+    {
+      "path": "scripts/audit_r008_split_witness_v1.py",
+      "sha256": "c72918ca629840a2aa53a82185732359a786b0a6ff08532fa0da5b933c641049",
+      "expected_sha256": "c72918ca629840a2aa53a82185732359a786b0a6ff08532fa0da5b933c641049",
+      "matches": true,
+      "bytes": 7329
+    },
+    {
+      "path": "scripts/test_r008_witness_auditor_v1.py",
+      "sha256": "6e8db243a4b8a6a3b7373a662850093cf93508f2b92d800fab2d0fc9f1ef64b8",
+      "expected_sha256": "6e8db243a4b8a6a3b7373a662850093cf93508f2b92d800fab2d0fc9f1ef64b8",
+      "matches": true,
+      "bytes": 1875
+    },
+    {
+      "path": "plans/R008_split_witness_protocol_v1.md",
+      "sha256": "919899ab0730a192f70e51f832e3f5f97fff995944b9067fdb540a439ff99395",
+      "expected_sha256": "919899ab0730a192f70e51f832e3f5f97fff995944b9067fdb540a439ff99395",
+      "matches": true,
+      "bytes": 4484
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/cartesian_abstractions/r008_split_witness_v1.inc",
+      "sha256": "b58bdc1fd2f3d118893c4abec2f988b4c6823219925c2c9eb0d689d9e883239e",
+      "expected_sha256": "b58bdc1fd2f3d118893c4abec2f988b4c6823219925c2c9eb0d689d9e883239e",
+      "matches": true,
+      "bytes": 2920
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/cartesian_abstractions/abstraction.cc",
+      "sha256": "3a8c8bb1e11ca3f11bc66b0f33b31f0fe80230e7cb839734ad4fb1f1068067c4",
+      "expected_sha256": "3a8c8bb1e11ca3f11bc66b0f33b31f0fe80230e7cb839734ad4fb1f1068067c4",
+      "matches": true,
+      "bytes": 19715
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/cartesian_abstractions/cegar.cc",
+      "sha256": "9c534a52fe5dec51b88b666294bd31a7c0604a21227fbb5db7e122eb233f25c4",
+      "expected_sha256": "9c534a52fe5dec51b88b666294bd31a7c0604a21227fbb5db7e122eb233f25c4",
+      "matches": true,
+      "bytes": 33795
+    }
+  ],
+  "additional_local_source_read": [
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/task_utils/cartesian_state.cc",
+      "sha256": "7c09396cfb49055b93d912b19a7a442f044d436ba299fbac27169faf7ba942e2",
+      "bytes": 15500
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/task_utils/cartesian_set.cc",
+      "sha256": "f1d7c5204c47673819fdfddc213627183077d239dafec78831c5c6105175f294",
+      "bytes": 10075
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/task_utils/cartesian_set.h",
+      "sha256": "ec50b34fc933540dd644bc37d79abfdc5d86250045a76af58a9e32b3a1a3cf79",
+      "bytes": 3713
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/cartesian_abstractions/types.h",
+      "sha256": "db80ae062880ad0eb02e1aadb9e0e68181d079645b8b8996b91dc2c572d80c42",
+      "bytes": 888
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/cartesian_abstractions/shortest_paths.cc",
+      "sha256": "b21408d3b77e10d0052da09d5c5289ba176857a7e0359a3bdc2caff8535f5322",
+      "bytes": 26417
+    }
+  ],
+  "observer_findings": [
+    {
+      "status": "No consequential mutation/lifecycle flaw found in reviewed frozen NONE observer",
+      "details": "Initial hook is after trivial abstraction disambiguation and loops. Post-refine hook is after children state commits; it accesses no dangling parent reference and passes nullptr for distances. Simulations have no new hook. update hook is after native update/test and uses const getters. Final hook is at extraction. Operator costs getters allocate temporary vector but lifetime spans snapshot call."
+    },
+    {
+      "status": "Correct empty marker type and print representation",
+      "details": "CartesianState::is_spurious() const returns CartesianSet::is_empty() cached bool. Each new ofstream has default noboolalpha, so E records0/1. It does not call mutating got_empty(). Do not replace with got_empty() in observer. Auditor correctly does not require all empty-flag states to have every coordinate empty; CartesianSet::got_empty() marks true once any coordinate is empty."
+    },
+    {
+      "status": "Child subset/disjoint checks match monotone source assumptions",
+      "details": "split_domain copies source Cartesian domains, partitions only split coordinate; disambiguation/removal can shrink other domains. Child domains are subsets; split-coordinate disjointness is valid. Equality of child union with parent is not justified after disambiguation; current auditor avoids it."
+    },
+    {
+      "status": "Encoding implemented correctly for fixed metadata, but metadata identity not enforced",
+      "details": "Cost is uint64_t; INF_COSTS is numeric_limits<Cost>::max(). shortest_paths maps input INT_MAX to INF and, when any zero-cost operator exists, zero to1 and positive c to c<<32. Auditor reproduces those rules but trusts per-snapshot INF and costs without pinning them."
+    }
+  ],
+  "actual_evaluator_counterexamples": [
+    {
+      "fixture": "missing-all-sp-updated",
+      "accepted": true,
+      "sp_updated_count": 0,
+      "snapshot_count": 3,
+      "path": "evidence/R008-review/missing-all-sp-updated-fixture-v1.tsv",
+      "sha256": "089a11abe5c12bc8e3abb034d960089a978176b150d7d9414d006201a676ea48"
+    },
+    {
+      "fixture": "cost-drift-at-refine",
+      "accepted": true,
+      "sp_updated_count": 1,
+      "snapshot_count": 4,
+      "path": "evidence/R008-review/cost-drift-at-refine-fixture-v1.tsv",
+      "sha256": "feaa6856e11b4b76eeccb7392add868ef3b101414ce6dd938146af7e5ccac38f"
+    },
+    {
+      "fixture": "INF-drift-at-refine",
+      "accepted": true,
+      "sp_updated_count": 1,
+      "snapshot_count": 4,
+      "path": "evidence/R008-review/INF-drift-at-refine-fixture-v1.tsv",
+      "sha256": "7cc7e4dc0334134b286745db08d97a5480b2e991d2cff5ef8ab68008e1e33871"
+    }
+  ],
+  "consequential_repairs_recommended_before_positive_native_claim": [
+    {
+      "priority": "Correctness of frozen trace identity",
+      "fix": "Persist initial C operator-cost mapping, INF sentinel and domain universe capacities, require exact equality across all following snapshots; require INF==2**64-1 under current pinned source and ideally compare operator costs/domain universe to frozen SAS/config. Add cost/INF/domain-universe drift negative fixtures.",
+      "counterexamples": "Changing C0 from1 to2 after first refine, with consistent native distance rows, is accepted. Changing INF after first refine is accepted. These establish verifier holes, not production mutation or native failure."
+    },
+    {
+      "priority": "Native SP coverage scope",
+      "fix": "Bind expected SP-updated milestones to actual main-loop refinement count (e.g. frozen native forward+backward refinement counters or explicit call-site phase); require one post-refine/SP pair for each main-loop split under NONE. Preprocessing splits need no native SP check until initial recompute. Add fixture deleting a whole sp_updated block and one deleting all.",
+      "counterexamples": "Current valid-two-state fixture remains accepted after its sole sp_updated block is removed; native consistency then checked only at final. Every post-refine graph coverage remains true, so describe this specifically as missing intermediate native-distance coverage, not missing graph coverage."
+    }
+  ],
+  "nonblocking_limits": [
+    "No independent operator applicability/reachability oracle is claimed or established.",
+    "Source constness and parser tests do not establish actual native trace completeness until a real bounded run and receipts/identity checks.",
+    "Observer IO still affects source timers; retain diagnostic-only classification.",
+    "All found counterexamples are handcrafted evaluator fixtures; they are not planning benchmarks or scoped research cycles."
+  ],
+  "evidence_files": [
+    "evidence/R008-review/observer-auditor-counterexample-results-v1.json",
+    "evidence/R008-review/valid-current-two-state-fixture-v1.tsv",
+    "evidence/R008-review/missing-all-sp-updated-fixture-v1.tsv",
+    "evidence/R008-review/cost-drift-at-refine-fixture-v1.tsv",
+    "evidence/R008-review/INF-drift-at-refine-fixture-v1.tsv"
+  ],
+  "write_scope_compliance": "Only evidence/R008-review/ new files written; sys.dont_write_bytecode prevented import cache writes."
+}

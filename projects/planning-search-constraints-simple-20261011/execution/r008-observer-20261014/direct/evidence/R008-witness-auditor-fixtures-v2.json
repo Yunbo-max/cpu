@@ -1,0 +1,77 @@
+{
+  "scope": "Evaluator fixtures only; no native run or scientific cycle",
+  "results": [
+    {
+      "fixture": "valid-two-state",
+      "accepted": true
+    },
+    {
+      "fixture": "zero-cost-lexicographic-positive-shift",
+      "accepted": true
+    },
+    {
+      "fixture": "unreachable-init-and-goal",
+      "accepted": true
+    },
+    {
+      "fixture": "missing-split",
+      "rejected": true,
+      "message": "distance milestone before split coverage"
+    },
+    {
+      "fixture": "mirror-multiplicity",
+      "rejected": true,
+      "message": "mirror multiplicity"
+    },
+    {
+      "fixture": "bad-order-position",
+      "rejected": true,
+      "message": "adjacency order/position"
+    },
+    {
+      "fixture": "child-outside-parent",
+      "rejected": true,
+      "message": ""
+    },
+    {
+      "fixture": "overlap-split-coordinate",
+      "rejected": true,
+      "message": "children overlap in split coordinate"
+    },
+    {
+      "fixture": "omitted-changed-var",
+      "rejected": true,
+      "message": "changed coordinate omitted"
+    },
+    {
+      "fixture": "stale-native-distance",
+      "rejected": true,
+      "message": "native distance mismatch"
+    },
+    {
+      "fixture": "stale-phase-native-distance",
+      "rejected": true,
+      "message": "stale phase native distance supplied"
+    },
+    {
+      "fixture": "truncated",
+      "rejected": true,
+      "message": "row outside snapshot/unknown"
+    },
+    {
+      "fixture": "missing-SP-milestone",
+      "rejected": true,
+      "message": "SP milestone count mismatch"
+    },
+    {
+      "fixture": "cost-drift",
+      "rejected": true,
+      "message": "operator costs/INF/domain universe drift"
+    },
+    {
+      "fixture": "INF-drift",
+      "rejected": true,
+      "message": "operator costs/INF/domain universe drift"
+    }
+  ]
+}
