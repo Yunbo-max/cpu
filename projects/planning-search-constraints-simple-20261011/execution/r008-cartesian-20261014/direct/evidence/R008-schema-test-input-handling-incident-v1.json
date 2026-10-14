@@ -1,0 +1,10 @@
+{
+  "issue":"Coordinator appended two additional regression tests to an already pinned test input while retained-trace reference was active",
+  "affected_task":"R008-cartesian-retained-trace-audit-W5-v1",
+  "affected_path":"scripts/test_r008_cartesian_schema_v2.py",
+  "original_sha256":"bd99da8b5a9ca3cce093ca8242b52efbbeb79d415bc6bbbf0bd277e3bb11b9d8",
+  "observation":"The task had pinned the original10-test file. Coordinator mistakenly added untouched-state and snapshot-binding tests there rather than a new version. Original bytes have been restored exactly; additions retained separately as scripts/test_r008_cartesian_schema_v3.py.",
+  "actual_dependency_scope":"The composition command only hashes the test input, it does not import or execute it. Reference code, native operator objects, trace, structural-audit JSON and all scientific inputs were unchanged. The new12test execution and original10test evidence are kept separate.",
+  "limitation":"This was a real temporary input-immutability violation, not hidden as a new algorithm result. Do not infer continuous unmodified-input history from the final hash. Before consuming the reference result, recheck all pinned inputs and the actual output receipt; disclose this scope. No native planner or Dijkstra rerun is justified by an unrelated test-file extension.",
+  "next_action":"Only create new versioned test paths after dispatch; retain original contracts/evidence. Independently rehash every consequential input at terminal boundary before cycle/archive."
+}
