@@ -17,3 +17,5 @@
 探索性回看同case的coarse：1000→10000 搜索expanded减少88.4434%、evaluated减少87.1883%，但guard childCPU median0.700917→1.245861s。两组不是同时间独占配对，不能作为严格速度比较；它提示搜索节点下降不是整个求解阶段效率的充分代理。不能据此拿纯构建或节点统计代替完整native成本。
 
 下一步已在最新v4决策中选择原Depots p05 nativeAS3000M/600CPU边界诊断：复用原v3r2二进制（不可变恢复后完整SHA验证）和R005/L1同SAS，states_ops/none两个预冻结串行配置；不重跑旧2500M结果，不重新翻译PDDL，明确native-SAS-only范围、全部删失/失败分母与独立VAL。此报告生成时两项尚未提交/没有native结果。每split见证、变换算子oracle、多公开条件完整native效率和新颖性仍欠；没有宣布整个持续研究完成。
+
+后续执行：原 Depots states_ops600CPU/3000M 新SAS-only任务已实际运行；None对照尚未提交，现没有新终态结果。R007报告和上述12项结论保持。
