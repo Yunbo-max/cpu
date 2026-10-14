@@ -1,0 +1,64 @@
+{
+  "complete": true,
+  "commit": "ed29b339c9a331c6b862257be447aec08ba630bd",
+  "corrected_direct_copy_commit": "21a4296b20d56f15ba7a3f6a5bb1ce8742cc5e21",
+  "archive_bytes_independently_downloaded_from": "ed29b339c9a331c6b862257be447aec08ba630bd",
+  "archive_cached_origin": "Verifier v1 actually downloaded all13parts and passed ZIP/member/derived/control checks before the direct-copy-only assertion. v1 source/traceback/guard retained. v2 rehashes the full immutable-origin cache and repeats part/member/derived verification, with fresh corrected direct-copy HTTP reads.",
+  "verified_utc": "2026-10-14T23:15:49.208919+00:00",
+  "manifest_sha256": "5b2ee6b31a53c92f4c4c48325b6b31d0a1f22e5ebfcb45daad8efe34d18813cf",
+  "archive_sha256": "968a426ed1a6fe15610177c56a04ece9567a8004a73ecce790c3ff6f19049bcc",
+  "archive_bytes": 107003151,
+  "parts": 13,
+  "all_new_members": 181,
+  "new_member_raw_bytes": 287691600,
+  "derived_members": {
+    "windows/W0005/results/R008-split-witness-native-W5-v2/split-witness.tsv": {
+      "verified": true,
+      "kind": "zstd-decompress",
+      "bytes": 899834536,
+      "sha256": "2b891da86154ece205b94df5b97691d9d3bac6d1a4459af8c9792cb350cb2f0b"
+    },
+    "windows/W0005/results/R008-split-witness-native-W5-v2/.split-witness.tsv.wvML9b": {
+      "verified": true,
+      "kind": "prefix",
+      "bytes": 247201792,
+      "sha256": "48ddd3f78d9a232789c4088a6ffa0288e27064e2f549f7f88ed4ff477a956222",
+      "restore_mode": 384
+    },
+    "windows/W0005/results/R008-split-witness-native-W5-v2/.split-witness.tsv.NgulMk": {
+      "verified": true,
+      "kind": "prefix",
+      "bytes": 336855040,
+      "sha256": "c60b53e66ad032898b5ebb38b7fe5afb5e97a4a31d1de9c63ca9215986efc9f8",
+      "restore_mode": 384
+    },
+    "windows/W0005/results/R008-observer-build-W5-v2/build/bin/downward": {
+      "verified": true,
+      "kind": "byte-copy",
+      "bytes": 194010960,
+      "sha256": "ee4b543bfbcd4a7e31ad2e447ee2cfe1a666353455f11f1e330df8c517c75826",
+      "restore_mode": 420
+    }
+  },
+  "derived_recoverable_bytes": 1677902328,
+  "unchanged_aliases_bound_to_verified_core68": 981,
+  "remote_control_integrity": "ok",
+  "control_attempts": 7,
+  "all_attempts_terminal": true,
+  "remote_journal_scoped_cycles": 6,
+  "recorded_window_budget": {
+    "attempts_used": 7,
+    "max_attempts": 500,
+    "elapsed_seconds": 1569.2396900099975,
+    "reserved_seconds": 0,
+    "remaining_seconds": 78430.76030999,
+    "max_command_seconds": 80000,
+    "deadline_epoch": 1792100153.542538,
+    "remaining_deadline_seconds": 81244.94032168388
+  },
+  "direct_files_exact": 18,
+  "prior_CMake_and_active_packet_proof": "execution/r008-observer-20261014/build-active-v1/remote-proof.json",
+  "scope": "Complete new R008 packet parts/members and lossless derived900MBtrace/prefix/byte-copy identities independently reread from immutable HTTP. Source aliases and all prior packs by immutable reference; generated .o explicitly deferred. No cleanup and no claim of full scratch or oldW4DBrepair.",
+  "verification_wall_seconds": 78.24376060499708,
+  "verification_self_cpu_seconds": 2.4305820799999998
+}

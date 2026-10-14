@@ -1,0 +1,3 @@
+远端核验完成：原始packet ed29b339的13parts、完整ZIP、181新成员及4派生原始对象全部核验；981未改aliases与已核验core68绑定，远端控制7attempt均terminal且6scopedcycles，SQLite integrity正常。原始899834536字节轨迹已由远端压缩member流式恢复并逐SHA检查；两个临时前缀/原二进制的字节与模式恢复映射明确，未删本地unique/control/SQLite。
+
+初版核验器在最后直接副本检查发现：单独供浏览的trajectory-audit.json被工具输出1MiB长度限制截断，完整ZIP内该JSON此前逐SHA正确。21a4296b纠正该浏览副本并保存v1失败及代码；v2重核完整不可变HTTP来源缓存的全部parts/成员/派生raw，并独立HTTP读取全部18个最新正确直接副本，实际成功。没有重跑求解器/完整轨迹审计，也不把维护核验当新科研周期。声明scope保留generated.o本地deferred，不冒称全scratch或旧W4库修复。
