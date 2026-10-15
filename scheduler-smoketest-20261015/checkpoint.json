@@ -1,0 +1,28 @@
+{
+  "schema": "scheduled-research-smoketest-v1",
+  "revision": 1,
+  "latest_run": "round-001",
+  "completed_rounds": 1,
+  "run_record": "scheduler-smoketest-20261015/round-001.json",
+  "observed": {
+    "naive": -128,
+    "welford": 3.3367671608104385e-7,
+    "reference": 3.3367747854068513e-7
+  },
+  "skill_load": {
+    "available_in_scheduled_environment": false,
+    "github_source_version": "0.2.0-autonomous-chat.14",
+    "source_read_is_not_skill_invocation": true
+  },
+  "next_round": {
+    "evidence_source": "scheduler-smoketest-20261015/round-001.json",
+    "why": "First run showed naive negative variance at 1e9 offset, but Welford near the centered reference.",
+    "experiment": "With same seeded exactly representable residuals k/1024, compare offsets 0, 1000000, 1000000000 and measure naive/Welford errors relative to centered math.fsum. Test whether cancellation depends on offset.",
+    "different_from_round_1": true,
+    "n_at_most": 20000
+  },
+  "branch": "autochat-scheduler-smoketest-20261015",
+  "last_status": "first_round_complete; next_round_waiting_for_second_schedule",
+  "next_schedule_count_remaining": 1,
+  "created_at_utc": "2026-10-15T12:07:14Z"
+}
