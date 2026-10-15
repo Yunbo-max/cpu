@@ -1,32 +1,32 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-15T01:59:25.849783+00:00",
+  "updated_utc": "2026-10-15T02:10:14.356238+00:00",
   "window": "W0005",
   "execution_root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
-  "status_observed": "awaiting_decision",
-  "active_or_unknown_attempts": 0,
+  "status_observed": "running",
+  "active_or_unknown_attempts": 1,
   "current_accepted_decision": {
-    "path": "plans/R009-minimal-coordinate-native-qualification-W5-v1-decision-v4-v2.json",
-    "sha256": "435a464f1a2b4d03371dfebebe5d635ec8d28b8972b75252e730e473a7e22844"
+    "path": "plans/R010-author-baseline-build-W5-v1-decision-v4-v2.json",
+    "sha256": "7c206f10becbd4027a4bf42f64b387d9dc91e41be1bf49667066e2fd989d45c3"
   },
   "window_budget": {
-    "attempts_used": 14,
+    "attempts_used": 15,
     "max_attempts": 500,
     "elapsed_seconds": 2058.6618292379953,
-    "reserved_seconds": 0,
-    "remaining_seconds": 77941.338170762,
+    "reserved_seconds": 1233.0,
+    "remaining_seconds": 76708.338170762,
     "max_command_seconds": 80000,
     "deadline_epoch": 1792100153.542538,
-    "remaining_deadline_seconds": 70590.78745388985
+    "remaining_deadline_seconds": 69942.69587421417
   },
   "project_ledger": {
     "prior_attempt_floor": 283,
     "prior_command_seconds_floor": 15590.955507759041,
-    "window_attempts": 14,
+    "window_attempts": 15,
     "window_command_seconds": 2058.6618292379953,
-    "combined_attempt_floor": 297,
+    "combined_attempt_floor": 298,
     "combined_command_seconds_floor": 17649.617336997035,
     "actual_scoped_research_cycles": 8,
     "scope": "W5 command accounting plus retained priorfloor. Replayed scientific journal usage is historical and must not be added twice; command accounting is not exact CPU/scientific cycles.",
@@ -43,20 +43,20 @@
         "pid": 64679,
         "start_ticks": 2856822
       },
-      "last_activity_at": "2026-10-15T01:59:25.239780+00:00",
-      "last_activity_epoch": 1792029565.2397723,
+      "last_activity_at": "2026-10-15T02:10:13.327211+00:00",
+      "last_activity_epoch": 1792030213.327205,
       "mode": "run",
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "schema_version": 1,
       "session_id": "f60f0c08406441818abe69128a1928e0",
-      "stage": "tick",
+      "stage": "running",
       "started_at": "2026-10-15T01:58:07.554015+00:00"
     },
     "errors": [],
     "max_age_seconds": 30,
     "scope": "Local process observation only; no external watcher or user delivery is activated",
     "identity_observed_alive": true,
-    "activity_age_seconds": 0.6100025177001953
+    "activity_age_seconds": 1.0290241241455078
   },
   "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
   "R006_scientific_results": {
@@ -68,7 +68,7 @@
     "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
     "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
   },
-  "next_task": "Complete exact inherited decision/evidence recovery, unchanged public check_task/check_decision and all latest feedback, then acquire fresh exact-author uninstrumented baseline with new R010 task; no old solver repeats.",
+  "next_task": "Observe same R010 author baseline attempt; after true terminal verify receipt/source/binary/all objects/flags/link. Then latest-v4/allfeedback frozen source-isolated exact-U and const-final-export qualification variants. No duplicate baseline or old solver/timing batch; no speed claim from slots.",
   "active_coordinator": {
     "single_queue": "W0005",
     "owned_exec_session": 78405,
@@ -83,22 +83,31 @@
           "pid": 64679,
           "start_ticks": 2856822
         },
-        "last_activity_at": "2026-10-15T01:59:25.239780+00:00",
-        "last_activity_epoch": 1792029565.2397723,
+        "last_activity_at": "2026-10-15T02:10:13.327211+00:00",
+        "last_activity_epoch": 1792030213.327205,
         "mode": "run",
         "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
         "schema_version": 1,
         "session_id": "f60f0c08406441818abe69128a1928e0",
-        "stage": "tick",
+        "stage": "running",
         "started_at": "2026-10-15T01:58:07.554015+00:00"
       },
       "errors": [],
       "max_age_seconds": 30,
       "scope": "Local process observation only; no external watcher or user delivery is activated",
       "identity_observed_alive": true,
-      "activity_age_seconds": 0.6100025177001953
+      "activity_age_seconds": 1.0290241241455078
     },
-    "active_or_unknown": []
+    "active_or_unknown": [
+      {
+        "task_id": "R010-author-baseline-build-W5-v1",
+        "attempt_id": "attempt-f3b1ea596857450caa776871a1e5d833",
+        "state": "running",
+        "contract_sha256": "fcaa275f9c9720affbae003acea98dd346c813f607b0093fa96da270e5a29d41",
+        "receipt_ref": null,
+        "reservation_seconds": 1233.0
+      }
+    ]
   },
   "guards": {
     "cpu_only": true,
@@ -787,7 +796,7 @@
     "corrected_direct_copy_commit": "21a4296b20d56f15ba7a3f6a5bb1ce8742cc5e21",
     "verification_scope": "Complete new R008 packet parts/members and lossless derived900MBtrace/prefix/byte-copy identities independently reread from immutable HTTP. Source aliases and all prior packs by immutable reference; generated .o explicitly deferred. No cleanup and no claim of full scratch or oldW4DBrepair."
   },
-  "archive_pointer": "R010_RECOVERY_LATEST.json",
+  "archive_pointer": "R010_BUILD_LATEST.json",
   "R008_independent_cartesian_relation": {
     "operators": 162,
     "variables": 19,
@@ -931,6 +940,27 @@
         }
       }
     ],
-    "baseline_build_not_yet_dispatched_at_this_cut": true
+    "baseline_build_not_yet_dispatched_at_this_cut": false
+  },
+  "R010_build": {
+    "active": [
+      {
+        "task_id": "R010-author-baseline-build-W5-v1",
+        "attempt_id": "attempt-f3b1ea596857450caa776871a1e5d833",
+        "state": "running",
+        "contract_sha256": "fcaa275f9c9720affbae003acea98dd346c813f607b0093fa96da270e5a29d41",
+        "receipt_ref": null,
+        "reservation_seconds": 1233.0
+      }
+    ],
+    "accepted_decision": {
+      "path": "plans/R010-author-baseline-build-W5-v1-decision-v4-v2.json",
+      "sha256": "7c206f10becbd4027a4bf42f64b387d9dc91e41be1bf49667066e2fd989d45c3"
+    },
+    "feedback_count_at_selection": 83,
+    "both_public_preflight_checks_gaps": 0,
+    "source": "Exact820regular author files, no added profiler or observer",
+    "result": "not_yet_terminal_at_capture",
+    "metric_timing_protocol": "draft_not_accepted_or_run"
   }
 }
