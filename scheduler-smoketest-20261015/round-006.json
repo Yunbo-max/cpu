@@ -1,0 +1,77 @@
+{
+  "schema": "scheduled-research-smoketest-v1",
+  "round": 6,
+  "run_id": "autochat-scheduler-smoketest-r006",
+  "observed_at_utc": "2026-10-15T17:05:32.069235+00:00",
+  "status": "measured_cpu; reproducible_rerun_exit0; github_commit_status_pending",
+  "previous_evidence": {
+    "github_checkpoint_blob_sha": "d39f81645d1543eac0b512566ffa9a9e83e9c500",
+    "latest_github_round": 3,
+    "previous_local_archive": "AutoChat_Round005_20261015.zip",
+    "previous_local_archive_sha256": "f5918abd8318cb5f695a4a6118a44cc2cf2ba61c4d77c4133234a054fe6ca21d",
+    "round5_meaning": "Near-bulk anchoring kept worst relative error ~6.47e-15, moving anchor 1e9 away gave 0.01120395908 error",
+    "round5_archive_manifest_verified": true,
+    "why_this_experiment": "Check whether one extreme first sample makes first-item anchor inaccurate; hold exact multiset fixed within each outlier location comparison."
+  },
+  "capabilities": {
+    "skill_list_empty": true,
+    "skill_loaded": false,
+    "requested_skill_version": "0.2.0-autonomous-chat.14",
+    "github_read": true,
+    "cpu_executed": true,
+    "python": "3.13.5",
+    "first_exit_code": 0,
+    "rerun_exit_code": 0,
+    "rerun_numerical_parity": true,
+    "hard_rlimit_as_bytes": 268435456,
+    "peak_rss_kib_max": 13928
+  },
+  "parameters": {
+    "seed": 20261016,
+    "n": 20000,
+    "base_offset": 1000000000,
+    "step": 0.0009765625,
+    "one_outlier_distance": [
+      256,
+      4096
+    ],
+    "positions": [
+      "outlier_first",
+      "outlier_middle",
+      "outlier_last"
+    ],
+    "baseline_inliers_from_round4_first_19999": true,
+    "integer_rational_ddof0": true,
+    "inlier_hash": "ea4cdea8115e1bac498916db73319d3bf727adfdfe03165173e3220b71fa4366"
+  },
+  "outcomes": {
+    "outlier_256": {
+      "reference": 3.276637967073705,
+      "naive_rel_error_all": 40.064431678521395,
+      "welford_raw_max_rel_error": 2.4505095905650318e-8,
+      "welford_first_anchor_max_rel_error": 2.032979601252694e-15,
+      "welford_fixed_anchor_max_rel_error": 8.131918405010776e-16
+    },
+    "outlier_4096": {
+      "reference": 838.8188573983238,
+      "naive_rel_error_all": 0.2207641625702516,
+      "welford_raw_max_rel_error": 1.7901703136051192e-9,
+      "welford_first_anchor_max_rel_error": 5.014685779414142e-15,
+      "welford_fixed_anchor_max_rel_error": 5.014685779414142e-15
+    }
+  },
+  "interpretation": "Counterexample to the assumption that a distant first sample automatically makes anchored variance inaccurate: in these one-outlier full-population tests, first-sample anchored Welford remained near machine-precision; large outlier dominates total variance, so inlier-scale loss could be masked. This is only an engineering diagnostic.",
+  "reproducibility": {
+    "command": "/usr/bin/python3 -S outlier_first_round006.py",
+    "source_sha256": "f5a23474eaea92ba094e6081e7f4f14a354a9daf181a12ca53cb3a884b331a76",
+    "raw_sha256": "f14465662f0d31a9eed854b2e15b649b92dc17d1f001609d6b4c926324b90b4a",
+    "rerun_sha256": "f7fb1ce0ad6029c5e4adbd0d98ee6c4fcc9f29b3f2accf81ae1ed69ebfc3dd33",
+    "raw_and_code_only_in_local_archive_if_github_write_blocked": true
+  },
+  "next_round": {
+    "status": "proposed_not_executed",
+    "experiment": "With the exact same seeded inlier-only population (omit the outlier from the target statistic), compare Welford shifted by the prior outlier anchor versus fixed near-bulk anchor under sorted/reversed order, using exact integer-rational inlier variance. This isolates whether the large full-population variance masked anchor error.",
+    "why": "One outlier dominates true variance and first-outlier anchoring stayed accurate despite distant anchor; isolate the small-variance inlier regime rather than assume a failure."
+  },
+  "scope": "CPU-only numerical engineering smoke test, not a public benchmark or research novelty"
+}
