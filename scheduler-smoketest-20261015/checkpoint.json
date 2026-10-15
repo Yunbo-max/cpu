@@ -1,36 +1,45 @@
 {
   "schema": "scheduled-research-smoketest-v1",
-  "revision": 2,
-  "latest_run": "round-003",
-  "completed_rounds": 3,
-  "run_record": "scheduler-smoketest-20261015/round-003.json",
+  "revision": 3,
+  "latest_run": "round-006",
+  "completed_rounds": 6,
+  "run_record": "scheduler-smoketest-20261015/round-006.json",
   "observed": {
-    "reference": 6.402961635589599e-7,
-    "original_welford": 6.405086825147067e-7,
-    "ascending_welford": 6.682683392313038e-7,
-    "descending_welford": 6.684759579883348e-7,
-    "alternating_welford": 6.402965618171663e-7,
-    "naive_all_orders": 0,
-    "max_raw_welford_relative_error": 0.04401056266328869
+    "type": "rare_outlier_first_last_middle_integer_rational_stress",
+    "n": 20000,
+    "seed": 20261016,
+    "outlier_distances": [
+      256,
+      4096
+    ],
+    "reference_variance_256": 3.276637967073705,
+    "reference_variance_4096": 838.8188573983238,
+    "worst_rel_error_anchor_first_256": 2.032979601252694e-15,
+    "worst_rel_error_anchor_first_4096": 5.014685779414142e-15,
+    "worst_rel_error_raw_256": 2.4505095905650318e-8,
+    "worst_rel_error_raw_4096": 1.7901703136051192e-9,
+    "naive_worst_rel_error_256": 40.064431678521395,
+    "negative_finding": "Outlier-first anchor stayed near machine precision for full-population variance; huge outlier increases variance and could conceal precision loss for tiny inlier variance."
   },
   "skill_load": {
     "available_in_scheduled_environment": false,
-    "github_source_version": "0.2.0-autonomous-chat.14",
+    "requested_version": "0.2.0-autonomous-chat.14",
+    "invoked": false,
+    "installed_skill_list_empty": true,
     "source_read_is_not_skill_invocation": true
   },
   "next_round": {
-    "evidence_source": "scheduler-smoketest-20261015/round-003.json",
-    "why": "Sorted samples at offset 1e9 increased raw Welford relative error to ~4.4%, whereas updating centered values was accurate to <5e-15 relative error; evaluate cheap anchor-based one-pass correction and order robustness.",
-    "experiment": "Use same 1e9-offset input concept on a fresh seeded {-2,-1,0,1,2}/1024 residual family, compare raw Welford, Welford on (x-x0) without storing all samples, and two-pass centered fsum across original and sorted permutations; test whether anchor choice x0 protects both.",
-    "n_at_most": 20000,
     "status": "proposed_not_executed",
-    "different_from_round_3": true
+    "evidence_source": "scheduler-smoketest-20261015/round-006.json",
+    "why": "The outlier-first anchor surprisingly retains near-machine-precision relative error on the full sample because the outlier dominates total variance; test the small-variance inlier-only statistic under a stale distant anchor.",
+    "experiment": "Use the same 19999 seeded inliers with the outlier omitted from the target statistic; compare Welford anchored at previous outlier x0, at near-bulk offset, and unshifted, over original/reverse/sorted permutations; use exact rational inlier variance and one-pass O(1) algorithm states.",
+    "n_at_most": 19999
   },
   "branch": "autochat-scheduler-smoketest-20261015",
-  "last_status": "round003_measured_and_GitHub_evidence_readback_verified; round002_measured_in_previous_host_but_only_local_attachment_recovered; installed skill unavailable",
+  "last_status": "r006 real CPU run and independent rerun exit0; r006 GitHub record committed and readback; checkpoint update requested; r002/r004/r005 results remain local attachments; Auto Chat skill unavailable",
   "next_schedule_count_remaining": null,
   "created_at_utc": "2026-10-15T12:07:14Z",
-  "last_verified_at_utc": "2026-10-15T14:01:01Z",
+  "last_verified_at_utc": "2026-10-15T17:05:32Z",
   "completed_evidence": [
     {
       "round": 1,
@@ -39,8 +48,8 @@
     },
     {
       "round": 2,
-      "status": "measured_local_attachment_only; GitHub recovery write blocked",
-      "attachment_name": "AutoChat_Round002_20261015.zip",
+      "status": "measured_local_attachment_only; github_archive_write_blocked",
+      "local_archive": "AutoChat_Round002_20261015.zip",
       "sha256": "131b7d204dc9a9dec7d06e5c551fd8d3e47813106034d5f4a0e9211492fbe778"
     },
     {
@@ -48,7 +57,29 @@
       "status": "measured_committed_readback_verified",
       "path": "scheduler-smoketest-20261015/round-003.json",
       "commit_sha": "7bbc39062eafc4b150ad09248d6e026a77d12bfb"
+    },
+    {
+      "round": 4,
+      "status": "measured_local_attachment; github_script_only",
+      "script_path": "scheduler-smoketest-20261015/anchored_welford_round004.py",
+      "script_commit_sha": "5eafe24751934a596f639a01800263ef95a32eeb",
+      "local_archive": "AutoChat_Round004_20261015.zip",
+      "sha256": "97215585c854f64c611ca95485eae735d678be59914eae735d678be59914e639e1723ae4943f7f47a"
+    },
+    {
+      "round": 5,
+      "status": "measured_local_attachment_only; github_archive_write_blocked",
+      "local_archive": "AutoChat_Round005_20261015.zip",
+      "sha256": "f5918abd8318cb5f695a4a6118a44cc2cf2ba61c4d77c4133234a054fe6ca21d"
+    },
+    {
+      "round": 6,
+      "status": "measured_committed_readback_verified",
+      "path": "scheduler-smoketest-20261015/round-006.json",
+      "commit_sha": "2566df2acb519ee557673619f0deb549e1a3b813",
+      "script": "local_raw_in_R006_archive"
     }
   ],
-  "planned_trigger_total": 20
+  "planned_trigger_total": 20,
+  "latest_record_commit_sha": "2566df2acb519ee557673619f0deb549e1a3b813"
 }
