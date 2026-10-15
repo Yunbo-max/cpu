@@ -1,40 +1,40 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-15T02:10:14.356238+00:00",
+  "updated_utc": "2026-10-15T02:49:23.092030+00:00",
   "window": "W0005",
   "execution_root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
-  "status_observed": "running",
-  "active_or_unknown_attempts": 1,
+  "status_observed": "awaiting_decision",
+  "active_or_unknown_attempts": 0,
   "current_accepted_decision": {
-    "path": "plans/R010-author-baseline-build-W5-v1-decision-v4-v2.json",
-    "sha256": "7c206f10becbd4027a4bf42f64b387d9dc91e41be1bf49667066e2fd989d45c3"
+    "path": "plans/R010-control-finalgraph-qualification-W5-v1-decision-v4-v3.json",
+    "sha256": "3818acfba8684fa303550cb80b9ee42e19c281ed6b48dd33987fe9c9d1238e23"
   },
   "window_budget": {
-    "attempts_used": 15,
+    "attempts_used": 20,
     "max_attempts": 500,
-    "elapsed_seconds": 2058.6618292379953,
-    "reserved_seconds": 1233.0,
-    "remaining_seconds": 76708.338170762,
+    "elapsed_seconds": 2744.1337635849904,
+    "reserved_seconds": 0,
+    "remaining_seconds": 77255.86623641501,
     "max_command_seconds": 80000,
     "deadline_epoch": 1792100153.542538,
-    "remaining_deadline_seconds": 69942.69587421417
+    "remaining_deadline_seconds": 67633.64091873169
   },
   "project_ledger": {
     "prior_attempt_floor": 283,
     "prior_command_seconds_floor": 15590.955507759041,
-    "window_attempts": 15,
-    "window_command_seconds": 2058.6618292379953,
-    "combined_attempt_floor": 298,
-    "combined_command_seconds_floor": 17649.617336997035,
-    "actual_scoped_research_cycles": 8,
+    "window_attempts": 20,
+    "window_command_seconds": 2744.1337635849904,
+    "combined_attempt_floor": 303,
+    "combined_command_seconds_floor": 18335.089271344033,
+    "actual_scoped_research_cycles": 9,
     "scope": "W5 command accounting plus retained priorfloor. Replayed scientific journal usage is historical and must not be added twice; command accounting is not exact CPU/scientific cycles.",
     "native_model_usage": "unknown"
   },
   "actual_health": {
     "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
-    "status": "active",
+    "status": "lost",
     "record": {
       "exit_status": null,
       "exited_at": null,
@@ -43,20 +43,21 @@
         "pid": 64679,
         "start_ticks": 2856822
       },
-      "last_activity_at": "2026-10-15T02:10:13.327211+00:00",
-      "last_activity_epoch": 1792030213.327205,
+      "last_activity_at": "2026-10-15T02:44:52.509000+00:00",
+      "last_activity_epoch": 1792032292.5089939,
       "mode": "run",
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "schema_version": 1,
       "session_id": "f60f0c08406441818abe69128a1928e0",
-      "stage": "running",
+      "stage": "awaiting_decision",
       "started_at": "2026-10-15T01:58:07.554015+00:00"
     },
     "errors": [],
     "max_age_seconds": 30,
     "scope": "Local process observation only; no external watcher or user delivery is activated",
-    "identity_observed_alive": true,
-    "activity_age_seconds": 1.0290241241455078
+    "identity_observed_alive": false,
+    "activity_age_seconds": 270.5832214355469,
+    "reason": "Retained process identity is unverified: it may have exited, changed identity, or become unavailable to local observation; no restart or reconciliation is implied"
   },
   "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
   "R006_scientific_results": {
@@ -68,13 +69,13 @@
     "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
     "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
   },
-  "next_task": "Observe same R010 author baseline attempt; after true terminal verify receipt/source/binary/all objects/flags/link. Then latest-v4/allfeedback frozen source-isolated exact-U and const-final-export qualification variants. No duplicate baseline or old solver/timing batch; no speed claim from slots.",
+  "next_task": "Freeze complete-native childCPU matched comparison after actual timing warmup work/VAL checks. No old qualification rerun, no observer timing claim.",
   "active_coordinator": {
     "single_queue": "W0005",
     "owned_exec_session": 78405,
     "observed_health": {
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
-      "status": "active",
+      "status": "lost",
       "record": {
         "exit_status": null,
         "exited_at": null,
@@ -83,31 +84,23 @@
           "pid": 64679,
           "start_ticks": 2856822
         },
-        "last_activity_at": "2026-10-15T02:10:13.327211+00:00",
-        "last_activity_epoch": 1792030213.327205,
+        "last_activity_at": "2026-10-15T02:44:52.509000+00:00",
+        "last_activity_epoch": 1792032292.5089939,
         "mode": "run",
         "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
         "schema_version": 1,
         "session_id": "f60f0c08406441818abe69128a1928e0",
-        "stage": "running",
+        "stage": "awaiting_decision",
         "started_at": "2026-10-15T01:58:07.554015+00:00"
       },
       "errors": [],
       "max_age_seconds": 30,
       "scope": "Local process observation only; no external watcher or user delivery is activated",
-      "identity_observed_alive": true,
-      "activity_age_seconds": 1.0290241241455078
+      "identity_observed_alive": false,
+      "activity_age_seconds": 270.58329582214355,
+      "reason": "Retained process identity is unverified: it may have exited, changed identity, or become unavailable to local observation; no restart or reconciliation is implied"
     },
-    "active_or_unknown": [
-      {
-        "task_id": "R010-author-baseline-build-W5-v1",
-        "attempt_id": "attempt-f3b1ea596857450caa776871a1e5d833",
-        "state": "running",
-        "contract_sha256": "fcaa275f9c9720affbae003acea98dd346c813f607b0093fa96da270e5a29d41",
-        "receipt_ref": null,
-        "reservation_seconds": 1233.0
-      }
-    ]
+    "active_or_unknown": []
   },
   "guards": {
     "cpu_only": true,
@@ -943,24 +936,65 @@
     "baseline_build_not_yet_dispatched_at_this_cut": false
   },
   "R010_build": {
-    "active": [
-      {
-        "task_id": "R010-author-baseline-build-W5-v1",
-        "attempt_id": "attempt-f3b1ea596857450caa776871a1e5d833",
-        "state": "running",
-        "contract_sha256": "fcaa275f9c9720affbae003acea98dd346c813f607b0093fa96da270e5a29d41",
-        "receipt_ref": null,
-        "reservation_seconds": 1233.0
-      }
-    ],
-    "accepted_decision": {
-      "path": "plans/R010-author-baseline-build-W5-v1-decision-v4-v2.json",
-      "sha256": "7c206f10becbd4027a4bf42f64b387d9dc91e41be1bf49667066e2fd989d45c3"
+    "result": "all_four_source_isolated_roles_success",
+    "timing_executed": false,
+    "author_qualification": {
+      "role": "author-qualifier",
+      "valid_final_graph_and_work_qualification": true,
+      "native_output": "results/R010-author-finalgraph-qualification-W5-v1",
+      "native_exit": 0,
+      "work": {
+        "states": 10000,
+        "cost": 24,
+        "expanded": 18657,
+        "evaluated": 43157
+      },
+      "plan_sha256": "14ad8295bb98569b2c10edd962c635cb2e67d03efbbbcf0c2fbb4728a37e76e7",
+      "VAL_valid": true,
+      "graph_sha256": "7c141bddef4d6f14ba5449c5922e43263ccb2a2111aab36217a3890fff841c12",
+      "matches_frozen_R007_graph_hash": true,
+      "peer_requested": null,
+      "ordered_graph_and_reference_distances_equal_actual_peer": null,
+      "binary_sha256": "571ec4962b96c3ececae423d975aa386d178db05634814ce71c88f2efc949e4b",
+      "build_identity_sha256": "a29afef7f82ab2a46e1c3d00d6846e7ea03e6c554a7b3941583f940100f1dc5a",
+      "source_manifest_sha256": "403ce0e1f89ac343c89eb0b84c5e1eb1c71d21637244491edab6cfa0fd4ace1f",
+      "source_map_sha256": "857dddce06851267ac4b688ffc4cb71cfab82d4515e409db461e3b0ba7a859a5",
+      "config_sha256": "0ba55fcbba40fc6ca04ce6a3f403cf11fcc981b5e46a7a7ef1b0f648f767119e",
+      "SAS_sha256": "11454e2d4aea5bab34fc39877ed2db950d4252c1a4f14c94ba800267a7be3391",
+      "eligible_efficiency_timing": false,
+      "evaluation_invokes_solver": false,
+      "native_run_reused_for_evaluation": true,
+      "scope": "One exposed new-source final10000 graph/work/plan/VAL qualification only. Common qualifier exporter not eligible for CPU speed; no every-step10000/concrete oracle/novelty. Original wrapper failure preserved if separate retained completion."
     },
-    "feedback_count_at_selection": 83,
-    "both_public_preflight_checks_gaps": 0,
-    "source": "Exact820regular author files, no added profiler or observer",
-    "result": "not_yet_terminal_at_capture",
-    "metric_timing_protocol": "draft_not_accepted_or_run"
+    "control_qualification": {
+      "role": "control-qualifier",
+      "valid_final_graph_and_work_qualification": true,
+      "native_output": "results/R010-control-finalgraph-qualification-W5-v1",
+      "native_exit": 0,
+      "work": {
+        "states": 10000,
+        "cost": 24,
+        "expanded": 18657,
+        "evaluated": 43157
+      },
+      "plan_sha256": "14ad8295bb98569b2c10edd962c635cb2e67d03efbbbcf0c2fbb4728a37e76e7",
+      "VAL_valid": true,
+      "graph_sha256": "7c141bddef4d6f14ba5449c5922e43263ccb2a2111aab36217a3890fff841c12",
+      "matches_frozen_R007_graph_hash": true,
+      "peer_requested": "results/R010-author-finalgraph-qualification-W5-v1/graph.tsv",
+      "ordered_graph_and_reference_distances_equal_actual_peer": true,
+      "binary_sha256": "c4604baea8ec7944bbd08c6af02e86ca1411fe08ecc285aecb0e59715173fc6c",
+      "build_identity_sha256": "a29afef7f82ab2a46e1c3d00d6846e7ea03e6c554a7b3941583f940100f1dc5a",
+      "source_manifest_sha256": "403ce0e1f89ac343c89eb0b84c5e1eb1c71d21637244491edab6cfa0fd4ace1f",
+      "source_map_sha256": "857dddce06851267ac4b688ffc4cb71cfab82d4515e409db461e3b0ba7a859a5",
+      "config_sha256": "0ba55fcbba40fc6ca04ce6a3f403cf11fcc981b5e46a7a7ef1b0f648f767119e",
+      "SAS_sha256": "11454e2d4aea5bab34fc39877ed2db950d4252c1a4f14c94ba800267a7be3391",
+      "eligible_efficiency_timing": false,
+      "evaluation_invokes_solver": false,
+      "native_run_reused_for_evaluation": true,
+      "scope": "One exposed new-source final10000 graph/work/plan/VAL qualification only. Common qualifier exporter not eligible for CPU speed; no every-step10000/concrete oracle/novelty. Original wrapper failure preserved if separate retained completion."
+    },
+    "failed_author_wrapper_retained": true,
+    "empty_object_cause": "unknown"
   }
 }
