@@ -1,0 +1,47 @@
+{
+  "kind": "trajectory_outcome",
+  "schema_version": 1,
+  "attempt_id": "attempt-1c5b1604806c44f58068241f0e09500f",
+  "route_id": "minimal-list-source-control",
+  "experiment_id": "R009-exact-native-qualification-v1",
+  "trace_ref": {
+    "path": "plans/R009-mathematical-trace-v1.json",
+    "sha256": "46fd3a6ff8350fdf298b794635d9cc787f0b9dd0ce4c0b15e47018fc76b400f0"
+  },
+  "experiment_ref": {
+    "path": "plans/R009-native-qualification-experiment-v1.json",
+    "sha256": "48182e3715de08c838b158312171d3703e16dbd465ba0872543587bfc84d4319"
+  },
+  "terminal": true,
+  "outcome": "supports",
+  "raw_refs": [
+    {
+      "path": "results/R009-minimal-coordinate-native-qualification-W5-v1/result.json",
+      "sha256": "0f675f46051592380501ac1b324505a2f315daf157f83b24f9691637b73a54f5"
+    },
+    {
+      "path": ".research-autopilot/runner/attempts/attempt-1c5b1604806c44f58068241f0e09500f/receipt.json",
+      "sha256": "0af858cc0b9d3ffe53ed52d498951ebf236b18a2423724bb9d955269915735e7"
+    },
+    {
+      "path": "results/R009-minimal-coordinate-native-qualification-W5-v1/trajectory-audit.json",
+      "sha256": "0e4c113354ac4708914a34ee878814fbf4a71f7c933f98c1eae0452da6374a49"
+    },
+    {
+      "path": "results/R009-minimal-coordinate-native-qualification-W5-v1/cartesian-reference.json",
+      "sha256": "b8b77d3584aac1f28257c2b01f2b282335a44ad9ef37dd0d8d7a77fc4f00c9d2"
+    },
+    {
+      "path": "results/R009-minimal-coordinate-native-qualification-W5-v1/VAL.stdout.log",
+      "sha256": "68936a2d48ac506de7f07d9bb4d3177ab414bdfd7f0fd389c83d4d939041e98e"
+    },
+    {
+      "path": "evidence/R009-terminal-binding-check-v1.json",
+      "sha256": "f05dcf1685f42b74236673eb5d2997f6409429e70f704633c653355e31ea1cd1"
+    }
+  ],
+  "independent_unit_ids": [
+    "exposed-autoscale21.11-blocksworld-p05-states_ops-exact1000"
+  ],
+  "interpretation": "Supports hierarchy-preserving ordinary minimal-coordinate control on one exposed condition: all2000 ordered graph/domain/goal/stable-distance snapshots, complete work/plan/VAL and full-coordinate Cartesian relation exact; reported slots14697->3892. Does not imply CPU saving, novelty, concrete oracle or unseen correctness."
+}
