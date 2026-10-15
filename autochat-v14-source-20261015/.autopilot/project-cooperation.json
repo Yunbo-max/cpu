@@ -19,11 +19,57 @@
       "namespace": "autochat-v14-source-20261015/",
       "status": "active",
       "checkpoint": "autochat-v14-source-20261015/checkpoint.json",
-      "last_observed_run": null
+      "last_observed_run": null,
+      "current_task": "inlier-only-stale-outlier-anchor-seed20261016-n19999"
     }
   ],
-  "claims": [],
-  "tasks": [],
+  "claims": [
+    {
+      "task_key": "inlier-only-stale-outlier-anchor-seed20261016-n19999",
+      "canonical_fields": {
+        "n": 19999,
+        "seed": 20261016,
+        "step": 0.0009765625,
+        "base_offset": 1000000000,
+        "stale_anchor_shift": [
+          256,
+          4096
+        ],
+        "orders": [
+          "original",
+          "ascending",
+          "descending"
+        ],
+        "statistic": "inlier-only population variance ddof0"
+      },
+      "owner_id": "route-a-scheduled-chat-20261015",
+      "state": "claimed",
+      "claim_revision": 1,
+      "run_id": "route-a-v14-scheduled-002-20261015T190349Z",
+      "previous_evidence_ref": "autochat-scheduler-smoketest-20261015/scheduler-smoketest-20261015/round-006.json",
+      "output_paths": [
+        "autochat-v14-source-20261015/runs/route-a-v14-scheduled-002-20261015T190349Z.json",
+        "autochat-v14-source-20261015/checkpoint.json"
+      ],
+      "resource_profile": {
+        "single_cpu_process": true,
+        "samples": 19999,
+        "peak_ram_limit_mib": 256
+      },
+      "created_at_utc": "2026-10-15T19:06:00Z",
+      "release_conditions": "only after verified terminal CPU result and durable GitHub artifact readback; otherwise retain blocked/unknown"
+    }
+  ],
+  "tasks": [
+    {
+      "task_key": "inlier-only-stale-outlier-anchor-seed20261016-n19999",
+      "status": "claimed",
+      "owner_id": "route-a-scheduled-chat-20261015",
+      "run_id": "route-a-v14-scheduled-002-20261015T190349Z",
+      "why": "Old round 006 first outlier anchor appeared accurate in full-population variance; test if outlier-dominated variance masked small-inlier error",
+      "next_action": "First record protocol and evidence; execute only after claim GitHub readback"
+    }
+  ],
   "last_sync": null,
   "paused": false
 }
