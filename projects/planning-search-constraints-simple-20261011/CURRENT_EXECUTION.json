@@ -1,33 +1,33 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-15T03:01:19.308558+00:00",
+  "updated_utc": "2026-10-15T03:08:42.837711+00:00",
   "window": "W0005",
   "execution_root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
   "status_observed": "awaiting_decision",
   "active_or_unknown_attempts": 0,
   "current_accepted_decision": {
-    "path": "plans/R010-native-efficiency-w0-control-W5-v1-decision-v4-v1.json",
-    "sha256": "3ea41f9d362242135858629e0a8fb1d6c90ccdda4ea88c80319c5781b5c46a18"
+    "path": "plans/R010-native-efficiency-p1-author-W5-v1-decision-v4-v1.json",
+    "sha256": "d2b5ac944ee5759d498a059a5cd146b8ce3dd09777598eb9fbd53e2473c6b8dc"
   },
   "window_budget": {
-    "attempts_used": 22,
+    "attempts_used": 23,
     "max_attempts": 500,
-    "elapsed_seconds": 2753.3842927859896,
+    "elapsed_seconds": 2758.616497912988,
     "reserved_seconds": 0,
-    "remaining_seconds": 77246.615707214,
+    "remaining_seconds": 77241.38350208702,
     "max_command_seconds": 80000,
     "deadline_epoch": 1792100153.542538,
-    "remaining_deadline_seconds": 66880.72031712532
+    "remaining_deadline_seconds": 66431.127430439
   },
   "project_ledger": {
     "prior_attempt_floor": 283,
     "prior_command_seconds_floor": 15590.955507759041,
-    "window_attempts": 22,
-    "window_command_seconds": 2753.3842927859896,
-    "combined_attempt_floor": 305,
-    "combined_command_seconds_floor": 18344.33980054503,
+    "window_attempts": 23,
+    "window_command_seconds": 2758.616497912988,
+    "combined_attempt_floor": 306,
+    "combined_command_seconds_floor": 18349.57200567203,
     "actual_scoped_research_cycles": 9,
     "scope": "W5 command accounting plus retained priorfloor. Replayed scientific journal usage is historical and must not be added twice; command accounting is not exact CPU/scientific cycles.",
     "native_model_usage": "unknown"
@@ -43,8 +43,8 @@
         "pid": 78422,
         "start_ticks": 3171511
       },
-      "last_activity_at": "2026-10-15T03:01:19.068437+00:00",
-      "last_activity_epoch": 1792033279.0684285,
+      "last_activity_at": "2026-10-15T03:08:33.446680+00:00",
+      "last_activity_epoch": 1792033713.446674,
       "mode": "run",
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "schema_version": 1,
@@ -56,7 +56,7 @@
     "max_age_seconds": 30,
     "scope": "Local process observation only; no external watcher or user delivery is activated",
     "identity_observed_alive": true,
-    "activity_age_seconds": 0.2404341697692871
+    "activity_age_seconds": 8.96967339515686
   },
   "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
   "R006_scientific_results": {
@@ -72,6 +72,7 @@
   "active_coordinator": {
     "single_queue": "W0005",
     "owned_exec_session": 35985,
+    "finite_coordinator_owned_exec_session": 25196,
     "observed_health": {
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "status": "active",
@@ -83,8 +84,8 @@
           "pid": 78422,
           "start_ticks": 3171511
         },
-        "last_activity_at": "2026-10-15T03:01:19.068437+00:00",
-        "last_activity_epoch": 1792033279.0684285,
+        "last_activity_at": "2026-10-15T03:08:33.446680+00:00",
+        "last_activity_epoch": 1792033713.446674,
         "mode": "run",
         "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
         "schema_version": 1,
@@ -96,7 +97,7 @@
       "max_age_seconds": 30,
       "scope": "Local process observation only; no external watcher or user delivery is activated",
       "identity_observed_alive": true,
-      "activity_age_seconds": 0.24057340621948242
+      "activity_age_seconds": 8.96967339515686
     },
     "active_or_unknown": []
   },
@@ -998,9 +999,11 @@
   "R010_efficiency": {
     "planned_rows": 10,
     "warmups_completed": 2,
-    "scored_completed": 0,
-    "scored_effect": "not_yet_measured",
+    "scored_completed": 1,
+    "scored_effect": "incomplete_frozen_batch_no_claim",
     "warmup_maintenance_overlap": "Parent qualification archive upload in progress; bothwarmups excluded from scoring",
-    "protocol_sha256": "305d42a65aace76e33c5c98401aa0d97269e97089df2ad62b1016ea91a1831da"
-  }
+    "protocol_sha256": "305d42a65aace76e33c5c98401aa0d97269e97089df2ad62b1016ea91a1831da",
+    "coordinator_owned_exec_session": 25196
+  },
+  "running_addendum_scope": "Light post22 evidence, NOT updated consistentSQLite; full control recovery pointer remains verified22. Ongoing finite coordinator is sole dispatchwriter; observe rather than duplicate."
 }
