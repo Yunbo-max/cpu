@@ -1,40 +1,28 @@
-# R010：去除诊断观察器后的原版/强简单对照
+# R011：原始 BW p06 的资格与完整原生 CPU 检验
 
-精确作者源码与层次副作用保持不变的最小变化坐标对照，已在隔离目录构建：正式计时程序不含新增观察器、参数构造或共同profiler；资格程序仅共同增加最终图只读导出。
+固定 Simple13/源版本、CPU-only/thread1、单队列，延续同一项目。原始p06是先按相邻公开序号选定，再取得PDDL/SAS；不是按运行时间换有利例。SAS SHA337284c808bc03350bba2be4ae250f04cd116d310384def6ab5034b4d869afac，configSHA37b4a1b530999e66bc10a29e760a25d0169762c06e918c0808f922e2021b36f5。
 
-两个新资格程序在同一公开、已暴露的BW p05/max10000开发条件真实完成：最终有序图、重数/镜像/域/64位最短路、expanded18657/evaluated43157、计划字节及cost24独立VAL一致。最终图一致不等于每一步10000轨迹证明。作者资格初次包装器未处理时间戳前缀，原生exit0输出保留；解析器红绿回归后直接补验原输出，没有重跑作者求解。
+## 两臂资格
 
-完整原版首次构建链接失败：296个对象中1个空、295个非空ELF；原因未知，无OOM证据。新ID只重编该对象并链接新产物，原空对象与失败不改写。此前CMake执行权限恢复及全部预检查拒绝也保留。
+原版和普通最小变化坐标强简单对照均真正nativeexit0。实际10000状态（cap10000）、成本26、expanded20544/evaluated52981。最终有序图/重数/domain/独立64位最短路、计划和独立原PDDL VAL完全一致。图SHA0c00f31767ceee52ae2870f2c52ef4d30faa47dc7091b10465bf7fe868433e32，计划SHAff6dfac7b253381ef59ac1e7c3357db828b780e4a3467b86109142da2539804c。没有把p05成本24或work/hash抄作p06答案。只最终快照，不是p06每split/具体动作oracle/转换正确性或最优性证明，资格export计时不可用于性能。
 
-尚无正式效率结果。资格含导出，不用于性能。下一指标为完整native子进程user+system CPU，包含初始化、构建和搜索；正式计时两臂先完成自身work/plan/VAL核验，之后前瞻平衡串行比较，完整保留warmup/失败分母。坐标槽位减少不是CPU收益，普通强简单对照不是新算法；仅一个暴露开发条件，不声称新颖性、整体速度或跨任务确认。
+## 前瞻完整原生 CPU
 
-包中保存所有新增R010源/合同/输入身份、四个二进制、原始输出、失败及一致控制。继承输入按不可变manifest绑定；生成.o仍在本地明确deferred，非全scratch归档或旧W4库修复。所有历史停止/预算/失败保留，无清理unique或全局缓存。
+使用同一R010真正移除额外observer/profiler的两个timingbinary，不重编、不改ABI。一个officialtask内部串行10个唯一nativeID：2预热排除评分，4配对AB/BA/BA/AB。原生120CPU/2500M_AS/145wall/2.8GBgroupRSS/thread1/affinity0不变，总内存仅kernel执行。所有10项exit0、同实际p06work/plan、独立VAL；失败0/未执行0，没有挑选有利重跑。
 
-正式计时程序的两个预热均已真实完成：原版完整子进程CPU1086487us、对照993476us，工作量/计划/cost24独立VAL相同。两预热均排除评分，其间本协调者上传资格档案，不从差值讲收益。新冻结四个配对AB/BA/BA/AB尚未评分；先结束远端验证再接续，避免主动重型归档/hash与评分并发。完整wait4范围/失败分母/共享宿主限制见协议。父资格包43parts/244members/四binary完整不可变HTTP回读已完成；本补充仅新增warmups和一致22控制，非全scratch。
+|配对|原版CPU(us)|对照CPU(us)|对照/原版CPU|对照/原版wall|UTC启动间隔(s，诊断)|
+|---|---:|---:|---:|---:|---:|
+|p1|966303|857327|0.887223780|0.886989726|1.361|
+|p2|814017|827052|1.016013179|1.018751128|1.240|
+|p3|812813|773887|0.952109526|0.951435732|1.136|
+|p4|906672|829357|0.914726605|0.914443783|1.341|
 
+CPU比几何平均0.941299187713，范围[0.8872237797047096, 1.0160131790859406]；wall比几何平均0.941631092407。主指标是直接native子进程wait4 user+system，包含exec/init/construction/search/exit，排除parent/hash/VAL；wall含Popen/marker。全部10项childCPU8506250us、最大nativeRSS30081024B，不是全项目CPU或共享cache。串行block去掉了逐行官方决策造成的长间隔，仍含每行二进制hash/解析/VAL；UTC启动间隔不是等待或谓词成本分解。评分期间本方没有重型归档/上传/远端核验，但共享宿主频率/cache/contention仍未控制。
 
-## 完整原生CPU对比：全部完成（覆盖前文“评分尚未运行”）
+这只是新增一个同域原始任务，10次执行不是10独立cases，不构造CI、不声明稳定/整体加速、新颖性或单谓词收益。普通最小U是强简单对照，不是新算法；主作者combined/additive强配置、closest-primary和更广公开条件义务仍保留。原p05结果单列，不合并挑有利效应。
 
-原版和普通最小变化坐标对照的10次执行已全部完成，2预热排除评分，4配对按AB/BA/BA/AB前瞻顺序。所有执行均exit0、10000状态、expanded18657/evaluated43157、相同计划/cost24独立VAL；没有挑选有利重跑。
+## 工程分母和账本
 
-|配对|原版CPU(us)|对照CPU(us)|对照/原版CPU|对照/原版wall|
-|---|---:|---:|---:|---:|
-|p1|1316722|1019519|0.774286|0.772950|
-|p2|1096350|1202878|1.097166|1.078563|
-|p3|1123920|877842|0.781054|0.779979|
-|p4|1387365|895770|0.645663|0.644637|
+两次selector预检查拒绝均在native前：初版不支持equivalence类型，v2虽改formal却返回旧v1引用。v3修正引用后两接口真正gaps=[]，保留旧文档/拒绝/回归旧red新green。不是CPU或内存失败。3项规则测试和引用测试是软件fixture，不是nativecase或科研周期。无旧实验重跑、unique/control/SQLite/.o删除或globalcache清理。原历史/失败/保守结算/modelunknown保留。
 
-CPU比几何平均0.809030849381（这个开发条件下描述性降低19.0969%），范围0.645663–1.097166，p2反而慢9.7166%。这是单一暴露公开任务，不是10独立实例、不构造CI、不声明稳定/整体加速、新颖性或单谓词成本。直接子进程wait4 user+system含exec/init/construction/search/exit，排除parent/hash/VAL；wall还含Popen/marker延迟。每次约1秒而配对中间间隔约111–162秒，共享宿主频率/cache/contention未控制。预热与本方归档上传重叠，评分8次在本方重型归档/核验结束后运行；不代表独占宿主。10次native childCPU合11000329us，非全项目CPU。
-
-独立审查部分确认全部整数比/原始结果/回执/计划/VAL和601个输入引用hash；其后服务容量错误中断，完整原话/失败保留，不称完整独立验收。主协调者已按真实完整批次record一次cycle，9→10。
-
-下一步按预先选定的下一个原始序号BWp06，不按runtime择例。AI-Planning/autoscale-benchmarks固定commit0bb8d8...，原p05/domain Gitblob交叉核验完全相同，p06固定作者源翻译成功；仅数据/SAS采集，尚未调用新任务求解器或证明新任务正确性/效率。普通最小U仍只是强简单对照，强原作者配置/额外公开任务/主要最近工作义务保持。完整原始10行、失败分母、统计脚本、部分审查、全部新控制与原始采集输入均在本31点补充；不是全scratch或旧W4坏库修复。
-
-
-## 最新完整恢复链（覆盖原V2 pending状态）
-
-基包fc5c8e4...的20parts/162516469B与444新members已逐SHA/bytes独立HTTP读回。首次完整derived核验在两个编码副本上失败：它们在本地完整解码后、入包前变短，mutation根因未知；封装器未在入包时核对恢复映射与成员的缺口已确认。原失败/坏编码/本地V1包及所有原始对象保留，没有把失败写成成功。
-
-仅两编码以新V3 ID从hash不变的原始字节重建，直接不可变buffer入包，真实成员绑定测试原版2项red、修复后12项0不符。修复包2151302B/8members已不可变HTTP独立读回；重新核验原HTTP缓存的全部20parts/wholeZIP/444members和8修复members，再完整恢复12份原始临时SQLite共2538864640B逐SHA/bytes成功。不是把临时对象当validSQLite，来源仍未知，不解释旧source/header/empty.o/binarySHA/DB问题。规范31点备份独立integrity=ok、31全terminal/0reserve/实际10cycles/latestaccepted eb99567...；所有.o范围和旧失败历史按父链保留。没有删unique/currentcontrol/SQLite/.o或全局cache。
-
-最新恢复必须manifest-first读取V3覆盖映射及原fc5基包；不能只用旧22备份覆盖当前更近控制。新增R011真实结果仅为原始BWp06文件身份和固定作者翻译SAS337284c808bc03350bba2be4ae250f04cd116d310384def6ab5034b4d869afac，无新task求解/资格/速度结果。接续先冻结新task正确性/完整native协议，不把旧p05成本/状态/work答案写给新任务。未来计时设计应考虑把串行匹配放在一个有界官方task内以缩短逐行respond造成的111–162秒间隔，但这尚未选择/运行，旧R010结果不改写。
+已各record一次真实p06源资格和完整native周期。窗口/总账以CURRENT和官方真实状态为准，commandaccounting不是精确CPU/科研周期。新归档为明确增量overlay和一致控制切点，旧R01031base+两编码repair映射仍保留；296全编译.o本地deferred，不称全scratch或旧W4坏库修复。下一步是核对作者强combined/additive原配置并前瞻选择可证伪比较，不无限重复p05/p06或Depots升配。
