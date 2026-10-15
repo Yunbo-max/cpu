@@ -1,0 +1,87 @@
+{
+  "format": "r014-operative-runtime-inputs-v4",
+  "base_packet_commit": "31851cacfe9cdb362a48a2e98abab2fe020b6ccb",
+  "base_manifest_sha256": "a1f37624fbc51ab29001d36698500fc2e11f7b4a74c8179bbb746e9825dcd791",
+  "archive_bytes": 1017703,
+  "archive_sha256": "cb4c9faf746d1e1f69dbb4eb05115b8e7a18fc2d3db58531e32273297092f076",
+  "parts": [
+    {
+      "path": "part-000.bin",
+      "bytes": 1017703,
+      "sha256": "cb4c9faf746d1e1f69dbb4eb05115b8e7a18fc2d3db58531e32273297092f076"
+    }
+  ],
+  "members": {
+    "windows/W0005/results/R010-author-baseline-build-W5-v1/build/search/CMakeFiles/downward.dir/flags.make": {
+      "bytes": 491,
+      "sha256": "bbb312fad16a7bd1832be46a4376d738417487e431bf3bfdaa7201f1254a4320",
+      "mode": 420
+    },
+    "windows/W0005/vendor/val/builds/release/bin/Validate": {
+      "bytes": 130392,
+      "sha256": "f930ece7eae862eca84bd03eeee22ca6fbcdd83ff8b0945f1f006b95f160b705",
+      "mode": 493
+    },
+    "windows/W0005/vendor/val/builds/release/bin/libVAL.so": {
+      "bytes": 2877632,
+      "sha256": "fc81bf2976ed8e29141247d6230503612be3be4046eed88bd7a987db88de3533",
+      "mode": 493
+    },
+    "windows/W0005/vendor/r010_author_uninstrumented_v1/devenv.lock": {
+      "bytes": 2332,
+      "sha256": "8903740dc5a443137087a2697f5f1cb7d0946441487c5008874c3f6dc96df4e5",
+      "mode": 420
+    },
+    "engineering/complete_r014_runtime_inputs_v3.py": {
+      "bytes": 3539,
+      "sha256": "c8ce9784f498b7f7dc7369ea9a94c8ae74b367976cfe8d7e01cb65198d42457c",
+      "mode": 420
+    },
+    "engineering/verify_r014_queued_control_v2.py": {
+      "bytes": 2455,
+      "sha256": "50f96d842c34ad63db785b8325c6abb59d11b428956679ad0d7910b978db709e",
+      "mode": 420
+    },
+    "engineering/stderr.log": {
+      "bytes": 395,
+      "sha256": "05826dbf95031ab30ff3e2f9411c7efb55c0b99c9a3bd490ce2cf05067c2ea62",
+      "mode": 420
+    },
+    "engineering/metrics.json": {
+      "bytes": 995,
+      "sha256": "ed0324a907460f1df7c5b6dee6b360247b42b8cd5e0029514d7200eceb184e31",
+      "mode": 420
+    },
+    "engineering/complete_r014_taskinputs_v1.py": {
+      "bytes": 3884,
+      "sha256": "3860db23d64879402d3b80e29c4b4792b24ff7e4554aba5902880cbdf51696cd",
+      "mode": 420
+    },
+    "engineering/complete_r014_runtime_inputs_v4.py": {
+      "bytes": 897,
+      "sha256": "c5273e2965c50c153c06fc3b72d0e225ae6ba87b79ea8de46ef203467a80f4df",
+      "mode": 420
+    }
+  },
+  "submitted_runtime_input_refs": 869,
+  "inventory_input_refs": 866,
+  "new_exact_runtime_inputs": [
+    {
+      "path": "results/R010-author-baseline-build-W5-v1/build/search/CMakeFiles/downward.dir/flags.make",
+      "sha256": "bbb312fad16a7bd1832be46a4376d738417487e431bf3bfdaa7201f1254a4320"
+    },
+    {
+      "path": "vendor/val/builds/release/bin/Validate",
+      "sha256": "f930ece7eae862eca84bd03eeee22ca6fbcdd83ff8b0945f1f006b95f160b705"
+    },
+    {
+      "path": "vendor/val/builds/release/bin/libVAL.so",
+      "sha256": "fc81bf2976ed8e29141247d6230503612be3be4046eed88bd7a987db88de3533"
+    },
+    {
+      "path": "vendor/r010_author_uninstrumented_v1/devenv.lock",
+      "sha256": "8903740dc5a443137087a2697f5f1cb7d0946441487c5008874c3f6dc96df4e5"
+    }
+  ],
+  "scope": "Four exact current runtime input files not at expected W5 path in flattened prioralias index; fresh admitted SHA unchanged. Native buildobjects still localdeferred. Broader 1537 canonical taskrefs include inherited feedback with multi-layer/derived historical resolution; no assertion every historical feedback body appears in flat current index. v2checker wrongly assumed flattened-index closure and failed; preserve failure. An exploratory full173path/458335241B ZIP was generated only inRAM, not uploaded, not recoveryentry; minimal operative supplement chosen to avoid republishing full old evidence."
+}
