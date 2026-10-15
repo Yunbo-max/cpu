@@ -1,0 +1,83 @@
+{
+  "schema": "scheduled-research-smoketest-v1",
+  "round": 3,
+  "run_id": "autochat-scheduler-smoketest-r003",
+  "status": "measured_cpu",
+  "observation_time_utc": "2026-10-15T14:01:01Z",
+  "previous_evidence": {
+    "github_checkpoint_sha": "d58536368130ff1e82b59a8bb468f90f98962d0d",
+    "github_round1_sha": "f7b54e5ea16c49bd70fb7e9f595fddd0d806eb90",
+    "local_round2_zip_sha256": "131b7d204dc9a9dec7d06e5c551fd8d3e47813106034d5f4a0e9211492fbe778",
+    "round2_status": "CPU measured; no GitHub write",
+    "round2_observed_welford_rel_err_at_1e9": 0.00033190727641647027,
+    "selected_next": "Keep residuals and 1e9 offset unchanged; change only sequence order to test Welford update-order sensitivity"
+  },
+  "host": {
+    "installed_skill_available": false,
+    "skill_source_version_from_github": "0.2.0-autonomous-chat.14",
+    "github_read": true,
+    "github_push_permission": true,
+    "cpu_command_exit": 0,
+    "python": "3.13.5",
+    "hard_RLIMIT_AS_bytes": 268435456,
+    "peak_RSS_KiB": 14720
+  },
+  "parameters": {
+    "seed": 20261015,
+    "n": 20000,
+    "offset": 1000000000,
+    "step": 0.0009765625,
+    "distribution": "seeded randint(-1,1)",
+    "counts": {
+      "0": 6572,
+      "1": 6705,
+      "-1": 6723
+    },
+    "reference": "Two-pass math.fsum on centered representable floats, ddof=0"
+  },
+  "outputs": {
+    "reference": 6.402961635589599e-7,
+    "original": {
+      "naive": 0,
+      "welford_raw": 6.405086825147067e-7,
+      "welford_centered": 6.402961635589591e-7,
+      "relative_error_raw": 0.00033190727641647027
+    },
+    "ascending": {
+      "naive": 0,
+      "welford_raw": 6.682683392313038e-7,
+      "welford_centered": 6.402961635589582e-7,
+      "relative_error_raw": 0.04368630840588842
+    },
+    "descending": {
+      "naive": 0,
+      "welford_raw": 6.684759579883348e-7,
+      "welford_centered": 6.402961635589599e-7,
+      "relative_error_raw": 0.04401056266328869
+    },
+    "alternating_extremes": {
+      "naive": 0,
+      "welford_raw": 6.402965618171663e-7,
+      "welford_centered": 6.402961635589625e-7,
+      "relative_error_raw": 6.219906179055357e-7
+    }
+  },
+  "verified": {
+    "identical_residual_multisets": true,
+    "no_input_residual_loss": true,
+    "centered_fsum_invariant": true,
+    "original_round2_result_replicated": true
+  },
+  "reproduction": {
+    "command": "ulimit -v 262144; /usr/bin/python3 -S order_sensitivity.py",
+    "source_script_sha256": "f5051d3f80a050eb58712a7e8aab568edde0e82161f533b5f7768f50a98e0f7a",
+    "raw_results_sha256": "49ebf74c810a0e1f4322fcc3ebfb8d09610178efc3612e8ed53e1af5582c0dde",
+    "exit_code": 0,
+    "elapsed_wall_s_approx": 0.08
+  },
+  "next_round": {
+    "experiment": "Compare anchored Welford (stream x-x0) with raw-offset Welford and two-pass centered fsum on a held-out residual family, preserving CPU budget",
+    "status": "proposed_not_executed"
+  },
+  "scope": "Numerical engineering smoke test; no novelty or native/public benchmark claim"
+}
