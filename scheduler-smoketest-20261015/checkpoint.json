@@ -1,13 +1,17 @@
 {
   "schema": "scheduled-research-smoketest-v1",
-  "revision": 1,
-  "latest_run": "round-001",
-  "completed_rounds": 1,
-  "run_record": "scheduler-smoketest-20261015/round-001.json",
+  "revision": 2,
+  "latest_run": "round-003",
+  "completed_rounds": 3,
+  "run_record": "scheduler-smoketest-20261015/round-003.json",
   "observed": {
-    "naive": -128,
-    "welford": 3.3367671608104385e-7,
-    "reference": 3.3367747854068513e-7
+    "reference": 6.402961635589599e-7,
+    "original_welford": 6.405086825147067e-7,
+    "ascending_welford": 6.682683392313038e-7,
+    "descending_welford": 6.684759579883348e-7,
+    "alternating_welford": 6.402965618171663e-7,
+    "naive_all_orders": 0,
+    "max_raw_welford_relative_error": 0.04401056266328869
   },
   "skill_load": {
     "available_in_scheduled_environment": false,
@@ -15,14 +19,36 @@
     "source_read_is_not_skill_invocation": true
   },
   "next_round": {
-    "evidence_source": "scheduler-smoketest-20261015/round-001.json",
-    "why": "First run showed naive negative variance at 1e9 offset, but Welford near the centered reference.",
-    "experiment": "With same seeded exactly representable residuals k/1024, compare offsets 0, 1000000, 1000000000 and measure naive/Welford errors relative to centered math.fsum. Test whether cancellation depends on offset.",
-    "different_from_round_1": true,
-    "n_at_most": 20000
+    "evidence_source": "scheduler-smoketest-20261015/round-003.json",
+    "why": "Sorted samples at offset 1e9 increased raw Welford relative error to ~4.4%, whereas updating centered values was accurate to <5e-15 relative error; evaluate cheap anchor-based one-pass correction and order robustness.",
+    "experiment": "Use same 1e9-offset input concept on a fresh seeded {-2,-1,0,1,2}/1024 residual family, compare raw Welford, Welford on (x-x0) without storing all samples, and two-pass centered fsum across original and sorted permutations; test whether anchor choice x0 protects both.",
+    "n_at_most": 20000,
+    "status": "proposed_not_executed",
+    "different_from_round_3": true
   },
   "branch": "autochat-scheduler-smoketest-20261015",
-  "last_status": "first_round_complete; next_round_waiting_for_second_schedule",
-  "next_schedule_count_remaining": 1,
-  "created_at_utc": "2026-10-15T12:07:14Z"
+  "last_status": "round003_measured_and_GitHub_evidence_readback_verified; round002_measured_in_previous_host_but_only_local_attachment_recovered; installed skill unavailable",
+  "next_schedule_count_remaining": null,
+  "created_at_utc": "2026-10-15T12:07:14Z",
+  "last_verified_at_utc": "2026-10-15T14:01:01Z",
+  "completed_evidence": [
+    {
+      "round": 1,
+      "status": "measured_committed",
+      "path": "scheduler-smoketest-20261015/round-001.json"
+    },
+    {
+      "round": 2,
+      "status": "measured_local_attachment_only; GitHub recovery write blocked",
+      "attachment_name": "AutoChat_Round002_20261015.zip",
+      "sha256": "131b7d204dc9a9dec7d06e5c551fd8d3e47813106034d5f4a0e9211492fbe778"
+    },
+    {
+      "round": 3,
+      "status": "measured_committed_readback_verified",
+      "path": "scheduler-smoketest-20261015/round-003.json",
+      "commit_sha": "7bbc39062eafc4b150ad09248d6e026a77d12bfb"
+    }
+  ],
+  "planned_trigger_total": 20
 }
