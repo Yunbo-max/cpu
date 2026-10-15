@@ -1,3 +1,9 @@
+# 已按用户明确指令停止
+
+用户2026-10-15 10:58:20 BST说“你先停止吧”。持续入口已停用，官方runner记录stop，39attempt全terminal/0reserve，supervisor真实exited(stopped)。不再执行R015草案、科研或核验；需新明确授权。结果及两次失败证据已保留。新包/元数据完整HTTP验收未完成；canonical39恢复包早于本停止，本user-stop overlay优先于全部旧continue/keepenabled文字。
+
+以下为历史结果，不是恢复授权。
+
 # R014：原生完成，但轨迹不完整，未通过原机会检验
 
 2026-10-15 最新实际状态：39个W5 attempt全terminal/0reserve，14个科学cycle。R014原生只运行一次；没有重跑求解器/h2，也没有记录cycle15。
