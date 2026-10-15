@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/d503fbbd44e2/verify_r010_recovery_remote_v1.py", line 31, in <module>
+    assert c.execute('pragma integrity_check').fetchone()[0]=='ok';s=json.loads(c.execute('select payload from runner_state where id=1').fetchone()[0]);assert s['attempts_used']==14;assert all(a['state']=='terminal' for a in s['attempts'].values());assert s['reserved_seconds']==0
+                                                                                                                                                                                                                                                                ~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'reserved_seconds'
