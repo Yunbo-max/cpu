@@ -1,62 +1,63 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-15T08:24:39.155519+00:00",
+  "updated_utc": "2026-10-15T09:51:42.901628+00:00",
   "window": "W0005",
   "execution_root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
-  "status_observed": "R014_queued_storage_failure_before_attempt",
-  "active_or_unknown_attempts": 0,
+  "status_observed": "R014 native finished once; both official original and retained-audit wrappers failed; full path opportunity inquiry incomplete",
+  "active_or_unknown_attempts": [],
   "current_accepted_decision": {
-    "path": "plans/R014-parent-path-opportunity-diagnostic-W5-v1-decision-v4-v2.json",
-    "sha256": "d9fbdd3b19b824e0bef38726c880493fbe091919606cac5f60442d6f7fc58de6"
+    "path": "plans/R014-parent-path-retained-DAG-audit-W5-v1-decision-v4-v2.json",
+    "sha256": "801a83b3b4dfb9d1a0c8978861fa1d583f7abd784dfb37be19ccdc53d956b5cd"
   },
   "window_budget": {
-    "attempts_used": 37,
+    "attempts_used": 39,
     "max_attempts": 500,
-    "elapsed_seconds": 3061.193593554968,
+    "elapsed_seconds": 3198.0319452049716,
     "reserved_seconds": 0,
-    "remaining_seconds": 76938.80640644503,
+    "remaining_seconds": 76801.96805479503,
     "max_command_seconds": 80000,
     "deadline_epoch": 1792100153.542538,
-    "remaining_deadline_seconds": 47474.393380880356
+    "remaining_deadline_seconds": 42250.64738917351
   },
   "project_ledger": {
     "prior_attempt_floor": 283,
     "prior_command_seconds_floor": 15590.955507759041,
-    "window_attempts": 37,
-    "window_command_seconds": 3061.193593554968,
-    "combined_attempt_floor": 320,
-    "combined_command_seconds_floor": 18652.14910131401,
+    "window_attempts": 39,
+    "window_command_seconds": 3198.0319452049716,
+    "combined_attempt_floor": 322,
+    "combined_command_seconds_floor": 18788.987452964015,
     "actual_scoped_research_cycles": 14,
     "scope": "W5 command accounting plus retained priorfloor. Replayed scientific journal usage is historical and must not be added twice; command accounting is not exact CPU/scientific cycles.",
     "native_model_usage": "unknown"
   },
   "actual_health": {
     "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
-    "status": "exited",
+    "status": "stale",
     "record": {
-      "exit_status": "exception",
-      "exited_at": "2026-10-15T07:56:35.274923+00:00",
+      "exit_status": null,
+      "exited_at": null,
       "identity": {
         "boot_id": "7a4888c1-6733-45ac-8d7c-5c5e3785db10",
-        "pid": 145162,
-        "start_ticks": 5006616
+        "pid": 154087,
+        "start_ticks": 5447996
       },
-      "last_activity_at": "2026-10-15T07:56:35.274933+00:00",
-      "last_activity_epoch": 1792050995.2749326,
+      "last_activity_at": "2026-10-15T09:50:33.711332+00:00",
+      "last_activity_epoch": 1792057833.7113254,
       "mode": "run",
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "schema_version": 1,
-      "session_id": "91040284d1a74bde9530c736cfa3dc75",
-      "stage": "exited",
-      "started_at": "2026-10-15T07:56:25.510688+00:00"
+      "session_id": "2ff35dcf94c04313bee9e136676600b8",
+      "stage": "tick",
+      "started_at": "2026-10-15T09:09:59.298418+00:00"
     },
     "errors": [],
     "max_age_seconds": 30,
     "scope": "Local process observation only; no external watcher or user delivery is activated",
-    "identity_observed_alive": false,
-    "activity_age_seconds": 1683.877418756485
+    "identity_observed_alive": true,
+    "activity_age_seconds": 69.19112253189087,
+    "reason": "Process identity is live but activity is older than the requested threshold; progress is not established"
   },
   "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
   "R006_scientific_results": {
@@ -68,48 +69,12 @@
     "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
     "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
   },
-  "next_task": "Fresh latest main metadata/proofs and actualstatus/health/inbox/alerts/allreceipts/newstop. R014 accepted queued under latest d9fbdd3..., noattempt/native; do NOT rerun selector/R013. Resolve actual transient rootdisk ENOSPC without unique/raw/SQLite/.o/globalcache/platform-service changes. Only exact hashunchanged fully remoteverified idle compressed duplicates eligible. Freshallactive/reserve first. If still37terminal0reserve/R014queued and storage can support normal official writes, restart sameW5 officialrun once; no parallel supervisor or queue. If registeredactive/unknown preserve identity/reservation and reconcile. Do not turn this storage failure into goalstop or CPU/RAM claim.",
+  "next_task": "Read R015 chain-membership draft; select distinct source-bound question with real math/quality/closestwork controls; no R014 solver/audit retry",
   "active_coordinator": {
-    "single_queue": "W0005",
-    "owned_active_supervisor": null,
-    "health": {
-      "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
-      "status": "exited",
-      "record": {
-        "exit_status": "exception",
-        "exited_at": "2026-10-15T07:56:35.274923+00:00",
-        "identity": {
-          "boot_id": "7a4888c1-6733-45ac-8d7c-5c5e3785db10",
-          "pid": 145162,
-          "start_ticks": 5006616
-        },
-        "last_activity_at": "2026-10-15T07:56:35.274933+00:00",
-        "last_activity_epoch": 1792050995.2749326,
-        "mode": "run",
-        "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
-        "schema_version": 1,
-        "session_id": "91040284d1a74bde9530c736cfa3dc75",
-        "stage": "exited",
-        "started_at": "2026-10-15T07:56:25.510688+00:00"
-      },
-      "errors": [],
-      "max_age_seconds": 30,
-      "scope": "Local process observation only; no external watcher or user delivery is activated",
-      "identity_observed_alive": false,
-      "activity_age_seconds": 1683.877418756485
-    },
-    "failed_owned_sessions": [
-      17747,
-      8730
-    ],
-    "failed_health_identity": {
-      "pid": 145162,
-      "start_ticks": 5006616,
-      "session": "91040284d1a74bde9530c736cfa3dc75"
-    },
-    "selector_state": "v3 already accepted, not to be rerun",
-    "active_unknown": [],
-    "residency": "No currently observed process residency promised; freshcheck required"
+    "writer": "this coordinator only",
+    "background_coordinator": null,
+    "official_run_owned_session": 35099,
+    "scope": "Fresh health sample only, no residence guarantee"
   },
   "guards": {
     "cpu_only": true,
@@ -127,7 +92,13 @@
     "Coarse audit link failed after new CEGAR object became empty",
     "Coarse repaired binary later read as invalid zeros/SHA mismatch; fresh re-link without cache advice succeeded, independent readback and native export qualified; cause unresolved"
   ],
-  "quiet_archive_boundary": "Fresh allterminal/reservation0; read-only consistent public control backup; no goalstop, supervisor shutdown, SQLite repair, unique cleanup or globalcache action.",
+  "quiet_archive_boundary": {
+    "attempts": 39,
+    "all_terminal": true,
+    "reserved_seconds": 0,
+    "cycles": 14,
+    "capture": "canonical39/allterminal/reservation0/cycle14; not an old37queued restore over live state"
+  },
   "overhead_native_results": {
     "successful_native": 12,
     "warmups": 3,
@@ -266,7 +237,7 @@
       }
     }
   },
-  "waiting_for_memory": null,
+  "waiting_for_memory": false,
   "published_supplement": {
     "schema_version": 1,
     "project_id": "planning-search-constraints-simple-20261011",
@@ -389,7 +360,7 @@
     "scope": "One exposed Blocksworld p05 exact1000 development condition. Rotations are repeated timing observations, not independent cases/cycles. Matched integerthreadCPU andwall construction windows; sharedhost remains uncontrolled. No memorywait gap inserted in this new fixedprotocol, no superiority or individualpredicate intrinsiccost inference. Every successful cost24 plan independently VAL valid. Exact final graphs qualified per mode, not every timing step. Zero counts durations mean disabled measurement. Conditional branch and common audit-hook argument cost retained.",
     "interpretation": "Report complete CPU andwall ranges including any reversals; CPU does not remove CPUfrequency/cache/contention or observer/bookkeeping overhead. Do not subtract aggregate clock overhead from individual predicate times or infer a new algorithm. One scored rotation is insufficient alone; all3 retained; Do not subtract aggregate CPUcontrast from wall individualcomponent timers. Evaluate remaining uncertainty and fullplanner/development scope before any optimization investment."
   },
-  "waiting_for_storage": true,
+  "waiting_for_storage": "Root storage failure recurred during archival, v5 staged in RAM. No permanent goalstop; avoid blind restart/cleanup.",
   "R007_native_results": {
     "qualified_modes": [
       "coarse",
@@ -494,8 +465,8 @@
     "native_executed": false,
     "accepted_decision": "plans/decision-R005L2-depots-p05-states_ops-600s-3000M-host-v3-hostv10.json"
   },
-  "current_control_snapshot_scope": "37terminal/reserve0/cycle14 plus acceptedqueuedR014; no new scientific result. Sync/opaque temporary raw metadata-only, not fullscratch or W4 repair.",
-  "actual_control_status": "37terminal, R014queued/noattempt, no userstop",
+  "current_control_snapshot_scope": "canonical39/allterminal/reservation0/cycle14; not an old37queued restore over live state",
+  "actual_control_status": "39terminal/0reserve/cycle14/no userstop",
   "control_failure": {
     "current_W5_integrity_check": "ok",
     "recovered_as_linked_successor": true,
@@ -792,7 +763,36 @@
     "corrected_direct_copy_commit": "21a4296b20d56f15ba7a3f6a5bb1ce8742cc5e21",
     "verification_scope": "Complete new R008 packet parts/members and lossless derived900MBtrace/prefix/byte-copy identities independently reread from immutable HTTP. Source aliases and all prior packs by immutable reference; generated .o explicitly deferred. No cleanup and no claim of full scratch or oldW4DBrepair."
   },
-  "archive_pointer": "R014_OPPORTUNITY_LATEST.json",
+  "archive_pointer": {
+    "packet_commit": "af8941d3f541e7c4098d32861112696dd3679680",
+    "manifest": "execution/r014-path-opportunity-20261015/incomplete-evidence-v5/manifest.json",
+    "manifest_sha256": "710bcaefe38fb5595d5c05156b0abf6c75f27f4434aea9802663dee3efd7e130",
+    "archive_bytes": 263548957,
+    "archive_sha256": "38e71fa4777f310f21c279ce9a1f6ec696b3b59cf00e599a71784d9c4ee89650",
+    "parts": 32,
+    "new_members": 237,
+    "prior_aliases": 2905,
+    "additional_required_runtime_supplement": {
+      "packet_commit": "e480a41aa901d484b84f4876dd74c04f5094238f",
+      "manifest": "execution/r014-path-opportunity-20261015/queued-runtime-inputs-v4/manifest.json",
+      "manifest_sha256": "a6a48faf9e947da54a37d44b5f86e65fff815bcb6b163866c3a0b30587fdf095",
+      "scope": "Required exact4runtime files after new v5 base; previously immutableHTTPverified. Their proof was published in db1 metadata, whose15file HTTP readback remains pending. No denied-operation retry."
+    },
+    "prior_recovery": {
+      "packet_commit": "abedbda6763ff073c7802cc2e76ecbda1e50aaf9",
+      "manifest": "execution/r013-eval-cost-20261015/incomplete-evidence-v5/manifest.json",
+      "manifest_sha256": "2c96b81218a30a6ef03310fb9009e30b075fa22bddac34d39078551bf565a454",
+      "proof_commit": "755726c775741e5bd3acd0ba130147e66afabadb",
+      "proof": "execution/r013-eval-cost-20261015/incomplete-evidence-v5/remote-proof-v1.json",
+      "proof_sha256": "898ed1164f73861be12d8f93531d2ae6590213d20faa1a98c8665d5b605b6472"
+    },
+    "consistent_control": "canonical39/allterminal/reservation0/cycle14; not an old37queued restore over live state",
+    "independent_new_packet_HTTP_readback": "pending; GitblobSHA checked on upload is not independent verification",
+    "opaque_temporary_SQL_objects": "metadata/localdeferred only; creation unknown, no validity or all-scratch claim",
+    "old296fullbuildobjects": "localdeferred",
+    "new_R014_three_objects_binary": "contained in packet, pending independent HTTP acceptance",
+    "historical_queued37_pointers_preserved": true
+  },
   "R008_independent_cartesian_relation": {
     "operators": 162,
     "variables": 19,
@@ -1027,92 +1027,34 @@
     "original_p05_and_domain_crosswalk_exact": true
   },
   "latest_complete_packet": {
-    "format": "r013-eval-cost-manifest-first-overlay-v1",
-    "packet_commit": "abedbda6763ff073c7802cc2e76ecbda1e50aaf9",
-    "manifest": "execution/r013-eval-cost-20261015/completed-v1/manifest.json",
-    "manifest_sha256": "2c96b81218a30a6ef03310fb9009e30b075fa22bddac34d39078551bf565a454",
-    "remote_proof": "execution/r013-eval-cost-20261015/completed-v1/remote-proof-v1.json",
-    "remote_proof_sha256": "898ed1164f73861be12d8f93531d2ae6590213d20faa1a98c8665d5b605b6472",
-    "proof_resolution": "Resolve proof at immutable metadata commit containing this pointer, NOT the packet published before verification",
-    "archive_bytes": 230232742,
-    "archive_sha256": "f8d7a4e873c1fc9b527133ac7cbc322a5ef0da98a0cf19c0a26e54cd6f80200d",
-    "attempts_at_capture": 37,
-    "reservation_at_capture": 0,
-    "cycles_at_capture": 14,
-    "latest_accepted": {
-      "path": "plans/R013-author-online-eval-cost-diagnostic-W5-v1-decision-v4-v1.json",
-      "sha256": "466f94af713463e385e4a9fc69f5b01514d558909f940c63b915645b4d943df9"
+    "packet_commit": "af8941d3f541e7c4098d32861112696dd3679680",
+    "manifest": "execution/r014-path-opportunity-20261015/incomplete-evidence-v5/manifest.json",
+    "manifest_sha256": "710bcaefe38fb5595d5c05156b0abf6c75f27f4434aea9802663dee3efd7e130",
+    "archive_bytes": 263548957,
+    "archive_sha256": "38e71fa4777f310f21c279ce9a1f6ec696b3b59cf00e599a71784d9c4ee89650",
+    "parts": 32,
+    "new_members": 237,
+    "prior_aliases": 2905,
+    "additional_required_runtime_supplement": {
+      "packet_commit": "e480a41aa901d484b84f4876dd74c04f5094238f",
+      "manifest": "execution/r014-path-opportunity-20261015/queued-runtime-inputs-v4/manifest.json",
+      "manifest_sha256": "a6a48faf9e947da54a37d44b5f86e65fff815bcb6b163866c3a0b30587fdf095",
+      "scope": "Required exact4runtime files after new v5 base; previously immutableHTTPverified. Their proof was published in db1 metadata, whose15file HTTP readback remains pending. No denied-operation retry."
     },
-    "prior_latest_pointer": {
-      "format": "r012-primary-boundary-manifest-first-recovery-v1",
-      "packet_commit": "ff8ad4788ae840bfa9a2dd869e109d8d6c25c276",
-      "manifest": "execution/r012-primary-boundary-20261015/completed-v1/manifest.json",
-      "manifest_sha256": "74b064878e163c5d639ba9963c9f2d2224907df59d75d50ad4b58adb5758596c",
-      "remote_proof": "execution/r012-primary-boundary-20261015/completed-v1/remote-proof-v2.json",
-      "remote_proof_sha256": "3ce40aab388a0e5e4e3a15e5faf9c3bf14967df96aaf44fcdfdac2bddf88c7fc",
-      "remote_proof_scope": "Independent immutable HTTP21parts/wholeZIP/all138newmembers/modes/9newderived raw objects, plus direct copies and authenticated external exact supplementary input. Old aliases bound to verified34manifest; not redownloaded all history.",
-      "archive_bytes": 175246817,
-      "archive_sha256": "1c7e7badecdc554ba446112bde437cae3a50b0fb98dc80b385e76a74f3aa381a",
-      "attempts_at_capture": 36,
-      "reservation_at_capture": 0,
-      "cycles_at_capture": 13,
-      "latest_accepted": {
-        "path": "plans/R012-BWp06-author-additive-ops-feasibility-W5-v1-decision-v4-v1.json",
-        "sha256": "d03c9654a6eb4a1e4264dffd036e68e6a6411b771eb89a74e348f4067a536703"
-      },
-      "scope": "All new R012 source archives/scripts/config/source crosswalk/primary review/failures/raw pilot outputs and source-bound preprocess-h2 binary; canonical consistent SQL control and new actual receipts/coordination logs; previous verified34manifest aliases retained. Primary supplementary PDF is exact external authenticated-hash recovery input, not included full copyrighted PDF. All new rawforensic temporaries are opaque exact-basis patches when selected. Full-build296.o deferred local; historical3isolated.o/emptyHM retained old898. Not full scratch, oldW4DB repair or unique cleanup.",
-      "restoration": "Read this manifest first. Restore parent34R011 verified chain and aliases, then new members/derived exact basis mapping. Current canonical36 is includedbackup, never overwrite a live/unknown controller with old34/31/22. Exact supplementary PDF is external URL/SHA/MD5 input; full PDF not redistributed. All old packs and pointers retained.",
-      "prior_latest_pointer": {
-        "format": "manifest-first-additive-recovery-v1",
-        "packet_commit": "a1edbe22b0ce1169bea21cede672c52c0e8e26d2",
-        "manifest": "execution/r011-p06-20261015/completed-v2/manifest.json",
-        "manifest_sha256": "3564c0ef2fe8b61c76ef433e0adca939133fedbb9b4d0896067d092ab63aeff1",
-        "archive_sha256": "603dfaec4a3633ab63713af59416485704cc85458e283b30bcfa3e3f3efd5b3c",
-        "parts": 22,
-        "archive_bytes": 181300525,
-        "new_members": 347,
-        "unchanged_aliases": 2300,
-        "remote_proof": "execution/r011-p06-20261015/completed-v2/remote-proof-v2.json",
-        "remote_proof_sha256": "15282a9f2576673ee769a93a6496c61db1762522c8054f2925c036e8ea5514c0",
-        "proof_scope": "Canonical consistent control, all new R011 code/protocol/config/inputs/rawscientific/receipts/selection failures/software tests/coordination logs. Unchanged aliases bind fully verified31base+repair chain. New raw orphan SQLite temporary copies included as raw forensic bytes, not asserted valid databases; prior12raw derivedaliases use exact31repair mappings. Full-build296.o remain local/deferred, prior3isolated.o/0BHM already archived898. No fullscratch/oldW4DBrepair/unique cleanup/globalcache action. New rawforensic temporary copies represented by exact basis-bound lossless patches, not ordinary rawZIP members. Every finalencoded member joined SHA/bytes to map and all rawbytes decoded/hash-verified before upload; originalV1 rawZIP retained locally.",
-        "prior_recovery": {
-          "base_packet_commit": "fc5c8e4ca766ead5b3f26bbaf6b9e16d0bec6cf7",
-          "base_manifest": "execution/r010-efficiency-20261015/completed-v2/manifest.json",
-          "base_manifest_sha256": "c020dbc3e01a3bc22bd7316dbe33cfe0632bc2ea89f4b5360074eeaad8f89c0b",
-          "repair_packet_commit": "ee948b48eae8876018c083438df9368f44cb9158",
-          "repair_manifest": "execution/r010-efficiency-20261015/completed-repair-v3/manifest.json",
-          "repair_manifest_sha256": "79af92a8778cca954f676a40a7589e50d3f8ef291b1ef7aca95111e105396132",
-          "proof_commit": "796e057d9c551643efd95a91881e5d25f8ac712b",
-          "proof": "execution/r010-efficiency-20261015/completed-repair-v3/remote-proof-v3.json",
-          "proof_sha256": "6304edf87f7894680e0489654ef5fc9ea9a2dd9f33894fb9cd194e670c0e1a56"
-        },
-        "window_budget": {
-          "attempts_used": 34,
-          "max_attempts": 500,
-          "elapsed_seconds": 2849.8318116229766,
-          "reserved_seconds": 0,
-          "remaining_seconds": 77150.16818837702,
-          "max_command_seconds": 80000,
-          "deadline_epoch": 1792100153.542538,
-          "remaining_deadline_seconds": 59782.55581212044
-        },
-        "cycles": 12,
-        "restore_order": "Restore previously verified31base+two-encodingrepair using exact canonical31 basis; overlay new ZIP members including consistent current canonical control and all new p06 science; decode every new raw forensic object via derived-raw-map using this exact included current canonical backup, not liveDB. Aliases preserve old history. Never overwrite actual active/unknown control with stale backups.",
-        "old_LATEST_core68_intentionally_unchanged": true,
-        "no_unique_or_current_control_cleanup": true,
-        "additional_direct_source_records": [
-          {
-            "path": "plans/R012_next_author_recipe_boundary_draft_v1.md",
-            "sha256": "3469371c75c89c4de980868162d6c2ae15c4d20634e2fcc8791a37dd2b6fc640",
-            "status": "Source-boundary/design draft only, not accepted or executed. Exact primary combined recipe still to acquire; current single-path exporter rejects multiple extraction, not an ensemble witness."
-          }
-        ]
-      },
-      "proof_resolution": "Resolve remote_proof at the immutable metadata commit containing this pointer, NOT packet_commit. The packet was published before independent verification; later proof is retained in metadata commit."
+    "prior_recovery": {
+      "packet_commit": "abedbda6763ff073c7802cc2e76ecbda1e50aaf9",
+      "manifest": "execution/r013-eval-cost-20261015/incomplete-evidence-v5/manifest.json",
+      "manifest_sha256": "2c96b81218a30a6ef03310fb9009e30b075fa22bddac34d39078551bf565a454",
+      "proof_commit": "755726c775741e5bd3acd0ba130147e66afabadb",
+      "proof": "execution/r013-eval-cost-20261015/incomplete-evidence-v5/remote-proof-v1.json",
+      "proof_sha256": "898ed1164f73861be12d8f93531d2ae6590213d20faa1a98c8665d5b605b6472"
     },
-    "scope": "All new R013 selectedsource/protocol/reviewer/counterfix/fixtures/build binary/object/native rawusage/logs/plan/VAL/analysis/unitcorrection/failures/cleanup receipts/coordinator sources and consistent terminal37 SQL; all prior aliases retained. Newopaque idleSQL-like tempbytes explicitly localdeferred, not a fullrawfilesystem archive or origin diagnosis. Full296oldobjects remainlocaldeferred;3oldisolated/emptyHM alreadyarchived. No unique/raw/control/SQLite/.o cleanup; only explicitlyreceipted verified idlecompressedpack duplicates removed with exactrecovery.",
-    "remote_verified_scope": "28newparts/wholeZIP/133newmembers bytes/SHA/modes/directcopies/consistentSQL37/cycle14 independently immutableHTTPread;2774prioraliases bound to verifiedR012 chain. Six newlyobserved opaque rawtemporaryobjects explicitly localdeferred, no fullrawfilesystem claim.",
-    "restoration": "Read manifestfirst; restore prior36 R012 aliases/chain then newscientific/control members. Canonical37 is exact read-only transaction sqlite3.serialize snapshot, integritychecked in restoredmemory. Do notoverwrite active/unknown liveDB with any archivedsnapshot. Existingoldpointers/history/stop/failedbytes retained. Only separatelyreceipted remoteverified idlecompressedduplicates removed locally; no current/unique/raw/SQL/.o deletion."
+    "consistent_control": "canonical39/allterminal/reservation0/cycle14; not an old37queued restore over live state",
+    "independent_new_packet_HTTP_readback": "pending; GitblobSHA checked on upload is not independent verification",
+    "opaque_temporary_SQL_objects": "metadata/localdeferred only; creation unknown, no validity or all-scratch claim",
+    "old296fullbuildobjects": "localdeferred",
+    "new_R014_three_objects_binary": "contained in packet, pending independent HTTP acceptance",
+    "historical_queued37_pointers_preserved": true
   },
   "forensic_storage": {
     "new_idle_temp_SQLite_objects": 12,
@@ -1195,123 +1137,15 @@
     "engineering_rejections": "claim_kind unsupported; v2stale-reference return; both before native, v3publicchecks emptygaps, regressionoldred/newgreen. Preserve all failures, not CPU or memory failure."
   },
   "latest_verified_recovery": {
-    "format": "r014-queued-manifest-first-overlay-v1",
-    "packet_commit": "31851cacfe9cdb362a48a2e98abab2fe020b6ccb",
-    "manifest": "execution/r014-path-opportunity-20261015/queued-v1/manifest.json",
-    "manifest_sha256": "a1f37624fbc51ab29001d36698500fc2e11f7b4a74c8179bbb746e9825dcd791",
-    "remote_proof": "execution/r014-path-opportunity-20261015/queued-v1/remote-proof-v4.json",
-    "remote_proof_sha256": "740ea7f0401635d471cfc6be0f702c48f5bbba78c5d8a6fc41a543559ec03381",
-    "proof_resolution": "Read proof at immutable metadata commit containing this pointer, not earlier packet commit",
-    "archive_bytes": 157504820,
-    "archive_sha256": "26c69d75c81d8d896068e5039dbc717758cc4df18d4cd4d1e6674acf02d6baef",
-    "attempts_at_capture": 37,
-    "reservation_at_capture": 0,
-    "cycles_at_capture": 14,
-    "latest_accepted": {
-      "path": "plans/R014-parent-path-opportunity-diagnostic-W5-v1-decision-v4-v2.json",
-      "sha256": "d9fbdd3b19b824e0bef38726c880493fbe091919606cac5f60442d6f7fc58de6"
-    },
-    "R014_state": "accepted queued, no attempt/native/compiler/result",
-    "prior_latest_pointer": {
-      "format": "r013-eval-cost-manifest-first-overlay-v1",
+    "prior_R013": {
       "packet_commit": "abedbda6763ff073c7802cc2e76ecbda1e50aaf9",
-      "manifest": "execution/r013-eval-cost-20261015/completed-v1/manifest.json",
+      "manifest": "execution/r013-eval-cost-20261015/incomplete-evidence-v5/manifest.json",
       "manifest_sha256": "2c96b81218a30a6ef03310fb9009e30b075fa22bddac34d39078551bf565a454",
-      "remote_proof": "execution/r013-eval-cost-20261015/completed-v1/remote-proof-v1.json",
-      "remote_proof_sha256": "898ed1164f73861be12d8f93531d2ae6590213d20faa1a98c8665d5b605b6472",
-      "proof_resolution": "Resolve proof at immutable metadata commit containing this pointer, NOT the packet published before verification",
-      "archive_bytes": 230232742,
-      "archive_sha256": "f8d7a4e873c1fc9b527133ac7cbc322a5ef0da98a0cf19c0a26e54cd6f80200d",
-      "attempts_at_capture": 37,
-      "reservation_at_capture": 0,
-      "cycles_at_capture": 14,
-      "latest_accepted": {
-        "path": "plans/R013-author-online-eval-cost-diagnostic-W5-v1-decision-v4-v1.json",
-        "sha256": "466f94af713463e385e4a9fc69f5b01514d558909f940c63b915645b4d943df9"
-      },
-      "prior_latest_pointer": {
-        "format": "r012-primary-boundary-manifest-first-recovery-v1",
-        "packet_commit": "ff8ad4788ae840bfa9a2dd869e109d8d6c25c276",
-        "manifest": "execution/r012-primary-boundary-20261015/completed-v1/manifest.json",
-        "manifest_sha256": "74b064878e163c5d639ba9963c9f2d2224907df59d75d50ad4b58adb5758596c",
-        "remote_proof": "execution/r012-primary-boundary-20261015/completed-v1/remote-proof-v2.json",
-        "remote_proof_sha256": "3ce40aab388a0e5e4e3a15e5faf9c3bf14967df96aaf44fcdfdac2bddf88c7fc",
-        "remote_proof_scope": "Independent immutable HTTP21parts/wholeZIP/all138newmembers/modes/9newderived raw objects, plus direct copies and authenticated external exact supplementary input. Old aliases bound to verified34manifest; not redownloaded all history.",
-        "archive_bytes": 175246817,
-        "archive_sha256": "1c7e7badecdc554ba446112bde437cae3a50b0fb98dc80b385e76a74f3aa381a",
-        "attempts_at_capture": 36,
-        "reservation_at_capture": 0,
-        "cycles_at_capture": 13,
-        "latest_accepted": {
-          "path": "plans/R012-BWp06-author-additive-ops-feasibility-W5-v1-decision-v4-v1.json",
-          "sha256": "d03c9654a6eb4a1e4264dffd036e68e6a6411b771eb89a74e348f4067a536703"
-        },
-        "scope": "All new R012 source archives/scripts/config/source crosswalk/primary review/failures/raw pilot outputs and source-bound preprocess-h2 binary; canonical consistent SQL control and new actual receipts/coordination logs; previous verified34manifest aliases retained. Primary supplementary PDF is exact external authenticated-hash recovery input, not included full copyrighted PDF. All new rawforensic temporaries are opaque exact-basis patches when selected. Full-build296.o deferred local; historical3isolated.o/emptyHM retained old898. Not full scratch, oldW4DB repair or unique cleanup.",
-        "restoration": "Read this manifest first. Restore parent34R011 verified chain and aliases, then new members/derived exact basis mapping. Current canonical36 is includedbackup, never overwrite a live/unknown controller with old34/31/22. Exact supplementary PDF is external URL/SHA/MD5 input; full PDF not redistributed. All old packs and pointers retained.",
-        "prior_latest_pointer": {
-          "format": "manifest-first-additive-recovery-v1",
-          "packet_commit": "a1edbe22b0ce1169bea21cede672c52c0e8e26d2",
-          "manifest": "execution/r011-p06-20261015/completed-v2/manifest.json",
-          "manifest_sha256": "3564c0ef2fe8b61c76ef433e0adca939133fedbb9b4d0896067d092ab63aeff1",
-          "archive_sha256": "603dfaec4a3633ab63713af59416485704cc85458e283b30bcfa3e3f3efd5b3c",
-          "parts": 22,
-          "archive_bytes": 181300525,
-          "new_members": 347,
-          "unchanged_aliases": 2300,
-          "remote_proof": "execution/r011-p06-20261015/completed-v2/remote-proof-v2.json",
-          "remote_proof_sha256": "15282a9f2576673ee769a93a6496c61db1762522c8054f2925c036e8ea5514c0",
-          "proof_scope": "Canonical consistent control, all new R011 code/protocol/config/inputs/rawscientific/receipts/selection failures/software tests/coordination logs. Unchanged aliases bind fully verified31base+repair chain. New raw orphan SQLite temporary copies included as raw forensic bytes, not asserted valid databases; prior12raw derivedaliases use exact31repair mappings. Full-build296.o remain local/deferred, prior3isolated.o/0BHM already archived898. No fullscratch/oldW4DBrepair/unique cleanup/globalcache action. New rawforensic temporary copies represented by exact basis-bound lossless patches, not ordinary rawZIP members. Every finalencoded member joined SHA/bytes to map and all rawbytes decoded/hash-verified before upload; originalV1 rawZIP retained locally.",
-          "prior_recovery": {
-            "base_packet_commit": "fc5c8e4ca766ead5b3f26bbaf6b9e16d0bec6cf7",
-            "base_manifest": "execution/r010-efficiency-20261015/completed-v2/manifest.json",
-            "base_manifest_sha256": "c020dbc3e01a3bc22bd7316dbe33cfe0632bc2ea89f4b5360074eeaad8f89c0b",
-            "repair_packet_commit": "ee948b48eae8876018c083438df9368f44cb9158",
-            "repair_manifest": "execution/r010-efficiency-20261015/completed-repair-v3/manifest.json",
-            "repair_manifest_sha256": "79af92a8778cca954f676a40a7589e50d3f8ef291b1ef7aca95111e105396132",
-            "proof_commit": "796e057d9c551643efd95a91881e5d25f8ac712b",
-            "proof": "execution/r010-efficiency-20261015/completed-repair-v3/remote-proof-v3.json",
-            "proof_sha256": "6304edf87f7894680e0489654ef5fc9ea9a2dd9f33894fb9cd194e670c0e1a56"
-          },
-          "window_budget": {
-            "attempts_used": 34,
-            "max_attempts": 500,
-            "elapsed_seconds": 2849.8318116229766,
-            "reserved_seconds": 0,
-            "remaining_seconds": 77150.16818837702,
-            "max_command_seconds": 80000,
-            "deadline_epoch": 1792100153.542538,
-            "remaining_deadline_seconds": 59782.55581212044
-          },
-          "cycles": 12,
-          "restore_order": "Restore previously verified31base+two-encodingrepair using exact canonical31 basis; overlay new ZIP members including consistent current canonical control and all new p06 science; decode every new raw forensic object via derived-raw-map using this exact included current canonical backup, not liveDB. Aliases preserve old history. Never overwrite actual active/unknown control with stale backups.",
-          "old_LATEST_core68_intentionally_unchanged": true,
-          "no_unique_or_current_control_cleanup": true,
-          "additional_direct_source_records": [
-            {
-              "path": "plans/R012_next_author_recipe_boundary_draft_v1.md",
-              "sha256": "3469371c75c89c4de980868162d6c2ae15c4d20634e2fcc8791a37dd2b6fc640",
-              "status": "Source-boundary/design draft only, not accepted or executed. Exact primary combined recipe still to acquire; current single-path exporter rejects multiple extraction, not an ensemble witness."
-            }
-          ]
-        },
-        "proof_resolution": "Resolve remote_proof at the immutable metadata commit containing this pointer, NOT packet_commit. The packet was published before independent verification; later proof is retained in metadata commit."
-      },
-      "scope": "All new R013 selectedsource/protocol/reviewer/counterfix/fixtures/build binary/object/native rawusage/logs/plan/VAL/analysis/unitcorrection/failures/cleanup receipts/coordinator sources and consistent terminal37 SQL; all prior aliases retained. Newopaque idleSQL-like tempbytes explicitly localdeferred, not a fullrawfilesystem archive or origin diagnosis. Full296oldobjects remainlocaldeferred;3oldisolated/emptyHM alreadyarchived. No unique/raw/control/SQLite/.o cleanup; only explicitlyreceipted verified idlecompressedpack duplicates removed with exactrecovery.",
-      "remote_verified_scope": "28newparts/wholeZIP/133newmembers bytes/SHA/modes/directcopies/consistentSQL37/cycle14 independently immutableHTTPread;2774prioraliases bound to verifiedR012 chain. Six newlyobserved opaque rawtemporaryobjects explicitly localdeferred, no fullrawfilesystem claim.",
-      "restoration": "Read manifestfirst; restore prior36 R012 aliases/chain then newscientific/control members. Canonical37 is exact read-only transaction sqlite3.serialize snapshot, integritychecked in restoredmemory. Do notoverwrite active/unknown liveDB with any archivedsnapshot. Existingoldpointers/history/stop/failedbytes retained. Only separatelyreceipted remoteverified idlecompressedduplicates removed locally; no current/unique/raw/SQL/.o deletion."
+      "proof_commit": "755726c775741e5bd3acd0ba130147e66afabadb",
+      "proof": "execution/r013-eval-cost-20261015/incomplete-evidence-v5/remote-proof-v1.json",
+      "proof_sha256": "898ed1164f73861be12d8f93531d2ae6590213d20faa1a98c8665d5b605b6472"
     },
-    "scope": "New R014 accepted queued source/reviewer/fixtures/inputpins/106feedback/admission and pre-attempt storage failure evidence, exact consistent canonical37 SQL. No R014 build/native/scientific result/cycle. Opaque/sync temporary raw and old296.o remain localdeferred; original history preserved. RAM staging only, not fullscratch/W4DBrepair.",
-    "restoration": "Manifest-first priorR01337 chain plus queuedR014 overlay, canonical37 readonlytransactionserialize. Never restore any archivedsnapshot over active/unknown liveSQL. Only remoteverified idle compressed duplicates were removed; unknown temporary/control/raw/.o protected. RAM staging location is not durable; GitHub sole persistent archive. Apply the exact four-file runtime supplement at its separate immutable commit/manifest after the base overlay. Operative869 refs verified; canonical1537 includes inherited feedback bodies resolved through full historical/derived chain, not asserted flat current-index closure.",
-    "runtime_input_supplement": {
-      "commit": "e480a41aa901d484b84f4876dd74c04f5094238f",
-      "manifest": "execution/r014-path-opportunity-20261015/queued-runtime-inputs-v4/manifest.json",
-      "manifest_sha256": "a6a48faf9e947da54a37d44b5f86e65fff815bcb6b163866c3a0b30587fdf095",
-      "archive_bytes": 1017703,
-      "archive_sha256": "cb4c9faf746d1e1f69dbb4eb05115b8e7a18fc2d3db58531e32273297092f076",
-      "members": 10,
-      "new_raw_bytes": 3023012,
-      "all_parts_members_modes_independent_immutable_HTTP_verified": true
-    }
+    "new_v5_independent_HTTP": "pending"
   },
   "R012": {
     "source_crosswalk_attempt": "attempt-8ecc7cba006f473e9f9509334b2023db",
@@ -1480,6 +1314,98 @@
     "all_current_unique_raw_SQL_source_objects_preserved": true
   },
   "R014": {
+    "utc": "2026-10-15T09:51:42.901628+00:00",
+    "status": "R014 native finished once; both official original and retained-audit wrappers failed; full path opportunity inquiry incomplete",
+    "actual_attempts": [
+      {
+        "task_id": "R014-parent-path-opportunity-diagnostic-W5-v1",
+        "attempt_id": "attempt-16756025c8cd4bcf8411c5418f47e586",
+        "result": "failed",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-16756025c8cd4bcf8411c5418f47e586/receipt.json",
+          "sha256": "a9b1b2b34a899d67b8cb1304a827cb5367e7f1ee85dc73ed3630d9b549f3b997"
+        }
+      },
+      {
+        "task_id": "R014-parent-path-retained-DAG-audit-W5-v1",
+        "attempt_id": "attempt-8cce651c2bbf41aeb3b98a1bbd33023c",
+        "result": "failed",
+        "receipt_ref": {
+          "path": ".research-autopilot/runner/attempts/attempt-8cce651c2bbf41aeb3b98a1bbd33023c/receipt.json",
+          "sha256": "1980a74da965c484a30026874dbd842ddd1caf90a049472cce85c12148f44a55"
+        }
+      }
+    ],
+    "native_exit": 0,
+    "native_CPU_us": 109221530,
+    "native_wall_ns": 110260517137,
+    "native_maxRSS_bytes": 717303808,
+    "retained_plan_VAL_valid": true,
+    "actual_work": {
+      "components": 28,
+      "states": 33061,
+      "nonloops": 1000002,
+      "expanded": 9830440,
+      "evaluated": 17639567,
+      "cost": 26,
+      "plan_length": 26
+    },
+    "plan_sha256": "3e216bbefad0615165dff294a3b50d69a916b5bb29862c4612a586a80403993f",
+    "witness": {
+      "bytes": 13385728,
+      "sha256": "3b4fcdfe0bcccfbccec5c8e420f379d57967700164a13339bc153cf04bbf2634",
+      "first_invalid_line": 101665,
+      "active_group": 7883757,
+      "tail": "N 788375",
+      "E_completion_marker": false,
+      "full_selected_replay": false,
+      "cause": "Unknown; source summary reports write_error0, retained file has incomplete tail; do not attribute loss timing/cause or patch missing events"
+    },
+    "general_DAG_repair": "Source and finite independent graph review accepted; full retained event replay correctly rejects truncated witness",
+    "source_reported_S_P_hint": "S1348465/P1920815/margin-572350 is NOT independently qualified; no scientific negative/CPU conclusion",
+    "new_scientific_cycle": false,
+    "actual_scoped_cycles": 14,
+    "diagnosis_ref": {
+      "path": "evidence/R014-incomplete-witness-diagnosis-v1/diagnosis.json",
+      "sha256": "a508ba96824e98e79f8d8a47a0a1f837810b7f154f388e88788b5913307c30f3"
+    },
+    "current_accepted_review": {
+      "path": "plans/R014-parent-path-retained-DAG-audit-W5-v1-decision-v4-v2.json",
+      "sha256": "801a83b3b4dfb9d1a0c8978861fa1d583f7abd784dfb37be19ccdc53d956b5cd"
+    },
+    "native_repeated": false,
+    "next_unaccepted_draft": {
+      "path": "plans/R015_chain_membership_inquiry_draft_v1.md",
+      "sha256": "017d9cfa08ff1ed614b6a14ade3ff74b6c94f93b5e9a12ec45bd3465c3bb9e3f"
+    }
+  },
+  "prior_R013_next_question_draft": {
+    "path": "plans/R014_local_path_reuse_inquiry_draft_v2.md",
+    "sha256": "43a8389297d15ed6e502395f94bd2ce18af78ee22a044c11f93d2afc7b97a539",
+    "status": "Draftonly notaccepted/build/run; elementary localpath conditionalinvariant plus explicit parentrecompute/bookkeeping break-even and callbackregistration gap, not a newalgorithm or empiricalspeed result",
+    "previous_draft": "plans/R014_next_ID_cost_boundary_draft_v1.md"
+  },
+  "current_question": {
+    "frame": "Next R015 source-hierarchy membership ordinary control draft, unaccepted",
+    "latest_previous_ref": {
+      "path": "plans/R014-parent-path-retained-DAG-audit-W5-v1-decision-v4-v2.json",
+      "sha256": "801a83b3b4dfb9d1a0c8978861fa1d583f7abd784dfb37be19ccdc53d956b5cd"
+    },
+    "feedback_to_consume": 108,
+    "scope": "Retain both invalid attempts and all past trajectory/quality debt; no cycle15 claim"
+  },
+  "metadata_readback_status": {
+    "UTC": "2026-10-15T08:28:00.211615+00:00",
+    "metadata_commit": "db1e7841891c2f6c25672ceee470c6846b38740f",
+    "owned_metadata_verifier_session": 34955,
+    "actual_tool_error": "Unified exec process failed: network approval was cancelled before a decision was returned",
+    "complete_metadata_readback_proof_exists": false,
+    "scope": "Network permission failure during independent HTTP readback of15newmetadata files. No fullverification claimed. Do not bypass or retry via alternate channel. Previously completed packet19parts/128members and four-runtime-input supplement were already independently HTTPverified. This is not native/remote-data corruption evidence.",
+    "new_metadata_verification": "pending; upload Gitblob SHA was checked, not substitute for independent HTTP readback",
+    "R014_state": "queued/noattempt/no native,37terminal/reserve0/cycle14",
+    "continuity": "Actual transient storage failure remains; retain existing authorized future entry, no newautomation/run_now/goalstop. Next fresh status/stop, respect network authorization boundary; retry only when authorized access available."
+  },
+  "R014_queued_historical": {
     "state": "acceptedqueued-notexecuted",
     "decision_ref": {
       "path": "plans/R014-parent-path-opportunity-diagnostic-W5-v1-decision-v4-v2.json",
@@ -1505,31 +1431,51 @@
     "new_scientific_cycle": false,
     "metadata_independent_HTTP_acceptance": "pending after authorization cancellation; packet bodies already verified"
   },
-  "prior_R013_next_question_draft": {
-    "path": "plans/R014_local_path_reuse_inquiry_draft_v2.md",
-    "sha256": "43a8389297d15ed6e502395f94bd2ce18af78ee22a044c11f93d2afc7b97a539",
-    "status": "Draftonly notaccepted/build/run; elementary localpath conditionalinvariant plus explicit parentrecompute/bookkeeping break-even and callbackregistration gap, not a newalgorithm or empiricalspeed result",
-    "previous_draft": "plans/R014_next_ID_cost_boundary_draft_v1.md"
+  "R014_storage": {
+    "this_continuation_verified_idle_compressed_cleanup_files": 285,
+    "bytes": 3821256997,
+    "prior_queued_R014_cleanup_bytes_separate": 2119696855,
+    "no_raw_unique_currentSQL_objects_globalcache_or_otherproject_delete": true,
+    "no_platform_service_changes": true,
+    "three_mismatched_compressed_copies_preserved": true,
+    "archive_v3_failure": "ENOSPC during coordinator helper copy before SQL capture/ZIP/upload; one existing3278B helper temporarily0B; exact SHA6648faf641ac6f719c6d5915b834688704bdd360527e3966989f9b00c4d98415 restored from unchanged B. No active native/audit at that boundary; violation and error retained, not native data corruption.",
+    "archive_v4": "Complete local437019796B ZIP included opaque synchronization raw; not uploaded/recoveryentry. Preserved; narrower v5 excludes new sync raw and records metadata.",
+    "archive_v5": "33.674338wall/2.013GBsampledgroupRSS/noOOM; engineering only; writes staged in RAM without root helper copies",
+    "disk_observation": [
+      33770192896,
+      33753415680,
+      0
+    ],
+    "timing_confound": "Cleanup overlapped original diagnostic native; no R012/R013 speed or observer-overhead ratio"
   },
-  "current_question": {
-    "status": "R014 officialacceptedqueued; noattempt/build/native",
-    "protocol": "plans/R014_parent_path_opportunity_protocol_v4.md",
-    "protocol_sha256": "c32b22bff33641a720645c30a68794a207403fd24a3e7e850a9d76bbfd187531",
-    "decision": {
-      "path": "plans/R014-parent-path-opportunity-diagnostic-W5-v1-decision-v4-v2.json",
-      "sha256": "d9fbdd3b19b824e0bef38726c880493fbe091919606cac5f60442d6f7fc58de6"
+  "current_recovery": {
+    "packet_commit": "af8941d3f541e7c4098d32861112696dd3679680",
+    "manifest": "execution/r014-path-opportunity-20261015/incomplete-evidence-v5/manifest.json",
+    "manifest_sha256": "710bcaefe38fb5595d5c05156b0abf6c75f27f4434aea9802663dee3efd7e130",
+    "archive_bytes": 263548957,
+    "archive_sha256": "38e71fa4777f310f21c279ce9a1f6ec696b3b59cf00e599a71784d9c4ee89650",
+    "parts": 32,
+    "new_members": 237,
+    "prior_aliases": 2905,
+    "additional_required_runtime_supplement": {
+      "packet_commit": "e480a41aa901d484b84f4876dd74c04f5094238f",
+      "manifest": "execution/r014-path-opportunity-20261015/queued-runtime-inputs-v4/manifest.json",
+      "manifest_sha256": "a6a48faf9e947da54a37d44b5f86e65fff815bcb6b163866c3a0b30587fdf095",
+      "scope": "Required exact4runtime files after new v5 base; previously immutableHTTPverified. Their proof was published in db1 metadata, whose15file HTTP readback remains pending. No denied-operation retry."
     },
-    "next": "Restore same queued task only after actual storage failure resolved; no selector rerun"
-  },
-  "metadata_readback_status": {
-    "UTC": "2026-10-15T08:28:00.211615+00:00",
-    "metadata_commit": "db1e7841891c2f6c25672ceee470c6846b38740f",
-    "owned_metadata_verifier_session": 34955,
-    "actual_tool_error": "Unified exec process failed: network approval was cancelled before a decision was returned",
-    "complete_metadata_readback_proof_exists": false,
-    "scope": "Network permission failure during independent HTTP readback of15newmetadata files. No fullverification claimed. Do not bypass or retry via alternate channel. Previously completed packet19parts/128members and four-runtime-input supplement were already independently HTTPverified. This is not native/remote-data corruption evidence.",
-    "new_metadata_verification": "pending; upload Gitblob SHA was checked, not substitute for independent HTTP readback",
-    "R014_state": "queued/noattempt/no native,37terminal/reserve0/cycle14",
-    "continuity": "Actual transient storage failure remains; retain existing authorized future entry, no newautomation/run_now/goalstop. Next fresh status/stop, respect network authorization boundary; retry only when authorized access available."
+    "prior_recovery": {
+      "packet_commit": "abedbda6763ff073c7802cc2e76ecbda1e50aaf9",
+      "manifest": "execution/r013-eval-cost-20261015/incomplete-evidence-v5/manifest.json",
+      "manifest_sha256": "2c96b81218a30a6ef03310fb9009e30b075fa22bddac34d39078551bf565a454",
+      "proof_commit": "755726c775741e5bd3acd0ba130147e66afabadb",
+      "proof": "execution/r013-eval-cost-20261015/incomplete-evidence-v5/remote-proof-v1.json",
+      "proof_sha256": "898ed1164f73861be12d8f93531d2ae6590213d20faa1a98c8665d5b605b6472"
+    },
+    "consistent_control": "canonical39/allterminal/reservation0/cycle14; not an old37queued restore over live state",
+    "independent_new_packet_HTTP_readback": "pending; GitblobSHA checked on upload is not independent verification",
+    "opaque_temporary_SQL_objects": "metadata/localdeferred only; creation unknown, no validity or all-scratch claim",
+    "old296fullbuildobjects": "localdeferred",
+    "new_R014_three_objects_binary": "contained in packet, pending independent HTTP acceptance",
+    "historical_queued37_pointers_preserved": true
   }
 }

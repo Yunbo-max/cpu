@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/d503fbbd44e2/archive_r014_terminal_v3.py", line 15, in <module>
+    for p in B.glob('*r014*.py'):shutil.copyfile(p,co/p.name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/shutil.py", line 273, in copyfile
+    _fastcopy_sendfile(fsrc, fdst)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/shutil.py", line 164, in _fastcopy_sendfile
+    raise err from None
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/shutil.py", line 150, in _fastcopy_sendfile
+    sent = os.sendfile(outfd, infd, offset, blocksize)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device: '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/prepare_r014_review_v1.py' -> '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/scripts/coordinator/prepare_r014_review_v1.py'
