@@ -1,0 +1,138 @@
+{
+  "format": "lossless-derived-encoding-repair-overlay-v1",
+  "base_packet_commit": "fc5c8e4ca766ead5b3f26bbaf6b9e16d0bec6cf7",
+  "base_manifest": "execution/r010-efficiency-20261015/completed-v2/manifest.json",
+  "base_manifest_sha256": "c020dbc3e01a3bc22bd7316dbe33cfe0632bc2ea89f4b5360074eeaad8f89c0b",
+  "base_archive_sha256": "ed2c18929451ede2fd76819506aa3a169db24fe88002ba249e176033f57d2787",
+  "archive_bytes": 2151302,
+  "archive_sha256": "990d48bec65438937c4fa307a80f016a95be14278b70151e6741b4a5b2810c8c",
+  "members": {
+    "forensic-repair/temp-sqlite-04-v3.zst": {
+      "bytes": 999022,
+      "sha256": "ae859c56b660875bd3f61fd2bc3f07935a25291b11aeeb29431fcaee6bbae6cd",
+      "mode": 384
+    },
+    "forensic-repair/temp-sqlite-11-v3.zst": {
+      "bytes": 1141539,
+      "sha256": "3977c9f314dcb6145cabec96bfd1353a9e2b94262f06e85890df7edb5602fc91",
+      "mode": 384
+    },
+    "recovery/repair_r010_forensic_encoding_v3.py": {
+      "bytes": 5093,
+      "sha256": "4cbd8beac5a603385f127717670ab1a16b3148e1ecce8acc18d4e9df4f8b2064",
+      "mode": 420
+    },
+    "recovery/test_r010_derived_member_binding_v1.py": {
+      "bytes": 998,
+      "sha256": "92516be2570c2505ed7032ce894ec07a29eb5b784380b3b24baf69c38376bdbf",
+      "mode": 420
+    },
+    "recovery/diagnose_r010_remote_encoded_write_v1.py": {
+      "bytes": 1866,
+      "sha256": "da5b55fca4a4f5e09cf3ecae9d3f9b175ce363c1a495f2c988b5af4f0912318c",
+      "mode": 420
+    },
+    "recovery/encoding-binding-red-v1.log": {
+      "bytes": 649,
+      "sha256": "eac10bae7bf1ddac98bc709fdbb6c90aaeddb090c434c1d3b4b08d41101e7087",
+      "mode": 420
+    },
+    "recovery/failed-remote-proof-v2.log": {
+      "bytes": 572,
+      "sha256": "5a99590896c2e66257150cdfc914eff247ace310a4c879f6a737bd7cea9f6678",
+      "mode": 420
+    },
+    "recovery/write-diagnostic-v1.log": {
+      "bytes": 299,
+      "sha256": "04e04fdbc82f9714de346a56dd69a006626117bd2ad6707c4a7709fa9441018e",
+      "mode": 420
+    }
+  },
+  "replacement_objects": {
+    "windows/W0005/.research-autopilot/.simple-loop.sqlite3.f7ZISR": {
+      "path": "windows/W0005/.research-autopilot/.simple-loop.sqlite3.f7ZISR",
+      "bytes": 195035136,
+      "sha256": "0efad1edf31c72279fea8394723ac5994c22cabc94ce7f258d4710f74fd86477",
+      "mode": 384,
+      "basis_member": "windows/W0005/.research-autopilot/simple-loop.sqlite3",
+      "basis_sha256": "8c4e368c94d5eda163bfde03ccc7262e57c50e76bdb00f17db95bd2f6015553b",
+      "encoding": "zstd-patch-from",
+      "encoded_member": "forensic-repair/temp-sqlite-04-v3.zst",
+      "encoded_bytes": 999022,
+      "encoded_sha256": "ae859c56b660875bd3f61fd2bc3f07935a25291b11aeeb29431fcaee6bbae6cd",
+      "encode_argv": [
+        "zstd",
+        "-T1",
+        "-3",
+        "--patch-from=/workspace/scratch/d503fbbd44e2/planning-resume-20261014/r010-complete-publication/consistent-W5.sqlite3",
+        "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/.research-autopilot/.simple-loop.sqlite3.f7ZISR",
+        "-o",
+        "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/r010-complete-compact-publication/temp-sqlite-04.zst"
+      ],
+      "encode_wall_seconds": 1.5662627879937645,
+      "local_roundtrip": {
+        "decoded_bytes": 195035136,
+        "decoded_sha256": "0efad1edf31c72279fea8394723ac5994c22cabc94ce7f258d4710f74fd86477",
+        "exit": 0
+      },
+      "supersedes_encoding": {
+        "base_commit": "fc5c8e4ca766ead5b3f26bbaf6b9e16d0bec6cf7",
+        "member": "forensic-deltas/temp-sqlite-04.zst",
+        "actual_packaged_bytes": 712704,
+        "actual_packaged_sha256": "b245d18db645b3e92d144c857bfe45f0923e5fb815319d55c680259a57f62c9c"
+      },
+      "immutable_buffer_binding": true
+    },
+    "windows/W0005/.research-autopilot/.simple-loop.sqlite3.dIrYA8": {
+      "path": "windows/W0005/.research-autopilot/.simple-loop.sqlite3.dIrYA8",
+      "bytes": 214433792,
+      "sha256": "340734f254d00eee1a75697241731dce085bb98d8c2e1eb203de22d7f678b84b",
+      "mode": 384,
+      "basis_member": "windows/W0005/.research-autopilot/simple-loop.sqlite3",
+      "basis_sha256": "8c4e368c94d5eda163bfde03ccc7262e57c50e76bdb00f17db95bd2f6015553b",
+      "encoding": "zstd-patch-from",
+      "encoded_member": "forensic-repair/temp-sqlite-11-v3.zst",
+      "encoded_bytes": 1141539,
+      "encoded_sha256": "3977c9f314dcb6145cabec96bfd1353a9e2b94262f06e85890df7edb5602fc91",
+      "encode_argv": [
+        "zstd",
+        "-T1",
+        "-3",
+        "--patch-from=/workspace/scratch/d503fbbd44e2/planning-resume-20261014/r010-complete-publication/consistent-W5.sqlite3",
+        "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/.research-autopilot/.simple-loop.sqlite3.dIrYA8",
+        "-o",
+        "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/r010-complete-compact-publication/temp-sqlite-11.zst"
+      ],
+      "encode_wall_seconds": 1.6658245910002734,
+      "local_roundtrip": {
+        "decoded_bytes": 214433792,
+        "decoded_sha256": "340734f254d00eee1a75697241731dce085bb98d8c2e1eb203de22d7f678b84b",
+        "exit": 0
+      },
+      "supersedes_encoding": {
+        "base_commit": "fc5c8e4ca766ead5b3f26bbaf6b9e16d0bec6cf7",
+        "member": "forensic-deltas/temp-sqlite-11.zst",
+        "actual_packaged_bytes": 442368,
+        "actual_packaged_sha256": "d5922f4d4c646ed77b47aedd52e6523d66cd958fea66e4ae3573edd0e8f6de18"
+      },
+      "immutable_buffer_binding": true
+    }
+  },
+  "derived_resolution": "For each base derived raw object, replace only entries whose path appears in replacement_objects. Use encoded bytes from repair ZIP for replacements, base ZIP for others; all decode against exact canonical31basis from base ZIP. Retain old incomplete encoded members as forensic history.",
+  "canonical31_basis_sha256": "8c4e368c94d5eda163bfde03ccc7262e57c50e76bdb00f17db95bd2f6015553b",
+  "window_budget": {
+    "attempts_used": 31,
+    "max_attempts": 500,
+    "elapsed_seconds": 2811.5334401739874,
+    "reserved_seconds": 0,
+    "remaining_seconds": 77188.46655982602,
+    "max_command_seconds": 80000,
+    "deadline_epoch": 1792100153.542538,
+    "remaining_deadline_seconds": 64790.892706394196
+  },
+  "cycles": 10,
+  "prior_alias_bindings": 1897,
+  "all_raw_data_inputs_unchanged": true,
+  "cause": "Two named encoded scratch files were full and roundtrip-valid when first hashed, but shorter by ZIP capture. Exact mutation cause unknown. Missing final manifest-to-member binding check is a confirmed archiver fail-open, now regression-tested; not a native/CPU/RAM failure or priorcorruption explanation.",
+  "scope": "Two derived encoding replacements only; all scientific logs/results/31control/code and other raw-object encodings inherit immutable fc5packet unchanged. Not whole scratch/currentDB repair/cleanup."
+}
