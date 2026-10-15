@@ -1,0 +1,19 @@
+{
+  "scope": "Actual ENOSPC at officialrun startup before R014 attempt allocation; queued task preserved, no native rerun",
+  "failed_owned_session": 17747,
+  "failed_supervisor_pid": 145162,
+  "failed_session_id": "91040284d1a74bde9530c736cfa3dc75",
+  "failure_log": "recovery-20261015/r014-official-run-v1.log",
+  "predelete_status": "37 attempts terminal, zero reservation, no stop; failed supervisor absent",
+  "v2_cleanup": "Rejected mismatched cache parts before any deletion",
+  "cache_part_mismatches": [
+    {"path": "r010-warmup-publication/remote/part-000.bin", "expected_bytes":8388608,"actual_bytes":7340032,"expected_sha256":"9e941ec79ecc2faaffd89cf71b879063ff8e53b70af0ef42f6ab3c21b10da9eb","actual_sha256":"183eba31c0657019169662dc8b968a545d31e1906634c1d1efb08c6df760ccef"},
+    {"path": "r010-warmup-publication/remote/part-007.bin", "expected_bytes":5507820,"actual_bytes":4194304,"expected_sha256":"884698cdfac5b08f485b4241f936be025e76fb14fd016157142d5e3186bffa6a","actual_sha256":"e82179103f4ee972236698f06bee6e84dade0256bb120b7092db7d709078ebec"}
+  ],
+  "cause_of_cache_mutation": "unknown; not attributed to ENOSPC, scientific raw corruption, CPU or RAM",
+  "v3_cleanup": "Eight whole ZIP duplicates independently rehashed against manifests and complete remote proofs, 1428998629 bytes removed; last local compressed copies may be removed but remote exact recovery retained",
+  "receipt": "evidence/R014-verified-idle-compressed-cleanup-v3.json",
+  "second_start": {"owned_session":8730,"exit_code":120,"log_bytes":0,"health_record_unchanged":true,"attempts_after":37,"reserve_after":0,"R014_state":"queued","cause":"unresolved; no new health identity or native launch marker, storage again full"},
+  "after_cleanup_observation": "Root free rose to 1445810176B then returned to approximately16MiB. Concurrent synchronization temporary writes observed, including canonical SQLite-like and old archive bytes; no full causality or origin assertion, no platform-service mutation/deletion.",
+  "preserved": "Mismatched parts, raw/unique results, current control/SQLite, synchronization temporary and opaque raw, source/.o, other projects and global cache"
+}
