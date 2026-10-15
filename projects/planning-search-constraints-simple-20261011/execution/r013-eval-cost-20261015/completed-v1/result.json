@@ -1,0 +1,101 @@
+{
+  "task_id": "R013-author-online-eval-cost-diagnostic-W5-v1",
+  "build_complete": true,
+  "native_started": true,
+  "diagnostic_complete": true,
+  "goal_complete": false,
+  "scope": "Instrumented source-bound cost diagnostic only, not original-author performance or candidate speedup",
+  "wrapper_exit": 0,
+  "native_usage": {
+    "exit_code": 0,
+    "native_user_us": 93361637,
+    "native_system_us": 4991364,
+    "native_wall_ns": 99222479734,
+    "native_maxrss_bytes": 717410304,
+    "cpu_unit": "microsecond",
+    "kernel_rusage_resolution": "Linux timeval microseconds; integer conversion via nearest microsecond",
+    "metric_scope": "direct native child only; wall bracket includes Popen/launch marker overhead, CPU does not include parent marker write/hash/VAL",
+    "cpu_affinity": [
+      0
+    ],
+    "native_cpu_us": 98353001
+  },
+  "actual_work": {
+    "cartesian_abstractions": 28,
+    "cartesian_states": 33061,
+    "cartesian_transitions": 1000002,
+    "expanded": 9830440,
+    "evaluated": 17639567,
+    "cost": 26,
+    "plan_length": 26
+  },
+  "expected_work": {
+    "cartesian_abstractions": 28,
+    "cartesian_states": 33061,
+    "cartesian_transitions": 1000002,
+    "expanded": 9830440,
+    "evaluated": 17639567,
+    "cost": 26,
+    "plan_length": 26
+  },
+  "work_exact": true,
+  "plan_sha256": "3e216bbefad0615165dff294a3b50d69a916b5bb29862c4612a586a80403993f",
+  "profile": {
+    "calls": 17639567,
+    "completed": 17639567,
+    "early_prefix": 0,
+    "early_max": 0,
+    "online_events": 1764,
+    "online_cpu_ns": 12139181209,
+    "sample_denominator": 1024,
+    "strata": [
+      {
+        "online": false,
+        "samples": 17154,
+        "query_ns": 56083993,
+        "phase_ns": [
+          15953454,
+          24358206,
+          7857590,
+          7914743
+        ],
+        "phase_samples": [
+          17154,
+          17154,
+          17154,
+          17154
+        ],
+        "exit_samples": [
+          0,
+          0,
+          17154
+        ]
+      },
+      {
+        "online": true,
+        "samples": 0,
+        "query_ns": 0,
+        "phase_ns": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "phase_samples": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "exit_samples": [
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "improvement_stop_seen": false,
+  "VAL_exit": 0,
+  "VAL_valid": true
+}

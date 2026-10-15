@@ -1,0 +1,263 @@
+{
+  "task_id": "R013-author-online-eval-cost-diagnostic-W5-v1",
+  "attempt_id": "attempt-427b0ffa8b3b4d87971d75393ca56d0f",
+  "receipt_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-427b0ffa8b3b4d87971d75393ca56d0f/receipt.json",
+    "sha256": "b3aefa35c1ef1c0f548822803a499ed363f98e39a57595e1f06e2fd52205cf75"
+  },
+  "actual_native_usage": {
+    "exit_code": 0,
+    "native_user_us": 93361637,
+    "native_system_us": 4991364,
+    "native_wall_ns": 99222479734,
+    "native_maxrss_bytes": 717410304,
+    "cpu_unit": "microsecond",
+    "kernel_rusage_resolution": "Linux timeval microseconds; integer conversion via nearest microsecond",
+    "metric_scope": "direct native child only; wall bracket includes Popen/launch marker overhead, CPU does not include parent marker write/hash/VAL",
+    "cpu_affinity": [
+      0
+    ],
+    "native_cpu_us": 98353001
+  },
+  "actual_work": {
+    "cartesian_abstractions": 28,
+    "cartesian_states": 33061,
+    "cartesian_transitions": 1000002,
+    "expanded": 9830440,
+    "evaluated": 17639567,
+    "cost": 26,
+    "plan_length": 26
+  },
+  "plan_sha256": "3e216bbefad0615165dff294a3b50d69a916b5bb29862c4612a586a80403993f",
+  "independent_VAL_valid": true,
+  "profile_raw": {
+    "calls": 17639567,
+    "completed": 17639567,
+    "early_prefix": 0,
+    "early_max": 0,
+    "online_events": 1764,
+    "online_cpu_ns": 12139181209,
+    "sample_denominator": 1024,
+    "strata": [
+      {
+        "online": false,
+        "samples": 17154,
+        "query_ns": 56083993,
+        "phase_ns": [
+          15953454,
+          24358206,
+          7857590,
+          7914743
+        ],
+        "phase_samples": [
+          17154,
+          17154,
+          17154,
+          17154
+        ],
+        "exit_samples": [
+          0,
+          0,
+          17154
+        ]
+      },
+      {
+        "online": true,
+        "samples": 0,
+        "query_ns": 0,
+        "phase_ns": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "phase_samples": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "exit_samples": [
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "full_instrumented_online_creation_cpu_seconds": 12.139181209,
+  "full_instrumented_online_creation_fraction_of_full_native_CPU": 0.1234246142524924,
+  "ordinary_call_census": 17637803,
+  "ordinary_sample_query_count": 17154,
+  "ordinary_sample_stage_contribution_mean_ns_per_ordinary_sample_call": {
+    "prefix_convert_deadcheck": 930.0136411332634,
+    "IDs_including_allocation": 1419.9723679608255,
+    "max_over_portfolio": 458.06167657689167,
+    "tail_including_cleanup": 461.39343593331
+  },
+  "conditional_descriptive_ordinary_stage_projections_seconds_if_sample_representative": {
+    "prefix_convert_deadcheck": 16.403397389621198,
+    "IDs_including_allocation": 25.04519289153655,
+    "max_over_portfolio": 8.07920161331293,
+    "tail_including_cleanup": 8.137966528484844
+  },
+  "projections_are_not_observed_census": true,
+  "selected_sampler_calls_rechecked_all": true,
+  "author_internal_timer_unit_correction_ref": {
+    "path": "evidence/R013-author-internal-timer-unit-correction-v1.json",
+    "sha256": "ec141fe4a085e3a5e7174a3d291e00ac100b4d1f992bb739bea98493583a686b"
+  },
+  "raw_refs": [
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/result.json",
+      "sha256": "172e54c6ac4983fa4ff9315022398ac67b7abf464ace291f6deb5bc05b57f3d9"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/native-launch.json",
+      "sha256": "5ac982df77381cf0d60df2299328bd19cd6be1e4c4cf04724da38928d36a9502"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/VAL.stdout.log",
+      "sha256": "c6c74cdb24951c35bcc944819c52a4ee7ea62ce9a1aca23c66568a5aabf76bfb"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/native.stderr.log",
+      "sha256": "277dcc4fb7be299e4f34f0276aa5bf55c1b347dd839344ab171e28edef64a729"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/native-usage.json",
+      "sha256": "bcc1161725260006ba4377bf7893c6bd5f138fe14012fb7b6fb58f96d9aa3c7a"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/wrapper.stdout.log",
+      "sha256": "3a86f9d02c92e267a06e12ed401cc7f6fa3db722abd65e5fca3e2a78aabece26"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/guard-argv.json",
+      "sha256": "3fa45a93fa8c034fc1544a4b47f5392000a1a38c20c211b74759017b9a9ce3c0"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/profile.json",
+      "sha256": "ab547e5aea2fe70dbee1d36b7931750ff003ea1371b95487577249fac77bb831"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/wrapper.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/VAL.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/sas_plan",
+      "sha256": "3e216bbefad0615165dff294a3b50d69a916b5bb29862c4612a586a80403993f"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/native.stdout.log",
+      "sha256": "61856fdb21c675119de4b3a3e1bd0b72bec53d57b37f45f5da8bcf6fc3ad9b91"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/fixture-run-argv.json",
+      "sha256": "d8325870bb20513b92ab1d8e10a2e1803c7192d06c40820d280669bf31912f8c"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/link-argv.json",
+      "sha256": "a0281f3b5b3eb7113a93c2c751c892cb4f56b8394bf22537590915c83ca2546e"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/compile-argv.json",
+      "sha256": "604b61e3895dd2599a968125ca55d2866c43bd73a19a95c9673e7f28c11bb595"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/fixture",
+      "sha256": "b8880b03ab568651fe74b36b012c5c2779ca00087718709ee1937df3dacea74f"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/build_identity.json",
+      "sha256": "ebbd8669f0a60e85de5681df9ea7abada5c58baf330ef834dd16b1c077d2d4f6"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/link.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/fixture-run.stderr.log",
+      "sha256": "a2baa550be1cdb69490bac6df2994b2b0b070fef3a474c7dd67d4ff72b74089a"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/link.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/fixture-run.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/fixture-result.json",
+      "sha256": "39d777ffc8a9e270a9a405e89bd88e828d518ad641e6394524802557fd34014f"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/fixture-compile.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/fixture-compile-argv.json",
+      "sha256": "88ff9d257493232bf1f2482121c1a81ce9619b3b2cd447352a784bd1661f9c3c"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/downward",
+      "sha256": "9fe33b09f49254d01065ed11c200865b241efb4d8cd9e2e4895c594dbb691586"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/saturated_cost_partitioning_online_heuristic.cc.o",
+      "sha256": "90eb2ec4689466f0d2de68b2d386ca839c732e1e630010699e36c950537ea674"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/compile.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/compile.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/build/fixture-compile.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/guard/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/guard/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R013-author-online-eval-cost-diagnostic-W5-v1/native/guard/metrics.json",
+      "sha256": "08e36219374800eb7c6e0ce357ce2224aff1e78e9fc8c86dc6d2e41abeec6122"
+    },
+    {
+      "path": ".research-autopilot/runner/attempts/attempt-427b0ffa8b3b4d87971d75393ca56d0f/receipt.json",
+      "sha256": "b3aefa35c1ef1c0f548822803a499ed363f98e39a57595e1f06e2fd52205cf75"
+    },
+    {
+      "path": "plans/R013_author_eval_cost_diagnostic_protocol_v2.md",
+      "sha256": "460352534241810db170c6930de1b070ed025500d8b554e44800f9f07cde4369"
+    },
+    {
+      "path": "evidence/R013-author-internal-timer-unit-correction-v1.json",
+      "sha256": "ec141fe4a085e3a5e7174a3d291e00ac100b4d1f992bb739bea98493583a686b"
+    }
+  ],
+  "limitations": [
+    "One exposed p06/one instrumented solve, not performance repetition or broad confirmation",
+    "Sparse deterministic hash sampling not probabilistic/unbiased/CI; no epoch/portfolio stability claim",
+    "All onlinecreation CPU interval census includes instrumentation and possible clockoverhead; original-author intrinsic fraction unknown",
+    "Sample online tail/query overlaps complete onlinecreation interval: never add or scale both",
+    "Ordinary stage durations include boundary clocks and zero contributions for skipped stages; means contribution per mixed ordinary sample query, not pure executed predicate latency",
+    "Native total includes init/construction/search/exit/observer; unmeasured remainder not automatically nonheuristic search",
+    "Exact coarse work/plan/VAL parity does not prove full heuristictrajectory equality",
+    "Default heuristiccache exists; measured compute_heuristic calls are not all evaluator requests",
+    "Not a newalgorithm, speedup, fullpaper1800s8GiB replication, optimality proof or completed closestwork/coverage"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "affected_old_analysis_ref": {
+    "path": "results/R012-author-recipe-pilot-analysis-v1.json",
+    "sha256": "d6d3da5029c485e0b5db84a6f23b9f8887a4877c26fd39da172f2e2f256b303d"
+  },
+  "affected_fields": [
+    "actual_work.author_internal_build_wall_seconds",
+    "actual_work.author_internal_search_wall_seconds"
+  ],
+  "actual_semantics": "Author utils::Timer::current_clock uses CLOCK_PROCESS_CPUTIME_ID on this Linux build. Old wall labels incorrect; numeric3.147884/89.015953 and independent directwait4CPU/wall remain unchanged. Preserve original analysis and report, append correction.",
+  "timer_source_ref": {
+    "path": "vendor/r010_author_uninstrumented_v1/src/search/utils/timer.cc",
+    "sha256": "fa2e584b75a08c366cdeac7d85887ada0d6cee60796aed162ce91a1b6055eb15"
+  },
+  "not_a_native_failure": true
+}
