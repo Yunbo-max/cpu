@@ -1,0 +1,94 @@
+{
+  "kind": "read_only_measurement_source_map",
+  "scope": "Actual source inspection only, no original-author restoration, new build, native performance or research cycle. Exact pinned R008/R009 semantics preserved.",
+  "source_refs": [
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/cartesian_abstractions/abstraction.cc",
+      "sha256": "3a8c8bb1e11ca3f11bc66b0f33b31f0fe80230e7cb839734ad4fb1f1068067c4"
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/cartesian_abstractions/cegar.cc",
+      "sha256": "9c534a52fe5dec51b88b666294bd31a7c0604a21227fbb5db7e122eb233f25c4"
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/cartesian_abstractions/transition_system.cc",
+      "sha256": "dbea05cdaa17b9f074abe51ef42e948d67f677cfa86864527a284eb052829918"
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/cartesian_abstractions/cost_saturation.cc",
+      "sha256": "a16ecf8f900fce68b04bfeae843a2afb7489e2726913cd1f50179690b4904fc5"
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/cartesian_abstractions/r008_split_witness_v1.inc",
+      "sha256": "b58bdc1fd2f3d118893c4abec2f988b4c6823219925c2c9eb0d689d9e883239e"
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/task_utils/ac3_disambiguation.h",
+      "sha256": "6b48d8e196ad910782d98b13b02aae4cf7e22096f2b74a217cf6c186d7c316b1"
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/task_utils/ac3_disambiguation.cc",
+      "sha256": "12914743b24e1634c2ba794b7db712a9fa1c14c7c65ea57ea0b880ae7b7fc61b"
+    },
+    {
+      "path": "vendor/scorpion_r008_observer_v1/src/search/task_utils/task_properties.cc",
+      "sha256": "bdee7ec81e64cefadc0f69ae57a45a7149aac4e51d5d24164962c9b8c9554cf8"
+    }
+  ],
+  "findings": [
+    {
+      "source": "cartesian_abstractions/abstraction.cc",
+      "lines": [
+        56,
+        340
+      ],
+      "fact": "Two R008 snapshot call sites evaluate task_properties::get_operator_costs(task_proxy) before entering the observer."
+    },
+    {
+      "source": "cartesian_abstractions/cegar.cc",
+      "lines": [
+        114,
+        115,
+        642
+      ],
+      "fact": "Two further R008 snapshot sites and one R006 final exporter site evaluate the costs vector at the call site."
+    },
+    {
+      "source": "cartesian_abstractions/r008_split_witness_v1.inc",
+      "lines": [
+        8,
+        12,
+        13
+      ],
+      "fact": "Environment early return is inside r008_snapshot, after C++ argument evaluation; unsetting RSI_SPLIT_WITNESS_PATH alone does not eliminate call/argument work."
+    },
+    {
+      "source": "task_utils/task_properties.cc",
+      "lines": [
+        62
+      ],
+      "fact": "get_operator_costs returns vector<int> by value. No dynamic CPU amount inferred."
+    },
+    {
+      "source": "cartesian_abstractions/cost_saturation.cc",
+      "lines": [
+        119,
+        171
+      ],
+      "fact": "Inherited begin_ac3_profile_phase and print_ac3_profile remain in construction caller; measurement restoration is not limited to abstraction and cegar."
+    },
+    {
+      "source": "task_utils/ac3_disambiguation.h",
+      "fact": "Public profile helper declarations/classes are inherited; source/ABI/dependency closure must be checked before uninstrumented-author build or common-object reuse."
+    },
+    {
+      "source": "cartesian_abstractions/transition_system.cc",
+      "lines": [
+        278,
+        279
+      ],
+      "fact": "Inherited RewireProfileScope and RewireDetailProfileScope remain. Turning off observer exports does not remove these clocks/bookkeeping."
+    }
+  ],
+  "next": "Acquire exact author-commit corresponding source/dependency closure and freeze two genuinely observer-disabled comparable builds, or explicitly scope any retained common profiler. Fresh source/object/flag pins and public method-quality decision plus all81feedback and true R009 outcome before next task."
+}
