@@ -1,34 +1,34 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-15T03:08:42.837711+00:00",
+  "updated_utc": "2026-10-15T03:37:21.624209+00:00",
   "window": "W0005",
   "execution_root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
   "status_observed": "awaiting_decision",
   "active_or_unknown_attempts": 0,
   "current_accepted_decision": {
-    "path": "plans/R010-native-efficiency-p1-author-W5-v1-decision-v4-v1.json",
-    "sha256": "d2b5ac944ee5759d498a059a5cd146b8ce3dd09777598eb9fbd53e2473c6b8dc"
+    "path": "plans/R011-public-BWp06-acquisition-W5-v1-decision-v4-v1.json",
+    "sha256": "eb99567edeeafbe3e9f0dfb3773bbe312513068e5f4708f9987668aeb86765b1"
   },
   "window_budget": {
-    "attempts_used": 23,
+    "attempts_used": 31,
     "max_attempts": 500,
-    "elapsed_seconds": 2758.616497912988,
+    "elapsed_seconds": 2811.5334401739874,
     "reserved_seconds": 0,
-    "remaining_seconds": 77241.38350208702,
+    "remaining_seconds": 77188.46655982602,
     "max_command_seconds": 80000,
     "deadline_epoch": 1792100153.542538,
-    "remaining_deadline_seconds": 66431.127430439
+    "remaining_deadline_seconds": 64790.892706394196
   },
   "project_ledger": {
     "prior_attempt_floor": 283,
     "prior_command_seconds_floor": 15590.955507759041,
-    "window_attempts": 23,
-    "window_command_seconds": 2758.616497912988,
-    "combined_attempt_floor": 306,
-    "combined_command_seconds_floor": 18349.57200567203,
-    "actual_scoped_research_cycles": 9,
+    "window_attempts": 31,
+    "window_command_seconds": 2811.5334401739874,
+    "combined_attempt_floor": 314,
+    "combined_command_seconds_floor": 18402.48894793303,
+    "actual_scoped_research_cycles": 10,
     "scope": "W5 command accounting plus retained priorfloor. Replayed scientific journal usage is historical and must not be added twice; command accounting is not exact CPU/scientific cycles.",
     "native_model_usage": "unknown"
   },
@@ -43,8 +43,8 @@
         "pid": 78422,
         "start_ticks": 3171511
       },
-      "last_activity_at": "2026-10-15T03:08:33.446680+00:00",
-      "last_activity_epoch": 1792033713.446674,
+      "last_activity_at": "2026-10-15T03:37:16.953249+00:00",
+      "last_activity_epoch": 1792035436.9532425,
       "mode": "run",
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "schema_version": 1,
@@ -56,7 +56,7 @@
     "max_age_seconds": 30,
     "scope": "Local process observation only; no external watcher or user delivery is activated",
     "identity_observed_alive": true,
-    "activity_age_seconds": 8.96967339515686
+    "activity_age_seconds": 4.671249866485596
   },
   "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
   "R006_scientific_results": {
@@ -68,11 +68,10 @@
     "final_graph": "Both native1000-state snapshots byte-identical;16,422 non-loop edges/7,186 loops; mirrors,storedcounts,domains,ordered adjacency and independent forward/backward shortest paths exact",
     "limitations": "Final snapshot only; fine-clock overhead and per-split equivalence not established; no speedup/novelty/holdout claim"
   },
-  "next_task": "Start same finite frozen coordinator only after fresh actualstatus confirms no existing writer/active/unknown; skip both completed warmups, execute eight prespecified scored rows. No repeated native qualification or old measurement batch.",
+  "next_task": "Inspect pinned R011BWp06PDDL/SAS/source translation. Freeze original author/control newtask correctness qualification then separate complete-native protocol; do not rerun R010 or choose favorable replacements. Closest-primary/stronger-author/public-condition debts retained.",
   "active_coordinator": {
     "single_queue": "W0005",
     "owned_exec_session": 35985,
-    "finite_coordinator_owned_exec_session": 25196,
     "observed_health": {
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "status": "active",
@@ -84,8 +83,8 @@
           "pid": 78422,
           "start_ticks": 3171511
         },
-        "last_activity_at": "2026-10-15T03:08:33.446680+00:00",
-        "last_activity_epoch": 1792033713.446674,
+        "last_activity_at": "2026-10-15T03:37:16.953249+00:00",
+        "last_activity_epoch": 1792035436.9532425,
         "mode": "run",
         "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
         "schema_version": 1,
@@ -97,9 +96,10 @@
       "max_age_seconds": 30,
       "scope": "Local process observation only; no external watcher or user delivery is activated",
       "identity_observed_alive": true,
-      "activity_age_seconds": 8.96967339515686
+      "activity_age_seconds": 4.671374082565308
     },
-    "active_or_unknown": []
+    "active_or_unknown": [],
+    "finite_R010_coordinator": "25196 completed03:23:31Z; no repeat"
   },
   "guards": {
     "cpu_only": true,
@@ -117,7 +117,7 @@
     "Coarse audit link failed after new CEGAR object became empty",
     "Coarse repaired binary later read as invalid zeros/SHA mismatch; fresh re-link without cache advice succeeded, independent readback and native export qualified; cause unresolved"
   ],
-  "quiet_archive_boundary": "Owned supervisor session63161 exited130 after immediate fresh check of0active/unknown/reservations. This is engineering quiet boundary, not user stop or research completion.",
+  "quiet_archive_boundary": "Fresh31attempts allterminal/reservation0; read-only consistentbackup under unchanged public Simple13; no goalstop/supervisor shutdown/cleanup.",
   "overhead_native_results": {
     "successful_native": 12,
     "warmups": 3,
@@ -999,11 +999,27 @@
   "R010_efficiency": {
     "planned_rows": 10,
     "warmups_completed": 2,
-    "scored_completed": 1,
-    "scored_effect": "incomplete_frozen_batch_no_claim",
-    "warmup_maintenance_overlap": "Parent qualification archive upload in progress; bothwarmups excluded from scoring",
-    "protocol_sha256": "305d42a65aace76e33c5c98401aa0d97269e97089df2ad62b1016ea91a1831da",
-    "coordinator_owned_exec_session": 25196
+    "scored_completed": 8,
+    "scored_pairs": 4,
+    "CPU_control_over_author": [
+      0.7742856882470256,
+      1.097166050987367,
+      0.7810538116591929,
+      0.6456628212474728
+    ],
+    "CPU_geomean": 0.8090308493813986,
+    "descriptive_only": "19.0969%lower aggregate oneexposedcase; p2slower9.7166%; sharedhost/longinterrow gaps, no stable/general advantage/CI/novelty/intrinsicpredicate",
+    "primary_scope": "Direct native wait4 user+system integerus, includesexec/init/construction/search/exit; excludesparent/hash/VAL; wallincludesPopen/markerlatency",
+    "analysis_ref": "results/R010-complete-native-efficiency-analysis-v1.json",
+    "cycle": "W5-R010-complete-native-development-cycle-v1",
+    "partial_review": "Independent review raw/ratiofinding retained; hostcapacity error beforefinal, not complete acceptance"
   },
-  "running_addendum_scope": "Light post22 evidence, NOT updated consistentSQLite; full control recovery pointer remains verified22. Ongoing finite coordinator is sole dispatchwriter; observe rather than duplicate."
+  "running_addendum_scope": "Light post22 evidence, NOT updated consistentSQLite; full control recovery pointer remains verified22. Ongoing finite coordinator is sole dispatchwriter; observe rather than duplicate.",
+  "R011_acquisition": {
+    "task": "R011-public-BWp06-acquisition-W5-v1",
+    "status": "succeeded",
+    "source": "AI-Planning/autoscale-benchmarks@0bb8d8ee386f78e30404ea902a580b83552ac3bf/21.11-optimal-strips/blocksworld/p06.pddl",
+    "no_native_solver": true,
+    "original_p05_and_domain_crosswalk_exact": true
+  }
 }
