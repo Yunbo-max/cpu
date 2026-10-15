@@ -1,0 +1,27 @@
+{
+  "task_id": "R014-parent-path-opportunity-diagnostic-W5-v1",
+  "build_complete": true,
+  "native_started": true,
+  "diagnostic_complete": false,
+  "goal_complete": false,
+  "scope": "Read-only sampled parent-path opportunity diagnostic; not candidate timing or whole-heuristic equivalence",
+  "wrapper_exit": 0,
+  "native_usage": {
+    "exit_code": 0,
+    "native_user_us": 103687205,
+    "native_system_us": 5534325,
+    "native_wall_ns": 110260517137,
+    "native_maxrss_bytes": 717303808,
+    "cpu_unit": "microsecond",
+    "kernel_rusage_resolution": "Linux timeval microseconds; integer conversion via nearest microsecond",
+    "metric_scope": "direct native child only; wall bracket includes Popen/launch marker overhead, CPU does not include parent marker write/hash/VAL",
+    "cpu_affinity": [
+      0
+    ],
+    "native_cpu_us": 109221530
+  },
+  "failure": {
+    "error": "CalledProcessError(1, ['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/scripts/r014_path_reference_v3.py', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-opportunity-diagnostic-W5-v1/native/path-witness.txt', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-opportunity-diagnostic-W5-v1/native/native.stderr.log', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-opportunity-diagnostic-W5-v1/native/path-reference.json'])",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/scripts/build_run_r014_path_opportunity_v3.py\", line 50, in main\n  File \"/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/scripts/build_run_r014_path_opportunity_v3.py\", line 28, in run\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/scripts/r014_path_reference_v3.py', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-opportunity-diagnostic-W5-v1/native/path-witness.txt', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-opportunity-diagnostic-W5-v1/native/native.stderr.log', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-opportunity-diagnostic-W5-v1/native/path-reference.json']' returned non-zero exit status 1.\n"
+  }
+}

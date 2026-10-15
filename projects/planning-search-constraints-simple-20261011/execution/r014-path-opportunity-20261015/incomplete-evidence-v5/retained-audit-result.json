@@ -1,0 +1,25 @@
+{
+  "task_id": "R014-parent-path-retained-DAG-audit-W5-v1",
+  "retained_completion": true,
+  "new_native_executed": false,
+  "diagnostic_complete": false,
+  "original_failed_result_sha256": "eb399ce0398e5c7f54d9bf8ee257b4708bcdb470bebfbadc58f129be96b3b85f",
+  "native_usage": {
+    "exit_code": 0,
+    "native_user_us": 103687205,
+    "native_system_us": 5534325,
+    "native_wall_ns": 110260517137,
+    "native_maxrss_bytes": 717303808,
+    "cpu_unit": "microsecond",
+    "kernel_rusage_resolution": "Linux timeval microseconds; integer conversion via nearest microsecond",
+    "metric_scope": "direct native child only; wall bracket includes Popen/launch marker overhead, CPU does not include parent marker write/hash/VAL",
+    "cpu_affinity": [
+      0
+    ],
+    "native_cpu_us": 109221530
+  },
+  "failure": {
+    "error": "CalledProcessError(1, ['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/scripts/r014_path_reference_v4.py', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-opportunity-diagnostic-W5-v1/native/path-witness.txt', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-opportunity-diagnostic-W5-v1/native/native.stderr.log', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-retained-DAG-audit-W5-v1/path-reference-v4.json'])",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/scripts/complete_r014_retained_DAG_v1.py\", line 21, in main\n    run('independent-retained-reference',[sys.executable,str(R/'scripts/r014_path_reference_v4.py'),str(native/'path-witness.txt'),str(native/'native.stderr.log'),str(out/'path-reference-v4.json')])\n  File \"/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/scripts/complete_r014_retained_DAG_v1.py\", line 19, in run\n    with (out/(name+'.stdout.log')).open('xb') as so,(out/(name+'.stderr.log')).open('xb') as se:subprocess.run(argv,cwd=R,stdout=so,stderr=se,check=True,timeout=90)\n                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/scripts/r014_path_reference_v4.py', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-opportunity-diagnostic-W5-v1/native/path-witness.txt', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-opportunity-diagnostic-W5-v1/native/native.stderr.log', '/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005/results/R014-parent-path-retained-DAG-audit-W5-v1/path-reference-v4.json']' returned non-zero exit status 1.\n"
+  }
+}

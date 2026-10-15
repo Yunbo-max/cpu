@@ -1,0 +1,101 @@
+{
+  "utc": "2026-10-15T09:39:28.057270+00:00",
+  "scope": "Read-only engineering audit of retained plan/log and incomplete evidence; not a new native experiment, full path qualification or scientific cycle",
+  "actual_attempts": [
+    {
+      "task_id": "R014-parent-path-opportunity-diagnostic-W5-v1",
+      "attempt_id": "attempt-16756025c8cd4bcf8411c5418f47e586",
+      "result": "failed",
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-16756025c8cd4bcf8411c5418f47e586/receipt.json",
+        "sha256": "a9b1b2b34a899d67b8cb1304a827cb5367e7f1ee85dc73ed3630d9b549f3b997"
+      }
+    },
+    {
+      "task_id": "R014-parent-path-retained-DAG-audit-W5-v1",
+      "attempt_id": "attempt-8cce651c2bbf41aeb3b98a1bbd33023c",
+      "result": "failed",
+      "receipt_ref": {
+        "path": ".research-autopilot/runner/attempts/attempt-8cce651c2bbf41aeb3b98a1bbd33023c/receipt.json",
+        "sha256": "1980a74da965c484a30026874dbd842ddd1caf90a049472cce85c12148f44a55"
+      }
+    }
+  ],
+  "witness_ref": {
+    "path": "results/R014-parent-path-opportunity-diagnostic-W5-v1/native/path-witness.txt",
+    "sha256": "3b4fcdfe0bcccfbccec5c8e420f379d57967700164a13339bc153cf04bbf2634"
+  },
+  "bytes": 13385728,
+  "line_count": 101665,
+  "ends_with_newline": false,
+  "E_completion_count": 0,
+  "first_invalid_record": {
+    "line": 101665,
+    "active_group": 7883757,
+    "actual_record": "N 788375"
+  },
+  "full_selected_event_replay_complete": false,
+  "native_reported_summary": {
+    "groups": 9830439,
+    "selected_groups": 9722,
+    "notifications": 45573419,
+    "new_notifications": 17639566,
+    "dead_notifications": 0,
+    "calls": 17639567,
+    "matched_calls": 17639566,
+    "unmatched_calls": 1,
+    "id_calls": 17639567,
+    "matched_id_calls": 17639566,
+    "cold_parent_groups": 8951209,
+    "sampled_parents": 8863,
+    "sampled_children": 17361,
+    "coordinate_scans": 364581,
+    "mask_checks": 486108,
+    "reusable": 258791,
+    "child_nodes": 3682522,
+    "saved_nodes": 1348465,
+    "parent_nodes": 1920815,
+    "parent_cpu_ns": 90182626,
+    "delta_cpu_ns": 4952565,
+    "decision_cpu_ns": 6328054,
+    "child_ids_cpu_ns": 29966157,
+    "hierarchies": 28,
+    "write_error": 0
+  },
+  "native_summary_is_not_independent_trace_verification": true,
+  "source_observed_negative_node_margin_unqualified": -572350,
+  "unqualified_hint_must_not_close_hypothesis": true,
+  "native_usage": {
+    "exit_code": 0,
+    "native_user_us": 103687205,
+    "native_system_us": 5534325,
+    "native_wall_ns": 110260517137,
+    "native_maxrss_bytes": 717303808,
+    "cpu_unit": "microsecond",
+    "kernel_rusage_resolution": "Linux timeval microseconds; integer conversion via nearest microsecond",
+    "metric_scope": "direct native child only; wall bracket includes Popen/launch marker overhead, CPU does not include parent marker write/hash/VAL",
+    "cpu_affinity": [
+      0
+    ],
+    "native_cpu_us": 109221530
+  },
+  "actual_work": {
+    "cartesian_abstractions": 28,
+    "cartesian_states": 33061,
+    "cartesian_transitions": 1000002,
+    "expanded": 9830440,
+    "evaluated": 17639567,
+    "cost": 26,
+    "plan_length": 26
+  },
+  "retained_plan_VAL_valid": true,
+  "plan_ref": {
+    "path": "results/R014-parent-path-opportunity-diagnostic-W5-v1/native/sas_plan",
+    "sha256": "3e216bbefad0615165dff294a3b50d69a916b5bb29862c4612a586a80403993f"
+  },
+  "no_solver_h2_compiler_rerun": true,
+  "full_copy_search_scope": "Only same project B and r014 RAM-staging directories; one path-witness candidate found, exact same13,385,728B prefix. No complete alternate found.",
+  "cause": "Unknown. Native stderr summary reports write_error0 and source checks ferror/fflush/fclose, while retained file has incomplete tail. Evidence does not determine when/how loss occurred; no attribution to platform sync, disk, native exporter or remote-data corruption.",
+  "conclusion": "Retain two failed official attempts; no R014 opportunity conclusion or cycle15. General-DAG repair remains a scoped code/fixture result. Limited native exit0/work/plan/VAL evidence retained separately.",
+  "next": "Avoid repeating completed solver. Close current result as incomplete evidence and derive a distinct, source-bound question; no favorable resampling or patching missing trace tail."
+}

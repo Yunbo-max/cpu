@@ -1,0 +1,17 @@
+# R014：原生完成，但轨迹不完整，未通过原机会检验
+
+2026-10-15 最新实际状态：39个W5 attempt全terminal/0reserve，14个科学cycle。R014原生只运行一次；没有重跑求解器/h2，也没有记录cycle15。
+
+原生 exit0，wait4 user103687205+system5534325=109221530us，wall110260517137ns，maxRSS717303808B。粗work为28components/33061states/1000002nonloops/expanded9830440/evaluated17639567，plan26/cost26/计划SHA3e216bbefad0615165dff294a3b50d69a916b5bb29862c4612a586a80403993f；新的只读保留计划检查已对原PDDL独立VAL成功，粗work/计划与保留R012相同。仅此范围有效，不是完整路径机会、每组件图、启发式轨迹或最优性证明。
+
+第一次官方wrapper在原生完成后失败：旧参考v3误要求物理child index大于parent；作者split合法共享较小编号right child，28实际DAG中12个复现误拒绝。新v4严格保留类型/范围/叶/无环/可达检查，独立只读源审查和有限正负fixture通过；独立Kahn与DFS在28914个小图一致，64个有限路径不变量statepairs通过。这些不冒充完整原生参考验收。
+
+第二个官方任务R014-parent-path-retained-DAG-audit-W5-v1/attempt-8cce651c2bbf41aeb3b98a1bbd33023c只读重放旧轨迹，真实失败。它发现保留path-witness.txt只有13385728B，SHA3b4fcdfe0bcccfbccec5c8e420f379d57967700164a13339bc153cf04bbf2634；第101665行在G7883757内中断为 `N 788375`，缺少最终E标记，故严格拒绝。文件在两次审计输入绑定期间哈希相同。项目目录和R014 RAM staging只发现这一副本，没有发现完整alternate。
+
+native.stderr虽有write_error0及完整source-observed汇总，源码也检查ferror/fflush/fclose；但无法据此确定缺失发生何时/为何，不能归因为同步、磁盘、原生exporter或远端corruption。不能拼写尾部、删掉最后组伪称完成或放宽complete检查。
+
+原生汇总记录S1348465/P1920815（差-572350）、reusable258791/486108只是未通过完整独立轨迹绑定的观察线索。本报告不把它当经核验的负结果、park依据、CPU收益或科学cycle。两次失败回执、完整原始前缀、源/编译/.o/binary/日志、DAG修复/审查及新的不完整证据诊断均保留。成功专用analysisv2脚本未执行，不能引用其未生成的成功结果。
+
+此前中断已证实一次ENOSPC，第二次exit120原因未知。此后同W5原队列恢复一次才有以上native；本次仅清理3639956472B重新hash匹配且远端已完整verified的idle压缩重复（包括可逐SHA识别的完整临时压缩副本），三份不符副本保留。部分清理与只读诊断native重叠，因此109.221530s不能与R012/R013作速度/观察器开销比。未删raw/unique/currentcontrol/SQLite/.o/其他项目/globalcache，没有停改平台同步。旧296fullbuild.o仍localdeferred；新3TU对象/binary需随本次恢复包明确归档，不预称全scratch。
+
+下一问题改为原作者DAG中连续同变量/同right-child测试的普通membership融合是否有值得进一步检查的结构空间。它不依赖缺失的事件尾部或免费parentcache，不冒称新算法；先数学/quality/强简单对照/源身份和完整28H提取资格，再决定是否构建。R014完整机会结论保持incomplete，不重复原生。旧元数据HTTP授权取消缺口继续明示，未换通道重试。
