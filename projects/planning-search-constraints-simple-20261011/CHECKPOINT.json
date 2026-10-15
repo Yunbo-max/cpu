@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-15T00:48:34.810373+00:00",
+  "updated_utc": "2026-10-15T00:54:49.318365+00:00",
   "window": "W0005",
   "execution_root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
@@ -19,7 +19,7 @@
     "remaining_seconds": 77945.39068475101,
     "max_command_seconds": 80000,
     "deadline_epoch": 1792100153.542538,
-    "remaining_deadline_seconds": 74847.40703630447
+    "remaining_deadline_seconds": 74464.22554206848
   },
   "project_ledger": {
     "prior_attempt_floor": 283,
@@ -43,8 +43,8 @@
         "pid": 51709,
         "start_ticks": 2361788
       },
-      "last_activity_at": "2026-10-15T00:48:32.555587+00:00",
-      "last_activity_epoch": 1792025312.5555804,
+      "last_activity_at": "2026-10-15T00:54:48.892843+00:00",
+      "last_activity_epoch": 1792025688.8928356,
       "mode": "run",
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "schema_version": 1,
@@ -56,7 +56,7 @@
     "max_age_seconds": 30,
     "scope": "Local process observation only; no external watcher or user delivery is activated",
     "identity_observed_alive": true,
-    "activity_age_seconds": 2.254783868789673
+    "activity_age_seconds": 0.4255218505859375
   },
   "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
   "R006_scientific_results": {
@@ -83,8 +83,8 @@
           "pid": 51709,
           "start_ticks": 2361788
         },
-        "last_activity_at": "2026-10-15T00:48:32.555587+00:00",
-        "last_activity_epoch": 1792025312.5555804,
+        "last_activity_at": "2026-10-15T00:54:48.892843+00:00",
+        "last_activity_epoch": 1792025688.8928356,
         "mode": "run",
         "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
         "schema_version": 1,
@@ -96,7 +96,7 @@
       "max_age_seconds": 30,
       "scope": "Local process observation only; no external watcher or user delivery is activated",
       "identity_observed_alive": true,
-      "activity_age_seconds": 2.254783868789673
+      "activity_age_seconds": 0.4255218505859375
     },
     "active_or_unknown": []
   },
@@ -868,6 +868,40 @@
     ],
     "scoped_cycle_recorded": true,
     "actual_active_or_unknown": [],
-    "admission_and_preparation_failures": "Ambiguous object basename preparation beforecompiler; duplicate evidence path response rejected atomically; circular compare prerequisite response rejected beforedispatch. All original payloads/source/diagnoses retained. Not native failures or extra attempts."
+    "admission_and_preparation_failures": "Ambiguous object basename preparation beforecompiler; duplicate evidence path response rejected atomically; circular compare prerequisite response rejected beforedispatch. All original payloads/source/diagnoses retained. Not native failures or extra attempts.",
+    "remote_verification": {
+      "packet_commit": "5c0e66c301171931658c2818c6456bcffbd8d6bb",
+      "complete": true,
+      "proof_path": "execution/r009-control-20261015/qualification-v1/remote-proof-v1.json",
+      "proof_sha256": "0574b3b44454791eed1568214e83c66a6d22459796969b42b23b6615aea52e3b",
+      "new_members": 110,
+      "derived_members": [
+        {
+          "path": "windows/W0005/results/R009-minimal-coordinate-build-W5-v1/downward-control",
+          "bytes": 194008624,
+          "sha256": "a29fd062a7cce50d7b1b2e5bb7cd0617aa1911852eb676294b1bc9df742f7259",
+          "format": "zstd-rawcontent-dictionary-v1"
+        },
+        {
+          "path": "windows/W0005/results/R009-minimal-coordinate-native-qualification-W5-v1/split-witness.tsv",
+          "bytes": 899807750,
+          "sha256": "a6d11fa99e9431338441ad22e2ea94566bf370043940ac0d2c52fc964bd8ac54",
+          "format": "zstd-v1"
+        },
+        {
+          "path": "windows/W0005/results/R009-minimal-coordinate-native-qualification-W5-v1/.split-witness.tsv.domj0Y",
+          "bytes": 243793920,
+          "sha256": "dfe1eb71794f1d6f409126cf6688d02d9fe514e4a1db003e331ab68ddb0e50b2",
+          "format": "verified-prefix-v1"
+        },
+        {
+          "path": "windows/W0005/results/R009-minimal-coordinate-native-qualification-W5-v1/.split-witness.tsv.xbdsAe",
+          "bytes": 414449664,
+          "sha256": "8f6282d7486516e386247cd666f72fb559da436c25ccb3a7ec39bc317c81c22c",
+          "format": "verified-prefix-v1"
+        }
+      ],
+      "alias_bindings": 1271
+    }
   }
 }
