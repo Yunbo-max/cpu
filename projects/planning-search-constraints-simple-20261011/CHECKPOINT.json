@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "project_id": "planning-search-constraints-simple-20261011",
-  "updated_utc": "2026-10-15T03:37:21.624209+00:00",
+  "updated_utc": "2026-10-15T03:51:14.183701+00:00",
   "window": "W0005",
   "execution_root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
   "source_digest": "0022b214e957337ba9035f77ed7036cfaa51d11cb467ac0d6b99df5b0fa96336",
@@ -19,7 +19,7 @@
     "remaining_seconds": 77188.46655982602,
     "max_command_seconds": 80000,
     "deadline_epoch": 1792100153.542538,
-    "remaining_deadline_seconds": 64790.892706394196
+    "remaining_deadline_seconds": 63879.36048531532
   },
   "project_ledger": {
     "prior_attempt_floor": 283,
@@ -43,8 +43,8 @@
         "pid": 78422,
         "start_ticks": 3171511
       },
-      "last_activity_at": "2026-10-15T03:37:16.953249+00:00",
-      "last_activity_epoch": 1792035436.9532425,
+      "last_activity_at": "2026-10-15T03:51:07.059792+00:00",
+      "last_activity_epoch": 1792036267.0597837,
       "mode": "run",
       "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
       "schema_version": 1,
@@ -56,7 +56,7 @@
     "max_age_seconds": 30,
     "scope": "Local process observation only; no external watcher or user delivery is activated",
     "identity_observed_alive": true,
-    "activity_age_seconds": 4.671249866485596
+    "activity_age_seconds": 7.1241559982299805
   },
   "historical_stop": "W0003 stopped2026-10-13T16:21:25Z, retry1 cancelled16:21:31Z, old database/deadline/stop retained",
   "R006_scientific_results": {
@@ -83,8 +83,8 @@
           "pid": 78422,
           "start_ticks": 3171511
         },
-        "last_activity_at": "2026-10-15T03:37:16.953249+00:00",
-        "last_activity_epoch": 1792035436.9532425,
+        "last_activity_at": "2026-10-15T03:51:07.059792+00:00",
+        "last_activity_epoch": 1792036267.0597837,
         "mode": "run",
         "root": "/workspace/scratch/d503fbbd44e2/planning-resume-20261014/project/windows/W0005",
         "schema_version": 1,
@@ -96,7 +96,7 @@
       "max_age_seconds": 30,
       "scope": "Local process observation only; no external watcher or user delivery is activated",
       "identity_observed_alive": true,
-      "activity_age_seconds": 4.671374082565308
+      "activity_age_seconds": 7.124292850494385
     },
     "active_or_unknown": [],
     "finite_R010_coordinator": "25196 completed03:23:31Z; no repeat"
@@ -1021,5 +1021,79 @@
     "source": "AI-Planning/autoscale-benchmarks@0bb8d8ee386f78e30404ea902a580b83552ac3bf/21.11-optimal-strips/blocksworld/p06.pddl",
     "no_native_solver": true,
     "original_p05_and_domain_crosswalk_exact": true
+  },
+  "latest_complete_packet": {
+    "packet_commit": "ee948b48eae8876018c083438df9368f44cb9158",
+    "manifest": "execution/r010-efficiency-20261015/completed-repair-v3/manifest.json",
+    "manifest_sha256": "79af92a8778cca954f676a40a7589e50d3f8ef291b1ef7aca95111e105396132",
+    "archive_sha256": "990d48bec65438937c4fa307a80f016a95be14278b70151e6741b4a5b2810c8c",
+    "repair_archive_bytes": 2151302,
+    "base_packet_commit": "fc5c8e4ca766ead5b3f26bbaf6b9e16d0bec6cf7",
+    "base_manifest": "execution/r010-efficiency-20261015/completed-v2/manifest.json",
+    "base_manifest_sha256": "c020dbc3e01a3bc22bd7316dbe33cfe0632bc2ea89f4b5360074eeaad8f89c0b",
+    "base_archive_sha256": "ed2c18929451ede2fd76819506aa3a169db24fe88002ba249e176033f57d2787",
+    "base_archive_bytes": 162516469,
+    "independent_remote_verification_complete": true,
+    "remote_proof": "execution/r010-efficiency-20261015/completed-repair-v3/remote-proof-v3.json",
+    "remote_proof_sha256": "6304edf87f7894680e0489654ef5fc9ea9a2dd9f33894fb9cd194e670c0e1a56",
+    "consistent_control_attempts": 31,
+    "scoped_cycles": 10,
+    "R010_complete_native_rows": 10,
+    "warmups_excluded": 2,
+    "scored_pairs": 4,
+    "CPU_control_over_author": [
+      0.7742856882470256,
+      1.097166050987367,
+      0.7810538116591929,
+      0.6456628212474728
+    ],
+    "CPU_geomean": 0.8090308493813986,
+    "all12forensic_raw_objects2538864640B_recovered": true,
+    "prior_consistent_pointer": {
+      "packet_commit": "607b95668e281d9b074788ad1c4eb7b078c52434",
+      "manifest": "execution/r010-efficiency-20261015/warmups-v1/manifest.json",
+      "manifest_sha256": "c7d931a6c0be7c0dba5595de0039215262dbf9add7e2b3b7671c78d6b0f440e8",
+      "archive_sha256": "09c69bce91cecc6ae2ddcb499e5ceae4fbc625dea2f6488d86a457da4fe52be3",
+      "independent_remote_verification_complete": true,
+      "remote_proof": "execution/r010-efficiency-20261015/warmups-v1/remote-proof-v1.json",
+      "remote_proof_sha256": "35acce41742d31fefcc50a712704cf0ff4c3ddb186a2c68bffa6c8d96bde5dfc",
+      "consistent_control_attempts": 22,
+      "scoped_cycles": 9,
+      "warmups_completed": 2,
+      "scored_rows_at_capture": 0,
+      "prior_qualified_pointer": {
+        "packet_commit": "898ba778969c71ee934571f65d2a572eeac2c8a8",
+        "manifest": "execution/r010-build-20261015/qualified-v1/manifest.json",
+        "manifest_sha256": "b513716b9d88d2bae4607a63c3c49e415413dc17c345e448389cd9e957e6039d",
+        "archive_sha256": "a5af21b4eacdf9c6fcb7ec531ccd52468e3a53de10bf306e2f5800f5a7c2e685",
+        "independent_remote_verification_complete": true,
+        "remote_proof": "execution/r010-build-20261015/qualified-v1/remote-proof-v1.json",
+        "remote_proof_sha256": "8dbf792dadd90dd95257e1ebc5eb716acef11610c985da56b1b9c76bf144fa55",
+        "consistent_control_attempts": 20,
+        "scoped_cycles": 9,
+        "prior_pointer_ref": {
+          "commit": "a03f99e6154067fd05b41a0f5119ceff90bc1d1d",
+          "path": "R010_RECOVERY_LATEST.json",
+          "sha256": "a76759285a6c8d1d0b93acdb9cf649a8eef2545b22b943ee1386c2cd68d33f01"
+        },
+        "object_scope": "Four binaries and3new isolated object files fully published; original empty HM forensic retained.296full-build objects remain local/deferred. Not allscratch or W4DB repair."
+      },
+      "scope": "Complete22 control and2warmup evidence. Excluded warmups overlap parent archive upload; no efficiency effect yet. Latest actual status/owned coordinator wins over this historical restore cut."
+    },
+    "recovery_order": "Read repair manifest first, retrieve immutable fc5 base, override only2derived encoding entries with repair ZIP members, then decode all12using exact base canonical31backup. Original badencoding members retained as forensic history; no restore over actualactivecontrol.",
+    "scope": "Complete R01010rows/rawlogs/CPUwall/work/VAL/analysis/cycle10, R011originalBWp06PDDL/SASacquisition/no solver yet and consistent31control. Not allscratch/full.o/W4DBrepair/cleanup or stable/general speed/novelty.",
+    "next": "Read actualstatus/lateststop first. Latestaccepted R011acquisition v4 eb99567... consumes99feedback; nextdecision mustconsume100 andqualify newp06 sourcepair, no completednative repeats."
+  },
+  "forensic_storage": {
+    "new_idle_temp_SQLite_objects": 12,
+    "raw_bytes": 2538864640,
+    "all_lossless_raw_verified_from_remote": true,
+    "canonical_control_integrity": "ok",
+    "superseded_local_V1_bytes": 989181714,
+    "base_compact_packet_bytes": 162516469,
+    "repair_packet_bytes": 2151302,
+    "failed_V2_verification": "Two encoded tempcopies changed size between local roundtrip and ZIP capture; actualmutationcause unknown. Missing derivedmap-member binding in packager confirmed. Failed verifier and originalbadencodings preserved; cannot call V2complete.",
+    "V3": "Only2encodings regenerated from unchanged hash-pinned rawsource, direct immutablebuffer capture, red/green actual-member binding regression and all12rawSHA/bytes recovery verified. Does not fix unknownpriorcorruption cause.",
+    "cleanup_or_private_DB_edit": false
   }
 }

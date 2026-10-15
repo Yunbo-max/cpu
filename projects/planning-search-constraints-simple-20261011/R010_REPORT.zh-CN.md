@@ -29,3 +29,12 @@ CPU比几何平均0.809030849381（这个开发条件下描述性降低19.0969%�
 独立审查部分确认全部整数比/原始结果/回执/计划/VAL和601个输入引用hash；其后服务容量错误中断，完整原话/失败保留，不称完整独立验收。主协调者已按真实完整批次record一次cycle，9→10。
 
 下一步按预先选定的下一个原始序号BWp06，不按runtime择例。AI-Planning/autoscale-benchmarks固定commit0bb8d8...，原p05/domain Gitblob交叉核验完全相同，p06固定作者源翻译成功；仅数据/SAS采集，尚未调用新任务求解器或证明新任务正确性/效率。普通最小U仍只是强简单对照，强原作者配置/额外公开任务/主要最近工作义务保持。完整原始10行、失败分母、统计脚本、部分审查、全部新控制与原始采集输入均在本31点补充；不是全scratch或旧W4坏库修复。
+
+
+## 最新完整恢复链（覆盖原V2 pending状态）
+
+基包fc5c8e4...的20parts/162516469B与444新members已逐SHA/bytes独立HTTP读回。首次完整derived核验在两个编码副本上失败：它们在本地完整解码后、入包前变短，mutation根因未知；封装器未在入包时核对恢复映射与成员的缺口已确认。原失败/坏编码/本地V1包及所有原始对象保留，没有把失败写成成功。
+
+仅两编码以新V3 ID从hash不变的原始字节重建，直接不可变buffer入包，真实成员绑定测试原版2项red、修复后12项0不符。修复包2151302B/8members已不可变HTTP独立读回；重新核验原HTTP缓存的全部20parts/wholeZIP/444members和8修复members，再完整恢复12份原始临时SQLite共2538864640B逐SHA/bytes成功。不是把临时对象当validSQLite，来源仍未知，不解释旧source/header/empty.o/binarySHA/DB问题。规范31点备份独立integrity=ok、31全terminal/0reserve/实际10cycles/latestaccepted eb99567...；所有.o范围和旧失败历史按父链保留。没有删unique/currentcontrol/SQLite/.o或全局cache。
+
+最新恢复必须manifest-first读取V3覆盖映射及原fc5基包；不能只用旧22备份覆盖当前更近控制。新增R011真实结果仅为原始BWp06文件身份和固定作者翻译SAS337284c808bc03350bba2be4ae250f04cd116d310384def6ab5034b4d869afac，无新task求解/资格/速度结果。接续先冻结新task正确性/完整native协议，不把旧p05成本/状态/work答案写给新任务。未来计时设计应考虑把串行匹配放在一个有界官方task内以缩短逐行respond造成的111–162秒间隔，但这尚未选择/运行，旧R010结果不改写。
