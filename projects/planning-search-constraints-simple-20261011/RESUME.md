@@ -1,3 +1,7 @@
+# R014 最新元数据回读未完成
+
+恢复包体和四个runtime输入补充已独立HTTP核验。db1e7841891c2f6c25672ceee470c6846b38740f的15新metadata回读遇到network approval cancelled，尚无complete metadata-readback proof，不能称全部元数据验收。保留权限边界，不换通道绕过。此补记自身同样尚未独立HTTP回读。R014仍queued/noattempt，37terminal/0reserve/14cycle，没有编译/native结果。磁盘故障未解除，不盲重启。
+
 # R014：已接纳，尚无原生结果
 
 R014-parent-path-opportunity-diagnostic-W5-v1已由固定Simple13两公共接口实际gaps=[]后officialrespond接纳；任务queued、未分配attempt、无编译/native。37历史attempt全terminal/reservation0/cycle14不变，不能称新科研结果或cycle15。
