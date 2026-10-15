@@ -1,0 +1,97 @@
+{
+  "kind": "conditional-source-boundary",
+  "created_utc": "2026-10-15T05:50:10.985517+00:00",
+  "source_refs": [
+    {
+      "path": "vendor/r010_author_uninstrumented_v1/src/search/cartesian_abstractions/abstraction.cc",
+      "sha256": "70bbe5a9e76c65fa10e126d72ed95fd22ba709ea81f97fd43414c152d0351449"
+    },
+    {
+      "path": "vendor/r010_author_uninstrumented_v1/src/search/cartesian_abstractions/utils.cc",
+      "sha256": "1d227b41617a28974188c4ec008ad9dcaead10cebcc9fef324caec51d986e87f"
+    },
+    {
+      "path": "vendor/r010_author_uninstrumented_v1/src/search/task_utils/disambiguation_method.h",
+      "sha256": "8e6f397765dfca4b2abd6e648892c56a6789bb65da0ff2e97a53c2548cfc333f"
+    },
+    {
+      "path": "vendor/r010_author_uninstrumented_v1/src/search/cost_saturation/cartesian_abstraction_generator.cc",
+      "sha256": "87e06b76e76167a7a1344884fcc9ceefa9408713cc125caf8bd6f22dee596402"
+    },
+    {
+      "path": "vendor/r010_author_uninstrumented_v1/src/search/cost_saturation/saturated_cost_partitioning_heuristic.cc",
+      "sha256": "352a62ce1d44b5b22270ef628b86b32fc31da0f86036bce4a32edc9c412682cc"
+    },
+    {
+      "path": "vendor/r010_author_uninstrumented_v1/src/search/cost_saturation/saturated_cost_partitioning_online_heuristic.cc",
+      "sha256": "0139c02f786fc010ab64e49d09532e0ed73d35d13d624d918422dad32ceb90df"
+    },
+    {
+      "path": "vendor/r010_ordinary_control_overlay_v1/abstraction.cc",
+      "sha256": "b18ec0680be9e962905b4bf607c30d69d922f50fe4123d489357e69e3c97822a"
+    },
+    {
+      "path": "results/R012-primary-recipe-source-crosswalk-W5-v1/result.json",
+      "sha256": "879272f261df9f86b9b8b3d895a453220c3c5310dc2ad4c448769c310f722338"
+    },
+    {
+      "path": "reviews/R012-primary-protocol-review-v1/primary-protocol-review-v1.md",
+      "sha256": "080520f765b307f5213622d12bed60931d0313698cfa83e8c72dc8325b3521ab"
+    },
+    {
+      "path": "reviews/R012-primary-protocol-review-v1/result-v1.json",
+      "sha256": "824291b36c005602e94c362432929cce31d8c6e9323ef6168f703f299aaf69d1"
+    }
+  ],
+  "derivation": [
+    "The actual archived strongest additive regression Do recipe contains operators_disambiguation=AC3 but no abstract_space_disambiguation argument.",
+    "Fixed utils.cc default for abstract_space_disambiguation is none().",
+    "Fixed NoDisambiguation implements both disambiguate overloads as return false. Abstraction::disambiguate_state forwards that returned boolean.",
+    "Both child disambiguated flags are therefore false; the conditional true branch in Abstraction::refine containing the entire ordinary exact-U diff is never entered.",
+    "The unchanged else branch uses modified_vars={splitvar}; no cross-target reuse or altered hierarchy follows from this intervention under this recipe."
+  ],
+  "diff": [
+    "--- fixed author\n",
+    "+++ ordinary exact-U control\n",
+    "@@ -219,10 +219,13 @@\n",
+    "         const CartesianSet &v1_set = v1->get_cartesian_set();",
+    "         const CartesianSet &v2_set = v2->get_cartesian_set();",
+    "         int n_vars = v_set.get_n_vars();",
+    "         for (int analysed_var = 0; analysed_var < n_vars; analysed_var++) {",
+    "+            // Exact-U list selection only; original hierarchy guard remains below.",
+    "+            if (!v_set.is_equal_in_var(v1_set, analysed_var) || !v_set.is_equal_in_var(v2_set, analysed_var)) {",
+    "+                modified_vars.push_back(analysed_var);",
+    "+            }",
+    "             if (!v_set.is_equal_in_var(v1_set, var) || !v_set.is_equal_in_var(v2_set, var)) {",
+    "-                modified_vars.push_back(analysed_var);",
+    "                 // A node must be created in refinement hierarchy for the",
+    "                 // values that are not included in any abstract state.",
+    "                 if (var == analysed_var) {",
+    "                     int wanted_size = wanted.size();"
+  ],
+  "scope": "Source-semantic inactive-branch result for exact fixed Do recipe, not a measured zero timing difference between separately linked binaries, not all strongest planners or unknown configurations",
+  "investment_decision": "Do not run patched-versus-author timing grid solely to claim exact-U improvements of Do. First actual author baseline feasibility; then target its real bottleneck or explicitly compare state-heavy candidate quality against stronger Do.",
+  "independent_review_acceptance": {
+    "assignment_ref": {
+      "path": "reviews/R012-primary-protocol-review-v1/assignment-v1.json",
+      "sha256": "059fe901eb7f15584c4c031f4e7756048be8790446e735c47c8131a4dfe466a2"
+    },
+    "result_ref": {
+      "path": "reviews/R012-primary-protocol-review-v1/result-v1.json",
+      "sha256": "824291b36c005602e94c362432929cce31d8c6e9323ef6168f703f299aaf69d1"
+    },
+    "review_ref": {
+      "path": "reviews/R012-primary-protocol-review-v1/primary-protocol-review-v1.md",
+      "sha256": "080520f765b307f5213622d12bed60931d0313698cfa83e8c72dc8325b3521ab"
+    },
+    "state": "accepted_scoped_primary_protocol_reading",
+    "reason": "Main independently read consequential archived scripts/defaults/subtask construction and publisher experimental section; 746file crosswalk now independently checks reviewer unresolved code-identity gap. Reported baseline raw-data provenance and actual native/ensemble qualification remain open.",
+    "model_usage": "unknown"
+  },
+  "limitations": [
+    "No blanket algorithm novelty or full paper reproduction",
+    "Archived old baseline dataset generator missing; actual reported C458 command not established",
+    "State-disambiguation-enabled configurations may activate the intervention and need separate qualified proof/measurement",
+    "Optional cgroup memory.pressure absence repaired in read-only restore v2; selector schema refusals kept before native dispatch"
+  ]
+}

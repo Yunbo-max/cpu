@@ -1,0 +1,195 @@
+{
+  "task_id": "R012-BWp06-author-additive-ops-feasibility-W5-v1",
+  "attempt_id": "attempt-0bc6302b54394db094bbb47eab4018a9",
+  "receipt_ref": {
+    "path": ".research-autopilot/runner/attempts/attempt-0bc6302b54394db094bbb47eab4018a9/receipt.json",
+    "sha256": "a694623b8cebdb4aad71ae077826d5b66e034c7f6cdc959b4844f89ba1057fc2"
+  },
+  "actual_native_rows": [
+    {
+      "role": "preprocess-h2",
+      "wrapper_exit": 0,
+      "binary_sha256": "763876d92f843ec9104b6123617b5162fadd17b855904fea20f4d7c63ac5b9a3",
+      "input_sas_sha256": "337284c808bc03350bba2be4ae250f04cd116d310384def6ab5034b4d869afac",
+      "native_usage": {
+        "exit_code": 0,
+        "native_user_us": 7215,
+        "native_system_us": 3690,
+        "native_wall_ns": 11087685,
+        "native_maxrss_bytes": 10354688,
+        "cpu_unit": "microsecond",
+        "kernel_rusage_resolution": "Linux timeval microseconds; integer conversion via nearest microsecond",
+        "metric_scope": "direct native child only; wall bracket includes Popen/launch marker overhead, CPU does not include parent marker write/hash/VAL",
+        "cpu_affinity": [
+          0
+        ],
+        "native_cpu_us": 10905
+      },
+      "output_sas_sha256": "2227d8337176dae2867255cef3a2458621cfeeb7acf6ad5c3a86bc6939686fcd",
+      "output_sas_bytes": 22645
+    },
+    {
+      "role": "author-additive-ops",
+      "wrapper_exit": 0,
+      "binary_sha256": "0e98822b738c628fcf357e6be29469f51d5e305a71b554bfe58b06e17e5a38d9",
+      "input_sas_sha256": "2227d8337176dae2867255cef3a2458621cfeeb7acf6ad5c3a86bc6939686fcd",
+      "native_usage": {
+        "exit_code": 0,
+        "native_user_us": 87546584,
+        "native_system_us": 4659355,
+        "native_wall_ns": 92222327950,
+        "native_maxrss_bytes": 717451264,
+        "cpu_unit": "microsecond",
+        "kernel_rusage_resolution": "Linux timeval microseconds; integer conversion via nearest microsecond",
+        "metric_scope": "direct native child only; wall bracket includes Popen/launch marker overhead, CPU does not include parent marker write/hash/VAL",
+        "cpu_affinity": [
+          0
+        ],
+        "native_cpu_us": 92205939
+      },
+      "plan_sha256": "3e216bbefad0615165dff294a3b50d69a916b5bb29862c4612a586a80403993f",
+      "VAL_exit": 0,
+      "VAL_valid": true
+    }
+  ],
+  "actual_work": {
+    "cost": 26,
+    "plan_length": 26,
+    "cartesian_abstractions": 28,
+    "cartesian_states": 33061,
+    "cartesian_transitions": 1000002,
+    "expanded": 9830440,
+    "evaluated": 17639567,
+    "author_internal_build_wall_seconds": 3.147884,
+    "author_internal_search_wall_seconds": 89.015953
+  },
+  "actual_search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+  "preprocessed_sas_ref": {
+    "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/output.sas",
+    "sha256": "2227d8337176dae2867255cef3a2458621cfeeb7acf6ad5c3a86bc6939686fcd"
+  },
+  "raw_sas_ref": {
+    "path": "results/R011-public-BWp06-acquisition-W5-v1/output.sas",
+    "sha256": "337284c808bc03350bba2be4ae250f04cd116d310384def6ab5034b4d869afac"
+  },
+  "primary_recipe_ref": {
+    "path": "results/R012-primary-recipe-source-crosswalk-W5-v1/result.json",
+    "sha256": "879272f261df9f86b9b8b3d895a453220c3c5310dc2ad4c448769c310f722338"
+  },
+  "source_boundary_ref": {
+    "path": "evidence/R012-strong-recipe-inactive-branch-boundary-v1.json",
+    "sha256": "a6e28830ac2085945f3ff3a214112f1d10655ea9ccf986a771b496833680d5ba"
+  },
+  "source_refs": [
+    {
+      "path": "data/R010-author-uninstrumented-source-manifest-v1.json",
+      "sha256": "403ce0e1f89ac343c89eb0b84c5e1eb1c71d21637244491edab6cfa0fd4ace1f"
+    }
+  ],
+  "raw_refs": [
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/native-launch.json",
+      "sha256": "2edcd78a9f127c97e536b47f9748eaf58899e9992bb25b0216c88870858aad68"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/native-usage.json",
+      "sha256": "c27d3b95e361a7164595f593887bfe66149a42aa299600acf68c7645464ecb1a"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/wrapper.stdout.log",
+      "sha256": "6efb346da770c603c4850ff4e6a16402dd45b2cf7fc003457f46e8c13deacdc0"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/guard-argv.json",
+      "sha256": "25a01f81991d6715306bb3903c524c7ee0859cde000931051a2d71a07b7300bd"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/wrapper.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/output.sas",
+      "sha256": "2227d8337176dae2867255cef3a2458621cfeeb7acf6ad5c3a86bc6939686fcd"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/native.stdout.log",
+      "sha256": "c0aa9211960055dbcddc83ea4a61b563aa03b902aa96626fc7f2caf60cb6d7fc"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/native-guard/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/native-guard/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/preprocess-h2/native-guard/metrics.json",
+      "sha256": "1427e71a7b34ff252ef31b79e7f9c6684aa6e8197e5d4b9589e97e48d002b5bb"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/native-launch.json",
+      "sha256": "937912cc44cc5c5971aa4e88dfa5d1736f6265ec60cc81d390e5138d0bb2905d"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/VAL.stdout.log",
+      "sha256": "f78fba8b9f2df43ee63936c84a367bc357d6c5014b99801db19c98978f9e7626"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/native-usage.json",
+      "sha256": "b8f3fa7a82128f5a58213a1fadd52fe6615ccf314ed418ec78d7735203e63e79"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/wrapper.stdout.log",
+      "sha256": "062ce26adc47d8145c6efb502e4c28b262b0bda181e9f6c2912191eb001bc1ae"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/guard-argv.json",
+      "sha256": "4e6dd14154bcf6da2cf1f08050c899d0e4376b706a0e2cae09e5f07e7f982034"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/wrapper.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/VAL.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/sas_plan",
+      "sha256": "3e216bbefad0615165dff294a3b50d69a916b5bb29862c4612a586a80403993f"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/native.stdout.log",
+      "sha256": "b0fb9da7f5d0ddb8cd0ef23beba7d28afa248c171e55cc4ce8bfbd357f57e08f"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/native-guard/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/native-guard/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/R012-BWp06-author-additive-ops-feasibility-W5-v1/author-additive-ops/native-guard/metrics.json",
+      "sha256": "5958986af517a974e05a98647b77bf6e5bf670de53af118e0c0ba67e70a6464d"
+    }
+  ],
+  "scope": "One actual strong-author additive recipe feasibility on exposed p06, not candidate comparison, final/per-component graph equivalence, full1800s8GiB reproduction or novelty",
+  "caveats": [
+    "Internal1M transition limit can overshoot by a refinement; actual1000002 retained, not forced to1000000",
+    "Internal build/search wall logs are author instrumentation, not direct per-predicate CPU",
+    "Different recipe and native h2 preprocessing from R011; do not form a speed ratio versus old single-subtask runs",
+    "Exact published baseline C458 generating script/raw-data provenance remains missing",
+    "Model usage unknown; command accounting not total CPU"
+  ]
+}

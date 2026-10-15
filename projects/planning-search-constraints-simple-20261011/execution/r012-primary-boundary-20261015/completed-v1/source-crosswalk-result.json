@@ -1,0 +1,438 @@
+{
+  "observed_utc": "2026-10-15T05:47:18.450175+00:00",
+  "purpose": "Actual primary script/static source boundary diagnostic, not native execution or source adoption",
+  "archive_source_files": 746,
+  "matched_fixed_author_files": 746,
+  "fixed_author_manifest_files": 820,
+  "archive_changed_or_extra": [],
+  "fixed_only": [
+    ".gitattributes",
+    ".github/workflows/apptainer.yml",
+    ".github/workflows/autodoc.yml",
+    ".github/workflows/docs.yml",
+    ".github/workflows/mac.yml",
+    ".github/workflows/misc/cplex2211_windows_installer.properties",
+    ".github/workflows/misc/set-visual-studio-static-runtime-libraries.py",
+    ".github/workflows/style.yml",
+    ".github/workflows/ubuntu.yml",
+    ".github/workflows/windows.yml",
+    ".gitignore",
+    ".uncrustify.cfg",
+    "misc/autodoc/.gitignore",
+    "misc/autodoc/autodoc.py",
+    "misc/autodoc/generate-docs.py",
+    "misc/autodoc/markup.py",
+    "misc/autodoc/mkdocs.yml",
+    "misc/autodoc/requirements.in",
+    "misc/autodoc/requirements.txt",
+    "misc/hooks/commit-msg",
+    "misc/images/fast-downward.svg",
+    "misc/releases/19.06/Dockerfile.19.06",
+    "misc/releases/19.06/Singularity.19.06",
+    "misc/releases/19.06/Vagrantfile.19.06",
+    "misc/releases/19.12/Dockerfile.19.12",
+    "misc/releases/19.12/Singularity.19.12",
+    "misc/releases/19.12/Vagrantfile.19.12",
+    "misc/releases/20.06/Dockerfile.20.06",
+    "misc/releases/20.06/Singularity.20.06",
+    "misc/releases/20.06/Vagrantfile.20.06",
+    "misc/releases/21.12/Dockerfile.21.12",
+    "misc/releases/21.12/Singularity.21.12",
+    "misc/releases/21.12/Vagrantfile.21.12",
+    "misc/releases/22.06/Dockerfile.22.06",
+    "misc/releases/22.06/Singularity.22.06",
+    "misc/releases/22.06/Vagrantfile.22.06",
+    "misc/releases/22.12/Dockerfile.22.12",
+    "misc/releases/22.12/Singularity.22.12",
+    "misc/releases/22.12/Vagrantfile.22.12",
+    "misc/releases/23.06/Dockerfile.23.06",
+    "misc/releases/23.06/Vagrantfile.23.06",
+    "misc/releases/prepare-release.sh",
+    "misc/releases/push-docker.sh",
+    "misc/releases/templates/_Dockerfile.tpl",
+    "misc/releases/templates/_Vagrantfile.tpl",
+    "misc/releases/templates/_version.tpl",
+    "misc/run-all-tests",
+    "misc/style/check-cc-file.py",
+    "misc/style/check-include-guard-convention.py",
+    "misc/style/run-all-style-checks.py",
+    "misc/style/run-clang-tidy.py",
+    "misc/style/run-uncrustify.py",
+    "misc/style/utils.py",
+    "misc/tests/benchmarks/gripper/domain.pddl",
+    "misc/tests/benchmarks/gripper/prob01.pddl",
+    "misc/tests/benchmarks/miconic-simpleadl/domain.pddl",
+    "misc/tests/benchmarks/miconic-simpleadl/s1-0.pddl",
+    "misc/tests/benchmarks/miconic/domain.pddl",
+    "misc/tests/benchmarks/miconic/s1-0.pddl",
+    "misc/tests/benchmarks/philosophers/domain.pddl",
+    "misc/tests/benchmarks/philosophers/p01-phil2.pddl",
+    "misc/tests/benchmarks/satellite/domain.pddl",
+    "misc/tests/benchmarks/satellite/p25-HC-pfile5.pddl",
+    "misc/tests/configs.py",
+    "misc/tests/conftest.py",
+    "misc/tests/test-dependencies.py",
+    "misc/tests/test-exitcodes.py",
+    "misc/tests/test-memory-leaks.py",
+    "misc/tests/test-standard-configs.py",
+    "misc/tests/test-translator.py",
+    "misc/tests/valgrind/dl_catch_error.supp",
+    "misc/tests/valgrind/dlopen.supp",
+    "misc/tests/valgrind/gcc5.supp",
+    "misc/tox.ini"
+  ],
+  "scripts": [
+    {
+      "name": "20251031_10000states.py",
+      "sha256": "a96f555d7493ea6f09514ef7734eab25210578ca8d57634c797c29a228cf9d9a",
+      "rows": 10,
+      "unused_other_scp_online_opts": false
+    },
+    {
+      "name": "20251031_add_first_disambiguation.py",
+      "sha256": "2a8443d16348d7c04d96e0da38d7a2880ed14ec50a3bda1eeaccaefccfcc6934",
+      "rows": 16,
+      "unused_other_scp_online_opts": true
+    },
+    {
+      "name": "20251031_add_it_disambiguation.py",
+      "sha256": "7aea30597074ece1cddd1e876d1679045a584086091a9edc693e80a436201d64",
+      "rows": 8,
+      "unused_other_scp_online_opts": true
+    },
+    {
+      "name": "20251031_add_dis_disambiguation.py",
+      "sha256": "7133a084059c4a539871475c18f8272e98fbfc3f873ff1a0f940c6b0e2d5d14d",
+      "rows": 16,
+      "unused_other_scp_online_opts": true
+    }
+  ],
+  "rendered_configurations": [
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "bw_10k(first,none,deadends)",
+      "search": "astar(cegar(max_transitions=infinity,max_states=10k,subtasks=[original(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+      "script": "20251031_10000states.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "bw_10k(first,alltrs,deadends)",
+      "search": "astar(cegar(max_transitions=infinity,max_states=10k,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(remove_spurious_transitions=ALL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+      "script": "20251031_10000states.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "bw_10k(first,optimaltrs,deadends)",
+      "search": "astar(cegar(max_transitions=infinity,max_states=10k,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+      "script": "20251031_10000states.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "bw_10k(first,plantrs,deadends)",
+      "search": "astar(cegar(max_transitions=infinity,max_states=10k,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+      "script": "20251031_10000states.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "bw_10k(first,ops,deadends)",
+      "search": "astar(cegar(max_transitions=infinity,max_states=10k,operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+      "script": "20251031_10000states.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "bw_10k(first,states,deadends)",
+      "search": "astar(cegar(max_transitions=infinity,max_states=10k,abstract_space_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+      "script": "20251031_10000states.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "bw_10k(first,states_ops,deadends)",
+      "search": "astar(cegar(max_transitions=infinity,max_states=10k,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+      "script": "20251031_10000states.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "bw_10k(first,states_ops_alltrs,deadends)",
+      "search": "astar(cegar(max_transitions=infinity,max_states=10k,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(remove_spurious_transitions=ALL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+      "script": "20251031_10000states.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "bw_10k(first,states_ops_optimaltrs,deadends)",
+      "search": "astar(cegar(max_transitions=infinity,max_states=10k,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+      "script": "20251031_10000states.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "bw_10k(first,states_ops_plantrs,deadends)",
+      "search": "astar(cegar(max_transitions=infinity,max_states=10k,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[original(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW)]),pruning=dead_pairs_pruning())",
+      "script": "20251031_10000states.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(first,none,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(first,optimaltrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(first,plantrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(first,ops,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(first,states,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(first,states_ops,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(first,states_ops_optimaltrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(first,states_ops_plantrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(first,none,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(first,optimaltrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(first,plantrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(first,ops,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(first,states,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(first,states_ops,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(first,states_ops_optimaltrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(first,states_ops_plantrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_first_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(it,none,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_it_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(it,optimaltrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_it_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(it,plantrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_it_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(it,ops,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_it_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(it,states,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_it_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(it,states_ops,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random),goals(pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_it_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(it,states_ops_optimaltrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_it_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(it,states_ops_plantrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random),goals(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_ITERATIVE_IN_ABSTRACTION,sequence_split=FIRST_FLAW,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_it_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(dis,none,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(dis,optimaltrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(dis,plantrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(dis,ops,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(dis,states,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(dis,states_ops,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(dis,states_ops_optimaltrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_fw(dis,states_ops_plantrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(dis,none,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(dis,optimaltrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(dis,plantrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(dis,ops,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(dis,states,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(dis,states_ops,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(dis,states_ops_optimaltrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(remove_spurious_transitions=OPTIMAL,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    },
+    {
+      "revision": "c4d2c76d4a28bd36c594f7c6318edc5c5f0d2398",
+      "name": "add_bw(dis,states_ops_plantrs,deadends)",
+      "search": "astar(scp_online([cartesian(max_transitions=1M,max_time=900,abstract_space_disambiguation=AC3(cache_disambiguations=false),operators_disambiguation=AC3(cache_disambiguations=false),transitions_disambiguation=AC3(cache_disambiguations=false),subtasks=[landmarks(combine_facts=false,remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random),goals(remove_spurious_transitions=PLAN,pick_flawed_abstract_state=SEQUENCE_BACKWARD,sequence_split=BEST_SPLIT,pick_split=N_CHILDREN_DISAMBIGUATED,order=random)])]),pruning=dead_pairs_pruning())",
+      "script": "20251031_add_dis_disambiguation.py"
+    }
+  ],
+  "renderer_fixtures": [
+    {
+      "name": "side_effect_call",
+      "rejected": true
+    },
+    {
+      "name": "unknown_constructor",
+      "rejected": true
+    },
+    {
+      "name": "undefined_name",
+      "rejected": true
+    },
+    {
+      "name": "attribute_lookup",
+      "rejected": true
+    }
+  ],
+  "no_archive_script_imported_or_executed": true,
+  "strong_recipe_status": "Archived additive rows at exact fixed commit, distinct from mutable record webpage command; no config native test in this diagnostic",
+  "limitations": [
+    "Static rendering tests accepted AST subset only, not parser/native or algorithm correctness",
+    "Missing workflow/release/test files are not source changes",
+    "Primary full recipe resource boundaries differ from existing bounded experiments",
+    "No speed/novelty/generalization result"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "task_id": "R012-BWp06-author-additive-ops-feasibility-W5-v1",
+  "purpose": "Author strongest archived additive recipe bounded feasibility only; no candidate comparison",
+  "rows": [
+    {
+      "role": "preprocess-h2",
+      "wrapper_exit": 0,
+      "binary_sha256": "763876d92f843ec9104b6123617b5162fadd17b855904fea20f4d7c63ac5b9a3",
+      "input_sas_sha256": "337284c808bc03350bba2be4ae250f04cd116d310384def6ab5034b4d869afac",
+      "native_usage": {
+        "exit_code": 0,
+        "native_user_us": 7215,
+        "native_system_us": 3690,
+        "native_wall_ns": 11087685,
+        "native_maxrss_bytes": 10354688,
+        "cpu_unit": "microsecond",
+        "kernel_rusage_resolution": "Linux timeval microseconds; integer conversion via nearest microsecond",
+        "metric_scope": "direct native child only; wall bracket includes Popen/launch marker overhead, CPU does not include parent marker write/hash/VAL",
+        "cpu_affinity": [
+          0
+        ],
+        "native_cpu_us": 10905
+      },
+      "output_sas_sha256": "2227d8337176dae2867255cef3a2458621cfeeb7acf6ad5c3a86bc6939686fcd",
+      "output_sas_bytes": 22645
+    },
+    {
+      "role": "author-additive-ops",
+      "wrapper_exit": 0,
+      "binary_sha256": "0e98822b738c628fcf357e6be29469f51d5e305a71b554bfe58b06e17e5a38d9",
+      "input_sas_sha256": "2227d8337176dae2867255cef3a2458621cfeeb7acf6ad5c3a86bc6939686fcd",
+      "native_usage": {
+        "exit_code": 0,
+        "native_user_us": 87546584,
+        "native_system_us": 4659355,
+        "native_wall_ns": 92222327950,
+        "native_maxrss_bytes": 717451264,
+        "cpu_unit": "microsecond",
+        "kernel_rusage_resolution": "Linux timeval microseconds; integer conversion via nearest microsecond",
+        "metric_scope": "direct native child only; wall bracket includes Popen/launch marker overhead, CPU does not include parent marker write/hash/VAL",
+        "cpu_affinity": [
+          0
+        ],
+        "native_cpu_us": 92205939
+      },
+      "plan_sha256": "3e216bbefad0615165dff294a3b50d69a916b5bb29862c4612a586a80403993f",
+      "VAL_exit": 0,
+      "VAL_valid": true
+    }
+  ],
+  "not_run": [],
+  "native_source_changed": false,
+  "pilot_complete": true,
+  "goal_complete": false,
+  "interpretation": "Successful bounded author recipe feasibility, not full-paper coverage, patched-method equivalence or speedup"
+}
