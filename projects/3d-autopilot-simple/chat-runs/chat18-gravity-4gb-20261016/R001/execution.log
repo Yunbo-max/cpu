@@ -1,0 +1,127 @@
+R001-wake24-recovery-audit
+Scope: read-only restored-file and historical-result audit, not new pose estimation.
+Procedure: Yunbo-max/Research_Autopilot@7c5baeb583a4e194575641c34240c2ed831aa88e (Auto Chat .18)
+Input archive: Yunbo-max/cpu@ca20639f3a44118d6807c471b2c6b9a2e73a6c22
+Claim read back: bd13765af9d19d790288ccce44def6eb63e67612
+Working directory at execution: /mnt/data/3d-chat18-20261016
+Exact command:
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 timeout 8s /usr/bin/time -v python3 audit.py > audit.stdout.log 2> audit.stderr.log
+Observed wrapper exit_code=0
+Whole-process start/end timestamps were not captured; timestamps in stdout cover the Python audit body only.
+This log concatenates the actual retained stdout/stderr without rerunning the command.
+--- STDOUT BEGIN ---
+{
+  "task_id": "R001-wake24-recovery-audit",
+  "scope": "historical data restoration and protocol-readiness audit; not new pose estimation",
+  "claim_commit": "bd13765af9d19d790288ccce44def6eb63e67612",
+  "source_archive_commit": "ca20639f3a44118d6807c471b2c6b9a2e73a6c22",
+  "input_sha256": {
+    "handoff-wake24.md": "2313c7549cb80d230c9f2436f483f1838ee3d9122011e215ed2b80d8d456deda",
+    "gravity_pose_tum_fr1xyz_v3.py": "8be5b35797b77e295f6dc7f4fe3f4bb31f69f7b7141aef47ac60cf2fc1c54e55",
+    "raw.csv": "7e1edc3cd60752577facadc35ac055c2d84ef3aa8e3292f1eaf5682510496e6d"
+  },
+  "audit_code_sha256": "f0c22add3607b2a9ace3f2dfbc0414f95eeea40491850c16f3af56431e917d82",
+  "historical_rows": 16,
+  "historical_pairs": 8,
+  "medians": {
+    "up2pf_ori_ransac": {
+      "rotation_error_deg": 0.37807430242631335,
+      "center_error_m": 0.02553352878855747,
+      "inliers": 46.5
+    },
+    "p3p_ransac": {
+      "rotation_error_deg": 0.5792978885715213,
+      "center_error_m": 0.007347956646711128,
+      "inliers": 63.0
+    }
+  },
+  "up2_pair_wins": {
+    "rotation_error_deg": 5,
+    "center_error_m": 1,
+    "inliers": 0
+  },
+  "prior_report_rounding_reproduced": true,
+  "source_audit": {
+    "legacy_address_space_limits": [
+      [
+        6442450944,
+        6442450944
+      ]
+    ],
+    "user_ram_cap_bytes": 4000000000,
+    "legacy_limit_exceeds_new_cap": true,
+    "calibration_K": [
+      [
+        525.0,
+        0,
+        319.5
+      ],
+      [
+        0,
+        525.0,
+        239.5
+      ],
+      [
+        0,
+        0,
+        1.0
+      ]
+    ],
+    "gravity_assignment": [
+      "G = rxz(R)"
+    ],
+    "gravity_is_groundtruth_derived_in_this_script": true,
+    "legacy_eigen_path_exists": false,
+    "system_eigen_path_exists": false
+  },
+  "host": {
+    "python": "3.13.5",
+    "cpu_affinity": [
+      0
+    ],
+    "threads": 1,
+    "memory_current_before": 598585344,
+    "memory_max": 4294967296,
+    "cpu_max": "400000 100000",
+    "disk_free_bytes": 32029827072,
+    "gpp": "/usr/bin/g++",
+    "numpy_installed": true,
+    "scipy_installed": true,
+    "oom_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+  },
+  "start_utc": "2026-10-16T11:05:27.932802+00:00",
+  "end_utc": "2026-10-16T11:05:27.949103+00:00",
+  "measured_wall_seconds": 0.01629832499997974,
+  "measured_cpu_seconds": 0.016259022000000067,
+  "peak_rss_kib": 97824,
+  "new_solver_experiments": 0,
+  "new_scientific_cycles": 0,
+  "independent_reviewer_used": false,
+  "next_action": "Preserve this recovered evidence. Recover original plans/solver pins; qualify a versioned 4 GB runtime and dataset-specific camera model before fresh fr2/xyz comparison. No retuning fr1, no claim that gravity intrinsically improves or harms deployment."
+}
+--- STDOUT END ---
+--- STDERR BEGIN ---
+	Command being timed: "python3 audit.py"
+	User time (seconds): 0.65
+	System time (seconds): 0.06
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.72
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 97952
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 26219
+	Voluntary context switches: 2
+	Involuntary context switches: 5
+	Swaps: 0
+	File system inputs: 24
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+--- STDERR END ---
