@@ -1,20 +1,31 @@
 {
   "schema_version": 1,
-  "revision": 1,
+  "revision": 2,
+  "parent_checkpoint": {
+    "commit": "ee9b871d358fe41a99304f10e9c7264d900707aa",
+    "path": "projects/3d-autopilot-simple/chat-runs/chat18-gravity-4gb-20261016/CURRENT.json",
+    "blob_sha": "09ccd3e864b5fbb7aa642ef648f99c0d443ce95d",
+    "rule": "Preserve this original authorization, source observations, historical usage and incidents; revision 2 adds real recovery and audit evidence, not a reset."
+  },
   "project_id": "3d_autopilot_simple",
   "owner_id": "chat18-gravity-4gb-20261016",
-  "status": "source_recovery_blocked",
+  "status": "partial_recovery_verified_native_dependencies_pending",
+  "mode": "research",
   "goal": "Continue the existing gravity-pose-public-rgbd-validation research using the complete Auto Chat scientific procedure. Assess reliability and model mismatch on public real RGB-D data using original baselines and scoring. Read the actual latest handoff before narrowing the next hypothesis; do not restart retired ideas or substitute toy quadratic examples.",
+  "goal_completed": false,
   "authorization": {
     "user_request_date": "2026-10-16",
-    "request": "Restart the complete original Chat research workflow using the existing CPU repository; select research runnable within 4 GB RAM.",
+    "latest_confirmation": "User confirmed this 3D research and updates to the supplied GitHub repository.",
     "scoped_github_persistence_resumed": true,
     "other_stopped_tasks_remain_stopped": true,
     "legacy_smoke_test_remains_stopped": true,
     "work_ssh_gpu_paid_services": false,
     "github_actions_workflows_prs": false,
     "new_outputs_root": "projects/3d-autopilot-simple/chat-runs/chat18-gravity-4gb-20261016",
-    "preserve_legacy_archives_and_simple_runtime": true
+    "preserve_legacy_archives_and_simple_runtime": true,
+    "user_lifetime_round_limit": null,
+    "user_lifetime_end_date": null,
+    "finite_host_and_command_limits_still_apply": true
   },
   "procedure": {
     "repository": "Yunbo-max/Research_Autopilot",
@@ -22,87 +33,126 @@
     "version": "0.2.0-autonomous-chat.18",
     "entry": "skills/research-autopilot/SKILL.md",
     "core_references_read": ["edition-policy.md", "round-continuation.md", "resource-queue.md", "chat-execution.md", "autonomous-rsi.md", "project-cooperation.md", "research-cycle.md"],
-    "scientific_action_specific_modules": "Read all applicable original modules before their dependent intake, mathematical derivation, method admission, baseline comparison or empirical task. This startup checkpoint does not replace the Skill.",
+    "additional_reads_this_invocation": ["operational-recovery.md", "development-and-execution.md: G01-G05, E01-E04 including post-run verification; response tail truncated"],
+    "scientific_action_specific_modules": "Read applicable original inquiry, math, quality, paper-grounded design and method-verification modules before new construction or empirical admission. Current work was only admitted read-only recovery/audit. Do not substitute this checkpoint for Skill text.",
     "native_installed_plugin_invoked": false
   },
   "coordination": {
     "path": "projects/3d-autopilot-simple/.autopilot/project-cooperation.json",
     "registration_commit_read_back": "162f00cbcbc85942fc3181a92c1edf36628878fe",
-    "coverage": "partial; inspect archived cooperation records and reconcile ownership before empirical dispatch",
-    "empirical_claim": null
+    "audit_claim_commit_read_back": "bd13765af9d19d790288ccce44def6eb63e67612",
+    "audit_task": "R001-wake24-recovery-audit",
+    "audit_terminal": true,
+    "empirical_claim": null,
+    "coverage": "Partial; archive-wide sources and archived cooperation records remain to reconcile before native empirical dispatch. The narrow recovery audit is terminal and must not be rerun as new research."
   },
   "continuation": {
     "automation_id": "6ad1ff42f1b081919c0450e36fe9bd71",
     "title": "Chat 4GB 三维研究",
     "configured_enabled": true,
     "cadence": "HOURLY",
-    "scheduled_execution_observed_at_startup": false,
-    "constant_cpu_between_wakes_claimed": false
+    "enabled_receipt_observed_at": "2026-10-16T11:16:41.533980+00:00",
+    "provider_last_run_time_at_receipt": null,
+    "this_invocation": "active user turn, not an observed scheduled invocation",
+    "constant_cpu_between_wakes_claimed": false,
+    "rule": "Reuse this existing task. Read latest CURRENT and shared ledger; do not create duplicate timers or revive stopped tasks."
   },
   "verified_recovery_locators": {
     "repository": "Yunbo-max/cpu",
-    "main_commit_read": "162f00cbcbc85942fc3181a92c1edf36628878fe",
     "latest_path": "projects/3d-autopilot-simple/latest.json",
     "latest_blob_sha": "e8aa1704c847cb95f972d19b5a820bbcd9cff3b9",
     "helper_path": "projects/3d-autopilot-simple/restore_checkpoint.py",
-    "helper_rule": "Fetch helper and latest from the same current main commit; resolve immutable base plus ordered overlays before selective restoration into a new empty staging directory.",
     "latest_overlay_commit": "ca20639f3a44118d6807c471b2c6b9a2e73a6c22",
     "latest_overlay_manifest": "projects/3d-autopilot-simple/snapshots/2026-10-13-wake24/manifest.json",
-    "manifest_blob_sha": "bb7cdf01e54cd58c0af50d7d96f33ae31f72b690",
-    "manifest_read_scope": "lines 1-120; complete manifest still required for restoration",
     "latest_overlay_archive_bytes": 33233499,
-    "latest_overlay_sha256": "398cd9192adca24140179c1f361bebe35b9881c37c595bc3fffea398be8999ad",
-    "handoff_inside_archive": "notes/handoff-wake24.md",
-    "primary_result_inside_archive": "results/gravity-pose-tum-fr1xyz-v3.json",
-    "primary_result_sha256": "1dd60948fe625f8f859291da3591c18e23cbff6a7d019b5f9e6fcb9c26e5489a",
-    "raw_archive_restored": false,
-    "handoff_body_read": false,
+    "latest_overlay_declared_sha256": "398cd9192adca24140179c1f361bebe35b9881c37c595bc3fffea398be8999ad",
+    "selected_members_restored": 3,
+    "handoff_body_read": true,
+    "full_raw_archive_restored": false,
+    "full_archive_hash_verified_this_invocation": false,
+    "manifest_member_bytes": 21413,
+    "manifest_member_sha256": "14553489f76919165ba26836352e4b19ccc109160cd29f4f7a3b9b032f7d2bbc",
+    "manifest_member_entries": 106,
+    "recovery_validation": "Actual ZIP member CRC32 and uncompressed SHA-256 checks against recovered member manifest for handoff, runner and raw rows. Not whole archive/SQLite/base-plus-overlays recovery.",
+    "transport": "GitHub.fetch_file encoding=base64 with 1-based line ranges; each full line has 60 base64 characters = 45 bytes. No credential extraction or security-denial bypass.",
+    "retrieved_ranges": {
+      "group-01/part-0046.bin": [[5359,5418],[5419,5481],[5725,5794]],
+      "group-00/part-0015.bin": [[121,195],[2719,2741],[4036,4085],[4086,4130]]
+    },
+    "next_small_source_recovery": "If ordinary downloads remain unavailable, recover original plan v1/v2/v3 from the same part-0015 member headers at ZIP offsets 10761504/10763717/10764599; compressed sizes 2128/797/394 and uncompressed sizes 4098/1426/626. Part size is 716800. Verify header, CRC and manifest SHA before reuse. Recover native result JSON at offset10922061, compressed3022/uncompressed12145 to obtain actual source pins. These members are NOT yet restored.",
     "always_read_future_latest_before_resume": true
   },
-  "historical_evidence_not_new_runs": {
-    "source": "projects/3d-autopilot-simple/build-wake24.json",
-    "source_commit": "162f00cbcbc85942fc3181a92c1edf36628878fe",
-    "source_blob_sha": "bac0196adc2a3c89b9814c07419df797856ed0ca",
-    "active_idea": "gravity-pose-public-rgbd-validation",
-    "attempts_used": 95,
-    "command_seconds": 3759.1021510600285,
-    "scientific_cycles": 33,
-    "primary_peak_rss_kib": 494200,
-    "oom": 0,
-    "oom_kill": 0,
-    "supervisor_running_recorded": false,
-    "unknown_attempts_recorded": 0,
-    "note": "Historical GitHub receipt, not a fresh run or current-process observation. Primary RSS is 494200 KiB according to this directly re-read receipt; supersedes any preliminary 494792 KiB transcription. Calibration of the full next task is still required."
+  "published_evidence": {
+    "root": "projects/3d-autopilot-simple/chat-runs/chat18-gravity-4gb-20261016/R001",
+    "payload_commit": "fb7124babff3cba98e3fe6e3052b21b802cd918f",
+    "payload_readback": "All six remote Git blob identities and sizes from immutable commit matched hashes computed over actual full local bytes.",
+    "files": {
+      "handoff-wake24.md": {"bytes":1528,"sha256":"2313c7549cb80d230c9f2436f483f1838ee3d9122011e215ed2b80d8d456deda","git_blob_sha":"051fdd0ab82b4e3c7c07a84c31163824cd9ba877"},
+      "raw.csv": {"bytes":1861,"sha256":"7e1edc3cd60752577facadc35ac055c2d84ef3aa8e3292f1eaf5682510496e6d","git_blob_sha":"460149539ab63f645aa685fa7762ca34eeb42cfb"},
+      "gravity_pose_tum_fr1xyz_v3.py": {"bytes":9382,"sha256":"8be5b35797b77e295f6dc7f4fe3f4bb31f69f7b7141aef47ac60cf2fc1c54e55","git_blob_sha":"f909f9e3a4dc554647e3312f6de95b2fd0adbfef"},
+      "audit.py": {"bytes":5460,"sha256":"f0c22add3607b2a9ace3f2dfbc0414f95eeea40491850c16f3af56431e917d82","git_blob_sha":"a33ac6d10194afc9afaba71ddffb2331a24f31a7"},
+      "audit_result.json": {"bytes":2751,"sha256":"ea46aaa166639d31d34ff2a0ed5739c6d343cdfd067f235771949cc251bd8121","git_blob_sha":"6640898e4ee953f5dd5ca1eb01e9b172966e8787"},
+      "execution.log": {"bytes":4346,"sha256":"467d25a5c4628f7bc4abe5eb1fde1d065b222fc53e8218a004791bb03eaa5692","git_blob_sha":"acb213940d5ad7aa5ce72557bb726f16e36637b7"}
+    },
+    "report": {"path":"R001/REPORT.md","commit":"3a81126253a93c9fe8336556a98fb27d1e45d590","git_blob_sha":"a0f56c87099d1b8952abbe07068b0dc0e77eaf6e","readback_hash_matched":true},
+    "reuse_rule": "Read these plaintext mirrors directly instead of repeating the completed recovery/audit. The mirrored legacy runner remains read-only evidence, not a runnable R001 entry or new dispatch authority."
   },
-  "resources": {
-    "research_ram_cap_bytes": 4000000000,
-    "numerical_concurrency": 1,
-    "numerical_threads": 1,
-    "fresh_probe_before_each_dispatch": true,
-    "initial_observed_python": "3.11.8",
-    "initial_observed_host_memory_max_bytes": 4294967296,
-    "initial_observed_host_memory_current_bytes": 597831680,
-    "initial_observed_cpu_quota_cores": 4,
-    "initial_observed_disk_free_bytes": 3242795008,
-    "initial_observed_oom": 0,
-    "require_shared_headroom_and_safety_margin": true,
-    "per_command_limits": "Follow the actual tool timeout, bound each command and save acknowledged state; do not inherit the toy smoke-test 3-action/30-second cap or claim unbounded execution."
+  "historical_evidence_not_new_runs": {
+    "active_idea":"gravity-pose-public-rgbd-validation",
+    "attempts_used":95,
+    "command_seconds":3759.1021510600285,
+    "scientific_cycles":33,
+    "primary_peak_rss_kib":494200,
+    "oom":0,
+    "source":"build-wake24.json and recovered handoff-wake24.md",
+    "historical_rows_reaggregated":16,
+    "historical_pairs":8,
+    "up2_p3p_median_rotation_deg":[0.37807430242631335,0.5792978885715213],
+    "up2_p3p_median_center_m":[0.02553352878855747,0.007347956646711128],
+    "up2_p3p_median_inliers":[46.5,63.0],
+    "scope":"Already-exposed fr1 source-model development evidence; not new experiments, independent data, broad superiority or a novelty claim."
   },
   "this_invocation": {
-    "new_native_scientific_experiments": 0,
-    "new_scientific_cycles": 0,
-    "cpu_resource_probe_executed": true,
-    "source_selection_and_reading_executed": true,
-    "local_source_download_succeeded": false,
-    "github_registration_saved_and_read_back": true,
-    "automatic_continuation_configured": true,
-    "full_scientific_workflow_end_to_end_verified": false
+    "cpu_audits_executed":1,
+    "new_native_scientific_experiments":0,
+    "new_scientific_cycles":0,
+    "audit_exit_code":0,
+    "audit_native_wall_seconds":0.72,
+    "audit_native_user_cpu_seconds":0.65,
+    "audit_native_system_cpu_seconds":0.06,
+    "audit_native_peak_rss_kib":97952,
+    "whole_invocation_command_usage":"unknown; do not count the audit alone as all recovery/tool cost",
+    "independent_reviewer_used":false,
+    "full_scientific_workflow_end_to_end_verified":false,
+    "cleanup_performed":false
+  },
+  "resources": {
+    "research_ram_cap_bytes":4000000000,
+    "numerical_concurrency":1,
+    "numerical_threads":1,
+    "fresh_probe_before_each_dispatch":true,
+    "latest_probe_ref":"R001/audit_result.json",
+    "latest_observed_host_memory_max_bytes":4294967296,
+    "latest_observed_memory_current_bytes":598585344,
+    "latest_observed_oom":0,
+    "historical_audit_peak_estimate_bytes":67108864,
+    "historical_audit_margin_bytes":67108864,
+    "profile_correction":"Observed audit RSS exceeded 64 MiB estimate but remained within the 128 MiB combined allowance and 256 MiB address limit; future same-kind audits should budget at least128 MiB peak plus64 MiB margin. This does not change the previous claim.",
+    "native_runner_status":"Not executed. Legacy RLIMIT_AS=6GiB is an address-space setting, not observed RAM; future operational wrapper must meet user cap. The old Eigen path and /usr/include/eigen3 were absent, but no exhaustive search of all installed headers is claimed."
+  },
+  "decision_delta": {
+    "reused_evidence":"Recovered exact wake24 handoff and all16 raw rows, not prior chat summaries.",
+    "avoided_duplicates":"No rerun of exposed fr1 solver experiments, no toy quadratics and no retired TESO block-cap work.",
+    "calibration_correction":"Do not automatically replace fx=fy=525. Official TUM file-format documentation recommends ROS defaults without extra undistortion for preregistered depth. Source/calibration qualification remains necessary; no camera parameters changed.",
+    "gravity_scope":"G=rxz(R) is derived from groundtruth rotation, not measured IMU; preserve ideal-prior source-model scope.",
+    "baseline_scope":"P3P fixed focal length versus UP2 estimated focal length is not matched information; do not attribute every difference to gravity alone.",
+    "next_selection":"Recover exact original plans/native pins and qualify the transfer, rather than tune existing fr1 results."
   },
   "incidents": [
-    {"id": "source-transfer-dns-20261016", "status": "open", "error": "urllib.error.URLError: <urlopen error [Errno -3] Temporary failure in name resolution>", "impact": "Direct local source/archive downloads unavailable in the observed host. GitHub connector text reads and scoped writes/readback work. No scientific run attempted with missing inputs."},
-    {"id": "archive-ref-transcription-20261016", "status": "resolved_locator_only", "error": "No commit found for the ref 0b57e88fe2d41060044dd10dbd88d10d754bdd0de", "resolution": "Re-read actual latest.json from immutable main commit and fetch wake24 manifest at ca20639f3a44118d6807c471b2c6b9a2e73a6c22 successfully. Do not reuse the incorrectly transcribed ref; this was not evidence of a missing valid archive."}
+    {"id":"source-transfer-dns-20261016","status":"partial_transport_recovery","last_observed_error":"URLError(gaierror(-3, 'Temporary failure in name resolution'))","observation_time":"2026-10-16T10:51:32.447070+00:00","resolution_scope":"Small selected archived members restored through supported connector Base64 ranges. General direct download and new fr2 dataset delivery remain unverified."},
+    {"id":"archive-ref-transcription-20261016","status":"resolved_locator_only","history_ref":"parent_checkpoint","rule":"Continue using verified ca20639f3a44118d6807c471b2c6b9a2e73a6c22 locator, not the previously mistyped ref."}
   ],
-  "next_action": "Read latest own checkpoint and coordination table. Recover actual notes/handoff-wake24.md, coherent legacy state, needed original code/scorer and raw evidence using the current authoritative manifest and a genuinely available authorized transfer route. Verify bytes and reconcile archived ownership. Consume the real previous results and the complete applicable Skill before selecting and claiming the next prospective research action. If source transfer remains blocked, report that specific dependency and undertake only useful independent source/math work that does not require unavailable raw results; do not manufacture toy cycles or silently reset the research.",
-  "persistence_rule": "Incrementally save actual source/math/protocol/raw outputs, command receipts, failures, usage and next action. Conditional GitHub writes preserving concurrent changes; exact immutable-commit readback before evicting only verified inactive own local copies. Missing local cache is not failure if verified remote recovery works. Never upload credentials or private conversations.",
-  "stop_rule": "Any subsequent explicit user stop overrides continuation. Stop only this new task and preserve results; never restart the old smoke test or other paused schedulers."
+  "next_action":"Read R001/REPORT.md, recovered handoff, exact runner and actual audit_result directly. Recover the original v1-v3 plans, full native result/source pins and required C++/headers; reconcile archived ownership before new empirical admission. Qualify a versioned <=4GB single-thread runtime, maintaining frozen scientific choices and the official depth/calibration contract. Acquire and hash-pin independent fr2/xyz data, then claim and execute the frozen transfer comparison when actual inputs/dependencies are present. Do not rerun R001, retune fr1, invent new data, declare native execution from metadata, or label a future result as new before execution.",
+  "persistence_rule":"Incremental normal GitHub files only; use conditional writes, preserve concurrent updates, verify immutable-commit bytes/hashes before cleaning owned inactive replicas. Keep any unique unpublished recovery details until saved. No credentials, private chats or other-project writes.",
+  "stop_rule":"Subsequent explicit user stop overrides continuation. Stop only this task and preserve evidence; do not restart old smoke or other paused projects."
 }
