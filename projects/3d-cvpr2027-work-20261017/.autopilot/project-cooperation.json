@@ -7,7 +7,7 @@
   "project_root": "projects/3d-cvpr2027-work-20261017",
   "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
   "coordinator_id": "work-cvpr-20261017",
-  "observed_source_head": "b0fb3e85d6406fcadc05c5c24d87a5defe61c3f4",
+  "observed_source_head": "d7fe936ba19ce6bcd238b46469253f9e10bf44da",
   "coverage_status": "single_participant_R001_R006_development_terminal; historical_dependency_inventory_partial",
   "coverage_gaps": [
     "Older simple archive contains 3228 index files; only selected source/results reviewed.",
@@ -99,7 +99,7 @@
         "timeout_seconds": 20
       },
       "release_condition": "Observed terminal mathematical diagnostic receipt and no active process.",
-      "observed": "At yaw offsets ±20° about ideal query gravity, both alternatives preserve the same two ideal gravity vectors to <3e-16 residual while inherited Rxz varies by 9.61429° and 9.61424°. Therefore this wrapper cannot compute its GT-derived Rxz from two measured directions in arbitrary reference-camera coordinates. No pose effectiveness or novelty claim.",
+      "observed": "At yaw offsets \u00b120\u00b0 about ideal query gravity, both alternatives preserve the same two ideal gravity vectors to <3e-16 residual while inherited Rxz varies by 9.61429\u00b0 and 9.61424\u00b0. Therefore this wrapper cannot compute its GT-derived Rxz from two measured directions in arbitrary reference-camera coordinates. No pose effectiveness or novelty claim.",
       "runtime": {
         "cpu_seconds": 0.716879,
         "peak_rss_kib": 76276,
@@ -129,7 +129,7 @@
         "timeout_seconds": 120
       },
       "release_condition": "Terminal observed metrics and no active process.",
-      "observed": "920 temporal-test windows. Direction dispersion Spearman 0.130, norm deviation 0.115, norm std 0.045; AUROC for >1.5° errors 0.620, 0.594, 0.528. Weak discrimination on one exposed sequence; no pose method or CVPR claim.",
+      "observed": "920 temporal-test windows. Direction dispersion Spearman 0.130, norm deviation 0.115, norm std 0.045; AUROC for >1.5\u00b0 errors 0.620, 0.594, 0.528. Weak discrimination on one exposed sequence; no pose method or CVPR claim.",
       "runtime": {
         "cpu_seconds": 7.407426,
         "peak_rss_kib": 115264,
@@ -160,7 +160,7 @@
         "timeout_seconds": 3600
       },
       "release_condition": "Pilot terminal observed, source and output receipts, no process.",
-      "observed": "12/12 pairs qualified, 24/24 valid solver rows, compile and native exit 0. Median rotation oracle 0.20084° vs P4Pf 0.25604°; center 0.01299m vs 0.00774m. CPU 34.229718s including C++ compile, child RSS peak 585560 KiB. No science verdict.",
+      "observed": "12/12 pairs qualified, 24/24 valid solver rows, compile and native exit 0. Median rotation oracle 0.20084\u00b0 vs P4Pf 0.25604\u00b0; center 0.01299m vs 0.00774m. CPU 34.229718s including C++ compile, child RSS peak 585560 KiB. No science verdict.",
       "runtime": {
         "cpu_seconds": 34.229718,
         "child_rss_kib": 585560,
@@ -190,7 +190,7 @@
         "timeout_seconds": 2400
       },
       "release_condition": "Full run observed terminal, results checked, no running process.",
-      "observed": "1440 planned, 1438 timestamp accepted, 1418 qualified, 2836 valid arm rows. Oracle/P4Pf rotation medians 0.1864/0.3020°, center 0.01626/0.01027m, focal relative 0.00975/0.00559, inliers 74/77; at 4.8s oracle rotation loses 0.507/0.491°. GT Rxz oracle only. Independent raw-row and fixed GT reprojection recount checked.",
+      "observed": "1440 planned, 1438 timestamp accepted, 1418 qualified, 2836 valid arm rows. Oracle/P4Pf rotation medians 0.1864/0.3020\u00b0, center 0.01626/0.01027m, focal relative 0.00975/0.00559, inliers 74/77; at 4.8s oracle rotation loses 0.507/0.491\u00b0. GT Rxz oracle only. Independent raw-row and fixed GT reprojection recount checked.",
       "runtime": {
         "cpu_seconds": 169.199395,
         "child_rss_kib": 585516,
@@ -220,7 +220,7 @@
         "timeout_seconds": 600
       },
       "release_condition": "Terminal execution with source equivalence and per-pair metrics or retained failure, no process.",
-      "observed": "All 2836 first ten source science fields identical; 48 planned, 46 qualified; 92/92 refinements converged. Oracle rot median 0.2085→0.1249°, P4Pf 0.3535→0.2816°. Center and focal improve in both; CPU 37.739259s including compilation.",
+      "observed": "All 2836 first ten source science fields identical; 48 planned, 46 qualified; 92/92 refinements converged. Oracle rot median 0.2085\u21920.1249\u00b0, P4Pf 0.3535\u21920.2816\u00b0. Center and focal improve in both; CPU 37.739259s including compilation.",
       "runtime": {
         "cpu_seconds": 37.739259,
         "child_rss_kib": 585572,
@@ -232,12 +232,13 @@
       "task_key": "fr2xyz-r007-full-focal-local-refinement",
       "owner_id": "work-cvpr-20261017",
       "state": "claimed",
-      "claim_revision": 1,
+      "claim_revision": 2,
       "input_refs": [
         "R007 pilot verified model_rows.csv.gz sha256:e23130611e39f4d2595589af0759213b97eaf9e415d9855b8384815d852c8f46",
         "R006 full raw/pairs/matches",
         "runs/R007/FULL_PLAN.md",
-        "scripts/local_refine_full_r007.py sha256:59a3f53f8b1d78041a025697644c6aecc2733156ad2fa52582c449d9686a00c5"
+        "scripts/local_refine_full_r007.py sha256:4976297e83114b8d938b8bace7f5a51a16a2e642b5f94d8609fae2883ec1ea9e",
+        "runs/R007/AMENDMENT.md"
       ],
       "output_paths": [
         "projects/3d-cvpr2027-work-20261017/runs/R007/full"
@@ -249,7 +250,8 @@
         "numerical_threads": 1,
         "timeout_seconds": 600
       },
-      "release_condition": "Terminal full cohort, verified rows and resources, no process."
+      "release_condition": "Terminal full cohort, verified rows and resources, no process.",
+      "protocol_amendment": "Two source-valid oracle rows (pairs 83,101) have four inliers, so skip nonminimal optimizer there and retain initial pose in 1418 paired denominator; first attempt failed before metrics."
     }
   ],
   "sync_receipts": [
@@ -337,7 +339,7 @@
       ],
       "publication_readback": "pending R005 evidence publication",
       "coverage_gaps": [
-        "Single exposed sequence, mild motion, only 19 angular errors over 2°; closest hybrid-gravity literature not fully inventoried."
+        "Single exposed sequence, mild motion, only 19 angular errors over 2\u00b0; closest hybrid-gravity literature not fully inventoried."
       ],
       "plan_delta": {
         "reuse_refs": [

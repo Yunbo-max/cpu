@@ -110,7 +110,11 @@ def main():
             low=np.r_[[-np.inf]*6,np.log(50.)];high=np.r_[[np.inf]*6,np.log(2000.)]
         q=X@R.T+t
         mask=(q[:,2]>0)&(np.linalg.norm(f*q[:,:2]/q[:,2,None]-y,axis=1)<=3)
-        assert mask.sum()>=6
+        if mask.sum()<6:
+            out.append({'pair':i,'arm':arm,'initial':before,'refined':before,
+                        'initial_consensus_n':int(mask.sum()),'optimizer_success':False,
+                        'nfev':0,'cost':None,'skip_reason':'consensus_below_six'})
+            continue
         X0,y0=X[mask],y[mask]
         def residual(z):
             rot,trans,focal=pose_of(z)
@@ -135,6 +139,7 @@ def main():
                                'refined_median':float(np.median([r['refined'][key] for r in rows]))}
     result={'scope':'R007 exposed 1440-pair source-equivalent local-refinement cohort, not a source-native full LO baseline',
             'planned_pairs':1440,'qualified_pairs':len(pairs),'unqualified_pair_ids':sorted(wanted-scored),'native_row_equivalence':len(current),
+            'optimization_skips':[{'pair':r['pair'],'arm':r['arm'],'consensus_n':r['initial_consensus_n']} for r in out if 'skip_reason' in r],
             'input_sha256':{str(z):sha(z) for z in [a.run006/'raw.csv',a.run006/'pairs.csv',a.run006/'matches.csv',a.models]},
             'rows':out,'summary':summary,
             'runtime':{'cpu_seconds':cpu()-c0,'wall_seconds':time.monotonic()-t0,
