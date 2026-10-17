@@ -7,7 +7,7 @@
   "project_root": "projects/3d-cvpr2027-work-20261017",
   "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
   "coordinator_id": "work-cvpr-20261017",
-  "observed_source_head": "ce3e4b6f70091b3662233bfa96f003dbb5a9d6fe",
+  "observed_source_head": "416579cdfc74eefdc3d09dac73064790a4baad8d",
   "coverage_status": "single_participant_R001_R003_development_terminal; historical_dependency_inventory_partial",
   "coverage_gaps": [
     "Older simple archive contains 3228 index files; only selected solver/source/plan/result members and the separate Chat registry were reviewed.",
@@ -19,7 +19,7 @@
       "role": "work_coordinator",
       "working_branch": "main",
       "output_namespace": "projects/3d-cvpr2027-work-20261017/runs",
-      "current_task": null,
+      "current_task": "R004-gravity-Rxz-identifiability",
       "state": "active_turn",
       "checkpoint": "projects/3d-cvpr2027-work-20261017/CURRENT.json",
       "dependencies": ["measured-prior information mapping", "independent evaluation protocol"],
@@ -58,9 +58,31 @@
       "state": "completed_development_diagnostic",
       "output_paths": ["projects/3d-cvpr2027-work-20261017/runs/R003"],
       "observed": "Early 30-s GT calibration and later 92-s angular consistency diagnostic completed; no pose solver claim."
+    },
+    {
+      "task_key": "fr2xyz-r004-gravity-rxz-relative-frame-identifiability",
+      "owner_id": "work-cvpr-20261017",
+      "state": "claimed",
+      "claim_revision": 1,
+      "input_refs": ["R001/pairs.csv", "R003/result.json", "official fr2/xyz groundtruth.txt", "scripts/gravity_identifiability_r004.py sha256:005e943e2bf15c39a57ee83e07b049efbc9fce536d3a2f3b174b78578d6f3ec9"],
+      "output_paths": ["projects/3d-cvpr2027-work-20261017/runs/R004"],
+      "protocol": "For preregistered pair 0, construct the one-parameter family of rotations preserving its two ideal gravity vectors; evaluate whether the inherited rxz(R) stays constant at yaw offsets -20, 0, +20 degrees. Mathematical interface test only, not a pose-effectiveness experiment.",
+      "resources": {"cpu_slots": 1, "address_space_cap_bytes": 4000000000, "numerical_threads": 1, "timeout_seconds": 20},
+      "release_condition": "Observed terminal mathematical diagnostic receipt and no active process."
     }
   ],
-  "sync_receipts": [],
+  "sync_receipts": [
+    {
+      "cycle_id": "work-20261017-r001-r003",
+      "owner_id": "work-cvpr-20261017",
+      "observation_time_utc": "2026-10-17",
+      "source_heads": {"own_evidence": "416579cdfc74eefdc3d09dac73064790a4baad8d", "historical_dependency": "18c1259ce6f22cc83f594308bc8c3012919e72d9"},
+      "read_refs": ["R001/raw.csv", "R001/result.json", "R002/result.json", "R003/result.json", "project-cooperation.json"],
+      "publication_readback": "All 23 new/updated Git blobs matched expected SHAs at exact evidence commit 416579c; independent R001 CSV recount matched. No other participant was registered in this project's remote registry at the observed commit.",
+      "coverage_gaps": ["Full historical dependency archive inventory incomplete; current R001 source paths and old Chat registry were reviewed."],
+      "plan_delta": {"reuse_refs": ["R001 24-pair matching and raw solver rows", "R002 accelerometer windows", "R003 early-calibration/late-test"], "avoided_duplicates": "No replay of old fr1 as fresh confirmation; no method claim from GT-derived Rxz.", "affected_dependencies": ["Measured gravity must match exact Rxz information condition before pose evaluation."], "conflicts": [], "help_requests": [], "complementary_next_action": "R004 mathematical identifiability check, then gravity-aligned map protocol if needed."}
+    }
+  ],
   "collaboration_backend": "github",
   "conversation_discovery": false,
   "policy_revision": "Auto Work autonomous.13",
