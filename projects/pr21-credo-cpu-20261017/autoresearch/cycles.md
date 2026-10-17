@@ -339,3 +339,79 @@ temporal-structure launch under the wrong Python environment.
   `../credo_synthetic_selection_results.json`, excluded
   `../credo_synthetic_selection_attempt3comp.json`, and the original
   `../runs/19-iclr26-credo/exp2_decision.ipynb`.
+
+## Cycle 14 — Compare the diagnostic with the paper's evaluation design
+
+- **Question:** does Cycle 13 test a gap not already evaluated by CREDO, and
+  is its score comparable to the paper's formal risk/conservativeness metrics?
+- **Source audit:** the paper separates (a) a conservativeness/accuracy
+  experiment comparing estimated values with ground truth over 20 independent
+  trials, using `n=m=100` and `K=100` by default, from (b) a decision-quality
+  experiment that selects by CREDO score and ranks selected decisions against
+  test-set optimal decisions. The paper also explicitly warns that the
+  selected-decision guarantee may fail when the same calibration data drives
+  selection and names data splitting as mitigation.
+- **Metric mapping:** the local score comparison is the estimated optimality
+  score (`get_prob`) against a Monte Carlo estimate of the fixed decision's
+  true optimality probability. It is distinct from the paper's ordinal
+  decision-rank endpoint, but still does not estimate the theorem's
+  calibration-averaged guarantee under selected decisions. The synthetic
+  setting is exchangeable; 200 replicates provide a bounded exploratory
+  diagnostic, not a theorem test.
+- **Finding:** the score is highly conservative here, and same-calibration
+  selection did not make it optimistic relative to true selected-action
+  optimality. The selected policy's average true optimality (0.341) was below
+  the fixed origin's 0.390, but this compares policies and is not proof of a
+  selection-induced guarantee violation. CREDO already evaluates selected
+  decision quality in its paper, and already identifies selection-adjusted
+  guarantees as an open limitation.
+- **Collision decision:** a generic “post-selection conformal decision
+  guarantee” direction is not advanced. CREDO itself states this limitation;
+  generic post-selection conformal inference, selective risk control, and
+  action-conditional decision guarantees provide substantial adjacent work.
+  A novel contribution would require a materially different theorem/setting
+  and a natural consequence supported by data; neither is present here.
+- **Next action:** keep the CREDO selection idea at provisional no-go; next
+  inspect the local source/result inventory for a different documented failure
+  with a measurable consequence, before proposing another method. If none
+  exists, preserve a no-go checkpoint and continue the ordered project with
+  evidence-based intake rather than manufacturing an experiment.
+- **Evidence:** local paper Sections 4–6 and Appendix E.4/F;
+  `../credo_synthetic_selection_results.json`; targeted collision sources in
+  `../literature_notes.md`.
+
+## Cycle 15 — Paired independent recalibration after score selection
+
+- **Hypothesis:** although the selected CREDO score remained below true
+  optimality in Cycle 13, choosing its maximum on the calibration sample may
+  inflate the score relative to an independent recalibration of that same
+  selected decision.
+- **Frozen protocol:** 200 independent repeats of Setting I at `sigma=0.1`;
+  100 training, 100 selection-calibration, and 100 independent
+  evaluation-calibration observations per repeat; one-component fitted GMM;
+  `K=100`; score all three vertices, select by maximum score on the first
+  calibration set, then rescore that selected vertex with the second
+  calibration set using the same fitted model. Primary endpoint is the paired
+  same-sample minus fresh-calibration score difference. The protocol was saved
+  before execution; no hyperparameter sweep.
+- **Result:** same-calibration selected score mean 0.0500; independent
+  recalibration score for the same selected vertex 0.0413. Paired difference
+  was +0.00869 (descriptive normal 95% interval +0.00629 to +0.01110). For
+  comparison, the nonselected fixed origin's scores were 0.0405 and 0.0410.
+  The selected decisions' true optimality averaged 0.3445 (0.3386–0.3504);
+  same-sample score minus true optimality remained -0.2945
+  (-0.3006 to -0.2884).
+- **Interpretation:** selection produces measurable upward score reuse on this
+  small known-distribution example, consistent with the selection-bias
+  concern. It does not produce a false certificate here: the score remains
+  strongly below true optimality, and this is one synthetic setting. This is
+  a diagnostic reproduction of a limitation already noted by CREDO, not a new
+  failure theorem or correction.
+- **Decision:** keep the selection-correction atom at provisional no-go due to
+  the original paper's explicit caveat and adjacent post-selection conformal
+  literature. Next inspect whether any remaining local task has a documented
+  failure/consequence; no synthetic parameter extension is warranted by this
+  result.
+- **Evidence:** `../credo_selection_holdout_protocol.md`,
+  `../credo_synthetic_selection_holdout.py`,
+  `../credo_synthetic_selection_holdout_results.json`.
