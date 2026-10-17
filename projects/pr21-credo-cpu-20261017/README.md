@@ -233,3 +233,21 @@ very conservative, so this run did not expose the suspected optimistic
 guarantee failure. The first 3-component attempt was a protocol error and is
 retained but excluded. See `autoresearch/cycles.md` and
 `credo_synthetic_selection_results.json`.
+
+Cycle 14 checked this diagnostic against the paper's two separate evaluations:
+pointwise conservativeness/accuracy over independent trials, and selected
+decision rank on a test set. The paper itself already flags the same-calibration
+selection caveat; adjacent post-selection and action-conditional conformal
+work makes a broad correction claim unpromising. No failure or new method is
+advanced. The next step is to search the retained CPU assets for a distinct,
+documented failure with a measurable consequence.
+
+Cycle 15 paired same-sample selection with fresh recalibration for the selected
+vertex. Across 200 repeats, the selected score was 0.0500 on the selection
+calibration set and 0.0413 on independent recalibration; paired difference
+0.00869 (95% interval 0.00629–0.01110). The same-sample score remained far
+below true selected-decision optimality (0.3445), so this diagnostic shows
+score reuse inflation but no false certificate. This limitation is already
+acknowledged in the CREDO paper and overlaps post-selection conformal work; no
+new correction claim is advanced. See the frozen protocol and outputs linked
+from Cycle 15.
