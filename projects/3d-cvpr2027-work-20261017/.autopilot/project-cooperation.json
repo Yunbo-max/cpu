@@ -7,7 +7,7 @@
   "project_root": "projects/3d-cvpr2027-work-20261017",
   "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
   "coordinator_id": "work-cvpr-20261017",
-  "observed_source_head": "3f9757970d3b414c5c15fbe6b6bac01ac6cd05bc",
+  "observed_source_head": "bd52dda22038ccb7ba7e6439f84d1bb4eb4a6abd",
   "coverage_status": "single_participant_R001_R006_development_terminal; historical_dependency_inventory_partial",
   "coverage_gaps": [
     "Older simple archive contains 3228 index files; only selected source/results reviewed.",
@@ -20,8 +20,8 @@
       "role": "work_coordinator",
       "working_branch": "main",
       "output_namespace": "projects/3d-cvpr2027-work-20261017/runs",
-      "current_task": null,
-      "state": "active_turn_between_tasks",
+      "current_task": "R007-48pair-local-refinement-pilot",
+      "state": "claimed_pending_execution",
       "checkpoint": "projects/3d-cvpr2027-work-20261017/CURRENT.json",
       "dependencies": [
         "focal-unknown full pipeline/LO",
@@ -197,6 +197,29 @@
         "wall_seconds": 170.100803
       },
       "release_observed": "Terminal native and outer process exit 0; 2836 rows and reconstructable exact matches checked; no active process."
+    },
+    {
+      "task_key": "fr2xyz-r007-focal-local-refinement-pilot",
+      "owner_id": "work-cvpr-20261017",
+      "state": "claimed",
+      "claim_revision": 1,
+      "input_refs": [
+        "R006 full raw/pairs/matches hashes and analysis",
+        "runs/R007/PLAN.md",
+        "scripts/r007_models.cpp sha256:7aecaa437b6396250b87d8d736e028bf47bd324f430e9ae5f72a002c2c2416a2",
+        "scripts/local_refine_r007.py sha256:0cf50ffe53b1acb0d3814e3903c22b2c8ca297a61c68d5f27285a465a1283f84"
+      ],
+      "output_paths": [
+        "projects/3d-cvpr2027-work-20261017/runs/R007/pilot"
+      ],
+      "protocol": "Exact 2836 first-ten-field child native equivalence, then 8 predetermined reference indices x 6 offsets (48 planned, retain low-feature failures); nonlinear unknown-focal local reprojection refinement, oracle yaw-constrained versus P4Pf general, same initial 3px inlier set, soft_l1 3px and max100 nfev. Development only.",
+      "resources": {
+        "cpu_slots": 1,
+        "address_space_cap_bytes": 4000000000,
+        "numerical_threads": 1,
+        "timeout_seconds": 600
+      },
+      "release_condition": "Terminal execution with source equivalence and per-pair metrics or retained failure, no process."
     }
   ],
   "sync_receipts": [
@@ -338,7 +361,7 @@
       "observation_time_utc": "2026-10-17",
       "source_heads": {
         "claimed_task": "3f9757970d3b414c5c15fbe6b6bac01ac6cd05bc",
-        "own_evidence": "pending"
+        "own_evidence": "bd52dda22038ccb7ba7e6439f84d1bb4eb4a6abd"
       },
       "read_refs": [
         "R006/FULL_PLAN.md",
@@ -347,7 +370,7 @@
         "R006/full/analysis.json",
         "R006/full/artifacts.json"
       ],
-      "publication_readback": "pending full evidence publication",
+      "publication_readback": "All 20 R006 full evidence blobs, including six binary match chunks, matched Git blob SHA at exact commit bd52dda; local concatenation/gzip round trip matched 17.7MB CSV SHA.",
       "coverage_gaps": [
         "GT oracle not measured gravity; only one exposed sequence; strong full-pipeline/LO and independent data absent; hour CPU target unmet."
       ],
