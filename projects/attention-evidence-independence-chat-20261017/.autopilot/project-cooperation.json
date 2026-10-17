@@ -7,7 +7,7 @@
   "project_root": "projects/attention-evidence-independence-chat-20261017",
   "project_id": "attention-evidence-independence-chat-20261017",
   "coordination_path": "projects/attention-evidence-independence-chat-20261017/.autopilot/project-cooperation.json",
-  "revision": 1,
+  "revision": 2,
   "authority": "User asked to start an entirely new research topic in Chat after requesting Auto Chat research. This is distinct from any paused lowrank, planning or older research lines.",
   "goal": "Investigate full-attention architecture that distinguishes redundant textual copies from independent evidence; mathematically characterize identifiability and test source-aware multiplicity correction, under CPU/4GB.",
   "scope": {
@@ -28,11 +28,11 @@
     {
       "owner_id": "chat-attnevidence-20261017-a",
       "role": "chat research coordinator / first-source mathematical investigator",
-      "status": "active_reading_derivation",
+      "status": "waiting_for_verified_runtime_while_source_math_completed",
       "working_branch": "main",
       "output_namespace": "projects/attention-evidence-independence-chat-20261017/chat-runs/chat-attnevidence-20261017-a",
-      "current_task": "T001-source-math",
-      "checkpoint": "projects/attention-evidence-independence-chat-20261017/PLAN.md",
+      "current_task": "T002-pinned-runtime-transfer",
+      "checkpoint": "projects/attention-evidence-independence-chat-20261017/PROTOCOL.md",
       "dependencies": []
     }
   ],
@@ -41,7 +41,7 @@
       "task_key": "T001-source-math",
       "task_id": "T001",
       "owner_id": "chat-attnevidence-20261017-a",
-      "state": "claimed_reading",
+      "state": "completed_scoped_derivation",
       "scope": "Read primary baselines and derive identifiability theorem; no executable research launch",
       "parents": [],
       "input_refs": [
@@ -54,7 +54,48 @@
         "projects/attention-evidence-independence-chat-20261017/PLAN.md",
         "projects/attention-evidence-independence-chat-20261017/RESEARCH_NOTES.md"
       ],
-      "completion_condition": "Publish source-linked scope and identifiability proof, compare simple baselines, verify GitHub readback; do not claim empirical verification"
+      "completion_condition": "Publish source-linked scope and identifiability proof, compare simple baselines, verify GitHub readback; do not claim empirical verification",
+      "completion_scope": "Read closest primary sources and official LUCID source; derived the two-world identifiability counterexample and quotient-attention identity. No executable experiment or native claim.",
+      "evidence": {
+        "readback": {
+          "README.md": "2f1bdb5d410d9dc6e393bde47eb0fe86804d858a",
+          "RESEARCH_NOTES.md": "3f3e9a27f5dba770f8257f97307333ef126be22a",
+          "PROTOCOL.md": "864f5b68c566e4ce0a60918f2d2e649852981910",
+          "src/attention_reference.py": "8a57c0bbd61d2f0022914712619e7efcafad4523"
+        },
+        "native_experiments_started": 0,
+        "source_and_math": true,
+        "independent_scientific_review": false
+      }
+    },
+    {
+      "task_key": "T002-pinned-runtime-transfer",
+      "task_id": "T002",
+      "owner_id": "chat-attnevidence-20261017-a",
+      "state": "blocked_external_capability",
+      "scope": "Restore the exact installed .29 official CPU runner, bootstrap/source archive and authenticity pins; do not replace it with a custom unguarded runner.",
+      "dependencies": [
+        "Actual plugin archive bytes mounted to Chat CPU container or supported trusted transfer"
+      ],
+      "blocker": "Skill text is available via installed Skills but the official Python execution scripts are not mounted in the current CPU filesystem; connected GitHub source reads are separate from local CPU filesystem and direct CPU DNS is unavailable.",
+      "non_dispatch_response": "Retain original task and research protocol; source reading/derivation/code authorship may continue; no native producer.",
+      "output_paths": [],
+      "next_unblock_action": "Find a supported trusted route to transfer and hash-verify pinned .29 code/manifest/archive to the Chat CPU host, then use chat_bootstrap.py restore."
+    },
+    {
+      "task_key": "T003-guarded-diagnostic",
+      "task_id": "T003",
+      "owner_id": "chat-attnevidence-20261017-a",
+      "state": "not_admitted_dependency",
+      "scope": "Bounded, verified attention multiplicity and provenance diagnostic with source-verified formal contracts; start only once T002 is completed.",
+      "dependencies": [
+        "T002-pinned-runtime-transfer",
+        "execution_gate_ref and original execution_contract_ref"
+      ],
+      "output_paths": [
+        "projects/attention-evidence-independence-chat-20261017/results/"
+      ],
+      "next_unblock_action": "Bind new official execution gate and freeze run conditions, measure time, then dispatch."
     }
   ],
   "peer_inventory": {
@@ -68,9 +109,33 @@
     "executable_gate_status": "not_bound",
     "reason": "Installed plugin scripts are not mounted in the observed CPU filesystem; cannot qualify new producer without exact gate/runtime source restoration.",
     "unattended_continuation": "not_started",
-    "scientific_cycles_completed": 0
+    "scientific_cycles_completed": 0,
+    "execution_gate_status": "NOT_BOUND",
+    "workload_ready": "NOT_READY",
+    "requested_target_minutes": 90,
+    "qualified_ready_minutes": 0,
+    "shortfall_minutes": 90,
+    "experimental_producer_cpu_seconds": 0,
+    "live_scheduled_continuation": "not_started",
+    "source_transfer_problem": "Observed current CPU filesystem has no bundled chat_wake.py / chat_execution_gate.py."
   },
   "last_sync": {
-    "outcome": "startup registration pending readback"
+    "publication_head_seen": "3b5d204b76d7659be5b8ead8b4662138a9c6129a",
+    "remote_readback": "Verified GitHub bytes/shas for README, RESEARCH_NOTES, PROTOCOL, reference Python",
+    "peer_changes": [],
+    "plan_delta": {
+      "reuse_refs": [
+        "LUCID source blob f1169971c91f372435b486cca54665cf36bc868f",
+        "RA-RAG EMNLP 2025"
+      ],
+      "avoided_duplicates": "Did not restart paused legacy CPU lines or repeat their data/training; this is a new topic and project ID.",
+      "next_action": "Restore genuine runtime and execution Gate A, then freeze/measure admitted CPU source-evidence diagnostic.",
+      "coverage_gaps": [
+        "No native benchmark checked in local CPU host",
+        "No independent science reviewer",
+        "No original skill runtime in local container"
+      ]
+    },
+    "delivery_verified": false
   }
 }
