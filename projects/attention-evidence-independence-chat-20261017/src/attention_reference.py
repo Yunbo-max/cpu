@@ -76,5 +76,7 @@ def posterior_from_unique_sources(votes_by_source: dict[Hashable, int], p: float
 
 def evidence_from_copies(copy_counts: dict[Hashable, tuple[int, int]]) -> dict[Hashable, int]:
     """Input source ID maps to (vote, copy_count); count cannot change posterior."""
-    return {source: vote for source, (vote, n) in copy_counts.items()
-            if n >= 1 and vote in (-1, 1)}
+    for source, (vote, n) in copy_counts.items():
+        if n < 1 or vote not in (-1, 1):
+            raise ValueError("Every source must have a valid vote and positive count")
+    return {source: vote for source, (vote, n) in copy_counts.items()}
