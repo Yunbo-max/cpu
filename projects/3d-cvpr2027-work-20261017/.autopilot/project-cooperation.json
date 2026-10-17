@@ -7,7 +7,7 @@
   "project_root": "projects/3d-cvpr2027-work-20261017",
   "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
   "coordinator_id": "work-cvpr-20261017",
-  "observed_source_head": "5e8d635e66c6fde83c4523cd950406e865033013",
+  "observed_source_head": "7efbe6eed466edd4b2cc17f7216fcf9b1c919878",
   "coverage_status": "single_participant_R001_R005_development_terminal; historical_dependency_inventory_partial",
   "coverage_gaps": [
     "Older simple archive contains 3228 index files; only selected source/results reviewed.",
@@ -20,7 +20,7 @@
       "role": "work_coordinator",
       "working_branch": "main",
       "output_namespace": "projects/3d-cvpr2027-work-20261017/runs",
-      "current_task": "R006-oracle-upper-bound-source-qualification-pilot",
+      "current_task": "R006-oracle-upper-bound-full-cohort",
       "state": "claimed_pending_execution",
       "checkpoint": "projects/3d-cvpr2027-work-20261017/CURRENT.json",
       "dependencies": [
@@ -140,7 +140,7 @@
     {
       "task_key": "fr2xyz-r006-oracle-upper-bound-p4pf-pilot",
       "owner_id": "work-cvpr-20261017",
-      "state": "claimed",
+      "state": "completed_resource_and_source_qualification",
       "claim_revision": 1,
       "input_refs": [
         "runs/R006/PLAN.md",
@@ -159,7 +159,37 @@
         "numerical_threads": 1,
         "timeout_seconds": 3600
       },
-      "release_condition": "Pilot terminal observed, source and output receipts, no process."
+      "release_condition": "Pilot terminal observed, source and output receipts, no process.",
+      "observed": "12/12 pairs qualified, 24/24 valid solver rows, compile and native exit 0. Median rotation oracle 0.20084° vs P4Pf 0.25604°; center 0.01299m vs 0.00774m. CPU 34.229718s including C++ compile, child RSS peak 585560 KiB. No science verdict.",
+      "runtime": {
+        "cpu_seconds": 34.229718,
+        "child_rss_kib": 585560,
+        "wall_seconds": 34.344816
+      },
+      "release_observed": "Terminal process exit 0 and result/raw/compile files read; no running process."
+    },
+    {
+      "task_key": "fr2xyz-r006-oracle-upper-bound-p4pf-full",
+      "owner_id": "work-cvpr-20261017",
+      "state": "claimed",
+      "claim_revision": 1,
+      "input_refs": [
+        "R006 pilot calibrated result.json",
+        "runs/R006/FULL_PLAN.md",
+        "scripts/oracle_headroom_r006.py same sha as pilot",
+        "scripts/r006_oracle_p4pf.cpp same sha as pilot"
+      ],
+      "output_paths": [
+        "projects/3d-cvpr2027-work-20261017/runs/R006/full"
+      ],
+      "protocol": "240 reference times x six fixed time offsets, 1440 prospective pairs, no replacement, source-native 512 hypotheses per arm. Oracle GT Rxz upper bound vs focal-unknown P4Pf; full denominators and paired metrics, developmental only.",
+      "resources": {
+        "cpu_slots": 1,
+        "address_space_cap_bytes": 4000000000,
+        "numerical_threads": 1,
+        "timeout_seconds": 2400
+      },
+      "release_condition": "Full run observed terminal, results checked, no running process."
     }
   ],
   "sync_receipts": [
@@ -261,6 +291,38 @@
         "conflicts": [],
         "help_requests": [],
         "complementary_next_action": "Literature collision and dataset/extrinsic audit, then a new method decision before any costly pose run."
+      }
+    },
+    {
+      "cycle_id": "work-20261017-r006-pilot",
+      "owner_id": "work-cvpr-20261017",
+      "observation_time_utc": "2026-10-17",
+      "source_heads": {
+        "claimed_task": "7efbe6eed466edd4b2cc17f7216fcf9b1c919878",
+        "own_evidence": "pending"
+      },
+      "read_refs": [
+        "R006/PLAN.md",
+        "R006/pilot/result.json",
+        "R006/pilot/raw.csv",
+        "R006/FULL_PLAN.md"
+      ],
+      "publication_readback": "pending pilot evidence publication",
+      "coverage_gaps": [
+        "Single sequence, oracle GT prior, no measured-pose claim."
+      ],
+      "plan_delta": {
+        "reuse_refs": [
+          "R001 front end",
+          "original source and PoseLib P4Pf"
+        ],
+        "avoided_duplicates": "Only 12 calibration pairs and a distinct full offset cohort; no repeated identical compute for time quota.",
+        "affected_dependencies": [
+          "Actual solve CPU is tiny relative to feature and compile; 60-minute same-sequence loop would be largely redundant."
+        ],
+        "conflicts": [],
+        "help_requests": [],
+        "complementary_next_action": "Freeze and run 240 reference x 6 offset full cohort, then interpret upper-bound headroom."
       }
     }
   ],
