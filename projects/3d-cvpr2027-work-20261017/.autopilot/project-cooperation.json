@@ -7,11 +7,12 @@
   "project_root": "projects/3d-cvpr2027-work-20261017",
   "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
   "coordinator_id": "work-cvpr-20261017",
-  "observed_source_head": "1f3754cab62dfbdf857673e5d9492138b83b3276",
-  "coverage_status": "single_participant_R001_R004_development_terminal; historical_dependency_inventory_partial",
+  "observed_source_head": "066df30fa6f763d59a183d3c340ff432c3d2c886",
+  "coverage_status": "single_participant_R001_R005_development_terminal; historical_dependency_inventory_partial",
   "coverage_gaps": [
-    "Older simple archive contains 3228 index files; only selected solver/source/plan/result members and the separate Chat registry were reviewed.",
-    "Measured-prior pose comparison, focal-aware strong baselines and independent scientific review are pending."
+    "Older simple archive contains 3228 index files; only selected source/results reviewed.",
+    "Closest hybrid-gravity literature and independent inertial data not fully audited.",
+    "No focal-fair pose result or independent review; R005 is weakly predictive on exposed sequence."
   ],
   "participants": [
     {
@@ -19,12 +20,13 @@
       "role": "work_coordinator",
       "working_branch": "main",
       "output_namespace": "projects/3d-cvpr2027-work-20261017/runs",
-      "current_task": "R005-real-IMU-reliability-predictiveness",
-      "state": "claimed_pending_execution",
+      "current_task": null,
+      "state": "active_turn_between_tasks",
       "checkpoint": "projects/3d-cvpr2027-work-20261017/CURRENT.json",
       "dependencies": [
-        "source-qualified solver and exact gravity information condition",
-        "independent evaluation protocol"
+        "closest work collision review",
+        "independent IMU sequence",
+        "distinct pose method gate"
       ],
       "help_requests": []
     }
@@ -108,7 +110,7 @@
     {
       "task_key": "fr2xyz-r005-measured-window-reliability-vs-gravity-error",
       "owner_id": "work-cvpr-20261017",
-      "state": "claimed",
+      "state": "completed_development_diagnostic",
       "claim_revision": 1,
       "input_refs": [
         "R003/result.json",
@@ -126,7 +128,14 @@
         "numerical_threads": 1,
         "timeout_seconds": 120
       },
-      "release_condition": "Terminal observed metrics and no active process."
+      "release_condition": "Terminal observed metrics and no active process.",
+      "observed": "920 temporal-test windows. Direction dispersion Spearman 0.130, norm deviation 0.115, norm std 0.045; AUROC for >1.5° errors 0.620, 0.594, 0.528. Weak discrimination on one exposed sequence; no pose method or CVPR claim.",
+      "runtime": {
+        "cpu_seconds": 7.407426,
+        "peak_rss_kib": 115264,
+        "wall_seconds": 5.930506
+      },
+      "release_observed": "Terminal process exit 0; result.json and execution.log read; no running process."
     }
   ],
   "sync_receipts": [
@@ -179,7 +188,7 @@
         "R004/execution.log",
         "PROBLEM.md"
       ],
-      "publication_readback": "pending publication of R004 outcome",
+      "publication_readback": "R004 six evidence blobs verified at exact commit 1f3754cab62dfbdf857673e5d9492138b83b3276.",
       "coverage_gaps": [
         "Full historical archive not inventoried; no independent confirmation sequence yet."
       ],
@@ -195,6 +204,39 @@
         "conflicts": [],
         "help_requests": [],
         "complementary_next_action": "Qualify an exact gravity-aware or gravity-aligned map interface and matched focal-unknown baselines."
+      }
+    },
+    {
+      "cycle_id": "work-20261017-r005",
+      "owner_id": "work-cvpr-20261017",
+      "observation_time_utc": "2026-10-17",
+      "source_heads": {
+        "claimed_task": "066df30fa6f763d59a183d3c340ff432c3d2c886",
+        "own_evidence": "pending"
+      },
+      "read_refs": [
+        "R003/result.json",
+        "R005/PLAN.md",
+        "R005/result.json",
+        "R005/execution.log",
+        "PROBLEM.md"
+      ],
+      "publication_readback": "pending R005 evidence publication",
+      "coverage_gaps": [
+        "Single exposed sequence, mild motion, only 19 angular errors over 2°; closest hybrid-gravity literature not fully inventoried."
+      ],
+      "plan_delta": {
+        "reuse_refs": [
+          "R003 frozen early calibration and timestamp grid",
+          "official measured accelerometer"
+        ],
+        "avoided_duplicates": "Did not run a large pose comparison under the invalid inherited Rxz or weak confidence premise.",
+        "affected_dependencies": [
+          "Simple window-quality features are weak predictors; novel reliability model and strong independent data become gates."
+        ],
+        "conflicts": [],
+        "help_requests": [],
+        "complementary_next_action": "Literature collision and dataset/extrinsic audit, then a new method decision before any costly pose run."
       }
     }
   ],

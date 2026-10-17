@@ -1,0 +1,90 @@
+{
+  "error_gt_1p5_n": 75,
+  "error_gt_2_n": 19,
+  "error_median_deg": 0.769844905895068,
+  "error_p90_deg": 1.430588424378316,
+  "inputs_sha256": {
+    "accelerometer.txt": "a8f04dc9da78e5e444efb32bdad73c8a3672f9fa0d82e2adeb4a4bbdab7a6b55",
+    "frame-result": "4f24047bb58643a6e3cfea94f347fbc8cfb5d255f9736ae20148b935c175eeda",
+    "groundtruth.txt": "0e4ba8af6807c25a2968454256eb8fd6c73f8468fc5e7c26f890072f7bc70ad6",
+    "helper": "8be5b35797b77e295f6dc7f4fe3f4bb31f69f7b7141aef47ac60cf2fc1c54e55",
+    "rgb.txt": "05aa1b6b3519edea6f434d804645741611e570308b862863d144531266cde46a"
+  },
+  "metrics": {
+    "dispersion_p95_deg": {
+      "auc_error_gt_1p5_deg": 0.6200867850098619,
+      "auc_error_gt_2_deg": 0.7150534493837257,
+      "bootstrap_valid_draws": 1000,
+      "high_error_median_deg": 0.8970720069649147,
+      "high_n": 230,
+      "low_error_median_deg": 0.6920216078771235,
+      "low_n": 230,
+      "quartile_cutoffs": [
+        1.0065472203821888,
+        1.4886918806423348
+      ],
+      "spearman": 0.13044560081823883,
+      "spearman_block_bootstrap_95pct": [
+        0.06527349130821167,
+        0.19598366110092158
+      ]
+    },
+    "norm_deviation": {
+      "auc_error_gt_1p5_deg": 0.5936094674556213,
+      "auc_error_gt_2_deg": 0.7220632046264385,
+      "bootstrap_valid_draws": 1000,
+      "high_error_median_deg": 0.87367317203164,
+      "high_n": 230,
+      "low_error_median_deg": 0.7328749103937868,
+      "low_n": 230,
+      "quartile_cutoffs": [
+        0.05574689274195066,
+        0.20121539860030913
+      ],
+      "spearman": 0.11532735331887105,
+      "spearman_block_bootstrap_95pct": [
+        0.0301098709687503,
+        0.19743661752474229
+      ]
+    },
+    "norm_std": {
+      "auc_error_gt_1p5_deg": 0.5275108481262327,
+      "auc_error_gt_2_deg": 0.575325661545651,
+      "bootstrap_valid_draws": 1000,
+      "high_error_median_deg": 0.7809379965843477,
+      "high_n": 230,
+      "low_error_median_deg": 0.6731326884195556,
+      "low_n": 230,
+      "quartile_cutoffs": [
+        0.08070444195575768,
+        0.15918699823166374
+      ],
+      "spearman": 0.04527989343293073,
+      "spearman_block_bootstrap_95pct": [
+        0.003624441172429394,
+        0.09760355657636022
+      ]
+    }
+  },
+  "runtime": {
+    "cpu_seconds": 7.407425999999999,
+    "peak_rss_kib": 115264,
+    "wall_seconds": 5.930505950000224
+  },
+  "scope": "exposed-sequence temporal development diagnostic; no pose efficacy or external validation",
+  "test_10s_blocks": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "test_count": 920,
+  "train_count": 299,
+  "train_norm_median_m_s2": 9.651724932806856
+}

@@ -32,3 +32,15 @@ Measured CPU for the two R001 feature/failed-compile invocations, R002, R003, R0
 Sources: official TUM file formats https://cvg.cit.tum.de/data/datasets/rgbd-dataset/file_formats; original paper https://arxiv.org/pdf/2608.20056; archived native code and historical Chat audit at main `18c1259ce6f22cc83f594308bc8c3012919e72d9`. Individual raw inputs, output, hashes, failure stderr and commands are in `runs/R001`–`R003`. The 2.1-GiB official archive is referenced by SHA and URL, not committed.
 
 The exact native correspondence input is stored as `runs/R001/matches.csv.gz` (deterministic gzip, SHA-256 `f6373cd2277cd91275d4a70db214f4c432b403f9de12832a8e373335737f58a7`); decompressing yields `matches.csv` SHA-256 `2959f8cb90ff245de6b22f0b7b4daaa90fc71b51d45e3965d4affd8a22fbe48c`. The original archive and compiled host binary stay local; their hashes are recorded in the receipts.
+
+## R005: does observable IMU quality predict direction error?
+
+The preregistered R005 used the fixed R003 calibration from seconds 0–30 and its 10-Hz eligibility grid for seconds 30–122: 299 calibration and 920 temporal-test windows. Ground-truth orientation was used only to *score* the static-gravity direction discrepancy. The test median remained 0.769845°, p90 1.430588°; 75/920 errors exceeded 1.5° and 19/920 exceeded 2°.
+
+| Query-observable predictor | Spearman with error (10-s block-bootstrap 95% interval) | Top vs bottom quartile median error | AUROC, error >1.5° |
+| --- | ---: | ---: | ---: |
+| Within-window direction p95 dispersion | 0.130 (0.065, 0.196) | 0.897° vs 0.692° | 0.620 |
+| Mean acceleration-norm deviation from early median | 0.115 (0.030, 0.197) | 0.874° vs 0.733° | 0.594 |
+| Sample-norm standard deviation | 0.045 (0.004, 0.098) | 0.781° vs 0.673° | 0.528 |
+
+This is weak discrimination on one exposed, mostly mild-motion sequence; the >2° AUROC is based on only 19 positives. A 10-s block bootstrap reflects this sequence's temporal dependence but cannot provide independent-sequence generalization. R005 consumed 7.407426 measured CPU seconds, ≈115 MiB peak RSS, total current measured CPU now **52.176468 seconds** versus the 3600-s meaningful target. More compute on the same weakly predictive signal would not resolve the decisive research risk. ICCV 2023 Pautrat et al. already use a hybrid estimator under rough gravity for vanishing points, and Pruss 2026 explicitly connects accelerometer-equipped reference coordinates to gravity-aligned maps. See `PROBLEM.md` for the narrowed question and sources. No pose improvement, new solver, or CVPR-ready novelty has been established.
