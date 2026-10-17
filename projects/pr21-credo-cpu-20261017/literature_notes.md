@@ -228,3 +228,15 @@ The first run used three fitted mixture components by mistake (the real-data
 count), not the one component used by the synthetic notebook. That output is
 retained as an excluded attempt; only the corrected one-component output is
 used above.
+
+A paired follow-up used 200 independent selection/evaluation calibration
+sample pairs. The selected score on the sample used to choose the vertex
+averaged 0.0500, versus 0.0413 after independent recalibration of the same
+vertex; the paired difference was +0.00869 (95% descriptive interval
+0.00629–0.01110). The nonselected origin control did not show this increase.
+However, the selected true optimality probability averaged 0.3445, leaving the
+same-sample score highly conservative (mean score minus true probability
+-0.2945). This shows upward score reuse in one synthetic setting, not a false
+certificate, general validity failure, or novel correction. The CREDO paper
+already warns about same-calibration selection, while adjacent conformal
+post-selection methods make the broad research atom crowded.
