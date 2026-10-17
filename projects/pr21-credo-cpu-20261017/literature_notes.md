@@ -163,3 +163,68 @@ passages; it is not a complete citation-network audit.
 - Banerjee et al., [Measuring consistency via ensemble margin and local prediction variability](https://arxiv.org/abs/2609.01397), 2026; read D1.
 - Hsu and Calmon, [Rashomon Capacity: A Metric for Predictive Multiplicity in Classification](https://arxiv.org/abs/2206.01295), 2022; read D1.
 - Coston et al., [Characterizing Fairness Over the Set of Good Models Under Selective Labels](https://proceedings.mlr.press/v139/coston21a.html), ICML 2021; read D1.
+
+## CREDO selection-target audit — 2026-10-17
+
+The exact CREDO target is fixed-candidate optimality probability: for a
+prescribed decision `z`, Eq. (2) targets
+`P{z in pi(Y; theta)} >= 1 - alpha(z)`. Theorem 1 states expected
+conservativeness under exchangeable calibration data. The authors separately
+warn that selecting a decision using CREDO scores and re-evaluating that chosen
+decision on the same calibration data can invalidate the original guarantee;
+they name data splitting as a simple mitigation and leave selection-adjusted
+guarantees as future work. This confirms that the current data-selected action
+rank experiment is not a test of Theorem 1. The contemporaneous temporal data
+also do not establish exchangeability. Our per-vertex comparisons were only
+descriptive diagnostics, and the chosen-action benchmark used 24 future rows.
+
+The latest collision screen found several adjacent directions that require
+formal comparison before any proposal:
+
+- Zhu et al., [Conformal Risk-Averse Decision Making with Action Conditional
+  Guarantee](https://proceedings.mlr.press/v306/zhu26z.html), ICML 2026. It
+  provides action-conditional safety/utility guarantees for actions selected
+  by a risk-averse policy. This is close to selected-action guarantees but has
+  a different target from CREDO's probability that a fixed decision is
+  optimal under a random objective.
+- Jin et al., [Confidence on the focal: conformal prediction with
+  selection-conditional coverage](https://academic.oup.com/jrsssb/article/87/4/1239/8113856),
+  JRSSB 2025. This addresses selection-conditional predictive coverage for
+  selected units, not inverse-optimization decision optimality.
+- [Conformal Prediction After Data-Dependent Model
+  Selection](https://doi.org/10.1080/01621459.2026.2663588), JASA 2026, and
+  [Online Selective Conformal Prediction](https://jmlr.org/beta/papers/v26/24-0452.html),
+  JMLR 2025, cover post-selection validity or online selection for prediction
+  sets/intervals. These are methodological neighbors, not yet adjudicated as
+  exact functional matches to CREDO's decision-optimality event.
+- Gao et al., [A constructive approach to selective risk
+  control](https://arxiv.org/abs/2401.16651), 2024, gives a broader framework
+  for selective and extra-selection risks in compound decision problems. Its
+  scope is broad enough that a full comparison is required before a novelty
+  claim about selection-adjusted CREDO.
+
+This is a targeted update, not a complete collision audit. It does not
+establish novelty. Primary CREDO statements were checked in the local ICLR
+2026 paper at Eq. (2), Theorem 1, and the selection-bias discussion; the
+action-conditional paper was read from the PMLR 2026 abstract page and paper
+overview, while the remaining neighbors were screened by primary abstracts.
+
+### Known-distribution diagnostic outcome
+
+The CPU check in Cycle 13 used the paper's Setting I at `sigma=0.1`, matching
+the notebook's one-component fitted Gaussian, and compared one prespecified
+vertex with the vertex selected by maximizing the same-calibration `get_prob`
+score. Across 200 independent replicates, selected scores averaged 0.050 while
+the selected vertices' true optimality probability averaged 0.341; the score
+was therefore strongly conservative in this setting. The fixed origin's true
+optimality frequency was 0.390 and its score averaged 0.040. Selecting from
+the same calibration sample reduced the true optimality of the chosen action
+in this experiment, but did not create score optimism relative to its true
+optimality frequency. This is only one synthetic setting; it neither refutes
+the authors' stated selection caveat nor establishes the theorem for selected
+decisions.
+
+The first run used three fitted mixture components by mistake (the real-data
+count), not the one component used by the synthetic notebook. That output is
+retained as an excluded attempt; only the corrected one-component output is
+used above.
