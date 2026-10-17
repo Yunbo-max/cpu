@@ -251,3 +251,12 @@ score reuse inflation but no false certificate. This limitation is already
 acknowledged in the CREDO paper and overlaps post-selection conformal work; no
 new correction claim is advanced. See the frozen protocol and outputs linked
 from Cycle 15.
+
+Cycle 16 checked the retained task assets for an observed consequential
+failure. COMPAS/Bike/MAGIC/breast-cancer are benchmark datasets, and the
+deferral JSON files are visualization payloads rather than real deferral logs.
+The CREDO solar appendix lacks actual upgrade costs/capacities and uses
+assumptions; its temporal mismatch is a diagnostic concern, not an observed
+harm event. No natural failure in the current assets supports a fresh method
+experiment. The next step is to finish the collision audit and preserve this
+provisional no-go boundary until a natural endpoint is available.
