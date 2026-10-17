@@ -7,8 +7,8 @@
   "project_root": "projects/3d-cvpr2027-work-20261017",
   "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
   "coordinator_id": "work-cvpr-20261017",
-  "observed_source_head": "7efbe6eed466edd4b2cc17f7216fcf9b1c919878",
-  "coverage_status": "single_participant_R001_R005_development_terminal; historical_dependency_inventory_partial",
+  "observed_source_head": "3f9757970d3b414c5c15fbe6b6bac01ac6cd05bc",
+  "coverage_status": "single_participant_R001_R006_development_terminal; historical_dependency_inventory_partial",
   "coverage_gaps": [
     "Older simple archive contains 3228 index files; only selected source/results reviewed.",
     "Closest hybrid-gravity literature and independent inertial data not fully audited.",
@@ -20,13 +20,13 @@
       "role": "work_coordinator",
       "working_branch": "main",
       "output_namespace": "projects/3d-cvpr2027-work-20261017/runs",
-      "current_task": "R006-oracle-upper-bound-full-cohort",
-      "state": "claimed_pending_execution",
+      "current_task": null,
+      "state": "active_turn_between_tasks",
       "checkpoint": "projects/3d-cvpr2027-work-20261017/CURRENT.json",
       "dependencies": [
-        "closest work collision review",
-        "independent IMU sequence",
-        "distinct pose method gate"
+        "focal-unknown full pipeline/LO",
+        "correct measured gravity map interface",
+        "independent IMU sequence and distinct method gate"
       ],
       "help_requests": []
     }
@@ -171,7 +171,7 @@
     {
       "task_key": "fr2xyz-r006-oracle-upper-bound-p4pf-full",
       "owner_id": "work-cvpr-20261017",
-      "state": "claimed",
+      "state": "completed_development_diagnostic",
       "claim_revision": 1,
       "input_refs": [
         "R006 pilot calibrated result.json",
@@ -189,7 +189,14 @@
         "numerical_threads": 1,
         "timeout_seconds": 2400
       },
-      "release_condition": "Full run observed terminal, results checked, no running process."
+      "release_condition": "Full run observed terminal, results checked, no running process.",
+      "observed": "1440 planned, 1438 timestamp accepted, 1418 qualified, 2836 valid arm rows. Oracle/P4Pf rotation medians 0.1864/0.3020°, center 0.01626/0.01027m, focal relative 0.00975/0.00559, inliers 74/77; at 4.8s oracle rotation loses 0.507/0.491°. GT Rxz oracle only. Independent raw-row and fixed GT reprojection recount checked.",
+      "runtime": {
+        "cpu_seconds": 169.199395,
+        "child_rss_kib": 585516,
+        "wall_seconds": 170.100803
+      },
+      "release_observed": "Terminal native and outer process exit 0; 2836 rows and reconstructable exact matches checked; no active process."
     }
   ],
   "sync_receipts": [
@@ -307,7 +314,7 @@
         "R006/pilot/raw.csv",
         "R006/FULL_PLAN.md"
       ],
-      "publication_readback": "pending pilot evidence publication",
+      "publication_readback": "Pilot evidence and prospective full plan read back at exact commit 3f9757970d3b414c5c15fbe6b6bac01ac6cd05bc; binary gzip fetch required base64 encoding.",
       "coverage_gaps": [
         "Single sequence, oracle GT prior, no measured-pose claim."
       ],
@@ -323,6 +330,39 @@
         "conflicts": [],
         "help_requests": [],
         "complementary_next_action": "Freeze and run 240 reference x 6 offset full cohort, then interpret upper-bound headroom."
+      }
+    },
+    {
+      "cycle_id": "work-20261017-r006-full",
+      "owner_id": "work-cvpr-20261017",
+      "observation_time_utc": "2026-10-17",
+      "source_heads": {
+        "claimed_task": "3f9757970d3b414c5c15fbe6b6bac01ac6cd05bc",
+        "own_evidence": "pending"
+      },
+      "read_refs": [
+        "R006/FULL_PLAN.md",
+        "R006/full/result.json",
+        "R006/full/raw.csv",
+        "R006/full/analysis.json",
+        "R006/full/artifacts.json"
+      ],
+      "publication_readback": "pending full evidence publication",
+      "coverage_gaps": [
+        "GT oracle not measured gravity; only one exposed sequence; strong full-pipeline/LO and independent data absent; hour CPU target unmet."
+      ],
+      "plan_delta": {
+        "reuse_refs": [
+          "R001 feature path",
+          "R006 pilot source/resource calibration"
+        ],
+        "avoided_duplicates": "No same-sequence repetition to fill a CPU timer.",
+        "affected_dependencies": [
+          "Oracle rotation headroom is mixed with worse center/focal, and vanishes at longest offset."
+        ],
+        "conflicts": [],
+        "help_requests": [],
+        "complementary_next_action": "Strong focal-unknown local optimization and exact measured-gravity interface on independent data; pivot if no distinction."
       }
     }
   ],
