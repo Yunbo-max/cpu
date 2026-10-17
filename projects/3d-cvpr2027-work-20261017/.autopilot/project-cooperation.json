@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "kind": "project-cooperation",
+  "project_id": "3d_cvpr2027_work_20261017",
+  "repository": "Yunbo-max/cpu",
+  "coordination_branch": "main",
+  "project_root": "projects/3d-cvpr2027-work-20261017",
+  "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
+  "coordinator_id": "work-cvpr-20261017",
+  "observed_source_head": "18c1259ce6f22cc83f594308bc8c3012919e72d9",
+  "coverage_status": "single_participant_initial_registration; historical_dependency_inventory_partial",
+  "coverage_gaps": [
+    "Older simple archive contains 3228 index files; only selected solver/source/plan/result members and the separate Chat registry were reviewed.",
+    "Native compiled transfer and IMU camera-frame qualification are pending scientific review."
+  ],
+  "participants": [
+    {
+      "owner_id": "work-cvpr-20261017",
+      "role": "work_coordinator",
+      "working_branch": "main",
+      "output_namespace": "projects/3d-cvpr2027-work-20261017/runs",
+      "current_task": "R001-native-dependency-repair",
+      "state": "active_turn",
+      "checkpoint": "projects/3d-cvpr2027-work-20261017/CURRENT.json",
+      "dependencies": ["verified PoseLib headers", "independent evaluation protocol"],
+      "help_requests": []
+    }
+  ],
+  "sources": [
+    {
+      "repository": "Yunbo-max/cpu",
+      "commit": "18c1259ce6f22cc83f594308bc8c3012919e72d9",
+      "project_root": "projects/3d-autopilot-simple",
+      "reused": ["latest.json", "frozen fr1/xyz v3 source and plan", "R001 Chat read-only audit and registry"],
+      "note": "Mixed fr1 development result and GT-derived prior; older Chat-only scope is not mutated."
+    }
+  ],
+  "tasks": [
+    {
+      "task_key": "fr2xyz-r001-source-transfer-24pairs-gt-prior",
+      "owner_id": "work-cvpr-20261017",
+      "state": "repair_pending",
+      "input_refs": ["official fr2/xyz tgz sha256:a4903027a7fe6bc6573a1ce96a8afa5689f15d74f4a3f0627e91b5799f62e40b", "PLAN.md"],
+      "output_paths": ["projects/3d-cvpr2027-work-20261017/runs/R001"],
+      "observed": "24/24 pairs have >=24 matches; native compilation failed on omitted archive headers and original failure receipts retained; restore in progress.",
+      "admission_note": "Initial Work execution preceded remote registry creation; record this procedural gap honestly. No overlapping participant or project task was found in the reviewed dependency registry. Future dispatch requires verified shared admission."
+    },
+    {
+      "task_key": "fr2xyz-r002-measured-accelerometer-descriptive-quality",
+      "owner_id": "work-cvpr-20261017",
+      "state": "completed_local_publication_pending",
+      "output_paths": ["projects/3d-cvpr2027-work-20261017/runs/R002"],
+      "observed": "24 pairs, actual accelerometer readings; median pair direction change 1.0205 degrees; frame mapping unresolved."
+    },
+    {
+      "task_key": "fr2xyz-r003-imu-camera-early-calibration-late-test",
+      "owner_id": "work-cvpr-20261017",
+      "state": "completed_local_publication_pending",
+      "output_paths": ["projects/3d-cvpr2027-work-20261017/runs/R003"],
+      "observed": "Early 30-s GT calibration and later 92-s angular consistency diagnostic completed; no pose solver claim."
+    }
+  ],
+  "sync_receipts": [],
+  "collaboration_backend": "github",
+  "conversation_discovery": false,
+  "policy_revision": "Auto Work autonomous.13",
+  "authority_summary": "User selected the 3D camera-pose direction for CVPR and requested redefining the paper problem and running it on 2026-10-17; earlier authorized about 60 minutes of meaningful CPU per cycle and 4 GB conservative cap. The older Chat project excluded Work; this new redefined Work goal is disjoint and links historical evidence without resuming stopped projects.",
+  "resources": {"cpu_only": true, "numerical_concurrency": 1, "numerical_threads": 1, "address_space_cap_bytes": 4000000000, "meaningful_cpu_target_seconds_per_cycle": 3600, "paid_services": false},
+  "adopted_procedure": {"edition": "Auto Work", "version": "0.2.0-autonomous.13", "skill_package": "c25/research-autopilot", "host_continuation": "unverified"}
+}
