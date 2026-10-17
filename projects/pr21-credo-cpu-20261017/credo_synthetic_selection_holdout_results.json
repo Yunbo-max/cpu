@@ -1,0 +1,76 @@
+{
+  "status": "developmental_paired_selection_recalibration_diagnostic_not_confirmatory",
+  "protocol_path": "credo_selection_holdout_protocol.md",
+  "source_commit": "19e884718599cd390564ddf93aff943a720f3e22",
+  "design": {
+    "setting": "published synthetic Setting I, sigma=0.1",
+    "true_distribution": "N([-0.1,-0.1], 0.1 I)",
+    "train_n": 100,
+    "selection_calibration_n": 100,
+    "independent_evaluation_calibration_n": 100,
+    "replicates": 200,
+    "K": 100,
+    "fitted_components": 1,
+    "selection": "argmax source get_prob on selection calibration",
+    "primary_endpoint": "same-calibration selected score minus independent-calibration score for that same selected decision",
+    "control": "origin score on both calibration sets",
+    "threads": 1
+  },
+  "true_vertex_optimality_probabilities_mc": {
+    "[1.0, 0.0]": 0.30488,
+    "[0.0, 1.0]": 0.305188,
+    "[0.0, 0.0]": 0.389932
+  },
+  "same_calibration_selected_score_mean_ci": [
+    0.05002227722772279,
+    0.048109959310744556,
+    0.05193459514470102
+  ],
+  "independent_calibration_selected_score_mean_ci": [
+    0.04132821782178218,
+    0.039644266734984605,
+    0.04301216890857975
+  ],
+  "paired_selected_score_difference_mean_ci": [
+    0.008694059405940596,
+    0.00629166861964016,
+    0.011096450192241033
+  ],
+  "selected_true_optimality_mean_ci_over_runs": [
+    0.34450001999999996,
+    0.33861507662160345,
+    0.3503849633783965
+  ],
+  "same_score_minus_selected_true_probability_mean_ci": [
+    -0.29447774277227723,
+    -0.300598442095892,
+    -0.2883570434486625
+  ],
+  "fresh_score_minus_selected_true_probability_mean_ci": [
+    -0.3031718021782179,
+    -0.3091564555581556,
+    -0.2971871487982802
+  ],
+  "fixed_origin_same_calibration_score_mean_ci": [
+    0.040498514851485146,
+    0.03845166946365903,
+    0.04254536023931126
+  ],
+  "fixed_origin_independent_calibration_score_mean_ci": [
+    0.041024752475247526,
+    0.03921593571988184,
+    0.04283356923061321
+  ],
+  "selected_vertex_counts": {
+    "[1.0, 0.0]": 61,
+    "[0.0, 1.0]": 46,
+    "[0.0, 0.0]": 93
+  },
+  "elapsed_seconds": 0.7061350409639999,
+  "limitations": [
+    "One two-dimensional synthetic distribution only; no general validity conclusion.",
+    "Scores and reference truth have Monte Carlo error; intervals are descriptive normal intervals over replicates.",
+    "Both calibration samples are exchangeable by construction; the real solar series was not tested here.",
+    "This does not establish novelty or a new correction method."
+  ]
+}
