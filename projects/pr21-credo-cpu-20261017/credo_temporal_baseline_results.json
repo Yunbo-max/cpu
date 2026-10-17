@@ -1,0 +1,200 @@
+{
+  "status": "developmental_chronological_baseline_comparison_not_confirmatory",
+  "question": "Does CREDO's decision-rank tie with PTO persist against source RO and SPO+ on the same three chronological blocks?",
+  "data_sha256": "d31a480ce63621155d399f3e1740bff0950bc982b2ba41991f58d9afe6322b67",
+  "source_commit": "19e884718599cd390564ddf93aff943a720f3e22",
+  "design": {
+    "blocks": "same three non-overlapping future 24-month blocks as credo_temporal_holdout_audit.py",
+    "pretest_partition": "earliest 67% fit, latest 33% calibration",
+    "CREDO": "source implementation, 3 components, K=10000, one fixed score draw per block",
+    "PTO": "source implementation, mean of all pre-test data",
+    "RO": "source implementation, L-infinity 95th-percentile calibration radius",
+    "SPO+": "source implementation, lr=0.1, 100 iterations, single worker",
+    "DFL": "not run; cvxpy and cvxpylayers are absent from the pinned Mac environment",
+    "primary_metric": "source empirical decision rank over the 24-month test block; lower is better",
+    "threads": 1,
+    "random_seeds": "CREDO fit 2700+block, CREDO score 2800+block, SPO+ init 2700+block"
+  },
+  "ranks_by_block": [
+    {
+      "block": 0,
+      "train_end": "2016-04-30",
+      "calibration_end": "2018-12-31",
+      "test_start": "2019-01-31",
+      "test_end": "2020-12-31",
+      "n_train": 64,
+      "n_calibration": 32,
+      "n_test": 24,
+      "actions": {
+        "CREDO": [
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "PTO": [
+          -0.0,
+          1.0,
+          -0.0,
+          1.0
+        ],
+        "RO": [
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "SPO+": [
+          -0.0,
+          1.0,
+          -0.0,
+          1.0
+        ]
+      },
+      "ranks_lower_better": {
+        "CREDO": 1,
+        "PTO": 1,
+        "RO": 1,
+        "SPO+": 1
+      },
+      "credo_minus_baseline_rank": {
+        "PTO": 0,
+        "RO": 0,
+        "SPO+": 0
+      },
+      "credo_gmm_warnings": [],
+      "ro_calibration_radius_linf": 0.11211129199810171,
+      "spo_iterations": 100
+    },
+    {
+      "block": 1,
+      "train_end": "2017-08-31",
+      "calibration_end": "2020-12-31",
+      "test_start": "2021-01-31",
+      "test_end": "2022-12-31",
+      "n_train": 80,
+      "n_calibration": 40,
+      "n_test": 24,
+      "actions": {
+        "CREDO": [
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "PTO": [
+          -0.0,
+          1.0,
+          -0.0,
+          1.0
+        ],
+        "RO": [
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "SPO+": [
+          -0.0,
+          1.0,
+          1.0,
+          -0.0
+        ]
+      },
+      "ranks_lower_better": {
+        "CREDO": 5,
+        "PTO": 5,
+        "RO": 4,
+        "SPO+": 6
+      },
+      "credo_minus_baseline_rank": {
+        "PTO": 0,
+        "RO": 1,
+        "SPO+": -1
+      },
+      "credo_gmm_warnings": [],
+      "ro_calibration_radius_linf": 0.22578518083129978,
+      "spo_iterations": 100
+    },
+    {
+      "block": 2,
+      "train_end": "2018-12-31",
+      "calibration_end": "2022-12-31",
+      "test_start": "2023-01-31",
+      "test_end": "2024-12-31",
+      "n_train": 96,
+      "n_calibration": 48,
+      "n_test": 24,
+      "actions": {
+        "CREDO": [
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "PTO": [
+          -0.0,
+          1.0,
+          -0.0,
+          1.0
+        ],
+        "RO": [
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "SPO+": [
+          -0.0,
+          1.0,
+          -0.0,
+          1.0
+        ]
+      },
+      "ranks_lower_better": {
+        "CREDO": 1,
+        "PTO": 1,
+        "RO": 5,
+        "SPO+": 1
+      },
+      "credo_minus_baseline_rank": {
+        "PTO": 0,
+        "RO": -4,
+        "SPO+": 0
+      },
+      "credo_gmm_warnings": [],
+      "ro_calibration_radius_linf": 0.32472061834056504,
+      "spo_iterations": 100
+    }
+  ],
+  "rank_lists_by_method": {
+    "CREDO": [
+      1,
+      5,
+      1
+    ],
+    "PTO": [
+      1,
+      5,
+      1
+    ],
+    "RO": [
+      1,
+      4,
+      5
+    ],
+    "SPO+": [
+      1,
+      6,
+      1
+    ]
+  },
+  "elapsed_seconds": 65.29206941602752,
+  "limitations": [
+    "Only three blocks from one 168-month series; these do not support inferential claims.",
+    "The chronological stress split does not satisfy a verified exchangeability assumption.",
+    "A fixed stochastic seed is used per block; Monte Carlo score uncertainty was studied separately.",
+    "DFL is unavailable in the pinned Mac environment, so the paper's full baseline table is not reproduced.",
+    "All data were already inspected; this is developmental evidence, not confirmation."
+  ]
+}
