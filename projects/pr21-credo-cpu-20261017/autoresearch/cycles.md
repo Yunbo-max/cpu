@@ -415,3 +415,33 @@ temporal-structure launch under the wrong Python environment.
 - **Evidence:** `../credo_selection_holdout_protocol.md`,
   `../credo_synthetic_selection_holdout.py`,
   `../credo_synthetic_selection_holdout_results.json`.
+
+## Cycle 16 — Intake for an observed consequential failure
+
+- **Question:** do the retained PRAXIS/CREDO assets contain a naturally
+  occurring failure and downstream consequence that can anchor a new
+  falsifiable method question?
+- **Inventory:** PRAXIS COMPAS is 4,966 rows with 44 binarized features and a
+  label; the retained Bike data has 17,379 rows of binarized features and a
+  label. The bundled MAGIC and breast-cancer examples are benchmark
+  classification data, and the deferral JSON files are serialized Rashomon
+  visualization payloads, not records of real human deferrals or their
+  outcomes. CREDO's real series is 168 monthly observations for four substations;
+  the paper reports that operational upgrade costs and capacities were not
+  available and uses assumed unit costs and a historical threshold.
+- **Finding:** these are reproduction benchmarks and synthetic decision
+  settings. The project contains model errors, score/rank variation, and a
+  possible temporal-assumption mismatch, but no observed consequential harm,
+  real decision log, or external outcome that qualifies as a natural failure.
+  The PRAXIS copy also lacks raw protected-group columns for a new subgroup
+  harm analysis.
+- **Decision:** no fresh method experiment is justified by these assets alone.
+  Keep both broad atoms at provisional no-go, preserve the loop, and do not
+  turn researcher-generated benchmark gaps into deployment incidents.
+- **Next action:** if continuing within these two lines, finish the formal
+  literature/collision audit and document the current no-go boundary. A new
+  empirical research direction requires either a different existing dataset
+  with a natural endpoint or a user-supplied failure/task description; do not
+  silently change the project scope.
+- **Evidence:** PRAXIS `RESULTS.md`, local data schemas, MAGIC notebook source,
+  the CREDO paper Appendix E, and `../literature_notes.md`.
