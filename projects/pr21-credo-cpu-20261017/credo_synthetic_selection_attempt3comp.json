@@ -1,5 +1,5 @@
 {
-  "status": "developmental_known_distribution_selection_diagnostic_not_confirmatory",
+  "status": "invalid_excluded_protocol_mismatch",
   "question": "Does selecting the highest CREDO get_prob score from the same calibration sample inflate that score relative to the selected decision's true optimality probability?",
   "source_commit": "19e884718599cd390564ddf93aff943a720f3e22",
   "synthetic_setting": {
@@ -93,5 +93,6 @@
     "The theoretical guarantee is pointwise for fixed decisions under exchangeability; this comparison is a diagnostic of reusing calibration for selection.",
     "The local solar time series remains nonexchangeable or of unverified exchangeability and is not evaluated by this synthetic experiment.",
     "All work is exploratory; no claim, Gate A, or paper conclusion follows from this run."
-  ]
+  ],
+  "exclusion_reason": "Used the 3-component real-data mixture count; the published synthetic Setting I notebook specifies 1 component. Retained only for the audit trail; not used for inference."
 }
