@@ -1,0 +1,68 @@
+{
+  "alternatives": [
+    {
+      "gravity_constraint_residual": 2.3506153211724266e-16,
+      "pose_rotation_from_original_deg": 19.999999999999883,
+      "rxz_geodesic_from_original_deg": 9.614291053079437,
+      "rxz_row_y": [
+        0.17420186390589473,
+        0.9845579503642267,
+        0.017301820317670163
+      ],
+      "yaw_about_query_gravity_deg": -20
+    },
+    {
+      "gravity_constraint_residual": 2.6157104883901254e-16,
+      "pose_rotation_from_original_deg": 0.0,
+      "rxz_geodesic_from_original_deg": 0.0,
+      "rxz_row_y": [
+        0.009691029412282058,
+        0.9998943000461351,
+        -0.010838481636270748
+      ],
+      "yaw_about_query_gravity_deg": 0
+    },
+    {
+      "gravity_constraint_residual": 1.8849521274605472e-16,
+      "pose_rotation_from_original_deg": 19.999999999999883,
+      "rxz_geodesic_from_original_deg": 9.614244647473912,
+      "rxz_row_y": [
+        -0.15585945658298303,
+        0.9877026827138622,
+        0.012297981683876764
+      ],
+      "yaw_about_query_gravity_deg": 20
+    }
+  ],
+  "construction": "For any psi, Rpsi=Rot(u_query,psi) R0 maps u_ref to u_query, yet rxz(Rpsi) can vary.",
+  "ideal_query_gravity": [
+    0.0016101426570308095,
+    -0.8758437879999793,
+    -0.4825920290084285
+  ],
+  "ideal_ref_gravity": [
+    -0.0012233060662131786,
+    -0.8810518580815705,
+    -0.47301810419188073
+  ],
+  "input_sha256": {
+    "frame-result": "4f24047bb58643a6e3cfea94f347fbc8cfb5d255f9736ae20148b935c175eeda",
+    "groundtruth.txt": "0e4ba8af6807c25a2968454256eb8fd6c73f8468fc5e7c26f890072f7bc70ad6",
+    "helper": "8be5b35797b77e295f6dc7f4fe3f4bb31f69f7b7141aef47ac60cf2fc1c54e55",
+    "pairs.csv": "ca8b270069473502c2a6913d2e0cf52add32c8387cbf4164feab0983b83f6b97",
+    "selection": "178c5c3f1a6e2a8b531caa87558035a3b06dd2fef0a9780568a5912e6798e858"
+  },
+  "pair": 0,
+  "query_gravity_angle_from_camera_y_deg": 151.14499548348832,
+  "runtime": {
+    "cpu_seconds": 0.7168789999999999,
+    "peak_rss_kib": 76276,
+    "wall_seconds": 0.20384384499993757
+  },
+  "scope": "exact mathematical information-condition fixture on one exposed pair; no new pose estimator or performance claim",
+  "world_gravity_vector": [
+    0.07208148227577324,
+    -0.02127533784166651,
+    0.9971718106287655
+  ]
+}

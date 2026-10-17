@@ -1,0 +1,25 @@
+# Working paper problem v1: pose with imperfect two-sided gravity
+
+## Observed gap in the present implementation
+
+The inherited RGB-D pair provides 3D points in the **reference camera** coordinate frame. The archived UP2PfORI wrapper passes `Rxz(R_true)` computed from the evaluated ground-truth relative rotation. R004 shows why two accelerometer gravity directions cannot generally supply that exact interface value: for ideal directions `g_r` and `g_q`, any solution `R_0 g_r=g_q` belongs to the family
+
+\[
+R(\theta)=\operatorname{Rot}(g_q,\theta)R_0,\qquad R(\theta)g_r=g_q.
+\]
+
+The inherited `rxz(R)` varies along that family in a generic camera frame. On preregistered fr2/xyz pair 0, the two alternatives at yaw offsets ±20° satisfy the *same* ideal gravity constraint to <3×10⁻¹⁶, yet their `rxz` rotations differ from the original by ≈9.61°. This is an information-condition counterexample for the **old wrapper**, not a claim that existing gravity-aware pose literature is wrong or that an arbitrary-axis parameterization is new. A gravity-aligned map coordinate or a solver respecting both measured directions is required before a sensor-derived effectiveness test.
+
+## Proposed scientific question
+
+In RGB-D map-to-query localization with unknown query focal length, oriented 2D–3D correspondences and time-synchronized accelerometer readings, can a method that estimates the *reliability* of the observed gravity direction reduce pose failure and rotation error at matched computational cost, while retaining the performance of a focal-aware visual estimator when the accelerometer is disturbed by motion?
+
+Inputs available at inference: mapped 3D features and their reference image geometry, query image features, calibrated sensor-to-camera extrinsics, per-frame accelerometer windows, and any calibration acquired strictly before the query interval. Ground-truth query pose is scoring-only. A map built from reference depth can use known map-frame reference poses, but any use of query ground truth in the prior is prohibited. Unknown focal length must remain unknown for the main comparison.
+
+The exact two-direction rotational constraint is `R g_r=g_q`. For noisy acceleration, replace it by a likelihood based on the angular residual `angle(R g_r,g_q)` and a sensor reliability estimate learned or calibrated on **development** intervals. Candidate construction: draw constrained one-DoF hypotheses with `R(theta)` where the prior is reliable; otherwise use a focal-aware general estimator. Compare pose and focal likelihoods on held-out correspondences rather than choosing by ground-truth pose or in-sample inlier count alone. This is a hypothesis; no implementation, superiority or novelty is asserted.
+
+Prediction: low-motion, reliable-gravity intervals could save hypotheses at high visual outlier rates. High-acceleration or badly calibrated intervals should favor the unconstrained focal-aware arm; a fixed perfect-gravity assumption should fail there. Refute the route if actual IMU uncertainty does not predict pose degradation, if the adaptive method cannot beat a well-tuned focal-aware general baseline at equal time, or if the construction is only a coordinate rewrite of an existing solver without a distinct benefit.
+
+Closest known work: CVPR 2024 pose from scaled/oriented features and the 2026 UP2PfORI paper already exploit gravity; the latter tests simulated IMU noise and compares P4Pf, P3.5Pf, UP2.5Pf. Sweeney et al. 2015 already permit arbitrary partial-rotation axes, so changing the yaw axis itself is not a novelty claim. Another 2026 gravity-driven pose method addresses robust voting/refinement. Our potential novelty must survive a closer review of robust sensor reliability and model-selection literature.
+
+Experiments required for a serious claim: independent sequences with real IMU/depth/map poses and documented extrinsics; frozen calibration/development/confirmation split; source-qualified UP2PfORI/UP1PfAC, UP2.5Pf and P4Pf/P3.5Pf, plus known-f P3P only as an auxiliary diagnostic; same input features and justified tuning/time budgets; mild versus dynamic acceleration, calibration error and focal variation; rotation, camera-center, focal, failure, inlier and end-to-end CPU metrics with paired uncertainty. R001–R004 are exposed prerequisite diagnostics and cannot serve as frozen confirmation.

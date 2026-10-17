@@ -4,10 +4,10 @@
   "goal": "CVPR-quality 3D camera pose estimation research with a redefined, measured-gravity reliability problem",
   "state": "active_research_dependency_qualification",
   "evidence_scope": "development diagnostics only; no new method or accepted CVPR claim",
-  "completed": ["official fr2/xyz archive downloaded and SHA-256 verified", "R001 24/24-pair native source-transfer comparison, 48 raw rows and independently recounted mixed result", "R002 actual accelerometer quality diagnostic", "R003 early 30-s calibration/late 92-s temporal test"],
-  "pending": ["prove or disprove mapping measured gravity to original Rxz in arbitrary reference-camera coordinates", "measured-prior pose comparison and focal-fair strong baselines", "independent sequences and review", "verified Work-capable unattended continuation"],
-  "next_action": "Test the information identifiability of original Rxz from two measured gravity directions in the current relative RGB-D coordinate system; if not identifiable, formulate a gravity-aligned map-localization protocol before any effectiveness comparison.",
-  "last_observed_source_head": "ce3e4b6f70091b3662233bfa96f003dbb5a9d6fe",
+  "completed": ["official fr2/xyz archive downloaded and SHA-256 verified", "R001 24/24-pair native source-transfer comparison, 48 raw rows and independently recounted mixed result", "R002 actual accelerometer quality diagnostic", "R003 early 30-s calibration/late 92-s temporal test", "R004 exact counterexample: two ideal gravity directions do not identify inherited Rxz in arbitrary reference-camera coordinates", "working paper question and falsification criteria recorded in PROBLEM.md"],
+  "pending": ["source-qualified gravity-aware and focal-aware solver review", "measured-prior pose comparison and focal-fair strong baselines", "independent sequences and review", "verified Work-capable unattended continuation"],
+  "next_action": "Specify and qualify a gravity-aligned map-localization implementation or an exact two-sided-gravity solver; then preregister fair focal-unknown visual comparisons and independent-sequence evaluation before claiming efficacy.",
+  "last_observed_source_head": "59e8348f1c8b2e3b95679ba02f472187e655546f",
   "host_continuation": {"state": "not_verified", "task_id": null},
-  "budget": {"address_space_cap_bytes": 4000000000, "threads": 1, "target_cpu_seconds_per_cycle": 3600, "measured_current_cycle_cpu_seconds": 44.052163, "unmetered_compilation_and_data_prep": true}
+  "budget": {"address_space_cap_bytes": 4000000000, "threads": 1, "target_cpu_seconds_per_cycle": 3600, "measured_current_cycle_cpu_seconds": 44.769042, "unmetered_compilation_and_data_prep": true}
 }
