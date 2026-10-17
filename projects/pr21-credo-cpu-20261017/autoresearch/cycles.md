@@ -260,3 +260,82 @@ temporal-structure launch under the wrong Python environment.
   `../credo_temporal_baseline_results.json`,
   `../runs/19-iclr26-credo/model/{ro,spo}.py`, and
   `../runs/19-iclr26-credo/exp2_decision.ipynb`.
+
+## Cycle 12 — Map the formal guarantee to the available evaluator
+
+- **Question:** does the chronological decision-rank experiment evaluate the
+  guarantee CREDO claims, and is same-calibration selection an open direction
+  after a targeted collision check?
+- **Source audit:** Eq. (2) is about the probability that a *prescribed*
+  decision is optimal under a random objective. Theorem 1 gives expected
+  conservativeness when calibration data are exchangeable. The paper itself
+  warns that choosing a decision using CREDO's estimates and then evaluating
+  that chosen decision with the same calibration data can invalidate the
+  original guarantee; it suggests splitting data and lists selection-adjusted
+  guarantees as future work.
+- **Evaluator finding:** our solar experiment selects the CREDO action by
+  maximizing `get_prob`, then ranks that selected action on 24 future months.
+  That endpoint is not Theorem 1's expectation over exchangeable calibration
+  samples, and the observed time series does not establish exchangeability.
+  Thus the baseline comparison is a decision-quality stress diagnostic only;
+  it neither verifies nor falsifies CREDO's formal guarantee.
+- **Collision screen:** found adjacent work on action-conditional risk-averse
+  decision guarantees (ICML 2026), selection-conditional conformal coverage
+  (JRSSB 2025), post-selection prediction-set validity (JASA 2026), online
+  selective conformal prediction (JMLR 2025), and general selective/extra-
+  selection risk control (2024). They do not all target the same event, but
+  they make a broad “conformal guarantees after action selection” claim
+  untenable without a theorem-level comparison. See
+  `../literature_notes.md` for primary links and scope notes.
+- **Decision:** keep the contribution question open but do not advance a
+  method. The next bounded CPU task is a known-distribution synthetic check
+  using the repository's CREDO generator: compare a decision fixed before
+  calibration against a decision chosen from the CREDO scores, with repeated
+  independent calibration/test draws and the theorem's exact fixed-decision
+  event. This can determine whether a selection effect is measurable in the
+  available setting; it cannot by itself establish novelty or repair the
+  dependence problem in the solar series.
+- **Evidence:** local `../papers/iclr26-21-credo.pdf`, especially Eq. (2),
+  Theorem 1, and the selection-bias discussion; source implementation
+  `../runs/19-iclr26-credo/model/conformal_dra.py`; targeted primary-source
+  references in `../literature_notes.md`.
+
+## Cycle 13 — Known-distribution fixed vs. selected decision diagnostic
+
+- **Hypothesis:** selecting the highest CREDO score among the three feasible
+  decisions using the same calibration sample may make the selected score
+  optimistic relative to that selected decision's true optimality frequency.
+- **Protocol:** use CREDO's published synthetic Setting I (`sigma=0.1`),
+  `n_train=n_cal=100`, `K=100`, a 1-component fitted Gaussian (as in the
+  notebook), 200 independent train/calibration replicates, and an independent
+  1,000,000-draw reference sample for the three true vertex probabilities.
+  Compare one decision fixed in advance (the origin) with the per-replicate
+  argmax of source `get_prob`. Single-threaded CPU; no parameter sweep.
+- **Invalid attempt:** the first implementation mistakenly used the 3-component
+  model from the real-data experiment. It is preserved as
+  `../credo_synthetic_selection_attempt3comp.json` and excluded. The corrected
+  run follows the synthetic notebook's 1-component model.
+- **Result:** true optimality frequencies were approximately 0.305/0.305/0.390
+  for the two axis vertices and origin. Mean source scores were 0.036/0.037/0.040
+  for these fixed decisions. The fixed origin score averaged 0.040 (normal
+  95% interval 0.038–0.042). Under same-calibration selection, the score
+  averaged 0.050 (0.048–0.051), while the selected decisions' true optimality
+  averaged 0.341 (0.335–0.347); score minus true probability was -0.291
+  (-0.297 to -0.285). Selection chose the origin in 84/200 replicates.
+- **Interpretation:** in this one simple setting, selection increased the
+  score modestly but did not produce an optimistic score-vs-frequency result;
+  the score remained very conservative. The selected decision's true
+  optimality was lower than the fixed origin's 0.390. This is not a
+  counterexample to the paper's selection warning and cannot show general
+  validity; it shows that this small setting does not expose the suspected
+  guarantee failure.
+- **Decision:** do not advance a selection-bias failure claim from this
+  diagnostic. Next, read the paper's synthetic risk-estimation experiment and
+  supplement carefully to verify whether this `get_prob` score and the
+  fixed-decision theorem are being compared on the same scale. If compatible,
+  stop the synthetic line as non-discriminating and return to a full collision
+  audit before any method proposal.
+- **Evidence:** `../credo_synthetic_selection_audit.py`,
+  `../credo_synthetic_selection_results.json`, excluded
+  `../credo_synthetic_selection_attempt3comp.json`, and the original
+  `../runs/19-iclr26-credo/exp2_decision.ipynb`.
