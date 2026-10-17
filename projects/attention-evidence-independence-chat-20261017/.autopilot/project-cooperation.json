@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "kind": "project-cooperation",
+  "backend": "github",
+  "repository": "Yunbo-max/cpu",
+  "coordination_branch": "main",
+  "project_root": "projects/attention-evidence-independence-chat-20261017",
+  "project_id": "attention-evidence-independence-chat-20261017",
+  "coordination_path": "projects/attention-evidence-independence-chat-20261017/.autopilot/project-cooperation.json",
+  "revision": 1,
+  "authority": "User asked to start an entirely new research topic in Chat after requesting Auto Chat research. This is distinct from any paused lowrank, planning or older research lines.",
+  "goal": "Investigate full-attention architecture that distinguishes redundant textual copies from independent evidence; mathematically characterize identifiability and test source-aware multiplicity correction, under CPU/4GB.",
+  "scope": {
+    "edition": "research-autopilot",
+    "installed_version": "0.2.0-autonomous-chat.29",
+    "source_branch": "autonomous-rsi-chat",
+    "source_commit": "5536b1e1b49544df7d423f6d2cd80140806fa7ce",
+    "host": "chatgpt_chat",
+    "cpu_only": true,
+    "memory_planning_cap_bytes": 4000000000,
+    "original_request": "New topic, not continuation of prior paused experiments",
+    "no_gpu": true,
+    "no_docker": true,
+    "no_paid_services": true
+  },
+  "coordinator_id": "chat-attnevidence-20261017-a",
+  "participants": [
+    {
+      "owner_id": "chat-attnevidence-20261017-a",
+      "role": "chat research coordinator / first-source mathematical investigator",
+      "status": "active_reading_derivation",
+      "working_branch": "main",
+      "output_namespace": "projects/attention-evidence-independence-chat-20261017/chat-runs/chat-attnevidence-20261017-a",
+      "current_task": "T001-source-math",
+      "checkpoint": "projects/attention-evidence-independence-chat-20261017/PLAN.md",
+      "dependencies": []
+    }
+  ],
+  "tasks": [
+    {
+      "task_key": "T001-source-math",
+      "task_id": "T001",
+      "owner_id": "chat-attnevidence-20261017-a",
+      "state": "claimed_reading",
+      "scope": "Read primary baselines and derive identifiability theorem; no executable research launch",
+      "parents": [],
+      "input_refs": [
+        "LUCID paper ICML2026 https://proceedings.mlr.press/v306/duvvuri26a.html",
+        "LUCID code saisuryadv/LUCID modeling_lucid.py blob f1169971c91f372435b486cca54665cf36bc868f",
+        "RA-RAG EMNLP2025 https://aclanthology.org/2025.emnlp-main.1738/",
+        "RAG redundancy 2608.13956"
+      ],
+      "output_paths": [
+        "projects/attention-evidence-independence-chat-20261017/PLAN.md",
+        "projects/attention-evidence-independence-chat-20261017/RESEARCH_NOTES.md"
+      ],
+      "completion_condition": "Publish source-linked scope and identifiability proof, compare simple baselines, verify GitHub readback; do not claim empirical verification"
+    }
+  ],
+  "peer_inventory": {
+    "repo_root_listing_checked": true,
+    "matching_prior_project_found": false,
+    "legacy_stopped_projects_unmodified": true,
+    "coverage": "All CPU project directory names checked; unrelated projects not adopted",
+    "source_head_at_intake": "0c229caa82c144ad4c9e05bf835e7bd6540f2d63"
+  },
+  "execution": {
+    "executable_gate_status": "not_bound",
+    "reason": "Installed plugin scripts are not mounted in the observed CPU filesystem; cannot qualify new producer without exact gate/runtime source restoration.",
+    "unattended_continuation": "not_started",
+    "scientific_cycles_completed": 0
+  },
+  "last_sync": {
+    "outcome": "startup registration pending readback"
+  }
+}
