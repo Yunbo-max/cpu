@@ -7,7 +7,7 @@
   "project_root": "projects/3d-cvpr2027-work-20261017",
   "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
   "coordinator_id": "work-cvpr-20261017",
-  "observed_source_head": "066df30fa6f763d59a183d3c340ff432c3d2c886",
+  "observed_source_head": "5e8d635e66c6fde83c4523cd950406e865033013",
   "coverage_status": "single_participant_R001_R005_development_terminal; historical_dependency_inventory_partial",
   "coverage_gaps": [
     "Older simple archive contains 3228 index files; only selected source/results reviewed.",
@@ -20,8 +20,8 @@
       "role": "work_coordinator",
       "working_branch": "main",
       "output_namespace": "projects/3d-cvpr2027-work-20261017/runs",
-      "current_task": null,
-      "state": "active_turn_between_tasks",
+      "current_task": "R006-oracle-upper-bound-source-qualification-pilot",
+      "state": "claimed_pending_execution",
       "checkpoint": "projects/3d-cvpr2027-work-20261017/CURRENT.json",
       "dependencies": [
         "closest work collision review",
@@ -136,6 +136,30 @@
         "wall_seconds": 5.930506
       },
       "release_observed": "Terminal process exit 0; result.json and execution.log read; no running process."
+    },
+    {
+      "task_key": "fr2xyz-r006-oracle-upper-bound-p4pf-pilot",
+      "owner_id": "work-cvpr-20261017",
+      "state": "claimed",
+      "claim_revision": 1,
+      "input_refs": [
+        "runs/R006/PLAN.md",
+        "official fr2/xyz verified TGZ from R001",
+        "original UP2PfORI, PoseLib P4Pf, original feature helper",
+        "scripts/oracle_headroom_r006.py sha256:946cf7a5e27994b86a696451fe7db70fcc77a989cca97d7a66024dc5a0353fe8",
+        "scripts/r006_oracle_p4pf.cpp sha256:44cfd1efa8e8d2a7d2e549bc5fb9384993df8c4d0fe31cc0d1bac4a2046faeb8"
+      ],
+      "output_paths": [
+        "projects/3d-cvpr2027-work-20261017/runs/R006/pilot"
+      ],
+      "protocol": "Preregistered 3 reference times (15.25,60.25,105.25 s) x 4 offsets (0.15,0.30,0.60,1.20 s), original correspondence front end, unknown focal P4Pf and GT-Rxz oracle UP2PfORI; 512 hypotheses each, 3px score. Compile, CPU/RSS and correctness resource calibration before full cohort freeze. Development upper bound only.",
+      "resources": {
+        "cpu_slots": 1,
+        "address_space_cap_bytes": 4000000000,
+        "numerical_threads": 1,
+        "timeout_seconds": 3600
+      },
+      "release_condition": "Pilot terminal observed, source and output receipts, no process."
     }
   ],
   "sync_receipts": [
