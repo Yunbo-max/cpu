@@ -7,7 +7,7 @@
   "project_root": "projects/3d-cvpr2027-work-20261017",
   "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
   "coordinator_id": "work-cvpr-20261017",
-  "observed_source_head": "d7fe936ba19ce6bcd238b46469253f9e10bf44da",
+  "observed_source_head": "2e55293db0745e638a07fe3fce7972c8b071bff1",
   "coverage_status": "single_participant_R001_R006_development_terminal; historical_dependency_inventory_partial",
   "coverage_gaps": [
     "Older simple archive contains 3228 index files; only selected source/results reviewed.",
@@ -21,7 +21,7 @@
       "working_branch": "main",
       "output_namespace": "projects/3d-cvpr2027-work-20261017/runs",
       "current_task": "R007-full-local-refinement",
-      "state": "claimed_pending_execution",
+      "state": "R007_completed_scientific_prerequisite_gate",
       "checkpoint": "projects/3d-cvpr2027-work-20261017/CURRENT.json",
       "dependencies": [
         "focal-unknown full pipeline/LO",
@@ -231,7 +231,7 @@
     {
       "task_key": "fr2xyz-r007-full-focal-local-refinement",
       "owner_id": "work-cvpr-20261017",
-      "state": "claimed",
+      "state": "completed_development_diagnostic",
       "claim_revision": 2,
       "input_refs": [
         "R007 pilot verified model_rows.csv.gz sha256:e23130611e39f4d2595589af0759213b97eaf9e415d9855b8384815d852c8f46",
@@ -251,7 +251,14 @@
         "timeout_seconds": 600
       },
       "release_condition": "Terminal full cohort, verified rows and resources, no process.",
-      "protocol_amendment": "Two source-valid oracle rows (pairs 83,101) have four inliers, so skip nonminimal optimizer there and retain initial pose in 1418 paired denominator; first attempt failed before metrics."
+      "protocol_amendment": "Two source-valid oracle rows (pairs 83,101) have four inliers, so skip nonminimal optimizer there and retain initial pose in 1418 paired denominator; first attempt failed before metrics.",
+      "observed": "1440 planned, 1418 qualified; 2836/2836 native science fields equivalent; after-failure disclosed fallback retains two oracle four-inlier models. 1416/1418 oracle and 1418/1418 P4Pf optimizers succeeded. Refined medians oracle/P4Pf rotation 0.10484/0.24063 deg, center 0.00790/0.00498m, focal relative 0.00418/0.00264. Correlated exposed data; GT oracle only.",
+      "runtime": {
+        "cpu_seconds": 10.070783,
+        "peak_self_rss_kib": 124604,
+        "wall_seconds": 10.078870791
+      },
+      "release_observed": "Full rerun exit 0 and 2836 paired rows; first failed attempt and amendment retained, no active process."
     }
   ],
   "sync_receipts": [
@@ -426,7 +433,7 @@
       "observation_time_utc": "2026-10-17",
       "source_heads": {
         "claimed_task": "b0fb3e85d6406fcadc05c5c24d87a5defe61c3f4",
-        "own_evidence": "pending"
+        "own_evidence": "d7fe936ba19ce6bcd238b46469253f9e10bf44da"
       },
       "read_refs": [
         "R007/PLAN.md",
@@ -434,7 +441,7 @@
         "R007/pilot/model_rows.csv",
         "R007/FULL_PLAN.md"
       ],
-      "publication_readback": "pending pilot evidence publication",
+      "publication_readback": "All seven pilot/claim blobs fetched by exact SHA from commit d7fe936 after CAS branch update.",
       "coverage_gaps": [
         "Only 46 qualified pilot pairs; this in-house refinement is not full source-native PoseLib LO-RANSAC."
       ],
@@ -449,6 +456,40 @@
         "conflicts": [],
         "help_requests": [],
         "complementary_next_action": "All 1440 prospective R006 pairs in same frozen refinement; inspect by overlap and independent blocks."
+      }
+    },
+    {
+      "cycle_id": "work-20261017-r007-full",
+      "owner_id": "work-cvpr-20261017",
+      "observation_time_utc": "2026-10-17",
+      "source_heads": {
+        "claimed_task": "2e55293db0745e638a07fe3fce7972c8b071bff1",
+        "own_evidence": "pending"
+      },
+      "read_refs": [
+        "R007/FULL_PLAN.md",
+        "R007/AMENDMENT.md",
+        "R007/full/result.json",
+        "R007/full/analysis.json",
+        "R007/full/execution.log"
+      ],
+      "publication_readback": "pending full evidence publication",
+      "coverage_gaps": [
+        "No measured gravity input, no full source-native LO pipeline, one exposed dependent sequence, hour target unmet"
+      ],
+      "plan_delta": {
+        "reuse_refs": [
+          "R006 original correspondences and metrics",
+          "R007 pilot verified model rows"
+        ],
+        "avoided_duplicates": "No redundant native solve or feature extraction to fill CPU target.",
+        "affected_dependencies": [
+          "Ideal orientation can improve rotation after local refinement; camera center and focal remain worse.",
+          "Sensor-valid input and independent sequence remain gates."
+        ],
+        "conflicts": [],
+        "help_requests": [],
+        "complementary_next_action": "R008 derivation and literature audit; independent sensor-valid full-pipeline evaluation or pivot."
       }
     }
   ],

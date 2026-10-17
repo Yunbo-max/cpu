@@ -4,10 +4,36 @@
   "goal": "CVPR-quality 3D camera pose estimation research with a redefined, measured-gravity reliability problem",
   "state": "active_research_decision_gate",
   "evidence_scope": "development diagnostics only; no new method or accepted CVPR claim",
-  "completed": ["official fr2/xyz archive downloaded and SHA-256 verified", "R001 24/24-pair native source-transfer comparison, 48 raw rows and independently recounted mixed result", "R002 actual accelerometer quality diagnostic", "R003 early 30-s calibration/late 92-s temporal test", "R004 exact counterexample: two ideal gravity directions do not identify inherited Rxz in arbitrary reference-camera coordinates", "working paper question and falsification criteria recorded in PROBLEM.md", "R005 920 later-window real-IMU predictor evaluation with only weak rank discrimination", "R006 prospective 1440-pair GT-oracle versus focal-unknown P4Pf diagnostic with 1418 qualified pairs and independent raw-row/inlier recount"],
-  "pending": ["qualify strong focal-unknown full localization/LO comparison beyond minimal RANSAC", "correct sensor-derived gravity-to-map interface with no query GT", "independent sequence with stronger inertial dynamics and documented extrinsics", "a distinct methodological contribution after closest-work collision audit", "verified Work-capable unattended continuation"],
-  "next_action": "Do not repeat fr2 pairs to consume one hour. Determine whether source-native focal-unknown local optimization erases the oracle rotation edge, and whether a correct measured-gravity map interface plus independent inertial data leaves a distinct 3D pose problem. If not, pivot within 3D camera pose after a fresh derivation and literature screen.",
-  "last_observed_source_head": "3f9757970d3b414c5c15fbe6b6bac01ac6cd05bc",
-  "host_continuation": {"state": "not_verified", "task_id": null},
-  "budget": {"address_space_cap_bytes": 4000000000, "threads": 1, "target_cpu_seconds_per_cycle": 3600, "measured_current_cycle_cpu_seconds": 255.605581, "unmetered_compilation_and_data_prep": true, "target_met": false}
+  "completed": [
+    "official fr2/xyz archive downloaded and SHA-256 verified",
+    "R001 24/24-pair native source-transfer comparison, 48 raw rows and independently recounted mixed result",
+    "R002 actual accelerometer quality diagnostic",
+    "R003 early 30-s calibration/late 92-s temporal test",
+    "R004 exact counterexample: two ideal gravity directions do not identify inherited Rxz in arbitrary reference-camera coordinates",
+    "working paper question and falsification criteria recorded in PROBLEM.md",
+    "R005 920 later-window real-IMU predictor evaluation with only weak rank discrimination",
+    "R006 prospective 1440-pair GT-oracle versus focal-unknown P4Pf diagnostic with 1418 qualified pairs and independent raw-row/inlier recount",
+    "R007 full 1440-pair fixed-consensus refinement diagnostic, 1418 qualified, two preserved optimizer skips, independent offset/overlap/block recount"
+  ],
+  "pending": [
+    "qualify strong focal-unknown full localization/LO comparison beyond minimal RANSAC",
+    "correct sensor-derived gravity-to-map interface with no query GT",
+    "independent sequence with stronger inertial dynamics and documented extrinsics",
+    "a distinct methodological contribution after closest-work collision audit",
+    "verified Work-capable unattended continuation"
+  ],
+  "next_action": "R008 problem-definition gate: derive a calibrated sensor-to-gravity-aligned-map input without query GT, audit closest uncertainty-aware pose work, qualify source-native full focal-unknown localization/LO and independent dynamic inertial sequence. Freeze a distinct falsifiable method only if these prerequisites pass; otherwise pivot within 3D pose. Do not extend fr2 to fill a clock.",
+  "last_observed_source_head": "2e55293db0745e638a07fe3fce7972c8b071bff1",
+  "host_continuation": {
+    "state": "not_verified",
+    "task_id": null
+  },
+  "budget": {
+    "address_space_cap_bytes": 4000000000,
+    "threads": 1,
+    "target_cpu_seconds_per_cycle": 3600,
+    "measured_current_cycle_cpu_seconds": 303.415623,
+    "unmetered_compilation_and_data_prep": true,
+    "target_met": false
+  }
 }
