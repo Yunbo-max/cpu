@@ -7,7 +7,7 @@
   "project_root": "projects/3d-cvpr2027-work-20261017",
   "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
   "coordinator_id": "work-cvpr-20261017",
-  "observed_source_head": "bd52dda22038ccb7ba7e6439f84d1bb4eb4a6abd",
+  "observed_source_head": "b0fb3e85d6406fcadc05c5c24d87a5defe61c3f4",
   "coverage_status": "single_participant_R001_R006_development_terminal; historical_dependency_inventory_partial",
   "coverage_gaps": [
     "Older simple archive contains 3228 index files; only selected source/results reviewed.",
@@ -20,7 +20,7 @@
       "role": "work_coordinator",
       "working_branch": "main",
       "output_namespace": "projects/3d-cvpr2027-work-20261017/runs",
-      "current_task": "R007-48pair-local-refinement-pilot",
+      "current_task": "R007-full-local-refinement",
       "state": "claimed_pending_execution",
       "checkpoint": "projects/3d-cvpr2027-work-20261017/CURRENT.json",
       "dependencies": [
@@ -201,7 +201,7 @@
     {
       "task_key": "fr2xyz-r007-focal-local-refinement-pilot",
       "owner_id": "work-cvpr-20261017",
-      "state": "claimed",
+      "state": "completed_resource_and_semantic_pilot",
       "claim_revision": 1,
       "input_refs": [
         "R006 full raw/pairs/matches hashes and analysis",
@@ -219,7 +219,37 @@
         "numerical_threads": 1,
         "timeout_seconds": 600
       },
-      "release_condition": "Terminal execution with source equivalence and per-pair metrics or retained failure, no process."
+      "release_condition": "Terminal execution with source equivalence and per-pair metrics or retained failure, no process.",
+      "observed": "All 2836 first ten source science fields identical; 48 planned, 46 qualified; 92/92 refinements converged. Oracle rot median 0.2085→0.1249°, P4Pf 0.3535→0.2816°. Center and focal improve in both; CPU 37.739259s including compilation.",
+      "runtime": {
+        "cpu_seconds": 37.739259,
+        "child_rss_kib": 585572,
+        "wall_seconds": 37.854812
+      },
+      "release_observed": "Terminal process exit 0, full child model rows and pilot result read; no active process."
+    },
+    {
+      "task_key": "fr2xyz-r007-full-focal-local-refinement",
+      "owner_id": "work-cvpr-20261017",
+      "state": "claimed",
+      "claim_revision": 1,
+      "input_refs": [
+        "R007 pilot verified model_rows.csv.gz sha256:e23130611e39f4d2595589af0759213b97eaf9e415d9855b8384815d852c8f46",
+        "R006 full raw/pairs/matches",
+        "runs/R007/FULL_PLAN.md",
+        "scripts/local_refine_full_r007.py sha256:59a3f53f8b1d78041a025697644c6aecc2733156ad2fa52582c449d9686a00c5"
+      ],
+      "output_paths": [
+        "projects/3d-cvpr2027-work-20261017/runs/R007/full"
+      ],
+      "protocol": "All 1440 R006 planned IDs, same verified 2836 model rows, 1418 qualified x2 arms, same focal/pose local refinement fixed by pilot, no recompilation or feature extraction, report all failures and offset/GT strata. Development only.",
+      "resources": {
+        "cpu_slots": 1,
+        "address_space_cap_bytes": 4000000000,
+        "numerical_threads": 1,
+        "timeout_seconds": 600
+      },
+      "release_condition": "Terminal full cohort, verified rows and resources, no process."
     }
   ],
   "sync_receipts": [
@@ -386,6 +416,37 @@
         "conflicts": [],
         "help_requests": [],
         "complementary_next_action": "Strong focal-unknown local optimization and exact measured-gravity interface on independent data; pivot if no distinction."
+      }
+    },
+    {
+      "cycle_id": "work-20261017-r007-pilot",
+      "owner_id": "work-cvpr-20261017",
+      "observation_time_utc": "2026-10-17",
+      "source_heads": {
+        "claimed_task": "b0fb3e85d6406fcadc05c5c24d87a5defe61c3f4",
+        "own_evidence": "pending"
+      },
+      "read_refs": [
+        "R007/PLAN.md",
+        "R007/pilot/result.json",
+        "R007/pilot/model_rows.csv",
+        "R007/FULL_PLAN.md"
+      ],
+      "publication_readback": "pending pilot evidence publication",
+      "coverage_gaps": [
+        "Only 46 qualified pilot pairs; this in-house refinement is not full source-native PoseLib LO-RANSAC."
+      ],
+      "plan_delta": {
+        "reuse_refs": [
+          "R006 exact correspondence and 2836 raw rows"
+        ],
+        "avoided_duplicates": "Full extension will reuse verified model rows, no duplicate image extraction or compilation.",
+        "affected_dependencies": [
+          "Both arms benefit from local optimization; oracle rotation and P4Pf center/focal tradeoff remains in pilot."
+        ],
+        "conflicts": [],
+        "help_requests": [],
+        "complementary_next_action": "All 1440 prospective R006 pairs in same frozen refinement; inspect by overlap and independent blocks."
       }
     }
   ],
