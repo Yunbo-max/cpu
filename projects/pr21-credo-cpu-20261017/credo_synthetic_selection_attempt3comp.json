@@ -1,0 +1,97 @@
+{
+  "status": "developmental_known_distribution_selection_diagnostic_not_confirmatory",
+  "question": "Does selecting the highest CREDO get_prob score from the same calibration sample inflate that score relative to the selected decision's true optimality probability?",
+  "source_commit": "19e884718599cd390564ddf93aff943a720f3e22",
+  "synthetic_setting": {
+    "paper_setting": "CREDO Exp. 2, Setting I, sigma=0.1",
+    "true_distribution": "N([-0.1,-0.1], 0.1 I)",
+    "decision_region": "x>=0, y>=0, x+y<=1; optimal action is one of its three vertices",
+    "train_n": 100,
+    "calibration_n": 100,
+    "replicates": 200,
+    "K": 100,
+    "fixed_candidate": [
+      0.0,
+      0.0
+    ],
+    "selection_rule": "choose argmax of source get_prob scores using same calibration sample",
+    "threads": 1,
+    "true_probabilities": "Monte Carlo frequencies from an independent 1,000,000-draw reference sample; uncertainty is small but nonzero"
+  },
+  "pointwise_fixed_decision_scores": [
+    {
+      "decision": [
+        1.0,
+        0.0
+      ],
+      "true_optimality_probability_mc": 0.305128,
+      "mean_source_get_prob_score": 0.03802277227722772,
+      "score_mean_normal_95pct_interval": [
+        0.03590936365877558,
+        0.040136180895679864
+      ],
+      "mean_score_minus_true_probability": -0.2671052277227723
+    },
+    {
+      "decision": [
+        0.0,
+        1.0
+      ],
+      "true_optimality_probability_mc": 0.304594,
+      "mean_source_get_prob_score": 0.038081188118811886,
+      "score_mean_normal_95pct_interval": [
+        0.03590281650329942,
+        0.04025955973432435
+      ],
+      "mean_score_minus_true_probability": -0.2665128118811881
+    },
+    {
+      "decision": [
+        0.0,
+        0.0
+      ],
+      "true_optimality_probability_mc": 0.390278,
+      "mean_source_get_prob_score": 0.03892920792079209,
+      "score_mean_normal_95pct_interval": [
+        0.036881051152639045,
+        0.04097736468894513
+      ],
+      "mean_score_minus_true_probability": -0.35134879207920794
+    }
+  ],
+  "fixed_candidate_score_mean_ci": [
+    0.03892920792079209,
+    0.036881051152639045,
+    0.04097736468894513
+  ],
+  "selected_candidate_score_mean_ci": [
+    0.051682178217821784,
+    0.04982305367016275,
+    0.05354130276548082
+  ],
+  "selected_candidate_true_probability_mean_ci_over_runs": [
+    0.3339001099999999,
+    0.3282778350542,
+    0.33952238494579984
+  ],
+  "selected_score_minus_selected_true_probability_mean_ci": [
+    -0.28221793178217824,
+    -0.2882505634486215,
+    -0.276185300115735
+  ],
+  "selected_vertex_counts": {
+    "[1.0, 0.0]": 65,
+    "[0.0, 1.0]": 67,
+    "[0.0, 0.0]": 68
+  },
+  "gmm_warning_runs": 0,
+  "gmm_warning_examples": [],
+  "elapsed_seconds": 2.4360967919928953,
+  "limitations": [
+    "The true rates are Monte Carlo estimates, not analytic values.",
+    "This is one small synthetic setting and cannot establish general selection bias or a new correction.",
+    "The theoretical guarantee is pointwise for fixed decisions under exchangeability; this comparison is a diagnostic of reusing calibration for selection.",
+    "The local solar time series remains nonexchangeable or of unverified exchangeability and is not evaluated by this synthetic experiment.",
+    "All work is exploratory; no claim, Gate A, or paper conclusion follows from this run."
+  ]
+}
