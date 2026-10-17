@@ -7,11 +7,11 @@
   "project_root": "projects/3d-cvpr2027-work-20261017",
   "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
   "coordinator_id": "work-cvpr-20261017",
-  "observed_source_head": "18c1259ce6f22cc83f594308bc8c3012919e72d9",
-  "coverage_status": "single_participant_initial_registration; historical_dependency_inventory_partial",
+  "observed_source_head": "ce3e4b6f70091b3662233bfa96f003dbb5a9d6fe",
+  "coverage_status": "single_participant_R001_R003_development_terminal; historical_dependency_inventory_partial",
   "coverage_gaps": [
     "Older simple archive contains 3228 index files; only selected solver/source/plan/result members and the separate Chat registry were reviewed.",
-    "Native compiled transfer and IMU camera-frame qualification are pending scientific review."
+    "Measured-prior pose comparison, focal-aware strong baselines and independent scientific review are pending."
   ],
   "participants": [
     {
@@ -19,10 +19,10 @@
       "role": "work_coordinator",
       "working_branch": "main",
       "output_namespace": "projects/3d-cvpr2027-work-20261017/runs",
-      "current_task": "R001-native-dependency-repair",
+      "current_task": null,
       "state": "active_turn",
       "checkpoint": "projects/3d-cvpr2027-work-20261017/CURRENT.json",
-      "dependencies": ["verified PoseLib headers", "independent evaluation protocol"],
+      "dependencies": ["measured-prior information mapping", "independent evaluation protocol"],
       "help_requests": []
     }
   ],
@@ -39,23 +39,23 @@
     {
       "task_key": "fr2xyz-r001-source-transfer-24pairs-gt-prior",
       "owner_id": "work-cvpr-20261017",
-      "state": "repair_pending",
+      "state": "completed_development_diagnostic",
       "input_refs": ["official fr2/xyz tgz sha256:a4903027a7fe6bc6573a1ce96a8afa5689f15d74f4a3f0627e91b5799f62e40b", "PLAN.md"],
       "output_paths": ["projects/3d-cvpr2027-work-20261017/runs/R001"],
-      "observed": "24/24 pairs have >=24 matches; native compilation failed on omitted archive headers and original failure receipts retained; restore in progress.",
+      "observed": "24/24 pairs have >=24 matches; complete archived native code compiled after two retained missing-header failures; 48 rows, rotation medians 0.1533 vs 0.3042 degrees, center medians 0.0107 vs 0.0060 m. GT-derived Rxz and focal-information mismatch limit claim scope.",
       "admission_note": "Initial Work execution preceded remote registry creation; record this procedural gap honestly. No overlapping participant or project task was found in the reviewed dependency registry. Future dispatch requires verified shared admission."
     },
     {
       "task_key": "fr2xyz-r002-measured-accelerometer-descriptive-quality",
       "owner_id": "work-cvpr-20261017",
-      "state": "completed_local_publication_pending",
+      "state": "completed_development_diagnostic",
       "output_paths": ["projects/3d-cvpr2027-work-20261017/runs/R002"],
       "observed": "24 pairs, actual accelerometer readings; median pair direction change 1.0205 degrees; frame mapping unresolved."
     },
     {
       "task_key": "fr2xyz-r003-imu-camera-early-calibration-late-test",
       "owner_id": "work-cvpr-20261017",
-      "state": "completed_local_publication_pending",
+      "state": "completed_development_diagnostic",
       "output_paths": ["projects/3d-cvpr2027-work-20261017/runs/R003"],
       "observed": "Early 30-s GT calibration and later 92-s angular consistency diagnostic completed; no pose solver claim."
     }

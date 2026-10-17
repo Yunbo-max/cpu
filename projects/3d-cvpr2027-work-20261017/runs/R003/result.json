@@ -1,0 +1,146 @@
+{
+  "acc_window_half_s": 0.02,
+  "data_sha256": {
+    "accelerometer.txt": "a8f04dc9da78e5e444efb32bdad73c8a3672f9fa0d82e2adeb4a4bbdab7a6b55",
+    "groundtruth.txt": "0e4ba8af6807c25a2968454256eb8fd6c73f8468fc5e7c26f890072f7bc70ad6",
+    "rgb.txt": "05aa1b6b3519edea6f434d804645741611e570308b862863d144531266cde46a"
+  },
+  "fit_interval_s": [
+    0,
+    30
+  ],
+  "fitted_sensor_to_camera_rotvec": [
+    0.06600420079637756,
+    -0.2053927703964026,
+    -3.084523560411274
+  ],
+  "fitted_world_vector_unit": [
+    0.07208148227577324,
+    -0.02127533784166651,
+    0.9971718106287655
+  ],
+  "gt_max_miss_s": 0.012,
+  "intervals": [
+    {
+      "elapsed_s": [
+        30,
+        40
+      ],
+      "median_angle_deg": 0.7952841211324836,
+      "n": 100,
+      "p90_angle_deg": 1.439026440340606
+    },
+    {
+      "elapsed_s": [
+        40,
+        50
+      ],
+      "median_angle_deg": 0.738268884932725,
+      "n": 100,
+      "p90_angle_deg": 1.15792202985024
+    },
+    {
+      "elapsed_s": [
+        50,
+        60
+      ],
+      "median_angle_deg": 0.6925385735247697,
+      "n": 100,
+      "p90_angle_deg": 1.3256542405143636
+    },
+    {
+      "elapsed_s": [
+        60,
+        70
+      ],
+      "median_angle_deg": 0.6001714751410185,
+      "n": 100,
+      "p90_angle_deg": 1.2714955556481415
+    },
+    {
+      "elapsed_s": [
+        70,
+        80
+      ],
+      "median_angle_deg": 0.7719674137783046,
+      "n": 100,
+      "p90_angle_deg": 1.3562280945263427
+    },
+    {
+      "elapsed_s": [
+        80,
+        90
+      ],
+      "median_angle_deg": 0.8584013526301355,
+      "n": 100,
+      "p90_angle_deg": 1.602859518049921
+    },
+    {
+      "elapsed_s": [
+        90,
+        100
+      ],
+      "median_angle_deg": 0.9594113362923182,
+      "n": 100,
+      "p90_angle_deg": 1.888547038021976
+    },
+    {
+      "elapsed_s": [
+        100,
+        110
+      ],
+      "median_angle_deg": 0.9607032826025113,
+      "n": 100,
+      "p90_angle_deg": 1.7625889229085443
+    },
+    {
+      "elapsed_s": [
+        110,
+        120
+      ],
+      "median_angle_deg": 0.6402915835139789,
+      "n": 100,
+      "p90_angle_deg": 1.1701226361918127
+    },
+    {
+      "elapsed_s": [
+        120,
+        130
+      ],
+      "median_angle_deg": 0.3776229077179962,
+      "n": 20,
+      "p90_angle_deg": 0.6235875881028107
+    }
+  ],
+  "jacobian_singular_values": [
+    32.31974733560183,
+    30.555463272775366,
+    0.5975320652052675,
+    0.4525355099782157,
+    0.3556931195927753,
+    1.397455741184945e-07
+  ],
+  "legacy_helper_sha256": "8be5b35797b77e295f6dc7f4fe3f4bb31f69f7b7141aef47ac60cf2fc1c54e55",
+  "runtime": {
+    "cpu_seconds": 5.036222,
+    "peak_rss_kib": 88008,
+    "wall_seconds": 4.182373177000045
+  },
+  "scope": "development frame/accelerometer model diagnostic; ground truth used only in first 30 s fitting, later poses only score angular consistency; not a pose-method result",
+  "test_count": 920,
+  "test_interval_s": [
+    30,
+    122
+  ],
+  "test_max_angle_deg": 3.154190932551096,
+  "test_median_angle_deg": 0.769844905895068,
+  "test_norm_median_m_s2": 9.620029787905217,
+  "test_norm_p5_p95_m_s2": [
+    9.34803674424203,
+    9.935739701053295
+  ],
+  "test_p90_angle_deg": 1.4305884243788,
+  "time_grid_hz": 10,
+  "train_count": 299,
+  "train_median_angle_deg": 0.8094610780103056
+}
