@@ -7,7 +7,7 @@
   "project_root": "projects/3d-cvpr2027-work-20261017",
   "coordination_path": "projects/3d-cvpr2027-work-20261017/.autopilot/project-cooperation.json",
   "coordinator_id": "work-cvpr-20261017",
-  "observed_source_head": "59e8348f1c8b2e3b95679ba02f472187e655546f",
+  "observed_source_head": "1f3754cab62dfbdf857673e5d9492138b83b3276",
   "coverage_status": "single_participant_R001_R004_development_terminal; historical_dependency_inventory_partial",
   "coverage_gaps": [
     "Older simple archive contains 3228 index files; only selected solver/source/plan/result members and the separate Chat registry were reviewed.",
@@ -19,8 +19,8 @@
       "role": "work_coordinator",
       "working_branch": "main",
       "output_namespace": "projects/3d-cvpr2027-work-20261017/runs",
-      "current_task": null,
-      "state": "active_turn_between_tasks",
+      "current_task": "R005-real-IMU-reliability-predictiveness",
+      "state": "claimed_pending_execution",
       "checkpoint": "projects/3d-cvpr2027-work-20261017/CURRENT.json",
       "dependencies": [
         "source-qualified solver and exact gravity information condition",
@@ -104,6 +104,29 @@
         "wall_seconds": 0.203844
       },
       "release_observed": "Terminal process; result.json and execution.log present."
+    },
+    {
+      "task_key": "fr2xyz-r005-measured-window-reliability-vs-gravity-error",
+      "owner_id": "work-cvpr-20261017",
+      "state": "claimed",
+      "claim_revision": 1,
+      "input_refs": [
+        "R003/result.json",
+        "official fr2/xyz accelerometer, rgb, groundtruth",
+        "runs/R005/PLAN.md",
+        "scripts/imu_reliability_r005.py sha256:281afd4820014f4c1b93db31c8bd90279f96d5a9975c97fe6f1437dad9b292a1"
+      ],
+      "output_paths": [
+        "projects/3d-cvpr2027-work-20261017/runs/R005"
+      ],
+      "protocol": "First-30-s fixed calibration and norm reference, later 92-s 10-Hz grid. Three observable window-quality predictors, Spearman with 10-s block bootstrap, high/low quartile errors and two AUROC thresholds. Query GT only scoring. Exposed development sequence.",
+      "resources": {
+        "cpu_slots": 1,
+        "address_space_cap_bytes": 4000000000,
+        "numerical_threads": 1,
+        "timeout_seconds": 120
+      },
+      "release_condition": "Terminal observed metrics and no active process."
     }
   ],
   "sync_receipts": [
