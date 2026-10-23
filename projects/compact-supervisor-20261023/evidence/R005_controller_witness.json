@@ -1,0 +1,40 @@
+{
+  "run_type": "small CPU numerical/algebra audit, not any model run",
+  "execution": "Python numpy local container, no GPU",
+  "date": "2026-10-23",
+  "source_repo": "Yunbo-max/EventTune",
+  "source_commit": "3150cae1eecf2ee82e508d32fe7f2e80913f8149",
+  "parameters": {
+    "seed": 20261023,
+    "alpha_max": 3,
+    "rank": 16,
+    "inverse_trials": 100,
+    "shared_gradients": [
+      1,
+      1,
+      -1
+    ],
+    "base_margins": [
+      -0.5,
+      -0.5,
+      -0.5
+    ],
+    "controller_grid_limit": 2.99
+  },
+  "result": {
+    "effective_map_trials": 100,
+    "max_roundtrip_error": 1.687538997430238e-14,
+    "max_tested_effective_norm": 2.8401015403985084,
+    "exact_null_edit": true,
+    "shared_controller_max_correct": 2,
+    "shared_controller_fraction": 0.6666666666666666,
+    "dual_upper_margin": -0.5,
+    "arithmetic_loop_elapsed_wall_seconds": 0.003396739999999454
+  },
+  "caveats": [
+    "Numerical tests are only sanity checks for analytic identities.",
+    "Sample margins are synthetic; not EventTune examples.",
+    "No native EventTune weights, image inputs or candidate predictions were loaded.",
+    "Wall is measured only around arithmetic region, not Python interpreter import cost."
+  ]
+}

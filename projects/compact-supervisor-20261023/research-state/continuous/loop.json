@@ -9,9 +9,9 @@
     "kind": "other"
   },
   "status": "active",
-  "revision": 2,
-  "question_id": "Q-vlm-reachable-margin",
-  "question": "Can a bounded logit-margin reachability certificate from already frozen EventTune evidence distinguish actuator-limited KV adaptation from high gradient alignment, without new GPU runs or query-label fitting?",
+  "revision": 3,
+  "question_id": "Q-excitation-frozen-evidence",
+  "question": "Can immutable authorized EventTune run artifacts provide per-item candidate sequence log-scores, masked ZB activations, and effective-controller derivatives to test excitation and shared-feasibility certificates without GPU inference?",
   "phase": "discovery",
   "history": [
     {
@@ -90,12 +90,56 @@
         "External EventTune GPU experiment freeze remains in force; do not rerun GPU or use query-label oracle as deployable support.",
         "Need read-only check whether frozen logits, projected Jacobians, intervention radius, and remainder diagnostics are accessible in pinned EventTune artifacts."
       ]
+    },
+    {
+      "decision_id": "manual-r005-kv-excitation-20261023",
+      "parent_question_id": "Q-vlm-reachable-margin",
+      "action": "deepen",
+      "stage": "discovery",
+      "next_actor": "designer",
+      "next_question_id": "Q-excitation-frozen-evidence",
+      "next_question": "Can immutable authorized EventTune run artifacts provide per-item candidate sequence log-scores, masked ZB activations, and effective-controller derivatives to test excitation and shared-feasibility certificates without GPU inference?",
+      "causal_reason": "Pinned EventTune's real Full KV implementation uses four effective Frobenius-bounded mixing blocks with a multiplicative (ZB) factor, not the illustrative free coefficient ball from R004. An exact no-op toy and a joint-feasibility dual show that gradient overlap alone is insufficient, while the archived public Git tree lacks the per-item information needed for model-scale validation and ICML 2026 already covers generic activation steering expressivity.",
+      "mathematical_prediction": "With A_s=alpha_s R_s/(1+||R_s||F), each effective matrix satisfies ||A_s||F<alpha_s and dmargin/dA_s=(M*Z_sB_s)^T(G_margin,s B_s). Therefore Z_sB_s=0 makes that hooked edit identically zero for fixed upstream state even when gradient rho=1. Joint linearized constraints are infeasible when min_{lambda in simplex}[lambda^T b+sum_s alpha_s||sum_i lambda_i G_is||F]<=0.",
+      "falsifier": "A verified saved real-model query case with Z_sB_s near zero yet a large nonzero edit at that SAME isolated hooked module under fixed upstream input refutes the code-algebra account; if poor real-model cases are all well excited with globally feasible margins under validated remainder bounds, the proposed causal explanation is insufficient. Missing frozen per-example records is a blocked test, not positive evidence.",
+      "evidence": [
+        {
+          "path": "rounds/R005.md",
+          "sha256": "de3e8e3d35abf1ff34149e665d19bf9c1b5665628b6dc3595a1336f6fe63660d",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R005_actual_controller_geometry.md",
+          "sha256": "28362508f36c41f57874d86ffbac942bb93facd26da6feaff1af82fc4423b8c7",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R005_sources_and_gates.md",
+          "sha256": "3cc2403fdab0baab5880aaf39e31f765bf981acc062fb98a938cc848e4f0d5e1",
+          "kind": "paper"
+        },
+        {
+          "path": "evidence/R005_controller_witness.py",
+          "sha256": "d645259cdf01eaeaeac34d9b38b7c969fb5c048d757999ee5edda7e067d31115",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R005_controller_witness.json",
+          "sha256": "01829cbca665fa44e0dc4808ca518217fac8dbffa184e42e93e3d96082924518",
+          "kind": "experiment"
+        }
+      ],
+      "waiting_for": [
+        "Independent formal Work reviewer of R001-R005 math, novelty and any design still pending; no code/model design acceptance.",
+        "Frozen EventTune Git reports lack per-sample candidate scores, masked ZB, and margin Jacobians; read-only search authorized external run archives before any new inference.",
+        "EventTune GPU experiment freeze and project GPU authorization=false remain; no new model forward/backward or paid API."
+      ]
     }
   ],
   "waiting_for": [
-    "Formal selection/design and code/results claims require an actual separate Work reviewer, still pending; designer self-audit is not formal review.",
-    "External EventTune GPU experiment freeze remains in force; do not rerun GPU or use query-label oracle as deployable support.",
-    "Need read-only check whether frozen logits, projected Jacobians, intervention radius, and remainder diagnostics are accessible in pinned EventTune artifacts."
+    "Independent formal Work reviewer of R001-R005 math, novelty and any design still pending; no code/model design acceptance.",
+    "Frozen EventTune Git reports lack per-sample candidate scores, masked ZB, and margin Jacobians; read-only search authorized external run archives before any new inference.",
+    "EventTune GPU experiment freeze and project GPU authorization=false remain; no new model forward/backward or paid API."
   ],
-  "last_decision_id": "manual-r004-sign-closure-reachability-20261023"
+  "last_decision_id": "manual-r005-kv-excitation-20261023"
 }

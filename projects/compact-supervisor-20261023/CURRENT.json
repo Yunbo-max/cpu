@@ -1,30 +1,31 @@
 {
   "project_id": "compact-supervisor-20261023",
-  "round": "R004",
-  "parent_checkpoint_commit": "f27f6361919a9c375e4418c6d1f22de55f893496",
-  "parent_question": "Q-adam-prior-equivalence",
-  "action": "export_counterexample",
-  "next_question": "Q-vlm-reachable-margin",
-  "round_path": "rounds/R004.md",
+  "round": "R005",
+  "parent_checkpoint_commit": "0404c8e177e9b8c8b406e623862ac717b82caa9d",
+  "parent_question": "Q-vlm-reachable-margin",
+  "action": "deepen",
+  "next_question": "Q-excitation-frozen-evidence",
+  "round_path": "rounds/R005.md",
   "formal_review": "pending",
   "scheduler": "disabled",
   "budget": {
-    "last_probe_wall_seconds": "not instrumented: synchronous JS + small Decimal mathematical scratch; no GPU",
+    "last_probe_wall_seconds": "0.00339674 seconds inside local arithmetic loop; total runtime/provider usage not instrumented",
     "next_cpu_seconds": 60,
     "provider_cost": "unknown",
     "gpu_authorized": false
   },
   "mode": "branching",
   "continuous_state": "research-state/continuous/loop.json",
-  "continuous_revision": 2,
-  "continuous_state_sha256": "2fd0098258147c45113e292cd1857d71a90596790b6549cc760c722be620f139",
+  "continuous_revision": 3,
+  "continuous_state_sha256": "3f6b778c3fe4c489ee18b36d27a254f063d4a1e14d89a4395738c2f24e913d80",
   "frontier": {
     "parked": [
       "moe-prefix-optimizer-novelty",
       "rlvr-diversity-direct-novelty",
       "lora-gauge-invariance-direct-novelty"
     ],
-    "investigating": "bounded-VLM-logit-margin-reachability",
-    "external_EvT_pinned": "3150cae1eecf2ee82e508d32fe7f2e80913f8149"
+    "investigating": "eventtune-effective-KV-excitation-and-joint-controller-conflict",
+    "external_EvT_pinned": "3150cae1eecf2ee82e508d32fe7f2e80913f8149",
+    "blocked_on": "missing frozen per-example activation and score-margin derivatives"
   }
 }
