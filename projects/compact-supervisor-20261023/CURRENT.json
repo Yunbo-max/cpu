@@ -1,23 +1,23 @@
 {
   "project_id": "compact-supervisor-20261023",
-  "round": "R006",
-  "parent_checkpoint_commit": "0bf88a5828567bb75bd3f50552da7bc8d668a06e",
+  "round": "R007",
+  "parent_checkpoint_commit": "d15f079268c4a63e67e9c2595443b687bae0a9b4",
   "parent_question": "Q-excitation-frozen-evidence",
-  "action": "await",
-  "next_question": "Q-excitation-frozen-evidence",
-  "round_path": "rounds/R006.md",
+  "action": "new_topic",
+  "next_question": "Q-flow-query-entropy",
+  "round_path": "rounds/R007.md",
   "formal_review": "pending",
   "scheduler": "disabled",
   "budget": {
-    "last_probe_wall_seconds": "not instrumented; no native model experiment",
+    "last_probe_wall_seconds": "R007 synthetic flow test measured 0.30155968 process CPU seconds; no model run",
     "next_cpu_seconds": 60,
     "provider_cost": "unknown",
     "gpu_authorized": false
   },
   "mode": "branching",
   "continuous_state": "research-state/continuous/loop.json",
-  "continuous_revision": 4,
-  "continuous_state_sha256": "f319b9e97f658175912c0b2f60b8f71f6e4ae0fa73f8278c7fa39042c58eef11",
+  "continuous_revision": 5,
+  "continuous_state_sha256": "7e771b8b3debcd44b8fe507d9ca2cbe08b805985c5a2e45c3077b9bb8ecf23da",
   "frontier": {
     "parked": [
       "moe-prefix-optimizer-novelty",
@@ -25,9 +25,14 @@
       "lora-gauge-invariance-direct-novelty",
       "steering-strength-general-novelty"
     ],
-    "investigating": "VLM-excitation-evidence-limited-await-local",
+    "investigating": "provisional-fault-query-entropy-under-strong-oracles",
     "external_EvT_pinned": "3150cae1eecf2ee82e508d32fe7f2e80913f8149",
-    "blocked_on": "No per-sample ZB+margin-gradients in inspected stores; local run archives unverified"
+    "blocked_on": "No per-sample ZB+margin-gradients in inspected stores; local run archives unverified",
+    "other_blocked": [
+      "eventtune-R006-local-archive-unresolved"
+    ],
+    "novelty_status": "hypothesis only; direct ITCS 2026 prior",
+    "source_graph_repo_sha": "adca62d8106961ceda1f4e044a46eba87ca09b99"
   },
-  "next_actor": "local"
+  "next_actor": "designer"
 }

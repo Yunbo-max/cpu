@@ -9,9 +9,9 @@
     "kind": "other"
   },
   "status": "active",
-  "revision": 4,
-  "question_id": "Q-excitation-frozen-evidence",
-  "question": "Can immutable authorized EventTune run artifacts provide per-item candidate sequence log-scores, masked ZB activations, and effective-controller derivatives to test excitation and shared-feasibility certificates without GPU inference?",
+  "revision": 5,
+  "question_id": "Q-flow-query-entropy",
+  "question": "Are original-edge-conditioned single and correlated-failure maximum-flow responses sufficiently low-entropy under realistic workload distributions to permit a compact representation that beats strong fault-tolerant oracles at matched bit budget and query latency?",
   "phase": "discovery",
   "history": [
     {
@@ -173,12 +173,53 @@
         "Formal independent Work reviewer remains pending; code, design and native model execution admission denied until actual reviewer result.",
         "Frozen EventTune GPU phase unchanged; no GPU/paid API/SSH/Actions/remote jobs authorized; no scheduler active."
       ]
+    },
+    {
+      "decision_id": "manual-r007-flow-index-bound-20261023",
+      "parent_question_id": "Q-excitation-frozen-evidence",
+      "action": "new_topic",
+      "stage": "discovery",
+      "next_actor": "designer",
+      "next_question_id": "Q-flow-query-entropy",
+      "next_question": "Are original-edge-conditioned single and correlated-failure maximum-flow responses sufficiently low-entropy under realistic workload distributions to permit a compact representation that beats strong fault-tolerant oracles at matched bit budget and query latency?",
+      "causal_reason": "R006 VLM node cannot be empirically advanced without authorized per-item activations/Jacobians. Independent source-grounded graph-flow witness found 2^m networks with identical base flow yet m independent fault-query bits and a higher-order failure synergy invisible to all lower-order queries; published ITCS 2026 sensitivity oracles downgrade broad novelty, shifting to a narrowly testable distributional-entropy question.",
+      "mathematical_prediction": "For m independent fair bits encoded as per-edge flow drops, any B-bit finite summary with worst-case additive error below 1/2 must satisfy B>=m; for uniform queried i with binary error D, B>=m(1-h2(D)). A compact fault representation can beat this only under restricted query distributions, structured/correlated response vectors, relaxed error, or explicit original-edge identity side information.",
+      "falsifier": "A counterexample to either exact flow identity in the frozen 256-graph witness invalidates this reasoning. The proposed practical opportunity fails if held-out fault-response entropy remains near the independent-bit bound or classical ITCS sensitivity oracles dominate at equal total storage, query latency, and error.",
+      "evidence": [
+        {
+          "path": "rounds/R007.md",
+          "sha256": "0a76ca23ae94097bc5f746743e90bd9f44f30185568f5a8f0ce869ed08e98ad9",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R007_flow_witness.py",
+          "sha256": "5a5b1403443c1d630442d4c51fac9b064ef8b914542950d2e08b3e9196c83952",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R007_flow_receipt.json",
+          "sha256": "dfc58815430b992865fbd85965f825dcd0026dde30b83efeba81fabe348e3a84",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R007_prior_collision.md",
+          "sha256": "aa0e1bda4e3a6df483fda17c0152f3b38db47e688a8968ba89fb91df58b1eb6c",
+          "kind": "paper"
+        }
+      ],
+      "waiting_for": [
+        "R006 EventTune locally archived predictions/activation/Jacobian inspection remains assigned to actual local executor; not fulfilled in the Chat runtime.",
+        "No formal independent Work reviewer has accepted the graph topic's novelty, baseline scope, evaluation design or new code; synthetic exact graph math is not a publishable algorithm.",
+        "No model/GPU/paid API/native training authorization for this programme; published HyDRO+ and separate KV project remain unmodified.",
+        "Evaluate ITCS 2026 single/dual/multi-edge sensitivity baselines and obtain legal, held-out graph capacities/query workloads before any experimental design admission."
+      ]
     }
   ],
   "waiting_for": [
-    "Local actor must inspect only already-existing EventTune run archives (no model inference) to locate per-sample sequence scores, masked ZB, score-margin Jacobians, remainder bounds, and exact hashes; no such artifacts in inspected GitHub/Library/Drive/HF Jobs stores.",
-    "Formal independent Work reviewer remains pending; code, design and native model execution admission denied until actual reviewer result.",
-    "Frozen EventTune GPU phase unchanged; no GPU/paid API/SSH/Actions/remote jobs authorized; no scheduler active."
+    "R006 EventTune locally archived predictions/activation/Jacobian inspection remains assigned to actual local executor; not fulfilled in the Chat runtime.",
+    "No formal independent Work reviewer has accepted the graph topic's novelty, baseline scope, evaluation design or new code; synthetic exact graph math is not a publishable algorithm.",
+    "No model/GPU/paid API/native training authorization for this programme; published HyDRO+ and separate KV project remain unmodified.",
+    "Evaluate ITCS 2026 single/dual/multi-edge sensitivity baselines and obtain legal, held-out graph capacities/query workloads before any experimental design admission."
   ],
-  "last_decision_id": "manual-r006-archive-gate-20261023"
+  "last_decision_id": "manual-r007-flow-index-bound-20261023"
 }
