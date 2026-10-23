@@ -1,0 +1,41 @@
+{
+  "schema": "r012-outage-event-vs-snapshot-toy-v1",
+  "source_research_sha": "978caea1dc52dbe9cdcbb50baaf149a607e4bcfe",
+  "all_results_synthetic": true,
+  "real_outage_rows_downloaded": false,
+  "unverified_network_join": true,
+  "events_per_edge": {
+    "A": 1,
+    "B": 100
+  },
+  "minutes_per_event": {
+    "A": 1440,
+    "B": 5
+  },
+  "sampling_cadence_minutes": 5,
+  "snapshot_rows": {
+    "A": 288,
+    "B": 100
+  },
+  "event_probabilities": {
+    "A": 0.009900990099009901,
+    "B": 0.9900990099009901
+  },
+  "snapshot_probabilities": {
+    "A": 0.7422680412371134,
+    "B": 0.25773195876288657
+  },
+  "binary_response_model": "X_A,X_B independent fair bits. Code stores one queried coordinate; otherwise bit guess has error 0.5.",
+  "best_event_cache": "B",
+  "best_snapshot_cache": "A",
+  "true_event_error_cache_A": 0.49504950495049505,
+  "true_event_error_cache_B": 0.0049504950495049506,
+  "event_risk_ratio": 100,
+  "observed_papers": [
+    "https://mis.nyiso.com/public/P-54Blist.htm",
+    "https://doi.org/10.1109/NAPS52732.2021.9654559",
+    "https://doi.org/10.4230/LIPIcs.ICALP.2024.17"
+  ],
+  "cpu_measured_seconds": 0.0012097330000000461,
+  "caveat": "Demonstrates a classic length-biased sampling inversion only. Not a new theorem, real fault query distribution, or real flow performance measure."
+}

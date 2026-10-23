@@ -9,9 +9,9 @@
     "kind": "other"
   },
   "status": "active",
-  "revision": 9,
-  "question_id": "Q-g1-t1-strong-baselines-and-type-soundness",
-  "question": "Does G1 beat an exact sparse response oracle on actual held-out fault query workloads, and does T1's conditional-rule admission lead to loss of non-functionally determined columns in its actual compressed-output path?",
+  "revision": 10,
+  "question_id": "Q-g1-t1-incident-join-and-fd-rowrisk-audit",
+  "question": "Can G1 match incident-identified NYISO outages to an appropriate weighted graph and beat exact response oracles, and can T1 demonstrate optional TabKG CRKG downstream loss beyond already-published functional-dependency methods?",
   "phase": "discovery",
   "history": [
     {
@@ -460,14 +460,85 @@
         "R006 EventTune Local archive remains blocked, MOE/PROV/G2/G3/K1 remain parked.",
         "GPU, paid API, scheduled task, native jobs not authorized; provider cost and unmetered CPU remain unknown."
       ]
+    },
+    {
+      "decision_id": "manual-r012-two-leaf-datatype-and-macro-risk-20261023",
+      "parent_question_id": "Q-g1-t1-strong-baselines-and-type-soundness",
+      "action": "deepen",
+      "stage": "discovery",
+      "next_actor": "designer",
+      "next_question_id": "Q-g1-t1-incident-join-and-fd-rowrisk-audit",
+      "next_question": "Can G1 match incident-identified NYISO outages to an appropriate weighted graph and beat exact response oracles, and can T1 demonstrate optional TabKG CRKG downstream loss beyond already-published functional-dependency methods?",
+      "causal_reason": "G1 real operator outage source was located, but snapshot vs event sampling yields mathematically different compression optima under independently defined query tasks. T1 exact group-macro hierarchical validator overstates per-row reconstructability on a source-grounded finite counterexample. Both require strict prior/physical/code-path gates.",
+      "mathematical_prediction": "G1 snapshot counts proportional lambda_e E[D_e], incident count lambda_e; synthetic two-edge A(1 event,1440min)/B(100 events,5min) gives 288/100 snapshots and 100x true event-query Hamming risk reversal. T1 K=100,M=10000 group-macro FD score=99% but best deterministic row loss=10000/20099 (~49.75%), with H(Y|X)=20000/20099.",
+      "falsifier": "No usable matching physical network or exact published oracle dominates G1. T1 full optional-CRKG path avoids information loss or published typed FD/LD/AFD covers the broad mechanism. No real-workload or new-algorithm claims absent independent reviewer.",
+      "evidence": [
+        {
+          "path": "rounds/R012.md",
+          "sha256": "7b1873f9127490f62dbc9f6e2937b4d2187ed28671d8dd22007a9310d127548c",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R012_G1_outage_sampling.md",
+          "sha256": "a4e01d38c3be893a879c4c98465f838e397e995e36d4e3f3fb96b93931b5a9f0",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R012_G1_duration_toy.json",
+          "sha256": "5f8158949500ced208db796021d07a81f3fb2818c66dfd5e0a600ee9c0a68ef8",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R012_G1_duration_probe.py",
+          "sha256": "87412038368089e547c05b8a2b8f2c219ae315975bdb353d8ff76d496d70c287",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R012_primary_prior.md",
+          "sha256": "9713ffc3efbf6c4220030581557d9596204073ac2199a9213af6710abcfc17bc",
+          "kind": "paper"
+        },
+        {
+          "path": "evidence/R012_T1_macro_fd.md",
+          "sha256": "dea6d0b87fcf1da64e18ce5e08235efa898866aa9851cb5c2482a839eea9f3c5",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R012_T1_macro_fd.json",
+          "sha256": "528bf3698bec71c17f14603933ae16dc1b20a601a41446fb31a6b227aa764964",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R012_T1_macro_probe.py",
+          "sha256": "c685099813a9e0ee07d0b73ecdebacd3e598dfbb7efd85e34839939b2c63a4c3",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R012_primary_prior.md",
+          "sha256": "9713ffc3efbf6c4220030581557d9596204073ac2199a9213af6710abcfc17bc",
+          "kind": "paper"
+        },
+        {
+          "path": "review/R012_handoff.md",
+          "sha256": "358d6b99a795023343fc6060d01f9bc4f28637c1990d63b8b1403b7145d599cb",
+          "kind": "other"
+        }
+      ],
+      "waiting_for": [
+        "Formal independent Work reviewer still pending; no selection/design/code/results accepted.",
+        "NYISO P-54B raw records not downloaded, event dedup and graph/edge-weight/physical-flow alignment unverified.",
+        "TabKG --method crkg exact full generator/decompression not executed; default legacy is outside the observed issue.",
+        "VLM frozen EventTune Local archives unmounted; MOE,PROV,G2,G3,K1 remain parked.",
+        "No native GPU, paid API, schedule or training authority; provider usage and additional CPU time unknown."
+      ]
     }
   ],
   "waiting_for": [
-    "Independent formal Work scientific reviewer still PENDING; none of selection/design/code/results accepted.",
-    "G1 requires independently observed failures or explicitly synthetic test splits plus matched exact-oracle and entropy-code baselines; current Sioux Falls only capacity + OD data.",
-    "T1 complete TabKG diffusion/decompression not run; verify type-soundness and domain assumptions against actual production path.",
-    "R006 EventTune Local archive remains blocked, MOE/PROV/G2/G3/K1 remain parked.",
-    "GPU, paid API, scheduled task, native jobs not authorized; provider cost and unmetered CPU remain unknown."
+    "Formal independent Work reviewer still pending; no selection/design/code/results accepted.",
+    "NYISO P-54B raw records not downloaded, event dedup and graph/edge-weight/physical-flow alignment unverified.",
+    "TabKG --method crkg exact full generator/decompression not executed; default legacy is outside the observed issue.",
+    "VLM frozen EventTune Local archives unmounted; MOE,PROV,G2,G3,K1 remain parked.",
+    "No native GPU, paid API, schedule or training authority; provider usage and additional CPU time unknown."
   ],
-  "last_decision_id": "manual-r011-two-leaf-strong-comparator-audit-20261023"
+  "last_decision_id": "manual-r012-two-leaf-datatype-and-macro-risk-20261023"
 }
