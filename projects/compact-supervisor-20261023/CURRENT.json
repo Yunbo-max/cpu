@@ -1,25 +1,27 @@
 {
   "project_id": "compact-supervisor-20261023",
-  "round": "R016",
-  "parent_checkpoint_commit": "50990ec82d7684e1e44eb69279d3e78f1a5ba4b4",
-  "parent_question": "Q-r016-qed-delayed-memory-collateral-beyond-coupling",
-  "action": "interpret",
-  "next_question": "Q-r017-source-pinned-new-mechanism-with-real-model-discriminator",
-  "round_path": "rounds/R016.md",
+  "round": "R018",
+  "parent_checkpoint_commit": "43b1dd770ce484a98f961591da4e3ea48411c4f2",
+  "parent_question": "Q-r017-source-pinned-new-mechanism-with-real-model-discriminator",
+  "action": "deepen",
+  "next_question": "Q-r019-probmoe-original-class-gauge-variance-and-utility",
+  "round_path": "rounds/R018.md",
   "formal_review": "pending",
   "scheduler": "disabled",
   "budget": {
-    "last_probe_wall_seconds": "R016 one NumPy standalone CPU analytical audit process CPU 0.000712996s; other provider/compute usage unknown",
+    "last_probe_wall_seconds": "R017 source-path CPU replay rechecked this wake and R018 expected-gradient CPU <1s; other process/provider charges unknown, no GPU",
     "next_cpu_seconds": 60,
     "provider_cost": "unknown",
     "gpu_authorized": false
   },
   "mode": "branching",
   "continuous_state": "research-state/continuous/loop.json",
-  "continuous_revision": 14,
-  "continuous_state_sha256": "a7333a0256fbb95a33e95de29e6efdb9142affb6d07d6e67835dd16f132abcac",
+  "continuous_revision": 16,
+  "continuous_state_sha256": "38c062f0ae7f9fa2cb1cd031ea42fbc89d6349348d324ec368a82f9f61be5dae",
   "frontier": {
-    "active": [],
+    "active": [
+      "P1"
+    ],
     "blocked": [
       "VLM",
       "G1"
@@ -38,24 +40,24 @@
     "other_blocked": [
       "R006 EventTune local archive check pending"
     ],
-    "evidence_status": "R016 full source comparison: QED same-checkpoint sweep already done, source warns future-read erasure; cross-fact GDN prior; mean-lambda constrained CPU sign correction and full later-update counterexample; QED checkpoint unverified.",
-    "diversity_gap": 3,
-    "novelty_status": "L1 Park: generic future-read collateral and fixed-weight strength sweep already known; only hypothetical specific QED multi-fact tradeoff untested and code unavailable; no novel method accepted",
+    "evidence_status": "R017 source-pinned exact-k Qwen/OLMoE gauge-dependent surrogate confirmed in CPU mirror; R018 exact expected-gradient witness gives Qwen objective ascent under common shift +6. No trained model.",
+    "diversity_gap": 2,
+    "novelty_status": "P1 is provisional source-localized question ONLY; generic STE bias already known; full original module and trained model evidence missing.",
     "source_protocol_pin": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
     "installed_skill_new_schema": "not migrated; preserve portfolio.json as sole existing canonical project tree",
     "new_crossdomain": "T1 conditional rule zero-support",
     "negative_screen": "K1 known global bank copy issue",
     "max_active": 3,
-    "max_children": 7,
+    "max_children": 8,
     "reproducer_correction": "Within R011: fixed regexp escaping in standalone source; source hash updated with preserved revision/negative findings; former source retained in Git history",
-    "next_discovery": "R017 new ROOT model mechanism, not QED/GDN old rank-one and not S1-S5 broad collisions",
+    "next_discovery": "Remain neutral branching: seek distinct peer mechanisms, no preferred/global direction.",
     "root_screen_summary": "Five candidates screened NOT added as new nodes or parked descendants. Continue with different concrete model-specific intervention/update failure.",
     "model_gate": "QED 340M trained weights/code unverified; no native GPU or license-authorized implementation admitted"
   },
   "next_actor": "designer",
   "tree_mode": "persistent-research-tree-v1",
   "frontier_path": "research-state/counterexample/portfolio.json",
-  "frontier_revision": 14,
-  "frontier_sha256": "7f031a27cad802a5a593a4b48d177443b8a43375e429462f5392520de2f5c1bf",
+  "frontier_revision": 16,
+  "frontier_sha256": "2f72f9ddd8566b1057f93ab0f5994ef9c965813f7bd0bd3e61223bdecc8b2d5f",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade"
 }

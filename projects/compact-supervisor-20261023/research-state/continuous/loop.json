@@ -9,9 +9,9 @@
     "kind": "other"
   },
   "status": "active",
-  "revision": 14,
-  "question_id": "Q-r017-source-pinned-new-mechanism-with-real-model-discriminator",
-  "question": "Which truly different, source-pinned AI state/update/action failure has not already been measured by the QED original, pretrained recurrent causal-interference studies, or prior R001-R016 screens, and admits a legal open model/benchmark and a mathematically discriminating falsifier?",
+  "revision": 16,
+  "question_id": "Q-r019-probmoe-original-class-gauge-variance-and-utility",
+  "question": "Can original imported ProbMoE classes and fair controlled training confirm gauge-invariant surrogate differences and show any task improvement over published biased STE baselines?",
   "phase": "discovery",
   "history": [
     {
@@ -785,14 +785,93 @@
         "G1 and VLM remain Await their original physical dataset and Local artifact blockers; MOE PROV G2 G3 T1 K1 and now L1 remain Parked.",
         "No GPU, paid API, Work native subagents, scheduled task, or model-scale run; prior provider charges unknown and not reset."
       ]
+    },
+    {
+      "decision_id": "manual-r017-local-recovered-provisional-p1-20261024",
+      "parent_question_id": "Q-r017-source-pinned-new-mechanism-with-real-model-discriminator",
+      "action": "new_topic",
+      "stage": "discovery",
+      "next_actor": "designer",
+      "next_question_id": "Q-r018-probmoe-gauge-expected-task-loss",
+      "next_question": "Does the source-specific Qwen V1 Exact-k gradient gauge mismatch induce wrong-direction expected task optimization compared with OLMoE and covariance baselines?",
+      "causal_reason": "R017 original source-pinned and PyTorch CPU observations were LOCAL ONLY after GitHub blob writes failed; restored and documented under current R018 Git transaction. A fixed-k softmax subset distribution is common-shift invariant but Qwen detached log_q creates a gauge-sensitive second derivative absent from OLMoE probe version.",
+      "mathematical_prediction": "For fixed k, P(z|k) proportional exp(sum_i r_i*z_i), J_true_ji=Cov(z_j,z_i), J_Qwen_ji=(1-sigmoid(r_i))*Cov(z_j,z_i). At n=2 k=1 r=(5,5), J_true=.25 and J_Qwen=.0016732127.",
+      "falsifier": "Actual original Qwen class/config disagrees, author implements deliberate bias/variance correction already characterized, or source-localized numerical discrepancy disappears.",
+      "evidence": [
+        {
+          "path": "rounds/R017.md",
+          "sha256": "6a0fab9d2f3acafc87d3cc05c0dd432307decc59203d73898431d440dd7ee96b",
+          "kind": "math"
+        },
+        {
+          "path": "research/branches/P1.md",
+          "sha256": "09516b87f2d104e688b3ca8daf279b339d18ed32d5d015ed5def96533f182d70",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R017_P1_math.md",
+          "sha256": "e2a48a5556d8e70e27cb763bfa81b1d360a135c0d475aa0347cad87a3cc65d23",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R017_P1_receipt.json",
+          "sha256": "01a37c7653877b003c1d4bf0c606eb62f199c9a711d6784c62dd4c724b7e249c",
+          "kind": "experiment"
+        }
+      ],
+      "waiting_for": [
+        "Only code-path mirrored CPU, no original model or independent formal reviewer yet.",
+        "No GPU or paid API permissions; unknown prior provider usage."
+      ]
+    },
+    {
+      "decision_id": "manual-r018-expected-ste-descent-screen-20261024",
+      "parent_question_id": "Q-r018-probmoe-gauge-expected-task-loss",
+      "action": "deepen",
+      "stage": "discovery",
+      "next_actor": "designer",
+      "next_question_id": "Q-r019-probmoe-original-class-gauge-variance-and-utility",
+      "next_question": "Can original imported ProbMoE classes and fair controlled training confirm gauge-invariant surrogate differences and show any task improvement over published biased STE baselines?",
+      "causal_reason": "R018 source-path expected-gradient counterexample enumerates both route selections exactly; global shift +6 leaves forward expected loss fixed but Qwen surrogate step increases real task loss, while OLMoE decreases it. The witness was cherry-picked by synthetic search, so this is existence-only evidence.",
+      "mathematical_prediction": "At n=2 k=1, logits difference 2.182, experts [-1.387488,-2.649662], target -1.44243766, initial expected L=.08703456753 for all shifts. A step size .1 from c=+6 gives Qwen L=.08710474875 (>initial), OLMoE L=.08691958290 (<initial). At c=-6 Qwen also descends. No trained-model statement follows.",
+      "falsifier": "Running actual classes invalidates the prediction, finite-difference objective reveals a mismatch in this simulation, independent held-out training shows no benefit of gauge correction, or prior work fully explains the intended estimator property.",
+      "evidence": [
+        {
+          "path": "rounds/R018.md",
+          "sha256": "14d1db1e86c46e04578d9bacc8a846bb5d250e8c52365cd0ce8fcea00685c180",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R018_P1_receipt.json",
+          "sha256": "3bd3e29f9070d90677fb7f813c5a527fbff06b12af035710eadaf352de91657c",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R018_P1_reproduce.py",
+          "sha256": "bdeb4e96a9d3e033d630c12bfd33795190dc716e0fd08e44b8d8880612761508",
+          "kind": "code"
+        },
+        {
+          "path": "review/R018_handoff.md",
+          "sha256": "affbb0d6cbdd5e44766949eb7a505cefee644d0c93d39b4b463f293d160c0d60",
+          "kind": "other"
+        }
+      ],
+      "waiting_for": [
+        "Formal independent Work scientific reviewer must verify actual original Qwen and OLMoE classes, bias intent, and existence-only toy.",
+        "No GPU/paid API or full-model training authorization; do not modify ProbMoE source.",
+        "G1 and VLM Await; MOE, PROV, G2, G3, T1, K1, L1 remain Parked; do not overwrite or mark complete.",
+        "Programme is neutral branching, P1 provisional, diversity_gap=2; seek genuinely independent new ROOT mechanisms.",
+        "Prior provider charges and unmetered CPU remain unknown; no Scheduled Task enabled."
+      ]
     }
   ],
   "waiting_for": [
-    "No scientifically qualified active leaf after R016; new ROOT hypothesis must survive direct 2026 primary-nearest-method tests; diversity_gap=3, do not invent filler.",
-    "Original QED source and 340M trained checkpoints unverified publicly; GDN2 source/other GDN checkpoints NOT QED.",
-    "Formal separate Work scientific novelty and code/claim review pending; no reviewer verdict authorized.",
-    "G1 and VLM remain Await their original physical dataset and Local artifact blockers; MOE PROV G2 G3 T1 K1 and now L1 remain Parked.",
-    "No GPU, paid API, Work native subagents, scheduled task, or model-scale run; prior provider charges unknown and not reset."
+    "Formal independent Work scientific reviewer must verify actual original Qwen and OLMoE classes, bias intent, and existence-only toy.",
+    "No GPU/paid API or full-model training authorization; do not modify ProbMoE source.",
+    "G1 and VLM Await; MOE, PROV, G2, G3, T1, K1, L1 remain Parked; do not overwrite or mark complete.",
+    "Programme is neutral branching, P1 provisional, diversity_gap=2; seek genuinely independent new ROOT mechanisms.",
+    "Prior provider charges and unmetered CPU remain unknown; no Scheduled Task enabled."
   ],
-  "last_decision_id": "manual-r016-qed-novelty-and-strength-falsifier-20261023"
+  "last_decision_id": "manual-r018-expected-ste-descent-screen-20261024"
 }

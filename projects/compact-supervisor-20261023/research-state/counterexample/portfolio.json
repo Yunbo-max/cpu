@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 14,
+  "revision": 16,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -498,17 +498,91 @@
       "next_action": "Park standalone method novelty: QED already anticipates future-read damage and tests same-checkpoint erase ablation; cross-fact collateral already causally studied. Reopen only with real QED matching weights/code, full sequential QED-specific non-target evaluation and independently demonstrated novelty beyond prior.",
       "formal_review": "pending",
       "gpu_training": "not_authorized"
+    },
+    {
+      "event_id": "manual-r017-local-recovered-provisional-p1-20261024",
+      "node_id": "ROOT",
+      "action": "new_topic",
+      "stage": "discovery",
+      "integration_kind": "R017 local-only evidence recovered under R018 atomic commit; v1 ROOT new_topic via guarded integrator",
+      "new_nodes": [
+        "P1"
+      ],
+      "causal_reason": "Published fixed-k ProbMoE Qwen and OLMoE V1 source paths produce the same forward expert probabilities but different outer Jacobians under a gauge-equivalent common logit shift; original local CPU evidence and source SHA were rechecked. This is a provisional different mechanism, not an accepted new method.",
+      "evidence": [
+        {
+          "path": "rounds/R017.md",
+          "sha256": "6a0fab9d2f3acafc87d3cc05c0dd432307decc59203d73898431d440dd7ee96b",
+          "kind": "math"
+        },
+        {
+          "path": "research/branches/P1.md",
+          "sha256": "09516b87f2d104e688b3ca8daf279b339d18ed32d5d015ed5def96533f182d70",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R017_P1_math.md",
+          "sha256": "e2a48a5556d8e70e27cb763bfa81b1d360a135c0d475aa0347cad87a3cc65d23",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R017_P1_receipt.json",
+          "sha256": "01a37c7653877b003c1d4bf0c606eb62f199c9a711d6784c62dd4c724b7e249c",
+          "kind": "experiment"
+        }
+      ],
+      "structural_capacity_change": {
+        "max_children_before": 7,
+        "max_children_after": 8,
+        "max_active_unchanged": 3,
+        "CPU_cap_unchanged": 60,
+        "GPU_authorized": false
+      },
+      "next_question": "Can a true expected task objective deteriorate under the gradient surrogate while fixed-k forward routes remain identical?",
+      "next_actor": "designer",
+      "formal_review": "pending",
+      "scientific_acceptance": false
+    },
+    {
+      "event_id": "manual-r018-expected-ste-descent-screen-20261024",
+      "node_id": "P1",
+      "action": "deepen",
+      "stage": "discovery",
+      "causal_reason": "An additional exact two-expert expected-loss CPU enumeration at fixed routing probabilities found that a Qwen-path expected STE step can worsen the genuine expected task objective at common-offset +3/+6, whereas OLMoE-path steps decrease it. The witness was found by synthetic parameter search and is not a pretrained model or prevalence estimate.",
+      "evidence": [
+        {
+          "path": "rounds/R018.md",
+          "sha256": "14d1db1e86c46e04578d9bacc8a846bb5d250e8c52365cd0ce8fcea00685c180",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R018_P1_receipt.json",
+          "sha256": "3bd3e29f9070d90677fb7f813c5a527fbff06b12af035710eadaf352de91657c",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R018_P1_reproduce.py",
+          "sha256": "bdeb4e96a9d3e033d630c12bfd33795190dc716e0fd08e44b8d8880612761508",
+          "kind": "code"
+        }
+      ],
+      "next_question": "Does the published Qwen ProbMoE V1 fixed Exact-k marginal-gradient path create gauge-dependent updates that can increase true expected task loss, and does correcting this give a useful real-model benefit beyond known STE bias tradeoffs?",
+      "next_falsifier": "Original Qwen module with actual flags does not reproduce the source-path Jacobian, author intentionally uses a beneficial bias/variance estimator, or a gauge-consistent correction has no improvement over original under matched seeds/model/code/data/resources.",
+      "next_action": "Arrange separate Work scientific audit of original Qwen and OLMoE classes plus two-expert witness; limit further work to source/CPU preflight until independent design, code and GPU permissions exist.",
+      "formal_review": "pending"
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 14,
+  "wake_cursor": 16,
   "max_active": 3,
-  "max_children": 7,
+  "max_children": 8,
   "max_depth": 3,
   "native_gpu_authorized": false,
-  "active_frontier": [],
+  "active_frontier": [
+    "P1"
+  ],
   "chronological_transfers_not_parent_edges": [
     {
       "round": "R004",
@@ -540,7 +614,7 @@
       "question": "Which intervention and decision observables are lost by a compressed statistical proxy?",
       "falsifier": "Distinct interventions change decisions even when all training proxies match.",
       "next_actor": "designer",
-      "next_action": "Supervise provisional active L1 without reviving G1 or VLM and without interpreting extra source-reading agents as scientific branches.",
+      "next_action": "Resume neutral branching across all eligible rooted mechanisms; P1 provisional audit receives bounded attention but is not a programme-wide preferred topic.",
       "priority": 0,
       "budget": {
         "cpu_wake_reserved_s": 0,
@@ -597,6 +671,16 @@
         {
           "path": "rounds/R015.md",
           "sha256": "cece840da6d1df17abf760337759834ad343424afe861c74301313e8b8ee1f40",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R017_P1_math.md",
+          "sha256": "e2a48a5556d8e70e27cb763bfa81b1d360a135c0d475aa0347cad87a3cc65d23",
+          "kind": "math"
+        },
+        {
+          "path": "rounds/R018.md",
+          "sha256": "14d1db1e86c46e04578d9bacc8a846bb5d250e8c52365cd0ce8fcea00685c180",
           "kind": "math"
         }
       ]
@@ -1124,36 +1208,88 @@
         "Independent scientific Work reviewer binds design/prior novelty check to exact commit and accepts material differences from QED Appendix A.1 and How Linear Attention Remembers",
         "Measure same-checkpoint multi-fact non-target break and delayed margin changes, with QED s sweep and true recurrent future writes on prespecified split, including all null and failure rows"
       ]
+    },
+    {
+      "id": "P1",
+      "parent_id": "ROOT",
+      "status": "active",
+      "mechanism": "exactk-marginal-detach-surrogate-gauge-sensitivity",
+      "question": "Does the published Qwen ProbMoE V1 fixed Exact-k marginal-gradient path create gauge-dependent updates that can increase true expected task loss, and does correcting this give a useful real-model benefit beyond known STE bias tradeoffs?",
+      "falsifier": "Original Qwen module with actual flags does not reproduce the source-path Jacobian, author intentionally uses a beneficial bias/variance estimator, or a gauge-consistent correction has no improvement over original under matched seeds/model/code/data/resources.",
+      "next_actor": "designer",
+      "next_action": "Arrange separate Work scientific audit of original Qwen and OLMoE classes plus two-expert witness; limit further work to source/CPU preflight until independent design, code and GPU permissions exist.",
+      "priority": 2,
+      "budget": {
+        "cpu_wake_reserved_s": 20,
+        "source_permit": "Read-only primary paper and code, bounded CPU diagnostics only; inherits 60s total cheap CPU per wake",
+        "gpu_authorized": false,
+        "paid_api_authorized": false,
+        "provider_cost": "unknown"
+      },
+      "formal_review": "pending",
+      "evidence": [
+        {
+          "path": "research/branches/P1.md",
+          "sha256": "09516b87f2d104e688b3ca8daf279b339d18ed32d5d015ed5def96533f182d70",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R017_P1_math.md",
+          "sha256": "e2a48a5556d8e70e27cb763bfa81b1d360a135c0d475aa0347cad87a3cc65d23",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R017_P1_receipt.json",
+          "sha256": "01a37c7653877b003c1d4bf0c606eb62f199c9a711d6784c62dd4c724b7e249c",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R018_P1_receipt.json",
+          "sha256": "3bd3e29f9070d90677fb7f813c5a527fbff06b12af035710eadaf352de91657c",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R018_P1_reproduce.py",
+          "sha256": "bdeb4e96a9d3e033d630c12bfd33795190dc716e0fd08e44b8d8880612761508",
+          "kind": "code"
+        },
+        {
+          "path": "rounds/R017.md",
+          "sha256": "6a0fab9d2f3acafc87d3cc05c0dd432307decc59203d73898431d440dd7ee96b",
+          "kind": "math"
+        },
+        {
+          "path": "rounds/R018.md",
+          "sha256": "14d1db1e86c46e04578d9bacc8a846bb5d250e8c52365cd0ce8fcea00685c180",
+          "kind": "math"
+        }
+      ]
     }
   ],
   "latest_wake": {
-    "id": "manual-r016-20261023",
-    "parent_research_commit": "50990ec82d7684e1e44eb69279d3e78f1a5ba4b4",
-    "active_before": [
-      "L1"
+    "id": "manual-r018-20261024",
+    "actual_parent_Git_SHA": "43b1dd770ce484a98f961591da4e3ea48411c4f2",
+    "prior_R017_was_local_only": true,
+    "prior_R017_history_recovered_in_same_commit": true,
+    "active_before": [],
+    "active_after": [
+      "P1"
     ],
-    "active_after": [],
-    "parked_new": [
-      "L1"
+    "diversity_gap": 2,
+    "max_children_change": "7->8 structural only",
+    "max_active_unchanged": 3,
+    "observed_cpu": [
+      "R017 re-ran earlier small PyTorch probes; exact CPU charges otherwise unknown",
+      "R018 selected two-expert expected-gradient source-path toy ~0.04-0.05s after imports"
     ],
-    "diversity_gap": 3,
-    "other_await_retained": [
-      "VLM",
-      "G1"
-    ],
-    "original_QED_source_arxiv": "2608.13668v1",
-    "cross_fact_prior": "2609.33093v1",
-    "mean_trained_lambda_0": 0.101,
-    "mean_trained_lambda_1": 0.12,
-    "lambda_max_assumed_in_old_toy": 0.25,
-    "actual_micro_probes": "1 NumPy constrained fixed-state analytic audit, 0.000712996 measured process CPU seconds",
-    "checkpoint_and_code_availability": "QED original trained checkpoint/code not verified; Hugging Face connector search unavailable",
-    "formal_independent_review": "pending",
-    "model_training_runs": 0,
+    "original_source": "HengHugoZhao/ProbMoE@3f0e538e8cab9b4b91f12479a0c0040c843723d2",
+    "training_runs": 0,
     "GPU_runs": 0,
     "paid_API_calls": 0,
     "Work_native_subagents": 0,
     "provider_cost": "unknown",
-    "scheduled_task": "disabled"
+    "independent_scientific_review": "pending",
+    "schedule": "disabled",
+    "provenance_boundary": "Published R017/R018 in ONE project commit, not two earlier GitHub wakes."
   }
 }

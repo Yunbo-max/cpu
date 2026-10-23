@@ -1,0 +1,63 @@
+{
+  "schema": "r018-expected-ste-gauge-v1",
+  "date": "2026-10-24",
+  "parent_git_sha": "43b1dd770ce484a98f961591da4e3ea48411c4f2",
+  "source_commit": "3f0e538e8cab9b4b91f12479a0c0040c843723d2",
+  "source_path_mirror_only": true,
+  "original_full_model_test": false,
+  "n": 2,
+  "k": 1,
+  "expert_outputs": [
+    -1.387488,
+    -2.649662
+  ],
+  "target": -1.44243766,
+  "logit_gap": 2.182,
+  "lr": 0.1,
+  "loss_before": 0.08703456753239866,
+  "loss_after": [
+    {
+      "shift": -6,
+      "qwen": 0.08692034107561158,
+      "olmoe": 0.08691958290101298
+    },
+    {
+      "shift": 0,
+      "qwen": 0.08701253402232864,
+      "olmoe": 0.08691958290101308
+    },
+    {
+      "shift": 3,
+      "qwen": 0.08709197452617,
+      "olmoe": 0.08691958290101305
+    },
+    {
+      "shift": 6,
+      "qwen": 0.08710474875320011,
+      "olmoe": 0.08691958290101298
+    }
+  ],
+  "at_shift6": {
+    "true_gradient": [
+      -0.05451268103139157,
+      0.05451268103139157
+    ],
+    "qwen_expected_gradient": [
+      0.00649194548188407,
+      -0.0063811961660131845
+    ],
+    "olmoe_expected_gradient": [
+      -0.010548151769051384,
+      0.010548151769050967
+    ],
+    "qwen_cosine": -0.9999629951280589
+  },
+  "selected_example_found_after_300000_synthetic_draws": true,
+  "local_original_script_sha256": "163e5b3005f34b1e7d7aba5fd97225f81512bb4bcc8ff30d8daa33b12c9b73c1",
+  "r017_original_zip_sha256": "1b3f1037bc6807ddeb45a521b747c9fa8154c2a15c0975a685f4e6deb79a6ba1",
+  "reproducer_first_run_cpu_seconds": 0.04910083100000007,
+  "provider_cost": "unknown",
+  "gpu_runs": 0,
+  "paid_api_calls": 0,
+  "formal_independent_work_review": "pending"
+}
