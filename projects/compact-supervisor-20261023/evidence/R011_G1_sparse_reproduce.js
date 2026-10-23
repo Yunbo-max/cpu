@@ -8,18 +8,18 @@
 const fs=require('fs'),crypto=require('crypto');
 function readChecked(file,sha){
  const data=fs.readFileSync(file);
- const actual=crypto.createHash('sha1').update(Buffer.from('blob '+data.length+'\\0'.replace('\\0','\0'))).update(data).digest('hex');
+ const actual=crypto.createHash('sha1').update(Buffer.from('blob '+data.length+'\0'.replace('\0','\0'))).update(data).digest('hex');
  if(actual!==sha)throw Error('Git blob mismatch '+file+' '+actual);
  return data.toString('utf8');
 }
 function main(netText,tripsText){
- const raw=netText.split(/\\r?\\n/).filter(x=>/^\\s*\\d+\\s+\\d+\\s+\\d/.test(x)).map(x=>x.trim().split(/\\s+/));
+ const raw=netText.split(/\r?\n/).filter(x=>/^\s*\d+\s+\d+\s+\d/.test(x)).map(x=>x.trim().split(/\s+/));
  const d=Math.max(...raw.map(x=>(x[2].split('.')[1]||'').length)),scale=10**d;
  function capacity(t){let [a,b='']=t.split('.');let v=Number(a)*scale+Number(b.padEnd(d,'0'));if(!Number.isSafeInteger(v))throw Error('unsafe capacity');return v;}
  const edges=raw.map(x=>[+x[0],+x[1],capacity(x[2])]);
  const capsum=edges.reduce((s,e)=>s+e[2],0);if(!Number.isSafeInteger(capsum))throw Error('unsafe total');
- const chunks=tripsText.split(/Origin\\s+(\\d+)/),pairs=[];
- for(let i=1;i<chunks.length;i+=2){const s=+chunks[i];for(let m of chunks[i+1].matchAll(/(\\d+)\\s*:\\s*([\\d.]+)\\s*;/g)){const t=+m[1],v=+m[2];if(s!==t&&v>0)pairs.push({s,t,demand:v})}}
+ const chunks=tripsText.split(/Origin\s+(\d+)/),pairs=[];
+ for(let i=1;i<chunks.length;i+=2){const s=+chunks[i];for(let m of chunks[i+1].matchAll(/(\d+)\s*:\s*([\d.]+)\s*;/g)){const t=+m[1],v=+m[2];if(s!==t&&v>0)pairs.push({s,t,demand:v})}}
  pairs.sort((a,b)=>b.demand-a.demand||a.s-b.s||a.t-b.t);
  let unique=[],seen=new Set();
  for(let p of pairs){let key=Math.min(p.s,p.t)+':'+Math.max(p.s,p.t);if(!seen.has(key)){seen.add(key);unique.push(p)}if(unique.length===5)break}
