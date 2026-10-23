@@ -9,9 +9,9 @@
     "kind": "other"
   },
   "status": "active",
-  "revision": 6,
-  "question_id": "Q-multileaf-fault-comparators",
-  "question": "Which of three distinct intervention-conditioned compression mechanisms survives a direct comparison with best fault-flow oracles and identity-aware graph reductions at matched bits, latency, accuracy and data authority?",
+  "revision": 7,
+  "question_id": "Q-g1-joint-coding-real-workload",
+  "question": "Can distribution-conditioned joint coding preserve original-edge fault responses with less total storage or query error than exact table, source-coding and published fault-sensitivity baselines on a real held-out weighted graph workload?",
   "phase": "discovery",
   "history": [
     {
@@ -273,13 +273,73 @@
         "No GPU, paid API or remote experiment authority; historical provider usage remains unknown; no enabled schedule.",
         "Need strong ITCS 2026 oracle code and legal held-out graph query workloads before any new method-design gate."
       ]
+    },
+    {
+      "decision_id": "manual-r009-three-leaf-audit-20261023",
+      "parent_question_id": "Q-multileaf-fault-comparators",
+      "action": "deepen",
+      "stage": "discovery",
+      "next_actor": "designer",
+      "next_question_id": "Q-g1-joint-coding-real-workload",
+      "next_question": "Can distribution-conditioned joint coding preserve original-edge fault responses with less total storage or query error than exact table, source-coding and published fault-sensitivity baselines on a real held-out weighted graph workload?",
+      "causal_reason": "Three independent saved leaves were checked: classical joint-codebook compression helps uniform toy queries; a mincut slack identity explains the previous G2 high-order toy; G3 edge identity ambiguity is fixed with a one-bit map in the toy and has named-edge sensitivity precedent. Park G2/G3 without mutating G1; future diversity gap is explicitly retained.",
+      "mathematical_prediction": "For X uniform in {0,1}^3 and one-bit summaries, optimal uniform per-edge query error is 0.25 versus 1/3 for caching one coordinate; under p=(0.8,0.15,0.05) both reach error 0.1. Post-failure maxflow equals minimum surviving directed cut capacity.",
+      "falsifier": "Any mismatch in exhaustive 256 binary encoders or 256 random-graph cut-slack checks invalidates the observed scope; a held-out experiment where strong table/oracle and joint-codebook baselines dominate rejects a practical G1 contribution.",
+      "evidence": [
+        {
+          "path": "rounds/R009.md",
+          "sha256": "3d28086659c353dc99345450c03d3b7b12a16e67819a95cb362e085999d5e36f",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R009_G1_joint_coding.md",
+          "sha256": "c907f32f8da20c9d80b69240686508ccf182067e265c60a641d3aaf25a2cd2b1",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R009_G2_cut_switch.md",
+          "sha256": "6952ddf252cb2155f9f1be7d1b58f40a1c7aec4b31042916214ed7497e11ba23",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R009_G3_identity_scope.md",
+          "sha256": "43b32b57e14902688e7cb6cce5396229f3d06a1abe8d3454efb6e6d72d8124da",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R009_prior_verified.md",
+          "sha256": "c5163f92bf8d74b5665a9a85450da848a6169a9b86fad1e7d18a327d0834d135",
+          "kind": "paper"
+        },
+        {
+          "path": "evidence/R009_result.json",
+          "sha256": "6e70d1837bc35ebaf850935085336db5247a0cc3cb8c20b00e2528d396f28d50",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R009_reproduce.py",
+          "sha256": "6c59195d4216e0a6231367dfccc171604ef4e456f5d2898db92093b543a42fa7",
+          "kind": "code"
+        },
+        {
+          "path": "review/R009_selection_handoff.md",
+          "sha256": "bf281070c35c15831e368d9b64d7e7b6e05082c37620803371088423f5bfc5a8",
+          "kind": "other"
+        }
+      ],
+      "waiting_for": [
+        "Formal independent Work scientific review still pending; no actual model design, code admission or native training approval.",
+        "Need legal held-out weighted network capacities and independently defined fault-query workload; no model-scale effectiveness claim.",
+        "Old EventTune local archive evidence still awaiting local executor; no GPU or paid API authorization.",
+        "G1 only active leaf after G2/G3 park; diversity gap 2 remains until actual distinct source-backed candidates are available."
+      ]
     }
   ],
   "waiting_for": [
-    "Formal independent Work reviewer has not accepted the three leaf novelty/design/claims; no native model admission.",
-    "R006 EventTune local read-only artifact inspector remains pending; old blocked branch must not be resurrected.",
-    "No GPU, paid API or remote experiment authority; historical provider usage remains unknown; no enabled schedule.",
-    "Need strong ITCS 2026 oracle code and legal held-out graph query workloads before any new method-design gate."
+    "Formal independent Work scientific review still pending; no actual model design, code admission or native training approval.",
+    "Need legal held-out weighted network capacities and independently defined fault-query workload; no model-scale effectiveness claim.",
+    "Old EventTune local archive evidence still awaiting local executor; no GPU or paid API authorization.",
+    "G1 only active leaf after G2/G3 park; diversity gap 2 remains until actual distinct source-backed candidates are available."
   ],
-  "last_decision_id": "manual-r008-persistent-branching-20261023"
+  "last_decision_id": "manual-r009-three-leaf-audit-20261023"
 }

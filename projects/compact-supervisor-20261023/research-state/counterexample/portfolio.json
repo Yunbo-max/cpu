@@ -3,20 +3,91 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 0,
-  "events": [],
+  "revision": 3,
+  "events": [
+    {
+      "event_id": "manual-r009-g1-deepen-20261023",
+      "node_id": "G1",
+      "action": "deepen",
+      "causal_reason": "Joint 1-bit coding beats single-hot-edge caching for uniform fault queries but matches it on skewed queries; weighted single-failure and restricted susceptibility have strong prior oracles.",
+      "evidence": [
+        {
+          "path": "evidence/R009_G1_joint_coding.md",
+          "sha256": "c907f32f8da20c9d80b69240686508ccf182067e265c60a641d3aaf25a2cd2b1",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R009_result.json",
+          "sha256": "6e70d1837bc35ebaf850935085336db5247a0cc3cb8c20b00e2528d396f28d50",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R009_prior_verified.md",
+          "sha256": "c5163f92bf8d74b5665a9a85450da848a6169a9b86fad1e7d18a327d0834d135",
+          "kind": "paper"
+        }
+      ],
+      "next_question": "Can any realistic legal weighted-graph fault-query workload justify a probabilistic joint response coder that improves held-out error/bit/latency against exact lookup, independent codebooks and published sensitivity oracles?",
+      "next_falsifier": "No legitimate held-out workload or no favorable paired error/storage/latency advantage after accounting for edge IDs and codebook metadata.",
+      "next_action": "Find held-out weighted graphs and fault query frequencies; preregister bit/time/error matching; inspect actual oracle implementations."
+    },
+    {
+      "event_id": "manual-r009-g2-park-20261023",
+      "node_id": "G2",
+      "action": "park",
+      "causal_reason": "The four-edge synergy toy is exactly explained by ordinary min-cut slack switching across 256 verified fault queries; ITCS 2026 and Sep 2026 sensitivity preprint already cover general multiple failures.",
+      "evidence": [
+        {
+          "path": "evidence/R009_G2_cut_switch.md",
+          "sha256": "6952ddf252cb2155f9f1be7d1b58f40a1c7aec4b31042916214ed7497e11ba23",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R009_result.json",
+          "sha256": "6e70d1837bc35ebaf850935085336db5247a0cc3cb8c20b00e2528d396f28d50",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R009_prior_verified.md",
+          "sha256": "c5163f92bf8d74b5665a9a85450da848a6169a9b86fad1e7d18a327d0834d135",
+          "kind": "paper"
+        }
+      ]
+    },
+    {
+      "event_id": "manual-r009-g3-park-20261023",
+      "node_id": "G3",
+      "action": "park",
+      "causal_reason": "Original-edge query ambiguity was caused by deliberately omitting a correspondence map; one bit repairs the saved two-branch toy, while ICALP 2024 already supports named directed weighted edge-failure queries.",
+      "evidence": [
+        {
+          "path": "evidence/R009_G3_identity_scope.md",
+          "sha256": "43b32b57e14902688e7cb6cce5396229f3d06a1abe8d3454efb6e6d72d8124da",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R009_result.json",
+          "sha256": "6e70d1837bc35ebaf850935085336db5247a0cc3cb8c20b00e2528d396f28d50",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R009_prior_verified.md",
+          "sha256": "c5163f92bf8d74b5665a9a85450da848a6169a9b86fad1e7d18a327d0834d135",
+          "kind": "paper"
+        }
+      ]
+    }
+  ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 0,
+  "wake_cursor": 3,
   "max_active": 3,
   "max_children": 4,
   "max_depth": 3,
   "native_gpu_authorized": false,
   "active_frontier": [
-    "G1",
-    "G2",
-    "G3"
+    "G1"
   ],
   "chronological_transfers_not_parent_edges": [
     {
@@ -184,10 +255,10 @@
       "parent_id": "GRAPH",
       "status": "active",
       "mechanism": "workload-conditioned-information-entropy",
-      "question": "Can nonuniform original-edge failure queries give a low-entropy, low-bit sketch beyond strong fault oracle baselines?",
-      "falsifier": "Oracle baseline dominates all workload-aware sketches, or real fault response entropy stays at maximum.",
+      "question": "Can any realistic legal weighted-graph fault-query workload justify a probabilistic joint response coder that improves held-out error/bit/latency against exact lookup, independent codebooks and published sensitivity oracles?",
+      "falsifier": "No legitimate held-out workload or no favorable paired error/storage/latency advantage after accounting for edge IDs and codebook metadata.",
       "next_actor": "designer",
-      "next_action": "verify oracle lower bounds and held-out workload feasibility",
+      "next_action": "Find held-out weighted graphs and fault query frequencies; preregister bit/time/error matching; inspect actual oracle implementations.",
       "priority": 3,
       "budget": {
         "cpu_wake_reserved_s": 20,
@@ -207,18 +278,33 @@
           "path": "evidence/R008_graph_witness_receipt.json",
           "sha256": "7c165585771b4ad01028f3c0e6dd43e05d0e47c551d4af34334ebdea8685443f",
           "kind": "experiment"
+        },
+        {
+          "path": "evidence/R009_G1_joint_coding.md",
+          "sha256": "c907f32f8da20c9d80b69240686508ccf182067e265c60a641d3aaf25a2cd2b1",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R009_result.json",
+          "sha256": "6e70d1837bc35ebaf850935085336db5247a0cc3cb8c20b00e2528d396f28d50",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R009_prior_verified.md",
+          "sha256": "c5163f92bf8d74b5665a9a85450da848a6169a9b86fad1e7d18a327d0834d135",
+          "kind": "paper"
         }
       ]
     },
     {
       "id": "G2",
       "parent_id": "GRAPH",
-      "status": "active",
+      "status": "parked",
       "mechanism": "higher-order-fault-interaction",
       "question": "Can a compact representation capture higher-order joint failures beyond information in all lower-order queries?",
       "falsifier": "Existing k-fault oracle or higher-order cascade model fully captures the held-out group failures.",
       "next_actor": "designer",
-      "next_action": "inspect multi-failure sensitivity and hypergraph prior",
+      "next_action": "Preserve source and negative result; reopen only on materially distinct new evidence.",
       "priority": 2,
       "budget": {
         "cpu_wake_reserved_s": 20,
@@ -238,18 +324,33 @@
           "path": "evidence/R008_graph_witness_receipt.json",
           "sha256": "7c165585771b4ad01028f3c0e6dd43e05d0e47c551d4af34334ebdea8685443f",
           "kind": "experiment"
+        },
+        {
+          "path": "evidence/R009_G2_cut_switch.md",
+          "sha256": "6952ddf252cb2155f9f1be7d1b58f40a1c7aec4b31042916214ed7497e11ba23",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R009_result.json",
+          "sha256": "6e70d1837bc35ebaf850935085336db5247a0cc3cb8c20b00e2528d396f28d50",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R009_prior_verified.md",
+          "sha256": "c5163f92bf8d74b5665a9a85450da848a6169a9b86fad1e7d18a327d0834d135",
+          "kind": "paper"
         }
       ]
     },
     {
       "id": "G3",
       "parent_id": "GRAPH",
-      "status": "active",
+      "status": "parked",
       "mechanism": "original-edge-identity-query-mapping",
       "question": "What original-edge query correspondence must an invariant condensed graph retain to predict named-edge deletions?",
       "falsifier": "Original-edge identities are never queried, or identity-aware methods match the full storage and query budget.",
       "next_actor": "designer",
-      "next_action": "inspect identity-aware graph summary API and total metadata bits",
+      "next_action": "Preserve source and negative result; reopen only on materially distinct new evidence.",
       "priority": 1,
       "budget": {
         "cpu_wake_reserved_s": 20,
@@ -269,8 +370,43 @@
           "path": "evidence/R008_graph_witness_receipt.json",
           "sha256": "7c165585771b4ad01028f3c0e6dd43e05d0e47c551d4af34334ebdea8685443f",
           "kind": "experiment"
+        },
+        {
+          "path": "evidence/R009_G3_identity_scope.md",
+          "sha256": "43b32b57e14902688e7cb6cce5396229f3d06a1abe8d3454efb6e6d72d8124da",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R009_result.json",
+          "sha256": "6e70d1837bc35ebaf850935085336db5247a0cc3cb8c20b00e2528d396f28d50",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R009_prior_verified.md",
+          "sha256": "c5163f92bf8d74b5665a9a85450da848a6169a9b86fad1e7d18a327d0834d135",
+          "kind": "paper"
         }
       ]
     }
-  ]
+  ],
+  "latest_wake": {
+    "id": "manual-r009-20261023",
+    "source_research_sha": "1d3ce273ae068ae122560d4d10956cb39b2f96c5",
+    "integrator": "designer",
+    "active_before": [
+      "G1",
+      "G2",
+      "G3"
+    ],
+    "active_after": [
+      "G1"
+    ],
+    "formal_review": "pending",
+    "new_cpu_process_seconds": 0.029925154999999926,
+    "gpu_runs": 0,
+    "provider_cost": "unknown",
+    "diversity_gap": 2,
+    "source_protocol_pin": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
+    "installed_v11_2_tree_schema_status": "not adopted; no duplicate science tree"
+  }
 }

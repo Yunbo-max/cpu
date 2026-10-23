@@ -1,0 +1,104 @@
+{
+  "schema": "r009-three-branch-cpu-probe-v1",
+  "date": "2026-10-23",
+  "source_data": "synthetic and seeded small graphs, no real-network empirical validation",
+  "toolchain": {
+    "networkx": "3.6.1",
+    "python": "standard-library+networkx"
+  },
+  "G1": {
+    "uniform_queries": {
+      "weights": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "one_bit_exhaustive_optimum_expected_error": 0.24999999999999997,
+      "cache_highest_probability_bit_expected_error": 0.33333333333333337,
+      "strict_improvement_over_caching": true,
+      "optimal_code_count": 8,
+      "example_best_encoder": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    "skewed_queries": {
+      "weights": [
+        0.8,
+        0.15,
+        0.05
+      ],
+      "one_bit_exhaustive_optimum_expected_error": 0.09999999999999999,
+      "cache_highest_probability_bit_expected_error": 0.09999999999999998,
+      "strict_improvement_over_caching": false,
+      "optimal_code_count": 2,
+      "example_best_encoder": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "workload_information_bits": {
+      "full_eight_edge_workload": 8,
+      "fixed_two_edge_workload": 2,
+      "remark": "zero-error response-count lower bound on the fixed eight-bit family only"
+    }
+  },
+  "G2": {
+    "random_graphs": 16,
+    "random_graph_failure_queries_checked": 256,
+    "verified_cut_slack_identity": true,
+    "four_monitored_edge_order_profile": {
+      "0": [
+        1,
+        1
+      ],
+      "1": [
+        1,
+        1
+      ],
+      "2": [
+        1,
+        1
+      ],
+      "3": [
+        1,
+        1
+      ],
+      "4": [
+        0,
+        1
+      ]
+    },
+    "explanation": "ordinary maximum-flow/minimum-cut cut switch, not special new high-order primitive"
+  },
+  "G3": {
+    "graphs_weighted_isomorphic_without_internal_names": true,
+    "intact_flow": 3,
+    "named_edge_failure_flow": [
+      2,
+      1
+    ],
+    "one_bit_alignment_lookup_answers_toy": true,
+    "qualification": "Only conditional on omission of the original-edge identity mapping."
+  },
+  "cpu_process_seconds": 0.029925154999999926,
+  "native_gpu_jobs": 0,
+  "paid_api_calls": 0,
+  "training_runs": 0,
+  "separate_independent_Work_reviewer": "not performed",
+  "original_container_source_sha256": "9a4eeb3f79fd66a522085daf0a33d35f30d7f613bae364f404c701743229bd29",
+  "original_container_raw_receipt_sha256": "75cc70e74b8fa48bc35f345efea18313a7a8548861cdd9ac06b1c729f4a902af",
+  "github_reproducer_scope": "shorter equivalent code, not byte-identical to executed local code"
+}
