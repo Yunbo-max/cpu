@@ -9,9 +9,9 @@
     "kind": "other"
   },
   "status": "active",
-  "revision": 7,
-  "question_id": "Q-g1-joint-coding-real-workload",
-  "question": "Can distribution-conditioned joint coding preserve original-edge fault responses with less total storage or query error than exact table, source-coding and published fault-sensitivity baselines on a real held-out weighted graph workload?",
+  "revision": 8,
+  "question_id": "Q-g1-t1-crossdomain-baselines",
+  "question": "Can G1 and T1 be studied as two independent mechanisms under admissible data and matched strong comparators?",
   "phase": "discovery",
   "history": [
     {
@@ -333,13 +333,75 @@
         "Old EventTune local archive evidence still awaiting local executor; no GPU or paid API authorization.",
         "G1 only active leaf after G2/G3 park; diversity gap 2 remains until actual distinct source-backed candidates are available."
       ]
+    },
+    {
+      "decision_id": "manual-r010-two-independent-mechanism-gate-20261023",
+      "parent_question_id": "Q-g1-joint-coding-real-workload",
+      "action": "new_topic",
+      "stage": "discovery",
+      "next_actor": "designer",
+      "next_question_id": "Q-g1-t1-crossdomain-baselines",
+      "next_question": "Can G1 nonuniform weighted fault queries and T1 finite-support rule validation each survive the strongest relevant baselines on admissible held-out evidence, without new model training?",
+      "causal_reason": "The G1 benchmark has synthetic flow capacities and no real event frequencies; TabKG gives unsupported conditional rules validation score 1 at zero antecedent support. The shared KV copy mechanism is already admitted in source documentation and was parked rather than claimed novel.",
+      "mathematical_prediction": "For n=200 and antecedent p=.001, a vacuously passing totally false rule has probability .8186488294786356; with p_exception=.02,n=50, threshold .9, accept probability .9995217827857852. GlobalKVBank repeated cat writes d*(NT+T(T+1)/2), a known code warning not a novel discovery.",
+      "falsifier": "If full pipeline never uses accepted zero-support rules for irreversible reconstruction, T1 harm claim fails. If G1 lacks independent workloads or loses to strong exact/joint-code baselines at matched cost, its practical contribution fails.",
+      "evidence": [
+        {
+          "path": "rounds/R010.md",
+          "sha256": "d06a075cddce22003e1b3764e5e5a06c16002e3a1f31cd6ed31aa9afd4981ad2",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R010_G1_dataset_gate.md",
+          "sha256": "dc736256aaad5dd31892b819afc78afa0adf39df1ccc378d1a349e95d68521d1",
+          "kind": "paper"
+        },
+        {
+          "path": "evidence/R010_T1_rule_vacuity.md",
+          "sha256": "0bce8602bd28d06686287e5c7334cf5bc4f466b86dc6edc018d4979d1a981d67",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R010_K1_traffic.md",
+          "sha256": "0e0031418247d929124ff52f9c925d560ac6660c9e6dc40dbcec88eb7cd55fad",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R010_prior_audit.md",
+          "sha256": "e8a90cfbd80ad21c0920f5ee3e174ba6a39c52c24859952f77b73ab7caf50434",
+          "kind": "paper"
+        },
+        {
+          "path": "evidence/R010_reproducer.py",
+          "sha256": "86fd677edc142dc24cd5daf9f4666e586d804a2e7253d98831160558b45da810",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R010_receipt.json",
+          "sha256": "84cd8385be9fb779994e0cc8c6a33a72ad15e5360ffab1375b7283be5f029516",
+          "kind": "experiment"
+        },
+        {
+          "path": "review/R010_handoff.md",
+          "sha256": "6aac783a9c7f5a6a2befce610d96ef17a658967beab8ac759277931354f517d0",
+          "kind": "other"
+        }
+      ],
+      "waiting_for": [
+        "Independent Work reviewer pending for G1 and T1; no method design accepted.",
+        "G1 data gate: FlowBanzhaf has synthetic capacities and no observed failure frequencies, must identify independent workloads before claims.",
+        "T1 gate: full TabKG reconstruction path and truly legitimate rare exceptions unverified.",
+        "VLM frozen external archived outputs remain unmounted; separate active Qwen training repo must not be modified.",
+        "No GPU, paid API, scheduled run, or new native job authorized; provider cost unknown."
+      ]
     }
   ],
   "waiting_for": [
-    "Formal independent Work scientific review still pending; no actual model design, code admission or native training approval.",
-    "Need legal held-out weighted network capacities and independently defined fault-query workload; no model-scale effectiveness claim.",
-    "Old EventTune local archive evidence still awaiting local executor; no GPU or paid API authorization.",
-    "G1 only active leaf after G2/G3 park; diversity gap 2 remains until actual distinct source-backed candidates are available."
+    "Independent Work reviewer pending for G1 and T1; no method design accepted.",
+    "G1 data gate: FlowBanzhaf has synthetic capacities and no observed failure frequencies, must identify independent workloads before claims.",
+    "T1 gate: full TabKG reconstruction path and truly legitimate rare exceptions unverified.",
+    "VLM frozen external archived outputs remain unmounted; separate active Qwen training repo must not be modified.",
+    "No GPU, paid API, scheduled run, or new native job authorized; provider cost unknown."
   ],
-  "last_decision_id": "manual-r009-three-leaf-audit-20261023"
+  "last_decision_id": "manual-r010-two-independent-mechanism-gate-20261023"
 }

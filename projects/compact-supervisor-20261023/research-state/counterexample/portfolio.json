@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 3,
+  "revision": 5,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -76,18 +76,75 @@
           "kind": "paper"
         }
       ]
+    },
+    {
+      "event_id": "manual-r010-g1-data-audit-20261023",
+      "node_id": "G1",
+      "action": "deepen",
+      "causal_reason": "The publicly available FlowBanzhaf graph benchmark has capacities but they are randomly generated, including on SNAP topologies, and its Banzhaf labels do not give real outage frequencies.",
+      "evidence": [
+        {
+          "path": "evidence/R010_G1_dataset_gate.md",
+          "sha256": "dc736256aaad5dd31892b819afc78afa0adf39df1ccc378d1a349e95d68521d1",
+          "kind": "paper"
+        }
+      ],
+      "next_question": "Can a clearly specified synthetic or independently observed weighted-graph failure query distribution enable reduced total bits/latency/weighted distortion versus exact sensitivity oracles, lookup tables and joint-codebook baselines?",
+      "next_falsifier": "No admissible independent fault query workload or no held-out advantage after including correspondence metadata and decoding cost.",
+      "next_action": "Audit FlowBanzhaf underlying SNAP licenses and seek independent fault query frequencies; otherwise run only a declared synthetic stress protocol."
+    },
+    {
+      "event_id": "manual-r010-independent-root-leads-20261023",
+      "node_id": "ROOT",
+      "action": "new_topic",
+      "stage": "discovery",
+      "integration_kind": "guarded project GitHub integrator; v1 script cannot add new root topics",
+      "new_nodes": [
+        "T1",
+        "K1"
+      ],
+      "causal_reason": "Distinct TabKG statistical vacuity and Qwen memory traffic candidates were grounded in pinned sources; T1 needs limited independent audit, K1 already documents its cost and is parked.",
+      "evidence": [
+        {
+          "path": "rounds/R010.md",
+          "sha256": "d06a075cddce22003e1b3764e5e5a06c16002e3a1f31cd6ed31aa9afd4981ad2",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R010_T1_rule_vacuity.md",
+          "sha256": "0bce8602bd28d06686287e5c7334cf5bc4f466b86dc6edc018d4979d1a981d67",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R010_K1_traffic.md",
+          "sha256": "0e0031418247d929124ff52f9c925d560ac6660c9e6dc40dbcec88eb7cd55fad",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R010_prior_audit.md",
+          "sha256": "e8a90cfbd80ad21c0920f5ee3e174ba6a39c52c24859952f77b73ab7caf50434",
+          "kind": "paper"
+        }
+      ],
+      "structural_capacity_change": {
+        "max_children_before": 4,
+        "max_children_after": 6,
+        "max_active_unchanged": 3,
+        "CPU_cap_unchanged": 60
+      }
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 3,
+  "wake_cursor": 5,
   "max_active": 3,
-  "max_children": 4,
+  "max_children": 6,
   "max_depth": 3,
   "native_gpu_authorized": false,
   "active_frontier": [
-    "G1"
+    "G1",
+    "T1"
   ],
   "chronological_transfers_not_parent_edges": [
     {
@@ -255,10 +312,10 @@
       "parent_id": "GRAPH",
       "status": "active",
       "mechanism": "workload-conditioned-information-entropy",
-      "question": "Can any realistic legal weighted-graph fault-query workload justify a probabilistic joint response coder that improves held-out error/bit/latency against exact lookup, independent codebooks and published sensitivity oracles?",
-      "falsifier": "No legitimate held-out workload or no favorable paired error/storage/latency advantage after accounting for edge IDs and codebook metadata.",
+      "question": "Can a clearly specified synthetic or independently observed weighted-graph failure query distribution enable reduced total bits/latency/weighted distortion versus exact sensitivity oracles, lookup tables and joint-codebook baselines?",
+      "falsifier": "No admissible independent fault query workload or no held-out advantage after including correspondence metadata and decoding cost.",
       "next_actor": "designer",
-      "next_action": "Find held-out weighted graphs and fault query frequencies; preregister bit/time/error matching; inspect actual oracle implementations.",
+      "next_action": "Audit FlowBanzhaf underlying SNAP licenses and seek independent fault query frequencies; otherwise run only a declared synthetic stress protocol.",
       "priority": 3,
       "budget": {
         "cpu_wake_reserved_s": 20,
@@ -292,6 +349,11 @@
         {
           "path": "evidence/R009_prior_verified.md",
           "sha256": "c5163f92bf8d74b5665a9a85450da848a6169a9b86fad1e7d18a327d0834d135",
+          "kind": "paper"
+        },
+        {
+          "path": "evidence/R010_G1_dataset_gate.md",
+          "sha256": "dc736256aaad5dd31892b819afc78afa0adf39df1ccc378d1a349e95d68521d1",
           "kind": "paper"
         }
       ]
@@ -387,26 +449,90 @@
           "kind": "paper"
         }
       ]
+    },
+    {
+      "id": "T1",
+      "parent_id": "ROOT",
+      "status": "active",
+      "mechanism": "conditional-rule-zero-support-vacuity",
+      "question": "Does an unobserved antecedent receiving validation 1.0 create unsupported accepted TabKG rules, and can a support-aware baseline protect domain-valid rare exceptions?",
+      "falsifier": "End-to-end generation never hardens accepted conditional rules, or genuine domain-verified exceptions cannot be established.",
+      "next_actor": "designer",
+      "next_action": "Read full conditional reconstruction path and compare support-aware abstention or confidence bounds against published agentic rule verification; no GPU or API.",
+      "priority": 2,
+      "budget": {
+        "cpu_wake_reserved_s": 20,
+        "source_permit": "Read-only source/paper checks and cheap arithmetic only",
+        "gpu_authorized": false,
+        "paid_api_authorized": false,
+        "provider_cost": "unknown"
+      },
+      "formal_review": "pending",
+      "evidence": [
+        {
+          "path": "evidence/R010_T1_rule_vacuity.md",
+          "sha256": "0bce8602bd28d06686287e5c7334cf5bc4f466b86dc6edc018d4979d1a981d67",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R010_reproducer.py",
+          "sha256": "86fd677edc142dc24cd5daf9f4666e586d804a2e7253d98831160558b45da810",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R010_prior_audit.md",
+          "sha256": "e8a90cfbd80ad21c0920f5ee3e174ba6a39c52c24859952f77b73ab7caf50434",
+          "kind": "paper"
+        }
+      ]
+    },
+    {
+      "id": "K1",
+      "parent_id": "ROOT",
+      "status": "parked",
+      "mechanism": "shared-kv-cat-cumulative-copy",
+      "question": "How can a cross-layer shared KV cache logically shrink yet produce quadratic cumulative output tensor copies during naive single-token append?",
+      "falsifier": "The code no longer concatenates growing global banks or the known warning is resolved in the pinned version.",
+      "next_actor": "designer",
+      "next_action": "Park academic novelty because project source itself warns of O(N) append; do not modify active Qwen training project.",
+      "priority": 0,
+      "budget": {
+        "cpu_wake_reserved_s": 0,
+        "source_permit": "Parked source audit only",
+        "gpu_authorized": false,
+        "paid_api_authorized": false,
+        "provider_cost": "unknown"
+      },
+      "formal_review": "pending",
+      "evidence": [
+        {
+          "path": "evidence/R010_K1_traffic.md",
+          "sha256": "0e0031418247d929124ff52f9c925d560ac6660c9e6dc40dbcec88eb7cd55fad",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R010_prior_audit.md",
+          "sha256": "e8a90cfbd80ad21c0920f5ee3e174ba6a39c52c24859952f77b73ab7caf50434",
+          "kind": "paper"
+        }
+      ]
     }
   ],
   "latest_wake": {
-    "id": "manual-r009-20261023",
-    "source_research_sha": "1d3ce273ae068ae122560d4d10956cb39b2f96c5",
-    "integrator": "designer",
+    "id": "manual-r010-20261023",
+    "parent_research_commit": "c2fcd0479f5e65f21b6e69015a34410669515a1c",
+    "stage_commit": "02f3fcf57d5d6c5ca8b1bf74a18b647ae58770a3",
     "active_before": [
-      "G1",
-      "G2",
-      "G3"
-    ],
-    "active_after": [
       "G1"
     ],
+    "active_after": [
+      "G1",
+      "T1"
+    ],
+    "negative_screen": "K1",
+    "diversity_gap": 1,
     "formal_review": "pending",
-    "new_cpu_process_seconds": 0.029925154999999926,
-    "gpu_runs": 0,
-    "provider_cost": "unknown",
-    "diversity_gap": 2,
-    "source_protocol_pin": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-    "installed_v11_2_tree_schema_status": "not adopted; no duplicate science tree"
+    "GPU_jobs": 0,
+    "provider_cost": "unknown"
   }
 }
