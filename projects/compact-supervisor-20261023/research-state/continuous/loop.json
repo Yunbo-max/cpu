@@ -9,9 +9,9 @@
     "kind": "other"
   },
   "status": "active",
-  "revision": 8,
-  "question_id": "Q-g1-t1-crossdomain-baselines",
-  "question": "Can G1 and T1 be studied as two independent mechanisms under admissible data and matched strong comparators?",
+  "revision": 9,
+  "question_id": "Q-g1-t1-strong-baselines-and-type-soundness",
+  "question": "Does G1 beat an exact sparse response oracle on actual held-out fault query workloads, and does T1's conditional-rule admission lead to loss of non-functionally determined columns in its actual compressed-output path?",
   "phase": "discovery",
   "history": [
     {
@@ -394,14 +394,80 @@
         "VLM frozen external archived outputs remain unmounted; separate active Qwen training repo must not be modified.",
         "No GPU, paid API, scheduled run, or new native job authorized; provider cost unknown."
       ]
+    },
+    {
+      "decision_id": "manual-r011-two-leaf-strong-comparator-audit-20261023",
+      "parent_question_id": "Q-g1-t1-crossdomain-baselines",
+      "action": "deepen",
+      "stage": "discovery",
+      "next_actor": "designer",
+      "next_question_id": "Q-g1-t1-strong-baselines-and-type-soundness",
+      "next_question": "Does G1 beat an exact sparse response oracle on actual held-out fault query workloads, and does T1's conditional-rule admission lead to loss of non-functionally determined columns in its actual compressed-output path?",
+      "causal_reason": "Independent G1 real benchmark matrix under synthetic fault queries reveals a strong exact sparse-indexed baseline (not a learned model win), while code-pinned T1 semantic conditional constraint is not equivalent to a target functional dependency and enters current CRKG drop plan.",
+      "mathematical_prediction": "For G1 the toy one-bit optimum is min(1/4,(1-pmax)/2); five fixed Sioux Falls OD pairs have respectively 17,4,12,3,6 of 76 vital edges under each single-edge deletion. T1 example H(price|region)=1 bit despite accepted semantic rule and plan drop; any deterministic reconstruction solely from region has exact accuracy <=0.5 under balanced example.",
+      "falsifier": "Published or even trivial exact sparse/oracle baselines with lower matched bits reject G1 method necessity; an independent production code trace that prevents semantic edges from causing target drop, or fully retains residual target information, invalidates scoped T1 harm claims.",
+      "evidence": [
+        {
+          "path": "rounds/R011.md",
+          "sha256": "c374aa08ac79c7a010bba33017a9ebc172a2ec063502f6ccd0cb83b16288f537",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R011_G1_SiouxFalls_sparse.md",
+          "sha256": "4fc21c0bb4132310d609d79a904c886f33d2e58ada29b132af205e4341b4d71c",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R011_G1_SiouxFalls_receipt.json",
+          "sha256": "783f1936a241f83812b57c026dc9c56b4b6c454063b88edbaeb559c63181aebf",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R011_G1_sparse_reproduce.js",
+          "sha256": "be41262daeed62224713fa12daeade9966eaaa77f68825ee53fa4843a01da83d",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R011_G1_onebit.md",
+          "sha256": "323efb5ae9888580a15dc6d0c14d64094a95385f62b30714acc6cf5d6d2aa724",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R011_G1_onebit_enumerate.py",
+          "sha256": "a9e711d661ed6715da41ce28e4341cf69d1c7ec763f086a11872b04798ee7f41",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R011_T1_type_soundness.md",
+          "sha256": "3e574267554069bf0a7aea06a9e12d4399f7e72df075bfbf36e2e511718b2f59",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R011_T1_minimal_reproduce.py",
+          "sha256": "f98aed0df0aa93b002988b27862e79c684ef612180912bd01bf408288e8b64b0",
+          "kind": "code"
+        },
+        {
+          "path": "review/R011_handoff.md",
+          "sha256": "35a29216dd38c4349a1b354eb401c219c8d0f2509556cb27864430ba00bc59b9",
+          "kind": "other"
+        }
+      ],
+      "waiting_for": [
+        "Independent formal Work scientific reviewer still PENDING; none of selection/design/code/results accepted.",
+        "G1 requires independently observed failures or explicitly synthetic test splits plus matched exact-oracle and entropy-code baselines; current Sioux Falls only capacity + OD data.",
+        "T1 complete TabKG diffusion/decompression not run; verify type-soundness and domain assumptions against actual production path.",
+        "R006 EventTune Local archive remains blocked, MOE/PROV/G2/G3/K1 remain parked.",
+        "GPU, paid API, scheduled task, native jobs not authorized; provider cost and unmetered CPU remain unknown."
+      ]
     }
   ],
   "waiting_for": [
-    "Independent Work reviewer pending for G1 and T1; no method design accepted.",
-    "G1 data gate: FlowBanzhaf has synthetic capacities and no observed failure frequencies, must identify independent workloads before claims.",
-    "T1 gate: full TabKG reconstruction path and truly legitimate rare exceptions unverified.",
-    "VLM frozen external archived outputs remain unmounted; separate active Qwen training repo must not be modified.",
-    "No GPU, paid API, scheduled run, or new native job authorized; provider cost unknown."
+    "Independent formal Work scientific reviewer still PENDING; none of selection/design/code/results accepted.",
+    "G1 requires independently observed failures or explicitly synthetic test splits plus matched exact-oracle and entropy-code baselines; current Sioux Falls only capacity + OD data.",
+    "T1 complete TabKG diffusion/decompression not run; verify type-soundness and domain assumptions against actual production path.",
+    "R006 EventTune Local archive remains blocked, MOE/PROV/G2/G3/K1 remain parked.",
+    "GPU, paid API, scheduled task, native jobs not authorized; provider cost and unmetered CPU remain unknown."
   ],
-  "last_decision_id": "manual-r010-two-independent-mechanism-gate-20261023"
+  "last_decision_id": "manual-r011-two-leaf-strong-comparator-audit-20261023"
 }

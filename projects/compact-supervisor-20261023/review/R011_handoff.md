@@ -1,0 +1,7 @@
+# R011 formal independent review request — PENDING
+Research coordination parent: 56c7198d5c6f7bb12a1883ce81df1112652897be; final R011 coordination SHA is the GitHub commit carrying this file, to be read back.
+Reviewer must be a DIFFERENT REAL Work conversation; current designer's own source reading, pure-math reasoning and cheap CPU probes are not an independent scientific audit.
+Review G1: verify all five distinct Sioux Falls OD pairs, integer-scaled flow implementation and 385 fault queries, payload cost fairness, source/license/provenance, ICALP 2024 weighted vital-edge oracle and ITCS 2026 fault-oracles, and missing held-out physical outage frequencies. Challenge whether proposed future coding can beat simple exact sparse exception tables, entropy coding and table compression.
+Review T1: separately inspect pinned TabKG validator/compressor/main type contracts; the conditional relation need not be an FD, but ensure reproduction tests exactly mirror current production path and do not conflate code's compressed CSV with paper-level diffusion/decompression output. Challenge algorithm novelty against typed dependencies, support-aware confidence tests, schema constraints.
+Approval status: NOT REVIEWED. Selection/design/code/result acceptance and native execution authorization absent.
+Budget and gates: only source reading, math and cheap local checks; no native GPU, API, paid provider, Work subagents or scheduled task. Provider token/cost unknown.

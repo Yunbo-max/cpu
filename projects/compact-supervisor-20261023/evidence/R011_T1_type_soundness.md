@@ -1,0 +1,15 @@
+# R011 T1: Semantic implication is not a functional dependency
+Parent: T1 active at coordination 56c7198d5c6f7bb12a1883ce81df1112652897be. Pin Yunbo-max/TabKG@e44fdf17f98b50ee1348392982e083a1db8f6ad7.
+
+Actual inspected code path:
+1. reasoning/graph_validator.py (blob ee4f3c65054e14dfc6351adc436f1e8e9f10c0e1), validate_semantic returns 1.0 if antecedent has zero rows, otherwise satisfaction rate; validate_graph accepts type='semantic' when score>=threshold (.9 by default).
+2. reasoning/graph_compressor.py (blob d3554746440eaa7509483d181abbf02c73adfa4f): build_dependency_dag accepts any validated directed edge without checking whether its type licenses deterministic reconstruction; find_minimal_independent_set uses any incoming edge to classify target as compressible, and creates a rule descriptor, not actual recovery values.
+3. main.py (blob b32c2547f1d1b7438b76fc0df459fa660cf6da1f) lines 186-199 calls validation->compression, lines 211-225 DROPS selected columns from the saved CRKG_FilteredOutput.csv.
+
+Concrete four-row counterexample: (region,price)=(a,1),(a,3),(b,2),(b,4). Rule IF region=='a' THEN price>0 is supported by both a rows, validates 1.0 and makes the edge region->price accepted. Codepath-inspired minimal Python reproducer (actually run on CPU, NOT imported original modules) yields columns_to_keep=[region], dropped=[price]. However empirical H(price|region)=1 bit; any deterministic decoder from region has at best 50% row-value exact accuracy with an i.i.d sample of this joint distribution. Even with nonzero/full antecedent support, semantic constraint does not imply unique reconstruction.
+
+Math: for a deterministic reconstruction Y=f(X), zero conditional entropy H(Y|X)=0 is necessary and sufficient for lossless categorical recovery (on a finite discrete empirical population / probability model). With H(Y|X)>0, error >= 1 - E_X[max_y P(Y=y|X)]; the balanced illustrative example gives error >=0.5. This is a classical logic/information-theory fact, NOT a new theorem.
+
+The zero-support R010 issue compounds this but is not essential for the counterexample. The inspected pinned main.py CRKG stage saves a compression CSV and a graph/reconstruction-map JSON, but DOES NOT execute a full latent diffusion generation and decompression pipeline in the inspected path. Do not assert that the complete paper implementation necessarily erases production data or synthetically generates invalid records. It is a narrowly validated code-path risk and type-soundness gap, not proof of a publishable algorithm.
+
+Strong comparator: admit target-column elimination only with verified functional dependency (empirical and held-out), otherwise preserve target's stochastic residual or abstain. Check exact FDs and soft stochastic constraints with equal retention/compression/utility. Before any method claim, formal independent reviewer must inspect main.py, graph_validator.py, graph_compressor.py pinned versions, actual invoked entrypoint and samples, and rule/fidelity baseline. No GPU/API/reconstruction run or reviewer acceptance this round.

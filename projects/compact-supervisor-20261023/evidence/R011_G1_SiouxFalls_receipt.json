@@ -1,0 +1,83 @@
+{
+  "schema": "r011-sioux-falls-single-edge-delete-cpu-v1",
+  "date": "2026-10-23",
+  "git_repo": "bstabler/TransportationNetworks",
+  "git_commit": "d1639b4ef218c17928ba573e806ddf8ba5e7ae6d",
+  "net_file": "SiouxFalls/SiouxFalls_net.tntp",
+  "net_blob": "66d0eca4ddcfb82f861bea040060deab7a741b2f",
+  "trips_file": "SiouxFalls/SiouxFalls_trips.tntp",
+  "trips_blob": "db70eda57738877811e9ac07c25a567973d3b6a0",
+  "protocol": "Five highest-demand unordered-distinct OD pairs; all 76 possible directed single-edge deletions per source/sink pair; synthetic uniform failure stress only",
+  "method": "Integer-capacity Dinic maxflow; decimal capacities scaled exactly by 10^6 before calculations",
+  "nodes": 24,
+  "edges": 76,
+  "positive_od_pairs": 528,
+  "maxflow_calls": 385,
+  "bits_approximation": "Fixed-length payload with shared 76-edge dictionary, 7-bit count of vital edges, one 64-bit baseline value, per vital edge 7-bit original-edge index and 64-bit loss value. Full table 76x64-bit values. Does not account for full graph storage or executable code.",
+  "metrics": [
+    {
+      "s": 10,
+      "t": 16,
+      "demand": 4400,
+      "base_flow": 34810.547073,
+      "vital": 17,
+      "unaffected": 59,
+      "mean_drop": 1236.4108832368422,
+      "max_drop": 19679.89671,
+      "sparse_bits": 1278,
+      "full_bits": 4864
+    },
+    {
+      "s": 10,
+      "t": 11,
+      "demand": 4000,
+      "base_flow": 24694.161747,
+      "vital": 4,
+      "unaffected": 72,
+      "mean_drop": 324.9231808815789,
+      "max_drop": 10000,
+      "sparse_bits": 355,
+      "full_bits": 4864
+    },
+    {
+      "s": 10,
+      "t": 15,
+      "demand": 4000,
+      "base_flow": 38065.266628,
+      "vital": 12,
+      "unaffected": 64,
+      "mean_drop": 862.1151524736842,
+      "max_drop": 13512.00155,
+      "sparse_bits": 923,
+      "full_bits": 4864
+    },
+    {
+      "s": 10,
+      "t": 17,
+      "demand": 3900,
+      "base_flow": 15047.371588,
+      "vital": 3,
+      "unaffected": 73,
+      "mean_drop": 197.99173142105263,
+      "max_drop": 5229.910063,
+      "sparse_bits": 284,
+      "full_bits": 4864
+    },
+    {
+      "s": 9,
+      "t": 10,
+      "demand": 2800,
+      "base_flow": 28965.981576,
+      "vital": 6,
+      "unaffected": 70,
+      "mean_drop": 452.02302015789473,
+      "max_drop": 13915.78842,
+      "sparse_bits": 497,
+      "full_bits": 4864
+    }
+  ],
+  "code_execution": "Connected GitHub data fetched and 385 maxflows computed in this chat's isolated JavaScript execution; attached standalone JS script is equivalent but was not executed locally with those two files.",
+  "measurement": "228 ms wall time for the exact integer Dinic 5-pair diagnostic; process CPU seconds unavailable (do not treat as zero)",
+  "failures_data": "No observed failure frequencies, no independent training/test workloads; this is not a traffic reliability evaluation.",
+  "exact_flow_oracle_comparison": "not implemented; ICALP 2024/ITCS 2026 published oracle theory must be benchmarked fairly."
+}
