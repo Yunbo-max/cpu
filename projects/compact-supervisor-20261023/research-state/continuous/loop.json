@@ -1,0 +1,56 @@
+{
+  "schema": "continuous-research-v1",
+  "project_id": "compact-supervisor-20261023",
+  "goal": "Counterexample-driven AI and mathematical research with verifiable surprising failure mechanisms, cross-domain transfer and rigorous next-question continuation.",
+  "mode": "branching",
+  "authority_ref": {
+    "path": "research/authority.md",
+    "sha256": "b3a79b694bb7acf4b97efdbbe90ea032946b56c179a519397bb319131c4f4f83",
+    "kind": "other"
+  },
+  "status": "active",
+  "revision": 1,
+  "question_id": "Q-adam-prior-equivalence",
+  "question": "Does any prefix-permutation MoE-specific optimizer prediction survive the established Adam sign and stochastic-variance mechanisms, or should this discovery branch be parked?",
+  "phase": "discovery",
+  "history": [
+    {
+      "decision_id": "manual-r003-adam-state-20261023",
+      "parent_question_id": "Q-adam-state",
+      "action": "deepen",
+      "stage": "discovery",
+      "next_actor": "designer",
+      "next_question_id": "Q-adam-prior-equivalence",
+      "next_question": "Does any prefix-permutation MoE-specific optimizer prediction survive the established Adam sign and stochastic-variance mechanisms, or should this discovery branch be parked?",
+      "causal_reason": "R002's first-step gap shrinks by about 250-530x with matched nonzero t=100 state; aligned deterministic gradient shifts remove sign crossings; ICML 2018 explains sign and variance effects and ICML 2026 already repairs routing-statistics bias.",
+      "mathematical_prediction": "For C=beta2*v_prev>0, equal-mean fixed-state gradient distributions differ in expected scalar Adam updates by at most 0.5*sup|F''|*Var(delta); no O(lr) floor remains as variance tends to zero under bounded-state assumptions.",
+      "falsifier": "A nonvanishing O(lr) expected-update gap under fixed positive v_prev and vanishing bounded gradient variance, or reproduction errors exceeding 3e-10 on the frozen R002 first-step test, rejects the state-conditioned account.",
+      "evidence": [
+        {
+          "path": "rounds/R003.md",
+          "sha256": "93c2edd72164200e7fbe6bf4dd20ec948078743bd5ceb786265b510665cf237d",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R003_fixed_state_control.json",
+          "sha256": "0220963030b2ccbc5ad328fb20e6e05cff8631004f21e0528d46e5f0db6f03ba",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R003_fixed_state_control.py",
+          "sha256": "caea48ecdde30998bb582d04fe681177d5cea80bf9108678e688fa14e8b8a90d",
+          "kind": "code"
+        }
+      ],
+      "waiting_for": [
+        "Independent Work formal reviewer has not checked R001-R003 claims or code; no approval for native model training.",
+        "No GPU execution authorized for this project; only read-only literature and small CPU evidence under inherited limits."
+      ]
+    }
+  ],
+  "waiting_for": [
+    "Independent Work formal reviewer has not checked R001-R003 claims or code; no approval for native model training.",
+    "No GPU execution authorized for this project; only read-only literature and small CPU evidence under inherited limits."
+  ],
+  "last_decision_id": "manual-r003-adam-state-20261023"
+}
