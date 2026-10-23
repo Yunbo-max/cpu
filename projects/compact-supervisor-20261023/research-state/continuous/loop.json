@@ -9,7 +9,7 @@
     "kind": "other"
   },
   "status": "active",
-  "revision": 3,
+  "revision": 4,
   "question_id": "Q-excitation-frozen-evidence",
   "question": "Can immutable authorized EventTune run artifacts provide per-item candidate sequence log-scores, masked ZB activations, and effective-controller derivatives to test excitation and shared-feasibility certificates without GPU inference?",
   "phase": "discovery",
@@ -134,12 +134,51 @@
         "Frozen EventTune Git reports lack per-sample candidate scores, masked ZB, and margin Jacobians; read-only search authorized external run archives before any new inference.",
         "EventTune GPU experiment freeze and project GPU authorization=false remain; no new model forward/backward or paid API."
       ]
+    },
+    {
+      "decision_id": "manual-r006-archive-gate-20261023",
+      "parent_question_id": "Q-excitation-frozen-evidence",
+      "action": "await",
+      "stage": "discovery",
+      "next_actor": "local",
+      "next_question_id": "Q-excitation-frozen-evidence",
+      "next_question": "Can immutable authorized EventTune run artifacts provide per-item candidate sequence log-scores, masked ZB activations, and effective-controller derivatives to test excitation and shared-feasibility certificates without GPU inference?",
+      "causal_reason": "The frozen experiment reports only aggregate statistics and lacks the per-sample effective-actuator tensors needed to adjudicate R005; targeted cross-surface searches found no mounted artifacts. Separately steering-strength nonmonotonicity has a directly relevant ICML 2026 prior, so that pivot is not a new-method claim.",
+      "mathematical_prediction": "R005 code-specific condition remains conditional: effective edit deltaZ = M*(ZB) A B^T can vanish despite perfect projected gradient coverage; deciding how often this occurs requires per-example ZB and true sequence-score margin derivatives, not Macro-F1.",
+      "falsifier": "A matched immutable artifact with ZB, candidate-score margin Jacobians and valid remainder bounds permits testing R005; absent those artifacts no practical causal claim should be made. Observed large output edits at a fixed hook with exactly zero masked ZB and no earlier changing hooks would contradict the local no-op algebra.",
+      "evidence": [
+        {
+          "path": "rounds/R006.md",
+          "sha256": "cbf84dd3c47ef42911e6c0b985677f7e1b47142e05e332d5e4aed1d771fc481f",
+          "kind": "other"
+        },
+        {
+          "path": "evidence/R006_artifact_gate.md",
+          "sha256": "23871d5e476e14719b0e59409bcdfa0823e22e26c4ccc90548ec829aedc3363b",
+          "kind": "other"
+        },
+        {
+          "path": "evidence/R006_strength_collision.md",
+          "sha256": "02ab07014c209bb3fb1cf1491204fa472d42bc1a48194dafd5d851199ddbf0d2",
+          "kind": "paper"
+        },
+        {
+          "path": "handoff/R006_local_readonly.md",
+          "sha256": "717ce32c666b0c271f101a9c3b36d0d3386e50c5e805daf51c3a0e5a7192bca4",
+          "kind": "other"
+        }
+      ],
+      "waiting_for": [
+        "Local actor must inspect only already-existing EventTune run archives (no model inference) to locate per-sample sequence scores, masked ZB, score-margin Jacobians, remainder bounds, and exact hashes; no such artifacts in inspected GitHub/Library/Drive/HF Jobs stores.",
+        "Formal independent Work reviewer remains pending; code, design and native model execution admission denied until actual reviewer result.",
+        "Frozen EventTune GPU phase unchanged; no GPU/paid API/SSH/Actions/remote jobs authorized; no scheduler active."
+      ]
     }
   ],
   "waiting_for": [
-    "Independent formal Work reviewer of R001-R005 math, novelty and any design still pending; no code/model design acceptance.",
-    "Frozen EventTune Git reports lack per-sample candidate scores, masked ZB, and margin Jacobians; read-only search authorized external run archives before any new inference.",
-    "EventTune GPU experiment freeze and project GPU authorization=false remain; no new model forward/backward or paid API."
+    "Local actor must inspect only already-existing EventTune run archives (no model inference) to locate per-sample sequence scores, masked ZB, score-margin Jacobians, remainder bounds, and exact hashes; no such artifacts in inspected GitHub/Library/Drive/HF Jobs stores.",
+    "Formal independent Work reviewer remains pending; code, design and native model execution admission denied until actual reviewer result.",
+    "Frozen EventTune GPU phase unchanged; no GPU/paid API/SSH/Actions/remote jobs authorized; no scheduler active."
   ],
-  "last_decision_id": "manual-r005-kv-excitation-20261023"
+  "last_decision_id": "manual-r006-archive-gate-20261023"
 }

@@ -1,31 +1,33 @@
 {
   "project_id": "compact-supervisor-20261023",
-  "round": "R005",
-  "parent_checkpoint_commit": "0404c8e177e9b8c8b406e623862ac717b82caa9d",
-  "parent_question": "Q-vlm-reachable-margin",
-  "action": "deepen",
+  "round": "R006",
+  "parent_checkpoint_commit": "0bf88a5828567bb75bd3f50552da7bc8d668a06e",
+  "parent_question": "Q-excitation-frozen-evidence",
+  "action": "await",
   "next_question": "Q-excitation-frozen-evidence",
-  "round_path": "rounds/R005.md",
+  "round_path": "rounds/R006.md",
   "formal_review": "pending",
   "scheduler": "disabled",
   "budget": {
-    "last_probe_wall_seconds": "0.00339674 seconds inside local arithmetic loop; total runtime/provider usage not instrumented",
+    "last_probe_wall_seconds": "not instrumented; no native model experiment",
     "next_cpu_seconds": 60,
     "provider_cost": "unknown",
     "gpu_authorized": false
   },
   "mode": "branching",
   "continuous_state": "research-state/continuous/loop.json",
-  "continuous_revision": 3,
-  "continuous_state_sha256": "3f6b778c3fe4c489ee18b36d27a254f063d4a1e14d89a4395738c2f24e913d80",
+  "continuous_revision": 4,
+  "continuous_state_sha256": "f319b9e97f658175912c0b2f60b8f71f6e4ae0fa73f8278c7fa39042c58eef11",
   "frontier": {
     "parked": [
       "moe-prefix-optimizer-novelty",
       "rlvr-diversity-direct-novelty",
-      "lora-gauge-invariance-direct-novelty"
+      "lora-gauge-invariance-direct-novelty",
+      "steering-strength-general-novelty"
     ],
-    "investigating": "eventtune-effective-KV-excitation-and-joint-controller-conflict",
+    "investigating": "VLM-excitation-evidence-limited-await-local",
     "external_EvT_pinned": "3150cae1eecf2ee82e508d32fe7f2e80913f8149",
-    "blocked_on": "missing frozen per-example activation and score-margin derivatives"
-  }
+    "blocked_on": "No per-sample ZB+margin-gradients in inspected stores; local run archives unverified"
+  },
+  "next_actor": "local"
 }
