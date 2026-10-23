@@ -1,26 +1,27 @@
 {
   "project_id": "compact-supervisor-20261023",
-  "round": "R009",
-  "parent_checkpoint_commit": "1d3ce273ae068ae122560d4d10956cb39b2f96c5",
-  "parent_question": "Q-multileaf-fault-comparators",
-  "action": "deepen",
-  "next_question": "Q-g1-joint-coding-real-workload",
-  "round_path": "rounds/R009.md",
+  "round": "R010",
+  "parent_checkpoint_commit": "c2fcd0479f5e65f21b6e69015a34410669515a1c",
+  "parent_question": "Q-g1-joint-coding-real-workload",
+  "action": "new_topic",
+  "next_question": "Q-g1-t1-crossdomain-baselines",
+  "round_path": "rounds/R010.md",
   "formal_review": "pending",
   "scheduler": "disabled",
   "budget": {
-    "last_probe_wall_seconds": "R009 measured 0.029925154999999926 process CPU s on 3 toy checks; provider usage unknown",
+    "last_probe_wall_seconds": "R010 CPU arithmetic process 0.00003365s; no model or GPU jobs",
     "next_cpu_seconds": 60,
     "provider_cost": "unknown",
     "gpu_authorized": false
   },
   "mode": "branching",
   "continuous_state": "research-state/continuous/loop.json",
-  "continuous_revision": 7,
-  "continuous_state_sha256": "3d3cbecc122deb8ec4831fb082620121283748274783190b68e491902d32da25",
+  "continuous_revision": 8,
+  "continuous_state_sha256": "88ecef601e0229fd1f488feaf92a9e9828fb6a9c447182ff3b7bbfd02ac4e9ee",
   "frontier": {
     "active": [
-      "G1"
+      "G1",
+      "T1"
     ],
     "blocked": [
       "VLM"
@@ -29,7 +30,8 @@
       "MOE",
       "PROV",
       "G2",
-      "G3"
+      "G3",
+      "K1"
     ],
     "root": "ROOT",
     "old_topic_transfer_record": "chronological, not scientific parent links",
@@ -37,15 +39,19 @@
       "R006 EventTune local archive check pending"
     ],
     "evidence_status": "three synthetic proofs; no method acceptance",
-    "diversity_gap": 2,
-    "novelty_status": "G1 source-coding only; broad G2/G3 novelty parked",
+    "diversity_gap": 1,
+    "novelty_status": "Both active leaves provisional; no independent scientific acceptance",
     "source_protocol_pin": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-    "installed_skill_new_schema": "not migrated; preserve portfolio.json as sole existing canonical project tree"
+    "installed_skill_new_schema": "not migrated; preserve portfolio.json as sole existing canonical project tree",
+    "new_crossdomain": "T1 conditional rule zero-support",
+    "negative_screen": "K1 known global bank copy issue",
+    "max_active": 3,
+    "max_children": 6
   },
   "next_actor": "designer",
   "tree_mode": "persistent-research-tree-v1",
   "frontier_path": "research-state/counterexample/portfolio.json",
-  "frontier_revision": 3,
-  "frontier_sha256": "bf8a2d558cc341e7c4b5b740da3b5aa430ba47a84dc652f406dc1badaa391c90",
+  "frontier_revision": 5,
+  "frontier_sha256": "6713f0dfa6bcc160276b446bc29a2dadcd48a0d418f829bdfe9ec5be845faff7",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade"
 }
