@@ -9,9 +9,9 @@
     "kind": "other"
   },
   "status": "active",
-  "revision": 1,
-  "question_id": "Q-adam-prior-equivalence",
-  "question": "Does any prefix-permutation MoE-specific optimizer prediction survive the established Adam sign and stochastic-variance mechanisms, or should this discovery branch be parked?",
+  "revision": 2,
+  "question_id": "Q-vlm-reachable-margin",
+  "question": "Can a bounded logit-margin reachability certificate from already frozen EventTune evidence distinguish actuator-limited KV adaptation from high gradient alignment, without new GPU runs or query-label fitting?",
   "phase": "discovery",
   "history": [
     {
@@ -46,11 +46,56 @@
         "Independent Work formal reviewer has not checked R001-R003 claims or code; no approval for native model training.",
         "No GPU execution authorized for this project; only read-only literature and small CPU evidence under inherited limits."
       ]
+    },
+    {
+      "decision_id": "manual-r004-sign-closure-reachability-20261023",
+      "parent_question_id": "Q-adam-prior-equivalence",
+      "action": "export_counterexample",
+      "stage": "discovery",
+      "next_actor": "designer",
+      "next_question_id": "Q-vlm-reachable-margin",
+      "next_question": "Can a bounded logit-margin reachability certificate from already frozen EventTune evidence distinguish actuator-limited KV adaptation from high gradient alignment, without new GPU runs or query-label fitting?",
+      "causal_reason": "The original first-step Adam gap is reconstructed by a generic sign histogram, stronger micro/global-batch MoE precedents exist, and a positive-sign equal-moment Adam counterexample only yields a generic high-moment effect. Separately pinned EventTune data show high gradient-energy overlap with failure on an actuator-restricted model, motivating a different reachability rather than variance failure mechanism.",
+      "mathematical_prediction": "For margin m_ij(c), ||c||<=B, projected logit Jacobian v_ij and Hessian norm upper bound L_ij, max margin <= m0_ij+B||v_ij||+L_ij B^2/2. Hence if that expression <=0 for any competing class j, even the best bounded controller cannot correct item i; rho and kappa can both equal 1 while accuracy remains impossible, as the exact linear toy demonstrates.",
+      "falsifier": "No certified-unreachable items under a justified intervention radius and verified Jacobian/Hessian bounds on the failing task, or rank-order of such bounds not aligning with held-out gaps in matched controls, defeats this proposed actuator-reachability explanation. Absence of saved margins/Jacobians prevents empirical validation, not a positive result.",
+      "evidence": [
+        {
+          "path": "rounds/R004.md",
+          "sha256": "71ae404a3127d80e167e83f3851092f5ebd81e8544e11a400c38a0b843bc78ba",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R004_sign_moment_witness.json",
+          "sha256": "2a68f48e11dc7141adddbee8747e4a41b40322100d04653322739c479c104df2",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R004_moment_reachability.md",
+          "sha256": "1260193740532ef9b7c542d55efee6ea8c36336e1d15c48c9ed53fe3e4ca018d",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R004_prior_sweep.md",
+          "sha256": "07917f8a54d1d2dc78081b4f0ca822e6fdec7cb6750f32f23ea0031e8e0c289a",
+          "kind": "paper"
+        },
+        {
+          "path": "evidence/R004_reproduce.py",
+          "sha256": "7339b07d8cc3f853098c4cb66b2e616447536207fd647f480f28a80c97b22a8d",
+          "kind": "code"
+        }
+      ],
+      "waiting_for": [
+        "Formal selection/design and code/results claims require an actual separate Work reviewer, still pending; designer self-audit is not formal review.",
+        "External EventTune GPU experiment freeze remains in force; do not rerun GPU or use query-label oracle as deployable support.",
+        "Need read-only check whether frozen logits, projected Jacobians, intervention radius, and remainder diagnostics are accessible in pinned EventTune artifacts."
+      ]
     }
   ],
   "waiting_for": [
-    "Independent Work formal reviewer has not checked R001-R003 claims or code; no approval for native model training.",
-    "No GPU execution authorized for this project; only read-only literature and small CPU evidence under inherited limits."
+    "Formal selection/design and code/results claims require an actual separate Work reviewer, still pending; designer self-audit is not formal review.",
+    "External EventTune GPU experiment freeze remains in force; do not rerun GPU or use query-label oracle as deployable support.",
+    "Need read-only check whether frozen logits, projected Jacobians, intervention radius, and remainder diagnostics are accessible in pinned EventTune artifacts."
   ],
-  "last_decision_id": "manual-r003-adam-state-20261023"
+  "last_decision_id": "manual-r004-sign-closure-reachability-20261023"
 }

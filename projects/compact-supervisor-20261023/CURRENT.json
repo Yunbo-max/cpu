@@ -1,21 +1,30 @@
 {
   "project_id": "compact-supervisor-20261023",
-  "round": "R003",
-  "parent_checkpoint_commit": "d66204b7f17079b4340cbf17ee8acf7078aca330",
-  "parent_question": "Q-adam-state",
-  "action": "deepen",
-  "next_question": "Q-adam-prior-equivalence",
-  "round_path": "rounds/R003.md",
+  "round": "R004",
+  "parent_checkpoint_commit": "f27f6361919a9c375e4418c6d1f22de55f893496",
+  "parent_question": "Q-adam-prior-equivalence",
+  "action": "export_counterexample",
+  "next_question": "Q-vlm-reachable-margin",
+  "round_path": "rounds/R004.md",
   "formal_review": "pending",
   "scheduler": "disabled",
   "budget": {
-    "last_probe_wall_seconds": "unmeasured in JS executor; no native CPU timing claim",
+    "last_probe_wall_seconds": "not instrumented: synchronous JS + small Decimal mathematical scratch; no GPU",
     "next_cpu_seconds": 60,
     "provider_cost": "unknown",
     "gpu_authorized": false
   },
   "mode": "branching",
   "continuous_state": "research-state/continuous/loop.json",
-  "continuous_revision": 1,
-  "continuous_state_sha256": "d3a68f02476552f77dd33c4608c816156964d1dbeda66f474cfa2d52b0fe9adf"
+  "continuous_revision": 2,
+  "continuous_state_sha256": "2fd0098258147c45113e292cd1857d71a90596790b6549cc760c722be620f139",
+  "frontier": {
+    "parked": [
+      "moe-prefix-optimizer-novelty",
+      "rlvr-diversity-direct-novelty",
+      "lora-gauge-invariance-direct-novelty"
+    ],
+    "investigating": "bounded-VLM-logit-margin-reachability",
+    "external_EvT_pinned": "3150cae1eecf2ee82e508d32fe7f2e80913f8149"
+  }
 }
