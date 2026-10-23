@@ -1,0 +1,7 @@
+# R014 S3 — passive world-model accuracy cannot identify unseen action effects
+
+Construct two possible controlled environments W+ and W- with the SAME passive data: the only observed action is a0 and its reward is 0.5 in BOTH worlds. For unobserved action a1, W+ reward=1, W- reward=0. Any learner trained solely on a0 interactions observes identical data under both worlds, regardless of its passive prediction accuracy. Choose a1 with probability p. Regret relative to best action is (1-p)/2 in W+, p/2 in W-. The minimax worst-case regret min_p max((1-p)/2,p/2)=1/4 at p=1/2. One informative intervention on a1 can distinguish the toy worlds. This is elementary observational/interventional non-identifiability, not a new world-model theorem.
+
+Published nearest work: ICLR 2026 *World-In-World* tests closed-loop utility versus visual quality. AMD Oct 20 2026 technical report *Learning to Fail* observes action-conditioned video WMs mistakenly depicting failures as success and suggests action-fork counterfactual training. Their reported data are robotics experiments; this toy has NO real video model, visual benchmark, training, hardware or new efficiency measurements.
+
+Decision: screen S3 negative; do not activate. New research would need an action-specific failure boundary not already repaired or measured by published methods, plus actual forked environment benchmark and independent action/outcome labels.

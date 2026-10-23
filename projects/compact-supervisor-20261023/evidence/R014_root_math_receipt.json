@@ -1,0 +1,73 @@
+{
+  "schema": "r014-scientific-root-negative-screen-v1",
+  "parent_git_sha": "b896003e68b58a1bcf14dc671770204a587beb2f",
+  "date": "2026-10-23",
+  "experiment_scope": "pure standard-normal integral / small symbolic model CPU; NO language model experiment",
+  "multiple_testing": {
+    "model": "all candidate true scores zero, noisy observation Xi=eps_i iid N(0,1); pick argmax",
+    "expected_selected_reported_noise": [
+      {
+        "n": 1,
+        "value": 0
+      },
+      {
+        "n": 2,
+        "value": 0.5641895835477564
+      },
+      {
+        "n": 8,
+        "value": 1.4236003060452782
+      },
+      {
+        "n": 32,
+        "value": 2.069668827928908
+      },
+      {
+        "n": 128,
+        "value": 2.594597368599473
+      }
+    ],
+    "expectation_formula": "E max_i Z_i = integral_0^infty [1-Phi(t)^N-(1-Phi(t))^N] dt",
+    "approx_large_N": "sqrt(2 log N) up to lower-order terms",
+    "true_score_all_candidates": 0,
+    "integration": "scipy.integrate.quad on [0,9] with closed-form Normal CDF, independently checked with stdlib Simpson grid 3000 steps, both agree <1e-10"
+  },
+  "skill_optionality": {
+    "claim": "Under a policy-class superset with free optional ability to ignore new skill, V_star(L+skill)>=V_star(L)",
+    "proof": "max over superset cannot be below max over old subset",
+    "toy_no_skill_success": 0.8,
+    "new_skill_local_success": 0.9,
+    "new_skill_required_overhead": 0.3,
+    "net_if_forced_new_skill": 0.6000000000000001,
+    "optimal_optional_net": 0.8,
+    "scope": "nonmonotonic observed success needs budget, gating, policy-selection, state change, or estimator effect"
+  },
+  "world_model_passive_identification": {
+    "two_hidden_worlds": "both yield reward 0.5 on observed passive action a0; unseen a1 yields reward 1 versus 0",
+    "worst_case_regret_with_choose_a1_prob_p": "max(0.5*(1-p),0.5*p)",
+    "minimax_p": 0.5,
+    "minimax_regret": 0.25,
+    "identifiable_by_one_counterfactual_a1": "yes in deterministic two-world toy",
+    "scope": "basic offline nonidentifiability, not an LLM-specific result"
+  },
+  "parallel_masked_diffusion": {
+    "true_joint": {
+      "10": 0.5,
+      "01": 0.5
+    },
+    "marginal_prob_each_bit_one": 0.5,
+    "full_joint_probability_valid": 1,
+    "parallel_factorized_probability_valid": 0.5,
+    "factorized_probability_invalid": 0.5,
+    "scope": "correct tokenwise marginals do not imply valid joint, already ICML 2026 factorization-barrier papers"
+  },
+  "execution_receipts": {
+    "scipy_python_process_cpu_seconds": 0.022292723000000514,
+    "stdlib_simpson_independent_check_cpu_seconds": 0.0053501900000005875,
+    "remote_native_gpu_runs": 0,
+    "paid_api_training_calls": 0,
+    "actual_language_agents_used": 0,
+    "provider_usage": "unknown"
+  },
+  "scientific_status": "screened only: all broad claims have direct published/preprint neighbors; no novel algorithm or active leaf"
+}
