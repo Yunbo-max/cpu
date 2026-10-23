@@ -1,0 +1,276 @@
+{
+  "schema": "persistent-research-tree-v1",
+  "project_id": "compact-supervisor-20261023",
+  "mode": "branching",
+  "root_id": "ROOT",
+  "revision": 0,
+  "events": [],
+  "adopted_loop_revision": 6,
+  "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
+  "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
+  "wake_cursor": 0,
+  "max_active": 3,
+  "max_children": 4,
+  "max_depth": 3,
+  "native_gpu_authorized": false,
+  "active_frontier": [
+    "G1",
+    "G2",
+    "G3"
+  ],
+  "chronological_transfers_not_parent_edges": [
+    {
+      "round": "R004",
+      "from": "Q-adam-prior-equivalence",
+      "to": "Q-vlm-reachable-margin",
+      "meaning": "past topic switching"
+    },
+    {
+      "round": "R007",
+      "from": "Q-excitation-frozen-evidence",
+      "to": "Q-flow-query-entropy",
+      "meaning": "past topic switching"
+    }
+  ],
+  "external_restrictions": "No authority to restart unrelated paused projects, run GPU inference/training, or create a schedule.",
+  "total_authority": {
+    "cpu_max_seconds_per_wake": 60,
+    "paid_api_authorized": false,
+    "GPU_authorized": false,
+    "provider_cost": "unknown",
+    "scheduler": "disabled"
+  },
+  "nodes": [
+    {
+      "id": "ROOT",
+      "parent_id": null,
+      "status": "root",
+      "mechanism": "programme-proxy-and-intervention",
+      "question": "Which intervention and decision observables are lost by a compressed statistical proxy?",
+      "falsifier": "Distinct interventions change decisions even when all training proxies match.",
+      "next_actor": "designer",
+      "next_action": "supervise leaves",
+      "priority": 0,
+      "budget": {
+        "cpu_wake_reserved_s": 0,
+        "gpu_authorized": false,
+        "provider_cost": "unknown"
+      },
+      "formal_review": "pending",
+      "evidence": [
+        {
+          "path": "research/branching_adoption.md",
+          "sha256": "93a4a5f5c7fb90ed7a9065d50036fa54d4f5a487f2dbbc66f674019ef32660c9",
+          "kind": "other"
+        }
+      ]
+    },
+    {
+      "id": "MOE",
+      "parent_id": "ROOT",
+      "status": "parked",
+      "mechanism": "prefix-optimizer-moments",
+      "question": "Does the MoE prefix estimator offer any optimizer effect beyond existing EMA or stochastic Adam theory?",
+      "falsifier": "A direct published optimizer or MoE load-balancing mechanism explains the entire measured effect.",
+      "next_actor": "designer",
+      "next_action": "preserve negative novelty evidence",
+      "priority": 0,
+      "budget": {
+        "cpu_wake_reserved_s": 0,
+        "gpu_authorized": false,
+        "provider_cost": "unknown"
+      },
+      "formal_review": "pending",
+      "evidence": [
+        {
+          "path": "rounds/R003.md",
+          "sha256": "93c2edd72164200e7fbe6bf4dd20ec948078743bd5ceb786265b510665cf237d",
+          "kind": "math"
+        },
+        {
+          "path": "rounds/R004.md",
+          "sha256": "71ae404a3127d80e167e83f3851092f5ebd81e8544e11a400c38a0b843bc78ba",
+          "kind": "math"
+        }
+      ]
+    },
+    {
+      "id": "VLM",
+      "parent_id": "ROOT",
+      "status": "await",
+      "mechanism": "bounded-VLM-effective-controller",
+      "question": "Can existing frozen EventTune run outputs test activation-excitation and shared-controller infeasibility?",
+      "falsifier": "Valid saved projected activations and Jacobians falsify the proposed reachability limitations.",
+      "next_actor": "local",
+      "next_action": "read only existing EventTune archives",
+      "priority": 0,
+      "budget": {
+        "cpu_wake_reserved_s": 0,
+        "gpu_authorized": false,
+        "provider_cost": "unknown"
+      },
+      "formal_review": "pending",
+      "evidence": [
+        {
+          "path": "rounds/R005.md",
+          "sha256": "de3e8e3d35abf1ff34149e665d19bf9c1b5665628b6dc3595a1336f6fe63660d",
+          "kind": "math"
+        },
+        {
+          "path": "rounds/R006.md",
+          "sha256": "cbf84dd3c47ef42911e6c0b985677f7e1b47142e05e332d5e4aed1d771fc481f",
+          "kind": "other"
+        }
+      ],
+      "waiting_for": [
+        "No authorized mounted local run artifacts"
+      ]
+    },
+    {
+      "id": "GRAPH",
+      "parent_id": "ROOT",
+      "status": "expanded",
+      "mechanism": "graph-flow-intervention-semantics",
+      "question": "How can a condensed graph retain original-edge failure observables?",
+      "falsifier": "Best available fault sensitivity oracle explains all queried failures at no greater total bit and time cost.",
+      "next_actor": "designer",
+      "next_action": "supervise G1 G2 G3",
+      "priority": 0,
+      "budget": {
+        "cpu_wake_reserved_s": 0,
+        "gpu_authorized": false,
+        "provider_cost": "unknown"
+      },
+      "formal_review": "pending",
+      "evidence": [
+        {
+          "path": "rounds/R007.md",
+          "sha256": "0a76ca23ae94097bc5f746743e90bd9f44f30185568f5a8f0ce869ed08e98ad9",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R007_flow_witness.py",
+          "sha256": "5a5b1403443c1d630442d4c51fac9b064ef8b914542950d2e08b3e9196c83952",
+          "kind": "code"
+        }
+      ]
+    },
+    {
+      "id": "PROV",
+      "parent_id": "ROOT",
+      "status": "parked",
+      "mechanism": "multiagent-evidence-root-correlation",
+      "question": "Can an agent collective distinguish repeated reporting of one evidence root from independent corroboration?",
+      "falsifier": "Published epistemic sybil resistance already covers the full purported new mechanism.",
+      "next_actor": "designer",
+      "next_action": "do not rebrand published 2026 source independence",
+      "priority": 0,
+      "budget": {
+        "cpu_wake_reserved_s": 0,
+        "gpu_authorized": false,
+        "provider_cost": "unknown"
+      },
+      "formal_review": "pending",
+      "evidence": [
+        {
+          "path": "evidence/R008_prior_collisions.md",
+          "sha256": "2f1a1cd63cef5273dca0dcdcc5b74c521a6988631b2be5d92c6c04c9658e423b",
+          "kind": "paper"
+        }
+      ]
+    },
+    {
+      "id": "G1",
+      "parent_id": "GRAPH",
+      "status": "active",
+      "mechanism": "workload-conditioned-information-entropy",
+      "question": "Can nonuniform original-edge failure queries give a low-entropy, low-bit sketch beyond strong fault oracle baselines?",
+      "falsifier": "Oracle baseline dominates all workload-aware sketches, or real fault response entropy stays at maximum.",
+      "next_actor": "designer",
+      "next_action": "verify oracle lower bounds and held-out workload feasibility",
+      "priority": 3,
+      "budget": {
+        "cpu_wake_reserved_s": 20,
+        "source_permit": "paper reading and bounded toy CPU only",
+        "gpu_authorized": false,
+        "paid_api_authorized": false,
+        "provider_cost": "unknown"
+      },
+      "formal_review": "pending",
+      "evidence": [
+        {
+          "path": "research/branches/G1.md",
+          "sha256": "d340dc1446543af28192e3b0b5d547bfd347bbe100b97caf27d8eda757f339ae",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R008_graph_witness_receipt.json",
+          "sha256": "7c165585771b4ad01028f3c0e6dd43e05d0e47c551d4af34334ebdea8685443f",
+          "kind": "experiment"
+        }
+      ]
+    },
+    {
+      "id": "G2",
+      "parent_id": "GRAPH",
+      "status": "active",
+      "mechanism": "higher-order-fault-interaction",
+      "question": "Can a compact representation capture higher-order joint failures beyond information in all lower-order queries?",
+      "falsifier": "Existing k-fault oracle or higher-order cascade model fully captures the held-out group failures.",
+      "next_actor": "designer",
+      "next_action": "inspect multi-failure sensitivity and hypergraph prior",
+      "priority": 2,
+      "budget": {
+        "cpu_wake_reserved_s": 20,
+        "source_permit": "paper reading and bounded toy CPU only",
+        "gpu_authorized": false,
+        "paid_api_authorized": false,
+        "provider_cost": "unknown"
+      },
+      "formal_review": "pending",
+      "evidence": [
+        {
+          "path": "research/branches/G2.md",
+          "sha256": "bcb62d80807971dc8cf9e62e9c482e31232f62bdce665f87d7c4833ed69f3e63",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R008_graph_witness_receipt.json",
+          "sha256": "7c165585771b4ad01028f3c0e6dd43e05d0e47c551d4af34334ebdea8685443f",
+          "kind": "experiment"
+        }
+      ]
+    },
+    {
+      "id": "G3",
+      "parent_id": "GRAPH",
+      "status": "active",
+      "mechanism": "original-edge-identity-query-mapping",
+      "question": "What original-edge query correspondence must an invariant condensed graph retain to predict named-edge deletions?",
+      "falsifier": "Original-edge identities are never queried, or identity-aware methods match the full storage and query budget.",
+      "next_actor": "designer",
+      "next_action": "inspect identity-aware graph summary API and total metadata bits",
+      "priority": 1,
+      "budget": {
+        "cpu_wake_reserved_s": 20,
+        "source_permit": "paper reading and bounded toy CPU only",
+        "gpu_authorized": false,
+        "paid_api_authorized": false,
+        "provider_cost": "unknown"
+      },
+      "formal_review": "pending",
+      "evidence": [
+        {
+          "path": "research/branches/G3.md",
+          "sha256": "19a0f8223f969c301dafb01fd2fb64ef161ed0b39f3e5d1d58c9744833c64c17",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R008_graph_witness_receipt.json",
+          "sha256": "7c165585771b4ad01028f3c0e6dd43e05d0e47c551d4af34334ebdea8685443f",
+          "kind": "experiment"
+        }
+      ]
+    }
+  ]
+}

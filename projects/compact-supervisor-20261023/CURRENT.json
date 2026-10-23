@@ -1,38 +1,47 @@
 {
   "project_id": "compact-supervisor-20261023",
-  "round": "R007",
-  "parent_checkpoint_commit": "d15f079268c4a63e67e9c2595443b687bae0a9b4",
-  "parent_question": "Q-excitation-frozen-evidence",
-  "action": "new_topic",
-  "next_question": "Q-flow-query-entropy",
-  "round_path": "rounds/R007.md",
+  "round": "R008",
+  "parent_checkpoint_commit": "cf7c4d2ed79bb1c34b18df1790937524b3f89053",
+  "parent_question": "Q-flow-query-entropy",
+  "action": "deepen",
+  "next_question": "Q-multileaf-fault-comparators",
+  "round_path": "rounds/R008.md",
   "formal_review": "pending",
   "scheduler": "disabled",
   "budget": {
-    "last_probe_wall_seconds": "R007 synthetic flow test measured 0.30155968 process CPU seconds; no model run",
+    "last_probe_wall_seconds": "R008 measured toy CPU process 0.372022085s; local prototype unit tests eight cases 0.017s; no model run",
     "next_cpu_seconds": 60,
     "provider_cost": "unknown",
     "gpu_authorized": false
   },
   "mode": "branching",
   "continuous_state": "research-state/continuous/loop.json",
-  "continuous_revision": 5,
-  "continuous_state_sha256": "7e771b8b3debcd44b8fe507d9ca2cbe08b805985c5a2e45c3077b9bb8ecf23da",
+  "continuous_revision": 6,
+  "continuous_state_sha256": "058ef6d02c4afd103dd3f06518bea74aa367e63a01153d804cf3d28d001ca132",
   "frontier": {
+    "active": [
+      "G1",
+      "G2",
+      "G3"
+    ],
+    "blocked": [
+      "VLM"
+    ],
     "parked": [
-      "moe-prefix-optimizer-novelty",
-      "rlvr-diversity-direct-novelty",
-      "lora-gauge-invariance-direct-novelty",
-      "steering-strength-general-novelty"
+      "MOE",
+      "PROV"
     ],
-    "investigating": "provisional-fault-query-entropy-under-strong-oracles",
-    "external_EvT_pinned": "3150cae1eecf2ee82e508d32fe7f2e80913f8149",
-    "blocked_on": "No per-sample ZB+margin-gradients in inspected stores; local run archives unverified",
+    "root": "ROOT",
+    "old_topic_transfer_record": "chronological, not scientific parent links",
     "other_blocked": [
-      "eventtune-R006-local-archive-unresolved"
+      "R006 EventTune local archive check pending"
     ],
-    "novelty_status": "hypothesis only; direct ITCS 2026 prior",
-    "source_graph_repo_sha": "adca62d8106961ceda1f4e044a46eba87ca09b99"
+    "evidence_status": "three synthetic proofs; no method acceptance"
   },
-  "next_actor": "designer"
+  "next_actor": "designer",
+  "tree_mode": "persistent-research-tree-v1",
+  "frontier_path": "research-state/counterexample/portfolio.json",
+  "frontier_revision": 0,
+  "frontier_sha256": "c034cdfab0362a4cb0cbd578c184cac6a7e4f0478bdf56cceeca0660fff013b9",
+  "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade"
 }
