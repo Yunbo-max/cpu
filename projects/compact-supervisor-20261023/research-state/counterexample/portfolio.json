@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 16,
+  "revision": 17,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -570,19 +570,63 @@
       "next_falsifier": "Original Qwen module with actual flags does not reproduce the source-path Jacobian, author intentionally uses a beneficial bias/variance estimator, or a gauge-consistent correction has no improvement over original under matched seeds/model/code/data/resources.",
       "next_action": "Arrange separate Work scientific audit of original Qwen and OLMoE classes plus two-expert witness; limit further work to source/CPU preflight until independent design, code and GPU permissions exist.",
       "formal_review": "pending"
+    },
+    {
+      "event_id": "manual-r019-p1-isolated-original-dp-tie-and-sweep-20261024",
+      "node_id": "P1",
+      "action": "await",
+      "stage": "discovery",
+      "causal_reason": "R019 source-derived execution of author numerical DP/marginal methods confirmed non-tied gauge discrepancy but falsified R017's exact-tie source-gradient numbers: both pinned Qwen/OLMoE DP produce zero Hessian at r=(5,5) due to custom stable logaddexp tie; source-path n4k2 difference persists. R018 selected expected-risk ascent reproduced, yet direct centering is a trivial gauge fix and a new 128-example unselected synthetic sweep did not show a general descent advantage. Gradient bias/variance tradeoff is already studied in published ICML/AISTATS methods; next claim needs independent real Work reviewer and native model experiment authorization.",
+      "evidence": [
+        {
+          "path": "rounds/R019.md",
+          "sha256": "cc0079116a250c07779fab3d93b3ad64f93de13135a0499f3a6048514ca0dfab",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R019_reproduce.py",
+          "sha256": "9c9846ab4902fca7cba753d7d626c8a311f1606a47e34c649a3b1175402edc4e",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R019_source_prior.md",
+          "sha256": "21bc1110ccdeece4944c1599fa3cba65c251fc5eb3d4777e0b21226afa42bf26",
+          "kind": "paper"
+        },
+        {
+          "path": "evidence/R019_receipt_summary.json",
+          "sha256": "c69e8784b3029283650ae1760300f1ebc2da90b28cd09579ed65d148e6bae9a0",
+          "kind": "experiment"
+        },
+        {
+          "path": "review/R019_handoff.md",
+          "sha256": "93e092b0ce5fd02c135909669be6103cdcd3ae970fa0ba20d6a1aa397ddf5706",
+          "kind": "other"
+        },
+        {
+          "path": "research/branches/P1.md",
+          "sha256": "6875cc51c9c9f391afbd96b867446d5824c1df9669f9c0d267f3e037b2b919d1",
+          "kind": "math"
+        }
+      ],
+      "prior_R017_correction": "At exact tied logits 5,5, original core J00 = 0 for both variants; the earlier 0.25/0.001673 was an idealized smooth-enumeration result, not the author's DP. Near tie 5.001 vs 5 restores Qwen 0.00167155, OLMoE 0.24999993, exact 0.24999994.",
+      "next_question": "Can the published Qwen ProbMoE V1 Exact-k gauge-sensitive surrogate yield a reproducible real-trained-model failure beyond the author's known STE bias/variance tradeoff, after accounting for exact-tie autograd curvature?",
+      "next_actor": "reviewer",
+      "next_action": "Await a separate real Work reviewer to verify original fully imported module/config and distinguish exact-tie Hessian artifact from non-tied gauge path; then seek explicit design/code/GPU authorization for matched model benchmark. No local training without approval.",
+      "experiment_scope": "CPU only, pinned numerical original methods isolated from missing Transformers, 128 generated toy tasks, no actual trained model.",
+      "formal_review": "pending",
+      "full_model_approval": false
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 16,
+  "wake_cursor": 17,
   "max_active": 3,
   "max_children": 8,
   "max_depth": 3,
   "native_gpu_authorized": false,
-  "active_frontier": [
-    "P1"
-  ],
+  "active_frontier": [],
   "chronological_transfers_not_parent_edges": [
     {
       "round": "R004",
@@ -1212,12 +1256,12 @@
     {
       "id": "P1",
       "parent_id": "ROOT",
-      "status": "active",
+      "status": "await",
       "mechanism": "exactk-marginal-detach-surrogate-gauge-sensitivity",
-      "question": "Does the published Qwen ProbMoE V1 fixed Exact-k marginal-gradient path create gauge-dependent updates that can increase true expected task loss, and does correcting this give a useful real-model benefit beyond known STE bias tradeoffs?",
-      "falsifier": "Original Qwen module with actual flags does not reproduce the source-path Jacobian, author intentionally uses a beneficial bias/variance estimator, or a gauge-consistent correction has no improvement over original under matched seeds/model/code/data/resources.",
-      "next_actor": "designer",
-      "next_action": "Arrange separate Work scientific audit of original Qwen and OLMoE classes plus two-expert witness; limit further work to source/CPU preflight until independent design, code and GPU permissions exist.",
+      "question": "Can the published Qwen ProbMoE V1 Exact-k gauge-sensitive surrogate yield a reproducible real-trained-model failure beyond the author's known STE bias/variance tradeoff, after accounting for exact-tie autograd curvature?",
+      "falsifier": "If imported original model path differs, or held-out model experiments show no conditional utility gain versus standard probe/centering/unbiased baselines, P1 is an engineering issue rather than a new method. The preselected R018 toy and 128 random sweeps cannot establish a paper claim.",
+      "next_actor": "reviewer",
+      "next_action": "Await a separate real Work reviewer to verify original fully imported module/config and distinguish exact-tie Hessian artifact from non-tied gauge path; then seek explicit design/code/GPU authorization for matched model benchmark. No local training without approval.",
       "priority": 2,
       "budget": {
         "cpu_wake_reserved_s": 20,
@@ -1262,34 +1306,76 @@
           "path": "rounds/R018.md",
           "sha256": "14d1db1e86c46e04578d9bacc8a846bb5d250e8c52365cd0ce8fcea00685c180",
           "kind": "math"
+        },
+        {
+          "path": "rounds/R019.md",
+          "sha256": "cc0079116a250c07779fab3d93b3ad64f93de13135a0499f3a6048514ca0dfab",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R019_reproduce.py",
+          "sha256": "9c9846ab4902fca7cba753d7d626c8a311f1606a47e34c649a3b1175402edc4e",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R019_source_prior.md",
+          "sha256": "21bc1110ccdeece4944c1599fa3cba65c251fc5eb3d4777e0b21226afa42bf26",
+          "kind": "paper"
+        },
+        {
+          "path": "evidence/R019_receipt_summary.json",
+          "sha256": "c69e8784b3029283650ae1760300f1ebc2da90b28cd09579ed65d148e6bae9a0",
+          "kind": "experiment"
+        },
+        {
+          "path": "review/R019_handoff.md",
+          "sha256": "93e092b0ce5fd02c135909669be6103cdcd3ae970fa0ba20d6a1aa397ddf5706",
+          "kind": "other"
         }
+      ],
+      "waiting_for": [
+        "Separate real Work scientific reviewer has NOT yet run selection/design/code review bound to R019 final commit.",
+        "No native Transformers integration run; only pinned numerical function bodies executed in isolated shims.",
+        "No user GPU/API funding or model training authority; provider usage unknown.",
+        "128 preregistered synthetic tasks showed no clear general benefit of centered or probe gradient; held-out pretrained task evidence absent."
       ]
     }
   ],
   "latest_wake": {
-    "id": "manual-r018-20261024",
-    "actual_parent_Git_SHA": "43b1dd770ce484a98f961591da4e3ea48411c4f2",
-    "prior_R017_was_local_only": true,
-    "prior_R017_history_recovered_in_same_commit": true,
-    "active_before": [],
-    "active_after": [
+    "id": "manual-r019-20261024",
+    "actual_parent_commit": "1ebea4e7d855a5c0edcf2e30294b1b012867ecf5",
+    "active_before": [
       "P1"
     ],
-    "diversity_gap": 2,
-    "max_children_change": "7->8 structural only",
-    "max_active_unchanged": 3,
-    "observed_cpu": [
-      "R017 re-ran earlier small PyTorch probes; exact CPU charges otherwise unknown",
-      "R018 selected two-expert expected-gradient source-path toy ~0.04-0.05s after imports"
+    "active_after": [],
+    "await_after": [
+      "P1",
+      "G1",
+      "VLM"
     ],
-    "original_source": "HengHugoZhao/ProbMoE@3f0e538e8cab9b4b91f12479a0c0040c843723d2",
-    "training_runs": 0,
+    "parked_unchanged": [
+      "MOE",
+      "PROV",
+      "G2",
+      "G3",
+      "T1",
+      "K1",
+      "L1"
+    ],
+    "diversity_gap": 3,
+    "corrected_R017_exact_tie": true,
+    "non_tie_source_specific_effect": true,
+    "synthetic_generator_seed": 19019,
+    "synthetic_n": 128,
+    "surrogate_wrong_step_witness": true,
+    "code_run": "author's numerical method statements isolated; full Transformers class NOT imported",
+    "CPU_observed_s": "author methods audit <1s; controlled one-step <1s; variance <1s; fixed 128 tasks ~3.2s; other CPU/provider unknown",
+    "reviewer_status": "pending",
+    "next_actor": "designer for neutral root discovery; separate reviewer for P1",
     "GPU_runs": 0,
     "paid_API_calls": 0,
     "Work_native_subagents": 0,
-    "provider_cost": "unknown",
-    "independent_scientific_review": "pending",
-    "schedule": "disabled",
-    "provenance_boundary": "Published R017/R018 in ONE project commit, not two earlier GitHub wakes."
+    "scheduled_task": "disabled",
+    "provider_cost": "unknown"
   }
 }

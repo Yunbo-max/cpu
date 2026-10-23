@@ -1,30 +1,29 @@
 {
   "project_id": "compact-supervisor-20261023",
-  "round": "R018",
-  "parent_checkpoint_commit": "43b1dd770ce484a98f961591da4e3ea48411c4f2",
-  "parent_question": "Q-r017-source-pinned-new-mechanism-with-real-model-discriminator",
-  "action": "deepen",
-  "next_question": "Q-r019-probmoe-original-class-gauge-variance-and-utility",
-  "round_path": "rounds/R018.md",
+  "round": "R019",
+  "parent_checkpoint_commit": "1ebea4e7d855a5c0edcf2e30294b1b012867ecf5",
+  "parent_question": "Q-r019-probmoe-original-class-gauge-variance-and-utility",
+  "action": "await",
+  "next_question": "Q-r020-neutral-root-discovery-while-p1-independent-review-pending",
+  "round_path": "rounds/R019.md",
   "formal_review": "pending",
   "scheduler": "disabled",
   "budget": {
-    "last_probe_wall_seconds": "R017 source-path CPU replay rechecked this wake and R018 expected-gradient CPU <1s; other process/provider charges unknown, no GPU",
+    "last_probe_wall_seconds": "R019 bounded CPU tests ~6s total observed across separate scripts; other compute and provider charges unknown",
     "next_cpu_seconds": 60,
     "provider_cost": "unknown",
     "gpu_authorized": false
   },
   "mode": "branching",
   "continuous_state": "research-state/continuous/loop.json",
-  "continuous_revision": 16,
-  "continuous_state_sha256": "38c062f0ae7f9fa2cb1cd031ea42fbc89d6349348d324ec368a82f9f61be5dae",
+  "continuous_revision": 17,
+  "continuous_state_sha256": "653543a9a0e4a91620634acd36b3ee04190f829d268a9fe0c01ddb7b20d07708",
   "frontier": {
-    "active": [
-      "P1"
-    ],
+    "active": [],
     "blocked": [
       "VLM",
-      "G1"
+      "G1",
+      "P1"
     ],
     "parked": [
       "MOE",
@@ -40,9 +39,9 @@
     "other_blocked": [
       "R006 EventTune local archive check pending"
     ],
-    "evidence_status": "R017 source-pinned exact-k Qwen/OLMoE gauge-dependent surrogate confirmed in CPU mirror; R018 exact expected-gradient witness gives Qwen objective ascent under common shift +6. No trained model.",
-    "diversity_gap": 2,
-    "novelty_status": "P1 is provisional source-localized question ONLY; generic STE bias already known; full original module and trained model evidence missing.",
+    "evidence_status": "R019: isolated original author math confirms non-tie gauge differential, falsifies R017 exact tie source claim; simple center fixes selected case but 128 fixed toy tasks give no general superiority; 0 model runs.",
+    "diversity_gap": 3,
+    "novelty_status": "P1 Await separate real Work reviewer and full-model validation; numerical code effect is real but original scientific algorithm/method novelty or quality gain UNPROVEN.",
     "source_protocol_pin": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
     "installed_skill_new_schema": "not migrated; preserve portfolio.json as sole existing canonical project tree",
     "new_crossdomain": "T1 conditional rule zero-support",
@@ -50,14 +49,14 @@
     "max_active": 3,
     "max_children": 8,
     "reproducer_correction": "Within R011: fixed regexp escaping in standalone source; source hash updated with preserved revision/negative findings; former source retained in Git history",
-    "next_discovery": "Remain neutral branching: seek distinct peer mechanisms, no preferred/global direction.",
+    "next_discovery": "Neutral rooted AI/math counterexample search; no automatically preferred topic.",
     "root_screen_summary": "Five candidates screened NOT added as new nodes or parked descendants. Continue with different concrete model-specific intervention/update failure.",
     "model_gate": "QED 340M trained weights/code unverified; no native GPU or license-authorized implementation admitted"
   },
   "next_actor": "designer",
   "tree_mode": "persistent-research-tree-v1",
   "frontier_path": "research-state/counterexample/portfolio.json",
-  "frontier_revision": 16,
-  "frontier_sha256": "2f72f9ddd8566b1057f93ab0f5994ef9c965813f7bd0bd3e61223bdecc8b2d5f",
+  "frontier_revision": 17,
+  "frontier_sha256": "894fe2fba8100e8fe98e7a9c2d54cdbdf617323de19904d9c46144707f3a6f44",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade"
 }

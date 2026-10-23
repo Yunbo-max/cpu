@@ -1,0 +1,114 @@
+{
+  "schema": "r019-p1-authors-core-source-corrected-v1",
+  "date": "2026-10-24",
+  "parent_checkpoint": "1ebea4e7d855a5c0edcf2e30294b1b012867ecf5",
+  "source_repo": "HengHugoZhao/ProbMoE",
+  "source_commit": "3f0e538e8cab9b4b91f12479a0c0040c843723d2",
+  "pinned_blobs": {
+    "Qwen_exactk": "b06338fc66612f0e909c4b3fa954edabb662059a",
+    "OLMoE_exactk": "caa933e976bec9283e3ebac01adc347a1335cdf4"
+  },
+  "actual_imported_Transformers_classes": false,
+  "author_numerical_methods_in_isolated_shims": true,
+  "fixedk_tie": {
+    "r": [
+      5,
+      5
+    ],
+    "k": 1,
+    "analytic_J00": 0.25,
+    "qwen_source_method_J00": 0,
+    "olmoe_source_method_J00": 0,
+    "primitive_scalar": {
+      "pinned_d2_at_tie": 0,
+      "torch_logaddexp_d2_at_tie": 0.25
+    },
+    "naive_full_dp_torch_logaddexp_swap": "Nan second derivatives due to sentinel branches; NOT an accepted patch"
+  },
+  "near_tie": {
+    "r": [
+      5.001,
+      5
+    ],
+    "k": 1,
+    "qwen_J00": 0.0016715512610971928,
+    "olmoe_J00": 0.24999992549419403,
+    "analytic_J00": 0.24999993750001043
+  },
+  "generic": {
+    "r": [
+      0.4,
+      -0.2,
+      1.2,
+      -1
+    ],
+    "k": 2,
+    "qwen_J00": 0.09518520534038544,
+    "olmoe_J00": 0.2371848225593567,
+    "analytic_J00": 0.23718483097338083
+  },
+  "risk_witness": {
+    "shift": 6,
+    "initial": 0.087034546,
+    "qwen_after": 0.087104723,
+    "qwen_centered_after": 0.087012514,
+    "olmoe_after": 0.086919576,
+    "initial_loss_forward_shift_invariant": true,
+    "learning_rate": 0.1,
+    "selected_from_n_previous_synthetic_trials": 300000
+  },
+  "synthetic_sweep": {
+    "generator": "numpy PCG64 seed=19019; 128 tasks; logit gap uniform[-3,3], expert outputs and target iid standard normal; lr .05; shifts [-6,0,+6]; all tasks retained",
+    "n": 128,
+    "plus6": {
+      "Qwen": {
+        "ascent": 5,
+        "descent": 121,
+        "unchanged": 2
+      },
+      "Qwen_centered": {
+        "ascent": 10,
+        "descent": 117,
+        "unchanged": 1
+      },
+      "OLMoE": {
+        "ascent": 11,
+        "descent": 116,
+        "unchanged": 1
+      }
+    },
+    "unobserved_model_generalization": true
+  },
+  "selected_witness_bias_variance_plus6": {
+    "Qwen": {
+      "squared_bias": 0.00742963,
+      "sample_gradient_variance_trace": 0.01731558,
+      "mse": 0.02474521
+    },
+    "OLMoE": {
+      "squared_bias": 0.00386576,
+      "sample_gradient_variance_trace": 0.02348416,
+      "mse": 0.02734992
+    }
+  },
+  "local_files_sha256": {
+    "author_method_core": "2c68ce1ef7f8224993a1fbc0c967dc3bebff473dff6fc1ed5ba88f090026c0d3",
+    "isolated_author_verify": "40548c38552f8c9706c23cb335f7c2a2738ec56f49369a8ee4bdc1a3c92ad897",
+    "isolated_author_receipt": "0bd444298b72ab8a8e233347eabb6d1186476411c865f830feae2738c487f3e1",
+    "expected_risk_script": "32d6343859ed25b946ce41ba4c56c75974837003909c292516292e2b2e307e18",
+    "expected_risk_receipt": "2a81b65f5f333bbe696734004c8d97e305927d6b6d2d9022f40a85f94d8a6847",
+    "variance_script": "9b1d4e3f74d0c0abcac90d563a29744bd3192e389da2c9c36c47170ff461c00d",
+    "variance_receipt": "79fc7a6876e332d64a0dda28aa7b039e0f3f234985c12b9ac68e7b457627c622",
+    "synthetic_sweep_script": "f5ddb6ddd7f7e8d29fb1cfef1c7f7d9965b3f521ce52c856fb593294ee0502b",
+    "synthetic_sweep_raw_receipt": "cf9060a2e6246290b68dd4363ccb7b91bf715ba899f8f4a549470a787cb95fa2",
+    "compact_GitHub_equivalent_reproduce": "702577916ebdbdc32e2c5577846283225223df5cc4fb88a23206b96488c525c0"
+  },
+  "provider_cost": "unknown",
+  "CPU_process_total_for_this_wake": "<~10 seconds for bounded reproducible diagnostics; not all tool/provider CPU measured",
+  "GPU_jobs": 0,
+  "paid_API_calls": 0,
+  "actual_Work_subagents": 0,
+  "review_status": "pending",
+  "model_training_runs": 0,
+  "branch_decision": "P1 Await independent full native/model audit; not globally focused or refuted; no other science node altered"
+}
