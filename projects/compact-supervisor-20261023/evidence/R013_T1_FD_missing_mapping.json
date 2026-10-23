@@ -1,0 +1,80 @@
+{
+  "schema": "r013-t1-hierarchical-FD-noninjectivity-v1",
+  "source_research_sha": "79b064db2ecfe014a945e7284e16f41678739d3c",
+  "repository": "Yunbo-max/TabKG@e44fdf17f98b50ee1348392982e083a1db8f6ad7",
+  "source_blobs": {
+    "reasoning/graph_validator.py": "ee4f3c65054e14dfc6351adc436f1e8e9f10c0e1",
+    "reasoning/graph_compressor.py": "d3554746440eaa7509483d181abbf02c73adfa4f",
+    "main.py": "b32c2547f1d1b7438b76fc0df459fa660cf6da1f"
+  },
+  "fixed_candidate_graph": {
+    "nodes": [
+      "region",
+      "code"
+    ],
+    "edges": [
+      {
+        "source": "region",
+        "target": "code",
+        "type": "hierarchical",
+        "rule": ""
+      }
+    ]
+  },
+  "D0": [
+    [
+      "a",
+      0
+    ],
+    [
+      "a",
+      0
+    ],
+    [
+      "b",
+      1
+    ],
+    [
+      "b",
+      1
+    ]
+  ],
+  "D1": [
+    [
+      "a",
+      1
+    ],
+    [
+      "a",
+      1
+    ],
+    [
+      "b",
+      0
+    ],
+    [
+      "b",
+      0
+    ]
+  ],
+  "per_dataset_score": 1,
+  "conditional_entropy_H_target_given_source_each_bits": 0,
+  "compressed_output_equal": true,
+  "serialization_graph_map_equal": true,
+  "raw_targets_pairwise_all_different": true,
+  "best_row_accuracy_under_equal_prior_from_ambiguous_artifacts": 0.5,
+  "FD_function_dictionary_missing": "For K source keys each assigned one of q target labels independently and uniformly, there are q^K possible maps, requiring at least K*log2(q) information bits to recover the map with zero error, unless external side information is available.",
+  "exhaustive_followup": {
+    "K": 5,
+    "rows_per_category": 3,
+    "target_alphabet_q": 2,
+    "functions_tested": 32,
+    "distinct_scored_compressed_artifacts": 1,
+    "min_missing_bits_without_side_info": 5,
+    "measured_python_cpu_seconds": 0.025174034999999928
+  },
+  "executed_code": "Locally executed Python pandas mirror of source-exact validator expression and path-equivalent compression serialization; original TabKG package functions NOT imported, full --method crkg with actual LLM and downstream generator NOT executed.",
+  "original_local_reproducer_sha256": "86875fc1a0aaf88e65ab7e4cc448b4f460f7d8ba5c8030cbb1a36acce9e51358",
+  "original_exhaustive_sha256": "7b7f3676c7c5a69f6d6be3f55bb733b22d41cedff7e259ca23450f914e608a6a",
+  "novelty": "Known lossless dictionary requirements in dependency-aware table compression, not a new coding theorem or accepted AI model innovation"
+}

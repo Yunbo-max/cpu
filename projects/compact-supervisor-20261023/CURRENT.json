@@ -1,58 +1,58 @@
 {
   "project_id": "compact-supervisor-20261023",
-  "round": "R012",
-  "parent_checkpoint_commit": "978caea1dc52dbe9cdcbb50baaf149a607e4bcfe",
-  "parent_question": "Q-g1-t1-strong-baselines-and-type-soundness",
-  "action": "deepen",
-  "next_question": "Q-g1-t1-incident-join-and-fd-rowrisk-audit",
-  "round_path": "rounds/R012.md",
+  "round": "R013",
+  "parent_checkpoint_commit": "79b064db2ecfe014a945e7284e16f41678739d3c",
+  "parent_question": "Q-g1-t1-incident-join-and-fd-rowrisk-audit",
+  "action": "interpret",
+  "next_question": "Q-r014-root-source-backed-distinct-mechanism-screen",
+  "round_path": "rounds/R013.md",
   "formal_review": "pending",
   "scheduler": "disabled",
   "budget": {
-    "last_probe_wall_seconds": "R012 process CPU measured: G1 0.001209733s + T1 0.053553487s; other compute/provider usage unknown",
+    "last_probe_wall_seconds": "R013 measured Python process CPU: 0.007255164s two-leaf probe plus 0.025174035s exhaustive 32 maps; other CPU/provider usage unmetered; no GPU",
     "next_cpu_seconds": 60,
     "provider_cost": "unknown",
     "gpu_authorized": false
   },
   "mode": "branching",
   "continuous_state": "research-state/continuous/loop.json",
-  "continuous_revision": 10,
-  "continuous_state_sha256": "da399b21d0710db3c9059c0dc9f5b72684a4ce233cd6ada3fdd3b440df3fd202",
+  "continuous_revision": 11,
+  "continuous_state_sha256": "da9141e78ed9974cb6bac0cf853b899b5061c3fab4f6517a17fc94aeba43f3e2",
   "frontier": {
-    "active": [
-      "G1",
-      "T1"
-    ],
+    "active": [],
     "blocked": [
-      "VLM"
+      "VLM",
+      "G1"
     ],
     "parked": [
       "MOE",
       "PROV",
       "G2",
       "G3",
-      "K1"
+      "K1",
+      "T1"
     ],
     "root": "ROOT",
     "old_topic_transfer_record": "chronological, not scientific parent links",
     "other_blocked": [
       "R006 EventTune local archive check pending"
     ],
-    "evidence_status": "R012 actual outage data INDEX found but raw events unread; mathematical incident-snapshot selection inversion and T1 group-macro 99% vs 49.75% row-error CPU proof",
-    "diversity_gap": 1,
-    "novelty_status": "G1 no real model or oracle win; T1 source-specific optional CRKG code risk, not a novel general FD method; formal reviewer pending",
+    "evidence_status": "R013 3-bus DC vs graph maxflow target mismatch; exact-FD reconstruction-map omission, 2^5 exhaustive mapping collision; two cheap in-chat CPU checks",
+    "diversity_gap": 3,
+    "novelty_status": "G1 await valid data/physics, T1 parked as standalone method: classic FD dictionary requirement; no selected novel algorithm; formal reviewer pending",
     "source_protocol_pin": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
     "installed_skill_new_schema": "not migrated; preserve portfolio.json as sole existing canonical project tree",
     "new_crossdomain": "T1 conditional rule zero-support",
     "negative_screen": "K1 known global bank copy issue",
     "max_active": 3,
     "max_children": 6,
-    "reproducer_correction": "Within R011: fixed regexp escaping in standalone source; source hash updated with preserved revision/negative findings; former source retained in Git history"
+    "reproducer_correction": "Within R011: fixed regexp escaping in standalone source; source hash updated with preserved revision/negative findings; former source retained in Git history",
+    "next_discovery": "Do not force active branches; source-screen genuinely new ROOT mechanism distinct from all parked/awaiting claims"
   },
   "next_actor": "designer",
   "tree_mode": "persistent-research-tree-v1",
   "frontier_path": "research-state/counterexample/portfolio.json",
-  "frontier_revision": 9,
-  "frontier_sha256": "6e6af0e6120d93f688d6bdeecc1697d4cce8e601b4463c00911a7599bd99a6fa",
+  "frontier_revision": 11,
+  "frontier_sha256": "717c9900c8152a76a793eed0516dbca6f38b4b5498d3fe5468eef4c11bc8d7a1",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade"
 }

@@ -1,0 +1,24 @@
+{
+  "schema": "r013-g1-network-flow-vs-dc-transfer-v1",
+  "source_research_sha": "79b064db2ecfe014a945e7284e16f41678739d3c",
+  "network": "Physical three-bus triangle 0--1--2--0 with unit susceptance b=1 and thermal capacity F=1 on each physical line",
+  "injection": "P_s=T, P_mid=0, P_t=-T; theta_t=0; DC linearized lossless phase-angle power flow",
+  "formula": "theta_s=2T/3; theta_mid=T/3; flows f_st=2T/3, f_sm=T/3, f_mt=T/3",
+  "directed_graph_for_maxflow": "each physical undirected line represented by arcs in both orientations of unit capacity, giving s-t maxflow=2",
+  "triangle_transport_maxflow": 2,
+  "triangle_dc_max_transfer": 1.5,
+  "after_removing_direct_st_transport_maxflow": 1,
+  "after_removing_direct_st_dc_max_transfer": 1,
+  "transport_predicted_fault_loss": 1,
+  "DC_predicted_fault_loss": 0.5,
+  "ratio_of_predicted_losses": 2,
+  "actual_cpu_probe": "Executed numpy solve + networkx maximum_flow_value on CPU in this conversation, original local /mnt/data/r013/reproduce.py SHA256 86875fc1a0aaf88e65ab7e4cc448b4f460f7d8ba5c8030cbb1a36acce9e51358",
+  "measured_python_process_cpu_seconds_for_two_leaf_probe": 0.007255164000000036,
+  "source_data": "synthetic micrograph. No NYISO source CSV, power network, or observed current simulated",
+  "scope": "DC linear approximation counterexample, not full AC feasibility, not a new power engineering theorem",
+  "strongest_sources": [
+    "https://docs.pypsa.org/latest/user-guide/optimization/power-flow/",
+    "https://doi.org/10.1016/j.apenergy.2022.118859",
+    "https://doi.org/10.4230/LIPIcs.ICALP.2024.17"
+  ]
+}

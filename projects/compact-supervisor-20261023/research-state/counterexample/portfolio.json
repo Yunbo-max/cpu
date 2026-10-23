@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 9,
+  "revision": 11,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -251,20 +251,83 @@
       "next_question": "Does actual invoked TabKG optional --method crkg drop categorical targets with positive held-out H(Y|X) while not retaining residuals, and is a typed FD + row-risk gate anything beyond established approximate FD methods?",
       "next_falsifier": "Complete invoked path keeps target/residual information or never compresses such invalid relations; or exact FD/LD and UAI2025 probabilistic AFD already fully resolves proposed method, so research novelty must be parked.",
       "next_action": "Audit real optional CRKG graph output and downstream reconstruction, compare row-Bayes-risk typed baseline and true published methods, prepare independent Work reviewer issue without modifying TabKG."
+    },
+    {
+      "event_id": "manual-r013-g1-dc-power-flow-target-block-20261023",
+      "node_id": "G1",
+      "action": "await",
+      "causal_reason": "Executed exact 3-bus triangle counterexample: plain maxflow sensitivity is not electrical DC transfer-loss sensitivity, and this project's real NYISO PTID outage logs are not verified to join any physical line/reactance/capacity graph. Existing exact ordinary-flow fault oracles are strong prior, so do not promote a physically incoherent learning claim.",
+      "evidence": [
+        {
+          "path": "evidence/R013_G1_dc_counterexample.md",
+          "sha256": "5b3f8490610b1d7a4ac83537c08ae71a2147203896bf9ebc3468dbc689520a1b",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R013_G1_dc_counterexample.json",
+          "sha256": "cbd83bbd5c7d7592fadd6932fa1fc75195d1e81958d8f309620364e6896d1a3c",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R013_cheap_reproduce.py",
+          "sha256": "1304ed539ba0f165e06ab62a1395f951bb845503ecf320b5c9e1f596a82e7450",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R013_prior_collision_scope.md",
+          "sha256": "0598956b2053de841cb590f098489c97f13ade4c11392124078250ea64379e3d",
+          "kind": "paper"
+        }
+      ],
+      "waiting_for": [
+        "An admissible source-matched network with topology, thermal ratings/reactances, outage identities and defensible DC/AC or non-electrical failure outcome",
+        "Independent source and fair exact-oracle comparator review before returning to coding advantage claim"
+      ],
+      "next_question": "Can a different independently verified graph-failure task with matched observed failures and legitimate response target justify query-conditioned coding beyond exact oracle/entropy-code baselines?",
+      "next_falsifier": "No legitimate dataset/physical observable or matched full-cost gain over existing sensitivity oracles",
+      "next_action": "Wait on verified data/target; do not revive electrical NYISO+simple graph maxflow automatically."
+    },
+    {
+      "event_id": "manual-r013-t1-perfect-fd-noninjectivity-novelty-park-20261023",
+      "node_id": "T1",
+      "action": "park",
+      "causal_reason": "Pinned optional CRKG compression serializes graph relation types and rule metadata but not the required source-to-target mapping for hierarchical FD; even perfectly valid FD pairs have identical artifacts and information-theoretically cannot both reconstruct. This is a standard code/metadata requirement with 2007 dependency-aware compression precedent, not a new AI method paper.",
+      "evidence": [
+        {
+          "path": "evidence/R013_T1_FD_missing_mapping.md",
+          "sha256": "6bb575ff7333984dee5a2b4913d9077301c113bd3ed02497eae6825ec19b6fd1",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R013_T1_FD_missing_mapping.json",
+          "sha256": "8d1c1a8d8e74dda9293c50bcd10b76184d22bb94660b250f04b11292898aa6a3",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R013_cheap_reproduce.py",
+          "sha256": "1304ed539ba0f165e06ab62a1395f951bb845503ecf320b5c9e1f596a82e7450",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R013_prior_collision_scope.md",
+          "sha256": "0598956b2053de841cb590f098489c97f13ade4c11392124078250ea64379e3d",
+          "kind": "paper"
+        }
+      ],
+      "next_question": "Can the owner independently reproduce the pinned optional CRKG serialization issue in ORIGINAL modules and supply correct dictionary/residual reconstruction without claiming new method novelty?",
+      "next_falsifier": "Original executed path includes alternate exact map side-info or never uses the investigated CRKG files for decoding; any academic novelty collides with standard dependency-aware compression",
+      "next_action": "Park standalone academic-method claim; retain engineering issue and independent reviewer handoff; do not change TabKG repository or assert full pipeline damage."
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 9,
+  "wake_cursor": 11,
   "max_active": 3,
   "max_children": 6,
   "max_depth": 3,
   "native_gpu_authorized": false,
-  "active_frontier": [
-    "G1",
-    "T1"
-  ],
+  "active_frontier": [],
   "chronological_transfers_not_parent_edges": [
     {
       "round": "R004",
@@ -429,12 +492,12 @@
     {
       "id": "G1",
       "parent_id": "GRAPH",
-      "status": "active",
+      "status": "await",
       "mechanism": "workload-conditioned-information-entropy",
-      "question": "Can authentic deduplicated NYISO incident/occupancy queries be joined to a permitted edge-weighted graph and physically meaningful loss target, and can joint coding then beat exact weighted fault sensitivity oracles and sparse tables at matched full bits/latency/risk?",
-      "falsifier": "If real outage IDs cannot be mapped to a lawful physically meaningful graph with defensible weights, or exact weighted oracle/sparse table dominates the learned coder at equal total cost, the G1 practical-new-method claim fails.",
+      "question": "Can a different independently verified graph-failure task with matched observed failures and legitimate response target justify query-conditioned coding beyond exact oracle/entropy-code baselines?",
+      "falsifier": "No legitimate dataset/physical observable or matched full-cost gain over existing sensitivity oracles",
       "next_actor": "designer",
-      "next_action": "Inspect bounded actual P-54B rows and dedup by event identity after source access; verify legally accessible matched topology, electrical-model semantics and strong ICALP baseline, otherwise report data/target blocker.",
+      "next_action": "Wait on verified data/target; do not revive electrical NYISO+simple graph maxflow automatically.",
       "priority": 3,
       "budget": {
         "cpu_wake_reserved_s": 20,
@@ -519,7 +582,31 @@
           "path": "evidence/R012_primary_prior.md",
           "sha256": "9713ffc3efbf6c4220030581557d9596204073ac2199a9213af6710abcfc17bc",
           "kind": "paper"
+        },
+        {
+          "path": "evidence/R013_G1_dc_counterexample.md",
+          "sha256": "5b3f8490610b1d7a4ac83537c08ae71a2147203896bf9ebc3468dbc689520a1b",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R013_G1_dc_counterexample.json",
+          "sha256": "cbd83bbd5c7d7592fadd6932fa1fc75195d1e81958d8f309620364e6896d1a3c",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R013_cheap_reproduce.py",
+          "sha256": "1304ed539ba0f165e06ab62a1395f951bb845503ecf320b5c9e1f596a82e7450",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R013_prior_collision_scope.md",
+          "sha256": "0598956b2053de841cb590f098489c97f13ade4c11392124078250ea64379e3d",
+          "kind": "paper"
         }
+      ],
+      "waiting_for": [
+        "An admissible source-matched network with topology, thermal ratings/reactances, outage identities and defensible DC/AC or non-electrical failure outcome",
+        "Independent source and fair exact-oracle comparator review before returning to coding advantage claim"
       ]
     },
     {
@@ -617,12 +704,12 @@
     {
       "id": "T1",
       "parent_id": "ROOT",
-      "status": "active",
+      "status": "parked",
       "mechanism": "conditional-rule-zero-support-vacuity",
-      "question": "Does actual invoked TabKG optional --method crkg drop categorical targets with positive held-out H(Y|X) while not retaining residuals, and is a typed FD + row-risk gate anything beyond established approximate FD methods?",
-      "falsifier": "Complete invoked path keeps target/residual information or never compresses such invalid relations; or exact FD/LD and UAI2025 probabilistic AFD already fully resolves proposed method, so research novelty must be parked.",
+      "question": "Can the owner independently reproduce the pinned optional CRKG serialization issue in ORIGINAL modules and supply correct dictionary/residual reconstruction without claiming new method novelty?",
+      "falsifier": "Original executed path includes alternate exact map side-info or never uses the investigated CRKG files for decoding; any academic novelty collides with standard dependency-aware compression",
       "next_actor": "designer",
-      "next_action": "Audit real optional CRKG graph output and downstream reconstruction, compare row-Bayes-risk typed baseline and true published methods, prepare independent Work reviewer issue without modifying TabKG.",
+      "next_action": "Park standalone academic-method claim; retain engineering issue and independent reviewer handoff; do not change TabKG repository or assert full pipeline damage.",
       "priority": 2,
       "budget": {
         "cpu_wake_reserved_s": 20,
@@ -677,6 +764,26 @@
           "path": "evidence/R012_primary_prior.md",
           "sha256": "9713ffc3efbf6c4220030581557d9596204073ac2199a9213af6710abcfc17bc",
           "kind": "paper"
+        },
+        {
+          "path": "evidence/R013_T1_FD_missing_mapping.md",
+          "sha256": "6bb575ff7333984dee5a2b4913d9077301c113bd3ed02497eae6825ec19b6fd1",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R013_T1_FD_missing_mapping.json",
+          "sha256": "8d1c1a8d8e74dda9293c50bcd10b76184d22bb94660b250f04b11292898aa6a3",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R013_cheap_reproduce.py",
+          "sha256": "1304ed539ba0f165e06ab62a1395f951bb845503ecf320b5c9e1f596a82e7450",
+          "kind": "code"
+        },
+        {
+          "path": "evidence/R013_prior_collision_scope.md",
+          "sha256": "0598956b2053de841cb590f098489c97f13ade4c11392124078250ea64379e3d",
+          "kind": "paper"
         }
       ]
     },
@@ -713,26 +820,38 @@
     }
   ],
   "latest_wake": {
-    "id": "manual-r012-20261023",
-    "parent_research_commit": "978caea1dc52dbe9cdcbb50baaf149a607e4bcfe",
+    "id": "manual-r013-20261023",
+    "parent_research_commit": "79b064db2ecfe014a945e7284e16f41678739d3c",
     "active_before": [
       "G1",
       "T1"
     ],
-    "active_after": [
+    "active_after": [],
+    "awaiting_after": [
       "G1",
+      "VLM"
+    ],
+    "parked_after": [
+      "MOE",
+      "PROV",
+      "G2",
+      "G3",
+      "K1",
       "T1"
     ],
-    "diversity_gap": 1,
-    "incident_data_source": "NYISO P-54B index; raw outage rows not downloaded",
-    "actual_work_subagents": 0,
-    "formal_review": "pending",
-    "executed_cpu_g1_seconds": 0.0012097330000000461,
-    "executed_cpu_t1_seconds": 0.053553486999999844,
-    "other_cpu": "unmetered",
+    "diversity_gap": 3,
+    "next_actor": "designer",
+    "source_scope": "G1 DC-vs-transport impossibility of target substitution, T1 optional CRKG missing mapping even under perfect FD",
+    "experiment_scope": "two actually run source-path-equivalent Python CPU probes; no original TabKG modules or full model",
+    "original_local_probes_cpu_seconds": [
+      0.007255164000000036,
+      0.025174034999999928
+    ],
     "provider_cost": "unknown",
-    "gpu_jobs": 0,
     "paid_api_calls": 0,
+    "GPU_runs": 0,
+    "Work_subagents_dispatched": 0,
+    "formal_work_reviewer": "pending",
     "scheduler": "disabled"
   }
 }
