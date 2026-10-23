@@ -1,0 +1,225 @@
+{
+  "scope": "unchanged extracted CPU functions with identity single-rank reduction and stub logging; manual pipeline scaling; no full CUDA router",
+  "torch": "2.14.1+cpu",
+  "python": "3.12.14",
+  "elapsed_seconds": 0.95060133934021,
+  "source_commit": "72d23540d0358ae24a41ff289d1461b094a770fa",
+  "verified_source_blobs": {
+    "evidence/megatron_router_72d2354.py": "8cb8936a785d4d02ed6e240a61912d3aa2b29cbf",
+    "evidence/megatron_moe_utils_72d2354.py": "739283ee8b72cce835f94d6109e76169edfa0112"
+  },
+  "extracted": [
+    {
+      "source": "evidence/megatron_moe_utils_72d2354.py",
+      "name": "switch_load_balancing_loss_func",
+      "start": 35,
+      "end": 112,
+      "sha256": "fb4f02f3e91d2312eb7511affacac6bfce90ac55c7136743fa4629d788cb2eb7"
+    },
+    {
+      "source": "evidence/megatron_moe_utils_72d2354.py",
+      "name": "compute_routing_scores_for_aux_loss",
+      "start": 599,
+      "end": 629,
+      "sha256": "abc03956ff66aa5ca01080d47595fb4323edc916484afd38a58c8de9002a24ab"
+    },
+    {
+      "source": "evidence/megatron_moe_utils_72d2354.py",
+      "name": "MoEAuxLossAutoScaler",
+      "start": 166,
+      "end": 216,
+      "sha256": "bab45e4f8cbdfa91329cc008ba10a60b62b31f2c9113badb0b326ede1fa5c286"
+    },
+    {
+      "source": "evidence/megatron_router_72d2354.py",
+      "name": "_apply_global_aux_loss",
+      "start": 327,
+      "end": 363,
+      "sha256": "6b935eef5ba93c50361e1d1008da54abafb541ab90e43f18e2534fe39670a326"
+    },
+    {
+      "source": "evidence/megatron_router_72d2354.py",
+      "name": "attach_and_log_load_balancing_loss",
+      "start": 365,
+      "end": 399,
+      "sha256": "134b28b4339a0c04e4b8cb058634e48644500c44bd839134fb11c6074563f296"
+    },
+    {
+      "source": "evidence/megatron_router_72d2354.py",
+      "name": "reset_global_aux_loss_tracker",
+      "start": 523,
+      "end": 527,
+      "sha256": "f70be4b508095d8a5fc08af3e45b2b6aa61c33c23d6ad6d7a14774bf0791aa13"
+    }
+  ],
+  "receipts": [
+    {
+      "name": "binary",
+      "G": 2,
+      "permutations": 2,
+      "lambda": 0.5,
+      "native_vs_reference_max_abs_gradient_error": 0.0,
+      "loss_max_abs_error": 5.960464477539063e-08,
+      "per_token_scaling_max_abs_error": 0.0,
+      "mean_vs_identity_max_abs_error": 0.0,
+      "prefix_coordinate_range_max": 1.4901161193847656e-08,
+      "ht_reverse_pair_max_abs_error": 7.450580596923828e-09,
+      "control_mean_max_abs_error": {
+        "positive": 7.450580596923828e-09,
+        "pair_ht": 7.450580596923828e-09
+      },
+      "global_gradient": [
+        [
+          0.0
+        ],
+        [
+          0.0
+        ]
+      ],
+      "native_mean_gradient": [
+        [
+          0.1599999964237213
+        ],
+        [
+          -0.1599999964237213
+        ]
+      ],
+      "reset_repeat_exact": true
+    },
+    {
+      "name": "three_expert_101",
+      "G": 4,
+      "permutations": 24,
+      "lambda": 0.36111111111111116,
+      "native_vs_reference_max_abs_gradient_error": 1.4901161193847656e-08,
+      "loss_max_abs_error": 1.1920928955078125e-07,
+      "per_token_scaling_max_abs_error": 1.862645149230957e-08,
+      "mean_vs_identity_max_abs_error": 1.30385160446167e-08,
+      "prefix_coordinate_range_max": 0.1566033512353897,
+      "ht_reverse_pair_max_abs_error": 1.6763806343078613e-08,
+      "control_mean_max_abs_error": {
+        "positive": 1.30385160446167e-08,
+        "pair_ht": 1.30385160446167e-08
+      },
+      "global_gradient": [
+        [
+          -0.00426925253123045,
+          0.02183239907026291
+        ],
+        [
+          0.04953873157501221,
+          -0.02005215361714363
+        ],
+        [
+          -0.045269474387168884,
+          -0.0017802356742322445
+        ]
+      ],
+      "native_mean_gradient": [
+        [
+          0.0013063786318525672,
+          0.022806702181696892
+        ],
+        [
+          0.07786190509796143,
+          -0.045067813247442245
+        ],
+        [
+          -0.07916828989982605,
+          0.022261135280132294
+        ]
+      ],
+      "reset_repeat_exact": true
+    },
+    {
+      "name": "three_expert_102",
+      "G": 4,
+      "permutations": 24,
+      "lambda": 0.36111111111111116,
+      "native_vs_reference_max_abs_gradient_error": 2.0489096641540527e-08,
+      "loss_max_abs_error": 1.1920928955078125e-07,
+      "per_token_scaling_max_abs_error": 3.725290298461914e-08,
+      "mean_vs_identity_max_abs_error": 3.725290298461914e-09,
+      "prefix_coordinate_range_max": 0.15156501531600952,
+      "ht_reverse_pair_max_abs_error": 1.4901161193847656e-08,
+      "control_mean_max_abs_error": {
+        "positive": 3.725290298461914e-09,
+        "pair_ht": 7.450580596923828e-09
+      },
+      "global_gradient": [
+        [
+          -0.054536111652851105,
+          -0.039973802864551544
+        ],
+        [
+          0.023056622594594955,
+          -0.021738704293966293
+        ],
+        [
+          0.031479477882385254,
+          0.06171249970793724
+        ]
+      ],
+      "native_mean_gradient": [
+        [
+          -0.055227845907211304,
+          -0.05547335371375084
+        ],
+        [
+          0.008759557269513607,
+          -0.03754992410540581
+        ],
+        [
+          0.04646826907992363,
+          0.09302326291799545
+        ]
+      ],
+      "reset_repeat_exact": true
+    },
+    {
+      "name": "three_expert_103",
+      "G": 4,
+      "permutations": 24,
+      "lambda": 0.36111111111111116,
+      "native_vs_reference_max_abs_gradient_error": 1.1175870895385742e-08,
+      "loss_max_abs_error": 1.1920928955078125e-07,
+      "per_token_scaling_max_abs_error": 2.60770320892334e-08,
+      "mean_vs_identity_max_abs_error": 3.725290298461914e-09,
+      "prefix_coordinate_range_max": 0.12750288844108582,
+      "ht_reverse_pair_max_abs_error": 1.4901161193847656e-08,
+      "control_mean_max_abs_error": {
+        "positive": 7.450580596923828e-09,
+        "pair_ht": 7.450580596923828e-09
+      },
+      "global_gradient": [
+        [
+          -0.07486002147197723,
+          0.020324692130088806
+        ],
+        [
+          0.07642433047294617,
+          -0.0038209203630685806
+        ],
+        [
+          -0.0015643208753317595,
+          -0.01650378294289112
+        ]
+      ],
+      "native_mean_gradient": [
+        [
+          -0.05557026341557503,
+          -0.0013103311648592353
+        ],
+        [
+          0.06804850697517395,
+          0.01699904166162014
+        ],
+        [
+          -0.012478248216211796,
+          -0.015688730403780937
+        ]
+      ],
+      "reset_repeat_exact": true
+    }
+  ]
+}
