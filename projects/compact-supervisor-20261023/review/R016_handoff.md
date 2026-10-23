@@ -1,0 +1,7 @@
+# R016 formal independent Work review handoff — NOT EXECUTED
+Parent science SHA 50990ec82d7684e1e44eb69279d3e78f1a5ba4b4. Exact R016 commit is the SHA containing this file (read back and bind before any review). Designer's source/mathematics check is not independent review.
+
+Reassess L1 novelty under (1) actual QED source https://arxiv.org/abs/2608.13668v1 Section 3.1 explicit future-read gating motivation, Eqs.11-12, Section 4.2 and Appendix A.1 Table4 same-weights s-sweep with opposite seed reliance; (2) arXiv:2609.33093v1 original GDN/GLA multi-fact non-target break and overlapping-write causal ablation; (3) R016 toy corrected from lambda_max=.25 to actual trained mean lambdas ~.101/.120 with p=.1 sign reversal LOST; (4) future overwrite along k exactly annihilating previous delta in fixed-operator recurrence.
+Research decision by main designer: PARK L1 standalone original-science claim due to direct prior/negative evidence. Does not assert QED trained model has no future collateral. Permit future reopening only with genuine author checkpoint/source, reviewer-design approval, paired full rollout with non-target protected facts, and a distinct new mathematical/experimental claim beyond above two papers.
+No QED official release verified (do not assert exhaustive absence). Hugging Face search connector failed, GitHub exact searches empty; GDN2 published code not interchangeable with QED trained weights.
+No Work native subagents, no GPU or paid API, no independent review approval, no schedule; budget/provider costs preserve unknown status.

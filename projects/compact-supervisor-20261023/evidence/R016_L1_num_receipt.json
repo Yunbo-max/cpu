@@ -1,0 +1,83 @@
+{
+  "schema": "r016-l1-mean-strength-and-future-update-v1",
+  "date": "2026-10-23",
+  "research_parent": "50990ec82d7684e1e44eb69279d3e78f1a5ba4b4",
+  "tested_only_cpu": true,
+  "mean_strengths_from_QED_table4": {
+    "seed0": 0.101,
+    "seed1": 0.12
+  },
+  "original_R015_assumed_max_lambda": 0.25,
+  "fixed_state": {
+    "rho": 0.6,
+    "beta": 0.8,
+    "p": [
+      0.05,
+      0.1
+    ]
+  },
+  "results": [
+    {
+      "lambda": 0.101,
+      "p": 0.05,
+      "baseline": 0.03200000000000001,
+      "qed": 0.0329419030528,
+      "delta": 0.0009419030527999944,
+      "beta_critical": 0.6136977334097046,
+      "p_critical": 0.06455159014214133
+    },
+    {
+      "lambda": 0.101,
+      "p": 0.1,
+      "baseline": 0.06400000000000002,
+      "qed": 0.0617054765056,
+      "delta": -0.0022945234944000137,
+      "beta_critical": 1.2693577050012692,
+      "p_critical": 0.06455159014214133
+    },
+    {
+      "lambda": 0.12,
+      "p": 0.05,
+      "baseline": 0.03200000000000001,
+      "qed": 0.03402309632000001,
+      "delta": 0.0020230963200000007,
+      "beta_critical": 0.5165289256198348,
+      "p_critical": 0.07610350076103502
+    },
+    {
+      "lambda": 0.12,
+      "p": 0.1,
+      "baseline": 0.06400000000000002,
+      "qed": 0.06214795264000002,
+      "delta": -0.0018520473599999976,
+      "beta_critical": 1.0683760683760684,
+      "p_critical": 0.07610350076103502
+    },
+    {
+      "lambda": 0.25,
+      "p": 0.1,
+      "baseline": 0.06400000000000002,
+      "qed": 0.07260160000000002,
+      "delta": 0.008601600000000001,
+      "beta_critical": 0.5128205128205128,
+      "p_critical": 0.15060240963855423
+    }
+  ],
+  "future_fixed_transitions": {
+    "A_eq_I_minus_kkT_can_annihilate_delta": true,
+    "scalar_alpha": 0.8,
+    "lag": 5,
+    "amplitude_ratio": 0.3276800000000001
+  },
+  "local_executed_script": "/mnt/data/r016_operator_audit.py",
+  "local_executed_sha256": "b7ba5c198d3e54429ed939e9676068ef0915e3d429c8841c5f81920c5907064c",
+  "local_raw_json_sha256": "71cbdc66cca21859906871a5891e6145210c0f799bd7738a5db4a3eac70a2176",
+  "process_CPU_s": 0.0007129959999999658,
+  "unmetered_provider_usage": "unknown",
+  "original_QED_code_run": false,
+  "trained_QED_weights_run": false,
+  "theoretical_scope": "mean lambda is cross-head summary, not model state. This is only a source-parameterized toy.",
+  "formal_reviewer": "pending",
+  "GPU_runs": 0,
+  "paid_API_calls": 0
+}

@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 13,
+  "revision": 14,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -458,19 +458,57 @@
       "next_action": "Verify QED full paper including appendix and public checkpoint release; preregister fixed-checkpoint erasure-strength ablation and delayed fact-query probes against GDN2, QED, QED-nogate and QED-rand before proposing costly execution.",
       "formal_review": "pending",
       "native_execution": "not_authorized"
+    },
+    {
+      "event_id": "manual-r016-l1-primary-source-and-mean-lambda-park-20261023",
+      "node_id": "L1",
+      "action": "park",
+      "stage": "discovery",
+      "causal_reason": "QED original Section 3.1 already explicitly identifies erasing future-needed memories, and Appendix A.1 already measures same-checkpoint full recurrence s strength with seed-dependent effects. Sep 2026 causal GDN work directly quantifies non-target breaks and overlapping write harm. The R015 10-percent future-risk toy required lambda_max=.25, while source's mean learned lambda .101/.120 make that exact fixed-state setting beneficial instead; subsequent full key erase can null the perturbation. Thus no novel independently accepted method remains and trained QED release is unverified.",
+      "evidence": [
+        {
+          "path": "rounds/R016.md",
+          "sha256": "df581489682b5b1846db4e00f07d4cea1841e87f3a0d11ba5b3c1fbc6f7736e9",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R016_QED_original_and_coupling_prior.md",
+          "sha256": "14216f03e185587e17f59e2c2fb849c23a37a330b48248228e433148b058eb50",
+          "kind": "paper"
+        },
+        {
+          "path": "evidence/R016_L1_stronger_falsifier.md",
+          "sha256": "6e9b8ced6ec1ca00784959ae675ed4f6bb43f66476be514674918bb96c29a9a3",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R016_L1_num_receipt.json",
+          "sha256": "d69e1207e3e424fad96102324792d2b8bac7be259aed7753fbeab691c3c5f24b",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R016_L1_reproduce.py",
+          "sha256": "b8be440109955acf5a19e51d9ff890c6a3e0960f31a3298d089b31b175c36153",
+          "kind": "code"
+        }
+      ],
+      "novelty_status": "Near prior and no learned-model evidence. Park L1 scientific claim, do not claim proven impossibility of QED-specific delayed harm.",
+      "next_question": "Can an official trained QED checkpoint and truly new sequential per-fact intervention claim beyond QED Table4 / GDN causal studies justify reopening L1?",
+      "next_actor": "designer",
+      "next_action": "Park standalone method novelty: QED already anticipates future-read damage and tests same-checkpoint erase ablation; cross-fact collateral already causally studied. Reopen only with real QED matching weights/code, full sequential QED-specific non-target evaluation and independently demonstrated novelty beyond prior.",
+      "formal_review": "pending",
+      "gpu_training": "not_authorized"
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 13,
+  "wake_cursor": 14,
   "max_active": 3,
   "max_children": 7,
   "max_depth": 3,
   "native_gpu_authorized": false,
-  "active_frontier": [
-    "L1"
-  ],
+  "active_frontier": [],
   "chronological_transfers_not_parent_edges": [
     {
       "round": "R004",
@@ -1009,12 +1047,12 @@
     {
       "id": "L1",
       "parent_id": "ROOT",
-      "status": "active",
+      "status": "parked",
       "mechanism": "fastweight-query-conditioned-erase-future-read-collateral",
       "question": "Can QED's query-derived erase improve its current probe while harming genuinely delayed, other-fact retrieval on the SAME trained checkpoint, conditioned on erase gate and query-key overlap, beyond known GDN2/QED and linear-memory cross-fact interference?",
-      "falsifier": "If full recurrent future writes cancel the fixed-state effect, or trained same-checkpoint readouts show no gate-dependent delayed collateral loss over baselines, or 2026 primary work already tests the identical mechanism, do not accept as new research.",
+      "falsifier": "A genuinely distinct trained-QED delayed-fact harm frontier remains unproven; if gate-conditioned harm is absent under matching model weights/future transitions, or already explained by QED / How Linear Attention Remembers, no L1 method contribution.",
       "next_actor": "designer",
-      "next_action": "Verify QED full paper including appendix and public checkpoint release; preregister fixed-checkpoint erasure-strength ablation and delayed fact-query probes against GDN2, QED, QED-nogate and QED-rand before proposing costly execution.",
+      "next_action": "Park standalone method novelty: QED already anticipates future-read damage and tests same-checkpoint erase ablation; cross-fact collateral already causally studied. Reopen only with real QED matching weights/code, full sequential QED-specific non-target evaluation and independently demonstrated novelty beyond prior.",
       "priority": 3,
       "budget": {
         "cpu_wake_reserved_s": 20,
@@ -1054,43 +1092,68 @@
           "path": "evidence/R015_nearest_sources.md",
           "sha256": "9cc42a7e6070f39a3efad6bd418c42684ca4d045c4e25a565b8c8ab7fce4155a",
           "kind": "paper"
+        },
+        {
+          "path": "rounds/R016.md",
+          "sha256": "df581489682b5b1846db4e00f07d4cea1841e87f3a0d11ba5b3c1fbc6f7736e9",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R016_QED_original_and_coupling_prior.md",
+          "sha256": "14216f03e185587e17f59e2c2fb849c23a37a330b48248228e433148b058eb50",
+          "kind": "paper"
+        },
+        {
+          "path": "evidence/R016_L1_stronger_falsifier.md",
+          "sha256": "6e9b8ced6ec1ca00784959ae675ed4f6bb43f66476be514674918bb96c29a9a3",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R016_L1_num_receipt.json",
+          "sha256": "d69e1207e3e424fad96102324792d2b8bac7be259aed7753fbeab691c3c5f24b",
+          "kind": "experiment"
+        },
+        {
+          "path": "evidence/R016_L1_reproduce.py",
+          "sha256": "b8be440109955acf5a19e51d9ff890c6a3e0960f31a3298d089b31b175c36153",
+          "kind": "code"
         }
+      ],
+      "reopen_conditions": [
+        "Locate licensed official QED code AND released 340M learned checkpoint or obtain separately authorized matching reproduction",
+        "Independent scientific Work reviewer binds design/prior novelty check to exact commit and accepts material differences from QED Appendix A.1 and How Linear Attention Remembers",
+        "Measure same-checkpoint multi-fact non-target break and delayed margin changes, with QED s sweep and true recurrent future writes on prespecified split, including all null and failure rows"
       ]
     }
   ],
   "latest_wake": {
-    "id": "manual-r015-20261023",
-    "parent_research_commit": "863b470e6d3ad94d379c866f2029e55f4b14acb2",
-    "active_before": [],
-    "active_after": [
+    "id": "manual-r016-20261023",
+    "parent_research_commit": "50990ec82d7684e1e44eb69279d3e78f1a5ba4b4",
+    "active_before": [
       "L1"
     ],
-    "diversity_gap": 2,
-    "root_candidate_screens": [
-      "RLVR-verifier-systematic-error:collision",
-      "AgentAbstain-SafeAct:collision",
-      "L1-fastweight-QED:provisional-active"
+    "active_after": [],
+    "parked_new": [
+      "L1"
     ],
-    "new_node": "L1",
-    "parent_node": "ROOT",
-    "scientific_acceptance": false,
-    "method_acceptance": false,
-    "primary_code_pin": "NVlabs/GatedDeltaNet-2@de8476de0fecae08fc16f0bf3154900244c61c73",
-    "preprint_pin": "arXiv:2608.13668v1",
-    "cross_fact_prior": "arXiv:2609.33093",
-    "max_children_change": "6->7, structural only, max_active=3 unchanged",
-    "new_cpu_process_seconds_observed": [
-      0.046995973000000024,
-      0.00034907799999994715
+    "diversity_gap": 3,
+    "other_await_retained": [
+      "VLM",
+      "G1"
     ],
-    "other_CPU": "unknown",
-    "provider_cost": "unknown",
-    "formal_Work_reviewer": "pending",
+    "original_QED_source_arxiv": "2608.13668v1",
+    "cross_fact_prior": "2609.33093v1",
+    "mean_trained_lambda_0": 0.101,
+    "mean_trained_lambda_1": 0.12,
+    "lambda_max_assumed_in_old_toy": 0.25,
+    "actual_micro_probes": "1 NumPy constrained fixed-state analytic audit, 0.000712996 measured process CPU seconds",
+    "checkpoint_and_code_availability": "QED original trained checkpoint/code not verified; Hugging Face connector search unavailable",
+    "formal_independent_review": "pending",
+    "model_training_runs": 0,
     "GPU_runs": 0,
     "paid_API_calls": 0,
     "Work_native_subagents": 0,
-    "scheduler": "disabled",
-    "QED_pretrained_checkpoint_verified": false,
-    "full_LM_results": false
+    "provider_cost": "unknown",
+    "scheduled_task": "disabled"
   }
 }
