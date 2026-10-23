@@ -1,0 +1,68 @@
+{
+  "schema": "r015-qed-future-read-collateral-v1",
+  "date": "2026-10-23",
+  "parent_git_commit": "863b470e6d3ad94d379c866f2029e55f4b14acb2",
+  "operator_source": "arXiv:2608.13668v1 Eq.11-12 (QED), with verified GDN2 baseline official README @de8476de0fecae08fc16f0bf3154900244c61c73",
+  "model_family": "Fixed fast-weight recurrence with frozen state/query/key/gates; no trained model weights or future recurrent token updates",
+  "lambda": 0.25,
+  "key": [
+    1,
+    0
+  ],
+  "preupdate_state": [
+    [
+      0
+    ],
+    [
+      1
+    ]
+  ],
+  "write_value": 0,
+  "query": [
+    0.6,
+    0.8
+  ],
+  "future_read": [
+    1,
+    0
+  ],
+  "unit_erase_gate_limit": {
+    "beta": 1,
+    "current_baseline": 0.8,
+    "current_qed": 0.68,
+    "future_baseline": 0,
+    "future_qed": -0.2,
+    "current_sqe_baseline": 0.64,
+    "current_sqe_qed": 0.4624,
+    "future_sqe_baseline": 0,
+    "future_sqe_qed": 0.04,
+    "pi_current": 0.1,
+    "mixed_baseline": 0.064,
+    "mixed_qed": 0.08224,
+    "relative_mixed_mse_increase": 0.285
+  },
+  "orthogonal_query": {
+    "q": [
+      0,
+      1
+    ],
+    "current_baseline": 1,
+    "current_qed": 1,
+    "future_base": 0,
+    "future_qed": -0.25,
+    "limitation": "b=1 mathematical endpoint; separate interior gate sweep confirms non-monotonicity"
+  },
+  "exact_difference": "S_QED-S_GDN2=-lambda * k * (Sbar^T*d)^T; read difference for any frozen-state probe r is -lambda*(r^T*k)*Sbar^T*d",
+  "randomized_trials": 1024,
+  "random_seed": 20261023,
+  "randomized_max_abs_residual": 6.661338147750939e-16,
+  "process_cpu_seconds": 0.046995973000000024,
+  "original_executed_local_source_sha256": "2c62c8406e4654a09e6d06838baf4158e694344a8080988c3f827ed414b4907f",
+  "raw_executed_script_path": "/mnt/data/r015_qed_collateral_probe.py",
+  "equivalent_github_reproducer_not_byte_identical": true,
+  "novelty": "Exact QED state identity is already paper Eq.11; extension to arbitrary future probe is immediate algebra, not a new theorem. No trained-model harm measured.",
+  "auditor_status": "independent Work scientific audit pending",
+  "GPU_jobs": 0,
+  "paid_api_calls": 0,
+  "Work_native_subagents": 0
+}

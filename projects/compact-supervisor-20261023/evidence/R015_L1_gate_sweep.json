@@ -1,0 +1,37 @@
+{
+  "schema": "r015-qed-gate-risk-phase-boundary-v1",
+  "parent_git_commit": "863b470e6d3ad94d379c866f2029e55f4b14acb2",
+  "model": "k=e1, q=(rho,sqrt(1-rho^2)), Sbar=e2, b=beta*(1,1), write=0, current and future probe target both zero",
+  "lambda": 0.25,
+  "rho": 0.6,
+  "current_query_share": 0.1,
+  "risk_boundary_beta_star": 0.5128205128205128,
+  "gate_values": [
+    {
+      "beta": 0.1,
+      "baseline": 0.06400000000000002,
+      "QED": 0.06245440000000001
+    },
+    {
+      "beta": 0.5,
+      "baseline": 0.06400000000000002,
+      "QED": 0.06376
+    },
+    {
+      "beta": 0.8,
+      "baseline": 0.06400000000000002,
+      "QED": 0.07260160000000002
+    },
+    {
+      "beta": 0.99,
+      "baseline": 0.06400000000000002,
+      "QED": 0.08168694400000001
+    }
+  ],
+  "formula": "R_QED-R_baseline=(1-rho^2)*lambda*beta*(-2*p*rho+lambda*beta*(1-p+p*rho^2)); positive for beta > 2*p*rho / (lambda*(1-p+p*rho^2)) when rho>0",
+  "running_condition": "frozen recurrent state, post-update fixed probe without subsequent token updates, not an actual multi-turn trained model",
+  "cpu_process_seconds": 0.00034907799999994715,
+  "original_executed_local_source_sha256": "80b9c355a96b1b95d9889cd21cbbdfb251479e9b2b02ef688ac235b2f2066f20",
+  "path_raw": "/mnt/data/r015_threshold_probe.py",
+  "novelty": "Source-derived elementary risk boundary, not a new recognized model result; requires held-out learned-model experiments."
+}
