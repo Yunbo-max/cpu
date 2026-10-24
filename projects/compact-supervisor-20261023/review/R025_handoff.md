@@ -1,0 +1,7 @@
+# R025 independent formal Work reviewer handoff — NOT EXECUTED
+Project parent 9c0db9be36d7d4e04c25613021156a6d00931aaa. Bind to final actual R025 Git commit containing this file; no reviewer authorization/accept decision has occurred.
+
+Review tasks in independent REAL Work conversation:
+1. S13: inspect UAI2026 full derivation and exact source path reg_ellip->robust_regret label generation; distinguish paper theoretical target, static label surrogate regret, actual SPO+/Danskin gradient. Independently reproduce Δ∈(0,ρ) strict ranking inversion and 100×100 grid with radius/variance conditions. Check whether recomputed adversary is already in another official code path; examine original class imports/Gurobi if authorized. Compare static and dynamic at matched cost; do not claim trained model wrong without data.
+2. S12: verify Diag-CFM code for uniform z, exact zero tail, backward self-consistency; verify affine homogeneous matrix log invertibility, identical internal metrics and in-domain error when physics unchanged, then shifted physics failure. Check the conditional external mismatch certificate RMSE_phys ≤ RMSE_self+eta. Distinguish correct true simulator from shifted unknown model and existing ICLR2026 physical fine-tuning prior.
+3. Decision: only independent source/model evidence can accept or reject a new method. Existing 12-node v1 research tree has zero eligible active leaves, 3 Await P1/G1/VLM and 7 Parked. Don't reopen/resize tree, claim research "all optimized", or run GPU/API/subagents.

@@ -1,0 +1,13 @@
+# S12 R025: when self-consistency CAN certify physical error and when it cannot
+
+D1. Published ICML2026 Diag-CFM, author repo migueldecampos/diagcfm@d1afc35f325ecc22e0401b931b72b442b50370f2, diagcfm_core.py Git blob 84054d130ffebe1386610e05e53d0915aa0e8bf3. True deployment forward simulator F*, internal learned forward proxy Fhat, target y. At test-time Diag-CFM model can compute u(x)=||Fhat(x)-y||² via its backward ODE after resetting tail to 0, but may lack F*(x) unless external simulator is queried.
+
+D2. Triangle inequality under externally validated uniform mismatch ||F*(x)-Fhat(x)|| <= eta gives ||F*(x)-y|| <= sqrt(u(x))+eta. Consequently RMSE_true <= RMSE_self + eta (Minkowski). This is exact conditional theorem; without mismatch bound no finite universal bound from self-score.
+
+D3. Adversarial explicit invertible affine ODE map Phi_e(z,y)=(e z+y+b,-e z), determinant e>0. For training Fhat(x)=x-b, self and tail scores e²z²; in-domain true matches. Shift only deployed physics to F*(x)=x, leaving all model observables IDENTICAL; physics MSE (b+e z)². For any b the physical error may be arbitrarily large with fixed internal scores. Source structure and arithmetic examined, not an actual trained checkpoint error.
+
+D4. ICLR2026 Physics-Constrained Fine-Tuning flow matching (PCFT) https://proceedings.iclr.cc/paper_files/paper/2026/hash/e8b782d03c623e3e587fdbcc521dd581-Abstract-Conference.html and ICLR2026 Physics vs Distributions https://proceedings.iclr.cc/paper_files/paper/2026/hash/a57483b394a3654f4317051e4ce3b2b8-Abstract-Conference.html study physical/distribution tradeoffs and PDE residuals, so standard physics validation is existing. The authors' original Diag-CFM paper tests true round-trip on analytic cases, so no allegation they omitted ground truth.
+
+D5. CPU N=2000 seeded z Uniform(0,1), y Uniform(-.5,.5), b=.8, eps=.01: internal/in-domain MSE 3.4049732139e-5 and externally shifted physical MSE .64815953786; model-to-physics shift eta=.8 gives explicit bound (sqrt(internal MSE)+eta)²=.64937039346, which the true shifted error satisfies. The real matrix logarithm checked via scipy.linalg expm(logm(H)) for affine homogeneous H. Model native train, actual high-fidelity simulator not run. Protocol for future (authorization needed): Diag-CFM on official DTLZ2/airfoil/thin-film, independent simulator mismatch and physics residual, abstention AUROC/ECE, controls eta=0 plus perturbation continuum, matched latent/steps/seeds.
+
+D6. Rooted deep mathematical record, no new active leaf or accepted method. Real formal Work reviewer pending. GPU/API/native model not executed; CPU receipt in evidence/R025_cpu_receipt.json and local ZIP.

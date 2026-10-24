@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 22,
+  "revision": 23,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -921,12 +921,44 @@
       "new_nodes": 0,
       "next_actor": "designer",
       "next_question": "Independent source/code reviewer then non-duplicate causal model benchmark."
+    },
+    {
+      "event_id": "manual-r025-two-math-deepening-screens-20261024",
+      "node_id": "ROOT",
+      "action": "screen",
+      "stage": "deep_mathematical_record",
+      "causal_reason": "UAI2026 source static observed-optimal cost labels invert robust decision rank on 0<Delta<rho; ICML2026 DiagCFM intrinsic consistency can bound real physics only with externally validated simulator error eta. Both mathematical not pretrained/Gurobi tests; known close 2026 prior.",
+      "evidence": [
+        {
+          "path": "rounds/R025.md",
+          "sha256": "121cd38e5cdb4a376200e624bfa46d0a7da275a7ae6a3a092589278beffdffe8",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R025_S13_ranking_reversal.md",
+          "sha256": "ff5df469aa7d36809157362f7438c203e85108e5e519699a67c0bd6b6515f341",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R025_S12_credibility_bound.md",
+          "sha256": "dfc0a0d86e6970201c3935d6da1437a7d63e7432e40374a76e46dabb898550ec",
+          "kind": "math"
+        },
+        {
+          "path": "research-state/continuous/R025_coverage.json",
+          "sha256": "a9cb68f8469c6c36e1e824b2e26524ab430221203ac041930803d831039a0643",
+          "kind": "other"
+        }
+      ],
+      "next_actor": "designer",
+      "formal_review": "pending",
+      "new_science_nodes": 0
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 22,
+  "wake_cursor": 23,
   "max_active": 3,
   "max_children": 8,
   "max_depth": 3,
@@ -963,7 +995,7 @@
       "question": "Which intervention and decision observables are lost by a compressed statistical proxy?",
       "falsifier": "Distinct interventions change decisions even when all training proxies match.",
       "next_actor": "designer",
-      "next_action": "Neutral 1–2 peer deep mathematical checks per manual wake. R021 E1 and C1 are source-collision candidate screens, not new ROOT leaves. Continue external-mechanism research rather than auto-focus.",
+      "next_action": "v11.6 Full-Frontier: examine ALL eligible active/focused descendant leaves in bounded waves each authorized wake, not the old 1-2-only rotation. At R025 eligible=0; preserve P1/G1/VLM Await, all 7 parked; explore neutral new mechanisms.",
       "priority": 0,
       "budget": {
         "cpu_wake_reserved_s": 0,
@@ -1166,6 +1198,21 @@
           "path": "evidence/R024_S13_deep.md",
           "kind": "math",
           "sha256": "b6e64f56f737398d1085ab00daaa6014bb95f7ceafe9ec5c9b079a1679ffad33"
+        },
+        {
+          "path": "rounds/R025.md",
+          "sha256": "121cd38e5cdb4a376200e624bfa46d0a7da275a7ae6a3a092589278beffdffe8",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R025_S13_ranking_reversal.md",
+          "sha256": "ff5df469aa7d36809157362f7438c203e85108e5e519699a67c0bd6b6515f341",
+          "kind": "math"
+        },
+        {
+          "path": "evidence/R025_S12_credibility_bound.md",
+          "sha256": "dfc0a0d86e6970201c3935d6da1437a7d63e7432e40374a76e46dabb898550ec",
+          "kind": "math"
         }
       ]
     },
@@ -1782,33 +1829,26 @@
     }
   ],
   "latest_wake": {
-    "id": "manual-r024-20261024",
-    "parent_research_commit": "9ae425bcd3cbb32d998080bbb086584b98791f95",
-    "history_backfilled": [
-      "R023",
-      "R024"
-    ],
-    "frontier_policy": "v11.6 full",
-    "active_before": [],
-    "active_after": [],
+    "id": "manual-r025-20261024",
+    "parent_research_commit": "9c0db9be36d7d4e04c25613021156a6d00931aaa",
     "eligible_active": 0,
+    "active_after": [],
     "await": [
       "P1",
       "G1",
       "VLM"
     ],
-    "parked_retained": 7,
-    "unserved": 0,
-    "ROOT_max_children": 8,
-    "deep_screens": [
-      "S12",
-      "S13"
+    "parked_count": 7,
+    "screens": [
+      "S13",
+      "S12"
     ],
-    "gpu_jobs": 0,
-    "api_jobs": 0,
-    "subagents": 0,
+    "new_nodes": 0,
     "review": "pending",
-    "provider_cost": "unknown",
-    "scheduled_task": "disabled"
+    "GPU": 0,
+    "paid_API": 0,
+    "native_subagents": 0,
+    "cpu_s": 0.569042752,
+    "other_compute_cost": "unknown"
   }
 }
