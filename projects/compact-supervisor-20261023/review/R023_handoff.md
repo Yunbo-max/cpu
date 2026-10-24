@@ -1,0 +1,6 @@
+# R023 independent Work reviewer (NOT CONDUCTED)
+Bind subject to the exact R023 Git SHA after commit; scientific parent eb33455c498ca7e6fb8111328bfe68a4474ea6f4.
+(1) Independently inspect ICML26 OBCache paper/commit and confirm the obcache-k formula and topk contract; challenge whether our no-window extreme cache-size1 is reachable under official deployment. Recompute n10 and n100 with original module if dependencies permit. Crucially ensure obcache-v and obcache-vk behave BETTER, not cherry-pick only k score.
+(2) Independently inspect Apple KVP source/costs.py and training-generated full-cache traces; assess whether any actual training signal includes alternate eviction outcomes, and whether precomputed future attention really causes material off-policy error on RULER/OASST2. Reject conclusion if already remedied in the paper or prior.
+(3) Closest accepted GraphKV, ReST-KV, ForesightKV, LU-KV; distinguish Oct2026 DGE preprint status. Both proofs are generic/scope-limited, NOT admitted novel methods or native results. No separate reviewer has signed off.
+(4) Preserve P1/G1/VLM Await; seven Park unchanged, ROOT8/8; no GPU/API/native Work subagent/scheduler approvals. Provider usage unknown. If a method research project advances, require independent Work reviewer, actual code audit, task splits, seed/compute parity and raw failures.

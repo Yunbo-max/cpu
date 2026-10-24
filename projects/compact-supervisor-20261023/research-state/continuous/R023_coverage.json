@@ -1,0 +1,85 @@
+{
+  "schema": "full-frontier-r023-coverage-v1",
+  "project": "compact-supervisor-20261023",
+  "parent_commit": "eb33455c498ca7e6fb8111328bfe68a4474ea6f4",
+  "policy": "v11.6: every active/focused gets attempted; await nodes blocker review only; parked preserved",
+  "root": {
+    "status": "root",
+    "outcome": "two_source_grounded_deep_mathematical_screenings",
+    "evidence": [
+      "KVC-A single-token importance vs cache set utility",
+      "KVC-B full-cache trace vs counterfactual rollouts"
+    ],
+    "review": "pending"
+  },
+  "expanded": [
+    {
+      "id": "GRAPH",
+      "status": "expanded",
+      "outcome": "structure_preserved",
+      "child_states": [
+        "G1 await",
+        "G2 parked",
+        "G3 parked"
+      ]
+    }
+  ],
+  "await": [
+    {
+      "id": "VLM",
+      "blocker": "Frozen EventTune run archive unavailable to current Chat tools; no local rerun authority",
+      "next_actor": "local"
+    },
+    {
+      "id": "G1",
+      "blocker": "No matched observed failure graph/legitimate outcome and no independent oracle review",
+      "next_actor": "designer"
+    },
+    {
+      "id": "P1",
+      "blocker": "Original ProbMoE full-module native/held-out task experiment and independent scientific reviewer pending; GPU not authorized",
+      "next_actor": "reviewer"
+    }
+  ],
+  "parked": [
+    "MOE",
+    "PROV",
+    "G2",
+    "G3",
+    "T1",
+    "K1",
+    "L1"
+  ],
+  "eligible_active_focused": 0,
+  "eligible_actually_advanced": 0,
+  "blocked_await": 3,
+  "parked_retained": 7,
+  "eligible_unserved": 0,
+  "root_children": 8,
+  "root_max_children": 8,
+  "new_tree_nodes": 0,
+  "deep_screens": [
+    {
+      "id": "KVC-A",
+      "result": "math counterexample n^2 for obcache-k but simple obcache-v/vk already solve toy",
+      "stage": "deep_mathematical_record"
+    },
+    {
+      "id": "KVC-B",
+      "result": "abstract offline causal nonidentifiability; already acknowledged in causal policy and trajectory methods",
+      "stage": "deep_mathematical_record"
+    }
+  ],
+  "executor_status": {
+    "work_native_subagents": 0,
+    "separate_work_reviewer": "pending",
+    "gpu_runs": 0,
+    "paid_api_calls": 0,
+    "schedule": "disabled",
+    "measured_CPU_s_first_run": 0.00412125200000002,
+    "provider_tokens_and_cost": "unknown"
+  },
+  "owner_requested_time_envelope": "60 or 480 min preference is not actual wall time or cost authorization; not claimed executed",
+  "next_actor": "designer",
+  "next_question": "Different non-KV source-pinned mathematical mechanism or actual independent review to unlock Await nodes"
+}

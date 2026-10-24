@@ -1,0 +1,15 @@
+# R023 KVC-B — offline future-attention and unobserved counterfactuals
+
+Deep mathematical record, research parent eb33455c498ca7e6fb8111328bfe68a4474ea6f4. Candidate ONLY, not active or scientifically accepted.
+
+D1. At time of a KV eviction decision the agent sees a recorded full-cache generation trace. Apple ICML 2026 Learning to Evict (KVP), source apple-aiml-research/ml-learning-to-evict@d33c2dcf8d8c2197ac92a2ceaf769c7f9b361b0d, trains from stored Q/K/V and future attention, not counterfactual decode rollouts for each eviction action. Its cost function uses reverse_cumsum(attention_weights) and ranks retained tokens across cache budgets. Exact source: src/kvcompression/costs.py blob b7800b0cc289a01a8503994ac15be8525aa3a37; preprocessing unroll_and_store.py blob 65a69891232b1cac596db9a92e1f87a44430d0d4.
+
+D2. Consider two abstract environments with IDENTICAL logged full-cache future attention (0.5,0.5) and full-cache reward1. With budget1 choose keep A or B. Environment WA yields rewards (1,0), environment WB yields (0,1) for keeping (A,B). Any learner observing only the shared full-cache log cannot distinguish these environments. Choose A with probability p; oracle regrets are 1-p in WA, p in WB. Thus minimax expected worst-case regret = min_p max(p,1-p)=1/2. This is ordinary off-policy counterfactual nonidentifiability, not novel theory. Real known LLM weights or additional simulations can invalidate the observation-only lower bound.
+
+D3. Strongest falsifier: future attention is a good enough robust proxy when eviction does not change future queries. KVP reports actual large-scale RULER improvements; the CPU toy does NOT refute those results. Simplest fix is to measure a small number of matched intervention rollouts under alternate cache actions, requiring more model computation.
+
+D4. Closest accepted ICML2026 ForesightKV, https://proceedings.mlr.press/v306/dong26h.html, uses future-attention oracle PLUS GRPO optimization to reduce real language-model loss; it is relevant prior on task-related reward. Oct 2026 draft-guided eviction arXiv:2609.33334v2 (PREPRINT), https://arxiv.org/abs/2609.33334, delays deletion until actual future decoding provides a short trajectory signal. Classical off-policy identification and support assumptions are known. Thus broad new-method novelty fails.
+
+D5. CPU exhausts policies p=0,.1,.25,.5,.75,.9,1 and verifies minimax .5. It does not run actual Apple RL code or a Transformer. Feasible future benchmark (NOT RUN, no GPU authority): frozen Qwen2.5-7B on RULER-4k and OASST2-4k, same prefill and budget, compare full-cache future-attention ranking to actual target output change and task reward after cache pruning and continuation. Compare source KVP, score baseline, delayed draft DGE, GRPO; paired seeds and matched FLOPs.
+
+D6. Screened-only, not added to tree, no real native results or independent review. Code and numeric receipt local /mnt/data/r023, compact GitHub reproduction. Next actor designer seeks distinct peer problems. No GPU/paid API/Work subagent; provider cost unknown.

@@ -1,0 +1,64 @@
+{
+  "schema": "r023-kv-group-score-and-offpolicy-two-world-v1",
+  "science_parent": "eb33455c498ca7e6fb8111328bfe68a4474ea6f4",
+  "date": "2026-10-24",
+  "source_pins": {
+    "OBCache": "DreamSoul-AI/OBCache@189ffadd7b2f29eaf311e67f39dbf2a26f5f4dd3",
+    "KVP": "apple-aiml-research/ml-learning-to-evict@d33c2dcf8d8c2197ac92a2ceaf769c7f9b361b0d"
+  },
+  "math_case": "n duplicate useful tokens value1 and one anchor value0; attention and logits uniform1; single query budget1; support only OBCache obcache-k/v/vk score formulas, without protection windows",
+  "tested_n": [
+    2,
+    5,
+    10,
+    20,
+    100
+  ],
+  "exact_ratio_k_to_opt": "n^2",
+  "witness_n10": {
+    "score_k_anchor": 0.0068301345536507085,
+    "score_k_duplicate": 0.00006830134553650694,
+    "full_y": 0.9090909090909091,
+    "squared_error_k": 0.8264462809917357,
+    "squared_error_v": 0.00826446280991734,
+    "squared_error_vk": 0.00826446280991734,
+    "ratio_k_to_opt": 100
+  },
+  "witness_n100": {
+    "full_y": 0.9900990099009901,
+    "squared_error_k": 0.9802960494069208,
+    "squared_error_v": 0.00009802960494069226,
+    "ratio_k_to_opt": 10000
+  },
+  "offpolicy_two_world": {
+    "full_cache_logged_future_attention": [
+      0.5,
+      0.5
+    ],
+    "world_A_keep_rewards": [
+      1,
+      0
+    ],
+    "world_B_keep_rewards": [
+      0,
+      1
+    ],
+    "p_choose_A_minimax": 0.5,
+    "minimax_worst_case_regret": 0.5,
+    "abstract_not_transformer": true
+  },
+  "original_executed_script": "/mnt/data/r023/kv_complementarity_and_offpolicy.py",
+  "original_script_sha256": "a22f506eda5d2b228b3237eacbf74102be842bb0157f394ef4f17f9224b79b6f",
+  "original_receipt_sha256": "324df3d7b712bacb5b07e2a748248975c9a30dd65e22847932a3a60214f37cd2",
+  "cpu_process_seconds_first_run": 0.00412125200000002,
+  "full_original_implementation_imported": false,
+  "trained_model_tested": false,
+  "nearest_prior_explains_mechanisms": true,
+  "original_scientific_novelty_accepted": false,
+  "independent_reviewer": "pending",
+  "gpu_jobs": 0,
+  "paid_api_calls": 0,
+  "Work_native_subagents": 0,
+  "scheduler": "disabled",
+  "provider_cost": "unknown"
+}

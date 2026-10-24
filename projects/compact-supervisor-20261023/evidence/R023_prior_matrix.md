@@ -1,0 +1,14 @@
+# R023 nearest-source equivalence and decision
+
+Project parent eb33455c498ca7e6fb8111328bfe68a4474ea6f4. Source statuses observed 2026-10-24.
+
+- OBCache by Gu et al., **accepted ICML2026** https://proceedings.mlr.press/v306/gu26h.html . Exact GitHub source DreamSoul-AI/OBCache@189ffadd7b2f29eaf311e67f39dbf2a26f5f4dd3, kvpress/presses/obcache_press.py blob 34d427cc88ed2179bf2ed5f05ac7641acd5d7ce4. This offers several separate scoring choices: obcache-k is sensitivity to isolated key pruning, obcache-v value contribution and obcache-vk combined. R023 specifically tests obcache-k + top-1 in a no-protected-window one-query toy, NOT the whole paper or default configuration.
+- GraphKV, **accepted EMNLP2025**, https://aclanthology.org/2025.emnlp-main.1112/ uses graph similarities to suppress redundant static selection.
+- ReST-KV, **accepted ICLR2026**, https://proceedings.iclr.cc/paper_files/paper/2026/hash/8be9c134bb193d8bd3827d4df8488228-Abstract-Conference.html , performs output reconstruction and explicitly models attention redistribution.
+- Learning to Evict / KVP, **accepted ICML2026**, https://proceedings.mlr.press/v306/moschella26a.html, Apple official source apple-aiml-research/ml-learning-to-evict@d33c2dcf8d8c2197ac92a2ceaf769c7f9b361b0d, src/kvcompression/costs.py blob b7800b0cc289a01a8503994ac15be8525aa3a37, data extractor unroll_and_store.py blob 65a69891232b1cac596db9a92e1f87a44430d0d4. They learn importance from precomputed Q/K/V traces with a reward based on future attention. They also evaluate their compressed inference on actual benchmark tasks; a counterfactual toy does not discredit those native results.
+- ForesightKV, **accepted ICML2026**, https://proceedings.mlr.press/v306/dong26h.html, combines future attention ranking with task-level GRPO. LU-KV **accepted ICML2026**, https://proceedings.mlr.press/v306/tang26i.html, frames budget allocation through combinatorial marginal utility.
+- Draft-Guided Eviction, arXiv:2609.33334v2 (Oct 2026 **preprint**), https://arxiv.org/abs/2609.33334, studies trajectory feedback when moving cache eviction after first generation steps. Do not call it an accepted conference paper.
+- Apple cache CPU toy is abstract causal offline-identification, already a standard selection/support limitation; not novel theorem and not evidence that Apple KVP learned policies fail.
+- Other prior comprehensive global-KV 2026 methods are plentiful. This wake established no convincing globally new repair.
+
+Dispositions: KVC-A deep mathematical isolated scorer failure but immediately fixed by OBCache's own supported variants; KVC-B abstract off-policy nonidentifiability with established on-policy and delayed-decoding alternatives. Both screened only. No new ROOT child permitted: existing 8/8 direct children and no independent review, no native benchmark, no GPU authority.
