@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 18,
+  "revision": 19,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -690,12 +690,99 @@
       "formal_review": "pending",
       "new_active_nodes": 0,
       "actual_Work_subagents": 0
+    },
+    {
+      "event_id": "manual-r021-deep-e1-gate-transition-and-c1-censored-exit-20261024",
+      "node_id": "ROOT",
+      "action": "screen",
+      "stage": "deep_mathematical_record",
+      "causal_reason": "Deep source re-read corrected R020 misinterpretation of GDN-2 guard activation: unsafe iff r2>rcrit2 at t=.1770107897, while projected contrast tau=.174223044 because safety margin; projected forward is discontinuous and STE can move outward uselessly OR inward to escape saturation. Independently analyzed online early-exit censoring with a two-world indistinguishability proof; offline EEFP uses full-head supervision and generic online censoring has strong 2025/2026 bandit prior. Both deep math records have genuine CPU checks but neither yields an accepted new method or qualified tree node.",
+      "evidence": [
+        {
+          "path": "rounds/R021.md",
+          "kind": "math",
+          "sha256": "4cd32ea0163d057a0020ec0795c0e334a7bb925a29d3418de638b5a3ef0bf38c"
+        },
+        {
+          "path": "evidence/R021_E1_deep.md",
+          "kind": "math",
+          "sha256": "054b95e75bb129dcf98feffe7d9cb6d4a742a96ffcdf08c0a344975200ead10f"
+        },
+        {
+          "path": "evidence/R021_C1_deep.md",
+          "kind": "math",
+          "sha256": "0fcac96faea1104373b2b69d42187fe2442296f05c44a42f7f61ea456dfdd2a2"
+        },
+        {
+          "path": "evidence/R021_nearest_screens.md",
+          "kind": "paper",
+          "sha256": "71c6c46b8929c24e01532f8b9b5ae23839a13623e38f423123fa71d9683ace46"
+        },
+        {
+          "path": "evidence/R021_deep_probe.py",
+          "kind": "code",
+          "sha256": "0c52c22885c352ee62baeef510e8f84fbed57028406b69caa43dbdb6e55cf404"
+        },
+        {
+          "path": "evidence/R021_deep_receipt.json",
+          "kind": "experiment",
+          "sha256": "ba9b2c953906b6dfbce3cb6efa75818bea4815c8cf55e6da7f008906c97d4240"
+        },
+        {
+          "path": "review/R021_handoff.md",
+          "kind": "other",
+          "sha256": "f67ee3fde48385c4bd5ce75d5bb36c9dba2391f047cbc060e6a3326db73061af"
+        },
+        {
+          "path": "research/candidates/R020_E1.md",
+          "kind": "other",
+          "sha256": "9b812921a496331f266a19119fde2f494e312b0cd41c5f59d6e4a1300cf41836"
+        }
+      ],
+      "deep_records": [
+        {
+          "id": "E1",
+          "stage": "deep_mathematical_record",
+          "source": "NVlabs/GatedDeltaNet-2@de8476de0fecae08fc16f0bf3154900244c61c73",
+          "source_contrast_switch": 0.17701078966683267,
+          "protected_contrast": 0.17422304395271113,
+          "discontinuity": 0.0013659953999195585,
+          "novelty": "conditionally distinct code-level transition but no validated performance; STE improvement case falsifies naive replacement claim",
+          "tree_node_added": false
+        },
+        {
+          "id": "C1",
+          "stage": "deep_mathematical_record",
+          "source": "gmum/rethinking-calibration-for-eenns@c87113e7ab5a5813d0dc3c0c251bb77c859f52c0",
+          "risk_stop_all": 0.2,
+          "world_oracle_risk": 0.125,
+          "unidentified_regret": 0.075,
+          "novelty": "known counterfactual censoring with 2025/2026 bandit repair; no new method",
+          "tree_node_added": false
+        }
+      ],
+      "scouting": [
+        {
+          "id": "visual-pruning-removed-evidence",
+          "status": "published-prior-collision-ECCV2026-and-Oct2026-preprint"
+        },
+        {
+          "id": "hidden-profile-multiagent-asymmetry",
+          "status": "published-prior-collision-ICML2026-HiddenBench"
+        }
+      ],
+      "falsifier": "If source numerical mixed-precision guard removes the modeled discontinuity, adjust E1; if trained gate saturation rare or a continuous clamp hurts task performance, no algorithm claim. C1 does not apply when full-head labels are available offline or random audits with positivity permit estimation; known bandit baselines already address missing outcomes.",
+      "next_question": "Find a genuinely novel, source-pinned AI/model decision failure beyond accepted source-level stability guards, EEFP early-exit utility prediction, censored-feedback bandits, ECCV2026 visual-token shift and ICML2026 HiddenBench. Do not force a ROOT child.",
+      "next_actor": "designer",
+      "next_action": "Continue neutral ROOT discovery; retain E1 candidate only and C1 prior-collision record. Independent reviewer remains pending.",
+      "independent_reviewer": "not conducted",
+      "native_training": "not authorized"
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 18,
+  "wake_cursor": 19,
   "max_active": 3,
   "max_children": 8,
   "max_depth": 3,
@@ -732,7 +819,7 @@
       "question": "Which intervention and decision observables are lost by a compressed statistical proxy?",
       "falsifier": "Distinct interventions change decisions even when all training proxies match.",
       "next_actor": "designer",
-      "next_action": "Neutral 2026 primary-paper and source-pinned search across mechanism-distinct AI/math domains; E1 is an UNADMITTED screening packet, not a ROOT leaf. Keep P1/G1/VLM Await and prior parked leaves.",
+      "next_action": "Neutral 1–2 peer deep mathematical checks per manual wake. R021 E1 and C1 are source-collision candidate screens, not new ROOT leaves. Continue external-mechanism research rather than auto-focus.",
       "priority": 0,
       "budget": {
         "cpu_wake_reserved_s": 0,
@@ -835,6 +922,36 @@
           "path": "evidence/R020_gdn2_guard_receipt.json",
           "kind": "experiment",
           "sha256": "0426b79d419d55e2801b27d609fd70b15c3a4c4033eb0f5f39213d49d6abeae1"
+        },
+        {
+          "path": "rounds/R021.md",
+          "kind": "math",
+          "sha256": "4cd32ea0163d057a0020ec0795c0e334a7bb925a29d3418de638b5a3ef0bf38c"
+        },
+        {
+          "path": "evidence/R021_E1_deep.md",
+          "kind": "math",
+          "sha256": "054b95e75bb129dcf98feffe7d9cb6d4a742a96ffcdf08c0a344975200ead10f"
+        },
+        {
+          "path": "evidence/R021_C1_deep.md",
+          "kind": "math",
+          "sha256": "0fcac96faea1104373b2b69d42187fe2442296f05c44a42f7f61ea456dfdd2a2"
+        },
+        {
+          "path": "evidence/R021_deep_probe.py",
+          "kind": "code",
+          "sha256": "0c52c22885c352ee62baeef510e8f84fbed57028406b69caa43dbdb6e55cf404"
+        },
+        {
+          "path": "evidence/R021_deep_receipt.json",
+          "kind": "experiment",
+          "sha256": "ba9b2c953906b6dfbce3cb6efa75818bea4815c8cf55e6da7f008906c97d4240"
+        },
+        {
+          "path": "evidence/R021_nearest_screens.md",
+          "kind": "paper",
+          "sha256": "71c6c46b8929c24e01532f8b9b5ae23839a13623e38f423123fa71d9683ace46"
         }
       ]
     },
@@ -1451,29 +1568,40 @@
     }
   ],
   "latest_wake": {
-    "id": "manual-r020-20261024",
-    "parent_research_commit": "b0cdb45073d2116b391fdd6feabc0688e06d5c3d",
+    "id": "manual-r021-20261024",
+    "parent_research_commit": "a7baafb3cd72bb39aa5bc762faac179ec9d92fb6",
+    "deep_records": [
+      "E1:GDN2-guard-STE-duality",
+      "C1:online-early-exit-censored-continuation"
+    ],
+    "deep_gate_release": "v11.5",
+    "deep_math_count": 2,
+    "actual_deep_math_but_not_native": true,
+    "max_children": 8,
     "active_before": [],
     "active_after": [],
     "diversity_gap": 3,
-    "root_candidate_E1": "screened-only NOT portfolio node; ROOT structural cap 8 already exhausted",
-    "source_commit": "NVlabs/GatedDeltaNet-2@de8476de0fecae08fc16f0bf3154900244c61c73",
-    "paper_may_source_commit": "e3580edec6b12d788572cbda3a7b326451df5ed1",
-    "CPU_probe": "independent NumPy/PyTorch recurrence + source-matched mathematical beta_guard; original NVIDIA Triton NOT run",
-    "observed_cpu_process_seconds": 0.09187218199999991,
-    "other_CPU_provider_cost": "unknown",
-    "source_result": "default beta_guard protects synthetic raw nonnormal step; straight-through radial plateau conditional issue",
-    "formal_independent_reviewer": "pending",
+    "new_nodes": 0,
+    "root_peer_selection_reason": "E1 was unfinished evidence-backed candidate from R020; C1 is a separate sequential decision/feedback mechanism grounded in ICML2026 code, not another GDN2 implementation.",
+    "source_pins": [
+      "NVlabs/GatedDeltaNet-2@de8476de0fecae08fc16f0bf3154900244c61c73",
+      "gmum/rethinking-calibration-for-eenns@c87113e7ab5a5813d0dc3c0c251bb77c859f52c0"
+    ],
+    "executed_CPU_source_SHA256": "1a9ea2dfc2d498c16b2a83c44e5e9c63b7d998a754ccde0985db96d5b7481178",
+    "executed_CPU_receipt_SHA256": "c6823c445f50a094a25fc1d256dcf0689332e3bc3365b5fbd41b0d05b8b7017e",
+    "measured_CPU_seconds": 0.17771969199999993,
+    "other_CPU_and_provider": "unknown",
     "native_GPU_jobs": 0,
     "paid_API_jobs": 0,
     "Work_native_subagents": 0,
-    "scheduled_task": "disabled",
-    "await_preserved": [
-      "P1",
+    "independent_Work_reviewer": "pending",
+    "schedule": "disabled",
+    "await_unchanged": [
+      "VLM",
       "G1",
-      "VLM"
+      "P1"
     ],
-    "parked_preserved": [
+    "parked_unchanged": [
       "MOE",
       "PROV",
       "G2",

@@ -1,0 +1,8 @@
+# R021 independent scientific Work reviewer handoff — PENDING
+Formal reviewer must be a different real Work conversation, bound to the final GitHub commit containing this file (parent before R021: a7baafb3cd72bb39aa5bc762faac179ec9d92fb6). No one has issued selection/design/code/result ACCEPT.
+
+Review E1: check NVIDIA GDN-2 official exact current Oct source chunk_gdn2.py blob 565e3d31f35e46d754081d45c8b3672c8e466e66, recurrent blob a1f6e9bf949a4d724ead1df6b539e282596a6c60, especially unsafe=r2>rcrit and MARGIN=1/32. Challenge discontinuity and R020 threshold correction, quantization fallback, STE versus exact guard slope, and any projection guarantee in mixed precision. Independently reproduce inward/outward duality and continuous margin-clamp comparator; reject a simplistic assertion that exact gradients are always superior. Need actual trained gate saturation statistics before treating as science-method paper.
+
+Review C1: check ICML2026 EEFP gmum/rethinking-calibration-for-eenns@c87113e7ab5a5813d0dc3c0c251bb77c859f52c0 `eval.py` blob e6c0e9316d0caf4aa12dc6f047560c86052e723d: supervision accesses all head outcomes. Validate censoring two-world proof, audit sampling, difference between offline method scope and online deployment, and strongest selective-label contextual-bandit priors. Reject novel identifiability theorem claims.
+
+The source-level `deep_mathematical_record` labels mean fully specified math and CPU checks, not native validated or reviewer accepted. Keep P1/G1/VLM Await, seven historical Parked, no active research node. No GPU, API, native Work subagents, or schedule. Unknown past provider charges retained.
