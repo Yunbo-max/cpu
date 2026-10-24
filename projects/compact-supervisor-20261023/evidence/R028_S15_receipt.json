@@ -1,0 +1,45 @@
+{
+  "schema": "r028-epc-discrete-forecast-error-v1",
+  "parent_git_sha": "30779658cc1f4772a63f2340ba78e9f6301158b6",
+  "source_pin": "wzhSteve/EPC-AW@f9cc88080e929b29cfa909c2196d3121fd5129d1",
+  "source_blobs": {
+    "planner": "550bb08e50eff14087652bbbb6fb556e10436d58",
+    "solver": "515df206fec2684493624e8fd135733f5625db54"
+  },
+  "three_agents_own_scores": {
+    "plan_high": 5,
+    "plan_low": 2
+  },
+  "all_peers_correct": {
+    "high_BTS": 0,
+    "low_BTS": 0,
+    "selected": "plan_high"
+  },
+  "one_of_six_forecast_errors_low_2_to_1": {
+    "high_BTS": 0,
+    "low_BTS": 0.09589402415053806,
+    "selected": "plan_low",
+    "six_independent_positions_verified": 6
+  },
+  "synthetic_model": {
+    "each_of_six_independent_low_underforecast_probability": 0.05,
+    "theoretical_low_selected": 0.2649081093750002,
+    "MC_seed": 20261024,
+    "MC_trials": 100000,
+    "MC_low_selected": 0.26638
+  },
+  "constant_integer_peer_forecast_pairs": {
+    "total": 25,
+    "choose_low": 3
+  },
+  "local_executed_script_sha256": "8fcdcf8c90cbac1e2278d88f999b2dae8e9778e175b582dd0b99cf175ae83f73",
+  "local_raw_receipt_sha256": "d6e6e696ef5d38b32efa5122d3151b3f52d368ab40737a7083d3311a2250d4a8",
+  "cpu_process_seconds": 0.012110057999999979,
+  "native_source_agent_score_logs_available": false,
+  "native_model_run": false,
+  "true_task_success_verified": false,
+  "independent_formal_review": "pending",
+  "gpu_jobs": 0,
+  "paid_api_calls": 0,
+  "provider_cost": "unknown"
+}

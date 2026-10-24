@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 25,
+  "revision": 26,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -1116,12 +1116,89 @@
       "gpu_runs": 0,
       "paid_api_calls": 0,
       "Work_native_subagents": 0
+    },
+    {
+      "event_id": "manual-r028-single-discrete-peer-error-and-robust-config-20261024",
+      "node_id": "ROOT",
+      "action": "screen",
+      "stage": "deep_mathematical_record",
+      "causal_reason": "Two independently sourced deep CPU checks: (S15) ICML2026 EPC-AW BTS choice of unanimously feasibility5 high over2 low flips if one of six integer peer forecasts of low is 1 instead of2, with synthetic independent 5% error model producing 26.49% low selection. (S13) UAI2026 RobustOpt and RobustRegret public source dataset paths are identical conditional on matched settings, but official README reg_ellip kappa7.5 and ropt_budget sparse rho5 use DIFFERENT uncertainties, so original published experiments cannot be called duplicates. No original native model or ground truth correctness tested, nearest sources already cover broader mechanisms.",
+      "evidence": [
+        {
+          "path": "rounds/R028.md",
+          "kind": "math",
+          "sha256": "abe6d1ea7293f95514f48e70978d3be5078928617de646d0cc5d6ddba4f71e77"
+        },
+        {
+          "path": "evidence/R028_S15_deep.md",
+          "kind": "math",
+          "sha256": "7384c21d36526e6b97a40a4067711585dc5b2885bf5d5b06567bb47b7af78cc9"
+        },
+        {
+          "path": "evidence/R028_S13_deep.md",
+          "kind": "math",
+          "sha256": "233307d1f546100f90f30d0899353801daf972dfb04af3a8c4fc1ae09b571ec6"
+        },
+        {
+          "path": "evidence/R028_S15_receipt.json",
+          "kind": "experiment",
+          "sha256": "ea6b22392b64cf1af55338af9017dd6ba69fe81c204fbcf8998e612d569c3dbc"
+        },
+        {
+          "path": "evidence/R028_S13_receipt.json",
+          "kind": "experiment",
+          "sha256": "f05d693f34b683da2718475e9ddc331c2c633b450ba3ebb5dccef5a66f007aff"
+        },
+        {
+          "path": "evidence/R028_minimal_reproduce.py",
+          "kind": "code",
+          "sha256": "47b182d61557b404179482d02fba4efd2d05bd2df90b221d6be5324af2ee17ea"
+        },
+        {
+          "path": "review/R028_handoff.md",
+          "kind": "other",
+          "sha256": "3ada77fc5e25518c0cef6b94a3b384fa6a356e86fc5c9907f1d4cabd798aa251"
+        },
+        {
+          "path": "research-state/continuous/R028_coverage.json",
+          "kind": "other",
+          "sha256": "52c1078df8a9dc6624b0a50b70d78f99d663ec07858669e265d6abb6b0e8709d"
+        }
+      ],
+      "deep_records": [
+        {
+          "id": "S15",
+          "status": "deep_mathematical_record",
+          "source": "EPC-AW ICML2026 exact integer BTS scorer",
+          "single_one_point_forecast_flip": true,
+          "synthetic_selection_probability": 0.264908109375,
+          "MC_trials": 100000,
+          "original_agent_runs": 0
+        },
+        {
+          "id": "S13",
+          "status": "deep_mathematical_record",
+          "source": "UAI2026 RobustDFL training config/code",
+          "same_config_label_equivalence": true,
+          "README_distinct_uncertainty_sets": true,
+          "original_Gurobi_run": 0
+        }
+      ],
+      "novelty_status": "Both existing information aggregation / robust surrogate topics; model outcome and new repair unproven. Screened only, no active leaves.",
+      "falsifier": "Actual EPC-AW true task label and scored traces may favor surprising low-rated plan or show no harm. RobustDFL official benchmark configurations differ by uncertainty family and cannot be conflated.",
+      "next_question": "Seek genuinely scored EPC-AW plan trajectories and real model benefit, independently compare RobustDFL theoretical/original training; neutral unrelated math research.",
+      "next_actor": "designer",
+      "formal_review": "pending",
+      "new_nodes": 0,
+      "GPU_runs": 0,
+      "paid_API_calls": 0,
+      "Work_native_subagents": 0
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 25,
+  "wake_cursor": 26,
   "max_active": 3,
   "max_children": 8,
   "max_depth": 3,
@@ -1158,7 +1235,7 @@
       "question": "Which intervention and decision observables are lost by a compressed statistical proxy?",
       "falsifier": "Distinct interventions change decisions even when all training proxies match.",
       "next_actor": "designer",
-      "next_action": "v11.6 Full-Frontier: serve all eligible active/focused descendant leaves in bounded waves; currently none; protect Await P1/G1/VLM and seven Park nodes. Neutral independent source-grounded research; S13/S15 not promoted.",
+      "next_action": "All eligible active/focused descendants in Full-Frontier v11.6; presently zero. Await P1 formal native, G1 graph source, VLM Local evidence. Seven parked preserved. Review S13/S15 source and true model signals separately; maintain neutral ROOT.",
       "priority": 0,
       "budget": {
         "cpu_wake_reserved_s": 0,
@@ -1446,6 +1523,36 @@
           "path": "evidence/R027_cpu_receipt.json",
           "kind": "experiment",
           "sha256": "a54d44f846f2f8bcb14a5c17ccbc87d99961389453eb6b97968aebe0f18a2c7b"
+        },
+        {
+          "path": "rounds/R028.md",
+          "kind": "math",
+          "sha256": "abe6d1ea7293f95514f48e70978d3be5078928617de646d0cc5d6ddba4f71e77"
+        },
+        {
+          "path": "evidence/R028_S15_deep.md",
+          "kind": "math",
+          "sha256": "7384c21d36526e6b97a40a4067711585dc5b2885bf5d5b06567bb47b7af78cc9"
+        },
+        {
+          "path": "evidence/R028_S13_deep.md",
+          "kind": "math",
+          "sha256": "233307d1f546100f90f30d0899353801daf972dfb04af3a8c4fc1ae09b571ec6"
+        },
+        {
+          "path": "evidence/R028_S15_receipt.json",
+          "kind": "experiment",
+          "sha256": "ea6b22392b64cf1af55338af9017dd6ba69fe81c204fbcf8998e612d569c3dbc"
+        },
+        {
+          "path": "evidence/R028_S13_receipt.json",
+          "kind": "experiment",
+          "sha256": "f05d693f34b683da2718475e9ddc331c2c633b450ba3ebb5dccef5a66f007aff"
+        },
+        {
+          "path": "evidence/R028_minimal_reproduce.py",
+          "kind": "code",
+          "sha256": "47b182d61557b404179482d02fba4efd2d05bd2df90b221d6be5324af2ee17ea"
         }
       ]
     },
@@ -2062,19 +2169,19 @@
     }
   ],
   "latest_wake": {
-    "id": "manual-r027-20261024",
-    "parent_research_commit": "07ae3f6800d1c68cef85374f7c75b2dd57337a1f",
-    "full_frontier_version": "11.6",
+    "id": "manual-r028-20261024",
+    "parent_research_commit": "30779658cc1f4772a63f2340ba78e9f6301158b6",
     "active_before": [],
     "active_after": [],
     "eligible_active_focused": 0,
     "advanced_eligible": 0,
+    "unserved_eligible": 0,
     "await": [
       "P1",
       "G1",
       "VLM"
     ],
-    "parked": [
+    "parked_retained": [
       "MOE",
       "PROV",
       "G2",
@@ -2084,20 +2191,21 @@
       "L1"
     ],
     "root_children": 8,
-    "max_children": 8,
-    "new_nodes": 0,
-    "unserved_eligible": 0,
-    "deep_screens": [
-      "S13 source-original-methods isolated",
-      "S15 ICML EPC-AW BTS scoring"
+    "root_max_children": 8,
+    "screens": [
+      "S13 source config clarification",
+      "S15 integer forecast fragility"
     ],
-    "CPU_process_seconds_measured": 0.0029556239999997125,
-    "provider_cost": "unknown",
-    "model_native_jobs": 0,
-    "GPU_runs": 0,
+    "new_nodes": 0,
+    "CPU_process_s_measured": {
+      "S15": 0.012110057999999979,
+      "S13": 0.00047816899999997275
+    },
+    "other_CPU_and_provider_cost": "unknown",
+    "formal_independent_reviewer": "pending",
+    "GPU_jobs": 0,
     "paid_API_calls": 0,
     "Work_native_subagents": 0,
-    "formal_review": "pending",
-    "scheduler": "disabled"
+    "scheduled_task": "disabled"
   }
 }
