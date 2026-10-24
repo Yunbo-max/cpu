@@ -1,0 +1,65 @@
+{
+  "schema": "r024-diagcfm-affine-flow-physics-shift-v1",
+  "source_repo": "migueldecampos/diagcfm",
+  "source_commit": "d1afc35f325ecc22e0401b931b72b442b50370f2",
+  "source_path": "diagcfm_core.py",
+  "source_blob_sha": "84054d130ffebe1386610e05e53d0915aa0e8bf3",
+  "date": "2026-10-24",
+  "n": 2000,
+  "seed": 20261024,
+  "train_world": "F_train(x)=x-0.8",
+  "deployment_world": "F_test(x)=x",
+  "input_noise": "z~Uniform(0,1), y~Uniform(-.5,.5)",
+  "affine_map": "T(z,y)=(epsilon*z+y+0.8,-epsilon*z)",
+  "ode_exists": true,
+  "real_matrix_log_verified": true,
+  "results": [
+    {
+      "epsilon": 0.1,
+      "zero_deviation": 0.0034327631741352433,
+      "self_consistency": 0.003432763174135243,
+      "true_error": 0.7247338040807424,
+      "training_error": 0.003432763174135243,
+      "ratio": 211.12257598816504,
+      "condition_number": 10.100999900019993
+    },
+    {
+      "epsilon": 0.03,
+      "zero_deviation": 0.00030894868567217184,
+      "self_consistency": 0.00030894868567217184,
+      "true_error": 0.6646992609576544,
+      "training_error": 0.00030894868567217184,
+      "ratio": 2151.4875828375352,
+      "condition_number": 33.363360333311455
+    },
+    {
+      "epsilon": 0.01,
+      "zero_deviation": 0.00003432763174135242,
+      "self_consistency": 0.00003432763174135243,
+      "true_error": 0.6481644317224021,
+      "training_error": 0.00003432763174135243,
+      "ratio": 18881.711287458187,
+      "condition_number": 100.01000099999997
+    },
+    {
+      "epsilon": 0.003,
+      "zero_deviation": 0.0000030894868567217186,
+      "self_consistency": 0.0000030894868567217208,
+      "true_error": 0.642442120714055,
+      "training_error": 0.0000030894868567217208,
+      "ratio": 207944.60391255896,
+      "condition_number": 333.3363333603332
+    }
+  ],
+  "raw_executed_source_SHA256": "83ecdc2719dfecbd077704c11cabe26ce168e042ba15fbd451601f137a7e970a",
+  "raw_receipt_SHA256": "7c4937ad7d65a1e657e1917df95e55ae014785dce3aeced61810bf67c018c705",
+  "first_run_cpu_process_seconds": 0.21299822199999996,
+  "original_model_imported": false,
+  "trained_flow": false,
+  "real_physics_simulator_run": false,
+  "claim_scope": "conditional model physics shift, synthetic diffeomorphic operator only",
+  "formal_review": "pending",
+  "GPU_jobs": 0,
+  "paid_API_calls": 0,
+  "provider_cost": "unknown"
+}

@@ -1,0 +1,5 @@
+# R024 source-specific comparison
+A: ICML 2026 Diag-CFM, migueldecampos/diagcfm pinned at d1afc35f325ecc22e0401b931b72b442b50370f2. Its zero-tail and self-consistency metrics are internal checks. A conditional physics-shift counterexample has both scores approaching zero while deployment error persists. This is a known simulator-shift limitation, not a tested trained-model failure.
+B: UAI 2026 Robust-DFL, isct-nakatalab official pinned at d3122144c97b39c7a5165023803fcee1bfc0fcc3. Published source precomputes one adversarial cost using the observed optimal action. That fixed label need not maximize regret for a different model-predicted action. A two-action CPU witness shows zero proxy regret versus 1.614 true worst regret. The paper's theoretical objectives or other implementation variants may differ.
+Related known fixes: independent high-fidelity simulator validation for A; prediction-conditional adversary and static/adaptive robust optimization for B. Neither is claimed new.
+No model training, GPU or API, separate reviewer pending. Scientific parent Git commit 9ae425bcd3cbb32d998080bbb086584b98791f95.

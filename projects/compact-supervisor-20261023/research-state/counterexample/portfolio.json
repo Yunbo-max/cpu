@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 20,
+  "revision": 22,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -842,12 +842,91 @@
       "falsifier": "Model-level source proof or task benchmark/closest prior makes novelty fail",
       "next_question": "Find a distinctly new source-backed mechanism with a real benchmark and math prediction.",
       "formal_review": "pending"
+    },
+    {
+      "event_id": "manual-r023-kv-source-negative-backfill-20261024",
+      "node_id": "ROOT",
+      "action": "screen",
+      "stage": "deep_mathematical_record",
+      "causal_reason": "R023 scientific Git commit 9ae425bcd published only report evidence, leaving canonical v1 state at R022. Backfill source-scoped OBCache-k keep1 n² toy (other OBCache v/vk modes correct it) and KVP full-trace offline counterfactual two-world toy, no model result or novelty approval.",
+      "evidence": [
+        {
+          "path": "rounds/R023.md",
+          "kind": "math",
+          "sha256": "f26eeaab9e5e43f0402f544789f9655fccf320796c4ed214a284cf360fd70a96"
+        },
+        {
+          "path": "evidence/R023_KVC_A_deep.md",
+          "kind": "math",
+          "sha256": "6ff136968dd3da58a61defc059c19675b25faf455bed14e1192664ec0e200dc6"
+        },
+        {
+          "path": "evidence/R023_KVC_B_deep.md",
+          "kind": "math",
+          "sha256": "2593828a3a6e3fb306f53922bc1b870cdc3a708def3854088b0970338020f9b1"
+        }
+      ],
+      "deep_records": [
+        "KVC-A scalar scorer group utility",
+        "KVC-B offline counterfactual logging"
+      ],
+      "review": "pending",
+      "new_nodes": 0,
+      "next_actor": "designer",
+      "next_question": "Find distinct source-verified non-KV science/decision failure."
+    },
+    {
+      "event_id": "manual-r024-diagcfm-and-robustdfl-source-boundary-20261024",
+      "node_id": "ROOT",
+      "action": "screen",
+      "stage": "deep_mathematical_record",
+      "causal_reason": "S12: invertible affine Diag-CFM source-shift construction yields near-zero two internal confidence scores but persistent physical error; general surrogate misspecification, not learned-model failure. S13: pinned UAI2026 RobustRegretDataset precomputes worst cost from observed oracle instead of current policy, a two-action counterexample shows static proxy regret0 versus true worst1.614; not a theorem/paper-wide refutation.",
+      "evidence": [
+        {
+          "path": "rounds/R024.md",
+          "kind": "math",
+          "sha256": "b60902dfe3b9e23e4fb80b12a35c71cbb715cb85eab1bf9d98fa1bfd014f5988"
+        },
+        {
+          "path": "evidence/R024_S12_deep.md",
+          "kind": "math",
+          "sha256": "fe2cc70ee3228c1e293de5985eade9305108822d0e8d31539d430c32aded6892"
+        },
+        {
+          "path": "evidence/R024_S13_deep.md",
+          "kind": "math",
+          "sha256": "b6e64f56f737398d1085ab00daaa6014bb95f7ceafe9ec5c9b079a1679ffad33"
+        },
+        {
+          "path": "evidence/R024_S12_receipt.json",
+          "kind": "experiment",
+          "sha256": "3224f7ac6816c21baeda9e69b96c18befee0ae2f9629cf4c9885f3ecb4baf0df"
+        },
+        {
+          "path": "evidence/R024_S13_receipt.json",
+          "kind": "experiment",
+          "sha256": "f71af9e648e9811071274f8f743b6fdd50ef6e7955a951b7f06736455e81a0a3"
+        },
+        {
+          "path": "research-state/continuous/R024_coverage.json",
+          "kind": "other",
+          "sha256": "957421b156bd3d75a8ab4f3319e26d4aab823c75c9c59e937a429f3dc1c47486"
+        }
+      ],
+      "deep_records": [
+        "S12 affine simulator-shift internal confidence",
+        "S13 fixed-label robust adversary not conditional on prediction"
+      ],
+      "review": "pending",
+      "new_nodes": 0,
+      "next_actor": "designer",
+      "next_question": "Independent source/code reviewer then non-duplicate causal model benchmark."
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 20,
+  "wake_cursor": 22,
   "max_active": 3,
   "max_children": 8,
   "max_depth": 3,
@@ -1057,6 +1136,36 @@
           "path": "research-state/continuous/R022_coverage.json",
           "sha256": "14bf9d20b79542935f5ff86cf26de08d5ca1fb6cac906e46307dc0dc3da4d186",
           "kind": "other"
+        },
+        {
+          "path": "rounds/R023.md",
+          "kind": "math",
+          "sha256": "f26eeaab9e5e43f0402f544789f9655fccf320796c4ed214a284cf360fd70a96"
+        },
+        {
+          "path": "evidence/R023_KVC_A_deep.md",
+          "kind": "math",
+          "sha256": "6ff136968dd3da58a61defc059c19675b25faf455bed14e1192664ec0e200dc6"
+        },
+        {
+          "path": "evidence/R023_KVC_B_deep.md",
+          "kind": "math",
+          "sha256": "2593828a3a6e3fb306f53922bc1b870cdc3a708def3854088b0970338020f9b1"
+        },
+        {
+          "path": "rounds/R024.md",
+          "kind": "math",
+          "sha256": "b60902dfe3b9e23e4fb80b12a35c71cbb715cb85eab1bf9d98fa1bfd014f5988"
+        },
+        {
+          "path": "evidence/R024_S12_deep.md",
+          "kind": "math",
+          "sha256": "fe2cc70ee3228c1e293de5985eade9305108822d0e8d31539d430c32aded6892"
+        },
+        {
+          "path": "evidence/R024_S13_deep.md",
+          "kind": "math",
+          "sha256": "b6e64f56f737398d1085ab00daaa6014bb95f7ceafe9ec5c9b079a1679ffad33"
         }
       ]
     },
@@ -1673,25 +1782,33 @@
     }
   ],
   "latest_wake": {
-    "id": "manual-r022-20261024",
-    "parent_research_commit": "3e0441a660973d8eacd2a5b61299a11b47fd18ca",
+    "id": "manual-r024-20261024",
+    "parent_research_commit": "9ae425bcd3cbb32d998080bbb086584b98791f95",
+    "history_backfilled": [
+      "R023",
+      "R024"
+    ],
+    "frontier_policy": "v11.6 full",
     "active_before": [],
     "active_after": [],
-    "diversity_gap": 3,
-    "full_frontier_eligible": 0,
-    "blocked": [
+    "eligible_active": 0,
+    "await": [
       "P1",
       "G1",
       "VLM"
     ],
     "parked_retained": 7,
-    "root_screen": "S9 deep_mathematical_record",
-    "native_workers": 0,
-    "GPU_jobs": 0,
-    "paid_API_calls": 0,
-    "independent_review": "pending",
+    "unserved": 0,
+    "ROOT_max_children": 8,
+    "deep_screens": [
+      "S12",
+      "S13"
+    ],
+    "gpu_jobs": 0,
+    "api_jobs": 0,
+    "subagents": 0,
+    "review": "pending",
     "provider_cost": "unknown",
-    "cpu_s": 0.004123034999999997,
-    "scheduler": "disabled"
+    "scheduled_task": "disabled"
   }
 }
