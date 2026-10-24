@@ -1,0 +1,70 @@
+{
+  "schema": "r022-sequence-composition-exact-binomial-v1",
+  "date": "2026-10-24",
+  "parent_git_sha": "3e0441a660973d8eacd2a5b61299a11b47fd18ca",
+  "scope": "Independent product-Bernoulli mathematical counterexample, NOT actual ARC-Decode decoding experiment",
+  "per_token_target_prob_one": 0.5,
+  "per_token_approx_prob_one": 0.51,
+  "local_JSD_nats": 0.00005000583436692114,
+  "local_KL_target_approx_nats": 0.00020004001066985765,
+  "sequence_total_variation": [
+    {
+      "n": 1,
+      "tv": 0.01
+    },
+    {
+      "n": 10,
+      "tv": 0.024842151677834316
+    },
+    {
+      "n": 30,
+      "tv": 0.04369074234120954
+    },
+    {
+      "n": 60,
+      "tv": 0.0619216
+    },
+    {
+      "n": 100,
+      "tv": 0.07986037842616199
+    },
+    {
+      "n": 300,
+      "tv": 0.1376334948831281
+    },
+    {
+      "n": 1000,
+      "tv": 0.2481285231625044
+    },
+    {
+      "n": 5000,
+      "tv": 0.5205111575374665
+    }
+  ],
+  "all_tokens_valid_event": {
+    "target_prob_one": 1,
+    "approx_prob_one": 0.99,
+    "per_step_TV": 0.01,
+    "per_step_JSD_nats": 0.003478298769743022,
+    "at_n60": {
+      "P_success": 1,
+      "Q_success": 0.5471566423907612,
+      "gap": 0.4528433576092388
+    }
+  },
+  "sufficient_uniform_TV_per_step_for_T60_sequence_TV_at_most_5pct": 0.0008545229269492083,
+  "executed_original_local_script": "/mnt/data/r022/sequence_risk_probe.py",
+  "executed_original_local_source_SHA256": "fb028ea0a62f2b4d6682fdc5b467da9b4be828c29fd6d81a1677a8dd895da525",
+  "executed_original_local_receipt_SHA256": "467916228fe6e51e39cb25b6aad0d5e6da7e5d2c09304c16e18a636cb6f15205",
+  "measured_cpu_process_seconds": 0.004123034999999997,
+  "competing_source_pins": [
+    "NeuraLiying/ARC-Decode@075e09aa11eedee798db6994d0265c57eca98160/model/utils.py",
+    "Kissmetothemoon/ASD@9426ce7b3b8cafb2d34f675a5bb9db2ebf0259f6/src/asd/budget.py"
+  ],
+  "review": "pending",
+  "native_model_inference": false,
+  "GPU_jobs": 0,
+  "paid_API_jobs": 0,
+  "actual_Work_subagents": 0,
+  "provider_cost": "unknown"
+}
