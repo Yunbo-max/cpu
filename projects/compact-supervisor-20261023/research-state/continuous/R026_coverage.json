@@ -1,0 +1,114 @@
+{
+  "schema": "v11.6-full-frontier-coverage-r026",
+  "parent_research_commit": "f803351c192fb8e9567795b3c85d7c58e66600b4",
+  "nodes_total": 12,
+  "root_direct_children": 8,
+  "root_max_children": 8,
+  "full_frontier": {
+    "eligible_active_focused": 0,
+    "eligible_advanced": 0,
+    "eligible_unserved": 0,
+    "blocked_await": 3,
+    "parked_retained": 7
+  },
+  "nodes": [
+    {
+      "id": "ROOT",
+      "status": "root",
+      "outcome": "S13 and S14 independent deep source/math audits; no new node"
+    },
+    {
+      "id": "GRAPH",
+      "status": "expanded",
+      "outcome": "structure preserved"
+    },
+    {
+      "id": "P1",
+      "status": "await",
+      "next_actor": "reviewer",
+      "blocker": "Original ProbMoE code, held-out tasks, separate reviewer and GPU absent"
+    },
+    {
+      "id": "G1",
+      "status": "await",
+      "next_actor": "designer",
+      "blocker": "No physical-task/data join and strong fault oracle comparator"
+    },
+    {
+      "id": "VLM",
+      "status": "await",
+      "next_actor": "local",
+      "blocker": "EventTune archived native run data unavailable"
+    },
+    {
+      "id": "MOE",
+      "status": "parked",
+      "outcome": "preserved without reopening"
+    },
+    {
+      "id": "PROV",
+      "status": "parked",
+      "outcome": "preserved without reopening"
+    },
+    {
+      "id": "G2",
+      "status": "parked",
+      "outcome": "preserved without reopening"
+    },
+    {
+      "id": "G3",
+      "status": "parked",
+      "outcome": "preserved without reopening"
+    },
+    {
+      "id": "T1",
+      "status": "parked",
+      "outcome": "preserved without reopening"
+    },
+    {
+      "id": "K1",
+      "status": "parked",
+      "outcome": "preserved without reopening"
+    },
+    {
+      "id": "L1",
+      "status": "parked",
+      "outcome": "preserved without reopening"
+    }
+  ],
+  "new_scientific_records": [
+    {
+      "id": "S13",
+      "type": "deep_mathematical_record",
+      "operator": "SPOPlus fixed label and policy regret",
+      "effect": "wrong-way SPO+ step in constructed two-arm case",
+      "author_native_run": false
+    },
+    {
+      "id": "S14",
+      "type": "deep_mathematical_record",
+      "operator": "entropy-regularized static mixture",
+      "effect": "tiny implicit sampling probability at finite horizon",
+      "author_native_run": false
+    }
+  ],
+  "CPU_s": {
+    "S13": 1.0372489579999997,
+    "S14": 0.0018451449999998815
+  },
+  "provider_usage": "unknown",
+  "Work_native_subagents": 0,
+  "formal_independent_reviewer": "pending",
+  "GPU_jobs": 0,
+  "paid_API_jobs": 0,
+  "schedule": "disabled",
+  "new_nodes": 0,
+  "primary_direction": "none",
+  "requested_wake_envelopes_minutes": [
+    60,
+    480
+  ],
+  "claim_full_envelope_elapsed": false,
+  "next_actor": "designer/source auditor + independent separate Work reviewer",
+  "next_question": "What new source-specific causal action/update mechanism survives strong peer reviewed baselines and native tests?"
+}

@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 23,
+  "revision": 24,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -953,12 +953,100 @@
       "next_actor": "designer",
       "formal_review": "pending",
       "new_science_nodes": 0
+    },
+    {
+      "event_id": "manual-r026-spoplus-cost-update-and-entropy-budget-20261024",
+      "node_id": "ROOT",
+      "action": "deepen",
+      "stage": "deep_mathematical_record",
+      "causal_reason": "Source-pinned SPOPlus exact surrogate has a one-step descent direction that increases true robust decision regret due to observed-optimum frozen adversarial cost labels; public robust_regret and robust_opt share identical subclass and training path given matching settings. An actual bounded 30-step Adam cost-parameter CPU mirror switches to the robust-worse action by step 11; strong native-model and published robust-loss priors prevent new method acceptance. Mechanism-distinct diversity-greedy entropy toy demonstrates exponentially tiny implicit exploration probability despite asymptotically positive per-arm sampling; original UAI2026 Mixture-Greedy already studies implicit exploration/UCB. No actual trained models or independent reviewer.",
+      "evidence": [
+        {
+          "path": "rounds/R026.md",
+          "kind": "math",
+          "sha256": "0585a07d7bc91c770d60f740f148e64d12ed55cc8a731cbbc0a5d205c814c0ee"
+        },
+        {
+          "path": "evidence/R026_S13_spoplus_and_alias.md",
+          "kind": "math",
+          "sha256": "44f6b51763243f720623da5a491c079e73bef7ea9d2d9943af6a9992c090e6ec"
+        },
+        {
+          "path": "evidence/R026_S14_entropy_finite_budget.md",
+          "kind": "math",
+          "sha256": "fd09dcee5346d5789f6a275e9affdeba5ccc8e29fe073a33f89c83575630046d"
+        },
+        {
+          "path": "evidence/R026_S13_receipt.json",
+          "kind": "experiment",
+          "sha256": "63d4b272106a72c93ad920338f83891bd38ea6d7446c29ff6a4fc68c9c2da047"
+        },
+        {
+          "path": "evidence/R026_S14_receipt.json",
+          "kind": "experiment",
+          "sha256": "add1b000e81e76fa81daa780a529a378e38262e756cccdb443e315167e24b9f2"
+        },
+        {
+          "path": "evidence/R026_S13_reproduce.py",
+          "kind": "code",
+          "sha256": "96573f5560356f69bfe377b3bddf9bc84d715e664fae23b1ab77127bdc64576a"
+        },
+        {
+          "path": "evidence/R026_S14_reproduce.py",
+          "kind": "code",
+          "sha256": "98babc5484eedb02e2e762bf54cd648bef050f040654ba708f9e08faf2d4bc96"
+        },
+        {
+          "path": "evidence/R026_prior_and_scope.md",
+          "kind": "paper",
+          "sha256": "01ff1f16b14d45a2e3e8584bb5de428c93c366834cfc55c5402dbddf87201f91"
+        },
+        {
+          "path": "review/R026_handoff.md",
+          "kind": "other",
+          "sha256": "0e38c950cbb8e286bd28b3862c333d83fd924a88b13ddd7ac740bb95dab00f9b"
+        },
+        {
+          "path": "research-state/continuous/R026_coverage.json",
+          "kind": "other",
+          "sha256": "5d3e110241d5d11ca808ca825e3d56d8921b7f420561be83ad0efbdee7af9edb"
+        }
+      ],
+      "deep_records": [
+        {
+          "id": "S13",
+          "status": "deep_mathematical_record",
+          "source": "UAI2026 Robust DFL + PyEPO SPOPlus",
+          "effect": "one-step SPO+1.2 to0.4 while real worst regret1.214 to1.614",
+          "grid_flips": 1790,
+          "adam_switch_step": 11,
+          "mode_alias": "RobustOptDataset inherits RobustRegretDataset",
+          "model_training": false
+        },
+        {
+          "id": "S14",
+          "status": "deep_mathematical_record",
+          "source": "UAI2026 Mixture-Greedy",
+          "effect": "static entropy mixture q_rare=4.54e-5, miss probability at T10000=.63509",
+          "T95": 65987,
+          "full_online_model": false
+        }
+      ],
+      "novelty_status": "Neither original new method nor native validated, no accepted theory; UAI papers address their broad mechanisms.",
+      "next_question": "What separate open-model action/update mechanism survives strong published baselines and fair real task discrimination, while original S13 requires independent review?",
+      "next_actor": "designer",
+      "falsifier": "Original Gurobi/PyEPO author training could differ or task benefit outweigh toy anomaly; Mixture-Greedy adaptive empirical objective and structural assumptions differ from frozen Shannon toy.",
+      "formal_review": "pending",
+      "Work_native_subagents": 0,
+      "GPU_runs": 0,
+      "paid_API_calls": 0,
+      "new_tree_nodes": 0
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 23,
+  "wake_cursor": 24,
   "max_active": 3,
   "max_children": 8,
   "max_depth": 3,
@@ -995,7 +1083,7 @@
       "question": "Which intervention and decision observables are lost by a compressed statistical proxy?",
       "falsifier": "Distinct interventions change decisions even when all training proxies match.",
       "next_actor": "designer",
-      "next_action": "v11.6 Full-Frontier: examine ALL eligible active/focused descendant leaves in bounded waves each authorized wake, not the old 1-2-only rotation. At R025 eligible=0; preserve P1/G1/VLM Await, all 7 parked; explore neutral new mechanisms.",
+      "next_action": "v11.6 full-frontier: serve ALL eligible active/focused nodes in bounded waves; at R026 none eligible; preserve P1/G1/VLM Await, seven Parked. Independently audit S13 native source when authorized; continue neutral cross-domain science, no global main.",
       "priority": 0,
       "budget": {
         "cpu_wake_reserved_s": 0,
@@ -1213,6 +1301,46 @@
           "path": "evidence/R025_S12_credibility_bound.md",
           "sha256": "dfc0a0d86e6970201c3935d6da1437a7d63e7432e40374a76e46dabb898550ec",
           "kind": "math"
+        },
+        {
+          "path": "rounds/R026.md",
+          "kind": "math",
+          "sha256": "0585a07d7bc91c770d60f740f148e64d12ed55cc8a731cbbc0a5d205c814c0ee"
+        },
+        {
+          "path": "evidence/R026_S13_spoplus_and_alias.md",
+          "kind": "math",
+          "sha256": "44f6b51763243f720623da5a491c079e73bef7ea9d2d9943af6a9992c090e6ec"
+        },
+        {
+          "path": "evidence/R026_S14_entropy_finite_budget.md",
+          "kind": "math",
+          "sha256": "fd09dcee5346d5789f6a275e9affdeba5ccc8e29fe073a33f89c83575630046d"
+        },
+        {
+          "path": "evidence/R026_S13_receipt.json",
+          "kind": "experiment",
+          "sha256": "63d4b272106a72c93ad920338f83891bd38ea6d7446c29ff6a4fc68c9c2da047"
+        },
+        {
+          "path": "evidence/R026_S14_receipt.json",
+          "kind": "experiment",
+          "sha256": "add1b000e81e76fa81daa780a529a378e38262e756cccdb443e315167e24b9f2"
+        },
+        {
+          "path": "evidence/R026_S13_reproduce.py",
+          "kind": "code",
+          "sha256": "96573f5560356f69bfe377b3bddf9bc84d715e664fae23b1ab77127bdc64576a"
+        },
+        {
+          "path": "evidence/R026_S14_reproduce.py",
+          "kind": "code",
+          "sha256": "98babc5484eedb02e2e762bf54cd648bef050f040654ba708f9e08faf2d4bc96"
+        },
+        {
+          "path": "evidence/R026_prior_and_scope.md",
+          "kind": "paper",
+          "sha256": "01ff1f16b14d45a2e3e8584bb5de428c93c366834cfc55c5402dbddf87201f91"
         }
       ]
     },
@@ -1829,26 +1957,49 @@
     }
   ],
   "latest_wake": {
-    "id": "manual-r025-20261024",
-    "parent_research_commit": "9c0db9be36d7d4e04c25613021156a6d00931aaa",
-    "eligible_active": 0,
+    "id": "manual-r026-20261024",
+    "parent_research_commit": "f803351c192fb8e9567795b3c85d7c58e66600b4",
+    "mode": "v11.6 full frontier",
+    "active_before": [],
     "active_after": [],
-    "await": [
+    "eligible_active_focused": 0,
+    "advanced_eligible": 0,
+    "blocked_await": [
       "P1",
       "G1",
       "VLM"
     ],
-    "parked_count": 7,
-    "screens": [
-      "S13",
-      "S12"
+    "parked_unchanged": [
+      "MOE",
+      "PROV",
+      "G2",
+      "G3",
+      "T1",
+      "K1",
+      "L1"
     ],
+    "unserved_eligible": 0,
+    "diversity_gap": 3,
     "new_nodes": 0,
-    "review": "pending",
-    "GPU": 0,
-    "paid_API": 0,
-    "native_subagents": 0,
-    "cpu_s": 0.569042752,
-    "other_compute_cost": "unknown"
+    "deep_records": [
+      "S13",
+      "S14"
+    ],
+    "source_pins": [
+      "UAI2026 RobustDFL@d3122144c9",
+      "PyEPO@e5d768e2749",
+      "UAI2026 Mixture-Greedy@a2558c6e"
+    ],
+    "measured_CPU_process_seconds": {
+      "S13": 1.0372489579999997,
+      "S14": 0.0018451449999998815
+    },
+    "other_compute": "unmetered",
+    "provider_cost": "unknown",
+    "actual_Work_native_subagents": 0,
+    "independent_review": "pending",
+    "GPU_jobs": 0,
+    "paid_API_jobs": 0,
+    "scheduler": "disabled"
   }
 }

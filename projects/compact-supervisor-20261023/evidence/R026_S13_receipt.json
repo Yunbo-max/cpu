@@ -1,0 +1,68 @@
+{
+  "schema": "r026-source-pinned-spoplus-gradient-v1",
+  "science_parent": "f803351c192fb8e9567795b3c85d7c58e66600b4",
+  "date": "2026-10-24",
+  "source_author_commit": "d3122144c97b39c7a5165023803fcee1bfc0fcc3",
+  "source_pyepo_commit": "e5d768e2749bccdeba7494b4ec848c3eb3ffbd25",
+  "source_author_blobs": {
+    "oracle": "80099351f668c71dd75e5afd27abdc8e13aef967",
+    "training": "651b6fef689360c3e046aaa215834b644049a465"
+  },
+  "source_pyepo_blob": "97dd95c9c2f3057dbe17fbf3349f01d717e20f8b",
+  "toy": {
+    "cost_observed": [
+      0,
+      0.2
+    ],
+    "fixed_ellipsoid_cost": [
+      1,
+      0.2
+    ],
+    "action_before": 0,
+    "action_after": 1,
+    "one_step_eta": 0.1,
+    "prediction_after": [
+      0.2,
+      0
+    ],
+    "SPO_plus_before": 1.2,
+    "SPO_plus_after": 0.4,
+    "robust_regret_before": 1.2142135623730952,
+    "robust_regret_after": 1.614213562373095
+  },
+  "grid": {
+    "n_delta": 100,
+    "n_rho": 100,
+    "total": 10000,
+    "static_label_strict_rank_inversions": 4950,
+    "eta": 0.1,
+    "one_step_wrong_action_flips": 1790
+  },
+  "adam": {
+    "lr": 0.01,
+    "weight_decay": 0.0001,
+    "steps": 30,
+    "emp": {
+      "final_action": 0,
+      "robust_regret": 1.2142135623730952
+    },
+    "robust_regret": {
+      "first_action_flip_step": 11,
+      "final_action": 1,
+      "robust_regret": 1.614213562373095
+    },
+    "robust_opt": {
+      "identical_to_robust_regret_timeline": true,
+      "final_action": 1,
+      "robust_regret": 1.614213562373095
+    }
+  },
+  "original_executed_script_sha256": "97ffd01571a31fc156547f6e0c2a4fa326bfc404169bd7fe3bd245e13ff2b428",
+  "original_full_timeline_receipt_sha256": "eb20557e2482cb0a797c9d40548b9f24015ff9e7930d47efca9c2b9d3b05dc5c",
+  "measured_cpu_process_seconds": 1.0372489579999997,
+  "scope": "source formula/hyperparam mirror; NOT original authored model code/Gurobi imported, no native training or model results",
+  "review": "pending",
+  "gpu_jobs": 0,
+  "paid_API_calls": 0,
+  "provider_cost": "unknown"
+}
