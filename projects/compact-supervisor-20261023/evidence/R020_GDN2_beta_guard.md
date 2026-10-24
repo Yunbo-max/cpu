@@ -1,0 +1,15 @@
+# R020 GDN-2 state nonnormality and guard saturation
+
+Source: NVlabs/GatedDeltaNet-2@de8476de0fecae08fc16f0bf3154900244c61c73, May GDN2 paper arXiv:2605.22791. Current official `lit_gpt/gdn2_ops/chunk_gdn2.py` blob 565e3d31f35e46d754081d45c8b3672c8e466e66 and `fused_recurrent_gdn2.py` blob a1f6e9bf949a4d724ead1df6b539e282596a6c60 explicitly use beta_guard=True by default, with key L2 normalization. Training chunk backward explicitly says db is straight-through (no projection autograd subgraph).
+
+Let A=(I-k(b*k)^T)D; set D=alpha I, normalized k=(1,1)/sqrt(2), alpha=.98, b=(.99,.01). A=[[.4949,-.0049],[-.4851,.9751]], eigenvals (.49,.98) and largest singular value 1.1162574824, so a finite step can increase some state norm even with eigenvalues <1. It does NOT entail full-model growth or an unstable infinite stationary sequence.
+
+The official key-weighted moment condition is n=||k||², a=sum b_i k_i², nu=sum b_i² k_i², r²=n*nu-a²; c²=exp(-2g_max); r_crit²=(c²-1)*(1-(1-a)²/c²). Unsafe r²>r_crit² yields projected beta centered on mu=a/n with radial multiplier eta=sqrt((1-1/32)*r_crit²/r²), clipped <=1; quantization is rechecked and may trigger a scalar fallback. Our independent full-precision formula omits that dtype fallback and is not an execution of NVIDIA Triton code.
+
+The guarded toy's norm is 0.9993884849, scalar same-mean gate beta=.5 has norm .98. Its eigenvalues stay (.49,.98); the guard reduces nonnormality without changing the mean erase strength. A seed-20261024, 2000-draw synthetic 2D sweep (keys normalized, beta iid Uniform[.001,.999], alpha Uniform[.9,.995]) has 245 expanding unguarded operators, 0 protected ones. These synthetic rates are NOT actual pretrained gate distributions.
+
+Take b=(.5+t,.5-t) so a=.5 and r²=t². Threshold t_star=sqrt((1-1/32)*r_crit²)=.17422304395. For positive t>.174223, the projected effective beta is (.5+t_star,.5-t_star), independent of t. Therefore any loss depending ONLY on the current protected operator output has true dL/dt=0 on the saturated ray. With a fixed output target -.8 and t=.49, a PyTorch independent straight-through approximation gives dL/dt=-.23011904715, and SGD step t=.49→.49230119 leaves the protected output unchanged. This exactly reflects the documented identity-gradient approximation, not a verified training bug.
+
+**Historical pin**: May 21 2026 official code commit e3580edec6b12d788572cbda3a7b326451df5ed1 `chunk_gdn2.py` had 0 beta_guard occurrences; Oct 11 2026 commit 78b4db1aa7b8b6e189956ad9403385406a9ba3de added the guard, retained in current source. Do not attribute these later source safeguards to the May training results without separate proof.
+
+Existing priors: NVIDIA's implemented beta guard already fixes forward contraction under its assumptions; nonnormal transient growth is classical and 2026 attention-propagator arXiv:2607.09279 investigates related nonnormality; generalized straight-through bias studied by AISTATS 2026 Hooper & Shekhovtsov. No current claim of an unoccupied theorem or proven model benefit.

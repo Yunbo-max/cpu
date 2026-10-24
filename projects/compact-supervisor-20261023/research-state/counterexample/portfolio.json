@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 17,
+  "revision": 18,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -616,12 +616,86 @@
       "experiment_scope": "CPU only, pinned numerical original methods isolated from missing Transformers, 128 generated toy tasks, no actual trained model.",
       "formal_review": "pending",
       "full_model_approval": false
+    },
+    {
+      "event_id": "manual-r020-gdn2-official-beta-guard-and-ste-flat-fibre-20261024",
+      "node_id": "ROOT",
+      "action": "screen",
+      "stage": "discovery",
+      "causal_reason": "An exact GDN-2 channelwise erase update can have spectral radius<1 yet Euclidean one-step gain>1. However pinned Oct2026 official NVIDIA chunk and fused kernels already use beta_guard=True and analytically protect forward nonexpansiveness; this falsifies a broad untreated instability claim. The same guard uses straight-through backward beta, allowing nonzero proxy gradient along a truly flat projected-gate contrast ray; a source-derived toy and 2000 synthetic checks confirm the mechanism but no learned-model prevalence or novel repair.",
+      "evidence": [
+        {
+          "path": "rounds/R020.md",
+          "kind": "math",
+          "sha256": "2a8c50230a02abe1b36e90617e6b2a6d0d758be8aff293d64f337866ce625936"
+        },
+        {
+          "path": "evidence/R020_GDN2_beta_guard.md",
+          "kind": "math",
+          "sha256": "87c34e5e423e58ac27f64e46a0056e135c8cffa08179b28204ba7472ac3d5863"
+        },
+        {
+          "path": "research/candidates/R020_E1.md",
+          "kind": "math",
+          "sha256": "77ae1ccbea41eb49d16c623b1fe96de4cd4ab76843c3addd65bb26d2dd552720"
+        },
+        {
+          "path": "evidence/R020_prior_and_screens.md",
+          "kind": "paper",
+          "sha256": "051c9f42ca56e7289091709c6180f0e2c3bea112954dae85e36d6e77bf3f19b8"
+        },
+        {
+          "path": "review/R020_handoff.md",
+          "kind": "other",
+          "sha256": "9b5683187af020337184887b1ed6a7f1105f572e32989be205403f3049ccae9f"
+        },
+        {
+          "path": "evidence/R020_gdn2_guard_probe.py",
+          "kind": "code",
+          "sha256": "3ff2747e19e2ed44213adbdafc7cf894df18df3055316e091d76beb15bfe7c63"
+        },
+        {
+          "path": "evidence/R020_gdn2_guard_receipt.json",
+          "kind": "experiment",
+          "sha256": "0426b79d419d55e2801b27d609fd70b15c3a4c4033eb0f5f39213d49d6abeae1"
+        }
+      ],
+      "screened": [
+        {
+          "id": "GDN2-raw-transient",
+          "mechanism": "non-normal-channelwise-erase",
+          "decision": "prior-covered-by-current-beta-guard"
+        },
+        {
+          "id": "E1",
+          "mechanism": "projected-gate-contrast-fibre-straight-through-gradient",
+          "decision": "candidate-unadmitted-no-model-or-independent-review"
+        },
+        {
+          "id": "TTA-temporal-utility",
+          "mechanism": "online-adaptation-latency",
+          "decision": "existing-ICML2026-Tempora-and-recovery-complexity"
+        },
+        {
+          "id": "toolcache-exogenous-drift",
+          "mechanism": "tool-history-and-expiration",
+          "decision": "existing-TVCACHE-and-ToolCacheAgent"
+        }
+      ],
+      "mathematical_prediction": "For k=(1,1)/sqrt2, b=(.99,.01), alpha=.98, GDN2 no-write raw spectral norm=1.11625748 with eigen=.49,.98; official contrast projection gives norm=.99938848. Along b(t)=(.5+t,.5-t), t>.174223, projected b is constant; true dL/dt=0, source-like STE dL/dt=-.230119 at t=.49. In 2000 synthetic draws raw245 expanded vs guarded0.",
+      "falsifier": "Broad GDN2 instability already fixed in current official code. E1 merits no method claim if trained gates never saturate, STE beneficial versus exact gradient in equal-cost real task tests, or prior projection/STE theory covers proposed repair. Do not infer training result or May-paper metrics from Oct source.",
+      "next_question": "Can any source-verified live trained GDN-2 gate distribution and independent comparative results establish an E1 repair beyond the current source guard and known STE bias, or should neutral ROOT exploration import a different mechanism?",
+      "next_actor": "designer",
+      "next_action": "Retain E1 unadmitted pending independent reviewer and real model feasibility, screen genuinely distinct ROOT peer mechanisms without increasing max_children or GPU budget.",
+      "formal_review": "pending",
+      "new_active_nodes": 0,
+      "actual_Work_subagents": 0
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 17,
+  "wake_cursor": 18,
   "max_active": 3,
   "max_children": 8,
   "max_depth": 3,
@@ -658,7 +732,7 @@
       "question": "Which intervention and decision observables are lost by a compressed statistical proxy?",
       "falsifier": "Distinct interventions change decisions even when all training proxies match.",
       "next_actor": "designer",
-      "next_action": "Resume neutral branching across all eligible rooted mechanisms; P1 provisional audit receives bounded attention but is not a programme-wide preferred topic.",
+      "next_action": "Neutral 2026 primary-paper and source-pinned search across mechanism-distinct AI/math domains; E1 is an UNADMITTED screening packet, not a ROOT leaf. Keep P1/G1/VLM Await and prior parked leaves.",
       "priority": 0,
       "budget": {
         "cpu_wake_reserved_s": 0,
@@ -726,6 +800,41 @@
           "path": "rounds/R018.md",
           "sha256": "14d1db1e86c46e04578d9bacc8a846bb5d250e8c52365cd0ce8fcea00685c180",
           "kind": "math"
+        },
+        {
+          "path": "rounds/R020.md",
+          "kind": "math",
+          "sha256": "2a8c50230a02abe1b36e90617e6b2a6d0d758be8aff293d64f337866ce625936"
+        },
+        {
+          "path": "evidence/R020_GDN2_beta_guard.md",
+          "kind": "math",
+          "sha256": "87c34e5e423e58ac27f64e46a0056e135c8cffa08179b28204ba7472ac3d5863"
+        },
+        {
+          "path": "research/candidates/R020_E1.md",
+          "kind": "math",
+          "sha256": "77ae1ccbea41eb49d16c623b1fe96de4cd4ab76843c3addd65bb26d2dd552720"
+        },
+        {
+          "path": "evidence/R020_prior_and_screens.md",
+          "kind": "paper",
+          "sha256": "051c9f42ca56e7289091709c6180f0e2c3bea112954dae85e36d6e77bf3f19b8"
+        },
+        {
+          "path": "review/R020_handoff.md",
+          "kind": "other",
+          "sha256": "9b5683187af020337184887b1ed6a7f1105f572e32989be205403f3049ccae9f"
+        },
+        {
+          "path": "evidence/R020_gdn2_guard_probe.py",
+          "kind": "code",
+          "sha256": "3ff2747e19e2ed44213adbdafc7cf894df18df3055316e091d76beb15bfe7c63"
+        },
+        {
+          "path": "evidence/R020_gdn2_guard_receipt.json",
+          "kind": "experiment",
+          "sha256": "0426b79d419d55e2801b27d609fd70b15c3a4c4033eb0f5f39213d49d6abeae1"
         }
       ]
     },
@@ -1342,18 +1451,29 @@
     }
   ],
   "latest_wake": {
-    "id": "manual-r019-20261024",
-    "actual_parent_commit": "1ebea4e7d855a5c0edcf2e30294b1b012867ecf5",
-    "active_before": [
-      "P1"
-    ],
+    "id": "manual-r020-20261024",
+    "parent_research_commit": "b0cdb45073d2116b391fdd6feabc0688e06d5c3d",
+    "active_before": [],
     "active_after": [],
-    "await_after": [
+    "diversity_gap": 3,
+    "root_candidate_E1": "screened-only NOT portfolio node; ROOT structural cap 8 already exhausted",
+    "source_commit": "NVlabs/GatedDeltaNet-2@de8476de0fecae08fc16f0bf3154900244c61c73",
+    "paper_may_source_commit": "e3580edec6b12d788572cbda3a7b326451df5ed1",
+    "CPU_probe": "independent NumPy/PyTorch recurrence + source-matched mathematical beta_guard; original NVIDIA Triton NOT run",
+    "observed_cpu_process_seconds": 0.09187218199999991,
+    "other_CPU_provider_cost": "unknown",
+    "source_result": "default beta_guard protects synthetic raw nonnormal step; straight-through radial plateau conditional issue",
+    "formal_independent_reviewer": "pending",
+    "native_GPU_jobs": 0,
+    "paid_API_jobs": 0,
+    "Work_native_subagents": 0,
+    "scheduled_task": "disabled",
+    "await_preserved": [
       "P1",
       "G1",
       "VLM"
     ],
-    "parked_unchanged": [
+    "parked_preserved": [
       "MOE",
       "PROV",
       "G2",
@@ -1361,21 +1481,6 @@
       "T1",
       "K1",
       "L1"
-    ],
-    "diversity_gap": 3,
-    "corrected_R017_exact_tie": true,
-    "non_tie_source_specific_effect": true,
-    "synthetic_generator_seed": 19019,
-    "synthetic_n": 128,
-    "surrogate_wrong_step_witness": true,
-    "code_run": "author's numerical method statements isolated; full Transformers class NOT imported",
-    "CPU_observed_s": "author methods audit <1s; controlled one-step <1s; variance <1s; fixed 128 tasks ~3.2s; other CPU/provider unknown",
-    "reviewer_status": "pending",
-    "next_actor": "designer for neutral root discovery; separate reviewer for P1",
-    "GPU_runs": 0,
-    "paid_API_calls": 0,
-    "Work_native_subagents": 0,
-    "scheduled_task": "disabled",
-    "provider_cost": "unknown"
+    ]
   }
 }
