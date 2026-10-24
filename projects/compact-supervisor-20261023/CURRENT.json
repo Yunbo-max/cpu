@@ -1,23 +1,23 @@
 {
   "project_id": "compact-supervisor-20261023",
-  "round": "R026",
-  "parent_checkpoint_commit": "f803351c192fb8e9567795b3c85d7c58e66600b4",
-  "parent_question": "Q-r026-new-source-grounded-mechanism-and-formal-review-of-S13",
-  "action": "deepen",
-  "next_question": "Q-r027-independent-S13-native-audit-and-independent-new-mechanism",
-  "round_path": "rounds/R026.md",
+  "round": "R027",
+  "parent_checkpoint_commit": "07ae3f6800d1c68cef85374f7c75b2dd57337a1f",
+  "parent_question": "Q-r027-independent-S13-native-audit-and-independent-new-mechanism",
+  "action": "interpret",
+  "next_question": "Q-r028-independent-original-training-audit-and-bts-calibration-tasks",
+  "round_path": "rounds/R027.md",
   "formal_review": "pending",
   "scheduler": "disabled",
   "budget": {
-    "last_probe_wall_seconds": "R026 measured Python process S13 1.037248958s + S14 0.001845145s; other provider/tool costs unknown",
+    "last_probe_wall_seconds": "R027 Python source isolation measured process CPU 0.002955624s, model import and tool/provider usage unmetered/unknown",
     "next_cpu_seconds": 60,
     "provider_cost": "unknown",
     "gpu_authorized": false
   },
   "mode": "branching",
   "continuous_state": "research-state/continuous/loop.json",
-  "continuous_revision": 24,
-  "continuous_state_sha256": "a582bee3b25e9c7e818303b353922fe5d69d32173c9163817ac703674f80289d",
+  "continuous_revision": 25,
+  "continuous_state_sha256": "f6640f872618dea75637547c96ae928c69cba7f382ce380ee47dfdb48bc28ab7",
   "frontier": {
     "active": [],
     "blocked": [
@@ -39,9 +39,9 @@
     "other_blocked": [
       "R006 EventTune local archive check pending"
     ],
-    "evidence_status": "R026 S13 exact published PyEPO SPOPlus toy: surrogate descends1.2->0.4 but true robust worst regret ascends1.214->1.614; 30step Adam cost model for source alias robust_regret/robust_opt identical, model-native not tested. S14 static entropy mixture finite horizon q rare4.54e-5; miss prob 0.635 after10k. Both conditional/prior known.",
+    "evidence_status": "R027 S13 author-source-body isolated with Gurobi/PyEPO-compatible stubs: robust_opt/regret labels identical for three actual-cost rows; proxy e2 regret0 while true worst e2=1.614. S15 ICML EPC-AW BTS source surprise picks own-feasibility2 over unanimous high5 when peer forecasts erroneous, calibrated forecasts reverse. No real trained native run.",
     "diversity_gap": 3,
-    "novelty_status": "S13 source-path QA and S14 classic entropy finite-sample caveat only; neither accepted paper method, no real pretrained/native training and independent reviewer still pending.",
+    "novelty_status": "Neither S13 nor S15 accepted as novel method; exact published code/2026 closest prior and simple calibration/conditional adversary; real downstream task effects unverified, formal reviewer pending.",
     "source_protocol_pin": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
     "installed_skill_new_schema": "not migrated; preserve portfolio.json as sole existing canonical project tree",
     "new_crossdomain": "T1 conditional rule zero-support",
@@ -49,17 +49,17 @@
     "max_active": 3,
     "max_children": 8,
     "reproducer_correction": "Within R011: fixed regexp escaping in standalone source; source hash updated with preserved revision/negative findings; former source retained in Git history",
-    "next_discovery": "Neutral new mechanism screen and formally separate source reviewer for S13 before licensed native model benchmark.",
+    "next_discovery": "Independent reviewer and model-level discriminating tasks for S13/S15; neutral science other mechanisms.",
     "root_screen_summary": "Five candidates screened NOT added as new nodes or parked descendants. Continue with different concrete model-specific intervention/update failure.",
     "model_gate": "QED 340M trained weights/code unverified; no native GPU or license-authorized implementation admitted",
-    "deep_research_gate": "v11.6 FULL frontier: 0 eligible, 3 Await, 7 Park, 2 separate D1-D6 math records; all peer scientific states preserved.",
-    "full_frontier_coverage": "research-state/continuous/R026_coverage.json",
+    "deep_research_gate": "v11.6 full frontier 0 eligible active/focused, 3 await,7 park; two D1-D6 source scope math records",
+    "full_frontier_coverage": "research-state/continuous/R027_coverage.json",
     "full_frontier_policy": "v11.6 all eligible active/focused (not 1-2 rotation), 0 eligible at R025"
   },
   "next_actor": "designer",
   "tree_mode": "persistent-research-tree-v1",
   "frontier_path": "research-state/counterexample/portfolio.json",
-  "frontier_revision": 24,
-  "frontier_sha256": "892ec4aef03308a7e6e98580cdb8fbe2dcbf45949aa1a64bace3dd7a8c1c2f36",
+  "frontier_revision": 25,
+  "frontier_sha256": "c1fb87e8b38729a97888fa7139bae17f35373e65b8fbf4339968d9f038762ed3",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade"
 }

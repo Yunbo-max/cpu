@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 24,
+  "revision": 25,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -1041,12 +1041,87 @@
       "GPU_runs": 0,
       "paid_API_calls": 0,
       "new_tree_nodes": 0
+    },
+    {
+      "event_id": "manual-r027-original-method-s13-and-epc-bts-relative-surprise-20261024",
+      "node_id": "ROOT",
+      "action": "screen",
+      "stage": "deep_mathematical_record",
+      "causal_reason": "Two mechanism-distinct original-source-aligned CPU tests. S13 source-matched robustness EllipsoidUncertaintySet, precomputed RobustRegretDataset and subclass RobustOptDataset with PyEPO/Gurobi-compatible two-var stubs yield identical labels on all 3 observations; source c_worst central labels favor e2 despite true worst regrets favoring e1, but no licensed native author training or peer review. S15 ICML2026 EPC-AW published BTS takes mean log own/peer-forecast ratio; all three own high plan5 and low plan2 but predicted others high5 low1, so BTS selects low2. Calibrated forecasts restore high5 via tie-break, and 2026 correlated-agent error papers are direct closest prior. Both source-bound mathematical counterexamples, not new methods or measured native LLM effects.",
+      "evidence": [
+        {
+          "path": "rounds/R027.md",
+          "kind": "math",
+          "sha256": "d50bd30f47479b8fef0a646d409af63bec348b762e43137cd5d208a43e2ea607"
+        },
+        {
+          "path": "evidence/R027_S13_native_method_isolation.md",
+          "kind": "math",
+          "sha256": "02261c12778a072ae35226df9e44a450bc719e7861e512229fa6b86e591c5402"
+        },
+        {
+          "path": "evidence/R027_S15_bts_planning.md",
+          "kind": "math",
+          "sha256": "02b9acac2692086249d5ec27b95f49bd09b70d945e2f068920be0b0f34dd2817"
+        },
+        {
+          "path": "evidence/R027_source_priors.md",
+          "kind": "paper",
+          "sha256": "58ad4f750313541b9ae3ce116a4627ebaa30477b68d612b88fda19e74282c48c"
+        },
+        {
+          "path": "evidence/R027_minimal_reproduce.py",
+          "kind": "code",
+          "sha256": "a8821fd5963ae2148e317976134ef219d96870074fd3a266043f9dae0d75d15e"
+        },
+        {
+          "path": "evidence/R027_cpu_receipt.json",
+          "kind": "experiment",
+          "sha256": "a54d44f846f2f8bcb14a5c17ccbc87d99961389453eb6b97968aebe0f18a2c7b"
+        },
+        {
+          "path": "review/R027_handoff.md",
+          "kind": "other",
+          "sha256": "47b49aa4fb37ace94b4bea97a5fa3d63f49a2344d84dcb4ea06c42b241189e97"
+        },
+        {
+          "path": "research-state/continuous/R027_coverage.json",
+          "kind": "other",
+          "sha256": "ef9393882fc9880e81c39d23ccfdf56a8d138f60fe33d688f27c1614490acfb5"
+        }
+      ],
+      "deep_records": [
+        {
+          "id": "S13",
+          "status": "deep_mathematical_record",
+          "source": "UAI2026 RobustDFL fixed adversarial labels",
+          "method_body_isolation": "Gurobi/PyEPO stub; not imported original complete package",
+          "n_samples": 3,
+          "result": "robust_regret and robust_opt equal source labels, proxy vs true worst regret mismatch"
+        },
+        {
+          "id": "S15",
+          "status": "deep_mathematical_record",
+          "source": "ICML2026 EPC-AW BTS plan selector",
+          "test": "three agent own scores 5>2, peer expectations 5/1, BTS picks lower; calibrated expectations restores high",
+          "native_agents": false
+        }
+      ],
+      "new_nodes": 0,
+      "novelty_status": "Not accepted: S13 native license and intent unknown, S15 relative surprise and correlated epistemic miscalibration already existing prior; no original method improvement",
+      "next_actor": "designer",
+      "next_question": "Check original model/peer review before accepting anything; seek new distinct model/action/update mechanics under unchanged resource authority",
+      "falsifier": "If actual PyEPO/Gurobi source training differs or source conditional adversary realized elsewhere, revise S13; if EPC-AW model peer forecasts are calibrated or task correctness not harmed, S15 is only expected BTS selection behavior.",
+      "formal_review": "pending",
+      "gpu_runs": 0,
+      "paid_api_calls": 0,
+      "Work_native_subagents": 0
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 24,
+  "wake_cursor": 25,
   "max_active": 3,
   "max_children": 8,
   "max_depth": 3,
@@ -1083,7 +1158,7 @@
       "question": "Which intervention and decision observables are lost by a compressed statistical proxy?",
       "falsifier": "Distinct interventions change decisions even when all training proxies match.",
       "next_actor": "designer",
-      "next_action": "v11.6 full-frontier: serve ALL eligible active/focused nodes in bounded waves; at R026 none eligible; preserve P1/G1/VLM Await, seven Parked. Independently audit S13 native source when authorized; continue neutral cross-domain science, no global main.",
+      "next_action": "v11.6 Full-Frontier: serve all eligible active/focused descendant leaves in bounded waves; currently none; protect Await P1/G1/VLM and seven Park nodes. Neutral independent source-grounded research; S13/S15 not promoted.",
       "priority": 0,
       "budget": {
         "cpu_wake_reserved_s": 0,
@@ -1341,6 +1416,36 @@
           "path": "evidence/R026_prior_and_scope.md",
           "kind": "paper",
           "sha256": "01ff1f16b14d45a2e3e8584bb5de428c93c366834cfc55c5402dbddf87201f91"
+        },
+        {
+          "path": "rounds/R027.md",
+          "kind": "math",
+          "sha256": "d50bd30f47479b8fef0a646d409af63bec348b762e43137cd5d208a43e2ea607"
+        },
+        {
+          "path": "evidence/R027_S13_native_method_isolation.md",
+          "kind": "math",
+          "sha256": "02261c12778a072ae35226df9e44a450bc719e7861e512229fa6b86e591c5402"
+        },
+        {
+          "path": "evidence/R027_S15_bts_planning.md",
+          "kind": "math",
+          "sha256": "02b9acac2692086249d5ec27b95f49bd09b70d945e2f068920be0b0f34dd2817"
+        },
+        {
+          "path": "evidence/R027_source_priors.md",
+          "kind": "paper",
+          "sha256": "58ad4f750313541b9ae3ce116a4627ebaa30477b68d612b88fda19e74282c48c"
+        },
+        {
+          "path": "evidence/R027_minimal_reproduce.py",
+          "kind": "code",
+          "sha256": "a8821fd5963ae2148e317976134ef219d96870074fd3a266043f9dae0d75d15e"
+        },
+        {
+          "path": "evidence/R027_cpu_receipt.json",
+          "kind": "experiment",
+          "sha256": "a54d44f846f2f8bcb14a5c17ccbc87d99961389453eb6b97968aebe0f18a2c7b"
         }
       ]
     },
@@ -1957,19 +2062,19 @@
     }
   ],
   "latest_wake": {
-    "id": "manual-r026-20261024",
-    "parent_research_commit": "f803351c192fb8e9567795b3c85d7c58e66600b4",
-    "mode": "v11.6 full frontier",
+    "id": "manual-r027-20261024",
+    "parent_research_commit": "07ae3f6800d1c68cef85374f7c75b2dd57337a1f",
+    "full_frontier_version": "11.6",
     "active_before": [],
     "active_after": [],
     "eligible_active_focused": 0,
     "advanced_eligible": 0,
-    "blocked_await": [
+    "await": [
       "P1",
       "G1",
       "VLM"
     ],
-    "parked_unchanged": [
+    "parked": [
       "MOE",
       "PROV",
       "G2",
@@ -1978,28 +2083,21 @@
       "K1",
       "L1"
     ],
-    "unserved_eligible": 0,
-    "diversity_gap": 3,
+    "root_children": 8,
+    "max_children": 8,
     "new_nodes": 0,
-    "deep_records": [
-      "S13",
-      "S14"
+    "unserved_eligible": 0,
+    "deep_screens": [
+      "S13 source-original-methods isolated",
+      "S15 ICML EPC-AW BTS scoring"
     ],
-    "source_pins": [
-      "UAI2026 RobustDFL@d3122144c9",
-      "PyEPO@e5d768e2749",
-      "UAI2026 Mixture-Greedy@a2558c6e"
-    ],
-    "measured_CPU_process_seconds": {
-      "S13": 1.0372489579999997,
-      "S14": 0.0018451449999998815
-    },
-    "other_compute": "unmetered",
+    "CPU_process_seconds_measured": 0.0029556239999997125,
     "provider_cost": "unknown",
-    "actual_Work_native_subagents": 0,
-    "independent_review": "pending",
-    "GPU_jobs": 0,
-    "paid_API_jobs": 0,
+    "model_native_jobs": 0,
+    "GPU_runs": 0,
+    "paid_API_calls": 0,
+    "Work_native_subagents": 0,
+    "formal_review": "pending",
     "scheduler": "disabled"
   }
 }

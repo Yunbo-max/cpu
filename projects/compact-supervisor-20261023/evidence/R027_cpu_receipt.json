@@ -1,0 +1,72 @@
+{
+  "schema": "r027-author-code-isolation-and-epc-surprise-v1",
+  "science_parent_commit": "07ae3f6800d1c68cef85374f7c75b2dd57337a1f",
+  "source_pins": {
+    "S13": "isct-nakatalab/UAI2026_Robust_Decision-Focused_Learning_via_Worst-Case_Regret_Minimization@d3122144c97b39c7a5165023803fcee1bfc0fcc3",
+    "S15": "wzhSteve/EPC-AW@f9cc88080e929b29cfa909c2196d3121fd5129d1"
+  },
+  "source_code_blobs": {
+    "S13_robust_oracle": "80099351f668c71dd75e5afd27abdc8e13aef967",
+    "S13_train": "651b6fef689360c3e046aaa215834b644049a465",
+    "S15_planner": "550bb08e50eff14087652bbbb6fb556e10436d58",
+    "S15_solver": "515df206fec2684493624e8fd135733f5625db54"
+  },
+  "method_execution": "transcribed public numeric methods with 2-variable Gurobi-compatible solver and PyEPO parent dataset stub; NOT complete model import",
+  "S13": {
+    "C": [
+      [
+        -1,
+        -0.8
+      ],
+      [
+        0,
+        0.2
+      ],
+      [
+        1,
+        1.2
+      ]
+    ],
+    "sigma_half": [
+      1.000000005,
+      1.000000005
+    ],
+    "source_class_outputs_equal": true,
+    "static_center_cost": [
+      1.000000005,
+      0.20000000298023224
+    ],
+    "proxy_regrets": [
+      0.8000000020197677,
+      0
+    ],
+    "real_worst_regrets": [
+      1.2142135623730952,
+      1.614213562373095
+    ]
+  },
+  "S15": {
+    "agents": 3,
+    "own_feasibility_high": 5,
+    "own_feasibility_low": 2,
+    "predicted_peers_high": 5,
+    "predicted_peers_low": 1,
+    "BTS_high": 0,
+    "BTS_low": 0.6931471805594452,
+    "selected_by_BTS": "LowFeasibility",
+    "selected_by_mean": "HighFeasibility",
+    "after_calibrating_peer_predictions": "HighFeasibility"
+  },
+  "local_file_hashes": {
+    "executed_source": "81dd19619eefbf023e8579bdfe0acd8431f16d7f04777c76169e0e4ba78e2617",
+    "raw_result": "11e40d9f797fb032a5307eff1544124a9abac26cc3d4837d3b72aec6e9d29385",
+    "local_zip": "16366afc515c0636304f4c98c5af177f1e55de7f5a84b6c4f233403d62e0b57d"
+  },
+  "cpu_process_seconds": 0.0029556239999997125,
+  "review": "pending",
+  "gpu_jobs": 0,
+  "paid_api": 0,
+  "Work_native_subagents": 0,
+  "provider_cost": "unknown",
+  "scientific_status": "two source-bound negative math records, no trained model or novel algorithm accepted"
+}
