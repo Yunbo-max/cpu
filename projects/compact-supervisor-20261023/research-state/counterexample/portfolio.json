@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 27,
+  "revision": 28,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -1257,12 +1257,52 @@
       "no_gpu_or_cpu_experiment": true,
       "new_tree_nodes": 0,
       "formal_review": "pending"
+    },
+    {
+      "event_id": "manual-r030-novelty-only-exact-prior-collision-20261026",
+      "node_id": "ROOT",
+      "action": "screen",
+      "stage": "ideation_only",
+      "causal_reason": "New strongest prior: JACM2011 probabilistic data exchange already formalizes schema mapping with distributions and query probabilities, making generic N1 probability/schema commuting not novel; known transport by bijection is tautological. 2026 agent protocol process-calculus bisimulation and APE workflow synthesis collide with generic N2; 2024 minimal why-provenance and ProvSQL witness operations collide with generic N3. Narrow N1 to learned-model representation independence under limited data/cost; not yet certified or proven.",
+      "evidence": [
+        {
+          "path": "rounds/R030.md",
+          "kind": "math",
+          "sha256": "89e283acde7119409dfa0005129cf437c8bfa00132b37344c6a079713269be92"
+        },
+        {
+          "path": "research/ideation/R030_three_way_novelty_audit.md",
+          "kind": "paper",
+          "sha256": "22367fcb71a7eef2a4ab307867fa23cea732fe400eff0011b6793eae9f00fbd6"
+        },
+        {
+          "path": "research/ideation/R030_N1_contract.md",
+          "kind": "math",
+          "sha256": "5cf064b9b996afce6f31c0688abe8fee938acff930e5427d5258e87a65d6dcd5"
+        },
+        {
+          "path": "review/R030_handoff.md",
+          "kind": "other",
+          "sha256": "834bf2ef8172b62097b92b60b60a55a22eca05161211565e501b126efdd8ffbd"
+        }
+      ],
+      "no_experiments": true,
+      "provisional_peer_ideas": [
+        "N1 schema-independent learned relational generator: downgraded, scoped",
+        "N2 cross-API stateful skill compiler: high prior collision",
+        "N3 dynamic evidence action revision: high classical prior collision"
+      ],
+      "science_outcome": "Literature/theory only, zero new experiments, 0 eligible active leaves",
+      "next_question": "Does JACM2011 probabilistic data exchange plus existing relational generator already imply all of N1, or can independently trained generators be made query-equivalent with nontrivial sample/compute guarantee?",
+      "next_actor": "designer",
+      "formal_review": "pending",
+      "new_nodes": 0
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 27,
+  "wake_cursor": 28,
   "max_active": 3,
   "max_children": 8,
   "max_depth": 3,
@@ -1299,7 +1339,7 @@
       "question": "Which intervention and decision observables are lost by a compressed statistical proxy?",
       "falsifier": "Distinct interventions change decisions even when all training proxies match.",
       "next_actor": "designer",
-      "next_action": "IDEATION_ONLY NOVELTY_FIRST per user's R029 instruction: no experiments, code/model runs or forced main direction. Systematically find closest exact accepted/preprint theories across ALL peer mechanisms, especially schema-equivariant relational generation; preserve all 3 Await and 7 Parked old leaves.",
+      "next_action": "IDEATION_ONLY NOVELTY_FIRST: no experiments. R030 strong equivalence collision narrows N1 to learning-pipeline schema independence; N2 protocol bisimulation and N3 witness maintenance already close prior. Review all three as peers before claiming originality.",
       "priority": 0,
       "budget": {
         "cpu_wake_reserved_s": 0,
@@ -1627,6 +1667,26 @@
           "path": "rounds/R029.md",
           "kind": "math",
           "sha256": "7eb5893084985e5b983aa9298e3ae7636d57552b3e7555ffdd715b06b17fd00a"
+        },
+        {
+          "path": "rounds/R030.md",
+          "kind": "math",
+          "sha256": "89e283acde7119409dfa0005129cf437c8bfa00132b37344c6a079713269be92"
+        },
+        {
+          "path": "research/ideation/R030_three_way_novelty_audit.md",
+          "kind": "paper",
+          "sha256": "22367fcb71a7eef2a4ab307867fa23cea732fe400eff0011b6793eae9f00fbd6"
+        },
+        {
+          "path": "research/ideation/R030_N1_contract.md",
+          "kind": "math",
+          "sha256": "5cf064b9b996afce6f31c0688abe8fee938acff930e5427d5258e87a65d6dcd5"
+        },
+        {
+          "path": "review/R030_handoff.md",
+          "kind": "other",
+          "sha256": "834bf2ef8172b62097b92b60b60a55a22eca05161211565e501b126efdd8ffbd"
         }
       ]
     },
@@ -2243,8 +2303,8 @@
     }
   ],
   "latest_wake": {
-    "id": "manual-r029-20261026",
-    "parent_research_commit": "97115e8cd68a3dc803f2388220c90cb12c209796",
+    "id": "manual-r030-20261026",
+    "parent_research_commit": "0d684f695824f9dfe88fde652dca31f912d21fe0",
     "science_mode": "IDEATION_ONLY",
     "priority": "NOVELTY_FIRST",
     "experiments_run": 0,
@@ -2255,26 +2315,14 @@
       "G1",
       "VLM"
     ],
-    "parked": [
-      "MOE",
-      "PROV",
-      "G2",
-      "G3",
-      "T1",
-      "K1",
-      "L1"
-    ],
-    "source_reviewed_count": "literature-only",
-    "n_candidates": 3,
-    "top_idea": "N1",
-    "new_nodes": 0,
+    "parked_count": 7,
     "unserved_eligible": 0,
-    "no_formal_novelty_certificate": true,
-    "formal_reviewer": "pending",
+    "novelty_note": "N1 broader theory direct 2011 prior; N2 and N3 also stronger 2026/historical collisions; no self certified novelty",
     "GPU_jobs": 0,
-    "paid_API_jobs": 0,
-    "Work_native_subagents": 0,
-    "scheduler": "disabled",
-    "provider_cost": "unknown"
+    "paid_API_calls": 0,
+    "native_work_subagents": 0,
+    "formal_review": "pending",
+    "provider_cost": "unknown",
+    "scheduler": "disabled"
   }
 }
