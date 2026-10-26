@@ -1,23 +1,24 @@
 {
   "project_id": "compact-supervisor-20261023",
-  "round": "R028",
-  "parent_checkpoint_commit": "30779658cc1f4772a63f2340ba78e9f6301158b6",
-  "parent_question": "Q-r028-independent-original-training-audit-and-bts-calibration-tasks",
+  "round": "R029",
+  "parent_checkpoint_commit": "97115e8cd68a3dc803f2388220c90cb12c209796",
+  "parent_question": "Q-r029-native-bts-plan-labels-and-matched-robust-source-review",
   "action": "interpret",
-  "next_question": "Q-r029-native-bts-plan-labels-and-matched-robust-source-review",
-  "round_path": "rounds/R028.md",
+  "next_question": "Q-r030-prove-or-collide-schema-equivariant-relational-generation",
+  "round_path": "rounds/R029.md",
   "formal_review": "pending",
   "scheduler": "disabled",
   "budget": {
-    "last_probe_wall_seconds": "R028 Python CPU process S15 .012110058s + S13 .000478169s; other external tool/token usage unknown.",
-    "next_cpu_seconds": 60,
+    "last_probe_wall_seconds": "R029 experiments and CPU probes: none; source/literature lookup only; provider/tool processing usage unknown.",
+    "next_cpu_seconds": 0,
     "provider_cost": "unknown",
-    "gpu_authorized": false
+    "gpu_authorized": false,
+    "cpu_experiment_authorized": false
   },
   "mode": "branching",
   "continuous_state": "research-state/continuous/loop.json",
-  "continuous_revision": 26,
-  "continuous_state_sha256": "2f9cb95e2a237cbe249b44ee214ec4256fe45b78778fcf0bcbb500d91ecec3f7",
+  "continuous_revision": 27,
+  "continuous_state_sha256": "d69b276afe0a5ec38401ed5834f15b1d929fab9b697594baf150a232a987585f",
   "frontier": {
     "active": [],
     "blocked": [
@@ -39,9 +40,9 @@
     "other_blocked": [
       "R006 EventTune local archive check pending"
     ],
-    "evidence_status": "R028 S15: ICML EPC-AW source integer second-order forecast one entry low2→1 flips unanimous own rating high5/low2; artificial iid forecast error ε=.05 yields 26.49% flip, CPU 100000 trials .26638, no native scored logs. S13: UAI2026 same source dataset class at matched settings, but official reg_ellip kappa7.5 vs ropt_budget sparse rho5 are different uncertainty configurations; no duplicate experiment claim.",
+    "evidence_status": "R029 NO scientific experiments: novelty-only targeted literature screens, N1 Schema-Equivariant Generative Relational DBs, N2 Bisimulation-Transported Agent Skills, N3 Retraction-Stable Evidence Witnesses. No claimed proof of global absence of prior work.",
     "diversity_gap": 3,
-    "novelty_status": "Both source-scoped mathematical/negative corrections with direct prior, no new accepted method/theorem or measured task failure; formal independent Work reviewer pending.",
+    "novelty_status": "All N1-N3 provisional ideas, not accepted novel theorems/models. Broad action-schema effects, update-order Lie brackets, correlated source evidence, counterfactual quotient world model already 2026 prior.",
     "source_protocol_pin": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
     "installed_skill_new_schema": "not migrated; preserve portfolio.json as sole existing canonical project tree",
     "new_crossdomain": "T1 conditional rule zero-support",
@@ -49,17 +50,18 @@
     "max_active": 3,
     "max_children": 8,
     "reproducer_correction": "Within R011: fixed regexp escaping in standalone source; source hash updated with preserved revision/negative findings; former source retained in Git history",
-    "next_discovery": "Obtain authentic scored EPC-AW and correctness labels, native author RobustDFL test and independent review; continue neutral mechanism-disjoint search.",
+    "next_discovery": "R030 literature and mathematical novelty equivalence of schema-normalization invariant relational generators; separately N2/N3 collision checks, no default main direction.",
     "root_screen_summary": "Five candidates screened NOT added as new nodes or parked descendants. Continue with different concrete model-specific intervention/update failure.",
     "model_gate": "QED 340M trained weights/code unverified; no native GPU or license-authorized implementation admitted",
     "deep_research_gate": "v11.6 Full-Frontier zero eligible active/focused, three Await, seven Park; S13 & S15 deep mathematical screen only",
-    "full_frontier_coverage": "research-state/continuous/R028_coverage.json",
-    "full_frontier_policy": "v11.6 all eligible active/focused (not 1-2 rotation), 0 eligible at R025"
+    "full_frontier_coverage": "research-state/continuous/R029_novelty_coverage.json",
+    "full_frontier_policy": "v11.6 all eligible active/focused (not 1-2 rotation), 0 eligible at R025",
+    "ideation_policy": "IDEATION_ONLY / NOVELTY_FIRST; user requested NO EXPERIMENTS until changed."
   },
   "next_actor": "designer",
   "tree_mode": "persistent-research-tree-v1",
   "frontier_path": "research-state/counterexample/portfolio.json",
-  "frontier_revision": 26,
-  "frontier_sha256": "a9d40b74d794efb62a70cc70dcd48f8fd34cd948e6147bcd73a137dc0a16446e",
+  "frontier_revision": 27,
+  "frontier_sha256": "3c3ae2a295c39c2a5e670383f425e1cee3dd9a9a8fb0dc651ea187281331625a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade"
 }

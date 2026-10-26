@@ -3,7 +3,7 @@
   "project_id": "compact-supervisor-20261023",
   "mode": "branching",
   "root_id": "ROOT",
-  "revision": 26,
+  "revision": 27,
   "events": [
     {
       "event_id": "manual-r009-g1-deepen-20261023",
@@ -1193,12 +1193,76 @@
       "GPU_runs": 0,
       "paid_API_calls": 0,
       "Work_native_subagents": 0
+    },
+    {
+      "event_id": "manual-r029-user-directive-novelty-only-three-candidates-20261026",
+      "node_id": "ROOT",
+      "action": "screen",
+      "stage": "ideation_only",
+      "causal_reason": "Owner explicitly says previous many experimental/probe rounds did not achieve a credible novel idea; stop scientific experiments. Literature-only exact closest-paper search screened false novelty (tool-schema effect, Lie-bracket training order, evidence laundering, causal world model quotient) and retains three distinct speculative mathematical ideas without certifying absence of prior work.",
+      "evidence": [
+        {
+          "path": "research/ideation/R029_novelty_first.md",
+          "kind": "paper",
+          "sha256": "e6e6d95518ce59ec545cce66f6c0f9c5edb6171c9bc3da640afb699325e8a7a3"
+        },
+        {
+          "path": "rounds/R029.md",
+          "kind": "math",
+          "sha256": "7eb5893084985e5b983aa9298e3ae7636d57552b3e7555ffdd715b06b17fd00a"
+        },
+        {
+          "path": "review/R029_novelty_handoff.md",
+          "kind": "other",
+          "sha256": "7f3ec83dfd37d5e1b397afe982d10c6e0d7e4a2fcb813e80b238f1f64d2d1b9f"
+        },
+        {
+          "path": "research-state/continuous/R029_novelty_coverage.json",
+          "kind": "other",
+          "sha256": "c0a36780a7a16227ba1b9ea684218752250ccd3c9d8ff1ce1be4253dd5573bb5"
+        }
+      ],
+      "scientific_experiments_run": 0,
+      "formal_work_reviewer": "pending",
+      "provisional_ideas": [
+        {
+          "id": "N1",
+          "name": "Schema-Equivariant Relational Generators",
+          "novelty_rank": 1,
+          "scope": "probabilistic generation commutes with lossless schema data migration, query answer distributions"
+        },
+        {
+          "id": "N2",
+          "name": "Bisimulation-Transported Executable Agent Skills",
+          "novelty_rank": 2,
+          "scope": "verified skill program transport across semantically equivalent refactored tool APIs"
+        },
+        {
+          "id": "N3",
+          "name": "Retraction-Stable Scientific Evidence Witnesses",
+          "novelty_rank": 3,
+          "scope": "dynamic nonindependent provenance witnesses and agent belief/action revision"
+        }
+      ],
+      "disqualifying_priors": [
+        "2026 Action-Space Shaping",
+        "ICML2026 sequential learning Lie brackets",
+        "EMNLP2026 Evidence Laundering",
+        "2026 Counterfactual Quotient World Models"
+      ],
+      "novelty_status": "Targeted search did not find exact formulation; novelty and absence of any existing paper UNVERIFIED. Mathematical idea, not method/test result.",
+      "next_actor": "designer",
+      "next_action": "Literature-only independent probes against database category/model theory + N2 formal skill transport and N3 existing truth-maintenance under latest work.",
+      "next_question": "Does a published generative model already satisfy distribution-level naturality for lossless relational schema transformations, and what exact theorem remains novel?",
+      "no_gpu_or_cpu_experiment": true,
+      "new_tree_nodes": 0,
+      "formal_review": "pending"
     }
   ],
   "adopted_loop_revision": 6,
   "adopted_project_commit": "21ca90401b08ebe9b0d050b93ac351707573d98a",
   "framework_source_commit": "9b946f5c729d179a04fb56e5caa5614ec0cf7ade",
-  "wake_cursor": 26,
+  "wake_cursor": 27,
   "max_active": 3,
   "max_children": 8,
   "max_depth": 3,
@@ -1235,7 +1299,7 @@
       "question": "Which intervention and decision observables are lost by a compressed statistical proxy?",
       "falsifier": "Distinct interventions change decisions even when all training proxies match.",
       "next_actor": "designer",
-      "next_action": "All eligible active/focused descendants in Full-Frontier v11.6; presently zero. Await P1 formal native, G1 graph source, VLM Local evidence. Seven parked preserved. Review S13/S15 source and true model signals separately; maintain neutral ROOT.",
+      "next_action": "IDEATION_ONLY NOVELTY_FIRST per user's R029 instruction: no experiments, code/model runs or forced main direction. Systematically find closest exact accepted/preprint theories across ALL peer mechanisms, especially schema-equivariant relational generation; preserve all 3 Await and 7 Parked old leaves.",
       "priority": 0,
       "budget": {
         "cpu_wake_reserved_s": 0,
@@ -1553,6 +1617,16 @@
           "path": "evidence/R028_minimal_reproduce.py",
           "kind": "code",
           "sha256": "47b182d61557b404179482d02fba4efd2d05bd2df90b221d6be5324af2ee17ea"
+        },
+        {
+          "path": "research/ideation/R029_novelty_first.md",
+          "kind": "paper",
+          "sha256": "e6e6d95518ce59ec545cce66f6c0f9c5edb6171c9bc3da640afb699325e8a7a3"
+        },
+        {
+          "path": "rounds/R029.md",
+          "kind": "math",
+          "sha256": "7eb5893084985e5b983aa9298e3ae7636d57552b3e7555ffdd715b06b17fd00a"
         }
       ]
     },
@@ -2169,19 +2243,19 @@
     }
   ],
   "latest_wake": {
-    "id": "manual-r028-20261024",
-    "parent_research_commit": "30779658cc1f4772a63f2340ba78e9f6301158b6",
+    "id": "manual-r029-20261026",
+    "parent_research_commit": "97115e8cd68a3dc803f2388220c90cb12c209796",
+    "science_mode": "IDEATION_ONLY",
+    "priority": "NOVELTY_FIRST",
+    "experiments_run": 0,
     "active_before": [],
     "active_after": [],
-    "eligible_active_focused": 0,
-    "advanced_eligible": 0,
-    "unserved_eligible": 0,
     "await": [
       "P1",
       "G1",
       "VLM"
     ],
-    "parked_retained": [
+    "parked": [
       "MOE",
       "PROV",
       "G2",
@@ -2190,22 +2264,17 @@
       "K1",
       "L1"
     ],
-    "root_children": 8,
-    "root_max_children": 8,
-    "screens": [
-      "S13 source config clarification",
-      "S15 integer forecast fragility"
-    ],
+    "source_reviewed_count": "literature-only",
+    "n_candidates": 3,
+    "top_idea": "N1",
     "new_nodes": 0,
-    "CPU_process_s_measured": {
-      "S15": 0.012110057999999979,
-      "S13": 0.00047816899999997275
-    },
-    "other_CPU_and_provider_cost": "unknown",
-    "formal_independent_reviewer": "pending",
+    "unserved_eligible": 0,
+    "no_formal_novelty_certificate": true,
+    "formal_reviewer": "pending",
     "GPU_jobs": 0,
-    "paid_API_calls": 0,
+    "paid_API_jobs": 0,
     "Work_native_subagents": 0,
-    "scheduled_task": "disabled"
+    "scheduler": "disabled",
+    "provider_cost": "unknown"
   }
 }

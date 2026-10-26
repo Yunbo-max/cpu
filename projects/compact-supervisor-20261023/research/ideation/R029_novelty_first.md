@@ -1,0 +1,50 @@
+# R029 — Novelty-First Ideation Only (NO EXPERIMENTS)
+
+Research date: 2026-10-26 (Europe/London).
+Parent science Git commit: 97115e8cd68a3dc803f2388220c90cb12c209796.
+User request: Stop experiments and find the most novel, potentially unstudied AI research **ideas**. Literature search and mathematical specification ONLY. No native model, CPU probe, GPU, API training, tests or independent Work audit. A targeted negative search is not proof nobody has studied the claim; treat novelty as provisional.
+
+## Progress over R001–R028
+Earlier 28 rounds repeatedly produced source-scoped counterexamples against methods (graph sensitivity, TabKG FD validation, QED collateral, ProbMoE Exact-k gradients, GDN guard, speculative sequence risk, OBCache importance, Diag-CFM UQ, Robust DFL surrogate, Mixture-Greedy finite exploration, EPC-AW surprising BTS). Many are mathematical truths but not independent state-of-the-art algorithms. R028 now exists independently at the parent SHA and must NOT be overwritten; this R029 is a new intent-oriented literature-only screen and does not replace its execution evidence.
+
+## Three mechanism-distinct candidate ideas, novelty ranking
+
+### N1 — Schema-Equivariant Generative Models for Relational Databases (highest provisional priority)
+**Question:** If two database schemas represent EXACTLY the same underlying database instances under a lossless, information-preserving transformation T (e.g. normalization/denormalization with validated functional dependencies), why does training a relational generator on S versus T(S) lead to potentially different distribution of database *instances*? Can a generator be made intrinsically NATURAL w.r.t. schema transport, not merely preserve FK/FD in one schema?
+
+**Mathematical contract:** Let \(\mathcal D_S\) denote valid finite database instances and \(T:\mathcal D_S\to\mathcal D_{S'}\) be a bijective lossless schema change up to declared key-renaming equivalence. Let \(G_S\) learn a probability distribution on \(\mathcal D_S\). Require \(T_\# G_S(P)\approx G_{S'}(T_\#P)\) for all allowed T and distributions P. A task-observable variant requires equality of pushforward SQL query answer distributions, not raw table-row marginals: \(q_\#G_S(P)\approx(q\circ T^{-1})_\#G_{S'}(T_\#P)\). Need explicit entity/query sampling measure: a flattened one-to-many join and an entity-normalized database induce different row-weighting, despite representing the same scientific facts. That is not an LLM-token regularizer.
+
+**Possible original contribution:** Define relational-schema *naturality defect*, characterize impossibility without a canonical entity-level measure when schema transforms are not bijective, construct a generator on a common latent entity/relation object space with certified transport into alternative lossless schema views. Preserve conditional joins and query statistics. This is a conjectured research programme, not a proven theorem or demonstrated generalization.
+
+**Closest verified prior:** ICML2026 PluRel https://proceedings.mlr.press/v306/kothapalli26a.html (schema/structure/feature generation), AAAI2026 Graph-Conditional Flow Matching https://ojs.aaai.org/index.php/AAAI/article/view/39712, JMLR2026 DP relational synthesis https://jmlr.org/papers/v27/25-0136.html, RelDiff 2025 https://arxiv.org/abs/2506.00710, 2012/2015 Spivak/Wisnesky functorial data migration https://doi.org/10.1145/2815072.2815075 (IMPORTANT: categorical schema migration itself is ALREADY classical). Targeted queries for "schema-equivariant generator", "normalization-invariant synthetic relational", "lossless decomposition generative commuting" did NOT retrieve an exact end-to-end generative naturality condition. This is a bounded negative result, not a world-wide novelty certificate.
+
+**Novelty killer:** A paper deriving the same commuting generative-diagram requirement and a generator implementing it across losslessly equivalent schema decompositions, with distributional/query-level equivalence. Also need nontrivial result beyond adding a simple consistency loss or refactoring two datasets.
+
+### N2 — Bisimulation-Transported Executable Agent Skills (strong but closer prior)
+**Question:** When a set of tools is refactored (one tool split into two, renamed, merged, changed arguments) without changing the environment's reachable states, can an AGENT'S EXISTING EXECUTABLE SKILL be translated to the new interface without another training cycle, while maintaining preconditions, postconditions and task outcome?
+
+**Formal target:** Across source and target tool interfaces A,B with state relation \(\phi\), build executable skill compiler \(C\) such that for each reachable state and skill programme \(\pi_A\), \(\phi(T_A^*(s,\pi_A))\simeq T_B^*(\phi(s), C(\pi_A))\), including side effects, failure branches and budgets. Bisimulation/refinement and weakest-precondition verification are CLASSICAL; the hypothesized new contribution is automatically synthesizing and checking a practical transport compiler from API schemas, executable traces and minimal additional semantic queries.
+
+**Strongest close works:** 2026 preprint Action-Space Shaping https://arxiv.org/abs/2609.34971 explicitly tests merge/split/schema-equivalent tool definitions and finds large behavior differences; EMNLP2026 The Menu Is an Execution Prior https://aclanthology.org/2026.emnlp-main.1577/ chooses executable tool paths; NeurIPS2026 SMITH https://tool-use-smith.github.io/ jointly trains tool creation/use; 2026 Cross-Task Skill Transfer https://arxiv.org/abs/2608.20274; a 2026 VerifiedWork Transfer benchmark *proposal* https://upcube.ai/resources/research/verifiedwork-transfer includes tool interface changes but has not necessarily been executed. Older refinement/bisimulation and API migration literature is a **serious collision**; no unsupported claim of first tool portability or proof-carrying skills.
+
+**Novelty killer:** Existing schema-refactoring skill compiler with executable state-bisimulation certificates and transfer to unseen tool APIs; or inability to infer true semantic equivalence from schema + finite traces without an oracle. Narrow novelty claim to verified transport guarantees under declared contracts.
+
+### N3 — Retraction-Stable Scientific Reasoning with Independent Evidence Witnesses (backup)
+**Question:** A scientific agent has accepted a claim using 20 apparent sources, but all 20 cite one original result. On retraction of the root, which beliefs, confidence statements, synthetic datasets, downstream recommendations must change? Can the agent recompute supported conclusions while retaining independent evidence witnesses without hallucinating that all corroboration disappeared?
+
+**Formal state:** Maintain for every derived claim c a family \(\mathcal W(c)\) of MINIMAL evidential witness sets and a directed derivation/provenance DAG. A retraction set R invalidates c iff every support witness intersects R: \(\forall W\in\mathcal W(c), W\cap R\ne\varnothing\). To avoid double-counting, shared source descendants must not become independent evidence automatically. This Boolean witness maintenance is related to known truth maintenance/provenance semiring theory, **not a new theorem**; novelty would have to lie in model-informed uncertainty calibration, efficient nonmonotone belief revising agent actions, and reversibility with complete audit trails.
+
+**Close works:** EMNLP2026 Evidence Laundering https://aclanthology.org/2026.emnlp-main.509/ already models correlated sources and provenance gate; 2026 National Science Review survey https://doi.org/10.1093/nsr/nwag140 explicitly lists propagating retractions and negative/counter evidence through SciKGs as an unresolved challenge; 2026 scientific KG vision https://www.isi.edu/results/publications/82525/semantics-for-science-toward-a-massive-scale-evidence-centric-scientific-knowledge-graph/ includes uncertainty and temporal revision; 2026 source-dependence aggregation https://link.springer.com/article/10.1007/s44163-026-02245-5 already handles correlated confidence. Compared to N1, broad novelty probability is weaker; only a fully dynamic executable agent-level belief/retraction method might stand out.
+
+**Novelty killer:** Prior assumption-based truth maintenance/knowledge provenance methods doing exactly the same retraction and independent-witness preservation, plus practical LLM tools already implementing them.
+
+## Aggressively excluded by PRIMARY sources (not candidates)
+- Tool alias/schema bias as only a phenomenon: already arXiv:2609.34971.
+- Training update non-commutativity/Lie brackets as only a phenomenon: ICML2026 https://proceedings.mlr.press/v306/sweeney26a.html.
+- Deep Research correlated evidence as only a phenomenon: EMNLP2026 Evidence Laundering.
+- Action-difference world models: 2026 Counterfactual Quotient Model arXiv:2608.22092.
+- Synthetic schema/functional-dependency preservation alone: AAAI2026 Graph Conditional FM, RelDiff, PluRel and 2025/2026 dependency-aware tabular work.
+- Novelty score from generic LLM judging: LREC2026 RINoBench https://aclanthology.org/2026.lrec-1.370/ shows plausible rationales but poor agreement with experts, Oct2026 arXiv:2610.02022 documents novelty judge instability.
+
+## Human instruction translated into research policy
+Mode=IDEATION_ONLY, NOVELTY_FIRST. During subsequent "continue" turns, perform primary-literature query expansion, strongest closest-paper novelty collision and mathematical IDEA formulation. No experiments, no scripts/tests/model training as new scientific evidence unless user changes direction. Only list candidate as "provisional novelty", not verified nobody has done it. No global main direction imposed. N1 is *highest provisional rank for search*, not accepted/active leaf; N2 and N3 independent back-ups, not merged into one chain. Keep all previous blocked/parked nodes and their state/history untouched. Formal independent Work novelty review remains pending. Provider costs unknown. No work done in the background.
